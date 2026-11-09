@@ -1,0 +1,9 @@
+{
+  "files": [
+    "local_web/windows/installer_fault_acceptance.py"
+  ],
+  "before_sha256": "c05fe0acfad0be27ec1e065686b9dec7191dbb901683c7275ad2bcf97299f745",
+  "after_sha256": "e138946e67d633a666e9ac958f24b3988e3e51eda95d03de56ba61d0f0e960a9",
+  "artifact_inputs_unchanged": true,
+  "change": "Bound observation by 120 seconds wall clock rather than 1200 x 10ms; same observed-real-copy/kill/no-commit/retry assertions. Initial 12-second attempt expired before helper copy began."
+}

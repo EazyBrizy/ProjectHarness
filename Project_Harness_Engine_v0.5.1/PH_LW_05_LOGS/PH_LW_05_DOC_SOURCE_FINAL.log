@@ -1,0 +1,205 @@
+{
+  "version": "0.5.0",
+  "date": "2026-08-18",
+  "validator_version": "1.4.0",
+  "status": "PASS",
+  "root": "/mnt/data/ph_lw05_work/source/Project_Harness_Documentation_v0.5.1",
+  "zip": null,
+  "metrics": {
+    "files": 144,
+    "markdown": 130,
+    "yaml": 12,
+    "local_links": 921,
+    "yaml_examples": 140,
+    "source_tree_hash": "41fd7b82e7f14b0edd36955e7829ec01cdcdfc69dde8720735c09cd098b54bd4",
+    "errors": 0,
+    "warnings": 1,
+    "checks": 36
+  },
+  "checks": [
+    {
+      "name": "Required artifacts",
+      "status": "PASS",
+      "details": "all present"
+    },
+    {
+      "name": "Archive hygiene",
+      "status": "PASS",
+      "details": "files=144, symlinks=0"
+    },
+    {
+      "name": "File types",
+      "status": "PASS",
+      "details": "expected types only"
+    },
+    {
+      "name": "Markdown structure",
+      "status": "PASS",
+      "details": "one H1 in 130 files; balanced fences"
+    },
+    {
+      "name": "Metadata",
+      "status": "PASS",
+      "details": "version/date present in 130 Markdown files"
+    },
+    {
+      "name": "Relative links",
+      "status": "PASS",
+      "details": "checked=921, broken=0, escaping=0"
+    },
+    {
+      "name": "YAML registries",
+      "status": "PASS",
+      "details": "parsed=12"
+    },
+    {
+      "name": "YAML contract syntax",
+      "status": "PASS",
+      "details": "parsed=140 fenced examples"
+    },
+    {
+      "name": "ID Registry uniqueness",
+      "status": "PASS",
+      "details": "prefixes=97, duplicates=0"
+    },
+    {
+      "name": "ID Registry coverage",
+      "status": "PASS",
+      "details": "used=93, unknown=0"
+    },
+    {
+      "name": "Legacy aliases",
+      "status": "PASS",
+      "details": "none in current normative source documents"
+    },
+    {
+      "name": "Profile Registry consistency",
+      "status": "PASS",
+      "details": "profiles=14 represented in canonical views"
+    },
+    {
+      "name": "Request routing enum equality",
+      "status": "PASS",
+      "details": "classes, modes and internal operations exactly match registry"
+    },
+    {
+      "name": "Request routing value applicability",
+      "status": "PASS",
+      "details": "uses=15, unknown=0"
+    },
+    {
+      "name": "Registry-generated matrices",
+      "status": "PASS",
+      "details": "status, routing and capability views exactly match YAML registries"
+    },
+    {
+      "name": "Contract Catalog integrity",
+      "status": "PASS",
+      "details": "entities=62, field contracts=17"
+    },
+    {
+      "name": "Contract Catalog example coverage",
+      "status": "PASS",
+      "details": "standalone examples=89, uncatalogued=0"
+    },
+    {
+      "name": "Entity ID prefix semantics",
+      "status": "PASS",
+      "details": "validated=89 examples"
+    },
+    {
+      "name": "Lifecycle status applicability",
+      "status": "PASS",
+      "details": "validated=89 examples against entity status groups"
+    },
+    {
+      "name": "Canonical contract fields",
+      "status": "PASS",
+      "details": "validated=29 focused examples"
+    },
+    {
+      "name": "Capability Registry applicability",
+      "status": "PASS",
+      "details": "uses=23, unknown=0"
+    },
+    {
+      "name": "Billing/token accounting exclusion",
+      "status": "PASS",
+      "details": "no provider billing, cost or token-ledger fields in YAML contracts"
+    },
+    {
+      "name": "Roadmap identity and dependencies",
+      "status": "PASS",
+      "details": "packages=14, unique IDs, exact causal table, acyclic dependencies"
+    },
+    {
+      "name": "Lifecycle normalization",
+      "status": "PASS",
+      "details": "Run-as-attempt, compensation and parallelism rules normalized"
+    },
+    {
+      "name": "Prompt lifecycle",
+      "status": "PASS",
+      "details": "COMPILED appears only on Compiled Prompt Bundle"
+    },
+    {
+      "name": "Implementation specifications",
+      "status": "PASS",
+      "details": "24 files; each >=150 lines and has acceptance criteria"
+    },
+    {
+      "name": "Consolidated guide freshness",
+      "status": "PASS",
+      "details": "source markers=24/24; content reproducible"
+    },
+    {
+      "name": "Full aggregate freshness",
+      "status": "PASS",
+      "details": "sources=107, content reproducible"
+    },
+    {
+      "name": "File index freshness",
+      "status": "PASS",
+      "details": "file inventory, line and byte counts are current"
+    },
+    {
+      "name": "Requirements coverage",
+      "status": "PASS",
+      "details": "unique=226, declared=226"
+    },
+    {
+      "name": "Questionnaire contract",
+      "status": "PASS",
+      "details": "documentation-first, bounded batches, unknown path and limits present"
+    },
+    {
+      "name": "Brownfield contract",
+      "status": "PASS",
+      "details": "read-only inventory and four route families present"
+    },
+    {
+      "name": "Core MVP and Hardening boundary",
+      "status": "PASS",
+      "details": "first vertical loop is separated from concurrency and maintenance hardening"
+    },
+    {
+      "name": "Implementation decision gates",
+      "status": "PASS",
+      "details": "gated decisions=10, each with owner and ADR output"
+    },
+    {
+      "name": "Manifest",
+      "status": "PASS",
+      "details": "entries=143, hashes verified"
+    },
+    {
+      "name": "ZIP archive",
+      "status": "WARN",
+      "details": "zip path not supplied"
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "ZIP archive: zip path not supplied"
+  ]
+}

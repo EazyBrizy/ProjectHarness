@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "interpreter": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+  "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "PyYAML": "6.0.3",
+  "manifest_entries": {
+    "Project_Harness_Engine_v0.5.1": 1427,
+    "Project_Harness_Documentation_v0.5.1": 145
+  },
+  "snapshot_files": 1833,
+  "errors": []
+}

@@ -1,0 +1,154 @@
+[
+  {
+    "name": "PyInstaller",
+    "version": "6.22.3",
+    "license": "GPLv2-or-later with a special exception which allows to use PyInstaller to build and distribute non-free programs (including commercial ones)",
+    "license_files": [
+      "PyInstaller-COPYING.txt"
+    ]
+  },
+  {
+    "name": "pyinstaller-hooks-contrib",
+    "version": "2026.9",
+    "license": null,
+    "license_files": [
+      "pyinstaller-hooks-contrib-LICENSE"
+    ]
+  },
+  {
+    "name": "altgraph",
+    "version": "0.17.5",
+    "license": "MIT",
+    "license_files": [
+      "altgraph-LICENSE"
+    ]
+  },
+  {
+    "name": "pefile",
+    "version": "2024.8.26",
+    "license": "MIT",
+    "license_files": [
+      "pefile-LICENSE"
+    ]
+  },
+  {
+    "name": "pywin32-ctypes",
+    "version": "0.2.3",
+    "license": "BSD-3-Clause",
+    "license_files": [
+      "pywin32-ctypes-LICENSE.txt"
+    ]
+  },
+  {
+    "name": "packaging",
+    "version": "26.3",
+    "license": "Apache-2.0 OR BSD-2-Clause",
+    "license_files": [
+      "packaging-LICENSE",
+      "packaging-LICENSE.APACHE",
+      "packaging-LICENSE.BSD"
+    ]
+  },
+  {
+    "name": "setuptools",
+    "version": "84.2.1",
+    "license": "MIT",
+    "license_files": [
+      "setuptools-LICENSE",
+      "setuptools-LICENSE",
+      "setuptools-LICENSE",
+      "setuptools-LICENSE",
+      "setuptools-LICENSE",
+      "setuptools-LICENSE",
+      "setuptools-LICENSE",
+      "setuptools-LICENSE",
+      "setuptools-LICENSE",
+      "setuptools-LICENSE.APACHE",
+      "setuptools-LICENSE.BSD",
+      "setuptools-LICENSE",
+      "setuptools-LICENSE",
+      "setuptools-LICENSE.txt",
+      "setuptools-LICENSE"
+    ]
+  },
+  {
+    "name": "Flask",
+    "version": "3.1.3",
+    "license": "BSD-3-Clause",
+    "license_files": [
+      "Flask-LICENSE.txt"
+    ]
+  },
+  {
+    "name": "Waitress",
+    "version": "3.0.2",
+    "license": "ZPL 2.1",
+    "license_files": [
+      "Waitress-LICENSE.txt"
+    ]
+  },
+  {
+    "name": "PyYAML",
+    "version": "6.0.3",
+    "license": "MIT",
+    "license_files": [
+      "PyYAML-LICENSE"
+    ]
+  },
+  {
+    "name": "Werkzeug",
+    "version": "3.1.9",
+    "license": "BSD-3-Clause",
+    "license_files": [
+      "Werkzeug-LICENSE.txt"
+    ]
+  },
+  {
+    "name": "Jinja2",
+    "version": "3.1.6",
+    "license": null,
+    "license_files": [
+      "Jinja2-LICENSE.txt"
+    ]
+  },
+  {
+    "name": "MarkupSafe",
+    "version": "3.0.3",
+    "license": "BSD-3-Clause",
+    "license_files": [
+      "MarkupSafe-LICENSE.txt"
+    ]
+  },
+  {
+    "name": "click",
+    "version": "8.4.2",
+    "license": "BSD-3-Clause",
+    "license_files": [
+      "click-LICENSE.txt"
+    ]
+  },
+  {
+    "name": "blinker",
+    "version": "1.9.0",
+    "license": null,
+    "license_files": [
+      "blinker-LICENSE.txt"
+    ]
+  },
+  {
+    "name": "itsdangerous",
+    "version": "2.2.0",
+    "license": null,
+    "license_files": [
+      "itsdangerous-LICENSE.txt"
+    ]
+  },
+  {
+    "name": "colorama",
+    "version": "0.4.6",
+    "license": null,
+    "license_files": [
+      "colorama-LICENSE.txt"
+    ]
+  }
+]

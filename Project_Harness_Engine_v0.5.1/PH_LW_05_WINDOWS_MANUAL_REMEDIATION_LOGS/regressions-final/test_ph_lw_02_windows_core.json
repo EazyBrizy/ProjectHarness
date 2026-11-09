@@ -1,0 +1,17 @@
+{
+  "modules": [
+    "tests.test_ph_lw_02_windows_core"
+  ],
+  "ran": 14,
+  "failures": 0,
+  "errors": 0,
+  "skips": [
+    {
+      "test": "tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_05_colliding_tree_rejected_without_rewriting_case",
+      "reason": "NTFS casefold aliases require a case-sensitive directory; ZIP test is cross-platform"
+    }
+  ],
+  "elapsed_seconds": 14.114,
+  "log": "test_ph_lw_02_windows_core.log",
+  "status": "PASS"
+}

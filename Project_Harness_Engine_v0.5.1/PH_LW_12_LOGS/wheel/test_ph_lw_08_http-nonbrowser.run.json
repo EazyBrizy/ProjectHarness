@@ -1,0 +1,27 @@
+{
+  "name": "test_ph_lw_08_http-nonbrowser",
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;import project_harness;assert Path(project_harness.__file__).resolve().is_relative_to(Path(sys.prefix).resolve());sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel\\test_ph_lw_08_http-nonbrowser.log",
+    "tests.test_ph_lw_08_http.PreparationHttpTests.test_all_routes_auth_origin_host_csrf_unknown_fields_no_writes"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_12\\Независимая папка wheel",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 0.664,
+  "environment_ref": "WHEEL_ENVIRONMENT.json",
+  "modules": [
+    "tests.test_ph_lw_08_http.PreparationHttpTests.test_all_routes_auth_origin_host_csrf_unknown_fields_no_writes"
+  ],
+  "ran": 1,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "log": "test_ph_lw_08_http-nonbrowser.log",
+  "process_status": "PASS",
+  "log_sha256": "745760c8f1351ef568116b6029e7f75f1976d702d55208994a5fa664999be47a"
+}

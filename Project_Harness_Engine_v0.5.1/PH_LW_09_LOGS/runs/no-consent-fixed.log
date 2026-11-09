@@ -1,0 +1,6 @@
+test_no_consent_never_executes_product_commands (tests.test_ph_lw_09_tasks.TaskConsoleTests.test_no_consent_never_executes_product_commands) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 23.349s
+
+OK

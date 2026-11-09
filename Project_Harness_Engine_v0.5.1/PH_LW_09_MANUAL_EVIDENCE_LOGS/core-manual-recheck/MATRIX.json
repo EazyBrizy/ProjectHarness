@@ -1,0 +1,25 @@
+[
+  {
+    "module": "tests.test_ph_f06_maturity_lifecycle",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_ph_f06_maturity_lifecycle",
+      "<WORKSPACE>\\_scratch\\ph_lw_09_manual_evidence\\core-manual-recheck\\test_ph_f06_maturity_lifecycle.log"
+    ],
+    "started_utc": "2026-11-07T09:49:48.104265+00:00",
+    "exit": 0,
+    "status": "PASS",
+    "modules": [
+      "tests.test_ph_f06_maturity_lifecycle"
+    ],
+    "ran": 13,
+    "failures": 0,
+    "errors": 0,
+    "skips": [],
+    "elapsed_seconds": 1773.605,
+    "log": "test_ph_f06_maturity_lifecycle.log",
+    "log_sha256": "dbad71afa9962840c4ae79a1154c5c6a983356f0ca0df1efcf79736fb0b99434"
+  }
+]

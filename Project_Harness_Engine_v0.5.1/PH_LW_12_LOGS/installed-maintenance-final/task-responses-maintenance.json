@@ -1,0 +1,22 @@
+[
+  {
+    "path": "projects/LWP-2E43F7D304656CCD4E7F/operations",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-5B8AA3F1EFC36B33B155589813CA4F4C",
+      "state": "QUEUED"
+    }
+  },
+  {
+    "path": "projects/LWP-2E43F7D304656CCD4E7F/tasks/result-upload",
+    "status": 409,
+    "body": {
+      "error": {
+        "code": "OPERATION_CONFLICT",
+        "message_ru": "С этим проектом уже работает другая операция.",
+        "next_action_ru": "Получите статус существующей операции и повторите позже."
+      },
+      "status": "FAILED"
+    }
+  }
+]

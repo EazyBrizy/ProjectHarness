@@ -1,0 +1,20 @@
+{
+  "command": [
+    "_scratch/ph_lw_09_manual_evidence/wheel-venv/Scripts/python.exe",
+    "-B",
+    "-m",
+    "pip",
+    "install",
+    "--force-reinstall",
+    "--no-deps",
+    "--no-index",
+    "Project_Harness_Engine_v0.5.1/dist/project_harness_engine-0.5.1-py3-none-any.whl"
+  ],
+  "exit_code": 0,
+  "status": "PASS",
+  "cwd": "<WORKSPACE>",
+  "log": "WHEEL_REFRESH.log",
+  "log_sha256": "49159ff83c8b54b5039d647dd6bd48570db30c81c7571467cc8513a34ffc5bb7",
+  "provenance": "Exact stdout copied from successful exec tool result; exact start/duration not captured. Final installed acceptance independently verifies package imports and behavior.",
+  "wheel_sha256": "55402b3e747196789ebdd2dea75534e12a8a49cf10c820de8094901734903489"
+}

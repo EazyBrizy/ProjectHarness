@@ -1,0 +1,11 @@
+test_edge_levelup_target_nearest_and_maintenance_cancel (tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_levelup_target_nearest_and_maintenance_cancel) ... ok
+test_edge_missing_semantic_review_cannot_accept (tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_missing_semantic_review_cannot_accept) ... ok
+test_edge_prototype_accept_alpha_form_plan_first_ready_reload (tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_prototype_accept_alpha_form_plan_first_ready_reload) ... Task queue depth is 1
+ok
+test_auth_csrf_origin_port_unknown_fields_and_readonly (tests.test_ph_lw_10_http.LifecycleHttpTests.test_auth_csrf_origin_port_unknown_fields_and_readonly) ... ok
+test_draft_ownership_traversal_replay_conflict (tests.test_ph_lw_10_http.LifecycleHttpTests.test_draft_ownership_traversal_replay_conflict) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 124.983s
+
+OK

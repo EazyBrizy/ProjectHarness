@@ -1,0 +1,9 @@
+test_final_ui_has_no_obsolete_manual_lifecycle_placeholders (tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_final_ui_has_no_obsolete_manual_lifecycle_placeholders) ... ok
+test_navigation_resume_finishes_before_user_mutation (tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_navigation_resume_finishes_before_user_mutation) ... ok
+test_refresh_after_commit_does_not_reuse_older_lifecycle_response (tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_refresh_after_commit_does_not_reuse_older_lifecycle_response) ... ok
+test_stage_status_and_manual_evidence_use_existing_forms (tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_stage_status_and_manual_evidence_use_existing_forms) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 30.995s
+
+OK

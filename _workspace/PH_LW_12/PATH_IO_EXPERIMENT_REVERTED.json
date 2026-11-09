@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "experiments_reverted": true,
+  "runtime_freeze_restored_exactly": true,
+  "findings": [
+    "start_intake workspace mkdir",
+    "public catalog canonical resolve",
+    "draft existence check"
+  ],
+  "production_changes_retained": false,
+  "new_deep_root_blocker": "OPEN"
+}

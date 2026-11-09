@@ -1,0 +1,19 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "Project_Harness_Engine_v0.5.1/local_web/windows/acceptance.py",
+    "--installer",
+    "_scratch/ph_lw_11/build-extended/Harness-Setup-win-x64.exe",
+    "--output",
+    "_scratch/ph_lw_11/installed-extended"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T23:15:04.587930+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 900,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 302.611,
+  "log_sha256": "0cfac28ecc2a8bc20d2fcdec4e2e57fc55b066850498e3bd8ab26733ea44d3f8"
+}

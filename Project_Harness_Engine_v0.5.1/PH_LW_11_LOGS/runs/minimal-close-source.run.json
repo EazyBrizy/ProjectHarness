@@ -1,0 +1,15 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "_scratch/ph_lw_11/diagnose_browser_close.py"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T23:52:37.455264+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 65,
+  "exit_code": null,
+  "status": "TIMEOUT",
+  "elapsed_seconds": 66.567,
+  "log_sha256": "6778ab131e365afebdd420f35d84b0f62dae377ee6496cd78941392d0fd2bd44"
+}

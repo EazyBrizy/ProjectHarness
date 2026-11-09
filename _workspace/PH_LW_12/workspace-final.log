@@ -1,0 +1,37 @@
+{
+  "status": "FAIL",
+  "checks": {
+    "documentation_mirror": {
+      "files": 156,
+      "mismatches": []
+    },
+    "schemas_mirror": {
+      "files": 17,
+      "mismatches": []
+    },
+    "registries_mirror": {
+      "files": 7,
+      "mismatches": []
+    },
+    "templates_mirror": {
+      "files": 2,
+      "mismatches": []
+    },
+    "skills_mirror": {
+      "files": 3,
+      "mismatches": []
+    },
+    "workspace_links": 411,
+    "build_mirror": {
+      "files": 111,
+      "mismatches": []
+    },
+    "wheel_source_mirror": {
+      "files": 111,
+      "mismatches": []
+    }
+  },
+  "errors": [
+    "Broken link: _workspace\\CURRENT_TASK.md -> PH_LW_12/SHA256.txt"
+  ]
+}

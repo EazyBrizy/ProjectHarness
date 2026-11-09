@@ -1,0 +1,2 @@
+{"python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]", "executable": "<WORKSPACE>\\.venv\\Scripts\\python.exe", "platform": "Windows-11-10.0.26200-SP0"}
+{"status": "PASS", "reproduced": "Windows read handle denies atomic replace", "winerror": 5}

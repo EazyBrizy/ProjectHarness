@@ -1,0 +1,15 @@
+test_long_preparation_publication_validation_and_first_jit (tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_long_preparation_publication_validation_and_first_jit) ... FAIL
+
+======================================================================
+FAIL: test_long_preparation_publication_validation_and_first_jit (tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_long_preparation_publication_validation_and_first_jit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_11_long_path.py", line 30, in test_long_preparation_publication_validation_and_first_jit
+    self.assertGreater(len(str(leaf)),260)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: 258 not greater than 260
+
+----------------------------------------------------------------------
+Ran 1 test in 34.779s
+
+FAILED (failures=1)

@@ -1,0 +1,23 @@
+{
+  "command": [
+    ".\\_scratch\\ph_lw_12\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "Project_Harness_Engine_v0.5.1/local_web/windows/final_acceptance.py",
+    "--installer",
+    "Project_Harness_Engine_v0.5.1/windows/Harness-Setup-win-x64.exe",
+    "--output",
+    "_scratch/ph_lw_12/installed-final-focus",
+    "--case",
+    "__main__.InstalledFullFlowTests.test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete",
+    "--case",
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_prototype_accept_alpha_form_plan_first_ready_reload"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-08T09:13:32.277747+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 600,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 244.055,
+  "log_sha256": "87c43ca32c5a07903d5e3ef3cf48721dbebe4dc2e5e72cf176654b7966f2152c"
+}

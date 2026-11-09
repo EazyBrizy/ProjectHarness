@@ -1,0 +1,15 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "tools/sync_working_tree.py"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-08T09:08:40.182846+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 180,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 3.501,
+  "log_sha256": "d31351fb6e15b23ed41b2ec3daa6a9a5cb42b71d7b965efca54b425f8126853f"
+}

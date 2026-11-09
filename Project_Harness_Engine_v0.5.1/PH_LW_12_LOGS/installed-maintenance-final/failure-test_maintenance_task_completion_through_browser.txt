@@ -1,0 +1,44 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\local_web\windows\final_acceptance.py", line 299, in test_maintenance_task_completion_through_browser
+    self.page.locator('#task-upload').click();expect(self.page.locator('#task-verify')).to_be_enabled()
+                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\_scratch\ph_lw_12\wheel-venv\Lib\site-packages\playwright\sync_api\_generated.py", line 14672, in to_be_enabled
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.to_be_enabled(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            enabled=enabled, timeout=to_milliseconds(timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "<WORKSPACE>\_scratch\ph_lw_12\wheel-venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "<WORKSPACE>\_scratch\ph_lw_12\wheel-venv\Lib\site-packages\playwright\_impl\_assertions.py", line 807, in to_be_enabled
+    await self._expect_impl(
+    ...<5 lines>...
+    )
+  File "<WORKSPACE>\_scratch\ph_lw_12\wheel-venv\Lib\site-packages\playwright\_impl\_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        AssertionError(
+        ^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        self._is_soft,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "<WORKSPACE>\_scratch\ph_lw_12\wheel-venv\Lib\site-packages\playwright\_impl\_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to be enabled
+Actual value: disabled 
+Call log:
+  - Expect "to_be_enabled" locator("#task-verify") with timeout 30000ms
+  - waiting for locator("#task-verify")
+    62 × locator resolved to <button disabled type="button" id="task-verify">Проверить</button>
+       - unexpected value "disabled"
+
+Aria snapshot:
+- button "Проверить" [disabled]

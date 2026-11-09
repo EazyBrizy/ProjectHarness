@@ -1,0 +1,35 @@
+{
+  "name": "test_canonical_target-nonbrowser",
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;import project_harness;assert Path(project_harness.__file__).resolve().is_relative_to(Path(sys.prefix).resolve());sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel\\test_canonical_target-nonbrowser.log",
+    "tests.test_canonical_target.CanonicalCurrentTargetTests.test_01_initial_prepared_project_has_one_target_in_all_current_projections",
+    "tests.test_canonical_target.CanonicalCurrentTargetTests.test_02_level_up_syncs_current_projections_and_preserves_initial_accepted_target",
+    "tests.test_canonical_target.CanonicalCurrentTargetTests.test_03_prepared_assessment_after_level_up_routes_against_mvp",
+    "tests.test_canonical_target.CanonicalCurrentTargetTests.test_04_validate_project_rejects_project_and_current_state_target_divergence",
+    "tests.test_canonical_target.CanonicalCurrentTargetTests.test_05_external_intake_assessment_reads_current_project_input_target"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_12\\Независимая папка wheel",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 35.166,
+  "environment_ref": "WHEEL_ENVIRONMENT.json",
+  "modules": [
+    "tests.test_canonical_target.CanonicalCurrentTargetTests.test_01_initial_prepared_project_has_one_target_in_all_current_projections",
+    "tests.test_canonical_target.CanonicalCurrentTargetTests.test_02_level_up_syncs_current_projections_and_preserves_initial_accepted_target",
+    "tests.test_canonical_target.CanonicalCurrentTargetTests.test_03_prepared_assessment_after_level_up_routes_against_mvp",
+    "tests.test_canonical_target.CanonicalCurrentTargetTests.test_04_validate_project_rejects_project_and_current_state_target_divergence",
+    "tests.test_canonical_target.CanonicalCurrentTargetTests.test_05_external_intake_assessment_reads_current_project_input_target"
+  ],
+  "ran": 5,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "log": "test_canonical_target-nonbrowser.log",
+  "process_status": "PASS",
+  "log_sha256": "457be350a82c7fca3ac86712e5083fbc981326024b7d244b18ff53fa653cf55d"
+}

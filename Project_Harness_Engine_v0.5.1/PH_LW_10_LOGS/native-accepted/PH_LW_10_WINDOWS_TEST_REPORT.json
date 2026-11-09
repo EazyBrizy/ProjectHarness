@@ -1,0 +1,68 @@
+{
+  "stage": "PH-LW-10",
+  "started_utc": "2026-11-07T12:30:39.934295+00:00",
+  "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "checks": [
+    {
+      "modules": [
+        "tests.test_ph_lw_04_http",
+        "tests.test_ph_lw_05_import",
+        "tests.test_ph_lw_05_http",
+        "tests.test_ph_lw_04_05_acceptance",
+        "tests.test_ph_lw_06_exchange",
+        "tests.test_ph_lw_06_http",
+        "tests.test_ph_lw_07_approvals",
+        "tests.test_ph_lw_07_http",
+        "tests.test_ph_lw_08_preparation",
+        "tests.test_ph_lw_08_http",
+        "tests.test_ph_lw_09_tasks",
+        "tests.test_ph_lw_09_http",
+        "tests.test_ph_lw_09_manual_evidence",
+        "tests.test_ph_lw_10_lifecycle",
+        "tests.test_ph_lw_10_http"
+      ],
+      "ran": 182,
+      "failures": 1,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 2063.403,
+      "log": "stage_tests.log",
+      "status": "FAIL"
+    },
+    {
+      "name": "doctor",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "project-harness.py",
+        "doctor"
+      ],
+      "exit": 0,
+      "status": "PASS"
+    },
+    {
+      "name": "documentation",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "docs/Project_Harness_Documentation_v0.5.1/tools/validate_documentation.py",
+        "docs/Project_Harness_Documentation_v0.5.1",
+        "--json",
+        "<WORKSPACE>\\_scratch\\ph_lw_10\\native-accepted\\DOC_VALIDATION.json"
+      ],
+      "exit": 0,
+      "status": "PASS"
+    }
+  ],
+  "status": "FAIL",
+  "installer": "NOT RUN (PH-LW-11)",
+  "automatic_executor": "NO-GO / NOT RUN",
+  "filesystem": "NTFS",
+  "dependencies": {
+    "flask": "3.1.3",
+    "waitress": "3.0.2",
+    "playwright": "1.64.1"
+  },
+  "browser": "157.0.4341.42",
+  "regressions": "NOT RUN in this invocation; separate evidence required"
+}

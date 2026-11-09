@@ -1,0 +1,7 @@
+COMMAND: python -m unittest -q tests.test_assessment_freshness tests.test_ph_051_05_codex_adapter tests.test_ph_051_01_contract_baseline tests.test_ph_f01_gate_semantics_regression
+----------------------------------------------------------------------
+Ran 38 tests in 291.216s
+
+OK (skipped=1)
+
+EXIT_CODE=0

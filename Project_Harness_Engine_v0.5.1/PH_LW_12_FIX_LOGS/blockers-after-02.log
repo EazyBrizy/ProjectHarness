@@ -1,0 +1,100 @@
+test_external_project_conflict_is_not_replayed_automatically (tests.test_ph_lw_12_blockers.BlockerBrowserTests.test_external_project_conflict_is_not_replayed_automatically) ... Task queue depth is 1
+Task queue depth is 1
+ok
+test_multipart_result_waits_for_navigation_resume (tests.test_ph_lw_12_blockers.BlockerBrowserTests.test_multipart_result_waits_for_navigation_resume) ... Task queue depth is 1
+ok
+test_project_card_matches_fresh_core_after_browser_block (tests.test_ph_lw_12_blockers.BlockerBrowserTests.test_project_card_matches_fresh_core_after_browser_block) ... Timeout (0:00:45)!
+Thread 0x0000baac [waitress-3] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x00008dac [waitress-2] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x0000c848 [waitress-1] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x0000c568 [waitress-0] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x0000401c [waitress-3] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x000072d4 [waitress-2] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x00008b64 [waitress-1] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x00009960 [waitress-0] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x00006f68 (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 771 in open
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\hashing.py", line 16 in sha256_file
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\workspace.py", line 110 in _record_for_path
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\workspace.py", line 146 in scan_protected_control_plane
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\workspace.py", line 162 in snapshot_protected_control_plane
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\workspace.py", line 244 in write_snapshot
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\prompting.py", line 481 in reserve_run
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\compiler.py", line 1083 in prepare_handoff
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\operation_guard.py", line 106 in wrapper
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_engine.py", line 68 in prepare_demo
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_12_blockers.py", line 86 in browser_fixture
+  File "<WORKSPACE>\_tools\Python314\Lib\contextlib.py", line 141 in __enter__
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_12_blockers.py", line 142 in test_project_card_matches_fresh_core_after_browser_block
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\case.py", line 615 in _callTestMethod
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\case.py", line 669 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\case.py", line 725 in __call__
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\suite.py", line 122 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\suite.py", line 84 in __call__
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\suite.py", line 122 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\suite.py", line 84 in __call__
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\suite.py", line 122 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\suite.py", line 84 in __call__
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\runner.py", line 257 in run
+  File "<WORKSPACE>\tools\ph_lw_12_diagnostic.py", line 7 in <module>
+Task queue depth is 1
+Task queue depth is 1
+ok
+test_result_upload_waits_for_prior_project_read_without_post_replay (tests.test_ph_lw_12_blockers.BlockerBrowserTests.test_result_upload_waits_for_prior_project_read_without_post_replay) ... Task queue depth is 1
+Task queue depth is 2
+ok
+test_deep_creation_cleanup_preserves_original_error_and_committed_root (tests.test_ph_lw_12_blockers.DeepAppDataTests.test_deep_creation_cleanup_preserves_original_error_and_committed_root) ... ok
+test_deep_intake_sources_replay_and_restart (tests.test_ph_lw_12_blockers.DeepAppDataTests.test_deep_intake_sources_replay_and_restart) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 83.094s
+
+OK

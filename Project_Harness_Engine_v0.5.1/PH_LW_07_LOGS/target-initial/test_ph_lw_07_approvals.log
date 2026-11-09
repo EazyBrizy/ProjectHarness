@@ -1,0 +1,91 @@
+test_actor_is_explicit_once_and_server_time_ignores_build_epoch (tests.test_ph_lw_07_approvals.ApprovalTests.test_actor_is_explicit_once_and_server_time_ignores_build_epoch) ... ok
+test_ambiguous_recovery_fails_closed_and_keeps_intent (tests.test_ph_lw_07_approvals.ApprovalTests.test_ambiguous_recovery_fails_closed_and_keeps_intent) ... ok
+test_brownfield_hybrid_five_actions_baseline_order_and_repository_read_only (tests.test_ph_lw_07_approvals.ApprovalTests.test_brownfield_hybrid_five_actions_baseline_order_and_repository_read_only) ... ok
+test_concurrent_double_click_has_one_receipt (tests.test_ph_lw_07_approvals.ApprovalTests.test_concurrent_double_click_has_one_receipt) ... ok
+test_four_independent_actions_ready_only_after_handoff_and_no_project (tests.test_ph_lw_07_approvals.ApprovalTests.test_four_independent_actions_ready_only_after_handoff_and_no_project) ... ok
+test_get_is_read_only_with_actor_decisions_and_pending (tests.test_ph_lw_07_approvals.ApprovalTests.test_get_is_read_only_with_actor_decisions_and_pending) ... ok
+test_material_draft_change_invalidation_and_immutable_receipts (tests.test_ph_lw_07_approvals.ApprovalTests.test_material_draft_change_invalidation_and_immutable_receipts) ... ok
+test_missing_approval_and_wrong_sequence_are_no_write (tests.test_ph_lw_07_approvals.ApprovalTests.test_missing_approval_and_wrong_sequence_are_no_write) ... ok
+test_missing_material_fields_never_get_approved (tests.test_ph_lw_07_approvals.ApprovalTests.test_missing_material_fields_never_get_approved) ... 
+  test_missing_material_fields_never_get_approved (tests.test_ph_lw_07_approvals.ApprovalTests.test_missing_material_fields_never_get_approved) (field='architecture.components', value=[]) ... ERROR
+  test_missing_material_fields_never_get_approved (tests.test_ph_lw_07_approvals.ApprovalTests.test_missing_material_fields_never_get_approved) (field='technology.selections', value=[]) ... ERROR
+  test_missing_material_fields_never_get_approved (tests.test_ph_lw_07_approvals.ApprovalTests.test_missing_material_fields_never_get_approved) (field='implementation.target_level', value=None) ... ERROR
+  test_missing_material_fields_never_get_approved (tests.test_ph_lw_07_approvals.ApprovalTests.test_missing_material_fields_never_get_approved) (field='implementation.target_level', value='UNSURE') ... ERROR
+  test_missing_material_fields_never_get_approved (tests.test_ph_lw_07_approvals.ApprovalTests.test_missing_material_fields_never_get_approved) (field='project.data.sensitivity', value='UNKNOWN') ... ERROR
+test_native_child_crash_before_after_commit_and_restart_recovery (tests.test_ph_lw_07_approvals.ApprovalTests.test_native_child_crash_before_after_commit_and_restart_recovery) ... ok
+test_prepared_history_guard_and_bounded_unknown_subject (tests.test_ph_lw_07_approvals.ApprovalTests.test_prepared_history_guard_and_bounded_unknown_subject) ... ok
+test_replay_exact_after_restart_and_key_conflict_no_write (tests.test_ph_lw_07_approvals.ApprovalTests.test_replay_exact_after_restart_and_key_conflict_no_write) ... ok
+test_rework_comment_only_current_draft_and_dependent_approvals_reset (tests.test_ph_lw_07_approvals.ApprovalTests.test_rework_comment_only_current_draft_and_dependent_approvals_reset) ... ok
+test_source_change_invalidates_and_stale_request_rejected (tests.test_ph_lw_07_approvals.ApprovalTests.test_source_change_invalidates_and_stale_request_rejected) ... ok
+test_stale_second_tab_fingerprint_and_subject_digest (tests.test_ph_lw_07_approvals.ApprovalTests.test_stale_second_tab_fingerprint_and_subject_digest) ... ok
+test_unbound_canonical_fields_block_until_explicit_reset (tests.test_ph_lw_07_approvals.ApprovalTests.test_unbound_canonical_fields_block_until_explicit_reset) ... ok
+
+======================================================================
+ERROR: test_missing_material_fields_never_get_approved (tests.test_ph_lw_07_approvals.ApprovalTests.test_missing_material_fields_never_get_approved) (field='architecture.components', value=[])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_07_approvals.py", line 92, in test_missing_material_fields_never_get_approved
+    self.answer({field:value})
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_06_exchange.py", line 41, in answer
+    result = self.service.submit(request, check_current=True)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_service.py", line 525, in submit
+    raise ValidationFailure('OPERATION_CONFLICT: ключ уже связан с другим запросом')
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: OPERATION_CONFLICT: ключ уже связан с другим запросом
+
+======================================================================
+ERROR: test_missing_material_fields_never_get_approved (tests.test_ph_lw_07_approvals.ApprovalTests.test_missing_material_fields_never_get_approved) (field='technology.selections', value=[])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_07_approvals.py", line 92, in test_missing_material_fields_never_get_approved
+    self.answer({field:value})
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_06_exchange.py", line 41, in answer
+    result = self.service.submit(request, check_current=True)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_service.py", line 525, in submit
+    raise ValidationFailure('OPERATION_CONFLICT: ключ уже связан с другим запросом')
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: OPERATION_CONFLICT: ключ уже связан с другим запросом
+
+======================================================================
+ERROR: test_missing_material_fields_never_get_approved (tests.test_ph_lw_07_approvals.ApprovalTests.test_missing_material_fields_never_get_approved) (field='implementation.target_level', value=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_07_approvals.py", line 92, in test_missing_material_fields_never_get_approved
+    self.answer({field:value})
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_06_exchange.py", line 41, in answer
+    result = self.service.submit(request, check_current=True)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_service.py", line 525, in submit
+    raise ValidationFailure('OPERATION_CONFLICT: ключ уже связан с другим запросом')
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: OPERATION_CONFLICT: ключ уже связан с другим запросом
+
+======================================================================
+ERROR: test_missing_material_fields_never_get_approved (tests.test_ph_lw_07_approvals.ApprovalTests.test_missing_material_fields_never_get_approved) (field='implementation.target_level', value='UNSURE')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_07_approvals.py", line 92, in test_missing_material_fields_never_get_approved
+    self.answer({field:value})
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_06_exchange.py", line 41, in answer
+    result = self.service.submit(request, check_current=True)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_service.py", line 525, in submit
+    raise ValidationFailure('OPERATION_CONFLICT: ключ уже связан с другим запросом')
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: OPERATION_CONFLICT: ключ уже связан с другим запросом
+
+======================================================================
+ERROR: test_missing_material_fields_never_get_approved (tests.test_ph_lw_07_approvals.ApprovalTests.test_missing_material_fields_never_get_approved) (field='project.data.sensitivity', value='UNKNOWN')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_07_approvals.py", line 92, in test_missing_material_fields_never_get_approved
+    self.answer({field:value})
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_06_exchange.py", line 41, in answer
+    result = self.service.submit(request, check_current=True)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_service.py", line 525, in submit
+    raise ValidationFailure('OPERATION_CONFLICT: ключ уже связан с другим запросом')
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: OPERATION_CONFLICT: ключ уже связан с другим запросом
+
+----------------------------------------------------------------------
+Ran 16 tests in 24.959s
+
+FAILED (errors=5)

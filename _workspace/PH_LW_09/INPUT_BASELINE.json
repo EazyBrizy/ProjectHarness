@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "captured_utc": "2026-11-07T04:44:53.146528+00:00",
+  "source_checkpoint": "PH-LW-08",
+  "trees": {
+    "Project_Harness_Engine_v0.5.1": {
+      "status": "PASS",
+      "files": 2109,
+      "manifest_sha256": "dbccdd6a9d4b0f505aa6626e157aebd171dc6e9a1d4c19c075cfd797cc874802"
+    },
+    "Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 148,
+      "manifest_sha256": "8124e124f2fcae5207cd1e68f0559608120f7815888e02904e4a665a7b6885ec"
+    },
+    "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 148,
+      "manifest_sha256": "8124e124f2fcae5207cd1e68f0559608120f7815888e02904e4a665a7b6885ec"
+    }
+  },
+  "wheel_sha256": "91367028938d984b0c5f91a6dba9fe953a888d6cd9c9944ccb94cb9f6e94049e",
+  "workspace_files": {
+    "AGENTS.md": "afc9a144b0c6c4b6fa331039776b8ade9aaa03912c2aa0e05926ac5305e8dc21",
+    "README.md": "c5a20de69cf89252c1fdf522a8a1f55c074e62722ce9ceec27343c884bd9826e",
+    "_workspace/CURRENT_TASK.md": "b5b50dbf69e27be7a4e81168aab8aac1c8151a4dc114c418130d7f06a8faf17a",
+    "_workspace/PROJECT_MAP.md": "1182ba815bc3b9bc34e9c031099bb2c9d2bf425baa170534853ad11f0643e06d",
+    "_workspace/RUNBOOK.md": "95c31922af54e748f207a2610c1cefdb23cf1ffaaae59c14016345bedd930de8",
+    "tools/check_workspace.py": "95715e831f96d847e186bc6c4d5d41c84530c096a33e3de751fb9681fa32ad26",
+    "tools/verify_installed.py": "7a3aa805b82a89b75d7c51ea614f75bcf0e476e71c370d8b9480dae48dba4a0e",
+    "tools/finalize_ph_lw_08_evidence.py": "ab285d4290063e22d1370f9c9bc49491b1be1a1df857bd9f777052159b487667",
+    "tools/verify_ph_lw_08_working_tree.py": "b709452d23dc7d53d7319f87f20237e95797691cd3e0d27e51e3df8e35d4ea9f",
+    "tools/sync_working_tree.py": "9b211015aeaabb5532fa5d8b5cd6661fc1f488291c0c1bd5ed6de095a6237ea6"
+  },
+  "drift": []
+}

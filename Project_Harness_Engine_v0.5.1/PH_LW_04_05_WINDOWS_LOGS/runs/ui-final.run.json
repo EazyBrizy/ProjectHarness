@@ -1,0 +1,17 @@
+{
+  "command": [
+    "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_lw_04_05_acceptance.BrowserImportAcceptance.test_ui_upload_preview_duplicate_replace_and_no_documentation"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-06T23:46:51.304368+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 100,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 17.589,
+  "log_sha256": "1a8b73b7edbd4b7a6b1e2f6054a7f521d245c6c4afbc561dad84bbfac5ee8f7b"
+}

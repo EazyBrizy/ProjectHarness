@@ -1,0 +1,80 @@
+test_01_load_two_exact_project_profiles_with_pinned_digests (tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_01_load_two_exact_project_profiles_with_pinned_digests) ... ok
+test_02_manual_mode_cannot_activate_even_with_valid_profiles (tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_02_manual_mode_cannot_activate_even_with_valid_profiles) ... ok
+test_03_lock_digest_or_revision_mismatch_rejects (tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_03_lock_digest_or_revision_mismatch_rejects) ... ok
+test_04_profile_identity_status_and_sandbox_ref_rejected (tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_04_profile_identity_status_and_sandbox_ref_rejected) ... ok
+test_05_symlink_profile_denied (tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_05_symlink_profile_denied) ... skipped 'NOT RUN: native file symlink creation requires a Windows privilege unavailable to this non-admin user'
+test_05b_hardlink_profile_denied (tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_05b_hardlink_profile_denied) ... ok
+test_06_network_egress_rejected_before_podman (tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_06_network_egress_rejected_before_podman) ... ok
+test_07_no_host_codex_when_podman_missing (tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_07_no_host_codex_when_podman_missing) ... ERROR
+test_08_missing_secret_reference_blocks_before_podman_and_allowlist_supported (tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_08_missing_secret_reference_blocks_before_podman_and_allowlist_supported) ... ok
+test_09_cannot_call_execute_from_raw_invocation_instead_of_jit (tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_09_cannot_call_execute_from_raw_invocation_instead_of_jit) ... ok
+test_10_doctor_requires_complete_attestation (tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_10_doctor_requires_complete_attestation) ... ok
+test_11_exact_active_jit_paths_task_and_bounded_timeout (tests.test_ph_051_05_codex_adapter.PreparedJitTests.test_11_exact_active_jit_paths_task_and_bounded_timeout) ... ERROR
+test_12_tamper_or_base_drift_blocks_without_doctor_or_launch (tests.test_ph_051_05_codex_adapter.PreparedJitTests.test_12_tamper_or_base_drift_blocks_without_doctor_or_launch) ... ERROR
+test_13_template_change_or_request_override_blocks (tests.test_ph_051_05_codex_adapter.PreparedJitTests.test_13_template_change_or_request_override_blocks) ... ERROR
+test_14_bounded_failures_never_become_agent_pass (tests.test_ph_051_05_codex_adapter.PreparedJitTests.test_14_bounded_failures_never_become_agent_pass) ... ok
+test_15_fake_codex_in_real_rootless_podman_not_on_host (tests.test_ph_051_05_codex_adapter.RealRootlessIntegrationTests.test_15_fake_codex_in_real_rootless_podman_not_on_host)
+Only this test launches fake CLI, and exclusively via Podman process. ... skipped 'NOT RUN: real non-root Podman and pinned PH_TEST_PODMAN_IMAGE required'
+
+======================================================================
+ERROR: test_07_no_host_codex_when_podman_missing (tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_07_no_host_codex_when_podman_missing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_05_codex_adapter.py", line 153, in test_07_no_host_codex_when_podman_missing
+    mock.patch("os.geteuid", return_value=1001), \
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1510, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1480, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'os' (frozen)> does not have the attribute 'geteuid'
+
+======================================================================
+ERROR: test_11_exact_active_jit_paths_task_and_bounded_timeout (tests.test_ph_051_05_codex_adapter.PreparedJitTests.test_11_exact_active_jit_paths_task_and_bounded_timeout)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_05_codex_adapter.py", line 219, in test_11_exact_active_jit_paths_task_and_bounded_timeout
+    prepared = adapter.prepare_current_run(self.runtime)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\codex_cli_local.py", line 331, in prepare_current_run
+    root = prepare_execution_root(self._bound["project_root"], Path(runtime_root), run_ref=run_ref)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05105-jit-qlgz3h20\\build\\handoff'
+
+======================================================================
+ERROR: test_12_tamper_or_base_drift_blocks_without_doctor_or_launch (tests.test_ph_051_05_codex_adapter.PreparedJitTests.test_12_tamper_or_base_drift_blocks_without_doctor_or_launch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_05_codex_adapter.py", line 243, in test_12_tamper_or_base_drift_blocks_without_doctor_or_launch
+    prepared = adapter.prepare_current_run(self.runtime)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\codex_cli_local.py", line 331, in prepare_current_run
+    root = prepare_execution_root(self._bound["project_root"], Path(runtime_root), run_ref=run_ref)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05105-jit-x3ihnp0l\\build\\handoff'
+
+======================================================================
+ERROR: test_13_template_change_or_request_override_blocks (tests.test_ph_051_05_codex_adapter.PreparedJitTests.test_13_template_change_or_request_override_blocks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_05_codex_adapter.py", line 252, in test_13_template_change_or_request_override_blocks
+    prepared = adapter.prepare_current_run(self.runtime)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\codex_cli_local.py", line 331, in prepare_current_run
+    root = prepare_execution_root(self._bound["project_root"], Path(runtime_root), run_ref=run_ref)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05105-jit-jkv7b6fl\\build\\handoff'
+
+----------------------------------------------------------------------
+Ran 16 tests in 49.018s
+
+FAILED (errors=4, skipped=2)

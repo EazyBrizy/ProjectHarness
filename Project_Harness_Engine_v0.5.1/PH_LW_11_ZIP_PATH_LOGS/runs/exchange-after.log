@@ -1,0 +1,6 @@
+test_imported_long_zip_document_manual_exchange_roundtrip (tests.test_ph_lw_11_zip_path.LongAppDataZipTests.test_imported_long_zip_document_manual_exchange_roundtrip) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.113s
+
+OK

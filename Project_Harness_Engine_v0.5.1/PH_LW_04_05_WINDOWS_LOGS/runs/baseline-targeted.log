@@ -1,0 +1,217 @@
+test_get_refresh_read_only_xss_text_and_download_paths_rejected (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_get_refresh_read_only_xss_text_and_download_paths_rejected) ... FAIL
+test_no_access_to_another_project_artifact_and_tamper (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_no_access_to_another_project_artifact_and_tamper) ... ok
+test_session_csrf_exact_json_and_security_headers (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_session_csrf_exact_json_and_security_headers) ... ok
+test_token_replay_expiry_bad_host_origin_null_and_wrong_port (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_token_replay_expiry_bad_host_origin_null_and_wrong_port) ... ok
+test_unauthenticated_all_private_routes_and_public_health_minimal (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_unauthenticated_all_private_routes_and_public_health_minimal) ... ok
+test_append_name_conflict_and_stale_revisions_do_not_mutate_core (tests.test_ph_lw_05_import.LocalSourceImporter.test_append_name_conflict_and_stale_revisions_do_not_mutate_core) ... ok
+test_corrupt_crc_oversized_entry_and_entry_count (tests.test_ph_lw_05_import.LocalSourceImporter.test_corrupt_crc_oversized_entry_and_entry_count) ... ok
+test_idempotent_identical_append_and_restart_replace_creates_revision (tests.test_ph_lw_05_import.LocalSourceImporter.test_idempotent_identical_append_and_restart_replace_creates_revision) ... ok
+test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) ... 
+  test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='backslash') ... FAIL
+  test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='ads') ... FAIL
+  test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='device') ... FAIL
+  test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='trailingdot') ... FAIL
+  test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='trailingspace') ... FAIL
+  test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='control') ... FAIL
+  test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='casecollision') ... FAIL
+  test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='unicodecollision') ... FAIL
+  test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='dircasecollision') ... FAIL
+  test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='file_as_dir') ... FAIL
+  test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='nestedarchive') ... FAIL
+  test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='invalidutf8') ... FAIL
+  test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='depth17') ... FAIL
+  test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='compression_ratio') ... FAIL
+test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) ... FAIL
+test_multiple_md_and_nested_zip_unicode_spaces_unsupported_attachment (tests.test_ph_lw_05_import.LocalSourceImporter.test_multiple_md_and_nested_zip_unicode_spaces_unsupported_attachment) ... ok
+test_prepared_project_route_is_rejected_before_mutation (tests.test_ph_lw_05_import.LocalSourceImporter.test_prepared_project_route_is_rejected_before_mutation) ... ok
+test_recoverable_refresh_fault_rollback_without_mixed_core (tests.test_ph_lw_05_import.LocalSourceImporter.test_recoverable_refresh_fault_rollback_without_mixed_core) ... FAIL
+test_recovery_can_be_explicit_after_restart_no_get_side_effect (tests.test_ph_lw_05_import.LocalSourceImporter.test_recovery_can_be_explicit_after_restart_no_get_side_effect) ... FAIL
+test_single_md_no_fake_authority_utf8_bom_and_plain_preview (tests.test_ph_lw_05_import.LocalSourceImporter.test_single_md_no_fake_authority_utf8_bom_and_plain_preview) ... ok
+test_snapshot_digest_mismatch_blocks_preview_and_new_import (tests.test_ph_lw_05_import.LocalSourceImporter.test_snapshot_digest_mismatch_blocks_preview_and_new_import) ... ok
+test_special_symlink_fifo_reparse_and_encryption_rejected (tests.test_ph_lw_05_import.LocalSourceImporter.test_special_symlink_fifo_reparse_and_encryption_rejected) ... ok
+test_unsafe_top_level_filenames_and_encoding_fail (tests.test_ph_lw_05_import.LocalSourceImporter.test_unsafe_top_level_filenames_and_encoding_fail) ... ok
+test_upload_source_bytes_not_modified_and_no_command_started (tests.test_ph_lw_05_import.LocalSourceImporter.test_upload_source_bytes_not_modified_and_no_command_started) ... ok
+test_user_confirmed_no_docs_no_source_revised_and_no_fabricated_files (tests.test_ph_lw_05_import.LocalSourceImporter.test_user_confirmed_no_docs_no_source_revised_and_no_fabricated_files) ... ok
+test_auth_upload_list_preview_and_replay (tests.test_ph_lw_05_http.SourceHttpSecurity.test_auth_upload_list_preview_and_replay) ... ok
+test_documentation_none_after_import_explicit_and_no_external_requests (tests.test_ph_lw_05_http.SourceHttpSecurity.test_documentation_none_after_import_explicit_and_no_external_requests) ... ok
+test_malformed_upload_rejected_and_unknown_fields (tests.test_ph_lw_05_http.SourceHttpSecurity.test_malformed_upload_rejected_and_unknown_fields) ... ok
+
+======================================================================
+FAIL: test_get_refresh_read_only_xss_text_and_download_paths_rejected (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_get_refresh_read_only_xss_text_and_download_paths_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_04_http.py", line 216, in test_get_refresh_read_only_xss_text_and_download_paths_rejected
+    self.assertEqual(view.status_code,200,view.json)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 500 != 200 : {'error': {'code': 'INTERNAL_ERROR', 'message_ru': 'Операция не выполнена: внутренняя ошибка.', 'next_action_ru': 'Не повторяйте изменение автоматически; проверьте локальную диагностику.'}, 'status': 'FAILED'}
+
+======================================================================
+FAIL: test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='backslash')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 247, in test_malicious_zip_cases_rejected_without_workspace_change
+    with self.assertRaises(HarnessError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+AssertionError: HarnessError not raised
+
+======================================================================
+FAIL: test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='ads')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 249, in test_malicious_zip_cases_rejected_without_workspace_change
+    self.assertEqual(byte_snapshot(self.root), before)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'MIG[107 chars]l': '232de6566e4208b07d70eccbd46baf7be0b3b0b50[650 chars]881'} != {'MIG[107 chars]l': 'effb79e641f4067992b18c5e1341677c36ded0652[535 chars]8ec'}
+Diff is 1466 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='device')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 249, in test_malicious_zip_cases_rejected_without_workspace_change
+    self.assertEqual(byte_snapshot(self.root), before)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'MIG[107 chars]l': '232de6566e4208b07d70eccbd46baf7be0b3b0b50[650 chars]881'} != {'MIG[107 chars]l': 'effb79e641f4067992b18c5e1341677c36ded0652[535 chars]8ec'}
+Diff is 1466 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='trailingdot')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 249, in test_malicious_zip_cases_rejected_without_workspace_change
+    self.assertEqual(byte_snapshot(self.root), before)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'MIG[107 chars]l': '232de6566e4208b07d70eccbd46baf7be0b3b0b50[650 chars]881'} != {'MIG[107 chars]l': 'effb79e641f4067992b18c5e1341677c36ded0652[535 chars]8ec'}
+Diff is 1466 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='trailingspace')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 249, in test_malicious_zip_cases_rejected_without_workspace_change
+    self.assertEqual(byte_snapshot(self.root), before)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'MIG[107 chars]l': '232de6566e4208b07d70eccbd46baf7be0b3b0b50[650 chars]881'} != {'MIG[107 chars]l': 'effb79e641f4067992b18c5e1341677c36ded0652[535 chars]8ec'}
+Diff is 1466 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='control')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 249, in test_malicious_zip_cases_rejected_without_workspace_change
+    self.assertEqual(byte_snapshot(self.root), before)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'MIG[107 chars]l': '232de6566e4208b07d70eccbd46baf7be0b3b0b50[650 chars]881'} != {'MIG[107 chars]l': 'effb79e641f4067992b18c5e1341677c36ded0652[535 chars]8ec'}
+Diff is 1466 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='casecollision')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 249, in test_malicious_zip_cases_rejected_without_workspace_change
+    self.assertEqual(byte_snapshot(self.root), before)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'MIG[107 chars]l': '232de6566e4208b07d70eccbd46baf7be0b3b0b50[650 chars]881'} != {'MIG[107 chars]l': 'effb79e641f4067992b18c5e1341677c36ded0652[535 chars]8ec'}
+Diff is 1466 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='unicodecollision')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 249, in test_malicious_zip_cases_rejected_without_workspace_change
+    self.assertEqual(byte_snapshot(self.root), before)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'MIG[107 chars]l': '232de6566e4208b07d70eccbd46baf7be0b3b0b50[650 chars]881'} != {'MIG[107 chars]l': 'effb79e641f4067992b18c5e1341677c36ded0652[535 chars]8ec'}
+Diff is 1466 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='dircasecollision')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 249, in test_malicious_zip_cases_rejected_without_workspace_change
+    self.assertEqual(byte_snapshot(self.root), before)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'MIG[107 chars]l': '232de6566e4208b07d70eccbd46baf7be0b3b0b50[650 chars]881'} != {'MIG[107 chars]l': 'effb79e641f4067992b18c5e1341677c36ded0652[535 chars]8ec'}
+Diff is 1466 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='file_as_dir')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 249, in test_malicious_zip_cases_rejected_without_workspace_change
+    self.assertEqual(byte_snapshot(self.root), before)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'MIG[107 chars]l': '232de6566e4208b07d70eccbd46baf7be0b3b0b50[650 chars]881'} != {'MIG[107 chars]l': 'effb79e641f4067992b18c5e1341677c36ded0652[535 chars]8ec'}
+Diff is 1466 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='nestedarchive')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 249, in test_malicious_zip_cases_rejected_without_workspace_change
+    self.assertEqual(byte_snapshot(self.root), before)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'MIG[107 chars]l': '232de6566e4208b07d70eccbd46baf7be0b3b0b50[650 chars]881'} != {'MIG[107 chars]l': 'effb79e641f4067992b18c5e1341677c36ded0652[535 chars]8ec'}
+Diff is 1466 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='invalidutf8')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 249, in test_malicious_zip_cases_rejected_without_workspace_change
+    self.assertEqual(byte_snapshot(self.root), before)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'MIG[107 chars]l': '232de6566e4208b07d70eccbd46baf7be0b3b0b50[650 chars]881'} != {'MIG[107 chars]l': 'effb79e641f4067992b18c5e1341677c36ded0652[535 chars]8ec'}
+Diff is 1466 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='depth17')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 249, in test_malicious_zip_cases_rejected_without_workspace_change
+    self.assertEqual(byte_snapshot(self.root), before)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'MIG[107 chars]l': '232de6566e4208b07d70eccbd46baf7be0b3b0b50[650 chars]881'} != {'MIG[107 chars]l': 'effb79e641f4067992b18c5e1341677c36ded0652[535 chars]8ec'}
+Diff is 1466 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) (key='compression_ratio')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 249, in test_malicious_zip_cases_rejected_without_workspace_change
+    self.assertEqual(byte_snapshot(self.root), before)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'MIG[107 chars]l': '232de6566e4208b07d70eccbd46baf7be0b3b0b50[650 chars]881'} != {'MIG[107 chars]l': 'effb79e641f4067992b18c5e1341677c36ded0652[535 chars]8ec'}
+Diff is 1466 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 251, in test_malicious_zip_cases_rejected_without_workspace_change
+    self.assertFalse((self.imports / 'snapshots').exists())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_recoverable_refresh_fault_rollback_without_mixed_core (tests.test_ph_lw_05_import.LocalSourceImporter.test_recoverable_refresh_fault_rollback_without_mixed_core)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 172, in test_recoverable_refresh_fault_rollback_without_mixed_core
+    with self.assertRaises(OSError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^
+AssertionError: OSError not raised
+
+======================================================================
+FAIL: test_recovery_can_be_explicit_after_restart_no_get_side_effect (tests.test_ph_lw_05_import.LocalSourceImporter.test_recovery_can_be_explicit_after_restart_no_get_side_effect)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 191, in test_recovery_can_be_explicit_after_restart_no_get_side_effect
+    with self.assertRaises(KeyboardInterrupt):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: KeyboardInterrupt not raised
+
+----------------------------------------------------------------------
+Ran 22 tests in 194.414s
+
+FAILED (failures=18)

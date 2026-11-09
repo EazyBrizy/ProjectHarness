@@ -1,0 +1,15 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "_scratch/ph_lw_11_long_path/diagnose_zip.py"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-08T01:58:48.898649+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 120,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 1.365,
+  "log_sha256": "306877b6d4547c0e1287ac863a40e079776b8f4c95ab8c53ee8a1257ce9bc019"
+}

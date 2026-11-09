@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_stage_gate_preparation_block_recovery"
+  ],
+  "ran": 5,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 71.546,
+  "log": "test_stage_gate_preparation_block_recovery.log",
+  "status": "PASS"
+}

@@ -1,0 +1,9 @@
+{
+  "captured_utc": "2026-11-08T10:47:53.324442+00:00",
+  "reason": "New driver: inherit 30s browser expect setting; preserve state before owned cleanup; accepted MVP cache is validated initial state only.",
+  "hashes": {
+    "Project_Harness_Engine_v0.5.1/local_web/windows/final_acceptance.py": "dab3cfb9b3a46eabca0ba88d1ffc4e55a82ca20ffe85485fdd656c164ba6cfa8",
+    "tools/ph_lw_12_final_runs.py": "d90672f70c4c0244894ea125999b11ec20cae6f7f1748f213f4a0950848ffb49",
+    "tools/ph_lw_12_no_docs_recheck.py": "27d4f4e1d9d01ba0518041267b7bbdcd302aaa26833a93f764164e7df9780e2a"
+  }
+}

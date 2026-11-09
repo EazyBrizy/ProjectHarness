@@ -1,0 +1,27 @@
+{
+  "name": "test_ph_lw_06_http-browser",
+  "command": [
+    "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\source\\test_ph_lw_06_http-browser.log",
+    "tests.test_ph_lw_06_http.ExchangeBrowserTests.test_edge_two_greenfield_scenarios_typed_forms_fixture_exchange_reload_and_xss"
+  ],
+  "cwd": "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 13.259,
+  "environment_ref": "INPUT_BASELINE.json",
+  "modules": [
+    "tests.test_ph_lw_06_http.ExchangeBrowserTests.test_edge_two_greenfield_scenarios_typed_forms_fixture_exchange_reload_and_xss"
+  ],
+  "ran": 1,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "log": "test_ph_lw_06_http-browser.log",
+  "process_status": "PASS",
+  "log_sha256": "804b644eae81969fab3973598b52c8e9858897f4eb1edf4bb976605ef3feeb5b"
+}

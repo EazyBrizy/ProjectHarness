@@ -1,0 +1,39 @@
+{
+  "name": "test_maintenance_lifecycle-nonbrowser",
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;import project_harness;assert Path(project_harness.__file__).resolve().is_relative_to(Path(sys.prefix).resolve());sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel\\test_maintenance_lifecycle-nonbrowser.log",
+    "tests.test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_cancel_after_completed_product_change_is_rejected_without_rewrite",
+    "tests.test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_cli_exposes_public_start_and_cancel_operations",
+    "tests.test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_level_up_blocked_while_open_and_allowed_after_completion",
+    "tests.test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_next_verify_complete_closes_maintenance_and_preserves_maturity",
+    "tests.test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_start_creates_governed_artifacts_and_exactly_one_first_jit",
+    "tests.test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_valid_pre_execution_cancel_restores_previous_route",
+    "tests.test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_wrong_binding_future_scope_and_conflicting_duplicate_are_rejected"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_12\\Независимая папка wheel",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 164.904,
+  "environment_ref": "WHEEL_ENVIRONMENT.json",
+  "modules": [
+    "tests.test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_cancel_after_completed_product_change_is_rejected_without_rewrite",
+    "tests.test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_cli_exposes_public_start_and_cancel_operations",
+    "tests.test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_level_up_blocked_while_open_and_allowed_after_completion",
+    "tests.test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_next_verify_complete_closes_maintenance_and_preserves_maturity",
+    "tests.test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_start_creates_governed_artifacts_and_exactly_one_first_jit",
+    "tests.test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_valid_pre_execution_cancel_restores_previous_route",
+    "tests.test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_wrong_binding_future_scope_and_conflicting_duplicate_are_rejected"
+  ],
+  "ran": 7,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "log": "test_maintenance_lifecycle-nonbrowser.log",
+  "process_status": "PASS",
+  "log_sha256": "d393f3de4808195a68386458575e37926c2b3aa1a806159160473b7327702158"
+}

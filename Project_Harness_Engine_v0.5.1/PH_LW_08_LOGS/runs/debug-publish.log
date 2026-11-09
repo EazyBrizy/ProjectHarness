@@ -1,0 +1,55 @@
+test_recover_after_catalog (tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_after_catalog) ... Timeout (0:00:20)!
+Thread 0x000084cc [harness-local-web_0] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 771 in open
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 787 in read_text
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\serialization.py", line 19 in load_data
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\validation.py", line 773 in validate_handoff_directory
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\validation.py", line 1085 in validate_handoff
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\materialization.py", line 51 in inspect_initial_handoff
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 226 in _continue
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 190 in execute_preparation
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_service.py", line 615 in _execute
+  File "<WORKSPACE>\_tools\Python314\Lib\concurrent\futures\thread.py", line 73 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\concurrent\futures\thread.py", line 86 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\concurrent\futures\thread.py", line 119 in _worker
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x000060a8 (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 376 in wait
+  File "<WORKSPACE>\_tools\Python314\Lib\concurrent\futures\_base.py", line 449 in result
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_service.py", line 779 in wait_for
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 169 in test
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\case.py", line 615 in _callTestMethod
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\case.py", line 669 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\case.py", line 725 in __call__
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\suite.py", line 122 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\suite.py", line 84 in __call__
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\suite.py", line 122 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\suite.py", line 84 in __call__
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\runner.py", line 257 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\main.py", line 270 in runTests
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\main.py", line 104 in __init__
+  File "<string>", line 1 in <module>
+ERROR
+
+======================================================================
+ERROR: test_recover_after_catalog (tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_after_catalog)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 171, in test
+    result=recover_preparation(self.service,self.pid,confirm=True)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 274, in recover_preparation
+    result = _continue(service, record)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 226, in _continue
+    record['initial'] = inspect_initial_handoff(directory, archive)
+                        ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\materialization.py", line 60, in inspect_initial_handoff
+    raise ValidationFailure('FIRST_JIT_MISMATCH')
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: FIRST_JIT_MISMATCH
+
+----------------------------------------------------------------------
+Ran 1 test in 35.000s
+
+FAILED (errors=1)

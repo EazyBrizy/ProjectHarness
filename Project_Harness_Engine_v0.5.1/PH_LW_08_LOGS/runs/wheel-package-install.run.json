@@ -1,0 +1,19 @@
+{
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_08\\wheel-env\\Scripts\\python.exe",
+    "-m",
+    "pip",
+    "install",
+    "--no-deps",
+    "--no-index",
+    "Project_Harness_Engine_v0.5.1/dist/project_harness_engine-0.5.1-py3-none-any.whl"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T04:00:49.617938+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 120,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 2.306,
+  "log_sha256": "734444b971f9c4bbe73e2e89209e0939b1d0f31881d43a87ad0ba182b85d8af5"
+}

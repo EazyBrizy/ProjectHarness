@@ -1,0 +1,23 @@
+{
+  "integrity_status": "PASS",
+  "stage_verdict": "PASS",
+  "trees": {
+    "Project_Harness_Engine_v0.5.1": {
+      "status": "PASS",
+      "files": 2798,
+      "manifest_sha256": "c8a8c45ed0ad1f8aedf491c07dd16f1adc0cbd4a3bb900b3534fc9f724f45a02"
+    },
+    "Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 151,
+      "manifest_sha256": "da946f402b45b86f307955fb73f6043fe4b3b931c9f52756d097f7ef8789cb93"
+    },
+    "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 151,
+      "manifest_sha256": "da946f402b45b86f307955fb73f6043fe4b3b931c9f52756d097f7ef8789cb93"
+    }
+  },
+  "history_preserved": 1983,
+  "evidence": 289
+}

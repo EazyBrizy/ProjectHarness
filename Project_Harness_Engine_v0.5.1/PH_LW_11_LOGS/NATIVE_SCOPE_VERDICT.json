@@ -1,0 +1,60 @@
+{
+  "status": "NO-GO",
+  "implementation": "BUILT; composite regression matrix complete with inherited FAIL/SKIP; mandatory acceptance gaps remain",
+  "native_test_methods": 107,
+  "native_aggregate": "ABORTED, not PASS",
+  "new_desktop_tests": 18,
+  "desktop_source": "18 PASS",
+  "desktop_upload_race": "PASS before/after fix evidence",
+  "desktop_manual_login": "PASS source and installed wheel after transient Edge teardown issue; original TIMEOUT retained",
+  "installed_wheel_test_methods": 93,
+  "installed_exe": {
+    "ran": 4,
+    "errors": 0,
+    "failures": 0,
+    "skips": 0
+  },
+  "installed_wheel_final_recheck_methods": 31,
+  "installed_wheel_scope": "Composite across recorded builds; final app.js/metadata delta rechecked in final wheel desktop, PH01, PH04 browser and PH07 browser tests",
+  "installer_recovery": {
+    "status": "PASS",
+    "scenarios": [
+      {
+        "scenario": "actual_setup_process_tree_interruption_during_copy",
+        "status": "PASS",
+        "pid": 12048,
+        "exit": 1
+      },
+      {
+        "scenario": "actual_setup_recovery",
+        "status": "PASS",
+        "exit": 0
+      },
+      {
+        "scenario": "actual_readonly_pointer",
+        "status": "PASS",
+        "exit": 7
+      },
+      {
+        "scenario": "actual_readonly_retry",
+        "status": "PASS",
+        "exit": 0
+      }
+    ],
+    "physical_power_loss": "NOT RUN",
+    "real_disk_full": "NOT RUN; separate injection does not substitute"
+  },
+  "mandatory_not_run": [
+    "Clean Windows machine without developer runtimes installed",
+    "Actual Windows account with Unicode username",
+    "Physical offline preparation",
+    "Real volume/quota disk-full (only injected ENOSPC available)"
+  ],
+  "manual_blockers": [
+    "Long profile path with LongPathsEnabled=0: preparation staging copy PREPARATION_IO_BLOCKED; reproduced through public source API"
+  ],
+  "local_web_manual": "NO-GO; PH-LW-12 not started",
+  "automatic_executor": "NO-GO; not enabled",
+  "v0.5.1": "NO-GO / NOT RELEASED",
+  "zip_created": false
+}

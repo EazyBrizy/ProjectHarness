@@ -1,0 +1,37 @@
+{
+  "name": "test_ph_f01_planner_regression-nonbrowser",
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;import project_harness;assert Path(project_harness.__file__).resolve().is_relative_to(Path(sys.prefix).resolve());sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel\\test_ph_f01_planner_regression-nonbrowser.log",
+    "tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_01_greenfield_and_brownfield_fixture_independence_and_statuses",
+    "tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_02_accepted_prototype_fixture_exposes_real_planning_boundary",
+    "tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_03_mvp_target_reached_fixture_then_governed_level_up_to_release",
+    "tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_ph_f03_accept_prototype_to_first_alpha_ready_jit",
+    "tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_ph_f03_level_up_mvp_to_first_release_ready_jit",
+    "tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_ph_f03_route_is_actionable_in_public_status_api"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_12\\Независимая папка wheel",
+  "exit": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 0.197,
+  "environment_ref": "WHEEL_ENVIRONMENT.json",
+  "modules": [
+    "tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_01_greenfield_and_brownfield_fixture_independence_and_statuses",
+    "tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_02_accepted_prototype_fixture_exposes_real_planning_boundary",
+    "tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_03_mvp_target_reached_fixture_then_governed_level_up_to_release",
+    "tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_ph_f03_accept_prototype_to_first_alpha_ready_jit",
+    "tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_ph_f03_level_up_mvp_to_first_release_ready_jit",
+    "tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_ph_f03_route_is_actionable_in_public_status_api"
+  ],
+  "ran": 0,
+  "failures": 0,
+  "errors": 1,
+  "skips": [],
+  "log": "test_ph_f01_planner_regression-nonbrowser.log",
+  "process_status": "FAIL",
+  "log_sha256": "ca2e781ea41e378145fd699864d650a41f172b4575ef4ea78d043fa2f00d28ae"
+}

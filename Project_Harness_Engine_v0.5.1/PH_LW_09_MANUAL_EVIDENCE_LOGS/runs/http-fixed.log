@@ -1,0 +1,18 @@
+test_real_tcp_auth_consent_fields_replay_and_stale_view (tests.test_ph_lw_09_manual_evidence.ManualEvidenceHttpTests.test_real_tcp_auth_consent_fields_replay_and_stale_view) ... FAIL
+
+======================================================================
+FAIL: test_real_tcp_auth_consent_fields_replay_and_stale_view (tests.test_ph_lw_09_manual_evidence.ManualEvidenceHttpTests.test_real_tcp_auth_consent_fields_replay_and_stale_view)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_09_manual_evidence.py", line 160, in test_real_tcp_auth_consent_fields_replay_and_stale_view
+    self.assertEqual(live.service.wait_for(accepted[2]['operation_id'],timeout=90)['state'],'FAILED')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'BLOCKED' != 'FAILED'
+- BLOCKED
++ FAILED
+
+
+----------------------------------------------------------------------
+Ran 1 test in 32.430s
+
+FAILED (failures=1)

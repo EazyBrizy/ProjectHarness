@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "unchanged_test_files": 69,
+  "synchronization_only_test": "Project_Harness_Engine_v0.5.1/tests/test_ph_lw_12_acceptance.py",
+  "before_sha256": "8bbe06b5ec33dc2f294734bec37621288d0f5f41502b4b17f1780b96cd9884e6",
+  "after_sha256": "5409b3c62bc543dcdc476923f92d28eca324036199b7db6c7fa55c5fa855c495",
+  "all_assert_and_expect_ASTs_unchanged": true
+}

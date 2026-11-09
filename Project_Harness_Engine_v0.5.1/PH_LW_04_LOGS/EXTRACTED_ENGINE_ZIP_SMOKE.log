@@ -1,0 +1,31 @@
+final distribution smoke; actual Engine ZIP extracted; no staging PATH
+--- unittest PH-LW-01..04 ---
+----------------------------------------------------------------------
+Ran 53 tests in 12.671s
+
+OK (skipped=13)
+--- distribution doctor ---
+      "name": "Source and embedded resources",
+      "status": "PASS",
+      "details": {
+        "layout": "source",
+        "checked": 33,
+        "errors": []
+      }
+    },
+    {
+      "name": "Distribution manifest",
+      "status": "PASS",
+      "details": {
+        "entries": 1066,
+        "missing": [],
+        "extra": [],
+        "mismatched": [],
+        "excluded_runtime_records": [
+          ".harness/runtime/OPERATION_JOURNAL/*"
+        ]
+      }
+    }
+  ]
+}
+--- doctor PASS and targeted cases exit=0 ---

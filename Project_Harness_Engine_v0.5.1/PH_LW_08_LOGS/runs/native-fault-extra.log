@@ -1,0 +1,21 @@
+test_real_process_exit_after_compile_rename_catalog (tests.test_ph_lw_08_preparation.PreparationProcessCrashTests.test_real_process_exit_after_compile_rename_catalog) ... ok
+test_real_windows_locked_directory_handle_and_retry (tests.test_ph_lw_08_preparation.PreparationTests.test_real_windows_locked_directory_handle_and_retry) ... ERROR
+test_readonly_root_and_junction_rejected_before_mutation (tests.test_ph_lw_08_preparation.PreparationTests.test_readonly_root_and_junction_rejected_before_mutation) ... ok
+
+======================================================================
+ERROR: test_real_windows_locked_directory_handle_and_retry (tests.test_ph_lw_08_preparation.PreparationTests.test_real_windows_locked_directory_handle_and_retry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 191, in test_real_windows_locked_directory_handle_and_retry
+    result=recover_preparation(self.service,self.pid,confirm=True)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 292, in recover_preparation
+    _assert_binding(service, pid, record['binding'])
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 65, in _assert_binding
+    raise ValidationFailure('STALE_PREPARATION: input, sources, approvals или engine build изменились')
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: STALE_PREPARATION: input, sources, approvals или engine build изменились
+
+----------------------------------------------------------------------
+Ran 3 tests in 62.207s
+
+FAILED (errors=1)

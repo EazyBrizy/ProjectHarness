@@ -1,0 +1,24 @@
+test_navigation_resume_finishes_before_user_mutation (tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_navigation_resume_finishes_before_user_mutation) ... Task queue depth is 1
+Task queue depth is 2
+FAIL
+
+======================================================================
+FAIL: test_navigation_resume_finishes_before_user_mutation (tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_navigation_resume_finishes_before_user_mutation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_12_acceptance.py", line 35, in test_navigation_resume_finishes_before_user_mutation
+    self.assertEqual(posts,[],'User mutation overtook its own pending navigation write')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['http://127.0.0.1:55109/api/projects/LWP-8601347D3719333CD726/operations'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'http://127.0.0.1:55109/api/projects/LWP-8601347D3719333CD726/operations'
+
+- ['http://127.0.0.1:55109/api/projects/LWP-8601347D3719333CD726/operations']
++ [] : User mutation overtook its own pending navigation write
+
+----------------------------------------------------------------------
+Ran 1 test in 2.734s
+
+FAILED (failures=1)

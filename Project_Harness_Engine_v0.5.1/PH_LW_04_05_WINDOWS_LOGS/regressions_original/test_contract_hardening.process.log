@@ -1,0 +1,1 @@
+{"modules": ["tests.test_contract_hardening"], "ran": 31, "failures": 0, "errors": 1, "skips": [], "elapsed_seconds": 285.529, "log": "test_contract_hardening.log", "status": "FAIL"}

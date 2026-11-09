@@ -1,0 +1,26 @@
+[
+  {
+    "module": "test_ph_f03_active_stage_planning",
+    "status": "PASS",
+    "seconds": 25.81,
+    "tail": "----------------------------------------------------------------------\nRan 8 tests in 24.636s\n\nOK\n"
+  },
+  {
+    "module": "test_ph_f01_planner_regression",
+    "status": "PASS",
+    "seconds": 42.26,
+    "tail": "----------------------------------------------------------------------\nRan 6 tests in 41.154s\n\nOK\n"
+  },
+  {
+    "module": "test_gate_evidence_contract",
+    "status": "PASS",
+    "seconds": 92.44,
+    "tail": "----------------------------------------------------------------------\nRan 10 tests in 91.361s\n\nOK\n"
+  },
+  {
+    "module": "test_ph_f06_maturity_lifecycle",
+    "status": "PASS",
+    "seconds": 208.87,
+    "tail": "----------------------------------------------------------------------\nRan 13 tests in 207.785s\n\nOK\n"
+  }
+]

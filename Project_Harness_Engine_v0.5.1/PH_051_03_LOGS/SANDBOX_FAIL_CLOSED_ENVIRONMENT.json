@@ -1,0 +1,13 @@
+{
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "uid": 0,
+  "podman_on_path": null,
+  "actual_doctor_result": {
+    "status": "BLOCKED",
+    "backend": "ROOTLESS_PODMAN",
+    "reason_code": "SANDBOX_UNAVAILABLE",
+    "isolation_verified": false,
+    "message": "Host is root; rootless Podman is mandatory",
+    "checks": {}
+  }
+}

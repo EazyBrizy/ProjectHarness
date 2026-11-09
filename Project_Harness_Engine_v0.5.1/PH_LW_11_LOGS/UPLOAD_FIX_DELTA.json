@@ -1,0 +1,12 @@
+{
+  "before_digest": "sha256:464e36cba619bbf57fc81de340b887e73075357bd7f6829c38b42e5190b67f19",
+  "after_digest": "sha256:4b27f43c688e005453ee966620116de591cebbbea8f81a69410fe87f9d39babb",
+  "changed_source_files": [
+    "resources/local_web/assets/app.js",
+    "resources/local_web/metadata_v1.json"
+  ],
+  "reproduction": "runs/upload-race-repro.log",
+  "fixed": "runs/upload-race-fixed.log",
+  "previous_tests_unchanged": true,
+  "fix": "Publish upload success after awaited refresh and release of requestBusy; no assertion/deadline changes"
+}

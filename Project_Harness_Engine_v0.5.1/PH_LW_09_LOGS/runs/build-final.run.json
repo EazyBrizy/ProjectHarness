@@ -1,0 +1,16 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "tools/sync_working_tree.py",
+    "--build-wheel"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T05:01:46.479691+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 300,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 7.683,
+  "log_sha256": "51719f24cafd41600cfc1cbd4e0743904a3eb2c9e9c392141a516ddc68a71426"
+}

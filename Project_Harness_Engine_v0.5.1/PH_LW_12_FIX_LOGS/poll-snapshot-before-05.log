@@ -1,0 +1,59 @@
+<WORKSPACE>\_scratch\ph_lw_12_fix\input-frozen-candidate-03\_internal\project_harness\__init__.py
+test_operation_snapshot_survives_worker_temp_file_rename (tests.test_ph_lw_12_blockers.DeepAppDataTests.test_operation_snapshot_survives_worker_temp_file_rename) ... ERROR
+test_preparation_poll_during_write_is_conflict_not_internal_error (tests.test_ph_lw_12_blockers.DeepAppDataTests.test_preparation_poll_during_write_is_conflict_not_internal_error) ... ERROR
+
+======================================================================
+ERROR: test_operation_snapshot_survives_worker_temp_file_rename (tests.test_ph_lw_12_blockers.DeepAppDataTests.test_operation_snapshot_survives_worker_temp_file_rename)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_12_blockers.py", line 191, in test_operation_snapshot_survives_worker_temp_file_rename
+    self._poll_during_atomic_write(False)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_12_blockers.py", line 181, in _poll_during_atomic_write
+    view=service.get_operation(pid,op['operation_id'])
+  File "<WORKSPACE>\_scratch\ph_lw_12_fix\input-frozen-candidate-03\_internal\project_harness\local_web_service.py", line 606, in get_operation
+    self._registered(project_id, migration_receipt=op.get('action') in {'migrate-project','recover-migration'})
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_scratch\ph_lw_12_fix\input-frozen-candidate-03\_internal\project_harness\local_web_service.py", line 252, in _registered
+    ensure_native_path(raw, tree=not migration_receipt)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_scratch\ph_lw_12_fix\input-frozen-candidate-03\_internal\project_harness\platform_fs.py", line 181, in ensure_native_path
+    assert_windows_tree(path)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "<WORKSPACE>\_scratch\ph_lw_12_fix\input-frozen-candidate-03\_internal\project_harness\platform_fs.py", line 148, in assert_windows_tree
+    info = _native_io_path(candidate).stat()
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 654, in stat
+    return os.stat(self, follow_symlinks=follow_symlinks)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] Не удается найти указанный файл: '\\\\?\\<TEMP>\\LW12 deep fix 6y243d3c\\Глубокий-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\данные-yyyyyyyyyyyyyyyyyyyyyyyyy-workspaces\\session-D041081F3668B81A00A5987E\\intake\\.READINESS.json.g849216u'
+
+======================================================================
+ERROR: test_preparation_poll_during_write_is_conflict_not_internal_error (tests.test_ph_lw_12_blockers.DeepAppDataTests.test_preparation_poll_during_write_is_conflict_not_internal_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_12_blockers.py", line 194, in test_preparation_poll_during_write_is_conflict_not_internal_error
+    self._poll_during_atomic_write(True)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_12_blockers.py", line 179, in _poll_during_atomic_write
+    get_preparation(service,pid)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "<WORKSPACE>\_scratch\ph_lw_12_fix\input-frozen-candidate-03\_internal\project_harness\local_web_preparation.py", line 114, in get_preparation
+    root, kind = service._registered(pid)
+                 ~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<WORKSPACE>\_scratch\ph_lw_12_fix\input-frozen-candidate-03\_internal\project_harness\local_web_service.py", line 252, in _registered
+    ensure_native_path(raw, tree=not migration_receipt)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_scratch\ph_lw_12_fix\input-frozen-candidate-03\_internal\project_harness\platform_fs.py", line 181, in ensure_native_path
+    assert_windows_tree(path)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "<WORKSPACE>\_scratch\ph_lw_12_fix\input-frozen-candidate-03\_internal\project_harness\platform_fs.py", line 148, in assert_windows_tree
+    info = _native_io_path(candidate).stat()
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 654, in stat
+    return os.stat(self, follow_symlinks=follow_symlinks)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] Не удается найти указанный файл: '\\\\?\\<TEMP>\\LW12 deep fix px6o7g9m\\Глубокий-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\данные-yyyyyyyyyyyyyyyyyyyyyyyyy-workspaces\\session-D041081F3668B81A00A5987E\\intake\\.READINESS.json.9hgwvv32'
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.855s
+
+FAILED (errors=2)

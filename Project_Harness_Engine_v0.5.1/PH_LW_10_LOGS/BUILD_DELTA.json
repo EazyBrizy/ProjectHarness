@@ -1,0 +1,37 @@
+{
+  "initial_digest": "sha256:a32030616a72e246b205fdaba75af2239c489124ae3627e0636aae219ba770b0",
+  "final_digest": "sha256:cfa3d0b37dd4f8f717c52749ab440f4888220904eacf2f2d4c263156ba4a5e54",
+  "changed_source_files": [
+    "local_web_service.py",
+    "resources/local_web/assets/approvals.js",
+    "resources/local_web/metadata_v1.json"
+  ],
+  "changed_test_files": [
+    "tests/test_ph_lw_10_lifecycle.py"
+  ],
+  "reason": "Scope new controls by root kind/unique IDs; deduplicate approval reads; keep owned migration receipt polling independent of mutable migration trees. Existing tests/core algorithms unchanged.",
+  "pre_ui_fix_digest": "sha256:7f54e8fa19f2751a511c127deaa28904f19fd487249c148bf1ae71f3c1c5e9c1",
+  "ui_fix_source_delta": [
+    "local_web_service.py",
+    "resources/local_web/assets/approvals.js",
+    "resources/local_web/metadata_v1.json"
+  ],
+  "polling_fix_digest_before": "sha256:7990d57fb498c319239cdee995ab1712b0e2c1c895eec40b3d69dbf99af662b4",
+  "polling_fix_source_delta": [
+    "local_web_service.py",
+    "resources/local_web/metadata_v1.json"
+  ],
+  "service_methods_changed_at_polling_fix": [
+    "_registered",
+    "get_operation"
+  ],
+  "test_addition": "MigrationPollingTests only; all pre-existing test bytes reconstructed and verified",
+  "rechecked": [
+    "all PH-LW-04–10 browser/HTTP modules on source",
+    "all applicable installed browser/HTTP modules plus native picker",
+    "tests.test_ph_lw_01_contract",
+    "tests.test_ph_lw_03_service",
+    "migration confirmation/replay, process crash recovery, legacy migration, new deterministic polling race"
+  ],
+  "unchanged_evidence": "All core algorithms and lifecycle mutators unchanged; final source/wheel recheck covers changed receipt reading and UI paths. Unaffected cases retain complete prior evidence."
+}

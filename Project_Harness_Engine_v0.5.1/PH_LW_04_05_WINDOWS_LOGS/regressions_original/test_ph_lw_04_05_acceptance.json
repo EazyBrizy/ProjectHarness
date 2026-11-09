@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_ph_lw_04_05_acceptance"
+  ],
+  "ran": 6,
+  "failures": 1,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 232.551,
+  "log": "test_ph_lw_04_05_acceptance.log",
+  "status": "FAIL"
+}

@@ -1,0 +1,20 @@
+{
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "Project_Harness_Engine_v0.5.1/local_web/ci_ph_lw_11_windows.ps1",
+    "-PythonExecutable",
+    "<WORKSPACE>/.venv/Scripts/python.exe",
+    "-LogDirectory",
+    "<WORKSPACE>/_scratch/ph_lw_11/native-ui-final"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T23:35:47.910668+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 5400,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 1311.543,
+  "log_sha256": "3700f909b22593b6bc0401cadd44bc50d54fe0956565b98e65a028da16f65309"
+}

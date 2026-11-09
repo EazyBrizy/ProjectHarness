@@ -1,0 +1,6 @@
+{
+  "status": "ABORTED",
+  "reason": "Partial preliminary source aggregate preserved; complete Windows regression coverage is being collected against the installed wheel. Final affected source/browser rechecks remain required.",
+  "pid": 35232,
+  "not_a_pass": true
+}

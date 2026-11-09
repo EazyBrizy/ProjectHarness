@@ -1,0 +1,19 @@
+{
+  "command": [
+    "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_lw_11_zip_path",
+    "tests.test_ph_lw_05_import.LocalSourceImporter.test_snapshot_hardlink_and_copy_time_tamper_fail_closed"
+  ],
+  "cwd": "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+  "started_utc": "2026-11-08T05:10:48.575943+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 300,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 14.154,
+  "log_sha256": "5439c5a0fdcff5e6d63e4bfbb53f424d04eca8b974d1acab71408a2044c347fb"
+}

@@ -1,0 +1,23 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "tools/run_regressions.py",
+    "--output",
+    "_scratch/ph_lw_10/core-service-recheck",
+    "--jobs",
+    "1",
+    "--timeout",
+    "300",
+    "tests.test_ph_lw_01_contract",
+    "tests.test_ph_lw_03_service"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T12:30:39.450053+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 600,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 94.213,
+  "log_sha256": "a74a51d83b807956f979de75569f639aa78f54b6b8a4ad0a9eb12bbf86b1bab6"
+}

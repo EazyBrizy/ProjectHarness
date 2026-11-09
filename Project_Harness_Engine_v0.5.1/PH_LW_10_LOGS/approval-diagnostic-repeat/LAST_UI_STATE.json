@@ -1,0 +1,17 @@
+[
+  {
+    "notice": "Статус получен. GET не запускает проектные операции.",
+    "status": "0 из 5 решений · WAITING_DECISION",
+    "busy": false
+  },
+  {
+    "notice": "Статус получен. GET не запускает проектные операции.",
+    "status": "0 из 5 решений · WAITING_DECISION",
+    "busy": false
+  },
+  {
+    "notice": "Решение APPROVE сохранено: LWA-FB40FFD9D5D245D38F80C34F040CB583. Оператор: Оператор Edge.",
+    "status": "5 из 5 решений · READY_FOR_HANDOFF",
+    "busy": false
+  }
+]

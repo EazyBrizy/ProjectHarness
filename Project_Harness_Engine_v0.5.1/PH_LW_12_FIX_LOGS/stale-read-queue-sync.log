@@ -1,0 +1,9 @@
+test_refresh_after_commit_does_not_reuse_older_lifecycle_response (tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_refresh_after_commit_does_not_reuse_older_lifecycle_response) ... Task queue depth is 1
+Task queue depth is 2
+Task queue depth is 3
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 18.103s
+
+OK

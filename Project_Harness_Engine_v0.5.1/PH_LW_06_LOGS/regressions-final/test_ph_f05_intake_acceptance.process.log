@@ -1,0 +1,1 @@
+{"modules": ["tests.test_ph_f05_intake_acceptance"], "ran": 4, "failures": 0, "errors": 0, "skips": [], "elapsed_seconds": 18.642, "log": "test_ph_f05_intake_acceptance.log", "status": "PASS"}

@@ -1,0 +1,15 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "tools/recheck_ph_lw_11_long_path.py"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-08T01:35:49.029631+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 360,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 28.136,
+  "log_sha256": "cba702807b6fb1e5a5cc851e159049391733d79afd4a9565a921178a4d74ea8b"
+}

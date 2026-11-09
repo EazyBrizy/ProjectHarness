@@ -1,0 +1,15 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "_scratch/ph_lw_11_long_path/diagnose_deep.py"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-08T01:29:37.764424+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 240,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 33.21,
+  "log_sha256": "5daa6a8d7575de5bd909780ba213c8f201af4382663e51fb87a23ba07d07a320"
+}

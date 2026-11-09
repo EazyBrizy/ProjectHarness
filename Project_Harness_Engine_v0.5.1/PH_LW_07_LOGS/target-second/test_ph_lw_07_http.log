@@ -1,0 +1,52 @@
+test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss (tests.test_ph_lw_07_http.ApprovalBrowserTests.test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss) ... FAIL
+test_all_routes_exact_origin_session_csrf_methods_no_writes (tests.test_ph_lw_07_http.ApprovalHttpTests.test_all_routes_exact_origin_session_csrf_methods_no_writes) ... ok
+test_forged_fields_duplicate_keys_invalid_types_and_stale_digest_rejected (tests.test_ph_lw_07_http.ApprovalHttpTests.test_forged_fields_duplicate_keys_invalid_types_and_stale_digest_rejected) ... ok
+test_four_posts_replay_reload_ready_and_prepare_honestly_pending (tests.test_ph_lw_07_http.ApprovalHttpTests.test_four_posts_replay_reload_ready_and_prepare_honestly_pending) ... ok
+test_gpt_actor_timestamp_forgery_cannot_become_local_consent (tests.test_ph_lw_07_http.ApprovalHttpTests.test_gpt_actor_timestamp_forgery_cannot_become_local_consent) ... ok
+
+======================================================================
+FAIL: test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss (tests.test_ph_lw_07_http.ApprovalBrowserTests.test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_07_http.py", line 134, in test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss
+    expect(page.locator('#approval-subjects section')).to_have_count(4)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\sync_api\_generated.py", line 15216, in to_have_count
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.to_have_count(count=count, timeout=to_milliseconds(timeout))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 465, in to_have_count
+    await self._expect_impl(
+    ...<5 lines>...
+    )
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        AssertionError(
+        ^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        self._is_soft,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to have count '4'
+Actual value: 0 
+Call log:
+  - Expect "to_have_count" locator("#approval-subjects section") with timeout 5000ms
+  - waiting for locator("#approval-subjects section")
+    14 × locator resolved to 0 elements
+       - unexpected value "0"
+
+
+----------------------------------------------------------------------
+Ran 5 tests in 11.168s
+
+FAILED (failures=1)

@@ -1,0 +1,20 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "tools/run_regressions.py",
+    "--output",
+    "_scratch/ph_lw_09_manual_evidence/core-contract-recheck",
+    "--jobs",
+    "1",
+    "tests.test_ph_lw_01_contract"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T09:38:02.174216+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 120,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 0.933,
+  "log_sha256": "b539f9245d5758d244bfa47696b54b1fc8a1a78795abfaa1edd06e2baa0d2e69"
+}

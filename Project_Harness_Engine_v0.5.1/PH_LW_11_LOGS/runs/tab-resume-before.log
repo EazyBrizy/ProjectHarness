@@ -1,0 +1,115 @@
+test_launcher_resume_and_new_cookie_tab_keep_independent_navigation (tests.test_ph_lw_11_desktop.NativeLauncherTests.test_launcher_resume_and_new_cookie_tab_keep_independent_navigation) ... Task queue depth is 1
+Task queue depth is 2
+Task queue depth is 2
+Task queue depth is 1
+FAIL
+
+======================================================================
+FAIL: test_launcher_resume_and_new_cookie_tab_keep_independent_navigation (tests.test_ph_lw_11_desktop.NativeLauncherTests.test_launcher_resume_and_new_cookie_tab_keep_independent_navigation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_11_desktop.py", line 206, in test_launcher_resume_and_new_cookie_tab_keep_independent_navigation
+    expect(other.locator('#project-layout')).to_be_visible()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\sync_api\_generated.py", line 14811, in to_be_visible
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.to_be_visible(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            timeout=to_milliseconds(timeout), visible=visible
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 852, in to_be_visible
+    await self._expect_impl(
+    ...<5 lines>...
+    )
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        AssertionError(
+        ^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        self._is_soft,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to be visible
+Actual value: hidden 
+Call log:
+  - Expect "to_be_visible" locator("#project-layout") with timeout 5000ms
+  - waiting for locator("#project-layout")
+    14 × locator resolved to <div id="project-layout" class="layout hidden">…</div>
+       - unexpected value "hidden"
+
+Aria snapshot:
+- link "Перейти к содержимому":
+  - /url: "#workspace"
+- complementary "Навигация":
+  - strong: Project Harness
+  - text: Локальный мастер · 0.1.0-dev
+  - paragraph: РАБОЧАЯ ОБЛАСТЬ
+  - navigation "Разделы проекта":
+    - button "Проекты и запуск"
+    - button "Документы"
+    - button "Опрос и GPT"
+    - button "Согласования"
+    - button "Обзор проекта"
+    - button "Задачи и Run"
+    - button "Стадии и доказательства"
+    - button "Обслуживание"
+    - button "Диагностика"
+  - text: Только этот компьютер Без provider API, облака и автоматического запуска Codex
+- main:
+  - paragraph: ЛОКАЛЬНОЕ УПРАВЛЕНИЕ ПРОЕКТОМ
+  - heading "Документы" [level=1]
+  - status: Сессия активна
+  - button "Обновить состояние"
+  - button "Выйти"
+  - button "Завершить Harness"
+  - status: Статус получен. GET не запускает проектные операции.
+  - paragraph: Приём MD/ZIP в приватный snapshot; анализ и согласования отдельно.
+  - region "Документы и источники":
+    - heading "Документы и источники" [level=2]
+    - paragraph: Только локальные MD (UTF-8) и ZIP с MD. Импорт не анализирует документы и не отправляет их в интернет.
+    - heading "Начать Greenfield опрос" [level=3]
+    - text: Название проекта
+    - textbox "Название проекта"
+    - button "Создать intake для документов"
+    - button "Документации нет"
+    - text: Existing repository mode
+    - combobox "Existing repository mode":
+      - option "BROWNFIELD" [selected]
+      - option "HYBRID"
+    - button "Выбрать существующий репозиторий…"
+    - paragraph: Системное окно выбора папки. Assessment и preparation читают исходный репозиторий; новый Project Instance размещается отдельно.
+    - heading "Загрузить документы в выбранный intake" [level=3]
+    - group "Загрузка Markdown и ZIP":
+      - text: Выберите MD/ZIP или перетащите файлы сюда
+      - button "Выберите MD/ZIP или перетащите файлы сюда"
+      - paragraph: Файлы не выбраны
+    - text: Способ изменения источников
+    - combobox "Способ изменения источников":
+      - option "Добавить" [selected]
+      - option "Заменить весь набор"
+    - button "Импортировать файлы" [disabled]
+    - button "Документации нет" [disabled]
+    - status
+    - heading "Принятые источники и история" [level=3]
+    - paragraph: Запрос или состояние проекта не прошли проверку.
+    - heading "Предпросмотр как экранированный текст" [level=3]
+    - text: Выберите документ для просмотра.
+    - paragraph: "Лимиты: весь запрос с ZIP до 64 MiB; один MD или распакованный элемент до 8 MiB; суммарное распакованное содержимое до 128 MiB; до 1000 элементов; вложенность до 16; сжатие до 200:1. Опасный ZIP отклоняется целиком."
+  - text: "Project Harness 0.5.1 WIP · Local Web PH-LW-11 · Ручной маршрут · Полная v0.5.1: NO-GO"
+
+----------------------------------------------------------------------
+Ran 1 test in 13.493s
+
+FAILED (failures=1)

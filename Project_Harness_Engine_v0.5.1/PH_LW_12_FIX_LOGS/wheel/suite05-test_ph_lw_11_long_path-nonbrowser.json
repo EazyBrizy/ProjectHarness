@@ -1,0 +1,14 @@
+{
+  "modules": [
+    "tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_internal_io_does_not_admit_device_unc_or_stream_input",
+    "tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_long_preparation_publication_validation_and_first_jit",
+    "tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_long_publication_recovery_never_reexecutes_compiler"
+  ],
+  "ran": 3,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 33.745,
+  "log": "suite05-test_ph_lw_11_long_path-nonbrowser.log",
+  "status": "PASS"
+}

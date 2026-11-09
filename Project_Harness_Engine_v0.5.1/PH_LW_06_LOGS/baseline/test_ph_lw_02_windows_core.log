@@ -1,0 +1,19 @@
+test_01_no_fcntl_during_package_cli_manual_import (tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_01_no_fcntl_during_package_cli_manual_import) ... ok
+test_02_unsupported_host_fails_closed_not_host_exec (tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_02_unsupported_host_fails_closed_not_host_exec) ... ok
+test_03_windows_drive_device_unc_root_forms (tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_03_windows_drive_device_unc_root_forms) ... ok
+test_04_windows_relative_drive_ads_device_and_escape (tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_04_windows_relative_drive_ads_device_and_escape) ... ok
+test_05_colliding_tree_rejected_without_rewriting_case (tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_05_colliding_tree_rejected_without_rewriting_case) ... skipped 'NTFS casefold aliases require a case-sensitive directory; ZIP test is cross-platform'
+test_06_unsafe_zip_rejected_before_extraction (tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_06_unsafe_zip_rejected_before_extraction) ... ok
+test_06b_unsafe_source_zip_rejected_before_intake_workspace_writes (tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_06b_unsafe_source_zip_rejected_before_intake_workspace_writes) ... ok
+test_07_utf8_crlf_and_atomic_temp_close (tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_07_utf8_crlf_and_atomic_temp_close) ... ok
+test_08_permission_or_busy_replace_propagates_without_writes (tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_08_permission_or_busy_replace_propagates_without_writes) ... ok
+test_09_second_process_cannot_bypass_real_os_stage_lock (tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_09_second_process_cannot_bypass_real_os_stage_lock) ... ok
+test_10_stage_fault_midwrite_reconciles_all_old (tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_10_stage_fault_midwrite_reconciles_all_old) ... ok
+test_11_manual_greenfield_full_api_through_complete (tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_11_manual_greenfield_full_api_through_complete) ... ok
+test_12_native_windows_disk_root_and_read_only (tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_12_native_windows_disk_root_and_read_only) ... ok
+test_13_native_windows_open_handle_replace_denial (tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_13_native_windows_open_handle_replace_denial) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 12.607s
+
+OK (skipped=1)

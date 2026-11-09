@@ -1,0 +1,205 @@
+{
+  "status": "PASS",
+  "verified_utc": "2026-11-08T05:44:37.961981+00:00",
+  "scope": "Artifact integrity; long app-data ZIP import PASS; full PH-LW-11 acceptance NO-GO",
+  "trees": {
+    "Project_Harness_Engine_v0.5.1": {
+      "status": "PASS",
+      "files": 3987,
+      "manifest_sha256": "7bc4aabf97bba1c229bef95a0a97d03197cd64e701d2dd53a90f7754f1faf071"
+    },
+    "Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 154,
+      "manifest_sha256": "0127d336e7598d83254827fe0c901f031cf1c9425bae679abbbf465f5f21973b"
+    },
+    "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 154,
+      "manifest_sha256": "0127d336e7598d83254827fe0c901f031cf1c9425bae679abbbf465f5f21973b"
+    }
+  },
+  "wheel_sha256": "9bb3e87fdf2b297e7292fd5d2216fc1a61c9dbe49e2e4cf018f5eb5f2aa19bc2",
+  "installer_sha256": "0550a5582182ab95aa8b5376b878cdb3210b126a53b6fd6f90746417d50abb94",
+  "engine_build_digest": "sha256:5f0d5ac595d8a052bfa456140f2d42c5d571c53ab38aff3c8831d4ebbe309bbf",
+  "source_delta": [
+    "inventory.py",
+    "local_web_exchange.py",
+    "local_web_imports.py",
+    "local_web_source_refresh.py",
+    "local_web_sources_service.py",
+    "resources/local_web/metadata_v1.json",
+    "safety.py",
+    "serialization.py"
+  ],
+  "immutable_files_verified": 3300,
+  "historical_engine_evidence_preserved": 2794,
+  "evidence_files_verified": 192,
+  "archives_preserved": 4,
+  "zip_created": false,
+  "long_paths_enabled": 0,
+  "system_settings_changed": false,
+  "input_baseline_sha256": "04264e9996c5b9d3e83c740ba5bff76c768b61414d95eb381bed5872cb886ade",
+  "input_file_hashes_sha256": "24c1a4c8a0e3d5e6352597ce8defd4896c04c67e800735b0bde9f2513d805c6c",
+  "changed_file_hashes_sha256": "0a845b1193ce27d6aab17e742f573b1304730aacfadcbee0426b12117a372616",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\tools\\check_workspace.py"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+      "exit": 0,
+      "status": "PASS",
+      "log": "workspace.log",
+      "log_sha256": "34fbdbe57592d1c8e5f36920a5c1fecac6d6fb2621fc690d8b8a3f93ebe839f0"
+    },
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1\\project-harness.py",
+        "doctor"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1",
+      "exit": 0,
+      "status": "PASS",
+      "log": "doctor.log",
+      "log_sha256": "5728b2cb7a8e395e566b0692244baec7214995548b3ea33400b0934c124316d0"
+    },
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Documentation_v0.5.1\\tools\\validate_documentation.py",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Documentation_v0.5.1",
+        "--json",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_workspace\\PH_LW_11_ZIP_PATH\\DOC_VALIDATION.json"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+      "exit": 0,
+      "status": "PASS",
+      "log": "docs.log",
+      "log_sha256": "5dfde1f3d4a08afb43bfbca4a56c43b8acb67fa331e22793a7530224fa87818e"
+    },
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1\\windows\\Harness\\Harness.exe",
+        "--doctor"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+      "exit": 0,
+      "status": "PASS",
+      "log": "frozen-doctor.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1\\windows\\Harness\\Harness.exe",
+        "--check-package"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+      "exit": 0,
+      "status": "PASS",
+      "log": "frozen-integrity.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "verdicts": {
+    "long_app_data_zip_import": "PASS",
+    "PH-LW-11": "NO-GO",
+    "LOCAL_WEB_MANUAL": "NO-GO; PH-LW-12 not started",
+    "AUTOMATIC_EXECUTOR": "NO-GO; disabled",
+    "v0.5.1": "NO-GO / NOT RELEASED",
+    "system_settings_changed": false,
+    "mandatory_not_run": [
+      "Clean Windows without developer runtimes",
+      "Actual Unicode Windows username",
+      "Physical offline",
+      "Real volume/quota disk-full"
+    ],
+    "additional_blockers": [],
+    "normal_second_launch_browser_fresh": "NOT RUN per explicit user prohibition of new visible browser windows; exact second --no-browser rejection exit 1 checked; historical normal-launch evidence preserved",
+    "core_scopes": 20,
+    "core_methods": 242,
+    "core_skips": [
+      {
+        "test": "tests.test_contract_hardening.ContractHardeningControlPlaneTests.test_agent_result_symlink_is_rejected",
+        "reason": "NOT RUN: native file symlink creation requires a Windows privilege unavailable to this non-admin user"
+      },
+      {
+        "test": "tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_05_colliding_tree_rejected_without_rewriting_case",
+        "reason": "NTFS casefold aliases require a case-sensitive directory; ZIP test is cross-platform"
+      }
+    ],
+    "installed_wheel": {
+      "installed-nonbrowser": 49,
+      "installed-browser": 33
+    },
+    "fresh_unique_methods": 305,
+    "method_statuses": {
+      "PASS": 303,
+      "SKIP": 2
+    },
+    "installed_exe_tests": {
+      "ran": 4,
+      "errors": 0,
+      "failures": 0,
+      "skips": 0
+    },
+    "long_path": {
+      "maximum_retained_project_file_path_length": 284,
+      "maximum_retained_app_data_file_path_length": 278,
+      "retained_import_document_count": 2,
+      "retained_file_count": 512,
+      "long_paths_enabled_before": 0,
+      "long_paths_enabled_after": 0,
+      "system_settings_changed": false,
+      "app_data_fixture": "<WORKSPACE>\\_scratch\\ph_lw_11_zip_path\\installed-long-verified\\LocalAppData",
+      "startup_adapter": "Long USERPROFILE/project root AND long app-data root; same real installed EXE",
+      "snapshot_adapter": "Same assertions; independent extended IO reads every deep fixture file"
+    },
+    "installer_recovery": {
+      "status": "PASS",
+      "scenarios": [
+        {
+          "scenario": "actual_setup_process_tree_interruption_during_copy",
+          "status": "PASS",
+          "pid": 50104,
+          "exit": 1
+        },
+        {
+          "scenario": "actual_setup_recovery",
+          "status": "PASS",
+          "exit": 0
+        },
+        {
+          "scenario": "actual_readonly_pointer",
+          "status": "PASS",
+          "exit": 7
+        },
+        {
+          "scenario": "actual_readonly_retry",
+          "status": "PASS",
+          "exit": 0
+        }
+      ],
+      "physical_power_loss": "NOT RUN",
+      "real_disk_full": "NOT RUN; separate injection does not substitute"
+    },
+    "zip_created": false,
+    "scope_note": "Fresh scoped regressions; historical full matrix preserved. Automatic/upper-level matrices not rerun or promoted. Existing unsigned status and unfinished visual walkthrough retained."
+  },
+  "workspace_files": {
+    "README.md": "9b7d4c9060a2d3c29f069568b081ac92edc27880bd483fd10b6bf161cf12b5ff",
+    "_workspace/CURRENT_TASK.md": "cad0c3c3443821294571e199142df05852c7d474ac2ee1b0a1e15aca8dd4ce61",
+    "_workspace/PROJECT_MAP.md": "93798f9f9338c235c75fdbbd770e76089ab499941bfcd1da3eb5be11c7411e3c",
+    "_workspace/RUNBOOK.md": "2871e3d2b8219bf2ef3f9980549c34bff011ef23af928ab260a2b0a3a1ca7718",
+    "tools/begin_ph_lw_11_zip_path.py": "c68f40f72bbc45276ee111da14433c93d5b8487f1e030bf38d3899c7b7d4bf6d",
+    "tools/check_ph_lw_11_zip_path_logic.py": "08dc0a1a2902790f0e1d40ab512d48f11ded2972be76dab1a43cad5d1bdf1ce3",
+    "tools/finalize_ph_lw_11_zip_path.py": "770330150a9f2e2f4ec9b24cf9527c62c48f4b85d1f26a2d2211a57729db6d57",
+    "tools/freeze_ph_lw_11_zip_path.py": "bb6a99ca9da27341909b265b1ef9a46c55a2d8e4e5dbc73e16bf446c6b4f7711",
+    "tools/report_ph_lw_11_zip_path.py": "a929967d6edf314bf8ad15c29303514861aac377dc93743bb3a578e450ec66d4",
+    "tools/run_ph_lw_11_zip_path_wheel.py": "4822e5f42794c4f0727d8f567db5dd7adbe23cfc6bf4602be902facbb0d99e02",
+    "tools/setup_ph_lw_11_zip_path_wheel.py": "5fb4dbd2dd2497eac3945c1dd1bfea0d4d35bfb29ae6d947f107bbfd56edea55",
+    "tools/verify_ph_lw_11_zip_path.py": "b7180819d6a517ac795f4f2284d6f8189251958ee1bc2379b3298511f3d39515"
+  }
+}

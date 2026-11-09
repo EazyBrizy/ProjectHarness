@@ -1,0 +1,17 @@
+{
+  "modules": [
+    "tests.test_ph_lw_01_contract"
+  ],
+  "ran": 9,
+  "failures": 0,
+  "errors": 0,
+  "skips": [
+    {
+      "test": "tests.test_ph_lw_01_contract.PHLW01ContractTests.test_05_strict_shell_schemas_and_untrusted_rejection",
+      "reason": "jsonschema optional; core minimal wheel dependencies=[]"
+    }
+  ],
+  "elapsed_seconds": 0.367,
+  "log": "test_ph_lw_01_contract.log",
+  "status": "PASS"
+}

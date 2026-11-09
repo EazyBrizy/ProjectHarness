@@ -1,0 +1,29 @@
+{
+  "name": "test_ph_lw_09_http-browser",
+  "command": [
+    "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\source\\test_ph_lw_09_http-browser.log",
+    "tests.test_ph_lw_09_http.TasksBrowserTests.test_edge_external_agent_result_no_consent_verify_complete_next",
+    "tests.test_ph_lw_09_http.TasksBrowserTests.test_edge_failing_check_block_resume_exact_ref"
+  ],
+  "cwd": "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 103.765,
+  "environment_ref": "INPUT_BASELINE.json",
+  "modules": [
+    "tests.test_ph_lw_09_http.TasksBrowserTests.test_edge_external_agent_result_no_consent_verify_complete_next",
+    "tests.test_ph_lw_09_http.TasksBrowserTests.test_edge_failing_check_block_resume_exact_ref"
+  ],
+  "ran": 2,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "log": "test_ph_lw_09_http-browser.log",
+  "process_status": "PASS",
+  "log_sha256": "0953f3b41defe01757bf4dc00ce69fc3607e041127148dcf2f047e9e519c3ed7"
+}

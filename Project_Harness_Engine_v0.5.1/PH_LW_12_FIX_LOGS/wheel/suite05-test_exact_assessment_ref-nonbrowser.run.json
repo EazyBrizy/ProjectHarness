@@ -1,0 +1,37 @@
+{
+  "name": "suite05-test_exact_assessment_ref-nonbrowser",
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;import project_harness;assert Path(project_harness.__file__).resolve().is_relative_to(Path(sys.prefix).resolve());sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel\\suite05-test_exact_assessment_ref-nonbrowser.log",
+    "tests.test_exact_assessment_ref.ExactAssessmentRefTests.test_01_prefix_collision_at_1_and_at_10_is_rejected_without_mutation",
+    "tests.test_exact_assessment_ref.ExactAssessmentRefTests.test_02_exact_revision_and_digest_pass_and_report_preserves_validated_ref",
+    "tests.test_exact_assessment_ref.ExactAssessmentRefTests.test_03_unversioned_and_wildcard_like_refs_are_rejected_without_mutation",
+    "tests.test_exact_assessment_ref.ExactAssessmentRefTests.test_04_wrong_envelope_internal_id_and_internal_revision_are_rejected",
+    "tests.test_exact_assessment_ref.ExactAssessmentRefTests.test_05_wrong_or_noncanonical_digest_is_rejected_without_mutation"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\Независимая папка wheel",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 78.977,
+  "environment_ref": "WHEEL_ENVIRONMENT.json",
+  "modules": [
+    "tests.test_exact_assessment_ref.ExactAssessmentRefTests.test_01_prefix_collision_at_1_and_at_10_is_rejected_without_mutation",
+    "tests.test_exact_assessment_ref.ExactAssessmentRefTests.test_02_exact_revision_and_digest_pass_and_report_preserves_validated_ref",
+    "tests.test_exact_assessment_ref.ExactAssessmentRefTests.test_03_unversioned_and_wildcard_like_refs_are_rejected_without_mutation",
+    "tests.test_exact_assessment_ref.ExactAssessmentRefTests.test_04_wrong_envelope_internal_id_and_internal_revision_are_rejected",
+    "tests.test_exact_assessment_ref.ExactAssessmentRefTests.test_05_wrong_or_noncanonical_digest_is_rejected_without_mutation"
+  ],
+  "ran": 5,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "log": "suite05-test_exact_assessment_ref-nonbrowser.log",
+  "process_status": "PASS",
+  "log_sha256": "14ad1180c76868c0c9f00dd795da9fe0cc9bf52d11b4e1e0426f6869b8985ce7",
+  "scope": "INSTALLED_WHEEL",
+  "runtime_freeze_sha256": "01ef2ddce6e42787b5937f937112f0b02ddefb05321eb348d59319a08bd941cf"
+}

@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_ph_051_06_result_channel"
+  ],
+  "ran": 13,
+  "failures": 0,
+  "errors": 21,
+  "skips": [],
+  "elapsed_seconds": 8.511,
+  "log": "test_ph_051_06_result_channel.log",
+  "status": "FAIL"
+}

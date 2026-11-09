@@ -1,0 +1,18 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_lw_09_manual_evidence.ManualEvidenceHttpTests"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T09:13:54.462681+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 180,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 27.912,
+  "log_sha256": "13b37a24b0f10b19930b1684492ccc25ae92775b5cccb34357ea17b67978b28d"
+}

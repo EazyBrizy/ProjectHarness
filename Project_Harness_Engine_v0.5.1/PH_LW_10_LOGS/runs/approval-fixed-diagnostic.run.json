@@ -1,0 +1,19 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "tools/diagnose_ph_lw_10_approval.py",
+    "--output",
+    "approval-fixed-diagnostic",
+    "--repeat",
+    "3"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T13:10:16.016207+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 180,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 58.671,
+  "log_sha256": "85213dbc50bff074fe506ceac450c3111a547e0fdadaf5125546c33d2a8f9122"
+}

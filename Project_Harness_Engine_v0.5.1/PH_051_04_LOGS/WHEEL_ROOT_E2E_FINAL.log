@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "before": "PASS",
+  "after": "PASS",
+  "run_ref": "RUN-HARNESS-DEMO-TASK-CLI-001-A1",
+  "phase": "EXECUTION_ROOT_PREPARED",
+  "replay_idempotent": true,
+  "baseline_check": "PASS"
+}

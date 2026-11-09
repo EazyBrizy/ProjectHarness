@@ -1,0 +1,55 @@
+{
+  "operation_id": "LWO-1B37520C6F10BC6F687387E664DD1A99",
+  "project_id": "LWP-20C0A050E1271872885C",
+  "action": "publish-project",
+  "request_digest": "sha256:a71a00bd18af6658097fda3de37a2ca45ebea4c7297e1590695f5d93145de027",
+  "expected_fingerprint": "sha256:e4fe5141639175a3723708d5f1f69aa42ca4f6093c15f0b45fb4546bc2aa1d92",
+  "created_at": "2026-11-08T15:03:42Z",
+  "updated_at": "2026-11-08T15:03:57Z",
+  "started_at": "2026-11-08T15:03:42Z",
+  "finished_at": "2026-11-08T15:03:57Z",
+  "state": "SUCCEEDED",
+  "phase": "DONE",
+  "core_before": "sha256:e4fe5141639175a3723708d5f1f69aa42ca4f6093c15f0b45fb4546bc2aa1d92",
+  "core_after": "sha256:615c584b2875ce24e352e23fd1a35978b44153a297f5f5859d54c5be553b06ae",
+  "before_active_run_ref": null,
+  "expected_draft_after": null,
+  "result": {
+    "status": "READY_FOR_CODEX",
+    "published_project_id": "LWP-992EB0596C81922BD52B",
+    "artifact_ref": "LWO-1B37520C6F10BC6F687387E664DD1A99",
+    "destination": "<TEMP>\\LW12 installed no-doc kacklqpd\\ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd\\Профиль с пробелами\\HarnessProjects\\No documents product",
+    "zip_sha256": "sha256:aca6a4710e57e611fb61e6441f9209467a979fe5d5118a67ec3d7fb3e54a2cee",
+    "first_task_ref": "TSK-PH-LW-12-NO-DOCUMENTATION-001@1",
+    "first_run_ref": "RUN-PH-LW-12-NO-DOCUMENTATION-001-A1",
+    "initial_validation": {
+      "directory": "PASS",
+      "zip": "PASS",
+      "project": "PASS"
+    },
+    "current_validation": "PASS",
+    "active_stage": "PROTOTYPE",
+    "target_level": "MVP",
+    "current_task": {
+      "task_ref": "TSK-PH-LW-12-NO-DOCUMENTATION-001@1",
+      "title": "Implement add and list commands",
+      "status": "READY",
+      "implementation_stage": "PROTOTYPE",
+      "path": ".harness/tasks/TSK-PH-LW-12-NO-DOCUMENTATION-001@1.yaml"
+    }
+  },
+  "error": null,
+  "receipt": {
+    "kind": "LOCAL_WEB_OPERATION_RECEIPT",
+    "receipt_version": 1,
+    "operation_id": "LWO-1B37520C6F10BC6F687387E664DD1A99",
+    "project_ref": "LWP-20C0A050E1271872885C",
+    "action_id": "LW-C04",
+    "idempotency_key": "browser-b3e27338cd4d4ba35d219c27b94f7688",
+    "request_sha256": "sha256:a71a00bd18af6658097fda3de37a2ca45ebea4c7297e1590695f5d93145de027",
+    "expected_core_fingerprint": "sha256:e4fe5141639175a3723708d5f1f69aa42ca4f6093c15f0b45fb4546bc2aa1d92",
+    "core_outcome": "CONFIRMED_COMMITTED",
+    "created_at": "2026-11-08T15:03:42Z"
+  },
+  "record_digest": "sha256:64d51785b15b75463312bd95db737e4ad35404a4d160eecb4525f5568a213090"
+}

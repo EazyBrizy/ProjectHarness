@@ -1,0 +1,13 @@
+{
+  "modules": [
+    "tests.test_ph_lw_09_http.TasksHttpTests.test_http_auth_origin_csrf_exact_fields_get_no_mutation",
+    "tests.test_ph_lw_09_http.TasksHttpTests.test_http_forged_result_staging_and_duplicate_click"
+  ],
+  "ran": 2,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 20.748,
+  "log": "suite05-test_ph_lw_09_http-nonbrowser.log",
+  "status": "PASS"
+}

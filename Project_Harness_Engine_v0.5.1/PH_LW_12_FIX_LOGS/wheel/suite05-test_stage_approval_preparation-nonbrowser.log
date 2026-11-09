@@ -1,0 +1,12 @@
+test_deterministic_force_and_safe_no_overwrite (tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_deterministic_force_and_safe_no_overwrite) ... ok
+test_filled_generated_record_is_accepted (tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_filled_generated_record_is_accepted) ... ok
+test_generated_draft_has_exact_contract_and_unknown_results (tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_generated_draft_has_exact_contract_and_unknown_results) ... ok
+test_preparation_only_writes_requested_operator_file_and_never_approves (tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_preparation_only_writes_requested_operator_file_and_never_approves) ... ok
+test_product_or_gate_change_updates_new_draft_and_rejects_old_record (tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_product_or_gate_change_updates_new_draft_and_rejects_old_record) ... ok
+test_public_api_and_cli_write_the_required_output_file (tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_public_api_and_cli_write_the_required_output_file) ... ok
+test_stage_status_exposes_exact_gate_counts_baseline_and_route (tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_stage_status_exposes_exact_gate_counts_baseline_and_route) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 26.638s
+
+OK

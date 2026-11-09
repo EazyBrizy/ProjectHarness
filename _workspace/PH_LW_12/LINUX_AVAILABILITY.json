@@ -1,0 +1,25 @@
+[
+  {
+    "command": [
+      "docker.exe",
+      "info",
+      "--format",
+      "{{.ServerVersion}}"
+    ],
+    "exit": 0,
+    "output": "29.5.2\n",
+    "error": ""
+  },
+  {
+    "command": [
+      "docker.exe",
+      "image",
+      "ls",
+      "--format",
+      "{{.Repository}}:{{.Tag}}"
+    ],
+    "exit": 0,
+    "output": "openmatch-admin:local\nopenmatch-migration:local\nopenmatch-worker:local\nopenmatch-api:local\nfamily-budget:20261026-8\nfamily-budget:20261026-7\nfamily-budget:20261026-6\nfamily-budget:20261026-5\nfamily-budget:20261026-4\nfamily-budget:20261026-3\nfamily-budget:20261026-2\nfamily-budget:20261026-1\nozon-vanguard:cashanalitics-20261026-balance-4\nozon-vanguard:cashanalitics-20261026-balance-3\nozon-vanguard:cashanalitics-20261026-balance-2\nozon-vanguard:cashanalitics-20261026-balance-1\nozon-vanguard:cashanalitics-20261026-2\nozon-vanguard:cashanalitics-20261026-1\nozon-vanguard:cashanalitics-20261025-6\nozon-vanguard:cashanalitics-20261025-5\nozon-vanguard:cashanalitics-20261025-4\nozon-vanguard:cashanalitics-20261025-3\nozon-vanguard:cashanalitics-20261025-2\nozon-vanguard:cashanalitics-20261025-1\nozon-vanguard:products-completed-days\nozon-vanguard:products-base-20261025\nozon-vanguard:workers\nozon-vanguard:rnp-filters-20261022\nozon-vanguard:actual-save-rnp-20261022\npostgres:18\nmoby/buildkit:buildx-stable-1\npostgres:18.6\npostgres:<none>\nopenmatch-migration-scan:node-24.18.1\nopenmatch-worker-scan:node-24.18.1\nopenmatch-api-scan:node-24.18.1\nopenmatch-migration-scan:alpine-final\nopenmatch-api-scan:alpine-final\nopenmatch-worker-scan:alpine-final\nopenmatch-admin-scan:alpine-native\nopenmatch-admin-scan:node-24.18.1\nopenmatch-migration-scan:alpine-native\nopenmatch-worker-scan:alpine-native\nopenmatch-api-scan:alpine-native\nopenmatch-worker-scan:alpine-fixed\nopenmatch-api-scan:alpine-fixed\nopenmatch-migration-scan:alpine-fixed\nopenmatch-migration-scan:trixie\nopenmatch-migration-scan:d08117a3\nopenmatch-dtc06-admin:local\nopenmatch-dtc06-migration:local\nopenmatch-dtc06-worker:local\nopenmatch-dtc06-api:local\nopenmatch-developer-worker:om-dtc-04\nnode:<none>\nopenmatch-dtc06-nginx-base:local\nnginxinc/nginx-unprivileged:<none>\nopenmatch-migration:stage-local\nopenmatch-api:stage-local\nopenmatch-worker:stage-local\nopenmatch-admin:stage-local\nopenmatch-migration:test\nopenmatch-backup:test\npostgis/postgis:<none>\nclamav/clamav:1.5\ncaddy:<none>\nredis:8.2-alpine\npostgis/postgis:16-3.5\ncentrifugo/centrifugo:v6\npython:3.12-slim\ncaddy:2.10.2-alpine\nprometheuscommunity/postgres-exporter:<none>\noliver006/redis_exporter:<none>\nminio/minio:latest\nminio/mc:latest\ncentrifugo/centrifugo:<none>\nprom/prometheus:<none>\nredis:<none>\ngrafana/loki:<none>\ngrafana/promtail:<none>\ngcr.io/cadvisor/cadvisor:<none>\n",
+    "error": ""
+  }
+]

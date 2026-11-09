@@ -1,0 +1,27 @@
+test_imported_long_zip_document_manual_exchange_roundtrip (tests.test_ph_lw_11_zip_path.LongAppDataZipTests.test_imported_long_zip_document_manual_exchange_roundtrip) ... ERROR
+
+======================================================================
+ERROR: test_imported_long_zip_document_manual_exchange_roundtrip (tests.test_ph_lw_11_zip_path.LongAppDataZipTests.test_imported_long_zip_document_manual_exchange_roundtrip)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_11_zip_path.py", line 157, in test_imported_long_zip_document_manual_exchange_roundtrip
+    exported=self.export('long-zip-exchange-00001')
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_06_exchange.py", line 55, in export
+    return self.service.create_gpt_export(self.pid, **value)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_service.py", line 537, in create_gpt_export
+    return create_export(self, project_id, **request)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_exchange.py", line 228, in create_export
+    raw = file.read_bytes()
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '<TEMP>\\zip-long-18piwwo4\\Данные-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\app-workspaces\\session-59A7B6DF091FF95CC1887992\\imports\\snapshots\\LWS-F47F1FC37ABF42689A4D9B4A6B5B7B17\\materialized\\LSD-88F7423EA90C452AA12023E6\\section\\nested\\requirements.md'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.606s
+
+FAILED (errors=1)

@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "scope": "POST operation/result responses and all >=400 /api/projects errors observed in positive no-doc/maintenance flows; not a universal network trace.",
+  "statuses": {
+    "202": 17,
+    "201": 3,
+    "409": 40
+  },
+  "unexpected_5xx": [],
+  "installer_sha256": "a4c7432852aadf93fd19fa4646ef8306854369be8ff8fd941ce6d1d268cc5964",
+  "inputs": [
+    {
+      "file": "final05-installed-extended/task-responses-maintenance.json",
+      "raw_sha256": "cfd004da09d26fc147eb6e45211e4b1a85e950e0dccf0cdedc2f8d48fae3492b"
+    },
+    {
+      "file": "final05-installed-extended/task-responses-no-doc.json",
+      "raw_sha256": "5649dd4fccecb884f26464c0319cc48b713ff48ce44c03bebd19260ef36f5c78"
+    },
+    {
+      "file": "final05-installed-deep-full/task-responses-no-doc.json",
+      "raw_sha256": "6523bc439b7dbc61533bff0146fdc47a80883abadd1f24a4a1a4f497bf1a975b"
+    }
+  ]
+}

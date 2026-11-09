@@ -1,0 +1,120 @@
+{"package": "<WORKSPACE>\\_scratch\\ph_lw_11_zip_path\\wheel-venv\\Lib\\site-packages\\project_harness\\__init__.py", "interpreter": "<WORKSPACE>\\_scratch\\ph_lw_11_zip_path\\wheel-venv\\Scripts\\python.exe", "cwd": "<WORKSPACE>\\_scratch\\ph_lw_11_zip_path\\\u041d\u0435\u0437\u0430\u0432\u0438\u0441\u0438\u043c\u0430\u044f \u043f\u0430\u043f\u043a\u0430 wheel", "source_import": false, "engine_build_digest": "sha256:4e283705a1645b78029070797ca94526656bb1bec9e0d9d0b35f0d6a8417695f"}
+{
+  "version": "0.5.1",
+  "schema_version": 7,
+  "status": "PASS",
+  "root": "<WORKSPACE>\\_scratch\\ph_lw_11_zip_path\\wheel-venv\\Lib\\site-packages\\project_harness\\resources",
+  "checks": [
+    {
+      "name": "Canonical registries",
+      "status": "PASS",
+      "details": {
+        "id_prefixes": 3,
+        "project_profiles": 1,
+        "statuses": 6,
+        "request_routing": 2,
+        "capabilities": 1,
+        "contracts": 6,
+        "implementation_levels": 1
+      }
+    },
+    {
+      "name": "Bundled schemas",
+      "status": "PASS",
+      "details": {
+        "count": 17,
+        "errors": []
+      }
+    },
+    {
+      "name": "Seed ACTIVE skills",
+      "status": "PASS",
+      "details": {
+        "count": 3,
+        "errors": []
+      }
+    },
+    {
+      "name": "Entry points and browser preparation template",
+      "status": "PASS",
+      "details": {
+        "missing": [],
+        "layout": "installed"
+      }
+    },
+    {
+      "name": "Source and embedded resources",
+      "status": "PASS",
+      "details": {
+        "layout": "installed",
+        "checked": 0,
+        "errors": []
+      }
+    }
+  ]
+}
+
+usage: project-harness ui [-h] [--app-data APP_DATA] [--no-browser]
+
+options:
+  -h, --help           show this help message and exit
+  --app-data APP_DATA  Trusted local application-data directory, never a web
+                       request path.
+  --no-browser         Headless diagnostics only; no browser session
+                       bootstrap.
+
+Installed console launcher: loopback health PASS; no-browser auth remains gated
+test_internal_io_does_not_admit_device_unc_or_stream_input (tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_internal_io_does_not_admit_device_unc_or_stream_input) ... ok
+test_long_preparation_publication_validation_and_first_jit (tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_long_preparation_publication_validation_and_first_jit) ... ok
+test_long_publication_recovery_never_reexecutes_compiler (tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_long_publication_recovery_never_reexecutes_compiler) ... ok
+test_01_exact_26_cli_commands_with_no_invented_api (tests.test_ph_lw_01_contract.PHLW01ContractTests.test_01_exact_26_cli_commands_with_no_invented_api) ... ok
+test_02_python_apis_actual_public_and_unavailable_demo (tests.test_ph_lw_01_contract.PHLW01ContractTests.test_02_python_apis_actual_public_and_unavailable_demo) ... ok
+test_03_no_mutations_on_GET_and_unsafe_routes_classified (tests.test_ph_lw_01_contract.PHLW01ContractTests.test_03_no_mutations_on_GET_and_unsafe_routes_classified) ... ok
+test_04_intake_approvals_distinct_and_manual_draft (tests.test_ph_lw_01_contract.PHLW01ContractTests.test_04_intake_approvals_distinct_and_manual_draft) ... ok
+test_05_strict_shell_schemas_and_untrusted_rejection (tests.test_ph_lw_01_contract.PHLW01ContractTests.test_05_strict_shell_schemas_and_untrusted_rejection) ... ok
+test_06_fixture_inventory_and_no_fake_prod_evidence (tests.test_ph_lw_01_contract.PHLW01ContractTests.test_06_fixture_inventory_and_no_fake_prod_evidence) ... ok
+test_07_pinned_web_dependencies_only_not_imported_into_core (tests.test_ph_lw_01_contract.PHLW01ContractTests.test_07_pinned_web_dependencies_only_not_imported_into_core) ... ok
+test_08_provenance_locked_and_release_verdict_separate (tests.test_ph_lw_01_contract.PHLW01ContractTests.test_08_provenance_locked_and_release_verdict_separate) ... ok
+test_09_additive_resources_available_in_distribution (tests.test_ph_lw_01_contract.PHLW01ContractTests.test_09_additive_resources_available_in_distribution) ... ok
+test_assets_are_local_text_only_and_no_dynamic_html (tests.test_ph_lw_04_http.LocalHttpDependencyIndependent.test_assets_are_local_text_only_and_no_dynamic_html) ... ok
+test_auth_bootstrap_one_use_rotation_expiry_idle_csrf (tests.test_ph_lw_04_http.LocalHttpDependencyIndependent.test_auth_bootstrap_one_use_rotation_expiry_idle_csrf) ... ok
+test_missing_web_dependencies_fail_before_binding_or_browser (tests.test_ph_lw_04_http.LocalHttpDependencyIndependent.test_missing_web_dependencies_fail_before_binding_or_browser) ... ok
+test_service_catalog_no_path_and_artifact_owner_validation (tests.test_ph_lw_04_http.LocalHttpDependencyIndependent.test_service_catalog_no_path_and_artifact_owner_validation) ... ok
+test_socket_is_prebound_ipv4_loopback_and_non_wildcard (tests.test_ph_lw_04_http.LocalHttpDependencyIndependent.test_socket_is_prebound_ipv4_loopback_and_non_wildcard) ... ok
+test_get_refresh_read_only_xss_text_and_download_paths_rejected (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_get_refresh_read_only_xss_text_and_download_paths_rejected) ... ok
+test_http_replay_after_commit_returns_original_operation (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_http_replay_after_commit_returns_original_operation) ... ok
+test_malformed_action_and_non_ascii_csrf_are_denied_without_mutation (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_malformed_action_and_non_ascii_csrf_are_denied_without_mutation) ... ok
+test_no_access_to_another_project_artifact_and_tamper (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_no_access_to_another_project_artifact_and_tamper) ... ok
+test_session_csrf_exact_json_and_security_headers (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_session_csrf_exact_json_and_security_headers) ... ok
+test_token_replay_expiry_bad_host_origin_null_and_wrong_port (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_token_replay_expiry_bad_host_origin_null_and_wrong_port) ... ok
+test_unauthenticated_all_private_routes_and_public_health_minimal (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_unauthenticated_all_private_routes_and_public_health_minimal) ... ok
+test_not_bound_to_nonloopback_lan_if_available (tests.test_ph_lw_04_http.RealWaitressHttpTests.test_not_bound_to_nonloopback_lan_if_available) ... ok
+test_real_tcp_host_csrf_no_session_replay_body_limit (tests.test_ph_lw_04_http.RealWaitressHttpTests.test_real_tcp_host_csrf_no_session_replay_body_limit) ... ok
+test_auth_upload_list_preview_and_replay (tests.test_ph_lw_05_http.SourceHttpSecurity.test_auth_upload_list_preview_and_replay) ... ok
+test_documentation_none_after_import_explicit_and_no_external_requests (tests.test_ph_lw_05_http.SourceHttpSecurity.test_documentation_none_after_import_explicit_and_no_external_requests) ... ok
+test_duplicate_multipart_scalar_fields_are_rejected (tests.test_ph_lw_05_http.SourceHttpSecurity.test_duplicate_multipart_scalar_fields_are_rejected) ... ok
+test_malformed_upload_rejected_and_unknown_fields (tests.test_ph_lw_05_http.SourceHttpSecurity.test_malformed_upload_rejected_and_unknown_fields) ... ok
+test_http_duplicate_unknown_oversize_and_wrong_project_no_mutation (tests.test_ph_lw_06_http.ExchangeHttpTests.test_http_duplicate_unknown_oversize_and_wrong_project_no_mutation) ... ok
+test_http_negative_then_preview_cancel_commit_replay_and_check_intake (tests.test_ph_lw_06_http.ExchangeHttpTests.test_http_negative_then_preview_cancel_commit_replay_and_check_intake) ... ok
+test_http_security_all_new_routes_and_read_only_gets (tests.test_ph_lw_06_http.ExchangeHttpTests.test_http_security_all_new_routes_and_read_only_gets) ... ok
+test_all_routes_exact_origin_session_csrf_methods_no_writes (tests.test_ph_lw_07_http.ApprovalHttpTests.test_all_routes_exact_origin_session_csrf_methods_no_writes) ... ok
+test_forged_fields_duplicate_keys_invalid_types_and_stale_digest_rejected (tests.test_ph_lw_07_http.ApprovalHttpTests.test_forged_fields_duplicate_keys_invalid_types_and_stale_digest_rejected) ... ok
+test_four_posts_replay_reload_ready_and_prepare_honestly_pending (tests.test_ph_lw_07_http.ApprovalHttpTests.test_four_posts_replay_reload_ready_and_prepare_honestly_pending) ... ok
+test_gpt_actor_timestamp_forgery_cannot_become_local_consent (tests.test_ph_lw_07_http.ApprovalHttpTests.test_gpt_actor_timestamp_forgery_cannot_become_local_consent) ... ok
+test_all_routes_auth_origin_host_csrf_unknown_fields_no_writes (tests.test_ph_lw_08_http.PreparationHttpTests.test_all_routes_auth_origin_host_csrf_unknown_fields_no_writes) ... ok
+test_http_auth_origin_csrf_exact_fields_get_no_mutation (tests.test_ph_lw_09_http.TasksHttpTests.test_http_auth_origin_csrf_exact_fields_get_no_mutation) ... ok
+test_http_forged_result_staging_and_duplicate_click (tests.test_ph_lw_09_http.TasksHttpTests.test_http_forged_result_staging_and_duplicate_click) ... ok
+test_auth_csrf_origin_port_unknown_fields_and_readonly (tests.test_ph_lw_10_http.LifecycleHttpTests.test_auth_csrf_origin_port_unknown_fields_and_readonly) ... ok
+test_draft_ownership_traversal_replay_conflict (tests.test_ph_lw_10_http.LifecycleHttpTests.test_draft_ownership_traversal_replay_conflict) ... ok
+test_deep_copy_time_tamper_and_hardlink_fail_closed (tests.test_ph_lw_11_zip_path.LongAppDataZipTests.test_deep_copy_time_tamper_and_hardlink_fail_closed) ... ok
+test_deep_snapshot_tamper_and_junction_rejected_readonly (tests.test_ph_lw_11_zip_path.LongAppDataZipTests.test_deep_snapshot_tamper_and_junction_rejected_readonly) ... ok
+test_interrupted_zip_refresh_explicit_restart_recovery_exact_bytes (tests.test_ph_lw_11_zip_path.LongAppDataZipTests.test_interrupted_zip_refresh_explicit_restart_recovery_exact_bytes) ... ok
+test_negative_zip_contracts_at_long_root_keep_canonical_bytes (tests.test_ph_lw_11_zip_path.LongAppDataZipTests.test_negative_zip_contracts_at_long_root_keep_canonical_bytes) ... ok
+test_nested_zip_long_path_preview_exact_bytes_and_readonly (tests.test_ph_lw_11_zip_path.LongAppDataZipTests.test_nested_zip_long_path_preview_exact_bytes_and_readonly) ... ok
+test_zip_append_replay_restart_replace_preserves_old_snapshot (tests.test_ph_lw_11_zip_path.LongAppDataZipTests.test_zip_append_replay_restart_replace_preserves_old_snapshot) ... ok
+
+----------------------------------------------------------------------
+Ran 48 tests in 272.441s
+
+OK
+{"ran": 48, "errors": 0, "failures": 0, "skips": 0, "installed_package": "<WORKSPACE>\\_scratch\\ph_lw_11_zip_path\\wheel-venv\\Lib\\site-packages\\project_harness\\__init__.py"}

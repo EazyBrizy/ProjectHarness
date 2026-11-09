@@ -1,0 +1,20 @@
+test_actual_pack_limit_and_confidential_project_fail_closed (tests.test_ph_lw_06_exchange.ExchangeTests.test_actual_pack_limit_and_confidential_project_fail_closed) ... ok
+test_ambiguous_recovery_preserves_cli_change (tests.test_ph_lw_06_exchange.ExchangeTests.test_ambiguous_recovery_preserves_cli_change) ... ok
+test_commit_crash_after_and_before_atomic_public_api (tests.test_ph_lw_06_exchange.ExchangeTests.test_commit_crash_after_and_before_atomic_public_api) ... ok
+test_documented_and_no_documentation_greenfield_typed_draft_roundtrip (tests.test_ph_lw_06_exchange.ExchangeTests.test_documented_and_no_documentation_greenfield_typed_draft_roundtrip) ... ok
+test_export_policy_classification_consent_secrets_and_size (tests.test_ph_lw_06_exchange.ExchangeTests.test_export_policy_classification_consent_secrets_and_size) ... ok
+test_invalid_envelopes_are_no_write_and_repair_is_bounded (tests.test_ph_lw_06_exchange.ExchangeTests.test_invalid_envelopes_are_no_write_and_repair_is_bounded) ... ok
+test_large_pack_has_all_parts_counts_and_hashes (tests.test_ph_lw_06_exchange.ExchangeTests.test_large_pack_has_all_parts_counts_and_hashes) ... ok
+test_native_child_process_crash_after_commit_then_restart_recovery (tests.test_ph_lw_06_exchange.ExchangeTests.test_native_child_process_crash_after_commit_then_restart_recovery) ... ok
+test_parse_limits_duplicate_keys_yaml_deep_and_nonfinite_no_write (tests.test_ph_lw_06_exchange.ExchangeTests.test_parse_limits_duplicate_keys_yaml_deep_and_nonfinite_no_write) ... ok
+test_read_only_interview_review_download_and_pack_binding (tests.test_ph_lw_06_exchange.ExchangeTests.test_read_only_interview_review_download_and_pack_binding) ... ok
+test_reload_restart_exact_replay_and_cancel_before_commit (tests.test_ph_lw_06_exchange.ExchangeTests.test_reload_restart_exact_replay_and_cancel_before_commit) ... ok
+test_source_provenance_reaffirmation_after_refresh (tests.test_ph_lw_06_exchange.ExchangeTests.test_source_provenance_reaffirmation_after_refresh) ... ok
+test_stale_input_source_changed_and_two_previews_cannot_overwrite (tests.test_ph_lw_06_exchange.ExchangeTests.test_stale_input_source_changed_and_two_previews_cannot_overwrite) ... ok
+test_synthetic_existing_approvals_unchanged_binding_or_invalidation (tests.test_ph_lw_06_exchange.ExchangeTests.test_synthetic_existing_approvals_unchanged_binding_or_invalidation) ... ok
+test_unknowns_unsure_and_pending_approvals_cannot_become_ready (tests.test_ph_lw_06_exchange.ExchangeTests.test_unknowns_unsure_and_pending_approvals_cannot_become_ready) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 13.570s
+
+OK

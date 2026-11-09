@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "changed_source_files": [
+    "resources/local_web/assets/app.js",
+    "resources/local_web/assets/interview.js",
+    "resources/local_web/assets/lifecycle.js",
+    "resources/local_web/assets/tasks.js",
+    "resources/local_web/metadata_v1.json"
+  ],
+  "all_python_runtime_bytes_unchanged": true,
+  "schemas_registries_unchanged": true,
+  "old_freeze_sha256": "4e848904dba5af01b4aad4b4cc4f1dfa51f4299439c1fdfb423974ed56b6c7de",
+  "new_freeze_sha256": "71d1bdd414c72410b4d17f833b1e9c75d11c3b5286fa1b65214ef7b3b7e53f00"
+}

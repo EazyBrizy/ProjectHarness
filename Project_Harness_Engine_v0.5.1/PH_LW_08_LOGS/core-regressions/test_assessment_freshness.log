@@ -1,0 +1,15 @@
+test_01_tree_a_assessment_rejected_on_tree_b_with_zero_acceptance_mutation (tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_01_tree_a_assessment_rejected_on_tree_b_with_zero_acceptance_mutation) ... ok
+test_02_reassessment_for_tree_b_restores_baseline_acceptance (tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_02_reassessment_for_tree_b_restores_baseline_acceptance) ... ok
+test_03_target_change_after_assessment_marks_old_context_stale (tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_03_target_change_after_assessment_marks_old_context_stale) ... ok
+test_04_previous_accepted_level_change_invalidates_old_assessment (tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_04_previous_accepted_level_change_invalidates_old_assessment) ... ok
+test_05_claimed_context_mismatch_is_rejected (tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_05_claimed_context_mismatch_is_rejected) ... ok
+test_06_stale_external_evidence_cannot_close_baseline_criteria (tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_06_stale_external_evidence_cannot_close_baseline_criteria) ... ok
+test_07_multi_level_acceptance_is_atomic_for_one_exact_current_assessment (tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_07_multi_level_acceptance_is_atomic_for_one_exact_current_assessment) ... ok
+test_08_approval_baseline_revision_must_equal_current_tree (tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_08_approval_baseline_revision_must_equal_current_tree) ... ok
+test_09_non_completed_assessment_cannot_authorize_acceptance (tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_09_non_completed_assessment_cannot_authorize_acceptance) ... ok
+test_10_requested_level_cannot_exceed_recomputed_candidate (tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_10_requested_level_cannot_exceed_recomputed_candidate) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 207.166s
+
+OK

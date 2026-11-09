@@ -1,0 +1,89 @@
+test_brownfield_readonly_assessment_rejects_stale_repository (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_brownfield_readonly_assessment_rejects_stale_repository) ... ok
+test_consent_unknown_fields_changed_binding_and_cross_project_draft (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_consent_unknown_fields_changed_binding_and_cross_project_draft) ... ok
+test_forged_semantic_source_rejected_even_all_pass (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_forged_semantic_source_rejected_even_all_pass) ... ok
+test_gate_recovery_is_separate_from_task_recovery (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_gate_recovery_is_separate_from_task_recovery) ... FAIL
+test_get_is_read_only_and_lists_exact_semantic_subjects (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_get_is_read_only_and_lists_exact_semantic_subjects) ... ok
+test_interruption_after_commit_never_reexecutes (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_interruption_after_commit_never_reexecutes) ... ok
+test_level_up_nearest_stage_canonical_target_and_noop (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_level_up_nearest_stage_canonical_target_and_noop) ... FAIL
+test_maintenance_complete_uses_existing_manual_task_lifecycle (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_maintenance_complete_uses_existing_manual_task_lifecycle) ... FAIL
+test_maintenance_start_cancel_preserves_maturity (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_maintenance_start_cancel_preserves_maturity) ... FAIL
+test_migration_validator_confirmation_replay_history (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_migration_validator_confirmation_replay_history) ... ok
+test_missing_proof_and_unknown_results_cannot_raise_maturity (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_missing_proof_and_unknown_results_cannot_raise_maturity) ... ok
+test_prototype_accept_alpha_plan_first_ready_and_exact_replay (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_prototype_accept_alpha_plan_first_ready_and_exact_replay) ... FAIL
+test_selection_is_narrow_and_cancel_does_not_mutate_repository (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_selection_is_narrow_and_cancel_does_not_mutate_repository) ... ERROR
+test_stale_form_and_replay_key_payload_conflict (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_stale_form_and_replay_key_payload_conflict) ... ok
+
+======================================================================
+ERROR: test_selection_is_narrow_and_cancel_does_not_mutate_repository (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_selection_is_narrow_and_cancel_does_not_mutate_repository)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_10_lifecycle.py", line 193, in test_selection_is_narrow_and_cancel_does_not_mutate_repository
+    (repo/'README.md').write_text('beta changed','utf-8');self.assertTrue(repository_binding(ws)['stale'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_selection.py", line 64, in select
+    pid = service.register_existing(workspace, kind='workspace')
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_service.py", line 205, in register_existing
+    raise ValidationFailure('Project root и app-data должны быть раздельными')
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: Project root и app-data должны быть раздельными
+
+======================================================================
+FAIL: test_gate_recovery_is_separate_from_task_recovery (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_gate_recovery_is_separate_from_task_recovery)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_10_lifecycle.py", line 163, in test_gate_recovery_is_separate_from_task_recovery
+    self.assertNotEqual(request(self.service,self.pid,'resume-stage-gate',{'confirmed':True})['state'],'SUCCEEDED')
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'SUCCEEDED' == 'SUCCEEDED'
+
+======================================================================
+FAIL: test_level_up_nearest_stage_canonical_target_and_noop (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_level_up_nearest_stage_canonical_target_and_noop)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_10_lifecycle.py", line 141, in test_level_up_nearest_stage_canonical_target_and_noop
+    for rel,data in before.items():self.assertEqual((self.root/rel).read_bytes(),data)
+                                   ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'{\n  "schema_version": 4,\n  "metadata"[11386 chars]n}\n' != '4b26f7f860fc293e176b10db436343db122886ef[20 chars]32c4'
+
+======================================================================
+FAIL: test_maintenance_complete_uses_existing_manual_task_lifecycle (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_maintenance_complete_uses_existing_manual_task_lifecycle)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_10_lifecycle.py", line 155, in test_maintenance_complete_uses_existing_manual_task_lifecycle
+    self.assert_ok(request(self.service,self.pid,'start-maintenance',payload(form,fill_maintenance(form))))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_10_lifecycle.py", line 80, in assert_ok
+    def assert_ok(self,op): self.assertEqual(op['state'],'SUCCEEDED',op);return op
+                            ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'BLOCKED' != 'SUCCEEDED'
+- BLOCKED
++ SUCCEEDED
+ : {'operation_id': 'LWO-03C541DEBF521756EEB2C1E2E0311A03', 'project_id': 'LWP-AB76E6F22117C044E6B7', 'action': 'start-maintenance', 'request_digest': 'sha256:87c3183ab2602496d4d9e8abcfdb1486ef48ad869b484fd806413962a2c720b6', 'expected_fingerprint': 'sha256:65b89605d912e2a1416683d18e69a5c7ab3ff8b1fa1c7eb4c087b131a5fc4b21', 'created_at': '2026-11-07T11:29:08Z', 'updated_at': '2026-11-07T11:29:08Z', 'started_at': '2026-11-07T11:29:08Z', 'finished_at': '2026-11-07T11:29:08Z', 'state': 'BLOCKED', 'phase': 'RECONCILIATION_REQUIRED', 'core_before': 'sha256:65b89605d912e2a1416683d18e69a5c7ab3ff8b1fa1c7eb4c087b131a5fc4b21', 'core_after': None, 'before_active_run_ref': None, 'expected_draft_after': None, 'result': None, 'error': {'code': 'VALIDATION_FAILED', 'message_ru': 'Product scope cannot target .harness', 'next_action_ru': 'Проверьте данные и текущий статус, затем создайте новое действие.', 'details': '.harness/**'}, 'receipt': {'kind': 'LOCAL_WEB_OPERATION_RECEIPT', 'receipt_version': 1, 'operation_id': 'LWO-03C541DEBF521756EEB2C1E2E0311A03', 'project_ref': 'LWP-AB76E6F22117C044E6B7', 'action_id': 'LW-LIFECYCLE', 'idempotency_key': 'c988e5b779644a3091112ef9df47e52e', 'request_sha256': 'sha256:87c3183ab2602496d4d9e8abcfdb1486ef48ad869b484fd806413962a2c720b6', 'expected_core_fingerprint': 'sha256:65b89605d912e2a1416683d18e69a5c7ab3ff8b1fa1c7eb4c087b131a5fc4b21', 'core_outcome': 'UNKNOWN_RECONCILE', 'created_at': '2026-11-07T11:29:08Z'}, 'record_digest': 'sha256:c011c0034992384ac1c79b6a8680d755cab97200329193360b89622fb4e2af5f'}
+
+======================================================================
+FAIL: test_maintenance_start_cancel_preserves_maturity (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_maintenance_start_cancel_preserves_maturity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_10_lifecycle.py", line 147, in test_maintenance_start_cancel_preserves_maturity
+    form=draft(self.service,self.pid,'prepare-maintenance');self.assert_ok(request(self.service,self.pid,'start-maintenance',payload(form,fill_maintenance(form))))
+                                                            ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_10_lifecycle.py", line 80, in assert_ok
+    def assert_ok(self,op): self.assertEqual(op['state'],'SUCCEEDED',op);return op
+                            ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'BLOCKED' != 'SUCCEEDED'
+- BLOCKED
++ SUCCEEDED
+ : {'operation_id': 'LWO-5FDBF9513EAE63B9BE194CF3F516D609', 'project_id': 'LWP-A32A04308F7586AD111C', 'action': 'start-maintenance', 'request_digest': 'sha256:007ff1baf906fcf69abd9cc777d4058900be1a1a3b44c2f8470eed376b4aca83', 'expected_fingerprint': 'sha256:65b89605d912e2a1416683d18e69a5c7ab3ff8b1fa1c7eb4c087b131a5fc4b21', 'created_at': '2026-11-07T11:29:15Z', 'updated_at': '2026-11-07T11:29:15Z', 'started_at': '2026-11-07T11:29:15Z', 'finished_at': '2026-11-07T11:29:15Z', 'state': 'BLOCKED', 'phase': 'RECONCILIATION_REQUIRED', 'core_before': 'sha256:65b89605d912e2a1416683d18e69a5c7ab3ff8b1fa1c7eb4c087b131a5fc4b21', 'core_after': None, 'before_active_run_ref': None, 'expected_draft_after': None, 'result': None, 'error': {'code': 'VALIDATION_FAILED', 'message_ru': 'Product scope cannot target .harness', 'next_action_ru': 'Проверьте данные и текущий статус, затем создайте новое действие.', 'details': '.harness/**'}, 'receipt': {'kind': 'LOCAL_WEB_OPERATION_RECEIPT', 'receipt_version': 1, 'operation_id': 'LWO-5FDBF9513EAE63B9BE194CF3F516D609', 'project_ref': 'LWP-A32A04308F7586AD111C', 'action_id': 'LW-LIFECYCLE', 'idempotency_key': '7a76753233734bc7b84ca1e4f05d845a', 'request_sha256': 'sha256:007ff1baf906fcf69abd9cc777d4058900be1a1a3b44c2f8470eed376b4aca83', 'expected_core_fingerprint': 'sha256:65b89605d912e2a1416683d18e69a5c7ab3ff8b1fa1c7eb4c087b131a5fc4b21', 'core_outcome': 'UNKNOWN_RECONCILE', 'created_at': '2026-11-07T11:29:15Z'}, 'record_digest': 'sha256:9a6ba136e91094848748fe6972d230082935a33507f9b77694212c5ac94b62f1'}
+
+======================================================================
+FAIL: test_prototype_accept_alpha_plan_first_ready_and_exact_replay (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_prototype_accept_alpha_plan_first_ready_and_exact_replay)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_10_lifecycle.py", line 96, in test_prototype_accept_alpha_plan_first_ready_and_exact_replay
+    def test_prototype_accept_alpha_plan_first_ready_and_exact_replay(self):
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: b'{\n  "schema_version": 4,\n  "metadata"[11380 chars]n}\n' != '7fc5c6b0fc8229ffd1cdf683efa462e902d5f4d4[20 chars]d393'
+
+----------------------------------------------------------------------
+Ran 14 tests in 164.522s
+
+FAILED (failures=5, errors=1)

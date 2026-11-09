@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_ph_lw_01_contract"
+  ],
+  "ran": 9,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 0.405,
+  "log": "test_ph_lw_01_contract.log",
+  "status": "PASS"
+}

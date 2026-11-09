@@ -1,0 +1,16 @@
+{
+  "command": [
+    ".\\_tools\\Python314\\python.exe",
+    "-m",
+    "venv",
+    "_scratch/ph_lw_08/wheel-env"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T03:56:55.900302+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 120,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 22.163,
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

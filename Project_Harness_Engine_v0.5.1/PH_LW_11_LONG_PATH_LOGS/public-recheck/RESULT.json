@@ -1,0 +1,206 @@
+{
+  "status": "PASS",
+  "public_api": "prepare_handoff",
+  "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "leaf_length": 281,
+  "long_paths_enabled_before": 0,
+  "long_paths_enabled_after": 0,
+  "system_settings_changed": false,
+  "build_digest": "sha256:cff006d0c0ef48ee942d5c7bdfb96c34e01c2f59c0682ca19a76a907cdd4559b",
+  "directory_validation": "PASS",
+  "mutable_validation": "PASS",
+  "result": {
+    "status": "READY_FOR_CODEX",
+    "project_ref": "harness-demo-task-cli",
+    "handoff_archive": "<WORKSPACE>\\_scratch\\ph_lw_11_long_path\\public-recheck\\diagnostic-handoff.zip",
+    "sha256": "sha256:1727893514949f6f920707f9a101aaa409c1eb78744ac270d600eab003755fe3",
+    "first_task_ref": "TSK-HARNESS-DEMO-TASK-CLI-001@1",
+    "first_run_ref": "RUN-HARNESS-DEMO-TASK-CLI-001-A1",
+    "validation": {
+      "status": "PASS",
+      "root": "<TEMP>\\project-harness-handoff-fq1nky3q\\harness-demo-task-cli_Codex_Handoff_v1",
+      "compatibility_mode": null,
+      "legacy_status_mappings": [],
+      "checks": [
+        {
+          "name": "Required handoff artifacts",
+          "status": "PASS",
+          "details": {
+            "missing": []
+          }
+        },
+        {
+          "name": "No symlinks",
+          "status": "PASS",
+          "details": {
+            "symlinks": []
+          }
+        },
+        {
+          "name": "Machine-readable files parse",
+          "status": "PASS",
+          "details": {
+            "parsed": 155,
+            "errors": []
+          }
+        },
+        {
+          "name": "Engine/schema lock",
+          "status": "PASS",
+          "details": {
+            "engine": "0.5.1",
+            "schema": 7,
+            "mode": "CURRENT",
+            "expected_current": {
+              "engine": "0.5.1",
+              "schema": 7
+            }
+          }
+        },
+        {
+          "name": "Required implementation-stage artifacts",
+          "status": "PASS",
+          "details": {
+            "missing": []
+          }
+        },
+        {
+          "name": "Exact registry versions",
+          "status": "PASS",
+          "details": {
+            "errors": [],
+            "compatibility_mode": false
+          }
+        },
+        {
+          "name": "Exact registry digests",
+          "status": "PASS",
+          "details": {
+            "errors": []
+          }
+        },
+        {
+          "name": "Registry-driven entity statuses",
+          "status": "PASS",
+          "details": {
+            "errors": [],
+            "legacy_status_mappings": []
+          }
+        },
+        {
+          "name": "Decision contract and Brownfield approval",
+          "status": "PASS",
+          "details": {
+            "decisions": 1,
+            "brownfield_baselines": 0,
+            "legacy_contract_gap": false,
+            "legacy_brownfield_approval_gap": false,
+            "legacy_brownfield_revisions": [],
+            "errors": []
+          }
+        },
+        {
+          "name": "Implementation Stage contracts and invariants",
+          "status": "PASS",
+          "details": {
+            "target_level": "PROTOTYPE",
+            "active_stage": "PROTOTYPE",
+            "highest_accepted_level": "NONE",
+            "artifact_counts": {
+              "plans": 1,
+              "gates": 1,
+              "acceptances": 0,
+              "assessments": 0,
+              "evidence_normalized": 0,
+              "evidence_legacy": 0,
+              "evidence_apply": 0
+            },
+            "cross_references": {
+              "status": "PASS",
+              "active_stage": "PROTOTYPE",
+              "target_level": "PROTOTYPE",
+              "errors": []
+            },
+            "errors": []
+          }
+        },
+        {
+          "name": "Task index and causal DAG",
+          "status": "PASS",
+          "details": {
+            "tasks": 2,
+            "errors": []
+          }
+        },
+        {
+          "name": "Current task and runtime state",
+          "status": "PASS",
+          "details": {
+            "project_status": "ACTIVE",
+            "current_task": "TSK-HARNESS-DEMO-TASK-CLI-001",
+            "run": "RUN-HARNESS-DEMO-TASK-CLI-001-A1",
+            "errors": []
+          }
+        },
+        {
+          "name": "Protected control-plane phase boundary",
+          "status": "PASS",
+          "details": {
+            "status": "PASS",
+            "changed": [],
+            "deleted": [],
+            "unexpected": [],
+            "unsafe": [],
+            "phase": "HANDOFF_SEALED",
+            "boundary_digest": "sha256:686e1ed1964ad98827a3e4b3b3c8b1da47f9b4368fada076e4ad16230a396b6f",
+            "agent_result": {
+              "status": "ABSENT",
+              "path": ".harness/runtime/AGENT_RESULTS/RUN-HARNESS-DEMO-TASK-CLI-001-A1.json"
+            }
+          }
+        },
+        {
+          "name": "JIT prompt bundles",
+          "status": "PASS",
+          "details": {
+            "count": 1,
+            "refs": [
+              "CPB-HARNESS-DEMO-TASK-CLI-001-A1"
+            ],
+            "errors": []
+          }
+        },
+        {
+          "name": "Project skill resolution index",
+          "status": "PASS",
+          "details": {
+            "errors": []
+          }
+        },
+        {
+          "name": "Provider accounting remains excluded",
+          "status": "PASS",
+          "details": {
+            "hits": []
+          }
+        },
+        {
+          "name": "Handoff manifest",
+          "status": "PASS",
+          "details": {
+            "entries": 245,
+            "missing": [],
+            "extra": [],
+            "mismatched": [],
+            "excluded_runtime_records": [
+              ".harness/runtime/OPERATION_JOURNAL/*"
+            ]
+          }
+        }
+      ],
+      "errors": []
+    },
+    "directory_output": "<WORKSPACE>\\_scratch\\Л11long-fix\\Длинный-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\project"
+  }
+}

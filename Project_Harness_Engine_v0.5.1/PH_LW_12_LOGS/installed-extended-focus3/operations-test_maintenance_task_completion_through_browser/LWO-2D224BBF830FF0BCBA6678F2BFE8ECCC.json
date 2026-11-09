@@ -1,0 +1,84 @@
+{
+  "operation_id": "LWO-2D224BBF830FF0BCBA6678F2BFE8ECCC",
+  "project_id": "LWP-A5A2F8A838777C532DA8",
+  "action": "start-maintenance",
+  "request_digest": "sha256:5914637694316af11fafda75da5088d9fb0d27a5dfccbc4ea16dc810f2ddf7c3",
+  "expected_fingerprint": "sha256:f2d4daa1dff8d70748122d63c8713a0bc208b01107b3f672a845ff2744bfceb0",
+  "created_at": "2026-11-08T10:47:09Z",
+  "updated_at": "2026-11-08T10:47:13Z",
+  "started_at": "2026-11-08T10:47:10Z",
+  "finished_at": "2026-11-08T10:47:13Z",
+  "state": "SUCCEEDED",
+  "phase": "DONE",
+  "core_before": "sha256:f2d4daa1dff8d70748122d63c8713a0bc208b01107b3f672a845ff2744bfceb0",
+  "core_after": "sha256:b873c2ef352cf7f90b46cd7e29778b5200fae63235bb2f6c00b96f575b6e5cd9",
+  "before_active_run_ref": null,
+  "expected_draft_after": null,
+  "result": {
+    "action": "start-maintenance",
+    "core_status": "MAINTENANCE_ACTIVE",
+    "refs": {
+      "status": "MAINTENANCE_ACTIVE"
+    },
+    "lifecycle": {
+      "status": "MAINTENANCE_ACTIVE",
+      "route": "MAINTAIN_CURRENT_STAGE",
+      "maintenance_plan_ref": "RQP-HARNESS-DEMO-TASK-CLI-MAINT-E678D402153DAB1CD30AB337392A0E30@1",
+      "decision_ref": "DEC-HARNESS-DEMO-TASK-CLI-MAINT-E678D402153DAB1CD30AB337392A0E30@1",
+      "work_package_ref": "WP-HARNESS-DEMO-TASK-CLI-MAINT-E678D402153DAB1CD30AB337392A0E30@1",
+      "task_refs": [
+        "TSK-HARNESS-DEMO-TASK-CLI-MAINT-E678D402153DAB1CD30AB337392A0E30-001@1"
+      ],
+      "first_task_ref": "TSK-HARNESS-DEMO-TASK-CLI-MAINT-E678D402153DAB1CD30AB337392A0E30-001@1",
+      "implementation_stage": "PROTOTYPE",
+      "target_level": "PROTOTYPE",
+      "highest_accepted_level": "PROTOTYPE",
+      "last_acceptance_ref": "VAL-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1",
+      "kernel_written_paths": [
+        ".harness/canonical/DECISIONS/DEC-HARNESS-DEMO-TASK-CLI-MAINT-E678D402153DAB1CD30AB337392A0E30@1.yaml",
+        ".harness/context/PLANS/CTX-HARNESS-DEMO-TASK-CLI-MNT-852F875EEE-001@1.yaml",
+        ".harness/dags/DAG-HARNESS-DEMO-TASK-CLI-MNT-852F875EEE@1.yaml",
+        ".harness/maintenance/CURRENT.yaml",
+        ".harness/maintenance/INDEX.yaml",
+        ".harness/maintenance/PLANS/RQP-HARNESS-DEMO-TASK-CLI-MAINT-E678D402153DAB1CD30AB337392A0E30@1.yaml",
+        ".harness/prompts/PLANS/PPL-HARNESS-DEMO-TASK-CLI-MNT-852F875EEE-001@1.yaml",
+        ".harness/state/CURRENT_STATE.yaml",
+        ".harness/state/NEXT_TASK.yaml",
+        ".harness/tasks/INDEX.yaml",
+        ".harness/tasks/TSK-HARNESS-DEMO-TASK-CLI-MAINT-E678D402153DAB1CD30AB337392A0E30-001@1.yaml",
+        ".harness/verification/PROFILES/VFP-HARNESS-DEMO-TASK-CLI-MNT-852F875EEE-001@1.yaml",
+        ".harness/work-packages/INDEX.yaml",
+        ".harness/work-packages/WP-HARNESS-DEMO-TASK-CLI-MAINT-E678D402153DAB1CD30AB337392A0E30@1.yaml"
+      ],
+      "idempotent": false,
+      "transaction_ref": "STX-HARNESS-DEMO-TASK-CLI-MAINT-E678D402153DAB1CD30AB337392A0E30",
+      "transaction_status": "COMMITTED",
+      "next": {
+        "status": "READY_FOR_CODEX",
+        "task_ref": "TSK-HARNESS-DEMO-TASK-CLI-MAINT-E678D402153DAB1CD30AB337392A0E30-001@1",
+        "run_ref": "RUN-HARNESS-DEMO-TASK-CLI-004-A1",
+        "implementation_stage": "PROTOTYPE",
+        "target_implementation_level": "PROTOTYPE",
+        "maintenance_route": "MAINTAIN_CURRENT_STAGE",
+        "maintenance_plan_ref": "RQP-HARNESS-DEMO-TASK-CLI-MAINT-E678D402153DAB1CD30AB337392A0E30@1",
+        "prompt_bundle_path": ".harness/prompts/BUNDLES_BY_RUN/CPB-HARNESS-DEMO-TASK-CLI-004-A1.yaml",
+        "prompt_markdown_path": ".harness/prompts/BUNDLES_BY_RUN/CPB-HARNESS-DEMO-TASK-CLI-004-A1.md",
+        "idempotent": false
+      }
+    }
+  },
+  "error": null,
+  "receipt": {
+    "kind": "LOCAL_WEB_OPERATION_RECEIPT",
+    "receipt_version": 1,
+    "operation_id": "LWO-2D224BBF830FF0BCBA6678F2BFE8ECCC",
+    "project_ref": "LWP-A5A2F8A838777C532DA8",
+    "action_id": "LW-LIFECYCLE",
+    "idempotency_key": "browser-df420ce4e4bb46fe8b836c5a91cf3a8b",
+    "request_sha256": "sha256:5914637694316af11fafda75da5088d9fb0d27a5dfccbc4ea16dc810f2ddf7c3",
+    "expected_core_fingerprint": "sha256:f2d4daa1dff8d70748122d63c8713a0bc208b01107b3f672a845ff2744bfceb0",
+    "core_outcome": "CONFIRMED_COMMITTED",
+    "created_at": "2026-11-08T10:47:09Z"
+  },
+  "record_digest": "sha256:da2a18ce058304b3811225a1a823b066218e9af7da5e401481061fe09fac30ed"
+}

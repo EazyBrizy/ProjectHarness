@@ -1,0 +1,21 @@
+test_01_load_two_exact_project_profiles_with_pinned_digests (tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_01_load_two_exact_project_profiles_with_pinned_digests) ... ok
+test_02_manual_mode_cannot_activate_even_with_valid_profiles (tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_02_manual_mode_cannot_activate_even_with_valid_profiles) ... ok
+test_03_lock_digest_or_revision_mismatch_rejects (tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_03_lock_digest_or_revision_mismatch_rejects) ... ok
+test_04_profile_identity_status_and_sandbox_ref_rejected (tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_04_profile_identity_status_and_sandbox_ref_rejected) ... ok
+test_05_symlink_and_hardlink_profile_denied (tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_05_symlink_and_hardlink_profile_denied) ... ok
+test_06_network_egress_rejected_before_podman (tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_06_network_egress_rejected_before_podman) ... ok
+test_07_no_host_codex_when_podman_missing (tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_07_no_host_codex_when_podman_missing) ... ok
+test_08_missing_secret_reference_blocks_before_podman_and_allowlist_supported (tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_08_missing_secret_reference_blocks_before_podman_and_allowlist_supported) ... ok
+test_09_cannot_call_execute_from_raw_invocation_instead_of_jit (tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_09_cannot_call_execute_from_raw_invocation_instead_of_jit) ... ok
+test_10_doctor_requires_complete_attestation (tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_10_doctor_requires_complete_attestation) ... ok
+test_11_exact_active_jit_paths_task_and_bounded_timeout (tests.test_ph_051_05_codex_adapter.PreparedJitTests.test_11_exact_active_jit_paths_task_and_bounded_timeout) ... ok
+test_12_tamper_or_base_drift_blocks_without_doctor_or_launch (tests.test_ph_051_05_codex_adapter.PreparedJitTests.test_12_tamper_or_base_drift_blocks_without_doctor_or_launch) ... ok
+test_13_template_change_or_request_override_blocks (tests.test_ph_051_05_codex_adapter.PreparedJitTests.test_13_template_change_or_request_override_blocks) ... ok
+test_14_bounded_failures_never_become_agent_pass (tests.test_ph_051_05_codex_adapter.PreparedJitTests.test_14_bounded_failures_never_become_agent_pass) ... ok
+test_15_fake_codex_in_real_rootless_podman_not_on_host (tests.test_ph_051_05_codex_adapter.RealRootlessIntegrationTests.test_15_fake_codex_in_real_rootless_podman_not_on_host)
+Only this test launches fake CLI, and exclusively via Podman process. ... skipped 'NOT RUN: real non-root Podman and pinned PH_TEST_PODMAN_IMAGE required'
+
+----------------------------------------------------------------------
+Ran 15 tests in 3.525s
+
+OK (skipped=1)

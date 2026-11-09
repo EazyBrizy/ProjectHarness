@@ -1,0 +1,204 @@
+======================================================================
+ERROR: test_01_greenfield_and_brownfield_fixture_independence_and_statuses (tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_01_greenfield_and_brownfield_fixture_independence_and_statuses) (key='GREENFIELD_MVP')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/tests/test_ph_f01_planner_regression.py", line 90, in test_01_greenfield_and_brownfield_fixture_independence_and_statuses
+    cli_code, cli_value, cli_error = cli("stage-status", "--project", str(root))
+                                     ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/tests/test_ph_f01_planner_regression.py", line 39, in cli
+    completed = subprocess.run(
+        [str(ENGINE / "bin" / "project-harness"), *args],
+    ...<4 lines>...
+        check=False,
+    )
+  File "/usr/lib/python3.13/subprocess.py", line 554, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1972, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+PermissionError: [Errno 13] Permission denied: '/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/bin/project-harness'
+
+======================================================================
+ERROR: test_01_greenfield_and_brownfield_fixture_independence_and_statuses (tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_01_greenfield_and_brownfield_fixture_independence_and_statuses) (key='BROWNFIELD')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/tests/test_ph_f01_planner_regression.py", line 90, in test_01_greenfield_and_brownfield_fixture_independence_and_statuses
+    cli_code, cli_value, cli_error = cli("stage-status", "--project", str(root))
+                                     ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/tests/test_ph_f01_planner_regression.py", line 39, in cli
+    completed = subprocess.run(
+        [str(ENGINE / "bin" / "project-harness"), *args],
+    ...<4 lines>...
+        check=False,
+    )
+  File "/usr/lib/python3.13/subprocess.py", line 554, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1972, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+PermissionError: [Errno 13] Permission denied: '/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/bin/project-harness'
+
+======================================================================
+ERROR: test_02_accepted_prototype_fixture_exposes_real_planning_boundary (tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_02_accepted_prototype_fixture_exposes_real_planning_boundary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/tests/test_ph_f01_planner_regression.py", line 101, in test_02_accepted_prototype_fixture_exposes_real_planning_boundary
+    self._assert_current_missing_planner_boundary(root, "PROTOTYPE", "ALPHA", "MVP")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/tests/test_ph_f01_planner_regression.py", line 156, in _assert_current_missing_planner_boundary
+    code, payload, stderr = cli(operation, "--project", str(root))
+                            ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/tests/test_ph_f01_planner_regression.py", line 39, in cli
+    completed = subprocess.run(
+        [str(ENGINE / "bin" / "project-harness"), *args],
+    ...<4 lines>...
+        check=False,
+    )
+  File "/usr/lib/python3.13/subprocess.py", line 554, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1972, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+PermissionError: [Errno 13] Permission denied: '/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/bin/project-harness'
+
+======================================================================
+ERROR: test_03_mvp_target_reached_fixture_then_governed_level_up_to_release (tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_03_mvp_target_reached_fixture_then_governed_level_up_to_release)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/tests/test_ph_f01_planner_regression.py", line 111, in test_03_mvp_target_reached_fixture_then_governed_level_up_to_release
+    self._apply_release_level_up(root)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/tests/test_ph_f01_planner_regression.py", line 128, in _apply_release_level_up
+    code, output, stderr = cli(
+                           ~~~^
+        "level-up", "--project", str(root), "--target", "RELEASE", "--approval", str(record)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/tests/test_ph_f01_planner_regression.py", line 39, in cli
+    completed = subprocess.run(
+        [str(ENGINE / "bin" / "project-harness"), *args],
+    ...<4 lines>...
+        check=False,
+    )
+  File "/usr/lib/python3.13/subprocess.py", line 554, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1972, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+PermissionError: [Errno 13] Permission denied: '/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/bin/project-harness'
+
+======================================================================
+ERROR: test_ph_f03_accept_prototype_to_first_alpha_ready_jit (tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_ph_f03_accept_prototype_to_first_alpha_ready_jit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/tests/test_ph_f01_planner_regression.py", line 189, in test_ph_f03_accept_prototype_to_first_alpha_ready_jit
+    self._assert_current_missing_planner_boundary(root, "PROTOTYPE", "ALPHA", "MVP")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/tests/test_ph_f01_planner_regression.py", line 156, in _assert_current_missing_planner_boundary
+    code, payload, stderr = cli(operation, "--project", str(root))
+                            ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/tests/test_ph_f01_planner_regression.py", line 39, in cli
+    completed = subprocess.run(
+        [str(ENGINE / "bin" / "project-harness"), *args],
+    ...<4 lines>...
+        check=False,
+    )
+  File "/usr/lib/python3.13/subprocess.py", line 554, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1972, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+PermissionError: [Errno 13] Permission denied: '/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/bin/project-harness'
+
+======================================================================
+ERROR: test_ph_f03_level_up_mvp_to_first_release_ready_jit (tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_ph_f03_level_up_mvp_to_first_release_ready_jit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/tests/test_ph_f01_planner_regression.py", line 194, in test_ph_f03_level_up_mvp_to_first_release_ready_jit
+    self._apply_release_level_up(root)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/tests/test_ph_f01_planner_regression.py", line 128, in _apply_release_level_up
+    code, output, stderr = cli(
+                           ~~~^
+        "level-up", "--project", str(root), "--target", "RELEASE", "--approval", str(record)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/tests/test_ph_f01_planner_regression.py", line 39, in cli
+    completed = subprocess.run(
+        [str(ENGINE / "bin" / "project-harness"), *args],
+    ...<4 lines>...
+        check=False,
+    )
+  File "/usr/lib/python3.13/subprocess.py", line 554, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1972, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+PermissionError: [Errno 13] Permission denied: '/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/bin/project-harness'
+
+----------------------------------------------------------------------
+Ran 6 tests in 24.160s
+
+FAILED (errors=6)

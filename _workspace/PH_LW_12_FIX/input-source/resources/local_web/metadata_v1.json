@@ -1,0 +1,90 @@
+{
+  "contract": "LOCAL_WEB_BUILD_METADATA@1",
+  "schema_version": 1,
+  "engine_version": "0.5.1",
+  "core_schema_version": 7,
+  "project_input_schema": "SCHEMA-PROJECT-PREPARATION-INPUT@4",
+  "local_web_version": "0.1.0-dev",
+  "local_web_build_id": "PH-LW-12-20261108",
+  "base_lineage": "PH-051-11-WIP-NOT-RELEASED",
+  "declared_target_base": "PH-051-12-WIP-NO-GO-NOT_SUPPLIED",
+  "source_engine_zip_sha256": "44b75136131d917403b99299077e829c025783a6bb94c2b539fbe0b913449dbd",
+  "source_docs_zip_sha256": "17ab78d0412c713fabf957bd54e7cc65d0b8dc77d358fe0d7f9f2635bca172fd",
+  "expected_ph05112_engine_zip_sha256": "c4bd7bd446f926f32ccfe185fe89ede27207ca6ef0998a35ba3c971293b91174",
+  "expected_ph05112_docs_zip_sha256": "3a5eee4fac314b5ecaec2edb338d64dd26ecddecc3d0e9212fdeff62ca88209a",
+  "platform_candidate": "Windows 11 x64 NTFS per-user",
+  "default_execution_mode": "MANUAL_HANDOFF",
+  "automatic_executor_release_status": "NO-GO",
+  "local_web_manual_release_status": "NO-GO",
+  "dependency_lock": "local_web/requirements-web-win_amd64-cp314.lock",
+  "note": "PH-LW-12 final manual acceptance; navigation resume ordering regression fixed; exact verdict in PH_LW_12_TEST_REPORT.md; automatic executor disabled; full v0.5.1 NO-GO.",
+  "platform_acceptance": {
+    "report": "PH_LW_04_05_WINDOWS_ACCEPTANCE_TEST_REPORT.md",
+    "scope": "PH-LW-04/05 Windows HTTP acceptance; full installer/lifecycle acceptance pending"
+  },
+  "acceptance_input_engine_zip_sha256": "d247127b5ab91b1dffd0f1f0649225bcf2b0bf02abea85a3c211cf3580b40c76",
+  "acceptance_input_docs_zip_sha256": "fd6a5d2aff1495708c30cf4f493ef30aed5bc6095a84a2fcd00e4a984013f1df",
+  "manual_remediation": {
+    "report": "PH_LW_05_WINDOWS_MANUAL_REMEDIATION_TEST_REPORT.md",
+    "input_engine_sha256": "d48a47b43957df5fd3e4e57db98f0b4e2e73c668893489a528e9c739200cb6ef",
+    "input_docs_sha256": "5d610858306dc91e1b125711e30dc84e7f4aed046d4d72c20f0ff401f05f9b8b",
+    "scope": "Windows v0.5.0 to v0.5.1 manual migration and applicable regressions; automatic remains disabled"
+  },
+  "ph_lw_06": {
+    "report": "PH_LW_06_TEST_REPORT.md",
+    "input_engine_sha256": "c8ccd7f1f1b93200db1936d58c274bf535fae09aa616309b54bed8e0e3da33f2",
+    "input_docs_sha256": "5b1dbed1ab7b876b8d5f078596c5c7ca327cd1f269d438407e88ac7bd95d4bd9",
+    "exchange_envelope": "LOCAL_WEB_GPT_DRAFT_ONLY@2",
+    "artifact_policy": "Unpacked working files; ZIP only on explicit user request"
+  },
+  "engine_build_digest": "sha256:54aff06eb60bd64b4c87e69c9b7d5c3133f4747bdff0c4ee1f570874cfac8b08",
+  "engine_build_digest_definition": "SHA256 of sorted SHA256 + two spaces + relative path + LF for src/project_harness files, excluding this metadata file and caches",
+  "ph_lw_07": {
+    "report": "PH_LW_07_TEST_REPORT.md",
+    "input_engine_manifest_sha256": "ad8baab86981abd99951c2793468b9c520291443279fac62ad9280614b840745",
+    "input_documentation_manifest_sha256": "30a9e17207887b0d9d473e63806c2ad369242b5c3d5534d1ec94d1a3faefa57b",
+    "companion_receipt_version": 1,
+    "artifact_policy": "Unpacked working files; ZIP only on explicit user request"
+  },
+  "ph_lw_08": {
+    "report": "PH_LW_08_TEST_REPORT.md",
+    "input_engine_manifest_sha256": "ceaa1666329224eaba03f6c90e769e09b1e6c3f6db6b72d90cf7f423c0f4edef",
+    "input_documentation_manifest_sha256": "060923e6dfb6245f59f6fc76f38a69bdd51e845db29ee52b845b4476aa198c7a",
+    "artifact_policy": "Unpacked working files; no Engine/Documentation ZIP requested"
+  },
+  "ph_lw_09": {
+    "report": "PH_LW_09_TEST_REPORT.md",
+    "input_engine_manifest_sha256": "dbccdd6a9d4b0f505aa6626e157aebd171dc6e9a1d4c19c075cfd797cc874802",
+    "input_documentation_manifest_sha256": "8124e124f2fcae5207cd1e68f0559608120f7815888e02904e4a665a7b6885ec",
+    "artifact_policy": "Unpacked working files; no Engine/Documentation ZIP requested"
+  },
+  "ph_lw_10": {
+    "report": "PH_LW_10_TEST_REPORT.md",
+    "input_engine_manifest_sha256": "7c2e2fff193d2ca00f1b51ffc8e102cedd1737d12722d83f4f1cd1b33ce32e7e",
+    "input_documentation_manifest_sha256": "73ad285065b83f3d6898435725c7075c14ac5369bc79ba4dc68313278e23e4b5",
+    "input_wheel_sha256": "55402b3e747196789ebdd2dea75534e12a8a49cf10c820de8094901734903489",
+    "artifact_policy": "Unpacked working files; no Engine/Documentation ZIP requested"
+  },
+  "ph_lw_11": {
+    "report": "PH_LW_11_TEST_REPORT.md",
+    "input_engine_manifest_sha256": "c8a8c45ed0ad1f8aedf491c07dd16f1adc0cbd4a3bb900b3534fc9f724f45a02",
+    "input_docs_manifest_sha256": "da946f402b45b86f307955fb73f6043fe4b3b931c9f52756d097f7ef8789cb93",
+    "artifact_policy": "Unpacked working files and real Windows installer; no Engine/Documentation ZIP"
+  },
+  "ph_lw_11_long_path": {
+    "report": "PH_LW_11_LONG_PATH_TEST_REPORT.md",
+    "input_wheel_sha256": "4e484ea88ccbf7875227c5970949244ede5d868735700a17629892e3382c98f2",
+    "input_installer_sha256": "2a56ed25463e808f22e0831cfa0d37487c4eb9c44fd2c5e59a147b3aecc8fa8c"
+  },
+  "ph_lw_11_zip_path": {
+    "report": "PH_LW_11_ZIP_PATH_TEST_REPORT.md",
+    "input_wheel_sha256": "60a77d83e27de1e3e914ab7a21df1aa50d0348c07199765fb1ef33f9ffc15f40",
+    "input_installer_sha256": "43cc06e7e3d1eac23133e1d324c911fb943ae37c403ef36dd860d766e37c2741"
+  },
+  "ph_lw_12": {
+    "report": "PH_LW_12_TEST_REPORT.md",
+    "input_wheel_sha256": "9bb3e87fdf2b297e7292fd5d2216fc1a61c9dbe49e2e4cf018f5eb5f2aa19bc2",
+    "input_installer_sha256": "0550a5582182ab95aa8b5376b878cdb3210b126a53b6fd6f90746417d50abb94",
+    "artifact_policy": "Unpacked files, wheel and Windows installer; no Engine/Documentation ZIP"
+  }
+}

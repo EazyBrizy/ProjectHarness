@@ -1,0 +1,18 @@
+{
+  "command": [
+    "<WORKSPACE>/.venv/Scripts/python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_lw_11_desktop.NativeLauncherTests.test_upload_success_waits_for_refresh_before_interview_can_start"
+  ],
+  "cwd": "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+  "started_utc": "2026-11-07T23:35:01.020640+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 120,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 11.853,
+  "log_sha256": "7a5caa4922cf39390ce9cbdff899aac90ba535563b26b15b178eda066d12aa1b"
+}

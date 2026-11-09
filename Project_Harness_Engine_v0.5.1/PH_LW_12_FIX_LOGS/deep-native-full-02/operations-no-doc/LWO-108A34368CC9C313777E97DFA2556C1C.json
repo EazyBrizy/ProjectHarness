@@ -1,0 +1,55 @@
+{
+  "operation_id": "LWO-108A34368CC9C313777E97DFA2556C1C",
+  "project_id": "LWP-AE6CE1974FC7A98B97E9",
+  "action": "publish-project",
+  "request_digest": "sha256:39a5ba1a30486cdef59ab55d05a33d1038723ad7c2d50717af9433d6eda29a46",
+  "expected_fingerprint": "sha256:25fd2cf4576d28e7ba74148976758e3273b59534c51163feec5f27c31621b2d1",
+  "created_at": "2026-11-08T12:14:02Z",
+  "updated_at": "2026-11-08T12:14:18Z",
+  "started_at": "2026-11-08T12:14:02Z",
+  "finished_at": "2026-11-08T12:14:18Z",
+  "state": "SUCCEEDED",
+  "phase": "DONE",
+  "core_before": "sha256:25fd2cf4576d28e7ba74148976758e3273b59534c51163feec5f27c31621b2d1",
+  "core_after": "sha256:58901743c200db1f2522408effc7bcf66e4c747f1b3ba2b7610c232a0f2be311",
+  "before_active_run_ref": null,
+  "expected_draft_after": null,
+  "result": {
+    "status": "READY_FOR_CODEX",
+    "published_project_id": "LWP-177E7CE5B7D156DB91A4",
+    "artifact_ref": "LWO-108A34368CC9C313777E97DFA2556C1C",
+    "destination": "<TEMP>\\LW12 installed no-doc qzuayve_\\profile\\HarnessProjects\\No documents product",
+    "zip_sha256": "sha256:2cddb51acffe2a6e9293315e01edfb8810b9ce44dffbdcb91ac96356271e41e7",
+    "first_task_ref": "TSK-PH-LW-12-NO-DOCUMENTATION-001@1",
+    "first_run_ref": "RUN-PH-LW-12-NO-DOCUMENTATION-001-A1",
+    "initial_validation": {
+      "directory": "PASS",
+      "zip": "PASS",
+      "project": "PASS"
+    },
+    "current_validation": "PASS",
+    "active_stage": "PROTOTYPE",
+    "target_level": "MVP",
+    "current_task": {
+      "task_ref": "TSK-PH-LW-12-NO-DOCUMENTATION-001@1",
+      "title": "Implement add and list commands",
+      "status": "READY",
+      "implementation_stage": "PROTOTYPE",
+      "path": ".harness/tasks/TSK-PH-LW-12-NO-DOCUMENTATION-001@1.yaml"
+    }
+  },
+  "error": null,
+  "receipt": {
+    "kind": "LOCAL_WEB_OPERATION_RECEIPT",
+    "receipt_version": 1,
+    "operation_id": "LWO-108A34368CC9C313777E97DFA2556C1C",
+    "project_ref": "LWP-AE6CE1974FC7A98B97E9",
+    "action_id": "LW-C04",
+    "idempotency_key": "browser-6bdd8615ae41074a9fe8efbf5eb7487a",
+    "request_sha256": "sha256:39a5ba1a30486cdef59ab55d05a33d1038723ad7c2d50717af9433d6eda29a46",
+    "expected_core_fingerprint": "sha256:25fd2cf4576d28e7ba74148976758e3273b59534c51163feec5f27c31621b2d1",
+    "core_outcome": "CONFIRMED_COMMITTED",
+    "created_at": "2026-11-08T12:14:02Z"
+  },
+  "record_digest": "sha256:24a65ca7cd0880c4c14ddb99a4106a8f0ba072cfff3b4d1bda15806afa77f3a4"
+}

@@ -1,0 +1,14 @@
+{
+  "shard": 8,
+  "modules": [
+    "test_implementation_levels",
+    "test_ph_051_03_rootless_podman",
+    "test_ph_f04_runtime_reachability",
+    "test_ph_051_07_sandbox_verification"
+  ],
+  "exit_code": 0,
+  "tests": 47,
+  "seconds": 75.47,
+  "log": "PH_051_09_SHARD_08.log",
+  "result": "PASS"
+}

@@ -1,0 +1,7 @@
+COMMAND: python -m unittest -q tests.test_ph_051_09_automatic_runtime
+----------------------------------------------------------------------
+Ran 15 tests in 118.037s
+
+OK
+
+EXIT_CODE=0

@@ -1,0 +1,15 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "tools/verify_ph_lw_09_manual_evidence.py"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-07T11:01:38.231629+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 300,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 6.716,
+  "log_sha256": "ad1f3f22329e5124ea09ac7aeba5a397f553dc51729c08937579bd00e6cb5345"
+}

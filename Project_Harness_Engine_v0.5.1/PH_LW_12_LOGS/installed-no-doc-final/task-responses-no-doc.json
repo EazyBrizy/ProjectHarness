@@ -1,0 +1,59 @@
+[
+  {
+    "path": "projects/LWP-EAB228FA547523F862E2/operations",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-57645B09E57EB4A9A1416CA8D3EAC6B7",
+      "state": "QUEUED"
+    }
+  },
+  {
+    "path": "projects/LWP-68C898CCEA9D7F9C8931/tasks/result-upload",
+    "status": 201,
+    "body": {
+      "binding_digest": "sha256:1b0574c42026913729460d39ae33ae4e1b24d57f40f61c6084a12eeb56eaf302",
+      "status": "STAGED_UNVERIFIED",
+      "upload_id": "LWR-933271E73D251C44DC83BC5FD41E6E89F82A32BDD51BF884CB314F0AA7FB5166"
+    }
+  },
+  {
+    "path": "projects/LWP-68C898CCEA9D7F9C8931/operations",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-7CD379B4C17509718ABEB2293580E87E",
+      "state": "QUEUED"
+    }
+  },
+  {
+    "path": "projects/LWP-68C898CCEA9D7F9C8931/operations",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-944CDF7B916FA112F980D772E3242155",
+      "state": "QUEUED"
+    }
+  },
+  {
+    "path": "projects/LWP-68C898CCEA9D7F9C8931/operations",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-EA16E4E075B8B8CA802C381513518733",
+      "state": "QUEUED"
+    }
+  },
+  {
+    "path": "projects/LWP-68C898CCEA9D7F9C8931/operations",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-B514CA73A0E37219904734C08D472B45",
+      "state": "QUEUED"
+    }
+  },
+  {
+    "path": "projects/LWP-68C898CCEA9D7F9C8931/operations",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-9510D47A4009265F945247CE84A68740",
+      "state": "QUEUED"
+    }
+  }
+]

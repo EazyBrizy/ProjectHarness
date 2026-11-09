@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_ph_051_07_sandbox_verification"
+  ],
+  "ran": 9,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 0.339,
+  "log": "test_ph_051_07_sandbox_verification.log",
+  "status": "PASS"
+}

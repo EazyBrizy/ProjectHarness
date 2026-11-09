@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>\tools\ph_lw_12_fix_compile_probe.py", line 23, in <module>
+    initial=inspect_initial_handoff(parent/'project',parent/'handoff.zip')
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\materialization.py", line 72, in inspect_initial_handoff
+    with zipfile.ZipFile(archive) as zf:
+         ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\zipfile\__init__.py", line 1487, in __init__
+    self.fp = io.open(file, filemode)
+              ~~~~~~~^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '<WORKSPACE>\\_scratch\\ph_lw_12_fix\\compile-deep-source-02\\publication-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\staging-yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy\\handoff.zip'

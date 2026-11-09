@@ -1,0 +1,22 @@
+test_append_name_conflict_and_stale_revisions_do_not_mutate_core (tests.test_ph_lw_05_import.LocalSourceImporter.test_append_name_conflict_and_stale_revisions_do_not_mutate_core) ... ok
+test_corrupt_crc_oversized_entry_and_entry_count (tests.test_ph_lw_05_import.LocalSourceImporter.test_corrupt_crc_oversized_entry_and_entry_count) ... ok
+test_idempotent_identical_append_and_restart_replace_creates_revision (tests.test_ph_lw_05_import.LocalSourceImporter.test_idempotent_identical_append_and_restart_replace_creates_revision) ... ok
+test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) ... ok
+test_multiple_md_and_nested_zip_unicode_spaces_unsupported_attachment (tests.test_ph_lw_05_import.LocalSourceImporter.test_multiple_md_and_nested_zip_unicode_spaces_unsupported_attachment) ... ok
+test_native_windows_snapshot_parent_junction_rejected (tests.test_ph_lw_05_import.LocalSourceImporter.test_native_windows_snapshot_parent_junction_rejected) ... ok
+test_prepared_project_route_is_rejected_before_mutation (tests.test_ph_lw_05_import.LocalSourceImporter.test_prepared_project_route_is_rejected_before_mutation) ... ok
+test_recoverable_refresh_fault_rollback_without_mixed_core (tests.test_ph_lw_05_import.LocalSourceImporter.test_recoverable_refresh_fault_rollback_without_mixed_core) ... ok
+test_recovery_can_be_explicit_after_restart_no_get_side_effect (tests.test_ph_lw_05_import.LocalSourceImporter.test_recovery_can_be_explicit_after_restart_no_get_side_effect) ... ok
+test_single_md_no_fake_authority_utf8_bom_and_plain_preview (tests.test_ph_lw_05_import.LocalSourceImporter.test_single_md_no_fake_authority_utf8_bom_and_plain_preview) ... ok
+test_snapshot_digest_mismatch_blocks_preview_and_new_import (tests.test_ph_lw_05_import.LocalSourceImporter.test_snapshot_digest_mismatch_blocks_preview_and_new_import) ... ok
+test_snapshot_hardlink_and_copy_time_tamper_fail_closed (tests.test_ph_lw_05_import.LocalSourceImporter.test_snapshot_hardlink_and_copy_time_tamper_fail_closed) ... ok
+test_special_symlink_fifo_reparse_and_encryption_rejected (tests.test_ph_lw_05_import.LocalSourceImporter.test_special_symlink_fifo_reparse_and_encryption_rejected) ... ok
+test_unsafe_top_level_filenames_and_encoding_fail (tests.test_ph_lw_05_import.LocalSourceImporter.test_unsafe_top_level_filenames_and_encoding_fail) ... ok
+test_upload_source_bytes_not_modified_and_no_command_started (tests.test_ph_lw_05_import.LocalSourceImporter.test_upload_source_bytes_not_modified_and_no_command_started) ... ok
+test_user_confirmed_no_docs_no_source_revised_and_no_fabricated_files (tests.test_ph_lw_05_import.LocalSourceImporter.test_user_confirmed_no_docs_no_source_revised_and_no_fabricated_files) ... ok
+test_zip_raw_source_can_exceed_md_entry_limit_and_replay (tests.test_ph_lw_05_import.LocalSourceImporter.test_zip_raw_source_can_exceed_md_entry_limit_and_replay) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 11.050s
+
+OK

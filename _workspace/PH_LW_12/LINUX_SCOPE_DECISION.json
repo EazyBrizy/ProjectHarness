@@ -1,0 +1,9 @@
+{
+  "status": "STOPPED_BY_USER",
+  "platform": "Windows only",
+  "linux_runner_removed_from_distribution": true,
+  "linux_only_legacy_tests": "NOT RUN; outside user-authorized platform",
+  "automatic_executor": "NO-GO; disabled",
+  "container": "ph-lw-12-linux-regressions stopped; --rm cleanup requested at creation",
+  "other_containers_or_system_settings_changed": false
+}

@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_windows_manual_migration"
+  ],
+  "ran": 7,
+  "failures": 1,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 134.563,
+  "log": "test_windows_manual_migration.log",
+  "status": "FAIL"
+}

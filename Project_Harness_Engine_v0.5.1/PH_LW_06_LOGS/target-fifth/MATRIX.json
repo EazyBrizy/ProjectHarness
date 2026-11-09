@@ -1,0 +1,25 @@
+[
+  {
+    "module": "tests.test_ph_lw_06_http",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_ph_lw_06_http",
+      "<WORKSPACE>\\_scratch\\ph_lw_06\\target-fifth\\test_ph_lw_06_http.log"
+    ],
+    "started_utc": "2026-11-07T01:52:22.191755+00:00",
+    "exit": 1,
+    "status": "FAIL",
+    "modules": [
+      "tests.test_ph_lw_06_http"
+    ],
+    "ran": 4,
+    "failures": 1,
+    "errors": 0,
+    "skips": [],
+    "elapsed_seconds": 17.016,
+    "log": "test_ph_lw_06_http.log",
+    "log_sha256": "260afbaa3bb9233788a7fcbcf016f41bd6bf406836d3382930d81789cd628bf5"
+  }
+]

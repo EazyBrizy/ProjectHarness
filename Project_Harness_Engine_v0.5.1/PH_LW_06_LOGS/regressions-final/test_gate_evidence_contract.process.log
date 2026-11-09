@@ -1,0 +1,1 @@
+{"modules": ["tests.test_gate_evidence_contract"], "ran": 10, "failures": 0, "errors": 0, "skips": [], "elapsed_seconds": 214.903, "log": "test_gate_evidence_contract.log", "status": "PASS"}

@@ -1,0 +1,22 @@
+{
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_08\\wheel-env\\Scripts\\python.exe",
+    "-m",
+    "pip",
+    "install",
+    "--no-index",
+    "--find-links",
+    "_tools/devwheelhouse",
+    "--require-hashes",
+    "-r",
+    "_workspace/requirements-dev-win_amd64-cp314.lock"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T04:00:05.675263+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 180,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 20.417,
+  "log_sha256": "74425538b778d103413d9a3bf0b3d8fd8c7db7c12560f65a726dcefc2e7c0a60"
+}

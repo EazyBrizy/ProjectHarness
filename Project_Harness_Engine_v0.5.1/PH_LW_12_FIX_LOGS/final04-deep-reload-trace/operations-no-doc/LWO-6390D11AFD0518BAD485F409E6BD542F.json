@@ -1,0 +1,38 @@
+{
+  "operation_id": "LWO-6390D11AFD0518BAD485F409E6BD542F",
+  "project_id": "LWP-7E2616A35A0CFCC3BB60",
+  "action": "manual-evidence",
+  "request_digest": "sha256:2375414afc7efcad5879bb9197a6ec248b3b0ab7d8be4c2ff3633159410df4fd",
+  "expected_fingerprint": "sha256:c48009a7619041b27922a01a1aed9f20ccc16f5da42bf943959d9320b3ccbb8a",
+  "created_at": "2026-11-08T14:35:33Z",
+  "updated_at": "2026-11-08T14:35:35Z",
+  "started_at": "2026-11-08T14:35:33Z",
+  "finished_at": "2026-11-08T14:35:35Z",
+  "state": "SUCCEEDED",
+  "phase": "DONE",
+  "core_before": "sha256:c48009a7619041b27922a01a1aed9f20ccc16f5da42bf943959d9320b3ccbb8a",
+  "core_after": "sha256:3b91b91e820c382e17c072282c9abc9ff6756178096a620a0725155ea8a3005b",
+  "before_active_run_ref": null,
+  "expected_draft_after": null,
+  "result": {
+    "action": "manual-evidence",
+    "core_status": "MANUAL_EVIDENCE_RECEIVED",
+    "refs": {
+      "status": "MANUAL_EVIDENCE_RECEIVED"
+    }
+  },
+  "error": null,
+  "receipt": {
+    "kind": "LOCAL_WEB_OPERATION_RECEIPT",
+    "receipt_version": 1,
+    "operation_id": "LWO-6390D11AFD0518BAD485F409E6BD542F",
+    "project_ref": "LWP-7E2616A35A0CFCC3BB60",
+    "action_id": "LW-MANUAL-EVIDENCE",
+    "idempotency_key": "browser-74c3327c43b911d34d6adab838b78e63",
+    "request_sha256": "sha256:2375414afc7efcad5879bb9197a6ec248b3b0ab7d8be4c2ff3633159410df4fd",
+    "expected_core_fingerprint": "sha256:c48009a7619041b27922a01a1aed9f20ccc16f5da42bf943959d9320b3ccbb8a",
+    "core_outcome": "CONFIRMED_COMMITTED",
+    "created_at": "2026-11-08T14:35:33Z"
+  },
+  "record_digest": "sha256:2f0503a9b61ff82c32a7f935aebbf52e572425269aebcc7363287acd5adf9e1b"
+}

@@ -1,0 +1,16 @@
+{
+  "python": "3.14.10",
+  "inno_setup": "6.7.4",
+  "iscc_sha256": "f02fa0e5f237b47d7ed1edae9b991866ec94fe02af61eb6a73e94f92fe8e0604",
+  "inno_installer_sha256": "a549929319f9120716677c685535ca4671e4b937b5fdc87e2585f32d8eb30e8c",
+  "inno_installer_signature": "Valid; Pyrsys B.V.",
+  "packages": {
+    "altgraph": "0.17.5",
+    "packaging": "26.3",
+    "pefile": "2024.8.26",
+    "pyinstaller": "6.22.3",
+    "pyinstaller-hooks-contrib": "2026.9",
+    "pywin32-ctypes": "0.2.3",
+    "setuptools": "84.2.1"
+  }
+}

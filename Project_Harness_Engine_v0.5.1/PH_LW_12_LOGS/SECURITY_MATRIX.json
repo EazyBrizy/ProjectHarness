@@ -1,0 +1,36 @@
+{
+  "rows": [
+    {
+      "control": "session/bootstrap/Host/Origin/CSRF",
+      "evidence_scope": "Native TCP; installed TCP; replay/expiry; no test-client substitution",
+      "status": "PASS"
+    },
+    {
+      "control": "XSS sources/GPT/results",
+      "evidence_scope": "Headless real Edge; text-only rendering; same-origin request assertions",
+      "status": "PASS"
+    },
+    {
+      "control": "ZIP/limits/traversal/ownership",
+      "evidence_scope": "Native import tests, real TCP body limits and installed negative archive fixtures",
+      "status": "PASS"
+    },
+    {
+      "control": "Windows reparse and locking",
+      "evidence_scope": "Actual junction/hardlink/share-denial tests; two native capability SKIP remain explicit",
+      "status": "PASS_WITH_EXPLICIT_SKIPS"
+    },
+    {
+      "control": "replay/concurrency/recovery",
+      "evidence_scope": "Shared fence/process/CLI tests; injected kernel faults; installed idle crash; real installer interruption",
+      "status": "PASS"
+    },
+    {
+      "control": "logs/exports/distribution",
+      "evidence_scope": "Bounded runtime pattern scan and published-evidence token scan; no universal DLP",
+      "status": "PASS bounded scan"
+    }
+  ],
+  "known_open_issue": "LW12-DEEP-APPDATA-INTAKE",
+  "automatic_executor": "NO-GO; no activation"
+}

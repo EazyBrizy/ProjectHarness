@@ -1,0 +1,6 @@
+ARGV: python .harness/engine/project-harness.py --version
+EXIT: 0
+STDOUT:
+0.5.1
+
+STDERR:

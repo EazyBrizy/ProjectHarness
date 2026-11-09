@@ -1,0 +1,66 @@
+Frozen server ready; PID 16480 PATH has no developer tools
+Frozen server ready; PID 11284 PATH has no developer tools
+Frozen server ready; PID 24760 PATH has no developer tools
+Frozen server ready; PID 24912 PATH has no developer tools
+Frozen server ready; PID 41812 PATH has no developer tools
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]",
+  "non_admin": true,
+  "installer_sha256": "ac7d4b12b0f1943ab27f398d8bee92a93083c155bb4c04fd76773b631f7313d4",
+  "clean_machine": "NOT RUN; developer host with sanitized installed-process PATH",
+  "physical_offline": "NOT RUN; no adapter/security setting changes",
+  "unicode_username": "NOT RUN; actual username unchanged; Unicode paths tested",
+  "real_disk_full": "NOT RUN; ENOSPC injection tested separately",
+  "commands": [
+    {
+      "command": [
+        "<WORKSPACE>\\_scratch\\ph_lw_11_zip_path\\build\\Harness-Setup-win-x64.exe",
+        "/VERYSILENT",
+        "/SUPPRESSMSGBOXES",
+        "/NORESTART",
+        "/DIR=<WORKSPACE>\\_scratch\\ph_lw_11_zip_path\\installed-long\\Установленная программа",
+        "/LOG=<WORKSPACE>\\_scratch\\ph_lw_11_zip_path\\installed-long\\install.log"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "<WORKSPACE>\\_scratch\\ph_lw_11_zip_path\\installed-long\\Установленная программа\\uninstall\\unins000.exe",
+        "/VERYSILENT",
+        "/SUPPRESSMSGBOXES",
+        "/NORESTART",
+        "/LOG=<WORKSPACE>\\_scratch\\ph_lw_11_zip_path\\installed-long\\uninstall.log"
+      ],
+      "exit": 0
+    }
+  ],
+  "filesystem": "NTFS",
+  "foreign_target_rejection": {
+    "exit": 7,
+    "sentinel_preserved": true
+  },
+  "tests": {
+    "ran": 4,
+    "errors": 0,
+    "failures": 1,
+    "skips": 0
+  },
+  "uninstall_preserved_projects": true,
+  "uninstall_preserved_app_data": true,
+  "executable_removed": true,
+  "status": "FAIL"
+}
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\local_web\windows\zip_path_acceptance.py", line 49, in <module>
+    app_files=snapshot(app_root)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\local_web\windows\zip_path_acceptance.py", line 19, in snapshot
+    return {p.relative_to(io).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
+                                                        ~~~~~~~~~~~~^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '\\\\?\\<WORKSPACE>\\_scratch\\ph_lw_11_zip_path\\installed-long\\LocalAppData\\Google\\Chrome\\User Data\\lockfile'

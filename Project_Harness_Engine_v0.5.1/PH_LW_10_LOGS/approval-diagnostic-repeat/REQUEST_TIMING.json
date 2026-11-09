@@ -1,0 +1,2679 @@
+[
+  {
+    "elapsed": 1.273,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/session/bootstrap",
+    "status": null
+  },
+  {
+    "elapsed": 1.28,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/session/bootstrap",
+    "status": 200
+  },
+  {
+    "elapsed": 1.281,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": null
+  },
+  {
+    "elapsed": 1.302,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": 200
+  },
+  {
+    "elapsed": 1.522,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1",
+    "status": null
+  },
+  {
+    "elapsed": 1.551,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1",
+    "status": 200
+  },
+  {
+    "elapsed": 1.586,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 1.653,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 1.653,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 1.695,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 1.816,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals/actor",
+    "status": null
+  },
+  {
+    "elapsed": 1.851,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals/actor",
+    "status": 200
+  },
+  {
+    "elapsed": 1.851,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 1.902,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 1.903,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 1.949,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 2.069,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/session",
+    "status": null
+  },
+  {
+    "elapsed": 2.09,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/session",
+    "status": 200
+  },
+  {
+    "elapsed": 2.097,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": null
+  },
+  {
+    "elapsed": 2.123,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": 200
+  },
+  {
+    "elapsed": 2.156,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1",
+    "status": null
+  },
+  {
+    "elapsed": 2.181,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1",
+    "status": 200
+  },
+  {
+    "elapsed": 2.21,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 2.264,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 2.264,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 2.305,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 2.462,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 2.678,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 2.678,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 2.773,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 2.773,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 2.819,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 3.312,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 3.36,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals/decisions",
+    "status": 409,
+    "error": {
+      "code": "STALE_APPROVAL",
+      "message_ru": "Содержание, источники или оператор изменились; перечитайте согласование.",
+      "next_action_ru": "Проверьте ошибки, исправьте ответ или подготовьте новый пакет.",
+      "validation_errors": []
+    }
+  },
+  {
+    "elapsed": 3.501,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 3.747,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 3.747,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 3.832,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 3.833,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 3.879,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 4.366,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 4.596,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 4.596,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 4.685,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 4.687,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 4.73,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 5.239,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 5.456,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 5.456,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 5.543,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 5.544,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 5.591,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 6.2,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/session",
+    "status": null
+  },
+  {
+    "elapsed": 6.204,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/session",
+    "status": 200
+  },
+  {
+    "elapsed": 6.204,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": null
+  },
+  {
+    "elapsed": 6.226,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": 200
+  },
+  {
+    "elapsed": 6.226,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1",
+    "status": null
+  },
+  {
+    "elapsed": 6.25,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1",
+    "status": 200
+  },
+  {
+    "elapsed": 6.251,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 6.302,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 6.302,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 6.348,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 6.893,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 7.064,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 7.065,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 7.153,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 7.153,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 7.201,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 7.202,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/interview",
+    "status": null
+  },
+  {
+    "elapsed": 7.236,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1/interview",
+    "status": 200
+  },
+  {
+    "elapsed": 7.34,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": null
+  },
+  {
+    "elapsed": 7.458,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": 200
+  },
+  {
+    "elapsed": 7.458,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1",
+    "status": null
+  },
+  {
+    "elapsed": 7.483,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B6C56B9CAE6E76A076B1",
+    "status": 200
+  },
+  {
+    "elapsed": 7.548,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-5690DE5FD723A7546348",
+    "status": null
+  },
+  {
+    "elapsed": 7.565,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-5690DE5FD723A7546348/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 7.572,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-5690DE5FD723A7546348/preparation",
+    "status": 409,
+    "error": {
+      "code": "OPERATION_CONFLICT",
+      "message_ru": "С этим проектом уже работает другая операция.",
+      "next_action_ru": "Получите статус существующей операции и повторите позже."
+    }
+  },
+  {
+    "elapsed": 7.584,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-5690DE5FD723A7546348",
+    "status": 200
+  },
+  {
+    "elapsed": 7.585,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-5690DE5FD723A7546348/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 7.634,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-5690DE5FD723A7546348/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 7.634,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-5690DE5FD723A7546348/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 7.679,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-5690DE5FD723A7546348/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 7.801,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-5690DE5FD723A7546348/approvals/actor",
+    "status": null
+  },
+  {
+    "elapsed": 7.823,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-5690DE5FD723A7546348/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 7.826,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-5690DE5FD723A7546348/approvals/actor",
+    "status": 200
+  },
+  {
+    "elapsed": 7.826,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-5690DE5FD723A7546348/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 7.832,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-5690DE5FD723A7546348/preparation",
+    "status": 409,
+    "error": {
+      "code": "OPERATION_CONFLICT",
+      "message_ru": "С этим проектом уже работает другая операция.",
+      "next_action_ru": "Получите статус существующей операции и повторите позже."
+    }
+  },
+  {
+    "elapsed": 7.877,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-5690DE5FD723A7546348/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 7.878,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-5690DE5FD723A7546348/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 7.923,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-5690DE5FD723A7546348/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 8.084,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-5690DE5FD723A7546348/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 8.139,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-5690DE5FD723A7546348/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 8.14,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-5690DE5FD723A7546348/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 8.184,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-5690DE5FD723A7546348/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 14.37,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/session/bootstrap",
+    "status": null
+  },
+  {
+    "elapsed": 14.377,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/session/bootstrap",
+    "status": 200
+  },
+  {
+    "elapsed": 14.377,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": null
+  },
+  {
+    "elapsed": 14.398,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": 200
+  },
+  {
+    "elapsed": 14.605,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6",
+    "status": null
+  },
+  {
+    "elapsed": 14.636,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6",
+    "status": 200
+  },
+  {
+    "elapsed": 14.67,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 14.719,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 14.719,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 14.771,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 14.903,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals/actor",
+    "status": null
+  },
+  {
+    "elapsed": 14.939,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals/actor",
+    "status": 200
+  },
+  {
+    "elapsed": 14.94,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 14.996,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 14.997,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 15.044,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 15.16,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/session",
+    "status": null
+  },
+  {
+    "elapsed": 15.18,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/session",
+    "status": 200
+  },
+  {
+    "elapsed": 15.18,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": null
+  },
+  {
+    "elapsed": 15.211,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": 200
+  },
+  {
+    "elapsed": 15.245,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6",
+    "status": null
+  },
+  {
+    "elapsed": 15.271,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6",
+    "status": 200
+  },
+  {
+    "elapsed": 15.302,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 15.355,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 15.355,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 15.398,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 15.563,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 15.782,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 15.782,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 15.874,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 15.874,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 15.929,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 16.424,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 16.474,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals/decisions",
+    "status": 409,
+    "error": {
+      "code": "STALE_APPROVAL",
+      "message_ru": "Содержание, источники или оператор изменились; перечитайте согласование.",
+      "next_action_ru": "Проверьте ошибки, исправьте ответ или подготовьте новый пакет.",
+      "validation_errors": []
+    }
+  },
+  {
+    "elapsed": 16.601,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 16.812,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 16.812,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 16.917,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 16.918,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 16.962,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 17.461,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 17.704,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 17.705,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 17.809,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 17.809,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 17.854,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 18.316,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 18.566,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 18.566,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 18.662,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 18.663,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 18.707,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 19.365,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/session",
+    "status": null
+  },
+  {
+    "elapsed": 19.37,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/session",
+    "status": 200
+  },
+  {
+    "elapsed": 19.37,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": null
+  },
+  {
+    "elapsed": 19.401,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": 200
+  },
+  {
+    "elapsed": 19.401,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6",
+    "status": null
+  },
+  {
+    "elapsed": 19.426,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6",
+    "status": 200
+  },
+  {
+    "elapsed": 19.427,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 19.48,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 19.481,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 19.528,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 20.103,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 20.296,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 20.296,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 20.392,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 20.392,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 20.439,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 20.441,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/interview",
+    "status": null
+  },
+  {
+    "elapsed": 20.48,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6/interview",
+    "status": 200
+  },
+  {
+    "elapsed": 21.066,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": null
+  },
+  {
+    "elapsed": 21.202,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": 200
+  },
+  {
+    "elapsed": 21.202,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6",
+    "status": null
+  },
+  {
+    "elapsed": 21.226,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-C65570C8AE58523AE1E6",
+    "status": 200
+  },
+  {
+    "elapsed": 21.29,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-282297384BB7E57A6247",
+    "status": null
+  },
+  {
+    "elapsed": 21.303,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-282297384BB7E57A6247/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 21.311,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-282297384BB7E57A6247/preparation",
+    "status": 409,
+    "error": {
+      "code": "OPERATION_CONFLICT",
+      "message_ru": "С этим проектом уже работает другая операция.",
+      "next_action_ru": "Получите статус существующей операции и повторите позже."
+    }
+  },
+  {
+    "elapsed": 21.337,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-282297384BB7E57A6247",
+    "status": 200
+  },
+  {
+    "elapsed": 21.337,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-282297384BB7E57A6247/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 21.386,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-282297384BB7E57A6247/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 21.386,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-282297384BB7E57A6247/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 21.432,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-282297384BB7E57A6247/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 21.533,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-282297384BB7E57A6247/approvals/actor",
+    "status": null
+  },
+  {
+    "elapsed": 21.563,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-282297384BB7E57A6247/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 21.564,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-282297384BB7E57A6247/approvals/actor",
+    "status": 200
+  },
+  {
+    "elapsed": 21.564,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-282297384BB7E57A6247/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 21.574,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-282297384BB7E57A6247/preparation",
+    "status": 409,
+    "error": {
+      "code": "OPERATION_CONFLICT",
+      "message_ru": "С этим проектом уже работает другая операция.",
+      "next_action_ru": "Получите статус существующей операции и повторите позже."
+    }
+  },
+  {
+    "elapsed": 21.646,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-282297384BB7E57A6247/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 21.647,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-282297384BB7E57A6247/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 21.691,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-282297384BB7E57A6247/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 21.825,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-282297384BB7E57A6247/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 21.874,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-282297384BB7E57A6247/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 21.875,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-282297384BB7E57A6247/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 21.917,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-282297384BB7E57A6247/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 28.306,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/session/bootstrap",
+    "status": null
+  },
+  {
+    "elapsed": 28.313,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/session/bootstrap",
+    "status": 200
+  },
+  {
+    "elapsed": 28.314,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": null
+  },
+  {
+    "elapsed": 28.335,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": 200
+  },
+  {
+    "elapsed": 28.519,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB",
+    "status": null
+  },
+  {
+    "elapsed": 28.561,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB",
+    "status": 200
+  },
+  {
+    "elapsed": 28.64,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 28.701,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 28.702,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 28.751,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 28.883,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals/actor",
+    "status": null
+  },
+  {
+    "elapsed": 28.926,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals/actor",
+    "status": 200
+  },
+  {
+    "elapsed": 28.927,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 28.978,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 28.979,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 29.026,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 29.14,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/session",
+    "status": null
+  },
+  {
+    "elapsed": 29.158,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/session",
+    "status": 200
+  },
+  {
+    "elapsed": 29.16,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": null
+  },
+  {
+    "elapsed": 29.186,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": 200
+  },
+  {
+    "elapsed": 29.218,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB",
+    "status": null
+  },
+  {
+    "elapsed": 29.248,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB",
+    "status": 200
+  },
+  {
+    "elapsed": 29.273,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 29.328,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 29.329,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 29.37,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 29.537,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 29.74,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 29.741,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 29.827,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 29.827,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 29.872,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 30.38,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 30.43,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals/decisions",
+    "status": 409,
+    "error": {
+      "code": "STALE_APPROVAL",
+      "message_ru": "Содержание, источники или оператор изменились; перечитайте согласование.",
+      "next_action_ru": "Проверьте ошибки, исправьте ответ или подготовьте новый пакет.",
+      "validation_errors": []
+    }
+  },
+  {
+    "elapsed": 30.585,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 30.833,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 30.833,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 30.907,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 30.907,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 30.952,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 31.446,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 31.661,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 31.661,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 31.749,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 31.75,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 31.794,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 32.286,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 32.538,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 32.538,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 32.631,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 32.634,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 32.695,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 33.251,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/session",
+    "status": null
+  },
+  {
+    "elapsed": 33.256,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/session",
+    "status": 200
+  },
+  {
+    "elapsed": 33.259,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": null
+  },
+  {
+    "elapsed": 33.286,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": 200
+  },
+  {
+    "elapsed": 33.286,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB",
+    "status": null
+  },
+  {
+    "elapsed": 33.311,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB",
+    "status": 200
+  },
+  {
+    "elapsed": 33.312,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 33.363,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 33.363,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 33.409,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 33.956,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 34.162,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 34.163,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 34.25,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 34.251,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 34.301,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 34.302,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/interview",
+    "status": null
+  },
+  {
+    "elapsed": 34.336,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB/interview",
+    "status": 200
+  },
+  {
+    "elapsed": 34.924,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": null
+  },
+  {
+    "elapsed": 35.033,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": 200
+  },
+  {
+    "elapsed": 35.033,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB",
+    "status": null
+  },
+  {
+    "elapsed": 35.057,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-3C41055BA92214CE65DB",
+    "status": 200
+  },
+  {
+    "elapsed": 35.144,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5",
+    "status": null
+  },
+  {
+    "elapsed": 35.161,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 35.169,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/preparation",
+    "status": 409,
+    "error": {
+      "code": "OPERATION_CONFLICT",
+      "message_ru": "С этим проектом уже работает другая операция.",
+      "next_action_ru": "Получите статус существующей операции и повторите позже."
+    }
+  },
+  {
+    "elapsed": 35.185,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5",
+    "status": 200
+  },
+  {
+    "elapsed": 35.186,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 35.239,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 35.239,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 35.282,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 35.367,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals/actor",
+    "status": null
+  },
+  {
+    "elapsed": 35.395,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals/actor",
+    "status": 200
+  },
+  {
+    "elapsed": 35.395,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 35.423,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 35.43,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/preparation",
+    "status": 409,
+    "error": {
+      "code": "OPERATION_CONFLICT",
+      "message_ru": "С этим проектом уже работает другая операция.",
+      "next_action_ru": "Получите статус существующей операции и повторите позже."
+    }
+  },
+  {
+    "elapsed": 35.447,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 35.448,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 35.491,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 35.603,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 35.688,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 35.694,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/preparation",
+    "status": 409,
+    "error": {
+      "code": "OPERATION_CONFLICT",
+      "message_ru": "С этим проектом уже работает другая операция.",
+      "next_action_ru": "Получите статус существующей операции и повторите позже."
+    }
+  },
+  {
+    "elapsed": 35.81,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 35.811,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 35.865,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 35.866,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 35.914,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 35.95,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 36.007,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 36.007,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 36.053,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 36.452,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 36.698,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 36.699,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 36.782,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 36.782,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 36.83,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 37.313,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 37.534,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 37.534,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 37.621,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 37.622,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 37.668,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 38.161,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 38.36,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 38.36,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 38.44,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 38.44,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 38.487,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 39.015,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 39.233,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 39.233,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 39.317,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 39.318,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 39.367,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 39.984,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": null
+  },
+  {
+    "elapsed": 40.204,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects",
+    "status": 200
+  },
+  {
+    "elapsed": 40.204,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5",
+    "status": null
+  },
+  {
+    "elapsed": 40.231,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-B30A563197721FFF68C5",
+    "status": 200
+  },
+  {
+    "elapsed": 40.305,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0",
+    "status": null
+  },
+  {
+    "elapsed": 40.325,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 40.335,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": 409,
+    "error": {
+      "code": "OPERATION_CONFLICT",
+      "message_ru": "С этим проектом уже работает другая операция.",
+      "next_action_ru": "Получите статус существующей операции и повторите позже."
+    }
+  },
+  {
+    "elapsed": 40.35,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0",
+    "status": 200
+  },
+  {
+    "elapsed": 40.35,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 40.401,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 40.401,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 40.447,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 40.566,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals/actor",
+    "status": null
+  },
+  {
+    "elapsed": 40.587,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 40.591,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": 409,
+    "error": {
+      "code": "OPERATION_CONFLICT",
+      "message_ru": "С этим проектом уже работает другая операция.",
+      "next_action_ru": "Получите статус существующей операции и повторите позже."
+    }
+  },
+  {
+    "elapsed": 40.598,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals/actor",
+    "status": 200
+  },
+  {
+    "elapsed": 40.598,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 40.662,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 40.662,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 40.71,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 40.79,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 40.843,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 40.848,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": 409,
+    "error": {
+      "code": "OPERATION_CONFLICT",
+      "message_ru": "С этим проектом уже работает другая операция.",
+      "next_action_ru": "Получите статус существующей операции и повторите позже."
+    }
+  },
+  {
+    "elapsed": 41.017,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 41.017,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 41.099,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 41.101,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 41.101,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 41.107,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": 409,
+    "error": {
+      "code": "OPERATION_CONFLICT",
+      "message_ru": "С этим проектом уже работает другая операция.",
+      "next_action_ru": "Получите статус существующей операции и повторите позже."
+    }
+  },
+  {
+    "elapsed": 41.147,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 41.374,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 41.433,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 41.434,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 41.479,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 41.639,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 41.865,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 41.866,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 41.95,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 41.951,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 41.996,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 42.494,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 42.703,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 42.703,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 42.762,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 42.762,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 42.814,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 43.343,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 43.575,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 43.576,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 43.672,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 43.672,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 43.722,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals",
+    "status": 200
+  },
+  {
+    "elapsed": 44.208,
+    "event": "request",
+    "method": "POST",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals/decisions",
+    "status": null
+  },
+  {
+    "elapsed": 44.46,
+    "event": "response",
+    "method": "POST",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals/decisions",
+    "status": 200
+  },
+  {
+    "elapsed": 44.46,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": null
+  },
+  {
+    "elapsed": 44.548,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/preparation",
+    "status": 200
+  },
+  {
+    "elapsed": 44.548,
+    "event": "request",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals",
+    "status": null
+  },
+  {
+    "elapsed": 44.597,
+    "event": "response",
+    "method": "GET",
+    "path": "/api/projects/LWP-24119C2EF21E8CF658E0/approvals",
+    "status": 200
+  }
+]

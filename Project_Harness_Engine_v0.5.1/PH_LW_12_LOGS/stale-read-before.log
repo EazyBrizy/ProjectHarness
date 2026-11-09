@@ -1,0 +1,73 @@
+test_refresh_after_commit_does_not_reuse_older_lifecycle_response (tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_refresh_after_commit_does_not_reuse_older_lifecycle_response) ... Task queue depth is 1
+Error occurred in event listener
+Traceback (most recent call last):
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_helper.py", line 443, in handle
+    return await self._handle_internal(route)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_helper.py", line 479, in _handle_internal
+    await handler_finished_future
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_helper.py", line 470, in _handler
+    self.handler(route, route.request)  # type: ignore
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_impl_to_api_mapping.py", line 140, in wrapper_func
+    return handler(
+        *list(map(lambda a: self.from_maybe_impl(a), args))[:arg_count]
+    )
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_12_acceptance.py", line 32, in hold
+    response=route.fetch();paused.append((route,response))
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\sync_api\_generated.py", line 22646, in fetch
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.fetch(
+        ^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+        )
+        ^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_network.py", line 520, in fetch
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_connection.py", line 636, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Route.fetch: Request context disposed.
+Call log:
+  - → GET http://127.0.0.1:60784/api/projects/LWP-8B43FE52AB8A2CBCD054/lifecycle
+    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0
+    - accept: application/json
+    - accept-encoding: gzip,deflate,br
+    - cookie: harness_local_session=<REDACTED>
+    - sec-ch-ua: "Not-A.Brand";v="99", "Microsoft Edge";v="157", "Chromium";v="157"
+    - sec-ch-ua-mobile: ?0
+    - sec-ch-ua-platform: "Windows"
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_page.py", line 312, in _on_route
+    handled = await route_handler.handle(route)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_helper.py", line 452, in handle
+    raise rewrite_error(
+    ...<2 lines>...
+    )
+playwright._impl._errors.TargetClosedError: "Route.fetch: Request context disposed.
+Call log:
+  - → GET http://127.0.0.1:60784/api/projects/LWP-8B43FE52AB8A2CBCD054/lifecycle
+    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0
+    - accept: application/json
+    - accept-encoding: gzip,deflate,br
+    - cookie: harness_local_session=<REDACTED>
+    - sec-ch-ua: "Not-A.Brand";v="99", "Microsoft Edge";v="157", "Chromium";v="157"
+    - sec-ch-ua-mobile: ?0
+    - sec-ch-ua-platform: "Windows"
+" while running route callback.
+Consider awaiting `page.unroute_all(behavior='ignoreErrors')`
+before the end of the test to ignore remaining routes in flight.

@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_ph_lw_03_service"
+  ],
+  "ran": 15,
+  "failures": 1,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 86.174,
+  "log": "test_ph_lw_03_service.log",
+  "status": "FAIL"
+}

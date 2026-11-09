@@ -1,0 +1,18 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_lw_09_tasks.TaskConsoleTests.test_no_consent_never_executes_product_commands"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T05:00:27.985439+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 180,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 24.128,
+  "log_sha256": "00d51ed883dbfe316c0e01d087177a09b1f77eba308d198555246788b9965c33"
+}

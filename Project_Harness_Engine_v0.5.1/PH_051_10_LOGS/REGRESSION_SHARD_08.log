@@ -1,0 +1,7 @@
+COMMAND: python -m unittest -q tests.test_implementation_levels tests.test_ph_051_03_rootless_podman tests.test_ph_f04_runtime_reachability tests.test_ph_051_07_sandbox_verification
+----------------------------------------------------------------------
+Ran 47 tests in 347.199s
+
+OK (skipped=1)
+
+EXIT_CODE=0

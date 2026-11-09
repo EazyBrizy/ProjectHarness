@@ -1,0 +1,6 @@
+ARGV: /mnt/data/ph05111_work/wheel_venv/bin/project-harness --version
+EXIT: 0
+STDOUT:
+0.5.1
+
+STDERR:

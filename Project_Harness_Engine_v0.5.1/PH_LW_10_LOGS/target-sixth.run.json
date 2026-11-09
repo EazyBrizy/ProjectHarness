@@ -1,0 +1,23 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_lw_10_lifecycle.NativeSelectionTests",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_legacy_v041_migration_form_keeps_completed_runs",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_automatic_lifecycle_is_rejected_before_mutation",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_accepted_mvp_level_up_release_through_adapter",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_migration_process_crash_explicit_web_recovery_missing_root",
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_supported_migration_confirmation_and_restart_replay"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T11:55:33.197375+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 1200,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 838.133,
+  "log_sha256": "dbc4bb51234cdc7d3dbe77bd3cac79590fc3e4ad14b5e4d7d0825b1a74a7790a"
+}

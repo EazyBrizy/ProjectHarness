@@ -1,0 +1,7 @@
+{
+  "status": "FAIL",
+  "reason": "New chapter missing required **\u0414\u0430\u0442\u0430:** 2026-10-25 addendum base metadata",
+  "source_and_wheel_tests": "459 PASS / 2 known capability SKIP; exact bytes unchanged",
+  "acceptance_not_finalized": true,
+  "evidence": "documentation-final.log; DOC_VALIDATION_METADATA_FAIL.json"
+}

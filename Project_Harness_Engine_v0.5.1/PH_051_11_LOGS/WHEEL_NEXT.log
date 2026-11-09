@@ -1,0 +1,22 @@
+ARGV: /mnt/data/ph05111_work/wheel_venv/bin/project-harness next --project /mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/demo/harness-demo-codex-handoff
+EXIT: 0
+STDOUT:
+{
+  "status": "READY_FOR_CODEX",
+  "task_ref": "TSK-HARNESS-DEMO-TASK-CLI-001@1",
+  "run_ref": "RUN-HARNESS-DEMO-TASK-CLI-001-A1",
+  "prompt_bundle_path": ".harness/prompts/BUNDLES_BY_RUN/CPB-HARNESS-DEMO-TASK-CLI-001-A1.yaml",
+  "prompt_markdown_path": ".harness/prompts/BUNDLES_BY_RUN/CPB-HARNESS-DEMO-TASK-CLI-001-A1.md",
+  "implementation_stage": "PROTOTYPE",
+  "target_implementation_level": "MVP",
+  "idempotent": true,
+  "next_operator_route": {
+    "route": "VERIFY_CURRENT_TASK",
+    "command": "project-harness verify --project <root> --allow-command-execution",
+    "reason": "Execute the current JIT with external Codex, then run independent verification.",
+    "external_prerequisite": "External agent implementation"
+  },
+  "next_command": "project-harness verify --project <root> --allow-command-execution"
+}
+
+STDERR:

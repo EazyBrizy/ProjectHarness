@@ -1,0 +1,29 @@
+{
+  "source_groups": [
+    "baseline",
+    "target-initial",
+    "target-second",
+    "target-third",
+    "target-fourth",
+    "target-fifth",
+    "target-sixth",
+    "regressions-final",
+    "native-final",
+    "docs-corrected",
+    "runs"
+  ],
+  "source_environment": "INPUT_BASELINE.json",
+  "source_python": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+  "source_pythonpath": [
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1\\src",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1"
+  ],
+  "browser_channel": "msedge",
+  "native_platform_check": "native-final/PH_LW_06_WINDOWS_TEST_REPORT.json",
+  "wheel_runs": [
+    "runs/installed-wheel-final.run.json"
+  ],
+  "wheel_environment": "WHEEL_ENVIRONMENT.json",
+  "wheel_pythonpath": "",
+  "note": "Per-run command/interpreter paths are retained in MATRIX/run.json; dependency pins are common to these runs."
+}

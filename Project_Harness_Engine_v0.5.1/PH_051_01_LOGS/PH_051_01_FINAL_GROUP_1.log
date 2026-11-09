@@ -1,0 +1,14 @@
+test_i01_minimal_greenfield_waiting_decision_to_exact_first_jit (test_ph_f08_release_acceptance.PHF08ReleaseAcceptanceTests.test_i01_minimal_greenfield_waiting_decision_to_exact_first_jit) ... ok
+test_i03_i12_prototype_alpha_planning_exact_replay_and_stale_rejection (test_ph_f08_release_acceptance.PHF08ReleaseAcceptanceTests.test_i03_i12_prototype_alpha_planning_exact_replay_and_stale_rejection) ... ok
+test_cancel_after_completed_product_change_is_rejected_without_rewrite (test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_cancel_after_completed_product_change_is_rejected_without_rewrite) ... ok
+test_cli_exposes_public_start_and_cancel_operations (test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_cli_exposes_public_start_and_cancel_operations) ... ok
+test_level_up_blocked_while_open_and_allowed_after_completion (test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_level_up_blocked_while_open_and_allowed_after_completion) ... ok
+test_next_verify_complete_closes_maintenance_and_preserves_maturity (test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_next_verify_complete_closes_maintenance_and_preserves_maturity) ... ok
+test_start_creates_governed_artifacts_and_exactly_one_first_jit (test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_start_creates_governed_artifacts_and_exactly_one_first_jit) ... ok
+test_valid_pre_execution_cancel_restores_previous_route (test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_valid_pre_execution_cancel_restores_previous_route) ... ok
+test_wrong_binding_future_scope_and_conflicting_duplicate_are_rejected (test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_wrong_binding_future_scope_and_conflicting_duplicate_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 132.775s
+
+OK

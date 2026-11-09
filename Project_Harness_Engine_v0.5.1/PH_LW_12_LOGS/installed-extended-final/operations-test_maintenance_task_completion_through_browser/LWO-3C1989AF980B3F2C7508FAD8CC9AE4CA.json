@@ -1,0 +1,43 @@
+{
+  "operation_id": "LWO-3C1989AF980B3F2C7508FAD8CC9AE4CA",
+  "project_id": "LWP-916A2557C2B5AE793107",
+  "action": "prepare-maintenance",
+  "request_digest": "sha256:6e661b16c1af02db5143e2af8125e0203487b28f13f937cba9eb9262ee5793cc",
+  "expected_fingerprint": "sha256:f2d4daa1dff8d70748122d63c8713a0bc208b01107b3f672a845ff2744bfceb0",
+  "created_at": "2026-11-08T10:36:14Z",
+  "updated_at": "2026-11-08T10:36:15Z",
+  "started_at": "2026-11-08T10:36:14Z",
+  "finished_at": "2026-11-08T10:36:15Z",
+  "state": "SUCCEEDED",
+  "phase": "DONE",
+  "core_before": "sha256:f2d4daa1dff8d70748122d63c8713a0bc208b01107b3f672a845ff2744bfceb0",
+  "core_after": "sha256:f2d4daa1dff8d70748122d63c8713a0bc208b01107b3f672a845ff2744bfceb0",
+  "before_active_run_ref": null,
+  "expected_draft_after": null,
+  "result": {
+    "action": "prepare-maintenance",
+    "core_status": "DRAFT_PREPARED",
+    "refs": {
+      "status": "DRAFT_PREPARED"
+    },
+    "lifecycle": {
+      "status": "DRAFT_PREPARED",
+      "draft_id": "LWO-3C1989AF980B3F2C7508FAD8CC9AE4CA",
+      "action": "start-maintenance"
+    }
+  },
+  "error": null,
+  "receipt": {
+    "kind": "LOCAL_WEB_OPERATION_RECEIPT",
+    "receipt_version": 1,
+    "operation_id": "LWO-3C1989AF980B3F2C7508FAD8CC9AE4CA",
+    "project_ref": "LWP-916A2557C2B5AE793107",
+    "action_id": "LW-LIFECYCLE",
+    "idempotency_key": "browser-9e93fc0f60d32f92af0e5bce25852321",
+    "request_sha256": "sha256:6e661b16c1af02db5143e2af8125e0203487b28f13f937cba9eb9262ee5793cc",
+    "expected_core_fingerprint": "sha256:f2d4daa1dff8d70748122d63c8713a0bc208b01107b3f672a845ff2744bfceb0",
+    "core_outcome": "CONFIRMED_COMMITTED",
+    "created_at": "2026-11-08T10:36:14Z"
+  },
+  "record_digest": "sha256:151d5b770e7753d2fb218a60845937ff4df8ad46fbf474f4c814d43a92d59da3"
+}

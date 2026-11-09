@@ -1,0 +1,327 @@
+{
+  "platform": "linux",
+  "python": "3.13.5",
+  "modules": 32,
+  "tests": 364,
+  "skipped": 4,
+  "failures": [
+    {
+      "module": "tests.test_ph_f01_planner_regression",
+      "status": "FAIL",
+      "exit_code": 1,
+      "tests": 6,
+      "skipped": 0,
+      "duration_s": 23.73,
+      "log": "REGRESSION_MODULES/tests_test_ph_f01_planner_regression.log"
+    },
+    {
+      "module": "tests.test_ph_f03_active_stage_planning",
+      "status": "FAIL",
+      "exit_code": 1,
+      "tests": 8,
+      "skipped": 0,
+      "duration_s": 26.63,
+      "log": "REGRESSION_MODULES/tests_test_ph_f03_active_stage_planning.log"
+    },
+    {
+      "module": "tests.test_ph_f04_runtime_reachability",
+      "status": "FAIL",
+      "exit_code": 1,
+      "tests": 10,
+      "skipped": 0,
+      "duration_s": 16.31,
+      "log": "REGRESSION_MODULES/tests_test_ph_f04_runtime_reachability.log"
+    }
+  ],
+  "duration_s": 277.82,
+  "results": [
+    {
+      "module": "tests.test_assessment_freshness",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 10,
+      "skipped": 0,
+      "duration_s": 39.18,
+      "log": "REGRESSION_MODULES/tests_test_assessment_freshness.log"
+    },
+    {
+      "module": "tests.test_canonical_target",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 5,
+      "skipped": 0,
+      "duration_s": 12.82,
+      "log": "REGRESSION_MODULES/tests_test_canonical_target.log"
+    },
+    {
+      "module": "tests.test_contract_hardening",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 31,
+      "skipped": 0,
+      "duration_s": 34.58,
+      "log": "REGRESSION_MODULES/tests_test_contract_hardening.log"
+    },
+    {
+      "module": "tests.test_engine",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 14,
+      "skipped": 0,
+      "duration_s": 20.19,
+      "log": "REGRESSION_MODULES/tests_test_engine.log"
+    },
+    {
+      "module": "tests.test_exact_assessment_ref",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 5,
+      "skipped": 0,
+      "duration_s": 23.34,
+      "log": "REGRESSION_MODULES/tests_test_exact_assessment_ref.log"
+    },
+    {
+      "module": "tests.test_gate_evidence_contract",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 10,
+      "skipped": 0,
+      "duration_s": 107.55,
+      "log": "REGRESSION_MODULES/tests_test_gate_evidence_contract.log"
+    },
+    {
+      "module": "tests.test_implementation_levels",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 8,
+      "skipped": 0,
+      "duration_s": 48.4,
+      "log": "REGRESSION_MODULES/tests_test_implementation_levels.log"
+    },
+    {
+      "module": "tests.test_maintenance_lifecycle",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 7,
+      "skipped": 0,
+      "duration_s": 65.33,
+      "log": "REGRESSION_MODULES/tests_test_maintenance_lifecycle.log"
+    },
+    {
+      "module": "tests.test_ph_051_01_contract_baseline",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 10,
+      "skipped": 0,
+      "duration_s": 3.87,
+      "log": "REGRESSION_MODULES/tests_test_ph_051_01_contract_baseline.log"
+    },
+    {
+      "module": "tests.test_ph_051_02_executor_protocol",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 24,
+      "skipped": 0,
+      "duration_s": 1.4,
+      "log": "REGRESSION_MODULES/tests_test_ph_051_02_executor_protocol.log"
+    },
+    {
+      "module": "tests.test_ph_051_03_rootless_podman",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 20,
+      "skipped": 1,
+      "duration_s": 1.2,
+      "log": "REGRESSION_MODULES/tests_test_ph_051_03_rootless_podman.log"
+    },
+    {
+      "module": "tests.test_ph_051_04_disposable_roots",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 21,
+      "skipped": 0,
+      "duration_s": 17.51,
+      "log": "REGRESSION_MODULES/tests_test_ph_051_04_disposable_roots.log"
+    },
+    {
+      "module": "tests.test_ph_051_05_codex_adapter",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 15,
+      "skipped": 1,
+      "duration_s": 4.5,
+      "log": "REGRESSION_MODULES/tests_test_ph_051_05_codex_adapter.log"
+    },
+    {
+      "module": "tests.test_ph_051_06_result_channel",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 13,
+      "skipped": 0,
+      "duration_s": 3.39,
+      "log": "REGRESSION_MODULES/tests_test_ph_051_06_result_channel.log"
+    },
+    {
+      "module": "tests.test_ph_051_07_sandbox_verification",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 9,
+      "skipped": 0,
+      "duration_s": 1.22,
+      "log": "REGRESSION_MODULES/tests_test_ph_051_07_sandbox_verification.log"
+    },
+    {
+      "module": "tests.test_ph_051_08_atomic_apply",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 25,
+      "skipped": 0,
+      "duration_s": 33.87,
+      "log": "REGRESSION_MODULES/tests_test_ph_051_08_atomic_apply.log"
+    },
+    {
+      "module": "tests.test_ph_051_09_automatic_runtime",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 15,
+      "skipped": 0,
+      "duration_s": 20.81,
+      "log": "REGRESSION_MODULES/tests_test_ph_051_09_automatic_runtime.log"
+    },
+    {
+      "module": "tests.test_ph_051_10_migration_recovery",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 17,
+      "skipped": 0,
+      "duration_s": 16.97,
+      "log": "REGRESSION_MODULES/tests_test_ph_051_10_migration_recovery.log"
+    },
+    {
+      "module": "tests.test_ph_051_11_operator_docs",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 5,
+      "skipped": 0,
+      "duration_s": 1.23,
+      "log": "REGRESSION_MODULES/tests_test_ph_051_11_operator_docs.log"
+    },
+    {
+      "module": "tests.test_ph_f01_gate_semantics_regression",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 3,
+      "skipped": 0,
+      "duration_s": 10.66,
+      "log": "REGRESSION_MODULES/tests_test_ph_f01_gate_semantics_regression.log"
+    },
+    {
+      "module": "tests.test_ph_f01_planner_regression",
+      "status": "FAIL",
+      "exit_code": 1,
+      "tests": 6,
+      "skipped": 0,
+      "duration_s": 23.73,
+      "log": "REGRESSION_MODULES/tests_test_ph_f01_planner_regression.log"
+    },
+    {
+      "module": "tests.test_ph_f02_semantic_proof_contract",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 5,
+      "skipped": 0,
+      "duration_s": 3.0,
+      "log": "REGRESSION_MODULES/tests_test_ph_f02_semantic_proof_contract.log"
+    },
+    {
+      "module": "tests.test_ph_f03_active_stage_planning",
+      "status": "FAIL",
+      "exit_code": 1,
+      "tests": 8,
+      "skipped": 0,
+      "duration_s": 26.63,
+      "log": "REGRESSION_MODULES/tests_test_ph_f03_active_stage_planning.log"
+    },
+    {
+      "module": "tests.test_ph_f04_runtime_reachability",
+      "status": "FAIL",
+      "exit_code": 1,
+      "tests": 10,
+      "skipped": 0,
+      "duration_s": 16.31,
+      "log": "REGRESSION_MODULES/tests_test_ph_f04_runtime_reachability.log"
+    },
+    {
+      "module": "tests.test_ph_f05_intake_acceptance",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 4,
+      "skipped": 0,
+      "duration_s": 3.38,
+      "log": "REGRESSION_MODULES/tests_test_ph_f05_intake_acceptance.log"
+    },
+    {
+      "module": "tests.test_ph_f06_maturity_lifecycle",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 13,
+      "skipped": 0,
+      "duration_s": 184.37,
+      "log": "REGRESSION_MODULES/tests_test_ph_f06_maturity_lifecycle.log"
+    },
+    {
+      "module": "tests.test_ph_f08_release_acceptance",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 2,
+      "skipped": 0,
+      "duration_s": 37.58,
+      "log": "REGRESSION_MODULES/tests_test_ph_f08_release_acceptance.log"
+    },
+    {
+      "module": "tests.test_ph_lw_01_contract",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 9,
+      "skipped": 0,
+      "duration_s": 2.79,
+      "log": "REGRESSION_MODULES/tests_test_ph_lw_01_contract.log"
+    },
+    {
+      "module": "tests.test_ph_lw_02_windows_core",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 13,
+      "skipped": 2,
+      "duration_s": 6.76,
+      "log": "REGRESSION_MODULES/tests_test_ph_lw_02_windows_core.log"
+    },
+    {
+      "module": "tests.test_stage_approval_preparation",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 7,
+      "skipped": 0,
+      "duration_s": 14.69,
+      "log": "REGRESSION_MODULES/tests_test_stage_approval_preparation.log"
+    },
+    {
+      "module": "tests.test_stage_gate_preparation_block_recovery",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 5,
+      "skipped": 0,
+      "duration_s": 25.7,
+      "log": "REGRESSION_MODULES/tests_test_stage_gate_preparation_block_recovery.log"
+    },
+    {
+      "module": "tests.test_stage_transaction_recovery",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests": 15,
+      "skipped": 0,
+      "duration_s": 23.05,
+      "log": "REGRESSION_MODULES/tests_test_stage_transaction_recovery.log"
+    }
+  ]
+}

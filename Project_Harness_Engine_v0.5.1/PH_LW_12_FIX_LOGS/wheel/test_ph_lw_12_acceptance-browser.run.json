@@ -1,0 +1,35 @@
+{
+  "name": "test_ph_lw_12_acceptance-browser",
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;import project_harness;assert Path(project_harness.__file__).resolve().is_relative_to(Path(sys.prefix).resolve());sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel\\test_ph_lw_12_acceptance-browser.log",
+    "tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_final_ui_has_no_obsolete_manual_lifecycle_placeholders",
+    "tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_navigation_resume_finishes_before_user_mutation",
+    "tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_refresh_after_commit_does_not_reuse_older_lifecycle_response",
+    "tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_stage_status_and_manual_evidence_use_existing_forms"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\Независимая папка wheel",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 29.413,
+  "environment_ref": "WHEEL_ENVIRONMENT.json",
+  "modules": [
+    "tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_final_ui_has_no_obsolete_manual_lifecycle_placeholders",
+    "tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_navigation_resume_finishes_before_user_mutation",
+    "tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_refresh_after_commit_does_not_reuse_older_lifecycle_response",
+    "tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_stage_status_and_manual_evidence_use_existing_forms"
+  ],
+  "ran": 4,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "log": "test_ph_lw_12_acceptance-browser.log",
+  "process_status": "PASS",
+  "log_sha256": "354aca6281cd0e04eb276be4effb83d54111f0e8f6be070314691ea93319b152",
+  "scope": "INSTALLED_WHEEL",
+  "runtime_freeze_sha256": "a0c9775c327500b45df478b466746c3a6aec792b67695fcfd43437255fe0b997"
+}

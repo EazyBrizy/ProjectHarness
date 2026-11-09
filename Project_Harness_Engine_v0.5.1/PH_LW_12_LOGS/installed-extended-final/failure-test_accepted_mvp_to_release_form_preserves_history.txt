@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\local_web\windows\final_acceptance.py", line 239, in test_accepted_mvp_to_release_form_preserves_history
+    accept(source,self.base/'mvp-records',level)
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\ph_f06_fixtures.py", line 236, in accept
+    path = reach_gate(root, records, level)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\ph_f06_fixtures.py", line 209, in reach_gate
+    assert nxt['status'] in {'BLOCKED', 'VERIFYING'}, nxt
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'status': 'STAGE_GATE_PENDING', 'active_stage': 'PROTOTYPE', 'target_level': 'MVP', 'next_route': 'STAGE_GATE_REVIEW', 'stage_status': 'VERIFYING', 'next_operator_route': {'route': 'PREPARE_STAGE_APPROVAL', 'command': 'project-harness prepare-stage-approval --project <root> --output <outside-root-or-.harness/operator/APPROVALS/file.yaml>', 'reason': 'Gate is VERIFYING; operator must supply semantic proof and a separate formal acceptance decision.', 'follow_up_command': 'project-harness accept-stage --project <root> --level <active-stage> --approval <approved-record>'}, 'next_command': 'project-harness prepare-stage-approval --project <root> --output <outside-root-or-.harness/operator/APPROVALS/file.yaml>'}

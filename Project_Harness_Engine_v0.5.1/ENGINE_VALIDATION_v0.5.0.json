@@ -1,0 +1,269 @@
+{
+  "release": "Project Harness Engine v0.5.0",
+  "version": "0.5.0",
+  "release_date": "2026-08-18",
+  "validation_date": "2026-08-20",
+  "status": "PASS",
+  "scope": {
+    "fixes": [
+      "M-01 governed same-level maintenance lifecycle"
+    ],
+    "implemented": [
+      "public start-maintenance and cancel-maintenance CLI/API",
+      "strict exact-bound maintenance plan and cancel approval schemas",
+      "accepted-stage Decision/WP/Task/DAG/VFP/CTX/PPL/JIT route",
+      "existing next/verify/complete runtime execution",
+      "immutable completion and cancellation reports with previous-route restoration",
+      "open-maintenance level-up interlock, idempotency and history preservation"
+    ],
+    "excluded": [
+      "project-evolution Change Packs",
+      "Git, repository adapter or deployment",
+      "executor features",
+      "future-stage implementation",
+      "invented automatic rollback or compensation",
+      "version or implementation-level expansion"
+    ]
+  },
+  "public_surface": {
+    "cli_added": [
+      "start-maintenance --project <root> --plan <record>",
+      "cancel-maintenance --project <root> --approval <record>"
+    ],
+    "api_added": [
+      "start_maintenance",
+      "cancel_maintenance"
+    ],
+    "task_execution_preserved": [
+      "next",
+      "verify",
+      "complete"
+    ],
+    "route": "MAINTAIN_CURRENT_STAGE",
+    "current_state_route": "active_maintenance"
+  },
+  "strict_contracts": {
+    "status": "PASS",
+    "schemas": [
+      "SCHEMA-MAINTENANCE-PLAN@1",
+      "SCHEMA-MAINTENANCE-CANCEL-APPROVAL@1"
+    ],
+    "additional_properties_false_all_object_levels": true,
+    "exact_bindings": [
+      "highest_accepted_level",
+      "implementation_stage",
+      "target_level",
+      "last_acceptance_ref",
+      "accepted_scope_ref",
+      "maintenance_plan_ref",
+      "work_package_ref",
+      "formal DEC/ACT approval and approved_at"
+    ],
+    "future_stage_work": "FORBIDDEN",
+    "automatic_rollback": false
+  },
+  "start_lifecycle": {
+    "status": "PASS",
+    "requires_accepted_current_level": true,
+    "rejects_competing_active_run_or_governance_route": true,
+    "implementation_stage_equals_highest_accepted_level": true,
+    "rejects_future_stage_scope": true,
+    "creates": [
+      "immutable MAINTAIN_CURRENT_STAGE Decision",
+      "revisioned maintenance Plan and Work Package",
+      "atomic Tasks and DAG",
+      "Verification Profiles",
+      "Context Plans and Prompt Plans",
+      "maintenance indexes/current state and NEXT_TASK",
+      "exactly one deterministic first JIT bundle/Run reservation"
+    ],
+    "canonical_route_transaction": "crash-consistent Stage transaction service",
+    "first_jit_reservation": "deterministic and idempotent; successful public start returns exactly one first JIT",
+    "exact_replay_creates_duplicates": false
+  },
+  "artifact_binding": {
+    "status": "PASS",
+    "implementation_stage": "highest_accepted_level",
+    "maintenance_route": "MAINTAIN_CURRENT_STAGE",
+    "artifacts": [
+      "Work Package",
+      "Task",
+      "Capability Grant",
+      "Context Plan/Packet",
+      "Prompt Plan",
+      "Run Plan",
+      "Compiled Prompt/JIT bundle",
+      "trusted snapshot",
+      "verification result",
+      "Run Report",
+      "Task Report"
+    ],
+    "ordinary_stage_artifacts_receive_null_maintenance_fields": false
+  },
+  "completion": {
+    "status": "PASS",
+    "last_mandatory_task_completes_wp": true,
+    "immutable_report_kind": "MAINTENANCE_COMPLETION",
+    "clears_maintenance_current_state": true,
+    "restores_previous_valid_route": true,
+    "invokes_stage_acceptance": false,
+    "changes_highest_accepted_level": false,
+    "changes_target": false
+  },
+  "cancellation": {
+    "status": "PASS",
+    "formal_decision_kind": "CANCEL_MAINTENANCE",
+    "pre_product_change_only": true,
+    "preserves_reserved_run_as_cancelled_history": true,
+    "restores_previous_valid_route": true,
+    "rejects_completed_product_changing_task": true,
+    "rejects_submitted_or_observed_product_change": true,
+    "rejects_active_or_inactive_blocked_run_product_drift": true,
+    "rewrites_history": false,
+    "automatic_rollback_or_compensation": false
+  },
+  "invariants": {
+    "status": "PASS",
+    "stage_state_byte_unchanged": true,
+    "highest_accepted_level_unchanged": true,
+    "target_unchanged": true,
+    "acceptance_reports_unchanged": true,
+    "accepted_stage_plan_gate_revisions_unchanged": true,
+    "pre_existing_completed_runs_unchanged": true,
+    "level_up_blocked_only_while_maintenance_open": true,
+    "level_up_allowed_after_completed_or_valid_cancelled": true,
+    "historical_maintenance_revisions_preserved": true
+  },
+  "tests": {
+    "status": "PASS",
+    "total": 117,
+    "passed": 117,
+    "failed": 0,
+    "duration_seconds": 231.39,
+    "modules_discovered": 11,
+    "modules_completed": 11,
+    "modules": [
+      {
+        "name": "test_assessment_freshness",
+        "passed": 10
+      },
+      {
+        "name": "test_canonical_target",
+        "passed": 5
+      },
+      {
+        "name": "test_contract_hardening",
+        "passed": 31
+      },
+      {
+        "name": "test_engine",
+        "passed": 14
+      },
+      {
+        "name": "test_exact_assessment_ref",
+        "passed": 5
+      },
+      {
+        "name": "test_gate_evidence_contract",
+        "passed": 10
+      },
+      {
+        "name": "test_implementation_levels",
+        "passed": 8
+      },
+      {
+        "name": "test_maintenance_lifecycle",
+        "passed": 7
+      },
+      {
+        "name": "test_stage_approval_preparation",
+        "passed": 7
+      },
+      {
+        "name": "test_stage_gate_preparation_block_recovery",
+        "passed": 5
+      },
+      {
+        "name": "test_stage_transaction_recovery",
+        "passed": 15
+      }
+    ],
+    "focused_m01": {
+      "status": "PASS",
+      "tests": 15,
+      "subtests": 4,
+      "duration_seconds": 62.42
+    },
+    "transaction_fault_injection": {
+      "status": "PASS",
+      "methods": 15
+    }
+  },
+  "cli_smoke": {
+    "status": "PASS",
+    "version": "0.5.0",
+    "executed_at": "2026-08-20",
+    "completion_flow": {
+      "start_status": "MAINTENANCE_ACTIVE",
+      "first_run_ref": "RUN-HARNESS-DEMO-TASK-CLI-004-A1",
+      "first_next_idempotent": true,
+      "tasks_completed": 2,
+      "maintenance_report_ref": "VAL-HARNESS-DEMO-TASK-CLI-MAINT-COMPLETE-24ABCCDD9C@1",
+      "maintenance_runs": 2,
+      "maintenance_bundles": 2,
+      "restored_project_status": "TARGET_LEVEL_REACHED",
+      "restored_next_route": "TARGET_ALREADY_REACHED",
+      "stage_state_byte_unchanged": true,
+      "acceptance_reports_byte_unchanged": true,
+      "pre_existing_completed_runs_byte_unchanged": true,
+      "validate_project": "PASS"
+    },
+    "cancel_flow": {
+      "start_status": "MAINTENANCE_ACTIVE",
+      "cancel_status": "MAINTENANCE_CANCELLED",
+      "cancel_decision_ref": "DEC-HARNESS-DEMO-TASK-CLI-MAINT-CANCEL-SMOKE-AUTH@1",
+      "cancellation_report_ref": "VAL-HARNESS-DEMO-TASK-CLI-MAINT-CANCEL-6B84E5E495@1",
+      "cancelled_run_ref": "RUN-HARNESS-DEMO-TASK-CLI-004-A1",
+      "cancelled_run_status": "CANCELLED",
+      "restored_project_status": "TARGET_LEVEL_REACHED",
+      "restored_next_route": "TARGET_ALREADY_REACHED",
+      "stage_state_byte_unchanged": true,
+      "validate_project": "PASS"
+    }
+  },
+  "documentation": {
+    "status": "PASS",
+    "checks": 36,
+    "errors": 0,
+    "warnings": 0,
+    "files": 108,
+    "markdown": 98,
+    "yaml": 8,
+    "yaml_examples": 137,
+    "local_links": 785,
+    "source_tree_hash": "sha256:55545e7a39c45c0488ab9d26efa1dcf7aa849413eb604bc36ed3da0afa0a659f",
+    "zip_crc_and_exact_tree": true,
+    "zip_sha256": "0ae9537d5a78c2cdb250dc73972ab899fc910a8bc7d0f0c4d622fe529b64dfaf",
+    "embedded_standalone_exact_match": true
+  },
+  "distribution": {
+    "status": "PASS",
+    "version_preserved": "0.5.0",
+    "compileall": "PASS",
+    "git_diff_check": "PASS",
+    "root_embedded_schema_parity": "PASS",
+    "doctor_source_skip_manifest": "PASS",
+    "doctor_final_manifest": "PASS",
+    "wheel": {
+      "name": "project_harness_engine-0.5.0-py3-none-any.whl",
+      "entries": 60,
+      "size": 643701,
+      "sha256": "d6b7a58afd0a18ba681571de4a65587abdd476971afe4aa13e525768b3ff95db",
+      "crc": "PASS",
+      "contains_maintenance_module": true,
+      "contains_maintenance_schemas": true,
+      "metadata_version": "0.5.0"
+    },
+    "engine_archive_validation": "external final release check after static manifest closure; archive does not self-attest its own hash"
+  }
+}

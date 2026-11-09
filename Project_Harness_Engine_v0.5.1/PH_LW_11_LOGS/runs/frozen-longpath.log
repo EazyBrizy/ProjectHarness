@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\local_web\windows\acceptance.py", line 162, in <module>
+    if __name__=='__main__':raise SystemExit(main())
+                                             ~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\local_web\windows\acceptance.py", line 129, in main
+    if result.returncode:raise RuntimeError('Installer failed: '+str(result.returncode))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Installer failed: 7

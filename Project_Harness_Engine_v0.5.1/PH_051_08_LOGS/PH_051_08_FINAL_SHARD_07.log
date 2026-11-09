@@ -1,0 +1,7 @@
+COMMAND: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. /opt/pyvenv/bin/python -m unittest -q tests.test_assessment_freshness tests.test_ph_051_05_codex_adapter tests.test_ph_051_01_contract_baseline tests.test_ph_f01_gate_semantics_regression
+MODULES: test_assessment_freshness, test_ph_051_05_codex_adapter, test_ph_051_01_contract_baseline, test_ph_f01_gate_semantics_regression
+
+----------------------------------------------------------------------
+Ran 38 tests in 126.736s
+
+OK (skipped=1)

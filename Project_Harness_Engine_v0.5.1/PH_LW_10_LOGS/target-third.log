@@ -1,0 +1,457 @@
+test_edge_levelup_target_nearest_and_maintenance_cancel (tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_levelup_target_nearest_and_maintenance_cancel) ... Task queue depth is 1
+Task queue depth is 2
+FAIL
+test_edge_missing_semantic_review_cannot_accept (tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_missing_semantic_review_cannot_accept) ... Task queue depth is 1
+FAIL
+test_edge_prototype_accept_alpha_form_plan_first_ready_reload (tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_prototype_accept_alpha_form_plan_first_ready_reload) ... Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 2
+FAIL
+test_auth_csrf_origin_port_unknown_fields_and_readonly (tests.test_ph_lw_10_http.LifecycleHttpTests.test_auth_csrf_origin_port_unknown_fields_and_readonly) ... ok
+test_draft_ownership_traversal_replay_conflict (tests.test_ph_lw_10_http.LifecycleHttpTests.test_draft_ownership_traversal_replay_conflict) ... ok
+test_interruption_after_commit_never_reexecutes (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_interruption_after_commit_never_reexecutes) ... ok
+
+======================================================================
+FAIL: test_edge_levelup_target_nearest_and_maintenance_cancel (tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_levelup_target_nearest_and_maintenance_cancel)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_10_http.py", line 103, in test_edge_levelup_target_nearest_and_maintenance_cancel
+    self.open(self.accepted);self.prepare('prepare-maintenance')
+                             ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_10_http.py", line 68, in prepare
+    self.page.locator('[data-lifecycle="'+action+'"]').click();expect(self.page.locator('#lifecycle-form-panel')).to_be_visible()
+                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\sync_api\_generated.py", line 14811, in to_be_visible
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.to_be_visible(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            timeout=to_milliseconds(timeout), visible=visible
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 852, in to_be_visible
+    await self._expect_impl(
+    ...<5 lines>...
+    )
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        AssertionError(
+        ^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        self._is_soft,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to be visible
+Actual value: hidden 
+Call log:
+  - Expect "to_be_visible" locator("#lifecycle-form-panel") with timeout 30000ms
+  - waiting for locator("#lifecycle-form-panel")
+    62 × locator resolved to <div hidden="" id="lifecycle-form-panel">…</div>
+       - unexpected value "hidden"
+
+Aria snapshot:
+- link "Перейти к содержимому":
+  - /url: "#workspace"
+- complementary "Навигация":
+  - strong: Project Harness
+  - text: Локальный мастер · 0.1.0-dev
+  - paragraph: РАБОЧАЯ ОБЛАСТЬ
+  - navigation "Разделы проекта":
+    - button "Проекты и запуск"
+    - button "Документы"
+    - button "Опрос и GPT"
+    - button "Согласования"
+    - button "Обзор проекта"
+    - button "Задачи и Run"
+    - button "Стадии и доказательства"
+    - button "Обслуживание"
+    - button "Диагностика"
+  - text: Только этот компьютер Без provider API, облака и автоматического запуска Codex
+- main:
+  - paragraph: ЛОКАЛЬНОЕ УПРАВЛЕНИЕ ПРОЕКТОМ
+  - heading "Стадии и доказательства" [level=1]
+  - status: Сессия активна
+  - button "Обновить состояние"
+  - button "Выйти"
+  - status: document.createElement is not a function Автоматического повтора нет.
+  - paragraph: Stage Gate, exact semantic evidence, reviewed plan и последовательный level-up.
+  - region "Стадии, evidence и обслуживание":
+    - heading "Стадии, evidence и обслуживание" [level=2]
+    - status: TARGET_LEVEL_REACHED
+    - term: Target
+    - definition: PROTOTYPE
+    - term: Active
+    - definition: PROTOTYPE
+    - term: Claimed
+    - definition: NONE
+    - term: Observed
+    - definition: PROTOTYPE
+    - term: Highest accepted
+    - definition: PROTOTYPE
+    - heading "Что мешает принять Stage" [level=3]
+    - text: Нет
+    - group: Exact plan / gate / baseline, constraints и evidence
+    - group: История acceptance — только чтение
+    - button "Подготовить Stage review"
+    - button "Подготовить active Stage plan"
+    - button "Выбрать новый target"
+    - button "Подготовить same-level maintenance"
+    - button "Подготовить отмену maintenance"
+    - button "Просмотреть план migration"
+    - button "Возобновить Stage Gate"
+    - button "Оценить Brownfield / Hybrid"
+    - paragraph: Gate blocker восстанавливается отдельно от Task blocker. Missing evidence закрывается существующими preparation Tasks и проверяемыми источниками. Assessment не повышает accepted level.
+    - status: "{ \"action\": \"prepare-maintenance\", \"error\": null, \"finished_at\": \"2026-11-07T11:38:25Z\", \"operation_id\": \"LWO-1EDEAE3531AE9044B049975030FB3966\", \"phase\": \"DONE\", \"result\": { \"action\": \"prepare-maintenance\", \"core_status\": \"DRAFT_PREPARED\", \"lifecycle\": { \"action\": \"start-maintenance\", \"draft_id\": \"LWO-1EDEAE3531AE9044B049975030FB3966\", \"status\": \"DRAFT_PREPARED\" }, \"refs\": { \"status\": \"DRAFT_PREPARED\" } }, \"state\": \"SUCCEEDED\", \"updated_at\": \"2026-11-07T11:38:25Z\" }"
+    - button "Сверить прерванную операцию без повтора"
+  - region "Мои проекты":
+    - heading "Мои проекты" [level=2]
+    - text: 1 шт.
+    - button "LWP-773766FC5BFA3ED72FED Проект · TARGET_LEVEL_REACHED" [pressed]:
+      - strong: LWP-773766FC5BFA3ED72FED
+      - text: Проект · TARGET_LEVEL_REACHED
+    - button "Открыть существующий Harness project…"
+    - paragraph: Новые Greenfield intake создаются во вкладке «Документы». Существующие проекты доступны только в рамках уже поддержанных ручных операций.
+  - region "Текущий статус":
+    - heading "Текущий статус" [level=2]
+    - text: Project Instance
+    - term: Статус
+    - definition: TARGET_LEVEL_REACHED
+    - term: Активная стадия
+    - definition: PROTOTYPE
+    - term: Целевой уровень
+    - definition: PROTOTYPE
+    - term: Принятый уровень
+    - definition: PROTOTYPE
+    - term: Текущая задача
+    - definition: Нет
+    - heading "Что завершено" [level=3]
+    - paragraph: "[ \"TSK-HARNESS-DEMO-TASK-CLI-001@2\", \"TSK-HARNESS-DEMO-TASK-CLI-002@3\", \"TSK-HARNESS-DEMO-TASK-CLI-GATE-PREP-82CEEE1ABA15@2\" ]"
+    - heading "Что мешает продолжить" [level=3]
+    - paragraph: Нет
+    - text: ЧТО НУЖНО СДЕЛАТЬ
+    - paragraph: project-harness level-up --project <root> --target <higher-level> --approval <formal-record>
+    - heading "Доступные действия" [level=3]
+    - paragraph: Каждое изменение требует отдельного подтверждения, точного fingerprint и защищённого POST.
+    - button "doctor" [disabled]
+    - text: Доступно в следующем этапе Local Web; сейчас операция не реализована.
+    - button "start-intake" [disabled]
+    - text: Доступно в следующем этапе Local Web; сейчас операция не реализована.
+    - button "Проверить опрос" [disabled]
+    - text: Невозможно выполнить из текущего состояния core.
+    - button "Подготовить handoff" [disabled]
+    - text: Project Instance уже опубликован.
+    - button "validate-handoff" [disabled]
+    - text: Доступно в следующем этапе Local Web; сейчас операция не реализована.
+    - button "Проверить проект"
+    - text: Требуется явное подтверждение; статус перепроверяется сервером.
+    - button "Подтвердить migration"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Открыть текущую задачу"
+    - text: Нужен текущий Task/Run и допустимый core route.
+    - button "executor-doctor" [disabled]
+    - text: Доступно в следующем этапе Local Web; сейчас операция не реализована.
+    - button "execute-current" [disabled]
+    - text: Автоматический исполнитель отключён в Local Web manual.
+    - button "Проверить текущий Run"
+    - text: Нужен текущий Task/Run и допустимый core route.
+    - button "complete"
+    - text: Нужен текущий Task/Run и допустимый core route.
+    - button "block"
+    - text: Нужен текущий Task/Run и допустимый core route.
+    - button "resume"
+    - text: Нужен текущий Task/Run и допустимый core route.
+    - button "stage-status" [disabled]
+    - text: Доступно в следующем этапе Local Web; сейчас операция не реализована.
+    - button "Подготовить Stage review"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Подготовить active Stage plan"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Применить reviewed plan"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Возобновить Stage Gate"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Оценить Brownfield / Hybrid"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Принять Stage"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Подтвердить level-up"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Начать maintenance"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Отменить maintenance"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "demo" [disabled]
+    - text: Доступно в следующем этапе Local Web; сейчас операция не реализована.
+    - button "Редактировать черновик" [disabled]
+    - text: Редактирование доступно только в intake workspace.
+    - button "receive-result"
+    - text: Нет активного manual Run.
+    - button "manual-evidence" [disabled]
+    - text: Нет активного manual Run.
+    - button "Выбрать новый target"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Подготовить same-level maintenance"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Подготовить отмену maintenance"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Просмотреть план migration"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+  - text: "Project Harness 0.5.1 WIP · Local Web PH-LW-08 · Ручной маршрут · Полная v0.5.1: NO-GO"
+
+======================================================================
+FAIL: test_edge_missing_semantic_review_cannot_accept (tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_missing_semantic_review_cannot_accept)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_10_http.py", line 119, in test_edge_missing_semantic_review_cannot_accept
+    self.open(self.gate);self.prepare('prepare-stage-approval');self.apply()
+                         ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_10_http.py", line 68, in prepare
+    self.page.locator('[data-lifecycle="'+action+'"]').click();expect(self.page.locator('#lifecycle-form-panel')).to_be_visible()
+                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\sync_api\_generated.py", line 14811, in to_be_visible
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.to_be_visible(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            timeout=to_milliseconds(timeout), visible=visible
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 852, in to_be_visible
+    await self._expect_impl(
+    ...<5 lines>...
+    )
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        AssertionError(
+        ^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        self._is_soft,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to be visible
+Actual value: hidden 
+Call log:
+  - Expect "to_be_visible" locator("#lifecycle-form-panel") with timeout 30000ms
+  - waiting for locator("#lifecycle-form-panel")
+    62 × locator resolved to <div hidden="" id="lifecycle-form-panel">…</div>
+       - unexpected value "hidden"
+
+Aria snapshot:
+- link "Перейти к содержимому":
+  - /url: "#workspace"
+- complementary "Навигация":
+  - strong: Project Harness
+  - text: Локальный мастер · 0.1.0-dev
+  - paragraph: РАБОЧАЯ ОБЛАСТЬ
+  - navigation "Разделы проекта":
+    - button "Проекты и запуск"
+    - button "Документы"
+    - button "Опрос и GPT"
+    - button "Согласования"
+    - button "Обзор проекта"
+    - button "Задачи и Run"
+    - button "Стадии и доказательства"
+    - button "Обслуживание"
+    - button "Диагностика"
+  - text: Только этот компьютер Без provider API, облака и автоматического запуска Codex
+- main:
+  - paragraph: ЛОКАЛЬНОЕ УПРАВЛЕНИЕ ПРОЕКТОМ
+  - heading "Стадии и доказательства" [level=1]
+  - status: Сессия активна
+  - button "Обновить состояние"
+  - button "Выйти"
+  - status: document.createElement is not a function Автоматического повтора нет.
+  - paragraph: Stage Gate, exact semantic evidence, reviewed plan и последовательный level-up.
+  - region "Стадии, evidence и обслуживание":
+    - heading "Стадии, evidence и обслуживание" [level=2]
+    - status: VERIFYING
+    - term: Target
+    - definition: MVP
+    - term: Active
+    - definition: PROTOTYPE
+    - term: Claimed
+    - definition: NONE
+    - term: Observed
+    - definition: PROTOTYPE
+    - term: Highest accepted
+    - definition: NONE
+    - heading "Что мешает принять Stage" [level=3]
+    - text: Нет
+    - group: Exact plan / gate / baseline, constraints и evidence
+    - group: История acceptance — только чтение
+    - button "Подготовить Stage review"
+    - button "Подготовить active Stage plan"
+    - button "Выбрать новый target"
+    - button "Подготовить same-level maintenance"
+    - button "Подготовить отмену maintenance"
+    - button "Просмотреть план migration"
+    - button "Возобновить Stage Gate"
+    - button "Оценить Brownfield / Hybrid"
+    - paragraph: Gate blocker восстанавливается отдельно от Task blocker. Missing evidence закрывается существующими preparation Tasks и проверяемыми источниками. Assessment не повышает accepted level.
+    - status: "{ \"action\": \"prepare-stage-approval\", \"error\": null, \"finished_at\": \"2026-11-07T11:39:02Z\", \"operation_id\": \"LWO-8D0B4BA649E074E591C2A47D23A461D8\", \"phase\": \"DONE\", \"result\": { \"action\": \"prepare-stage-approval\", \"core_status\": \"DRAFT_PREPARED\", \"lifecycle\": { \"action\": \"accept-stage\", \"draft_id\": \"LWO-8D0B4BA649E074E591C2A47D23A461D8\", \"status\": \"DRAFT_PREPARED\" }, \"refs\": { \"status\": \"DRAFT_PREPARED\" } }, \"state\": \"SUCCEEDED\", \"updated_at\": \"2026-11-07T11:39:02Z\" }"
+    - button "Сверить прерванную операцию без повтора"
+  - region "Мои проекты":
+    - heading "Мои проекты" [level=2]
+    - text: 1 шт.
+    - button "LWP-5E089B3937484BA9C246 Проект · ACTIVE" [pressed]:
+      - strong: LWP-5E089B3937484BA9C246
+      - text: Проект · ACTIVE
+    - button "Открыть существующий Harness project…"
+    - paragraph: Новые Greenfield intake создаются во вкладке «Документы». Существующие проекты доступны только в рамках уже поддержанных ручных операций.
+  - region "Текущий статус":
+    - heading "Текущий статус" [level=2]
+    - text: Project Instance
+    - term: Статус
+    - definition: ACTIVE
+    - term: Активная стадия
+    - definition: PROTOTYPE
+    - term: Целевой уровень
+    - definition: MVP
+    - term: Принятый уровень
+    - definition: NONE
+    - term: Текущая задача
+    - definition: Нет
+    - heading "Что завершено" [level=3]
+    - paragraph: "[ \"TSK-HARNESS-DEMO-TASK-CLI-001@2\", \"TSK-HARNESS-DEMO-TASK-CLI-002@3\", \"TSK-HARNESS-DEMO-TASK-CLI-GATE-PREP-82CEEE1ABA15@2\" ]"
+    - heading "Что мешает продолжить" [level=3]
+    - paragraph: Нет
+    - text: ЧТО НУЖНО СДЕЛАТЬ
+    - paragraph: project-harness prepare-stage-approval --project <root> --output <outside-root-or-.harness/operator/APPROVALS/file.yaml>
+    - heading "Доступные действия" [level=3]
+    - paragraph: Каждое изменение требует отдельного подтверждения, точного fingerprint и защищённого POST.
+    - button "doctor" [disabled]
+    - text: Доступно в следующем этапе Local Web; сейчас операция не реализована.
+    - button "start-intake" [disabled]
+    - text: Доступно в следующем этапе Local Web; сейчас операция не реализована.
+    - button "Проверить опрос" [disabled]
+    - text: Невозможно выполнить из текущего состояния core.
+    - button "Подготовить handoff" [disabled]
+    - text: Project Instance уже опубликован.
+    - button "validate-handoff" [disabled]
+    - text: Доступно в следующем этапе Local Web; сейчас операция не реализована.
+    - button "Проверить проект"
+    - text: Требуется явное подтверждение; статус перепроверяется сервером.
+    - button "Подтвердить migration"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Открыть текущую задачу"
+    - text: Нужен текущий Task/Run и допустимый core route.
+    - button "executor-doctor" [disabled]
+    - text: Доступно в следующем этапе Local Web; сейчас операция не реализована.
+    - button "execute-current" [disabled]
+    - text: Автоматический исполнитель отключён в Local Web manual.
+    - button "Проверить текущий Run"
+    - text: Нужен текущий Task/Run и допустимый core route.
+    - button "complete"
+    - text: Нужен текущий Task/Run и допустимый core route.
+    - button "block"
+    - text: Нужен текущий Task/Run и допустимый core route.
+    - button "resume"
+    - text: Нужен текущий Task/Run и допустимый core route.
+    - button "stage-status" [disabled]
+    - text: Доступно в следующем этапе Local Web; сейчас операция не реализована.
+    - button "Подготовить Stage review"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Подготовить active Stage plan"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Применить reviewed plan"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Возобновить Stage Gate"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Оценить Brownfield / Hybrid"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Принять Stage"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Подтвердить level-up"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Начать maintenance"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Отменить maintenance"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "demo" [disabled]
+    - text: Доступно в следующем этапе Local Web; сейчас операция не реализована.
+    - button "Редактировать черновик" [disabled]
+    - text: Редактирование доступно только в intake workspace.
+    - button "receive-result"
+    - text: Нет активного manual Run.
+    - button "manual-evidence" [disabled]
+    - text: Нет активного manual Run.
+    - button "Выбрать новый target"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Подготовить same-level maintenance"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Подготовить отмену maintenance"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Просмотреть план migration"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+  - text: "Project Harness 0.5.1 WIP · Local Web PH-LW-08 · Ручной маршрут · Полная v0.5.1: NO-GO"
+
+======================================================================
+FAIL: test_edge_prototype_accept_alpha_form_plan_first_ready_reload (tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_prototype_accept_alpha_form_plan_first_ready_reload)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_10_http.py", line 81, in test_edge_prototype_accept_alpha_form_plan_first_ready_reload
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\sync_api\_generated.py", line 14961, in to_contain_text
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.to_contain_text(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        )
+        ^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 303, in to_contain_text
+    await self._expect_impl(
+    ...<9 lines>...
+    )
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        AssertionError(
+        ^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        self._is_soft,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to contain text 'VERIFYING'
+Actual value: С этим проектом уже работает другая операция. 
+Call log:
+  - Expect "to_contain_text" locator("#lifecycle-summary") with timeout 30000ms
+  - waiting for locator("#lifecycle-summary")
+    62 × locator resolved to <p role="status" id="lifecycle-summary">С этим проектом уже работает другая операция.</p>
+       - unexpected value "С этим проектом уже работает другая операция."
+
+Aria snapshot:
+- status: С этим проектом уже работает другая операция.
+
+----------------------------------------------------------------------
+Ran 6 tests in 200.846s
+
+FAILED (failures=3)

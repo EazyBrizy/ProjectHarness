@@ -1,0 +1,13 @@
+{
+  "shard": 5,
+  "modules": [
+    "test_contract_hardening",
+    "test_ph_051_06_result_channel",
+    "test_ph_f01_planner_regression"
+  ],
+  "exit_code": 0,
+  "tests": 50,
+  "seconds": 86.458,
+  "log": "PH_051_09_SHARD_05.log",
+  "result": "PASS"
+}

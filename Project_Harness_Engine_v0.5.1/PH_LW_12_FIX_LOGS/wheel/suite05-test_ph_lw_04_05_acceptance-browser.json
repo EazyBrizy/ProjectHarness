@@ -1,0 +1,13 @@
+{
+  "modules": [
+    "tests.test_ph_lw_04_05_acceptance.BrowserImportAcceptance.test_foreign_origin_browser_form_fetch_and_frame_are_denied",
+    "tests.test_ph_lw_04_05_acceptance.BrowserImportAcceptance.test_ui_upload_preview_duplicate_replace_and_no_documentation"
+  ],
+  "ran": 2,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 8.666,
+  "log": "suite05-test_ph_lw_04_05_acceptance-browser.log",
+  "status": "PASS"
+}

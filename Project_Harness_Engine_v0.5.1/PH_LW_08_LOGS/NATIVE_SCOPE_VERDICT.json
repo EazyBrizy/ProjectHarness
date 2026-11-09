@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "tests": 115,
+  "skips": [],
+  "source": "native-revised/PH_LW_08_WINDOWS_TEST_REPORT.json",
+  "installed_wheel_tests": 113,
+  "installed_source": "runs/installed-wheel-revised.run.json",
+  "native_wrapper_status": "FAIL",
+  "closure_checks": {
+    "doctor-post-sync": "runs/doctor-post-sync.run.json",
+    "docs-post-sync": "runs/docs-post-sync.run.json",
+    "embedded-docs-post-sync": "runs/embedded-docs-post-sync.run.json"
+  },
+  "note": "115 runtime tests PASS on frozen runtime source; original wrapper FAIL from stale test manifest/cache-contaminated generated file index preserved. After metadata-only synchronization doctor and both docs validators PASS. Runtime source and installed wheel unchanged."
+}

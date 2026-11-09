@@ -1,0 +1,178 @@
+{
+  "PH-LW-12": "NO-GO",
+  "LOCAL_WEB_MANUAL": "NO-GO",
+  "AUTOMATIC_EXECUTOR": "NO-GO; disabled; previous verdict",
+  "v0.5.1": "NO-GO / NOT RELEASED",
+  "platform": "Windows-only per explicit user decision",
+  "accepted_not_run": [
+    "clean Windows without developer runtimes",
+    "physical offline",
+    "real disk-full",
+    "actual Unicode username"
+  ],
+  "new_unaccepted_blockers": [
+    {
+      "id": "LW12-DEEP-APPDATA-INTAKE",
+      "status": "OPEN",
+      "summary": "Deep app-data root: public intake creation fails at intake.py:157 with WinError 206; cleanup at local_web_sources_service.py:113 masks it with WinError 145. No catalog registration; partial app-owned session remains.",
+      "evidence": "ADDITIONAL_PATH_STRESS.json; installed-basic-final/RESULT.json"
+    },
+    {
+      "id": "LW12-MAINTENANCE-RESULT-CONFLICT",
+      "status": "OPEN",
+      "summary": "Actual installed EXE maintenance result-upload returns HTTP 409 OPERATION_CONFLICT after navigation/refresh; result stays NOT_RECEIVED. Own UI read overlap is suspected; exact lock holder was not traced.",
+      "evidence": "installed-maintenance-final/task-responses-maintenance.json; browser.log; ui-test_maintenance_task_completion_through_browser.json"
+    },
+    {
+      "id": "LW12-PROJECT-LIST-PROJECTION",
+      "status": "OPEN / OBSERVED UI INCONSISTENCY",
+      "summary": "After successful MVP to RELEASE, main lifecycle shows STAGE_PLANNING_REQUIRED while project-list card still shows TARGET_LEVEL_REACHED. Screenshot observation; likely stale state.projects cache, not a newly asserted test.",
+      "evidence": "UI_PROJECTION_OBSERVATION.json; installed-extended-focus3/screenshots/10/mvp-to-release.png"
+    },
+    {
+      "id": "LW12-DELIVERY-RUNS",
+      "status": "OPEN",
+      "runs": {
+        "installed-extended-final": "FAIL",
+        "installed-extended-focus3": "FAIL",
+        "installed-maintenance-final": "FAIL"
+      }
+    }
+  ],
+  "windows_discovery_methods": 451,
+  "windows_method_counts": {
+    "PASS": 449,
+    "SKIP": 2
+  },
+  "windows_unclosed_methods": [],
+  "non_windows_methods_not_run": 156,
+  "skips": [
+    {
+      "test": "tests.test_contract_hardening.ContractHardeningControlPlaneTests.test_agent_result_symlink_is_rejected",
+      "status": "SKIP",
+      "reason": "skipped 'NOT RUN: native file symlink creation requires a Windows privilege unavailable to this non-admin user'",
+      "raw_log": "_scratch/ph_lw_12/wheel/test_contract_hardening-nonbrowser.log"
+    },
+    {
+      "test": "tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_05_colliding_tree_rejected_without_rewriting_case",
+      "status": "SKIP",
+      "reason": "skipped 'NTFS casefold aliases require a case-sensitive directory; ZIP test is cross-platform'",
+      "raw_log": "_scratch/ph_lw_12/wheel/test_ph_lw_02_windows_core-nonbrowser.log"
+    }
+  ],
+  "zip_created": false,
+  "system_settings_changed": false,
+  "new_visible_browser_windows": false,
+  "installed_extended_current_methods": {
+    "__main__.InstalledFullFlowTests.test_installed_tcp_security_and_ownership": {
+      "status": "PASS",
+      "reason": null,
+      "raw_log": "_scratch/ph_lw_12/installed-extended-final/browser.log"
+    },
+    "__main__.InstalledFullFlowTests.test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete": {
+      "status": "PASS",
+      "reason": null,
+      "raw_log": "_scratch/ph_lw_12/installed-no-doc-final/browser.log"
+    },
+    "tests.test_ph_lw_09_http.TasksBrowserTests.test_edge_external_agent_result_no_consent_verify_complete_next": {
+      "status": "PASS",
+      "reason": null,
+      "raw_log": "_scratch/ph_lw_12/installed-extended-final/browser.log"
+    },
+    "tests.test_ph_lw_09_http.TasksBrowserTests.test_edge_failing_check_block_resume_exact_ref": {
+      "status": "PASS",
+      "reason": null,
+      "raw_log": "_scratch/ph_lw_12/installed-extended-final/browser.log"
+    },
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_brownfield_assessment_unknown_and_stale_readonly": {
+      "status": "PASS",
+      "reason": null,
+      "raw_log": "_scratch/ph_lw_12/installed-extended-final/browser.log"
+    },
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_levelup_target_nearest_and_maintenance_cancel": {
+      "status": "PASS",
+      "reason": null,
+      "raw_log": "_scratch/ph_lw_12/installed-extended-final/browser.log"
+    },
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_missing_semantic_review_cannot_accept": {
+      "status": "PASS",
+      "reason": null,
+      "raw_log": "_scratch/ph_lw_12/installed-extended-final/browser.log"
+    },
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_prototype_accept_alpha_form_plan_first_ready_reload": {
+      "status": "PASS",
+      "reason": null,
+      "raw_log": "_scratch/ph_lw_12/installed-extended-final/browser.log"
+    },
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_supported_migration_confirmation_and_restart_replay": {
+      "status": "PASS",
+      "reason": null,
+      "raw_log": "_scratch/ph_lw_12/installed-extended-final/browser.log"
+    },
+    "tests.test_ph_lw_07_http.ApprovalBrowserTests.test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss": {
+      "status": "PASS",
+      "reason": null,
+      "raw_log": "_scratch/ph_lw_12/installed-extended-final/browser.log"
+    },
+    "tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_final_ui_has_no_obsolete_manual_lifecycle_placeholders": {
+      "status": "PASS",
+      "reason": null,
+      "raw_log": "_scratch/ph_lw_12/installed-extended-final/browser.log"
+    },
+    "tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_navigation_resume_finishes_before_user_mutation": {
+      "status": "PASS",
+      "reason": null,
+      "raw_log": "_scratch/ph_lw_12/installed-extended-final/browser.log"
+    },
+    "tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_refresh_after_commit_does_not_reuse_older_lifecycle_response": {
+      "status": "PASS",
+      "reason": null,
+      "raw_log": "_scratch/ph_lw_12/installed-extended-final/browser.log"
+    },
+    "tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_stage_status_and_manual_evidence_use_existing_forms": {
+      "status": "PASS",
+      "reason": null,
+      "raw_log": "_scratch/ph_lw_12/installed-extended-final/browser.log"
+    },
+    "tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_real_upload_malicious_archives_auth_and_read_only_preview": {
+      "status": "PASS",
+      "reason": null,
+      "raw_log": "_scratch/ph_lw_12/installed-extended-final/browser.log"
+    },
+    "tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_production_wsgi_declared_and_chunked_body_header_and_idle_limits": {
+      "status": "PASS",
+      "reason": null,
+      "raw_log": "_scratch/ph_lw_12/installed-extended-focus3/browser.log"
+    },
+    "__main__.main.<locals>.AdditionalLifecycleTests.test_accepted_mvp_to_release_form_preserves_history": {
+      "status": "PASS",
+      "reason": null,
+      "raw_log": "_scratch/ph_lw_12/installed-extended-focus3/browser.log"
+    },
+    "__main__.main.<locals>.AdditionalLifecycleTests.test_maintenance_task_completion_through_browser": {
+      "status": "FAIL",
+      "reason": null,
+      "raw_log": "_scratch/ph_lw_12/installed-maintenance-final/browser.log"
+    }
+  },
+  "installed_extended_current_counts": {
+    "PASS": 17,
+    "FAIL": 1
+  },
+  "PH-LW-04": "GO in tested Windows scope",
+  "PH-LW-05": "NO-GO for deep app-data intake; baseline source-import coverage recorded separately",
+  "final_run_statuses": {
+    "installed-basic-supported": "PASS",
+    "installer-recovery-final": "PASS",
+    "installed-extended-final": "FAIL",
+    "installed-extended-focus3": "FAIL",
+    "installed-no-doc-final": "PASS",
+    "installed-maintenance-final": "FAIL",
+    "maturity-final": "PASS",
+    "exchange-http-final": "PASS",
+    "lifecycle-http-final": "PASS",
+    "lifecycle-service-final": "PASS",
+    "wheel-browser-final": "PASS",
+    "source-final-regressions": "PASS"
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "SCHEMA-EXECUTION-RESULT@1",
+  "type": "object",
+  "required": [
+    "execution_result"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "execution_result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "run_ref",
+        "adapter_profile_ref",
+        "sandbox_profile_ref",
+        "started_at",
+        "finished_at",
+        "exit_code",
+        "termination_reason",
+        "stdout_artifact_ref",
+        "stderr_artifact_ref",
+        "agent_result_ref",
+        "execution_root_digest",
+        "result_status"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^ART-[A-Z0-9][A-Z0-9-]*$"
+        },
+        "run_ref": {
+          "type": "string",
+          "pattern": "^RUN-[A-Z0-9][A-Z0-9-]*@[1-9][0-9]*$"
+        },
+        "adapter_profile_ref": {
+          "type": "string",
+          "pattern": "^ADP-[A-Z0-9][A-Z0-9-]*@[1-9][0-9]*$"
+        },
+        "sandbox_profile_ref": {
+          "type": "string",
+          "pattern": "^SBX-[A-Z0-9][A-Z0-9-]*@[1-9][0-9]*$"
+        },
+        "started_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "finished_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "exit_code": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "termination_reason": {
+          "enum": [
+            "EXITED",
+            "TIMED_OUT",
+            "SIGNALED",
+            "SANDBOX_UNAVAILABLE",
+            "FAILED"
+          ]
+        },
+        "stdout_artifact_ref": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^ART-[A-Z0-9][A-Z0-9-]*$"
+        },
+        "stderr_artifact_ref": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^ART-[A-Z0-9][A-Z0-9-]*$"
+        },
+        "agent_result_ref": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^ART-[A-Z0-9][A-Z0-9-]*$"
+        },
+        "execution_root_digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "result_status": {
+          "enum": [
+            "COMPLETED",
+            "FAILED",
+            "BLOCKED",
+            "INVALID",
+            "UNKNOWN"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "status": "PASS",
+  "scope": "Artifact integrity, preservation and exact-hash factual linkage; acceptance verdict separate",
+  "verified_utc": "2026-11-08T15:27:37.770051+00:00",
+  "trees": {
+    "Project_Harness_Engine_v0.5.1": {
+      "status": "PASS",
+      "files": 5535,
+      "manifest_sha256": "6236ec05b40e504fa42bbc6bdee798ec646718d7651259da2ff8248afa919bd9"
+    },
+    "Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 156,
+      "manifest_sha256": "c97f6fa1ff72e272e747045a7305c78a565c410156b196d87ac93bfa66976393"
+    },
+    "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 156,
+      "manifest_sha256": "c97f6fa1ff72e272e747045a7305c78a565c410156b196d87ac93bfa66976393"
+    }
+  },
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\tools\\check_workspace.py"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+      "exit": 0,
+      "status": "PASS",
+      "log": "workspace-final-1.log",
+      "log_sha256": "ad18dc93b91fe08b961ba5ceb04f5bd92836da1b79583cf61782a75fb4617246"
+    },
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Documentation_v0.5.1\\tools\\validate_documentation.py",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Documentation_v0.5.1",
+        "--json",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_workspace\\PH_LW_12_FIX\\DOC_VALIDATION.json"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+      "exit": 0,
+      "status": "PASS",
+      "log": "documentation-final-1.log",
+      "log_sha256": "3408cfe49de29d548858e704f3d7396d4454d7d162da2983fa0e8e275351f4ab"
+    },
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1\\project-harness.py",
+        "doctor"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+      "exit": 0,
+      "status": "PASS",
+      "log": "doctor-final.log",
+      "log_sha256": "38159f7d536024eaafc5e73e86e531993b5f18846c805f741b46ba0947f5b11b"
+    },
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\tools\\ph_lw_12_fix_integrity.py"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+      "exit": 0,
+      "status": "PASS",
+      "log": "integrity-final.log",
+      "log_sha256": "4ee1e4e1d2c514852ec02da63929ecb8baa082c8451c2777e13d83bec3255daa"
+    }
+  ],
+  "source_digest": "sha256:0789035971ad3488b37a3d1cc480a9c7c63effcc3c67c540630e452b77f936ae",
+  "wheel_sha256": "22ce3cdca5fe875430d4780f163975ba896c3348fa2f30b5a88199064bec54a1",
+  "installer_sha256": "a4c7432852aadf93fd19fa4646ef8306854369be8ff8fd941ce6d1d268cc5964",
+  "runtime_freeze_unchanged": true,
+  "historical_files_preserved": 3847,
+  "unchanged_old_tests": 69,
+  "discovery_test_file_hashes_unchanged": true,
+  "changed_inventory_excluded_self_referential": [
+    "CHANGED_FILE_HASHES.json",
+    "FINAL_WORKING_TREE_VERIFICATION.json",
+    "SHA256.txt"
+  ],
+  "synchronization_test_assertions_unchanged": true,
+  "new_report_links_checked": 27,
+  "archives": [
+    {
+      "file": "_deliverables/PH_LW_04_05_WINDOWS_RETEST_2026-11-07/Project_Harness_Documentation_v0.5.1_PH_LW_05.zip",
+      "sha256": "5d610858306dc91e1b125711e30dc84e7f4aed046d4d72c20f0ff401f05f9b8b",
+      "crc": "PASS",
+      "unchanged": true
+    },
+    {
+      "file": "_deliverables/PH_LW_04_05_WINDOWS_RETEST_2026-11-07/Project_Harness_Engine_v0.5.1_PH_LW_05.zip",
+      "sha256": "d48a47b43957df5fd3e4e57db98f0b4e2e73c668893489a528e9c739200cb6ef",
+      "crc": "PASS",
+      "unchanged": true
+    },
+    {
+      "file": "_deliverables/PH_LW_05_WINDOWS_MANUAL_REMEDIATION_2026-11-07/Project_Harness_Documentation_v0.5.1_PH_LW_05.zip",
+      "sha256": "5b1dbed1ab7b876b8d5f078596c5c7ca327cd1f269d438407e88ac7bd95d4bd9",
+      "crc": "PASS",
+      "unchanged": true
+    },
+    {
+      "file": "_deliverables/PH_LW_05_WINDOWS_MANUAL_REMEDIATION_2026-11-07/Project_Harness_Engine_v0.5.1_PH_LW_05.zip",
+      "sha256": "c8ccd7f1f1b93200db1936d58c274bf535fae09aa616309b54bed8e0e3da33f2",
+      "crc": "PASS",
+      "unchanged": true
+    },
+    {
+      "file": "_inputs/Project_Harness_Documentation_v0.5.1_PH_LW_05.zip",
+      "sha256": "fd6a5d2aff1495708c30cf4f493ef30aed5bc6095a84a2fcd00e4a984013f1df",
+      "crc": "PASS",
+      "unchanged": true
+    },
+    {
+      "file": "_inputs/Project_Harness_Engine_v0.5.1_PH_LW_05.zip",
+      "sha256": "d247127b5ab91b1dffd0f1f0649225bcf2b0bf02abea85a3c211cf3580b40c76",
+      "crc": "PASS",
+      "unchanged": true
+    },
+    {
+      "file": "_inputs/Project_Harness_Implementation_Specifications_v0.4.1_to_v1.0 (1).zip",
+      "sha256": "56bca615b7da5a0f48d0479c2de24ccd151fcefbf453fdfea89eab0d2675219e",
+      "crc": "PASS",
+      "unchanged": true
+    },
+    {
+      "file": "_inputs/Project_Harness_Windows_Local_Web_Implementation_Prompts_RU_r2 (1).zip",
+      "sha256": "4d85691a5bc89a9ef3a449097898d8b727a041e70c0b13ec9ba45535bcce2829",
+      "crc": "PASS",
+      "unchanged": true
+    }
+  ],
+  "verdicts": {
+    "PH-LW-04": "GO in tested Windows scope",
+    "PH-LW-05": "GO in tested Windows scope",
+    "PH-LW-12": "GO with retained accepted limitations",
+    "LOCAL_WEB_MANUAL": "GO",
+    "AUTOMATIC_EXECUTOR": "previous NO-GO; disabled",
+    "v0.5.1": "NO-GO / NOT RELEASED"
+  },
+  "accepted_not_run": [
+    "clean Windows without developer runtimes",
+    "physical offline",
+    "real disk-full",
+    "actual Unicode username"
+  ],
+  "zip_created": false,
+  "workspace_files": {
+    "README.md": "b7d9c9d8134360792e08dc962f47e4a15aef2f498567bc8984ed4673a75a4a76",
+    "_workspace/CURRENT_TASK.md": "9b7380c1179edaf9c8ba29452b9940e081cc2bc0b140f4218662a52a7e16f456",
+    "_workspace/PROJECT_MAP.md": "3e027c7584c6fb14a122eabc438fa0d2d4ca738a421987e167fbd419bfbac8d7",
+    "_workspace/RUNBOOK.md": "ff2fd513a1cb266a29394acf682ccd3b0cbf0a140eb77b6b8e3ce692ece37268"
+  }
+}

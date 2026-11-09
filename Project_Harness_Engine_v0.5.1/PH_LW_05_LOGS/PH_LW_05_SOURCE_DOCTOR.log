@@ -1,0 +1,84 @@
+{
+  "version": "0.5.1",
+  "schema_version": 7,
+  "status": "FAIL",
+  "root": "/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1",
+  "checks": [
+    {
+      "name": "Canonical registries",
+      "status": "PASS",
+      "details": {
+        "id_prefixes": 3,
+        "project_profiles": 1,
+        "statuses": 6,
+        "request_routing": 2,
+        "capabilities": 1,
+        "contracts": 6,
+        "implementation_levels": 1
+      }
+    },
+    {
+      "name": "Bundled schemas",
+      "status": "PASS",
+      "details": {
+        "count": 17,
+        "errors": []
+      }
+    },
+    {
+      "name": "Seed ACTIVE skills",
+      "status": "PASS",
+      "details": {
+        "count": 3,
+        "errors": []
+      }
+    },
+    {
+      "name": "Entry points and browser preparation template",
+      "status": "PASS",
+      "details": {
+        "missing": [],
+        "layout": "source"
+      }
+    },
+    {
+      "name": "Source and embedded resources",
+      "status": "PASS",
+      "details": {
+        "layout": "source",
+        "checked": 33,
+        "errors": []
+      }
+    },
+    {
+      "name": "Distribution manifest",
+      "status": "FAIL",
+      "details": {
+        "entries": 1067,
+        "missing": [],
+        "extra": [
+          "local_web/ci_ph_lw_05_windows.ps1",
+          "src/project_harness/local_web_imports.py",
+          "src/project_harness/local_web_source_refresh.py",
+          "src/project_harness/local_web_sources_service.py",
+          "tests/test_ph_lw_05_http.py",
+          "tests/test_ph_lw_05_import.py"
+        ],
+        "mismatched": [
+          "CHANGELOG.md",
+          "MANUAL_INSTALL.md",
+          "README.md",
+          "src/project_harness/intake.py",
+          "src/project_harness/local_web_http.py",
+          "src/project_harness/local_web_service.py",
+          "src/project_harness/resources/local_web/assets/app.css",
+          "src/project_harness/resources/local_web/assets/app.js",
+          "src/project_harness/resources/local_web/assets/index.html"
+        ],
+        "excluded_runtime_records": [
+          ".harness/runtime/OPERATION_JOURNAL/*"
+        ]
+      }
+    }
+  ]
+}

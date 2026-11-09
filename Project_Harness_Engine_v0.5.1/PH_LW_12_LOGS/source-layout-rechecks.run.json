@@ -1,0 +1,25 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "tools/run_regressions.py",
+    "--output",
+    "_scratch/ph_lw_12/source-layout-rechecks",
+    "--jobs",
+    "2",
+    "--timeout",
+    "900",
+    "tests.test_ph_f01_gate_semantics_regression",
+    "tests.test_ph_f01_planner_regression",
+    "tests.test_ph_f03_active_stage_planning",
+    "tests.test_ph_f04_runtime_reachability"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-08T09:19:12.482654+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 1200,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 306.046,
+  "log_sha256": "47f0a5ee8f1297df5b1bd4cb3695fcb1a73239833bbafa11565d85d35c03dd58"
+}

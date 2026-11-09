@@ -1,0 +1,39 @@
+{
+  "operation_id": "LWO-3270B386691325CD32610B7E18C7C379",
+  "project_id": "LWP-177E7CE5B7D156DB91A4",
+  "action": "receive-result",
+  "request_digest": "sha256:6798dcf2531ed4c9e207bea53bca16115bfa30e789b338dd8a6ec58e29410344",
+  "expected_fingerprint": "sha256:68641f4ab6215ddacc9b945ffa85684a54d71c07515f1f39c18d9b60230f1bfc",
+  "created_at": "2026-11-08T12:14:24Z",
+  "updated_at": "2026-11-08T12:14:26Z",
+  "started_at": "2026-11-08T12:14:25Z",
+  "finished_at": "2026-11-08T12:14:26Z",
+  "state": "SUCCEEDED",
+  "phase": "DONE",
+  "core_before": "sha256:68641f4ab6215ddacc9b945ffa85684a54d71c07515f1f39c18d9b60230f1bfc",
+  "core_after": "sha256:a3456595f9ac0f67cc65818e42a98b955bcbc09bb5c339dd39155f4889eaa97b",
+  "before_active_run_ref": null,
+  "expected_draft_after": null,
+  "result": {
+    "action": "receive-result",
+    "core_status": "RESULT_RECEIVED",
+    "refs": {
+      "status": "RESULT_RECEIVED",
+      "run_ref": "RUN-PH-LW-12-NO-DOCUMENTATION-001-A1"
+    }
+  },
+  "error": null,
+  "receipt": {
+    "kind": "LOCAL_WEB_OPERATION_RECEIPT",
+    "receipt_version": 1,
+    "operation_id": "LWO-3270B386691325CD32610B7E18C7C379",
+    "project_ref": "LWP-177E7CE5B7D156DB91A4",
+    "action_id": "LW-RESULT",
+    "idempotency_key": "browser-b4b2c7930de70f7fd2bfbea1c87ed5cc",
+    "request_sha256": "sha256:6798dcf2531ed4c9e207bea53bca16115bfa30e789b338dd8a6ec58e29410344",
+    "expected_core_fingerprint": "sha256:68641f4ab6215ddacc9b945ffa85684a54d71c07515f1f39c18d9b60230f1bfc",
+    "core_outcome": "CONFIRMED_COMMITTED",
+    "created_at": "2026-11-08T12:14:24Z"
+  },
+  "record_digest": "sha256:bf574da53195302b3398dd8eff66a424e1d42f4a094968d528c79c45b0868a94"
+}

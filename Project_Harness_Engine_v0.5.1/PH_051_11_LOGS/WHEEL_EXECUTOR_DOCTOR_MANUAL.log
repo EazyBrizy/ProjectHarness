@@ -1,0 +1,11 @@
+ARGV: /mnt/data/ph05111_work/wheel_venv/bin/project-harness executor-doctor --project /mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/demo/harness-demo-codex-handoff
+EXIT: 3
+STDOUT:
+{
+  "status": "BLOCKED",
+  "reason_code": "EXECUTOR_UNAVAILABLE",
+  "execution_mode": "MANUAL_HANDOFF",
+  "message": "Automatic execution requires explicit project opt-in"
+}
+
+STDERR:

@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "captured_utc": "2026-11-08T08:45:36.411429+00:00",
+  "trees": {
+    "Project_Harness_Engine_v0.5.1": {
+      "status": "PASS",
+      "files": 3988,
+      "manifest_sha256": "21e5b511814ad3b4471fd7d2fcd06ab8f4df86fca8558ed7d166ea6a21e2594e"
+    },
+    "Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 154,
+      "manifest_sha256": "0127d336e7598d83254827fe0c901f031cf1c9425bae679abbbf465f5f21973b"
+    },
+    "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 154,
+      "manifest_sha256": "0127d336e7598d83254827fe0c901f031cf1c9425bae679abbbf465f5f21973b"
+    }
+  },
+  "wheel_sha256": "9bb3e87fdf2b297e7292fd5d2216fc1a61c9dbe49e2e4cf018f5eb5f2aa19bc2",
+  "installer_sha256": "0550a5582182ab95aa8b5376b878cdb3210b126a53b6fd6f90746417d50abb94",
+  "previous_attestation_sha256": "9007bf2a649d27187da5bc35ec1e8ca3674cdca7a1cb9bfbb2d678ac2442244e",
+  "accepted_limitations": [
+    "clean Windows",
+    "physical offline",
+    "real disk-full",
+    "actual Unicode username"
+  ],
+  "git": "not a repository; complete file hash baseline",
+  "drift": [],
+  "allowed_file_changes": [
+    "PH-LW-12 acceptance tests/runners/reports/matrices/logs",
+    "current README/runbook/examples/operator documentation and mirror/generated manifests",
+    "proven direct runtime regression fix and regenerated wheel/frozen/installer only if needed"
+  ],
+  "environment": {
+    "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "non_admin": true,
+    "dependencies": {
+      "Flask": "3.1.3",
+      "Waitress": "3.0.2",
+      "Playwright": "1.64.1",
+      "PyYAML": "6.0.3",
+      "jsonschema": "4.26.0"
+    },
+    "zip_created": false,
+    "automatic_executor": "NO-GO; disabled"
+  }
+}

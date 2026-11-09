@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "scenarios": [
+    {
+      "scenario": "actual_setup_process_tree_interruption_during_copy",
+      "status": "PASS",
+      "pid": 20576,
+      "exit": 1
+    },
+    {
+      "scenario": "actual_setup_recovery",
+      "status": "PASS",
+      "exit": 0
+    },
+    {
+      "scenario": "actual_readonly_pointer",
+      "status": "PASS",
+      "exit": 7
+    },
+    {
+      "scenario": "actual_readonly_retry",
+      "status": "PASS",
+      "exit": 0
+    }
+  ],
+  "physical_power_loss": "NOT RUN",
+  "real_disk_full": "NOT RUN; separate injection does not substitute"
+}

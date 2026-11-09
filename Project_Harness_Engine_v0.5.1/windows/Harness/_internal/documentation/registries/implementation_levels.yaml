@@ -1,0 +1,880 @@
+{
+  "schema_version": 1,
+  "registry": {
+    "id": "REG-IMPLEMENTATION-LEVELS",
+    "version": 1,
+    "status": "ACTIVE",
+    "progression_policy": "SEQUENTIAL",
+    "dimensions": [
+      "FUNCTIONALITY",
+      "ARCHITECTURE_MAINTAINABILITY",
+      "DATA_MIGRATIONS",
+      "TESTING_VERIFICATION",
+      "SECURITY_PRIVACY",
+      "DEPLOYMENT_OPERABILITY",
+      "RECOVERY",
+      "DOCUMENTATION_SUPPORT",
+      "RELEASE_EVIDENCE"
+    ],
+    "criterion_statuses": [
+      "PASS",
+      "PARTIAL",
+      "FAIL",
+      "UNKNOWN",
+      "NOT_APPLICABLE"
+    ],
+    "evidence_kinds": [
+      "REPOSITORY_ARTIFACT",
+      "ARCHITECTURE_RECORD",
+      "TRACEABILITY_RECORD",
+      "CONTRACT_RECORD",
+      "CHANGE_RECORD",
+      "CONFIGURATION",
+      "START_INSTRUCTIONS",
+      "TEST_SOURCE",
+      "TEST_REPORT",
+      "MANUAL_VERIFICATION",
+      "USER_ACCEPTANCE",
+      "INTEGRATION_EVIDENCE",
+      "MIGRATION_RECORD",
+      "SECURITY_RECORD",
+      "REVIEW_RECORD",
+      "PERFORMANCE_REPORT",
+      "RELIABILITY_REPORT",
+      "DEPLOYMENT_RECORD",
+      "MONITORING_EVIDENCE",
+      "OPERATIONS_RECORD",
+      "RECOVERY_RECORD",
+      "ROLLBACK_RECORD",
+      "LIMITATIONS_RECORD",
+      "PERMITTED_USE_RECORD",
+      "SUPPORT_RECORD",
+      "OWNERSHIP_RECORD",
+      "DATA_LIFECYCLE_RECORD",
+      "COMPATIBILITY_RECORD",
+      "RELEASE_RECORD",
+      "BUILD_PROVENANCE",
+      "USER_DOCUMENTATION",
+      "APPROVAL_RECORD",
+      "DEFECT_REGISTER",
+      "USER_CLAIM",
+      "EXTERNAL_EVIDENCE"
+    ],
+    "levels": [
+      {
+        "id": "PROTOTYPE",
+        "display_name": "Prototype",
+        "ordinal": 10,
+        "next": "ALPHA",
+        "criteria_profile": "PROTOTYPE"
+      },
+      {
+        "id": "ALPHA",
+        "display_name": "Alpha",
+        "ordinal": 20,
+        "previous": "PROTOTYPE",
+        "next": "BETA",
+        "criteria_profile": "ALPHA"
+      },
+      {
+        "id": "BETA",
+        "display_name": "Beta",
+        "ordinal": 30,
+        "previous": "ALPHA",
+        "next": "MVP",
+        "criteria_profile": "BETA"
+      },
+      {
+        "id": "MVP",
+        "display_name": "Production MVP",
+        "ordinal": 40,
+        "previous": "BETA",
+        "next": "RELEASE",
+        "criteria_profile": "MVP"
+      },
+      {
+        "id": "RELEASE",
+        "display_name": "Release",
+        "ordinal": 50,
+        "previous": "MVP",
+        "criteria_profile": "RELEASE"
+      }
+    ],
+    "criteria_profiles": {
+      "PROTOTYPE": {
+        "mandatory_dimensions": [
+          "FUNCTIONALITY",
+          "ARCHITECTURE_MAINTAINABILITY",
+          "DEPLOYMENT_OPERABILITY",
+          "TESTING_VERIFICATION",
+          "DOCUMENTATION_SUPPORT",
+          "SECURITY_PRIVACY"
+        ],
+        "criteria_refs": [
+          "PROTOTYPE_CORE_FLOW",
+          "PROTOTYPE_SIMPLE_ARCHITECTURE",
+          "PROTOTYPE_LOCAL_START",
+          "PROTOTYPE_SMOKE_CHECK",
+          "PROTOTYPE_LIMITATIONS",
+          "PROTOTYPE_PERMITTED_USE"
+        ]
+      },
+      "ALPHA": {
+        "mandatory_dimensions": [
+          "FUNCTIONALITY",
+          "DATA_MIGRATIONS",
+          "ARCHITECTURE_MAINTAINABILITY",
+          "DEPLOYMENT_OPERABILITY",
+          "TESTING_VERIFICATION",
+          "SECURITY_PRIVACY",
+          "DOCUMENTATION_SUPPORT"
+        ],
+        "criteria_refs": [
+          "ALPHA_CORE_SCENARIOS",
+          "ALPHA_REAL_PERSISTENCE",
+          "ALPHA_CORE_INTEGRATIONS",
+          "ALPHA_MODULE_BOUNDARIES",
+          "ALPHA_CONFIGURATION",
+          "ALPHA_ERRORS_AND_LOGS",
+          "ALPHA_AUTOMATED_CRITICAL_TESTS",
+          "ALPHA_INTEGRATION_TEST",
+          "ALPHA_REPRODUCIBLE_DEV_ENV",
+          "ALPHA_SECRETS_OUTSIDE_REPOSITORY",
+          "ALPHA_DOCUMENTED_LIMITATIONS"
+        ]
+      },
+      "BETA": {
+        "mandatory_dimensions": [
+          "FUNCTIONALITY",
+          "ARCHITECTURE_MAINTAINABILITY",
+          "DATA_MIGRATIONS",
+          "TESTING_VERIFICATION",
+          "SECURITY_PRIVACY",
+          "DEPLOYMENT_OPERABILITY",
+          "RECOVERY",
+          "DOCUMENTATION_SUPPORT"
+        ],
+        "criteria_refs": [
+          "BETA_TARGET_SCOPE",
+          "BETA_ERROR_AND_EDGE_CASES",
+          "BETA_STABLE_EXTERNAL_CONTRACTS",
+          "BETA_VERSIONED_MIGRATIONS",
+          "BETA_REGRESSION_AND_E2E",
+          "BETA_PERFORMANCE_BASELINE",
+          "BETA_AUTH_AND_PERMISSIONS",
+          "BETA_SAFE_STAGING",
+          "BETA_BASIC_MONITORING",
+          "BETA_BACKUP_RESTORE",
+          "BETA_ROLLBACK",
+          "BETA_KNOWN_ISSUES"
+        ]
+      },
+      "MVP": {
+        "mandatory_dimensions": [
+          "FUNCTIONALITY",
+          "DATA_MIGRATIONS",
+          "SECURITY_PRIVACY",
+          "DEPLOYMENT_OPERABILITY",
+          "RECOVERY",
+          "DOCUMENTATION_SUPPORT",
+          "TESTING_VERIFICATION",
+          "ARCHITECTURE_MAINTAINABILITY"
+        ],
+        "criteria_refs": [
+          "MVP_BUSINESS_VALUE_SCOPE",
+          "MVP_PRODUCTION_PERSISTENCE",
+          "MVP_SECURITY_CONTROLS",
+          "MVP_REPRODUCIBLE_DEPLOYMENT",
+          "MVP_MONITORING_ALERTS",
+          "MVP_RECOVERY_ROUTE",
+          "MVP_SUPPORT_PROCEDURE",
+          "MVP_OPERATIONAL_OWNER",
+          "MVP_RELEASE_REGRESSION",
+          "MVP_STABLE_PUBLIC_CONTRACTS",
+          "MVP_DATA_LIFECYCLE",
+          "MVP_OPERATING_BOUNDARY"
+        ]
+      },
+      "RELEASE": {
+        "mandatory_dimensions": [
+          "FUNCTIONALITY",
+          "DEPLOYMENT_OPERABILITY",
+          "ARCHITECTURE_MAINTAINABILITY",
+          "TESTING_VERIFICATION",
+          "SECURITY_PRIVACY",
+          "RECOVERY",
+          "RELEASE_EVIDENCE",
+          "DOCUMENTATION_SUPPORT",
+          "DATA_MIGRATIONS"
+        ],
+        "criteria_refs": [
+          "RELEASE_COMMITMENTS",
+          "RELEASE_CAPACITY_RELIABILITY",
+          "RELEASE_COMPATIBILITY_POLICY",
+          "RELEASE_FULL_REGRESSION",
+          "RELEASE_SECURITY_REVIEW",
+          "RELEASE_RECOVERY_DR",
+          "RELEASE_REPRODUCIBLE_PUBLISH",
+          "RELEASE_RUNBOOKS",
+          "RELEASE_NOTES",
+          "RELEASE_OWNERSHIP_ESCALATION",
+          "RELEASE_USER_AND_OPERATIONS_DOCS",
+          "RELEASE_UPGRADE_POLICY",
+          "RELEASE_APPROVALS_AND_DEFECTS"
+        ]
+      }
+    },
+    "criteria": {
+      "PROTOTYPE_CORE_FLOW": {
+        "level": "PROTOTYPE",
+        "dimension": "FUNCTIONALITY",
+        "description": "Один законченный end-to-end core flow работает в заявленной области использования.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "TEST_REPORT",
+          "MANUAL_VERIFICATION"
+        ],
+        "execution_evidence_required": true
+      },
+      "PROTOTYPE_SIMPLE_ARCHITECTURE": {
+        "level": "PROTOTYPE",
+        "dimension": "ARCHITECTURE_MAINTAINABILITY",
+        "description": "Реализация использует простую подходящую архитектурную границу без преждевременного усложнения.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "ARCHITECTURE_RECORD",
+          "REPOSITORY_ARTIFACT"
+        ],
+        "execution_evidence_required": false
+      },
+      "PROTOTYPE_LOCAL_START": {
+        "level": "PROTOTYPE",
+        "dimension": "DEPLOYMENT_OPERABILITY",
+        "description": "Существует понятный и воспроизводимый способ локального запуска из принятой baseline.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "START_INSTRUCTIONS",
+          "CONFIGURATION"
+        ],
+        "execution_evidence_required": false
+      },
+      "PROTOTYPE_SMOKE_CHECK": {
+        "level": "PROTOTYPE",
+        "dimension": "TESTING_VERIFICATION",
+        "description": "Основной сценарий имеет smoke-проверку.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "TEST_REPORT",
+          "MANUAL_VERIFICATION"
+        ],
+        "execution_evidence_required": true
+      },
+      "PROTOTYPE_LIMITATIONS": {
+        "level": "PROTOTYPE",
+        "dimension": "DOCUMENTATION_SUPPORT",
+        "description": "Известные ограничения и следующий backlog явно документированы.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "LIMITATIONS_RECORD"
+        ],
+        "execution_evidence_required": false
+      },
+      "PROTOTYPE_PERMITTED_USE": {
+        "level": "PROTOTYPE",
+        "dimension": "SECURITY_PRIVACY",
+        "description": "Зафиксирована допустимая область использования, включая environment и data boundary.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "PERMITTED_USE_RECORD"
+        ],
+        "execution_evidence_required": false
+      },
+      "ALPHA_CORE_SCENARIOS": {
+        "level": "ALPHA",
+        "dimension": "FUNCTIONALITY",
+        "description": "Основные сценарии Alpha scope доступны внутреннему пользователю без постоянного вмешательства автора.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "TEST_REPORT",
+          "MANUAL_VERIFICATION"
+        ],
+        "execution_evidence_required": true
+      },
+      "ALPHA_REAL_PERSISTENCE": {
+        "level": "ALPHA",
+        "dimension": "DATA_MIGRATIONS",
+        "description": "Ключевые данные используют реальную persistence, когда persistence требуется продукту.",
+        "mandatory": true,
+        "applicability": "WHEN_PRODUCT_REQUIRES_PERSISTENCE",
+        "required_evidence_kinds": [
+          "REPOSITORY_ARTIFACT",
+          "CONFIGURATION"
+        ],
+        "execution_evidence_required": false
+      },
+      "ALPHA_CORE_INTEGRATIONS": {
+        "level": "ALPHA",
+        "dimension": "FUNCTIONALITY",
+        "description": "Критические core-интеграции не подменены mock/stub, когда интеграции входят в scope.",
+        "mandatory": true,
+        "applicability": "WHEN_CORE_INTEGRATIONS_EXIST",
+        "required_evidence_kinds": [
+          "INTEGRATION_EVIDENCE",
+          "TEST_REPORT"
+        ],
+        "execution_evidence_required": true
+      },
+      "ALPHA_MODULE_BOUNDARIES": {
+        "level": "ALPHA",
+        "dimension": "ARCHITECTURE_MAINTAINABILITY",
+        "description": "Код имеет базовое разделение модулей и понятные границы ответственности.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "ARCHITECTURE_RECORD",
+          "REPOSITORY_ARTIFACT"
+        ],
+        "execution_evidence_required": false
+      },
+      "ALPHA_CONFIGURATION": {
+        "level": "ALPHA",
+        "dimension": "DEPLOYMENT_OPERABILITY",
+        "description": "Конфигурация вынесена в принятые файлы или environment и не зашита скрыто в код.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "CONFIGURATION",
+          "REPOSITORY_ARTIFACT"
+        ],
+        "execution_evidence_required": false
+      },
+      "ALPHA_ERRORS_AND_LOGS": {
+        "level": "ALPHA",
+        "dimension": "DEPLOYMENT_OPERABILITY",
+        "description": "Основные ошибки обрабатываются, а диагностические сообщения позволяют понять отказ.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "REPOSITORY_ARTIFACT",
+          "TEST_REPORT"
+        ],
+        "execution_evidence_required": true
+      },
+      "ALPHA_AUTOMATED_CRITICAL_TESTS": {
+        "level": "ALPHA",
+        "dimension": "TESTING_VERIFICATION",
+        "description": "Критическая логика покрыта automated tests.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "TEST_SOURCE",
+          "TEST_REPORT"
+        ],
+        "execution_evidence_required": true
+      },
+      "ALPHA_INTEGRATION_TEST": {
+        "level": "ALPHA",
+        "dimension": "TESTING_VERIFICATION",
+        "description": "Основной поток имеет integration test или эквивалентное воспроизводимое evidence.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "TEST_SOURCE",
+          "TEST_REPORT"
+        ],
+        "execution_evidence_required": true
+      },
+      "ALPHA_REPRODUCIBLE_DEV_ENV": {
+        "level": "ALPHA",
+        "dimension": "DEPLOYMENT_OPERABILITY",
+        "description": "Dev/test окружение и установка воспроизводимы по документации и configuration.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "START_INSTRUCTIONS",
+          "CONFIGURATION"
+        ],
+        "execution_evidence_required": true
+      },
+      "ALPHA_SECRETS_OUTSIDE_REPOSITORY": {
+        "level": "ALPHA",
+        "dimension": "SECURITY_PRIVACY",
+        "description": "Secrets не хранятся в repository и их безопасная передача описана.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "SECURITY_RECORD",
+          "REPOSITORY_ARTIFACT"
+        ],
+        "execution_evidence_required": false
+      },
+      "ALPHA_DOCUMENTED_LIMITATIONS": {
+        "level": "ALPHA",
+        "dimension": "DOCUMENTATION_SUPPORT",
+        "description": "Документация запуска и известные ограничения актуальны.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "START_INSTRUCTIONS",
+          "LIMITATIONS_RECORD"
+        ],
+        "execution_evidence_required": false
+      },
+      "BETA_TARGET_SCOPE": {
+        "level": "BETA",
+        "dimension": "FUNCTIONALITY",
+        "description": "Почти полный целевой MVP scope реализован без необязательных функций.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "TRACEABILITY_RECORD",
+          "TEST_REPORT"
+        ],
+        "execution_evidence_required": true
+      },
+      "BETA_ERROR_AND_EDGE_CASES": {
+        "level": "BETA",
+        "dimension": "FUNCTIONALITY",
+        "description": "Основные ошибочные и граничные сценарии обработаны и проверены.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "TEST_SOURCE",
+          "TEST_REPORT"
+        ],
+        "execution_evidence_required": true
+      },
+      "BETA_STABLE_EXTERNAL_CONTRACTS": {
+        "level": "BETA",
+        "dimension": "ARCHITECTURE_MAINTAINABILITY",
+        "description": "Внешние контракты стабилизированы и изменения управляются явно.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "CONTRACT_RECORD",
+          "CHANGE_RECORD"
+        ],
+        "execution_evidence_required": false
+      },
+      "BETA_VERSIONED_MIGRATIONS": {
+        "level": "BETA",
+        "dimension": "DATA_MIGRATIONS",
+        "description": "Для значимых данных существуют versioned migrations или обоснованное NOT_APPLICABLE.",
+        "mandatory": true,
+        "applicability": "WHEN_SIGNIFICANT_PERSISTED_DATA_EXISTS",
+        "required_evidence_kinds": [
+          "MIGRATION_RECORD",
+          "TEST_REPORT"
+        ],
+        "execution_evidence_required": true
+      },
+      "BETA_REGRESSION_AND_E2E": {
+        "level": "BETA",
+        "dimension": "TESTING_VERIFICATION",
+        "description": "Regression и end-to-end проверки покрывают основной pilot flow.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "TEST_SOURCE",
+          "TEST_REPORT"
+        ],
+        "execution_evidence_required": true
+      },
+      "BETA_PERFORMANCE_BASELINE": {
+        "level": "BETA",
+        "dimension": "TESTING_VERIFICATION",
+        "description": "Performance baseline зафиксирован там, где производительность material для проекта.",
+        "mandatory": true,
+        "applicability": "WHEN_PERFORMANCE_IS_MATERIAL",
+        "required_evidence_kinds": [
+          "PERFORMANCE_REPORT"
+        ],
+        "execution_evidence_required": true
+      },
+      "BETA_AUTH_AND_PERMISSIONS": {
+        "level": "BETA",
+        "dimension": "SECURITY_PRIVACY",
+        "description": "Authentication, permissions и data handling соответствуют рискам пилота.",
+        "mandatory": true,
+        "applicability": "WHEN_ACCESS_CONTROL_IS_REQUIRED",
+        "required_evidence_kinds": [
+          "SECURITY_RECORD",
+          "TEST_REPORT"
+        ],
+        "execution_evidence_required": true
+      },
+      "BETA_SAFE_STAGING": {
+        "level": "BETA",
+        "dimension": "DEPLOYMENT_OPERABILITY",
+        "description": "Существует staging или эквивалентная безопасная pilot-среда.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "DEPLOYMENT_RECORD",
+          "CONFIGURATION"
+        ],
+        "execution_evidence_required": true
+      },
+      "BETA_BASIC_MONITORING": {
+        "level": "BETA",
+        "dimension": "DEPLOYMENT_OPERABILITY",
+        "description": "Ключевые сигналы pilot flow наблюдаемы.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "OPERATIONS_RECORD",
+          "MONITORING_EVIDENCE"
+        ],
+        "execution_evidence_required": true
+      },
+      "BETA_BACKUP_RESTORE": {
+        "level": "BETA",
+        "dimension": "RECOVERY",
+        "description": "Значимые данные имеют backup/restore или эквивалентный recovery-механизм.",
+        "mandatory": true,
+        "applicability": "WHEN_SIGNIFICANT_PERSISTED_DATA_EXISTS",
+        "required_evidence_kinds": [
+          "RECOVERY_RECORD",
+          "TEST_REPORT"
+        ],
+        "execution_evidence_required": true
+      },
+      "BETA_ROLLBACK": {
+        "level": "BETA",
+        "dimension": "RECOVERY",
+        "description": "Неудачное обновление имеет проверяемый rollback route.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "ROLLBACK_RECORD",
+          "TEST_REPORT"
+        ],
+        "execution_evidence_required": true
+      },
+      "BETA_KNOWN_ISSUES": {
+        "level": "BETA",
+        "dimension": "DOCUMENTATION_SUPPORT",
+        "description": "Известные проблемы и operating limitations опубликованы для pilot users.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "LIMITATIONS_RECORD",
+          "SUPPORT_RECORD"
+        ],
+        "execution_evidence_required": false
+      },
+      "MVP_BUSINESS_VALUE_SCOPE": {
+        "level": "MVP",
+        "dimension": "FUNCTIONALITY",
+        "description": "Полный минимальный business-value scope реализован и доказан реальным пользовательским сценарием.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "TRACEABILITY_RECORD",
+          "TEST_REPORT",
+          "USER_ACCEPTANCE"
+        ],
+        "execution_evidence_required": true
+      },
+      "MVP_PRODUCTION_PERSISTENCE": {
+        "level": "MVP",
+        "dimension": "DATA_MIGRATIONS",
+        "description": "Production persistence и migrations готовы, когда применимы.",
+        "mandatory": true,
+        "applicability": "WHEN_PRODUCT_REQUIRES_PERSISTENCE",
+        "required_evidence_kinds": [
+          "MIGRATION_RECORD",
+          "DEPLOYMENT_RECORD",
+          "TEST_REPORT"
+        ],
+        "execution_evidence_required": true
+      },
+      "MVP_SECURITY_CONTROLS": {
+        "level": "MVP",
+        "dimension": "SECURITY_PRIVACY",
+        "description": "Security controls соответствуют данным, профилю и фактическому риску.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "SECURITY_RECORD",
+          "REVIEW_RECORD",
+          "TEST_REPORT"
+        ],
+        "execution_evidence_required": true
+      },
+      "MVP_REPRODUCIBLE_DEPLOYMENT": {
+        "level": "MVP",
+        "dimension": "DEPLOYMENT_OPERABILITY",
+        "description": "Production deployment воспроизводим и имеет explicit operating boundary.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "DEPLOYMENT_RECORD",
+          "CONFIGURATION",
+          "TEST_REPORT"
+        ],
+        "execution_evidence_required": true
+      },
+      "MVP_MONITORING_ALERTS": {
+        "level": "MVP",
+        "dimension": "DEPLOYMENT_OPERABILITY",
+        "description": "Monitoring и actionable alerts покрывают material failures.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "MONITORING_EVIDENCE",
+          "OPERATIONS_RECORD"
+        ],
+        "execution_evidence_required": true
+      },
+      "MVP_RECOVERY_ROUTE": {
+        "level": "MVP",
+        "dimension": "RECOVERY",
+        "description": "Backup/restore проверен либо обоснован эквивалентный recovery route.",
+        "mandatory": true,
+        "applicability": "WHEN_RECOVERABLE_STATE_EXISTS",
+        "required_evidence_kinds": [
+          "RECOVERY_RECORD",
+          "TEST_REPORT"
+        ],
+        "execution_evidence_required": true
+      },
+      "MVP_SUPPORT_PROCEDURE": {
+        "level": "MVP",
+        "dimension": "DOCUMENTATION_SUPPORT",
+        "description": "Определена процедура поддержки и обработки incident/user reports.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "SUPPORT_RECORD"
+        ],
+        "execution_evidence_required": false
+      },
+      "MVP_OPERATIONAL_OWNER": {
+        "level": "MVP",
+        "dimension": "DEPLOYMENT_OPERABILITY",
+        "description": "Назначен operational owner с явными обязанностями.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "OWNERSHIP_RECORD"
+        ],
+        "execution_evidence_required": false
+      },
+      "MVP_RELEASE_REGRESSION": {
+        "level": "MVP",
+        "dimension": "TESTING_VERIFICATION",
+        "description": "Release regression завершён на принятой baseline.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "TEST_REPORT"
+        ],
+        "execution_evidence_required": true
+      },
+      "MVP_STABLE_PUBLIC_CONTRACTS": {
+        "level": "MVP",
+        "dimension": "ARCHITECTURE_MAINTAINABILITY",
+        "description": "Публичные контракты устойчивы и имеют правила изменений.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "CONTRACT_RECORD",
+          "COMPATIBILITY_RECORD"
+        ],
+        "execution_evidence_required": false
+      },
+      "MVP_DATA_LIFECYCLE": {
+        "level": "MVP",
+        "dimension": "SECURITY_PRIVACY",
+        "description": "Правила хранения, удаления и восстановления данных документированы.",
+        "mandatory": true,
+        "applicability": "WHEN_PRODUCT_HANDLES_PERSISTED_DATA",
+        "required_evidence_kinds": [
+          "DATA_LIFECYCLE_RECORD"
+        ],
+        "execution_evidence_required": false
+      },
+      "MVP_OPERATING_BOUNDARY": {
+        "level": "MVP",
+        "dimension": "DOCUMENTATION_SUPPORT",
+        "description": "Документированы permitted use, operating boundary и known limitations.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "PERMITTED_USE_RECORD",
+          "LIMITATIONS_RECORD",
+          "OPERATIONS_RECORD"
+        ],
+        "execution_evidence_required": false
+      },
+      "RELEASE_COMMITMENTS": {
+        "level": "RELEASE",
+        "dimension": "FUNCTIONALITY",
+        "description": "Все утверждённые release commitments закрыты в пределах принятого scope.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "TRACEABILITY_RECORD",
+          "RELEASE_RECORD",
+          "USER_ACCEPTANCE"
+        ],
+        "execution_evidence_required": true
+      },
+      "RELEASE_CAPACITY_RELIABILITY": {
+        "level": "RELEASE",
+        "dimension": "DEPLOYMENT_OPERABILITY",
+        "description": "Capacity и reliability checks соответствуют фактическим требованиям.",
+        "mandatory": true,
+        "applicability": "WHEN_CAPACITY_OR_RELIABILITY_IS_MATERIAL",
+        "required_evidence_kinds": [
+          "PERFORMANCE_REPORT",
+          "RELIABILITY_REPORT"
+        ],
+        "execution_evidence_required": true
+      },
+      "RELEASE_COMPATIBILITY_POLICY": {
+        "level": "RELEASE",
+        "dimension": "ARCHITECTURE_MAINTAINABILITY",
+        "description": "Compatibility policy определена и применена к публичным контрактам.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "COMPATIBILITY_RECORD"
+        ],
+        "execution_evidence_required": false
+      },
+      "RELEASE_FULL_REGRESSION": {
+        "level": "RELEASE",
+        "dimension": "TESTING_VERIFICATION",
+        "description": "Полный release regression завершён на release candidate baseline.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "TEST_REPORT"
+        ],
+        "execution_evidence_required": true
+      },
+      "RELEASE_SECURITY_REVIEW": {
+        "level": "RELEASE",
+        "dimension": "SECURITY_PRIVACY",
+        "description": "Security review и применимые compliance checks завершены.",
+        "mandatory": true,
+        "applicability": "ACCORDING_TO_RISK_PROFILE",
+        "required_evidence_kinds": [
+          "REVIEW_RECORD",
+          "SECURITY_RECORD"
+        ],
+        "execution_evidence_required": true
+      },
+      "RELEASE_RECOVERY_DR": {
+        "level": "RELEASE",
+        "dimension": "RECOVERY",
+        "description": "Recovery/DR checks соответствуют risk profile.",
+        "mandatory": true,
+        "applicability": "ACCORDING_TO_RISK_PROFILE",
+        "required_evidence_kinds": [
+          "RECOVERY_RECORD",
+          "TEST_REPORT"
+        ],
+        "execution_evidence_required": true
+      },
+      "RELEASE_REPRODUCIBLE_PUBLISH": {
+        "level": "RELEASE",
+        "dimension": "RELEASE_EVIDENCE",
+        "description": "Публикация релиза воспроизводима и привязана к immutable baseline.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "RELEASE_RECORD",
+          "BUILD_PROVENANCE"
+        ],
+        "execution_evidence_required": true
+      },
+      "RELEASE_RUNBOOKS": {
+        "level": "RELEASE",
+        "dimension": "DOCUMENTATION_SUPPORT",
+        "description": "Production runbooks покрывают штатные операции и material failures.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "OPERATIONS_RECORD"
+        ],
+        "execution_evidence_required": false
+      },
+      "RELEASE_NOTES": {
+        "level": "RELEASE",
+        "dimension": "RELEASE_EVIDENCE",
+        "description": "Release notes отражают scope, changes, limitations и migration impact.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "RELEASE_RECORD"
+        ],
+        "execution_evidence_required": false
+      },
+      "RELEASE_OWNERSHIP_ESCALATION": {
+        "level": "RELEASE",
+        "dimension": "DOCUMENTATION_SUPPORT",
+        "description": "Ownership и escalation paths определены.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "OWNERSHIP_RECORD",
+          "SUPPORT_RECORD"
+        ],
+        "execution_evidence_required": false
+      },
+      "RELEASE_USER_AND_OPERATIONS_DOCS": {
+        "level": "RELEASE",
+        "dimension": "DOCUMENTATION_SUPPORT",
+        "description": "Пользовательская и эксплуатационная документация завершены.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "USER_DOCUMENTATION",
+          "OPERATIONS_RECORD"
+        ],
+        "execution_evidence_required": false
+      },
+      "RELEASE_UPGRADE_POLICY": {
+        "level": "RELEASE",
+        "dimension": "DATA_MIGRATIONS",
+        "description": "Поддерживаемая migration/upgrade policy определена.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "MIGRATION_RECORD",
+          "COMPATIBILITY_RECORD"
+        ],
+        "execution_evidence_required": false
+      },
+      "RELEASE_APPROVALS_AND_DEFECTS": {
+        "level": "RELEASE",
+        "dimension": "RELEASE_EVIDENCE",
+        "description": "Обязательные approvals получены и unresolved critical defects отсутствуют.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "APPROVAL_RECORD",
+          "DEFECT_REGISTER"
+        ],
+        "execution_evidence_required": false
+      }
+    },
+    "invariants": [
+      "Implementation level changes depth and verification, never approved product scope.",
+      "Progression is sequential and stages cannot be skipped.",
+      "Only the active stage may receive atomic tasks, prompt plans and JIT prompt bundles.",
+      "A mandatory criterion closes only with PASS or justified NOT_APPLICABLE.",
+      "No criterion is satisfied by an averaged score or by a claimed version label."
+    ]
+  }
+}

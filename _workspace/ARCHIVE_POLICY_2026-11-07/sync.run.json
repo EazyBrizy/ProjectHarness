@@ -1,0 +1,16 @@
+{
+  "command": [
+    "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import runpy, shutil; from tools.package_acceptance import DOCS, ENGINE, manifest; v = runpy.run_path(str(DOCS / 'tools/validate_documentation.py')); v['build_aggregates'](DOCS); manifest(DOCS); shutil.copytree(DOCS, ENGINE / 'docs' / DOCS.name, dirs_exist_ok=True, ignore=shutil.ignore_patterns('__pycache__', '*.pyc')); manifest(ENGINE)"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-07T01:35:41.827271+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 60,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 2.784,
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

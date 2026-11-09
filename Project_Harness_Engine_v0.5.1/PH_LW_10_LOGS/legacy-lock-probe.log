@@ -1,0 +1,164 @@
+{
+  "operation_id": "LWO-548DFAC96169AB8992929448DE979A2B",
+  "project_id": "LWP-C9E1436A89240763B74C",
+  "action": "migrate-project",
+  "request_digest": "sha256:6bfa6dc6dd07e196cff5e5f75512b3c8d5173975178f363fc541897d0ab4dafd",
+  "expected_fingerprint": "sha256:2d0b4b6a47711c670621cb4de5c36ee23ed03e7247f4280341ff5ed4ba98364c",
+  "created_at": "2026-11-07T11:58:01Z",
+  "updated_at": "2026-11-07T11:58:05Z",
+  "started_at": "2026-11-07T11:58:01Z",
+  "finished_at": "2026-11-07T11:58:05Z",
+  "state": "SUCCEEDED",
+  "phase": "DONE",
+  "core_before": "sha256:2d0b4b6a47711c670621cb4de5c36ee23ed03e7247f4280341ff5ed4ba98364c",
+  "core_after": "sha256:3e7ad1d3146abad21dec2fc20739bca5f0aab8cd9931983961386557725056d9",
+  "before_active_run_ref": null,
+  "expected_draft_after": null,
+  "result": {
+    "action": "migrate-project",
+    "core_status": "MIGRATED",
+    "refs": {
+      "status": "MIGRATED"
+    },
+    "lifecycle": {
+      "status": "MIGRATED",
+      "migration_id": "MIG-ENGINE-0.4.1-TO-0.5.0",
+      "project": "<TEMP>\\LW10 service Кириллица e7tntzrr\\legacy",
+      "engine_version": "0.5.1",
+      "schema_version": 7,
+      "target_implementation_level": "MVP",
+      "active_stage": "PROTOTYPE",
+      "stage_path": [
+        "PROTOTYPE",
+        "ALPHA",
+        "BETA",
+        "MVP"
+      ],
+      "report_path": ".harness/reports/MIG-ENGINE-0.4.1-TO-0.5.0.yaml",
+      "cancelled_unexecuted_run": null,
+      "provisional_assessment": {
+        "status": "COMPLETED",
+        "assessment_ref": "VAL-HARNESS-DEMO-TASK-CLI-MATURITY-001@1",
+        "assessment_path": "<TEMP>\\LW10 service Кириллица e7tntzrr\\legacy\\.harness\\stages\\ASSESSMENTS\\VAL-HARNESS-DEMO-TASK-CLI-MATURITY-001@1.yaml",
+        "assessment_digest": "sha256:92130298054df40279e97854eebad78852cb90791c6bf927552946a751f38d86",
+        "claimed_current_level": "NONE",
+        "observed_candidate_level": "PROTOTYPE",
+        "highest_satisfied_candidate_level": "NONE",
+        "previous_highest_accepted_level": "NONE",
+        "proposed_active_stage": "PROTOTYPE",
+        "target_level": "MVP",
+        "confidence": "MEDIUM",
+        "blocking_gaps": [
+          "PROTOTYPE_CORE_FLOW: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "PROTOTYPE_SMOKE_CHECK: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "PROTOTYPE_LIMITATIONS: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+          "PROTOTYPE_PERMITTED_USE: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+          "ALPHA_CORE_SCENARIOS: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "ALPHA_CORE_INTEGRATIONS: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "ALPHA_ERRORS_AND_LOGS: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "ALPHA_AUTOMATED_CRITICAL_TESTS: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "ALPHA_INTEGRATION_TEST: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "ALPHA_REPRODUCIBLE_DEV_ENV: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "BETA_TARGET_SCOPE: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "BETA_ERROR_AND_EDGE_CASES: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "BETA_STABLE_EXTERNAL_CONTRACTS: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+          "BETA_VERSIONED_MIGRATIONS: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "BETA_REGRESSION_AND_E2E: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "BETA_PERFORMANCE_BASELINE: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "BETA_AUTH_AND_PERMISSIONS: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "BETA_SAFE_STAGING: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "BETA_BASIC_MONITORING: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "BETA_BACKUP_RESTORE: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "BETA_ROLLBACK: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "BETA_KNOWN_ISSUES: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+          "MVP_BUSINESS_VALUE_SCOPE: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "MVP_PRODUCTION_PERSISTENCE: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "MVP_SECURITY_CONTROLS: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "MVP_REPRODUCIBLE_DEPLOYMENT: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "MVP_MONITORING_ALERTS: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "MVP_RECOVERY_ROUTE: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "MVP_SUPPORT_PROCEDURE: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+          "MVP_OPERATIONAL_OWNER: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+          "MVP_RELEASE_REGRESSION: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "MVP_STABLE_PUBLIC_CONTRACTS: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+          "MVP_DATA_LIFECYCLE: UNKNOWN — Applicability WHEN_PRODUCT_HANDLES_PERSISTED_DATA requires explicit project evidence or justified NOT_APPLICABLE.",
+          "MVP_OPERATING_BOUNDARY: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+          "RELEASE_COMMITMENTS: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "RELEASE_CAPACITY_RELIABILITY: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "RELEASE_COMPATIBILITY_POLICY: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+          "RELEASE_FULL_REGRESSION: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "RELEASE_SECURITY_REVIEW: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "RELEASE_RECOVERY_DR: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "RELEASE_REPRODUCIBLE_PUBLISH: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+          "RELEASE_RUNBOOKS: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+          "RELEASE_NOTES: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+          "RELEASE_OWNERSHIP_ESCALATION: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+          "RELEASE_UPGRADE_POLICY: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+          "RELEASE_APPROVALS_AND_DEFECTS: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence."
+        ],
+        "recommended_route": "COMPLETE_CURRENT_STAGE",
+        "automatic_command_execution": false,
+        "warnings": []
+      },
+      "new_active_run": null,
+      "validation_status": "PASS"
+    }
+  },
+  "error": null,
+  "receipt": {
+    "kind": "LOCAL_WEB_OPERATION_RECEIPT",
+    "receipt_version": 1,
+    "operation_id": "LWO-548DFAC96169AB8992929448DE979A2B",
+    "project_ref": "LWP-C9E1436A89240763B74C",
+    "action_id": "LW-LIFECYCLE",
+    "idempotency_key": "882c46a7eff94641b02949529369f93a",
+    "request_sha256": "sha256:6bfa6dc6dd07e196cff5e5f75512b3c8d5173975178f363fc541897d0ab4dafd",
+    "expected_core_fingerprint": "sha256:2d0b4b6a47711c670621cb4de5c36ee23ed03e7247f4280341ff5ed4ba98364c",
+    "core_outcome": "CONFIRMED_COMMITTED",
+    "created_at": "2026-11-07T11:58:01Z"
+  },
+  "record_digest": "sha256:39adf6ac82dc5f1d773cd33393caabd24d7e54d916ef4ffaa46894f469f70ab1"
+}
+{
+  "harness_distribution": "0.5.1",
+  "schema_version": 7,
+  "registry_versions": {
+    "id_prefixes": 3,
+    "project_profiles": 1,
+    "statuses": 6,
+    "request_routing": 2,
+    "capabilities": 1,
+    "contracts": 6,
+    "implementation_levels": 1
+  },
+  "registry_digests": {
+    "id_prefixes": "sha256:fc4bb0575b40ceb537ed9586e9d6612c6fad583d1911d5ef7d749aacfc0de62b",
+    "project_profiles": "sha256:703472c73eacc57cb4c1fd67daf20555a1c8af641978c93ef18606be16cd9356",
+    "statuses": "sha256:1a20f4c97e5d5f6e51aa96621504132c50f8fd31b3fc1c3549236e1292666902",
+    "request_routing": "sha256:e208cb2a5260729e133033afcd37f456c431921b8d9495a692a1056778d936e1",
+    "capabilities": "sha256:aa5e90cf0916db67699731dbedb131ba794e58c8dfe1f00972746d4390ae4ba6",
+    "contracts": "sha256:f29ba95d3596cbc3efe698dc61f7583576161f1a99e231c2d7f24ccfc0b5d3fd",
+    "implementation_levels": "sha256:181d0f0b05e8925144a4471457ffa67fc5b695e7b46c6b5e4103b8da8c46deea"
+  },
+  "profile_refs": [
+    "PRF-CLI-TOOL@1"
+  ],
+  "adapter_refs": [
+    "ADP-CODEX@1"
+  ],
+  "skill_refs": [
+    "SKL-UNIVERSAL-IMPLEMENT@3"
+  ],
+  "prompt_spec_refs": [
+    "PSP-IMPLEMENT@1"
+  ],
+  "migrations_applied": [
+    "MIG-DOC-0.3.1-TO-0.4.0",
+    "MIG-ENGINE-0.4.0-TO-0.4.1",
+    "MIG-ENGINE-0.4.1-TO-0.5.0"
+  ],
+  "created_at": "2026-08-17T08:00:00Z",
+  "migrated_from": "0.4.1",
+  "migrated_from_schema_version": 5,
+  "migrated_at": "2026-11-07T11:58:01Z"
+}

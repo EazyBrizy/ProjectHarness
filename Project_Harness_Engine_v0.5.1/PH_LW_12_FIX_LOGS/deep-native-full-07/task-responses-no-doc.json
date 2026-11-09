@@ -1,0 +1,10 @@
+[
+  {
+    "path": "projects/LWP-A3BD2B97AB615E48EEF0/operations",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-B7687E20E35996A34BC3F07CBBAF3053",
+      "state": "QUEUED"
+    }
+  }
+]

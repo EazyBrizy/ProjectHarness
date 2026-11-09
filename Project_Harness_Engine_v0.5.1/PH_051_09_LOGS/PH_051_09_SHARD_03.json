@@ -1,0 +1,11 @@
+{
+  "shard": 3,
+  "modules": [
+    "test_ph_f05_intake_acceptance"
+  ],
+  "exit_code": 0,
+  "tests": 4,
+  "seconds": 1.636,
+  "log": "PH_051_09_SHARD_03.log",
+  "result": "PASS"
+}

@@ -1,0 +1,15 @@
+{
+  "command": [
+    "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "-B",
+    "<WORKSPACE>\\tools\\ph_lw_12_diagnostic.py",
+    "tests.test_ph_lw_12_acceptance"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-08T10:44:07.481644+00:00",
+  "freeze_sha256": "71d1bdd414c72410b4d17f833b1e9c75d11c3b5286fa1b65214ef7b3b7e53f00",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 37.472,
+  "log_sha256": "a02241d4d301db2b8dacc34eef39a65608957ee348cdfe1ed79860a3473a74e7"
+}

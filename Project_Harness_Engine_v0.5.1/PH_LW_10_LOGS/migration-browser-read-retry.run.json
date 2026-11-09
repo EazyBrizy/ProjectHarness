@@ -1,0 +1,15 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "_scratch/ph_lw_10/browser_migration_probe.py"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T12:01:01.845397+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 240,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 29.422,
+  "log_sha256": "97ec3e91f8b440157cfa8510217a044c8b52256d96ad57a0c07d08934b201162"
+}

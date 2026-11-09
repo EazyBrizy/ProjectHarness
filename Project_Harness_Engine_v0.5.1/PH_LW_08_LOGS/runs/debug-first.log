@@ -1,0 +1,6 @@
+test_missing_approval_readonly_get_and_no_target (tests.test_ph_lw_08_preparation.PreparationTests.test_missing_approval_readonly_get_and_no_target) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.597s
+
+OK

@@ -1,0 +1,16 @@
+{
+  "modules": [
+    "tests.test_canonical_target.CanonicalCurrentTargetTests.test_01_initial_prepared_project_has_one_target_in_all_current_projections",
+    "tests.test_canonical_target.CanonicalCurrentTargetTests.test_02_level_up_syncs_current_projections_and_preserves_initial_accepted_target",
+    "tests.test_canonical_target.CanonicalCurrentTargetTests.test_03_prepared_assessment_after_level_up_routes_against_mvp",
+    "tests.test_canonical_target.CanonicalCurrentTargetTests.test_04_validate_project_rejects_project_and_current_state_target_divergence",
+    "tests.test_canonical_target.CanonicalCurrentTargetTests.test_05_external_intake_assessment_reads_current_project_input_target"
+  ],
+  "ran": 5,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 38.391,
+  "log": "suite05-test_canonical_target-nonbrowser.log",
+  "status": "PASS"
+}

@@ -1,0 +1,85 @@
+{
+  "long_app_data_zip_import": "PASS",
+  "PH-LW-11": "NO-GO",
+  "LOCAL_WEB_MANUAL": "NO-GO; PH-LW-12 not started",
+  "AUTOMATIC_EXECUTOR": "NO-GO; disabled",
+  "v0.5.1": "NO-GO / NOT RELEASED",
+  "system_settings_changed": false,
+  "mandatory_not_run": [
+    "Clean Windows without developer runtimes",
+    "Actual Unicode Windows username",
+    "Physical offline",
+    "Real volume/quota disk-full"
+  ],
+  "additional_blockers": [],
+  "normal_second_launch_browser_fresh": "NOT RUN per explicit user prohibition of new visible browser windows; exact second --no-browser rejection exit 1 checked; historical normal-launch evidence preserved",
+  "core_scopes": 20,
+  "core_methods": 242,
+  "core_skips": [
+    {
+      "test": "tests.test_contract_hardening.ContractHardeningControlPlaneTests.test_agent_result_symlink_is_rejected",
+      "reason": "NOT RUN: native file symlink creation requires a Windows privilege unavailable to this non-admin user"
+    },
+    {
+      "test": "tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_05_colliding_tree_rejected_without_rewriting_case",
+      "reason": "NTFS casefold aliases require a case-sensitive directory; ZIP test is cross-platform"
+    }
+  ],
+  "installed_wheel": {
+    "installed-nonbrowser": 49,
+    "installed-browser": 33
+  },
+  "fresh_unique_methods": 305,
+  "method_statuses": {
+    "PASS": 303,
+    "SKIP": 2
+  },
+  "installed_exe_tests": {
+    "ran": 4,
+    "errors": 0,
+    "failures": 0,
+    "skips": 0
+  },
+  "long_path": {
+    "maximum_retained_project_file_path_length": 284,
+    "maximum_retained_app_data_file_path_length": 278,
+    "retained_import_document_count": 2,
+    "retained_file_count": 512,
+    "long_paths_enabled_before": 0,
+    "long_paths_enabled_after": 0,
+    "system_settings_changed": false,
+    "app_data_fixture": "<WORKSPACE>\\_scratch\\ph_lw_11_zip_path\\installed-long-verified\\LocalAppData",
+    "startup_adapter": "Long USERPROFILE/project root AND long app-data root; same real installed EXE",
+    "snapshot_adapter": "Same assertions; independent extended IO reads every deep fixture file"
+  },
+  "installer_recovery": {
+    "status": "PASS",
+    "scenarios": [
+      {
+        "scenario": "actual_setup_process_tree_interruption_during_copy",
+        "status": "PASS",
+        "pid": 50104,
+        "exit": 1
+      },
+      {
+        "scenario": "actual_setup_recovery",
+        "status": "PASS",
+        "exit": 0
+      },
+      {
+        "scenario": "actual_readonly_pointer",
+        "status": "PASS",
+        "exit": 7
+      },
+      {
+        "scenario": "actual_readonly_retry",
+        "status": "PASS",
+        "exit": 0
+      }
+    ],
+    "physical_power_loss": "NOT RUN",
+    "real_disk_full": "NOT RUN; separate injection does not substitute"
+  },
+  "zip_created": false,
+  "scope_note": "Fresh scoped regressions; historical full matrix preserved. Automatic/upper-level matrices not rerun or promoted. Existing unsigned status and unfinished visual walkthrough retained."
+}

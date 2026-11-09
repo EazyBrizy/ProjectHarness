@@ -1,0 +1,14 @@
+{
+  "modules": [
+    "tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_01_preparation_fixture_has_all_four_mandatory_proof_kinds",
+    "tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds",
+    "tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_keeps_gate_unclosed_without_subject_proofs"
+  ],
+  "ran": 3,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 35.646,
+  "log": "suite05-test_ph_f01_gate_semantics_regression-nonbrowser.log",
+  "status": "PASS"
+}

@@ -1,0 +1,16 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "Project_Harness_Engine_v0.5.1/project-harness.py",
+    "doctor"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T09:50:01.120391+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 120,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 2.236,
+  "log_sha256": "b4a1832c8ed7ff1b1ee5b0466c7a4a0826f4617e3929b54afc646fff36e91372"
+}

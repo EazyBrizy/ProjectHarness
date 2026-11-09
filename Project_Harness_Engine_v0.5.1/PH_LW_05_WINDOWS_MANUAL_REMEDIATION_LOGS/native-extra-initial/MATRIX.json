@@ -1,0 +1,25 @@
+[
+  {
+    "module": "tests.test_windows_manual_migration",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_windows_manual_migration",
+      "<WORKSPACE>\\_scratch\\manual-remediation\\native-extra-initial\\test_windows_manual_migration.log"
+    ],
+    "started_utc": "2026-11-07T00:08:04.366134+00:00",
+    "exit": 1,
+    "status": "FAIL",
+    "modules": [
+      "tests.test_windows_manual_migration"
+    ],
+    "ran": 7,
+    "failures": 1,
+    "errors": 0,
+    "skips": [],
+    "elapsed_seconds": 134.849,
+    "log": "test_windows_manual_migration.log",
+    "log_sha256": "88c7b46a219fac432f7b708f7fdeb9219b3b043f7cd0f51782abc2370dfbe37d"
+  }
+]

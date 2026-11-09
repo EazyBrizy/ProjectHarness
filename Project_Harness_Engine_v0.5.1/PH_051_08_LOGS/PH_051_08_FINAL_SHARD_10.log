@@ -1,0 +1,7 @@
+COMMAND: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. /opt/pyvenv/bin/python -m unittest -q tests.test_ph_051_08_atomic_apply tests.test_stage_gate_preparation_block_recovery tests.test_ph_051_04_disposable_roots tests.test_exact_assessment_ref
+MODULES: test_ph_051_08_atomic_apply, test_stage_gate_preparation_block_recovery, test_ph_051_04_disposable_roots, test_exact_assessment_ref
+
+----------------------------------------------------------------------
+Ran 56 tests in 191.810s
+
+OK

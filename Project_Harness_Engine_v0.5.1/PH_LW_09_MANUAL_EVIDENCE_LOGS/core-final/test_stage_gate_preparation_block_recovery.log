@@ -1,0 +1,10 @@
+test_baseline_drift_recovery_returns_active_preparation_then_accepts (tests.test_stage_gate_preparation_block_recovery.StageGatePreparationBlockRecoveryTests.test_baseline_drift_recovery_returns_active_preparation_then_accepts) ... ok
+test_last_ordinary_task_creates_one_idempotent_preparation_wp_and_first_jit (tests.test_stage_gate_preparation_block_recovery.StageGatePreparationBlockRecoveryTests.test_last_ordinary_task_creates_one_idempotent_preparation_wp_and_first_jit) ... ok
+test_malformed_strict_approvals_do_not_mutate_state (tests.test_stage_gate_preparation_block_recovery.StageGatePreparationBlockRecoveryTests.test_malformed_strict_approvals_do_not_mutate_state) ... ok
+test_preparation_completion_refreshes_verifying_gate_and_exact_draft_without_future_stage_work (tests.test_stage_gate_preparation_block_recovery.StageGatePreparationBlockRecoveryTests.test_preparation_completion_refreshes_verifying_gate_and_exact_draft_without_future_stage_work) ... ok
+test_valid_unknown_persists_gate_blocker_then_recovers_to_verifying_and_accepts_target (tests.test_stage_gate_preparation_block_recovery.StageGatePreparationBlockRecoveryTests.test_valid_unknown_persists_gate_blocker_then_recovers_to_verifying_and_accepts_target) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 76.204s
+
+OK

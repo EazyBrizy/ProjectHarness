@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "scope": "Structural proof supplements runtime tests; private IO wrappers/walks/write rebindings removed. copy_verified_document short/long open spelling normalized to the same logical source path. No ZIP contract or transaction branches removed.",
+  "files": [
+    {
+      "file": "local_web_exchange.py",
+      "before_sha256": "99cec558ec45d26f882c0b2dcebae2e027c5abc4c5ec72f347729ce8fd50eb14",
+      "after_sha256": "24fd62298b2fa94be05cf4743550d74c7aa5bffd23968378cbac9577745fb458",
+      "same_business_ast_without_io_adapters": true
+    },
+    {
+      "file": "local_web_imports.py",
+      "before_sha256": "b7cf247d7edc2e8c831d6511f8966a6fa6ecd17a855d96e1f09a2a9231db40df",
+      "after_sha256": "e02d26aa643cf2f56eb691fb0bdcaa3ec3e2896224263e8ad9b89c2c75d00b9a",
+      "same_business_ast_without_io_adapters": true
+    },
+    {
+      "file": "local_web_source_refresh.py",
+      "before_sha256": "61b4c9893aea974f90b6a1ccc290ca1d0f69bc5a1dbd80b0d2e85172588ae693",
+      "after_sha256": "77ea59fa293afc145c9d938c7d1016f819147fb395fb1cd3099592675b1fc7fa",
+      "same_business_ast_without_io_adapters": true
+    },
+    {
+      "file": "local_web_sources_service.py",
+      "before_sha256": "804c7241fbe36592884ae31221c6c783ffa3bc7d2f03f5bcfd504b6177a39a00",
+      "after_sha256": "447155a5e9182ebe82feb8d77b6588d4ce92d9fab484d34b32f5709ddf822dd0",
+      "same_business_ast_without_io_adapters": true
+    },
+    {
+      "file": "inventory.py",
+      "before_sha256": "9daf37079742b1536b3ce53a1080d02a5615d55e5b7ebf7be72085774b0eb73a",
+      "after_sha256": "80b5798fcaaa2a950afaefeffc53d24542ed748250fd26cbc01b2f27297eed26",
+      "same_business_ast_without_io_adapters": true
+    },
+    {
+      "file": "safety.py",
+      "before_sha256": "a490afb33d187b9759556128ba4a6169cf69b5b222341ffe3b07176962e42977",
+      "after_sha256": "a5662cb1809c09ed23607002810f9530fe64321e50ed5060157c9fb08a92368b",
+      "same_business_ast_without_io_adapters": true
+    },
+    {
+      "file": "serialization.py",
+      "before_sha256": "7dba2b898567c3b2dee168abbbccb1abe919797bc50cf58216ecc7aa0e35b8c6",
+      "after_sha256": "13bec7c5b8ab34cd41bec579396fe7c07ef3af54ec8cdd37bd4296f553f41fcc",
+      "same_business_ast_without_io_adapters": true
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "modules": [
+    "tests.test_ph_051_01_contract_baseline"
+  ],
+  "ran": 10,
+  "failures": 0,
+  "errors": 0,
+  "skips": [
+    {
+      "test": "tests.test_ph_051_01_contract_baseline.PH05101ContractTests.test_08_all_new_json_schemas_draft_valid",
+      "reason": "jsonschema optional for schema meta validation"
+    },
+    {
+      "test": "tests.test_ph_051_01_contract_baseline.PH05101ContractTests.test_09_sample_result_and_apply_contracts_strict",
+      "reason": "jsonschema optional for schema negative validation"
+    }
+  ],
+  "elapsed_seconds": 13.57,
+  "log": "test_ph_051_01_contract_baseline.log",
+  "status": "PASS"
+}

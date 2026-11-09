@@ -1,0 +1,35 @@
+{
+  "name": "test_ph_lw_10_http-browser",
+  "command": [
+    "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\source\\test_ph_lw_10_http-browser.log",
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_brownfield_assessment_unknown_and_stale_readonly",
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_levelup_target_nearest_and_maintenance_cancel",
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_missing_semantic_review_cannot_accept",
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_prototype_accept_alpha_form_plan_first_ready_reload",
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_supported_migration_confirmation_and_restart_replay"
+  ],
+  "cwd": "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 227.987,
+  "environment_ref": "INPUT_BASELINE.json",
+  "modules": [
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_brownfield_assessment_unknown_and_stale_readonly",
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_levelup_target_nearest_and_maintenance_cancel",
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_missing_semantic_review_cannot_accept",
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_prototype_accept_alpha_form_plan_first_ready_reload",
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_supported_migration_confirmation_and_restart_replay"
+  ],
+  "ran": 5,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "log": "test_ph_lw_10_http-browser.log",
+  "process_status": "PASS",
+  "log_sha256": "f4b6167ae2654b2949a52b2e41c9f851f4a4f66d13496d6cd68822b4457d45cd"
+}

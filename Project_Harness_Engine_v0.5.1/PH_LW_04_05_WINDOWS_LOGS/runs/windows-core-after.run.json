@@ -1,0 +1,18 @@
+{
+  "command": [
+    "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_lw_02_windows_core",
+    "tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_03_target_change_after_assessment_marks_old_context_stale"
+  ],
+  "cwd": "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+  "started_utc": "2026-11-06T23:27:09.929045+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 600,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 70.375,
+  "log_sha256": "eabf544c85aebc27daa20ad8a0d2c5942657797394cbebf6aa344386c0bb779a"
+}

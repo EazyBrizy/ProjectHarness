@@ -1,0 +1,6 @@
+test_handoff_archive_long_output_keeps_exact_names_and_crc (tests.test_ph_lw_12_blockers.DeepAppDataTests.test_handoff_archive_long_output_keeps_exact_names_and_crc) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.036s
+
+OK

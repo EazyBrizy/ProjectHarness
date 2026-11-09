@@ -1,0 +1,7 @@
+python.exe :   File "<string>", line 1
+At <WORKSPACE>\Project_Harness_Engine_v0.5.1\local_web\ci_ph_lw_04_windows.ps1:29 char:3
++   & $PythonExecutable $PythonVersion @Arguments 2>&1 | Tee-Object -Fi ...
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (  File "<string>", line 1:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

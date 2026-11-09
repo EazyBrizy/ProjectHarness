@@ -1,0 +1,20 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_lw_08_preparation.PreparationProcessCrashTests",
+    "tests.test_ph_lw_08_preparation.PreparationTests.test_real_windows_locked_directory_handle_and_retry",
+    "tests.test_ph_lw_08_preparation.PreparationTests.test_readonly_root_and_junction_rejected_before_mutation"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T03:47:41.734207+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 600,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 63.188,
+  "log_sha256": "51a8885f03383346ea01016cfa7040166134037fbe40892fb365646ee1d47caa"
+}

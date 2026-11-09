@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\tools\verify_ph_lw_11.py", line 88, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\tools\verify_ph_lw_11.py", line 68, in main
+    commands.append(row);assert result.returncode==0,row
+                                ^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'command': ['C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe', 'C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Documentation_v0.5.1\\tools\\validate_documentation.py', 'C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Documentation_v0.5.1', '--json', 'C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_workspace\\PH_LW_11\\DOC_VALIDATION.json'], 'cwd': 'C:\\Users\\gvenv\\Desktop\\ProjectHarness', 'started_utc': '2026-11-08T00:41:56.962505+00:00', 'exit': 1, 'status': 'FAIL', 'log': 'docs.log', 'log_sha256': 'b82a62ea586baafe708933b0aac5ffa6b18f6e651ffd793888ac200de0c741f9'}

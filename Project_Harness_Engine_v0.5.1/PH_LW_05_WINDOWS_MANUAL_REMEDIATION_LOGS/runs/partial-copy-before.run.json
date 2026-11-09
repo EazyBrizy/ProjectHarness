@@ -1,0 +1,17 @@
+{
+  "command": [
+    "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_windows_manual_migration.ManualMigrationTests.test_partial_copy_failure_preserves_source_and_removes_owned_stage"
+  ],
+  "cwd": "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+  "started_utc": "2026-11-07T00:09:50.359578+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 120,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 11.81,
+  "log_sha256": "eec2005d5fe26fd13c8345967e8fbf5f30716ce9791fb64a6c5f4dee3150491e"
+}

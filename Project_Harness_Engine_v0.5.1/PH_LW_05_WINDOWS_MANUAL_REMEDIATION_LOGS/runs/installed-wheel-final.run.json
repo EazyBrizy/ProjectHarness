@@ -1,0 +1,17 @@
+{
+  "command": [
+    "<WORKSPACE>\\_scratch\\wheel-env\\Scripts\\python.exe",
+    "<WORKSPACE>\\tools\\verify_installed.py",
+    "--engine",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "--manual-migration"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\manual-remediation\\Отдельный wheel запуск",
+  "started_utc": "2026-11-07T00:55:27.647798+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 900,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 329.712,
+  "log_sha256": "79bea08bbdd57298013fcb9d6872f7f3f9a369cd7ea036b3d0cc0b877cead6b1"
+}

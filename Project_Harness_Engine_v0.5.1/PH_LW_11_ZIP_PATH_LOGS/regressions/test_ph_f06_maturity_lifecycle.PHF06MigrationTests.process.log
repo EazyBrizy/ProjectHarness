@@ -1,0 +1,1 @@
+{"modules": ["tests.test_ph_f06_maturity_lifecycle.PHF06MigrationTests"], "ran": 1, "failures": 0, "errors": 0, "skips": [], "elapsed_seconds": 5.043, "log": "test_ph_f06_maturity_lifecycle.PHF06MigrationTests.log", "status": "PASS"}

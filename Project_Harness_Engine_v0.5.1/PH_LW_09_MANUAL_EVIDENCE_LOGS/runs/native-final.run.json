@@ -1,0 +1,21 @@
+{
+  "command": [
+    "powershell.exe",
+    "-NoProfile",
+    "-File",
+    "Project_Harness_Engine_v0.5.1/local_web/ci_ph_lw_09_windows.ps1",
+    "-PythonExecutable",
+    "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "-LogDirectory",
+    "<WORKSPACE>\\_scratch\\ph_lw_09_manual_evidence\\native-final",
+    "-SkipRegressions"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T09:15:45.312020+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 3600,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 1987.642,
+  "log_sha256": "7cfe0513debc4b964edb79e59d8ea018a111169e1ef50a87041b457bb6f9e18f"
+}

@@ -1,0 +1,101 @@
+version 0.5.1
+apply_path /mnt/data/ph05108_work/output/wheel_venv/lib/python3.13/site-packages/project_harness/apply.py
+api True
+0.5.1
+{
+  "version": "0.5.1",
+  "schema_version": 7,
+  "status": "PASS",
+  "root": "/mnt/data/ph05108_work/output/wheel_venv/lib/python3.13/site-packages/project_harness/resources",
+  "checks": [
+    {
+      "name": "Canonical registries",
+      "status": "PASS",
+      "details": {
+        "id_prefixes": 3,
+        "project_profiles": 1,
+        "statuses": 6,
+        "request_routing": 2,
+        "capabilities": 1,
+        "contracts": 6,
+        "implementation_levels": 1
+      }
+    },
+    {
+      "name": "Bundled schemas",
+      "status": "PASS",
+      "details": {
+        "count": 17,
+        "errors": []
+      }
+    },
+    {
+      "name": "Seed ACTIVE skills",
+      "status": "PASS",
+      "details": {
+        "count": 3,
+        "errors": []
+      }
+    },
+    {
+      "name": "Entry points and browser preparation template",
+      "status": "PASS",
+      "details": {
+        "missing": [],
+        "layout": "installed"
+      }
+    },
+    {
+      "name": "Source and embedded resources",
+      "status": "PASS",
+      "details": {
+        "layout": "installed",
+        "checked": 0,
+        "errors": []
+      }
+    }
+  ]
+}
+usage: project-harness [-h] [--version]
+                       {doctor,start-intake,check-intake,prepare,validate-handoff,validate-project,migrate-project,status,next,verify,complete,block,resume,stage-status,prepare-stage-approval,prepare-active-stage-plan,plan-active-stage,resume-stage-gate,assess-maturity,accept-stage,level-up,start-maintenance,cancel-maintenance,demo} ...
+
+Project Harness v0.5.0 — stage-aware preparation, governed execution and
+implementation-level acceptance.
+
+positional arguments:
+  {doctor,start-intake,check-intake,prepare,validate-handoff,validate-project,migrate-project,status,next,verify,complete,block,resume,stage-status,prepare-stage-approval,prepare-active-stage-plan,plan-active-stage,resume-stage-gate,assess-maturity,accept-stage,level-up,start-maintenance,cancel-maintenance,demo}
+    doctor              Validate distribution registries, schemas, skills and
+                        manifest.
+    start-intake        Create an external provisional intake workspace
+                        without modifying the target repository.
+    check-intake        Validate PROJECT_INPUT.yaml and regenerate missing
+                        questions/readiness.
+    prepare             Compile a validated Codex Handoff ZIP from an approved
+                        intake workspace.
+    validate-handoff    Validate an immutable initial handoff directory or
+                        ZIP, including its baseline manifest.
+    validate-project    Validate mutable project state after Codex execution
+                        without enforcing the original handoff manifest.
+    migrate-project     Migrate an extracted v0.4.1 project to v0.5.0 without
+                        rewriting immutable history.
+    status              Show persisted project/task/run state.
+    next                Return or JIT-compile the current READY task bundle.
+    verify              Independently check actual writes, expected paths and
+                        declared verification commands.
+    complete            Accept a PASS-verified Agent Task Result and
+                        transition to the next task.
+    block               Record a material blocker and safe recovery routes.
+    resume              Resolve an OPEN blocker and compile a new run attempt.
+    stage-status        Show persisted target, active, observed and accepted
+                        implementation levels.
+    prepare-stage-approval
+                        Write a deterministic exact-bound Stage approval draft
+                        without approving or mutating the Stage.
+    prepare-active-stage-plan
+                        Write a read-only exact-bound draft for the next
+                        active Stage, without activating Tasks.
+    plan-active-stage   Governed application of a reviewed, exact-bound active
+                        Stage work plan.
+    resume-stage-gate   Revalidate and recover only a persisted Stage Gate
+                        blocker.
+    assess-maturity     Run a read-only Brownfield maturity assessment without

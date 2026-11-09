@@ -1,0 +1,75 @@
+ARGV: /mnt/data/ph05111_work/wheel_venv/bin/project-harness status --project /mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/demo/harness-demo-codex-handoff
+EXIT: 0
+STDOUT:
+{
+  "status": "ACTIVE",
+  "automatic_run": null,
+  "next_operator_route": {
+    "route": "VERIFY_CURRENT_TASK",
+    "command": "project-harness verify --project <root> --allow-command-execution",
+    "reason": "Execute the current JIT with external Codex, then run independent verification.",
+    "external_prerequisite": "External agent implementation"
+  },
+  "next_command": "project-harness verify --project <root> --allow-command-execution",
+  "handoff_status": "READY_FOR_CODEX",
+  "project_ref": "harness-demo-task-cli",
+  "current_task": {
+    "task_ref": "TSK-HARNESS-DEMO-TASK-CLI-001@1",
+    "title": "Implement add and list commands",
+    "status": "READY",
+    "implementation_stage": "PROTOTYPE",
+    "path": ".harness/tasks/TSK-HARNESS-DEMO-TASK-CLI-001@1.yaml"
+  },
+  "active_run": {
+    "run_ref": "RUN-HARNESS-DEMO-TASK-CLI-001-A1",
+    "run_plan_ref": "RNP-HARNESS-DEMO-TASK-CLI-001-A1",
+    "run_plan_path": ".harness/runtime/RUN_PLANS/RNP-HARNESS-DEMO-TASK-CLI-001-A1@1.yaml",
+    "task_ref": "TSK-HARNESS-DEMO-TASK-CLI-001@1",
+    "implementation_stage": "PROTOTYPE",
+    "target_implementation_level": "MVP",
+    "attempt_no": 1,
+    "prompt_bundle_ref": "CPB-HARNESS-DEMO-TASK-CLI-001-A1",
+    "prompt_bundle_path": ".harness/prompts/BUNDLES_BY_RUN/CPB-HARNESS-DEMO-TASK-CLI-001-A1.yaml",
+    "prompt_markdown_path": ".harness/prompts/BUNDLES_BY_RUN/CPB-HARNESS-DEMO-TASK-CLI-001-A1.md",
+    "context_packet_ref": "CPK-HARNESS-DEMO-TASK-CLI-001-A1",
+    "context_packet_path": ".harness/context/PACKETS_BY_RUN/CPK-HARNESS-DEMO-TASK-CLI-001-A1.yaml",
+    "capability_grant_ref": "CGR-HARNESS-DEMO-TASK-CLI-001-A1",
+    "capability_grant_path": ".harness/runtime/CAPABILITY_GRANTS/CGR-HARNESS-DEMO-TASK-CLI-001-A1.yaml",
+    "snapshot_ref": "SNP-HARNESS-DEMO-TASK-CLI-001-A1",
+    "snapshot_path": ".harness/runtime/SNAPSHOTS/SNP-HARNESS-DEMO-TASK-CLI-001-A1.yaml",
+    "allowed_agent_output_path": ".harness/runtime/AGENT_RESULTS/RUN-HARNESS-DEMO-TASK-CLI-001-A1.json",
+    "operation_journal_path": ".harness/runtime/OPERATION_JOURNAL/RUN-HARNESS-DEMO-TASK-CLI-001-A1.yaml",
+    "control_plane_phase": "RUN_RESERVED",
+    "verification_report_ref": null,
+    "verification_report_path": null,
+    "verification_evidence_ref": null,
+    "verification_evidence_path": null
+  },
+  "completed_task_refs": [],
+  "blocked_task_refs": [],
+  "next_route": "EXECUTE_CURRENT_TASK_WITH_CODEX",
+  "implementation": {
+    "target_level": "MVP",
+    "claimed_current_level": "NONE",
+    "observed_candidate_level": "NONE",
+    "highest_accepted_level": "NONE",
+    "active_stage": "PROTOTYPE",
+    "permitted_use": {
+      "status": "UNCONFIRMED",
+      "users": [
+        "DEVELOPER"
+      ],
+      "environments": [
+        "LOCAL"
+      ],
+      "data_classes": [
+        "PUBLIC"
+      ],
+      "data_constraints": [
+        "SYNTHETIC_ONLY"
+      ]
+    }
+  }
+}
+
+STDERR:

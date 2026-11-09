@@ -1,0 +1,14 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "_scratch/ph_lw_11/finish_interactive.py"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T23:45:02.199873+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 180,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 1.814,
+  "log_sha256": "7f8a7685a92a525e3086d79426f9cc4396e2d828f74ce3e28dd8b4492912cebe"
+}

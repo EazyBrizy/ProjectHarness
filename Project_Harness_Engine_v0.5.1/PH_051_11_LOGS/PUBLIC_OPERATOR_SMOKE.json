@@ -1,0 +1,349 @@
+{
+  "status": "PASS",
+  "count": 21,
+  "passed": 21,
+  "failed": [],
+  "entries": [
+    {
+      "name": "WHEEL_VERSION",
+      "argv": [
+        "/mnt/data/ph05111_work/wheel_venv/bin/project-harness",
+        "--version"
+      ],
+      "cwd": "/mnt/data/ph05111_work/Project_Harness_Engine_v0.5.1",
+      "exit": 0,
+      "status": null,
+      "expected_exits": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "name": "WHEEL_DOCTOR",
+      "argv": [
+        "/mnt/data/ph05111_work/wheel_venv/bin/project-harness",
+        "doctor"
+      ],
+      "cwd": "/mnt/data/ph05111_work/Project_Harness_Engine_v0.5.1",
+      "exit": 0,
+      "status": "PASS",
+      "expected_exits": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "name": "WHEEL_EXECUTOR_HELP",
+      "argv": [
+        "/mnt/data/ph05111_work/wheel_venv/bin/project-harness",
+        "executor-doctor",
+        "--help"
+      ],
+      "cwd": "/mnt/data/ph05111_work/Project_Harness_Engine_v0.5.1",
+      "exit": 0,
+      "status": null,
+      "expected_exits": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "name": "WHEEL_EXECUTE_HELP",
+      "argv": [
+        "/mnt/data/ph05111_work/wheel_venv/bin/project-harness",
+        "execute-current",
+        "--help"
+      ],
+      "cwd": "/mnt/data/ph05111_work/Project_Harness_Engine_v0.5.1",
+      "exit": 0,
+      "status": null,
+      "expected_exits": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "name": "WHEEL_START_INTAKE",
+      "argv": [
+        "/mnt/data/ph05111_work/wheel_venv/bin/project-harness",
+        "start-intake",
+        "--workspace",
+        "/mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/intake",
+        "--project-name",
+        "Sample Intake",
+        "--mode",
+        "greenfield"
+      ],
+      "cwd": "/mnt/data/ph05111_work/Project_Harness_Engine_v0.5.1",
+      "exit": 3,
+      "status": "WAITING_INPUT",
+      "expected_exits": [
+        0,
+        3
+      ],
+      "passed": true
+    },
+    {
+      "name": "WHEEL_CHECK_INTAKE",
+      "argv": [
+        "/mnt/data/ph05111_work/wheel_venv/bin/project-harness",
+        "check-intake",
+        "--workspace",
+        "/mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/intake"
+      ],
+      "cwd": "/mnt/data/ph05111_work/Project_Harness_Engine_v0.5.1",
+      "exit": 3,
+      "status": "WAITING_INPUT",
+      "expected_exits": [
+        0,
+        3
+      ],
+      "passed": true
+    },
+    {
+      "name": "WHEEL_DEMO",
+      "argv": [
+        "/mnt/data/ph05111_work/wheel_venv/bin/project-harness",
+        "demo",
+        "--output-dir",
+        "/mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/demo",
+        "--keep-directory"
+      ],
+      "cwd": "/mnt/data/ph05111_work/Project_Harness_Engine_v0.5.1",
+      "exit": 0,
+      "status": "READY_FOR_CODEX",
+      "expected_exits": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "name": "WHEEL_VALIDATE_HANDOFF",
+      "argv": [
+        "/mnt/data/ph05111_work/wheel_venv/bin/project-harness",
+        "validate-handoff",
+        "--project",
+        "/mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/demo/harness-demo-codex-handoff.zip"
+      ],
+      "cwd": "/mnt/data/ph05111_work/Project_Harness_Engine_v0.5.1",
+      "exit": 0,
+      "status": "PASS",
+      "expected_exits": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "name": "WHEEL_VALIDATE_PROJECT",
+      "argv": [
+        "/mnt/data/ph05111_work/wheel_venv/bin/project-harness",
+        "validate-project",
+        "--project",
+        "/mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/demo/harness-demo-codex-handoff"
+      ],
+      "cwd": "/mnt/data/ph05111_work/Project_Harness_Engine_v0.5.1",
+      "exit": 0,
+      "status": "PASS",
+      "expected_exits": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "name": "WHEEL_STAGE_STATUS",
+      "argv": [
+        "/mnt/data/ph05111_work/wheel_venv/bin/project-harness",
+        "stage-status",
+        "--project",
+        "/mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/demo/harness-demo-codex-handoff"
+      ],
+      "cwd": "/mnt/data/ph05111_work/Project_Harness_Engine_v0.5.1",
+      "exit": 0,
+      "status": "ACTIVE",
+      "expected_exits": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "name": "WHEEL_STATUS",
+      "argv": [
+        "/mnt/data/ph05111_work/wheel_venv/bin/project-harness",
+        "status",
+        "--project",
+        "/mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/demo/harness-demo-codex-handoff"
+      ],
+      "cwd": "/mnt/data/ph05111_work/Project_Harness_Engine_v0.5.1",
+      "exit": 0,
+      "status": "ACTIVE",
+      "expected_exits": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "name": "WHEEL_NEXT",
+      "argv": [
+        "/mnt/data/ph05111_work/wheel_venv/bin/project-harness",
+        "next",
+        "--project",
+        "/mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/demo/harness-demo-codex-handoff"
+      ],
+      "cwd": "/mnt/data/ph05111_work/Project_Harness_Engine_v0.5.1",
+      "exit": 0,
+      "status": "READY_FOR_CODEX",
+      "expected_exits": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "name": "WHEEL_EXECUTOR_DOCTOR_MANUAL",
+      "argv": [
+        "/mnt/data/ph05111_work/wheel_venv/bin/project-harness",
+        "executor-doctor",
+        "--project",
+        "/mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/demo/harness-demo-codex-handoff"
+      ],
+      "cwd": "/mnt/data/ph05111_work/Project_Harness_Engine_v0.5.1",
+      "exit": 3,
+      "status": "BLOCKED",
+      "expected_exits": [
+        3
+      ],
+      "passed": true
+    },
+    {
+      "name": "WHEEL_EXECUTE_CURRENT_MANUAL",
+      "argv": [
+        "/mnt/data/ph05111_work/wheel_venv/bin/project-harness",
+        "execute-current",
+        "--project",
+        "/mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/demo/harness-demo-codex-handoff"
+      ],
+      "cwd": "/mnt/data/ph05111_work/Project_Harness_Engine_v0.5.1",
+      "exit": 3,
+      "status": "BLOCKED",
+      "expected_exits": [
+        3
+      ],
+      "passed": true
+    },
+    {
+      "name": "WHEEL_EGRESS_BLOCKED",
+      "argv": [
+        "/mnt/data/ph05111_work/wheel_venv/bin/project-harness",
+        "execute-current",
+        "--project",
+        "/mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/demo/harness-demo-codex-handoff",
+        "--network",
+        "EXPLICIT_APPROVED_EGRESS"
+      ],
+      "cwd": "/mnt/data/ph05111_work/Project_Harness_Engine_v0.5.1",
+      "exit": 3,
+      "status": "BLOCKED",
+      "expected_exits": [
+        3
+      ],
+      "passed": true
+    },
+    {
+      "name": "WHEEL_KEEP_ROOT_BLOCKED",
+      "argv": [
+        "/mnt/data/ph05111_work/wheel_venv/bin/project-harness",
+        "execute-current",
+        "--project",
+        "/mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/demo/harness-demo-codex-handoff",
+        "--keep-execution-root"
+      ],
+      "cwd": "/mnt/data/ph05111_work/Project_Harness_Engine_v0.5.1",
+      "exit": 3,
+      "status": "BLOCKED",
+      "expected_exits": [
+        3
+      ],
+      "passed": true
+    },
+    {
+      "name": "BUNDLED_VERSION",
+      "argv": [
+        "python",
+        ".harness/engine/project-harness.py",
+        "--version"
+      ],
+      "cwd": "/mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/demo/harness-demo-codex-handoff",
+      "exit": 0,
+      "status": null,
+      "expected_exits": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "name": "BUNDLED_STATUS",
+      "argv": [
+        "python",
+        ".harness/engine/project-harness.py",
+        "status",
+        "--project",
+        "/mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/demo/harness-demo-codex-handoff"
+      ],
+      "cwd": "/mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/demo/harness-demo-codex-handoff",
+      "exit": 0,
+      "status": "ACTIVE",
+      "expected_exits": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "name": "BUNDLED_EXECUTOR_DOCTOR_MANUAL",
+      "argv": [
+        "python",
+        ".harness/engine/project-harness.py",
+        "executor-doctor",
+        "--project",
+        "/mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/demo/harness-demo-codex-handoff"
+      ],
+      "cwd": "/mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/demo/harness-demo-codex-handoff",
+      "exit": 3,
+      "status": "BLOCKED",
+      "expected_exits": [
+        3
+      ],
+      "passed": true
+    },
+    {
+      "name": "SOURCE_EXECUTOR_HELP",
+      "argv": [
+        "python",
+        "/mnt/data/ph05111_work/Project_Harness_Engine_v0.5.1/project-harness.py",
+        "executor-doctor",
+        "--help"
+      ],
+      "cwd": "/mnt/data/ph05111_work/Project_Harness_Engine_v0.5.1",
+      "exit": 0,
+      "status": null,
+      "expected_exits": [
+        0
+      ],
+      "passed": true
+    },
+    {
+      "name": "SOURCE_EXECUTE_HELP",
+      "argv": [
+        "python",
+        "/mnt/data/ph05111_work/Project_Harness_Engine_v0.5.1/project-harness.py",
+        "execute-current",
+        "--help"
+      ],
+      "cwd": "/mnt/data/ph05111_work/Project_Harness_Engine_v0.5.1",
+      "exit": 0,
+      "status": null,
+      "expected_exits": [
+        0
+      ],
+      "passed": true
+    }
+  ]
+}

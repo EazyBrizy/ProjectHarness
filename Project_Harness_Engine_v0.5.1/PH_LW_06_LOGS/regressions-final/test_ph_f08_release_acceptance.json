@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_ph_f08_release_acceptance"
+  ],
+  "ran": 2,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 52.938,
+  "log": "test_ph_f08_release_acceptance.log",
+  "status": "PASS"
+}

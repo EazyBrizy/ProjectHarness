@@ -1,0 +1,5 @@
+import_ok: True
+argv: ['codex', 'exec', '--prompt-file', '/workspace/control/prompt-bundle.md', '--result-file', '/output/agent-result.json']
+doctor: {'status': 'BLOCKED', 'reason_code': 'SANDBOX_UNAVAILABLE', 'profile_validation': 'PASS', 'message': 'PH-051-02 has no verified ROOTLESS_PODMAN backend; static profile validity is not isolation'}
+execute: {'status': 'BLOCKED', 'reason_code': 'SANDBOX_UNAVAILABLE'}
+installed_module: /mnt/data/PH_051_02_work/wheel_venv/lib/python3.13/site-packages/project_harness/executors/__init__.py

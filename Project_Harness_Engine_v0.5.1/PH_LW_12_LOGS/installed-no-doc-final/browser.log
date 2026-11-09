@@ -1,0 +1,6 @@
+test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete (__main__.InstalledFullFlowTests.test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 58.864s
+
+OK

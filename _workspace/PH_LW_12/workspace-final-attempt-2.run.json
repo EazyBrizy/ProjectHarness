@@ -1,0 +1,12 @@
+{
+  "command": [
+    "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+    "-B",
+    "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\tools\\check_workspace.py"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "exit": 0,
+  "status": "PASS",
+  "log": "workspace-final-attempt-2.log",
+  "log_sha256": "4efd63b697bece24a4c9112303ed1dc73cb1db033ed8e96702fb34597f308aac"
+}

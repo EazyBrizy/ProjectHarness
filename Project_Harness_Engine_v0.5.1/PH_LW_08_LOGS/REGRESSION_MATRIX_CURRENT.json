@@ -1,0 +1,1097 @@
+{
+  "status": "FAIL",
+  "provenance": "Fresh native modules plus fresh remaining core modules; no inherited results substituted.",
+  "modules": 44,
+  "test_methods": 507,
+  "module_statuses": {
+    "PASS": 34,
+    "PASS_WITH_SKIPS": 3,
+    "FAIL": 7
+  },
+  "failure_events": 24,
+  "error_events": 88,
+  "skips": 7,
+  "timeouts": 0,
+  "rows": [
+    {
+      "module": "tests.test_assessment_freshness",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_assessment_freshness",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_assessment_freshness.log"
+      ],
+      "started_utc": "2026-11-07T03:56:37.224729+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_assessment_freshness"
+      ],
+      "ran": 10,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 207.751,
+      "log": "test_assessment_freshness.log",
+      "log_sha256": "855655cb9ebf1bec235dab99125a7ab4f8cd9d1bac7c5f3ab1c25b11abf7ad05",
+      "evidence": "core-regressions/test_assessment_freshness.log"
+    },
+    {
+      "module": "tests.test_canonical_target",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_canonical_target",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_canonical_target.log"
+      ],
+      "started_utc": "2026-11-07T03:56:37.225164+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_canonical_target"
+      ],
+      "ran": 5,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 88.433,
+      "log": "test_canonical_target.log",
+      "log_sha256": "e5ef8e0719d4c910210241bca3407a151ee93430981fac7212eeffae1983bcb3",
+      "evidence": "core-regressions/test_canonical_target.log"
+    },
+    {
+      "module": "tests.test_contract_hardening",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_contract_hardening",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_contract_hardening.log"
+      ],
+      "started_utc": "2026-11-07T03:58:05.672077+00:00",
+      "exit": 0,
+      "status": "PASS_WITH_SKIPS",
+      "modules": [
+        "tests.test_contract_hardening"
+      ],
+      "ran": 31,
+      "failures": 0,
+      "errors": 0,
+      "skips": [
+        {
+          "test": "tests.test_contract_hardening.ContractHardeningControlPlaneTests.test_agent_result_symlink_is_rejected",
+          "reason": "NOT RUN: native file symlink creation requires a Windows privilege unavailable to this non-admin user"
+        }
+      ],
+      "elapsed_seconds": 301.495,
+      "log": "test_contract_hardening.log",
+      "log_sha256": "e1662ef5b44d600e9eb971a383b1480aad90660e8dba1a69426f673b51e0c280",
+      "evidence": "core-regressions/test_contract_hardening.log"
+    },
+    {
+      "module": "tests.test_engine",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_engine",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_engine.log"
+      ],
+      "started_utc": "2026-11-07T04:00:04.990524+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_engine"
+      ],
+      "ran": 14,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 182.296,
+      "log": "test_engine.log",
+      "log_sha256": "e6f82a7043e1d6fa3817c582e180831b40004997741deca34d0d5c9f5e57d3ee",
+      "evidence": "core-regressions/test_engine.log"
+    },
+    {
+      "module": "tests.test_exact_assessment_ref",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_exact_assessment_ref",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_exact_assessment_ref.log"
+      ],
+      "started_utc": "2026-11-07T04:03:07.183563+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_exact_assessment_ref"
+      ],
+      "ran": 5,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 121.125,
+      "log": "test_exact_assessment_ref.log",
+      "log_sha256": "2866ae3c4e7fbaa44577f248c171941934f234dba79fed17b731a386143e8fd2",
+      "evidence": "core-regressions/test_exact_assessment_ref.log"
+    },
+    {
+      "module": "tests.test_gate_evidence_contract",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_gate_evidence_contract",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_gate_evidence_contract.log"
+      ],
+      "started_utc": "2026-11-07T04:03:07.307316+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_gate_evidence_contract"
+      ],
+      "ran": 10,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 404.488,
+      "log": "test_gate_evidence_contract.log",
+      "log_sha256": "b9bb539aa5025b072749dd102d5fdc8e0cd75c226dd17915373bac8e54f2db88",
+      "evidence": "core-regressions/test_gate_evidence_contract.log"
+    },
+    {
+      "module": "tests.test_implementation_levels",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_implementation_levels",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_implementation_levels.log"
+      ],
+      "started_utc": "2026-11-07T04:05:08.321423+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_implementation_levels"
+      ],
+      "ran": 8,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 265.993,
+      "log": "test_implementation_levels.log",
+      "log_sha256": "1449f9cd72376f3c3cd7f15b0c7e3e1f87c4c6ed80cf64f1616736b0b56ba686",
+      "evidence": "core-regressions/test_implementation_levels.log"
+    },
+    {
+      "module": "tests.test_maintenance_lifecycle",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_maintenance_lifecycle",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_maintenance_lifecycle.log"
+      ],
+      "started_utc": "2026-11-07T04:09:34.325782+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_maintenance_lifecycle"
+      ],
+      "ran": 7,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 331.576,
+      "log": "test_maintenance_lifecycle.log",
+      "log_sha256": "a60519f8a1438137e0a33b1513b9db70abd8361ef9d66190486108fb50b48699",
+      "evidence": "core-regressions/test_maintenance_lifecycle.log"
+    },
+    {
+      "module": "tests.test_ph_051_01_contract_baseline",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_ph_051_01_contract_baseline",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_ph_051_01_contract_baseline.log"
+      ],
+      "started_utc": "2026-11-07T04:09:51.813691+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_ph_051_01_contract_baseline"
+      ],
+      "ran": 10,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 15.967,
+      "log": "test_ph_051_01_contract_baseline.log",
+      "log_sha256": "0780cb402f7fc8c9616cb9fa5994988727582f15ea5b7bc1ab8328b4743fbbc8",
+      "evidence": "core-regressions/test_ph_051_01_contract_baseline.log"
+    },
+    {
+      "module": "tests.test_ph_051_02_executor_protocol",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_ph_051_02_executor_protocol",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_ph_051_02_executor_protocol.log"
+      ],
+      "started_utc": "2026-11-07T04:10:07.787435+00:00",
+      "exit": 0,
+      "status": "PASS_WITH_SKIPS",
+      "modules": [
+        "tests.test_ph_051_02_executor_protocol"
+      ],
+      "ran": 25,
+      "failures": 0,
+      "errors": 0,
+      "skips": [
+        {
+          "test": "tests.test_ph_051_02_executor_protocol.ExecutorProtocolTests.test_16b_symlink_output_rejected",
+          "reason": "NOT RUN: native file symlink creation requires a Windows privilege unavailable to this non-admin user"
+        }
+      ],
+      "elapsed_seconds": 0.729,
+      "log": "test_ph_051_02_executor_protocol.log",
+      "log_sha256": "25a67af0e52fe9982b9931094e059308f07f4a684d29a7e1d8628f2b62e91a25",
+      "evidence": "core-regressions/test_ph_051_02_executor_protocol.log"
+    },
+    {
+      "module": "tests.test_ph_051_03_rootless_podman",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_ph_051_03_rootless_podman",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_ph_051_03_rootless_podman.log"
+      ],
+      "started_utc": "2026-11-07T04:10:08.538612+00:00",
+      "exit": 1,
+      "status": "FAIL",
+      "modules": [
+        "tests.test_ph_051_03_rootless_podman"
+      ],
+      "ran": 20,
+      "failures": 2,
+      "errors": 8,
+      "skips": [
+        {
+          "test": "tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_19_real_rootless_doctor_and_container_run",
+          "reason": "NOT RUN: real rootless Podman+locally pinned test image+executable are required"
+        }
+      ],
+      "elapsed_seconds": 0.638,
+      "log": "test_ph_051_03_rootless_podman.log",
+      "log_sha256": "e632a9a840622c2584330b5c628b049610d4e93c84b5309f7c76e43f2e631ce5",
+      "evidence": "core-regressions/test_ph_051_03_rootless_podman.log"
+    },
+    {
+      "module": "tests.test_ph_051_04_disposable_roots",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_ph_051_04_disposable_roots",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_ph_051_04_disposable_roots.log"
+      ],
+      "started_utc": "2026-11-07T04:10:09.196315+00:00",
+      "exit": 1,
+      "status": "FAIL",
+      "modules": [
+        "tests.test_ph_051_04_disposable_roots"
+      ],
+      "ran": 21,
+      "failures": 0,
+      "errors": 16,
+      "skips": [
+        {
+          "test": "tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_09_reject_special_file_and_no_binding_or_partial_root",
+          "reason": "Unix FIFO required"
+        }
+      ],
+      "elapsed_seconds": 310.963,
+      "log": "test_ph_051_04_disposable_roots.log",
+      "log_sha256": "d244e391d678dacd9bff8d606629f6da719e068543861c7a2a2c169de9f671de",
+      "evidence": "core-regressions/test_ph_051_04_disposable_roots.log"
+    },
+    {
+      "module": "tests.test_ph_051_05_codex_adapter",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_ph_051_05_codex_adapter",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_ph_051_05_codex_adapter.log"
+      ],
+      "started_utc": "2026-11-07T04:15:05.915765+00:00",
+      "exit": 1,
+      "status": "FAIL",
+      "modules": [
+        "tests.test_ph_051_05_codex_adapter"
+      ],
+      "ran": 16,
+      "failures": 0,
+      "errors": 4,
+      "skips": [
+        {
+          "test": "tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_05_symlink_profile_denied",
+          "reason": "NOT RUN: native file symlink creation requires a Windows privilege unavailable to this non-admin user"
+        },
+        {
+          "test": "tests.test_ph_051_05_codex_adapter.RealRootlessIntegrationTests.test_15_fake_codex_in_real_rootless_podman_not_on_host",
+          "reason": "NOT RUN: real non-root Podman and pinned PH_TEST_PODMAN_IMAGE required"
+        }
+      ],
+      "elapsed_seconds": 38.18,
+      "log": "test_ph_051_05_codex_adapter.log",
+      "log_sha256": "59085d640b046a0afb8f21e81f090dd6a034fbfa9aecb1e69fc6ae029b686a07",
+      "evidence": "core-regressions/test_ph_051_05_codex_adapter.log"
+    },
+    {
+      "module": "tests.test_ph_051_06_result_channel",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_ph_051_06_result_channel",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_ph_051_06_result_channel.log"
+      ],
+      "started_utc": "2026-11-07T04:15:20.174589+00:00",
+      "exit": 1,
+      "status": "FAIL",
+      "modules": [
+        "tests.test_ph_051_06_result_channel"
+      ],
+      "ran": 13,
+      "failures": 0,
+      "errors": 21,
+      "skips": [],
+      "elapsed_seconds": 9.356,
+      "log": "test_ph_051_06_result_channel.log",
+      "log_sha256": "d60c2344de90e56b6bba3f88fd72c6f9e1684b8bab3c855777809f680e93c174",
+      "evidence": "core-regressions/test_ph_051_06_result_channel.log"
+    },
+    {
+      "module": "tests.test_ph_051_07_sandbox_verification",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_ph_051_07_sandbox_verification",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_ph_051_07_sandbox_verification.log"
+      ],
+      "started_utc": "2026-11-07T04:15:29.544023+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_ph_051_07_sandbox_verification"
+      ],
+      "ran": 9,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 0.682,
+      "log": "test_ph_051_07_sandbox_verification.log",
+      "log_sha256": "dcc8aa640aa47f2e662c181fe627c58deef83b210ff3601ecc8a4f1bac7d3780",
+      "evidence": "core-regressions/test_ph_051_07_sandbox_verification.log"
+    },
+    {
+      "module": "tests.test_ph_051_08_atomic_apply",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_ph_051_08_atomic_apply",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_ph_051_08_atomic_apply.log"
+      ],
+      "started_utc": "2026-11-07T04:15:30.238959+00:00",
+      "exit": 1,
+      "status": "FAIL",
+      "modules": [
+        "tests.test_ph_051_08_atomic_apply"
+      ],
+      "ran": 25,
+      "failures": 0,
+      "errors": 31,
+      "skips": [],
+      "elapsed_seconds": 282.174,
+      "log": "test_ph_051_08_atomic_apply.log",
+      "log_sha256": "2a702a6159810a7a138b4bdf2790bdb17fecdfa4753144eaf864be55b285631e",
+      "evidence": "core-regressions/test_ph_051_08_atomic_apply.log"
+    },
+    {
+      "module": "tests.test_ph_051_09_automatic_runtime",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_ph_051_09_automatic_runtime",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_ph_051_09_automatic_runtime.log"
+      ],
+      "started_utc": "2026-11-07T04:15:44.111962+00:00",
+      "exit": 1,
+      "status": "FAIL",
+      "modules": [
+        "tests.test_ph_051_09_automatic_runtime"
+      ],
+      "ran": 15,
+      "failures": 18,
+      "errors": 1,
+      "skips": [],
+      "elapsed_seconds": 161.076,
+      "log": "test_ph_051_09_automatic_runtime.log",
+      "log_sha256": "0159979b6381e298a279f6ded045b2972e91f63c85982659739b0badf08c9a3e",
+      "evidence": "core-regressions/test_ph_051_09_automatic_runtime.log"
+    },
+    {
+      "module": "tests.test_ph_051_10_migration_recovery",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_ph_051_10_migration_recovery",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_ph_051_10_migration_recovery.log"
+      ],
+      "started_utc": "2026-11-07T04:18:25.202273+00:00",
+      "exit": 1,
+      "status": "FAIL",
+      "modules": [
+        "tests.test_ph_051_10_migration_recovery"
+      ],
+      "ran": 17,
+      "failures": 4,
+      "errors": 7,
+      "skips": [],
+      "elapsed_seconds": 142.463,
+      "log": "test_ph_051_10_migration_recovery.log",
+      "log_sha256": "a509bd0e68251d3b55d5aa0b7063ae423502365b8cd58a7f5159908b662bdab3",
+      "evidence": "core-regressions/test_ph_051_10_migration_recovery.log"
+    },
+    {
+      "module": "tests.test_ph_051_11_operator_docs",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_ph_051_11_operator_docs",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_ph_051_11_operator_docs.log"
+      ],
+      "started_utc": "2026-11-07T04:20:12.427496+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_ph_051_11_operator_docs"
+      ],
+      "ran": 5,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 0.438,
+      "log": "test_ph_051_11_operator_docs.log",
+      "log_sha256": "48b5c5d270d2f8833065e35e2ac4c4b552f4eaef43a181586641dad8fa1528cf",
+      "evidence": "core-regressions/test_ph_051_11_operator_docs.log"
+    },
+    {
+      "module": "tests.test_ph_f01_gate_semantics_regression",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_ph_f01_gate_semantics_regression",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_ph_f01_gate_semantics_regression.log"
+      ],
+      "started_utc": "2026-11-07T04:20:12.877426+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_ph_f01_gate_semantics_regression"
+      ],
+      "ran": 3,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 29.1,
+      "log": "test_ph_f01_gate_semantics_regression.log",
+      "log_sha256": "af382367060d6f23df1c0ca4c9d0b74795fcb077876320f18fcecad028c36e57",
+      "evidence": "core-regressions/test_ph_f01_gate_semantics_regression.log"
+    },
+    {
+      "module": "tests.test_ph_f01_planner_regression",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_ph_f01_planner_regression",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_ph_f01_planner_regression.log"
+      ],
+      "started_utc": "2026-11-07T04:20:41.987343+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_ph_f01_planner_regression"
+      ],
+      "ran": 6,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 96.453,
+      "log": "test_ph_f01_planner_regression.log",
+      "log_sha256": "97a765af32f00cee6e57d29da1550e41c72f9074d3a7259c18edd4ba093bc84f",
+      "evidence": "core-regressions/test_ph_f01_planner_regression.log"
+    },
+    {
+      "module": "tests.test_ph_f02_semantic_proof_contract",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_ph_f02_semantic_proof_contract",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_ph_f02_semantic_proof_contract.log"
+      ],
+      "started_utc": "2026-11-07T04:20:47.681466+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_ph_f02_semantic_proof_contract"
+      ],
+      "ran": 5,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 5.823,
+      "log": "test_ph_f02_semantic_proof_contract.log",
+      "log_sha256": "64a6c6417b449e5f83bcf1ec1bcc3e445382bfb7b8beefdbb61a6575c4061301",
+      "evidence": "core-regressions/test_ph_f02_semantic_proof_contract.log"
+    },
+    {
+      "module": "tests.test_ph_f03_active_stage_planning",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_ph_f03_active_stage_planning",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_ph_f03_active_stage_planning.log"
+      ],
+      "started_utc": "2026-11-07T04:20:53.519068+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_ph_f03_active_stage_planning"
+      ],
+      "ran": 8,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 79.905,
+      "log": "test_ph_f03_active_stage_planning.log",
+      "log_sha256": "8f3023f533c8d97653d735db4c1d79736c311482a8b79f8ff078525b585549cc",
+      "evidence": "core-regressions/test_ph_f03_active_stage_planning.log"
+    },
+    {
+      "module": "tests.test_ph_f04_runtime_reachability",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_ph_f04_runtime_reachability",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_ph_f04_runtime_reachability.log"
+      ],
+      "started_utc": "2026-11-07T04:22:13.435103+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_ph_f04_runtime_reachability"
+      ],
+      "ran": 10,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 58.378,
+      "log": "test_ph_f04_runtime_reachability.log",
+      "log_sha256": "a7575f692198cc3e72dd9c3d27a87dcd287c36ab703153b3094a2e6093c1d1e4",
+      "evidence": "core-regressions/test_ph_f04_runtime_reachability.log"
+    },
+    {
+      "module": "tests.test_ph_f05_intake_acceptance",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_ph_f05_intake_acceptance",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_ph_f05_intake_acceptance.log"
+      ],
+      "started_utc": "2026-11-07T04:22:18.450903+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_ph_f05_intake_acceptance"
+      ],
+      "ran": 4,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 16.919,
+      "log": "test_ph_f05_intake_acceptance.log",
+      "log_sha256": "48b3616c56155ee0a13f899a0f5161099a8d573f8cb4701688ef9d053bafdd69",
+      "evidence": "core-regressions/test_ph_f05_intake_acceptance.log"
+    },
+    {
+      "module": "tests.test_ph_f06_maturity_lifecycle",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_ph_f06_maturity_lifecycle",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_ph_f06_maturity_lifecycle.log"
+      ],
+      "started_utc": "2026-11-07T04:22:35.382537+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_ph_f06_maturity_lifecycle"
+      ],
+      "ran": 13,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 526.826,
+      "log": "test_ph_f06_maturity_lifecycle.log",
+      "log_sha256": "20be42d8a90a4fad0b5623a013aaa68b15a6d0d6298b48731fe0f30acb3b4858",
+      "evidence": "core-regressions/test_ph_f06_maturity_lifecycle.log"
+    },
+    {
+      "module": "tests.test_ph_f08_release_acceptance",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_ph_f08_release_acceptance",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_ph_f08_release_acceptance.log"
+      ],
+      "started_utc": "2026-11-07T04:23:11.825853+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_ph_f08_release_acceptance"
+      ],
+      "ran": 2,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 41.425,
+      "log": "test_ph_f08_release_acceptance.log",
+      "log_sha256": "92c15a1cd764353b40d10071982fca20550bf72e195e1d2e70cf50b862bfd694",
+      "evidence": "core-regressions/test_ph_f08_release_acceptance.log"
+    },
+    {
+      "module": "tests.test_ph_lw_01_contract",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_ph_lw_01_contract",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_ph_lw_01_contract.log"
+      ],
+      "started_utc": "2026-11-07T04:23:53.261798+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_ph_lw_01_contract"
+      ],
+      "ran": 9,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 0.433,
+      "log": "test_ph_lw_01_contract.log",
+      "log_sha256": "fca7409976fe6b018043931f8bd191c347e8c8f5ed579dc92fb8f0252eb91997",
+      "evidence": "core-regressions/test_ph_lw_01_contract.log"
+    },
+    {
+      "module": "tests.test_ph_lw_02_windows_core",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_ph_lw_02_windows_core",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_ph_lw_02_windows_core.log"
+      ],
+      "started_utc": "2026-11-07T04:23:53.706857+00:00",
+      "exit": 0,
+      "status": "PASS_WITH_SKIPS",
+      "modules": [
+        "tests.test_ph_lw_02_windows_core"
+      ],
+      "ran": 14,
+      "failures": 0,
+      "errors": 0,
+      "skips": [
+        {
+          "test": "tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_05_colliding_tree_rejected_without_rewriting_case",
+          "reason": "NTFS casefold aliases require a case-sensitive directory; ZIP test is cross-platform"
+        }
+      ],
+      "elapsed_seconds": 13.591,
+      "log": "test_ph_lw_02_windows_core.log",
+      "log_sha256": "18ccba60e0e8436f5d06046827a5fb3558409fb00a690692b0ffb47fa44ac3d5",
+      "evidence": "core-regressions/test_ph_lw_02_windows_core.log"
+    },
+    {
+      "module": "tests.test_ph_lw_03_service",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_ph_lw_03_service",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_ph_lw_03_service.log"
+      ],
+      "started_utc": "2026-11-07T04:24:07.313566+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_ph_lw_03_service"
+      ],
+      "ran": 15,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 68.354,
+      "log": "test_ph_lw_03_service.log",
+      "log_sha256": "c36c3edccdc8eb73cae1e38141be844ac231b03b3ca8f677eb17a70c9d18d5a4",
+      "evidence": "core-regressions/test_ph_lw_03_service.log"
+    },
+    {
+      "module": "tests.test_ph_lw_04_05_acceptance",
+      "command": [
+        "powershell.exe",
+        "-NoProfile",
+        "-File",
+        "Project_Harness_Engine_v0.5.1/local_web/ci_ph_lw_08_windows.ps1",
+        "-PythonExecutable",
+        "<WORKSPACE>/.venv/Scripts/python.exe",
+        "-LogDirectory",
+        "<WORKSPACE>/_scratch/ph_lw_08/native-revised",
+        "-SkipRegressions"
+      ],
+      "status": "PASS",
+      "ran": 6,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "log": "native-revised/stage_tests.log",
+      "evidence": "native-revised/PH_LW_08_WINDOWS_TEST_REPORT.json",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "note": "Fresh native combined suite; module count from exact unittest IDs."
+    },
+    {
+      "module": "tests.test_ph_lw_04_http",
+      "command": [
+        "powershell.exe",
+        "-NoProfile",
+        "-File",
+        "Project_Harness_Engine_v0.5.1/local_web/ci_ph_lw_08_windows.ps1",
+        "-PythonExecutable",
+        "<WORKSPACE>/.venv/Scripts/python.exe",
+        "-LogDirectory",
+        "<WORKSPACE>/_scratch/ph_lw_08/native-revised",
+        "-SkipRegressions"
+      ],
+      "status": "PASS",
+      "ran": 17,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "log": "native-revised/stage_tests.log",
+      "evidence": "native-revised/PH_LW_08_WINDOWS_TEST_REPORT.json",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "note": "Fresh native combined suite; module count from exact unittest IDs."
+    },
+    {
+      "module": "tests.test_ph_lw_05_http",
+      "command": [
+        "powershell.exe",
+        "-NoProfile",
+        "-File",
+        "Project_Harness_Engine_v0.5.1/local_web/ci_ph_lw_08_windows.ps1",
+        "-PythonExecutable",
+        "<WORKSPACE>/.venv/Scripts/python.exe",
+        "-LogDirectory",
+        "<WORKSPACE>/_scratch/ph_lw_08/native-revised",
+        "-SkipRegressions"
+      ],
+      "status": "PASS",
+      "ran": 4,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "log": "native-revised/stage_tests.log",
+      "evidence": "native-revised/PH_LW_08_WINDOWS_TEST_REPORT.json",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "note": "Fresh native combined suite; module count from exact unittest IDs."
+    },
+    {
+      "module": "tests.test_ph_lw_05_import",
+      "command": [
+        "powershell.exe",
+        "-NoProfile",
+        "-File",
+        "Project_Harness_Engine_v0.5.1/local_web/ci_ph_lw_08_windows.ps1",
+        "-PythonExecutable",
+        "<WORKSPACE>/.venv/Scripts/python.exe",
+        "-LogDirectory",
+        "<WORKSPACE>/_scratch/ph_lw_08/native-revised",
+        "-SkipRegressions"
+      ],
+      "status": "PASS",
+      "ran": 17,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "log": "native-revised/stage_tests.log",
+      "evidence": "native-revised/PH_LW_08_WINDOWS_TEST_REPORT.json",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "note": "Fresh native combined suite; module count from exact unittest IDs."
+    },
+    {
+      "module": "tests.test_ph_lw_06_exchange",
+      "command": [
+        "powershell.exe",
+        "-NoProfile",
+        "-File",
+        "Project_Harness_Engine_v0.5.1/local_web/ci_ph_lw_08_windows.ps1",
+        "-PythonExecutable",
+        "<WORKSPACE>/.venv/Scripts/python.exe",
+        "-LogDirectory",
+        "<WORKSPACE>/_scratch/ph_lw_08/native-revised",
+        "-SkipRegressions"
+      ],
+      "status": "PASS",
+      "ran": 16,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "log": "native-revised/stage_tests.log",
+      "evidence": "native-revised/PH_LW_08_WINDOWS_TEST_REPORT.json",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "note": "Fresh native combined suite; module count from exact unittest IDs."
+    },
+    {
+      "module": "tests.test_ph_lw_06_http",
+      "command": [
+        "powershell.exe",
+        "-NoProfile",
+        "-File",
+        "Project_Harness_Engine_v0.5.1/local_web/ci_ph_lw_08_windows.ps1",
+        "-PythonExecutable",
+        "<WORKSPACE>/.venv/Scripts/python.exe",
+        "-LogDirectory",
+        "<WORKSPACE>/_scratch/ph_lw_08/native-revised",
+        "-SkipRegressions"
+      ],
+      "status": "PASS",
+      "ran": 4,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "log": "native-revised/stage_tests.log",
+      "evidence": "native-revised/PH_LW_08_WINDOWS_TEST_REPORT.json",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "note": "Fresh native combined suite; module count from exact unittest IDs."
+    },
+    {
+      "module": "tests.test_ph_lw_07_approvals",
+      "command": [
+        "powershell.exe",
+        "-NoProfile",
+        "-File",
+        "Project_Harness_Engine_v0.5.1/local_web/ci_ph_lw_08_windows.ps1",
+        "-PythonExecutable",
+        "<WORKSPACE>/.venv/Scripts/python.exe",
+        "-LogDirectory",
+        "<WORKSPACE>/_scratch/ph_lw_08/native-revised",
+        "-SkipRegressions"
+      ],
+      "status": "PASS",
+      "ran": 17,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "log": "native-revised/stage_tests.log",
+      "evidence": "native-revised/PH_LW_08_WINDOWS_TEST_REPORT.json",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "note": "Fresh native combined suite; module count from exact unittest IDs."
+    },
+    {
+      "module": "tests.test_ph_lw_07_http",
+      "command": [
+        "powershell.exe",
+        "-NoProfile",
+        "-File",
+        "Project_Harness_Engine_v0.5.1/local_web/ci_ph_lw_08_windows.ps1",
+        "-PythonExecutable",
+        "<WORKSPACE>/.venv/Scripts/python.exe",
+        "-LogDirectory",
+        "<WORKSPACE>/_scratch/ph_lw_08/native-revised",
+        "-SkipRegressions"
+      ],
+      "status": "PASS",
+      "ran": 5,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "log": "native-revised/stage_tests.log",
+      "evidence": "native-revised/PH_LW_08_WINDOWS_TEST_REPORT.json",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "note": "Fresh native combined suite; module count from exact unittest IDs."
+    },
+    {
+      "module": "tests.test_ph_lw_08_http",
+      "command": [
+        "powershell.exe",
+        "-NoProfile",
+        "-File",
+        "Project_Harness_Engine_v0.5.1/local_web/ci_ph_lw_08_windows.ps1",
+        "-PythonExecutable",
+        "<WORKSPACE>/.venv/Scripts/python.exe",
+        "-LogDirectory",
+        "<WORKSPACE>/_scratch/ph_lw_08/native-revised",
+        "-SkipRegressions"
+      ],
+      "status": "PASS",
+      "ran": 2,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "log": "native-revised/stage_tests.log",
+      "evidence": "native-revised/PH_LW_08_WINDOWS_TEST_REPORT.json",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "note": "Fresh native combined suite; module count from exact unittest IDs."
+    },
+    {
+      "module": "tests.test_ph_lw_08_preparation",
+      "command": [
+        "powershell.exe",
+        "-NoProfile",
+        "-File",
+        "Project_Harness_Engine_v0.5.1/local_web/ci_ph_lw_08_windows.ps1",
+        "-PythonExecutable",
+        "<WORKSPACE>/.venv/Scripts/python.exe",
+        "-LogDirectory",
+        "<WORKSPACE>/_scratch/ph_lw_08/native-revised",
+        "-SkipRegressions"
+      ],
+      "status": "PASS",
+      "ran": 27,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "log": "native-revised/stage_tests.log",
+      "evidence": "native-revised/PH_LW_08_WINDOWS_TEST_REPORT.json",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "note": "Fresh native combined suite; module count from exact unittest IDs."
+    },
+    {
+      "module": "tests.test_stage_approval_preparation",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_stage_approval_preparation",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_stage_approval_preparation.log"
+      ],
+      "started_utc": "2026-11-07T04:25:15.683152+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_stage_approval_preparation"
+      ],
+      "ran": 7,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 26.085,
+      "log": "test_stage_approval_preparation.log",
+      "log_sha256": "1a16753c8ba239edb841536b0afc3a590e2410f8336d0048c0e5dad5df8eb3a6",
+      "evidence": "core-regressions/test_stage_approval_preparation.log"
+    },
+    {
+      "module": "tests.test_stage_gate_preparation_block_recovery",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_stage_gate_preparation_block_recovery",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_stage_gate_preparation_block_recovery.log"
+      ],
+      "started_utc": "2026-11-07T04:25:41.781707+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_stage_gate_preparation_block_recovery"
+      ],
+      "ran": 5,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 60.705,
+      "log": "test_stage_gate_preparation_block_recovery.log",
+      "log_sha256": "fb7927eb9cdb63dc69104ef55abfea1261360cea2480d0320b3b2563b4b839d3",
+      "evidence": "core-regressions/test_stage_gate_preparation_block_recovery.log"
+    },
+    {
+      "module": "tests.test_stage_transaction_recovery",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_stage_transaction_recovery",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_stage_transaction_recovery.log"
+      ],
+      "started_utc": "2026-11-07T04:26:42.505974+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_stage_transaction_recovery"
+      ],
+      "ran": 15,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 114.969,
+      "log": "test_stage_transaction_recovery.log",
+      "log_sha256": "8a328512c68ce51c9d0b55efe5c46ea74ae63353219c856a58d57d62b2b6ef30",
+      "evidence": "core-regressions/test_stage_transaction_recovery.log"
+    },
+    {
+      "module": "tests.test_windows_manual_migration",
+      "command": [
+        "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+        "tests.test_windows_manual_migration",
+        "<WORKSPACE>\\_scratch\\ph_lw_08\\core-regressions\\test_windows_manual_migration.log"
+      ],
+      "started_utc": "2026-11-07T04:28:37.497389+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "modules": [
+        "tests.test_windows_manual_migration"
+      ],
+      "ran": 10,
+      "failures": 0,
+      "errors": 0,
+      "skips": [],
+      "elapsed_seconds": 148.453,
+      "log": "test_windows_manual_migration.log",
+      "log_sha256": "e638616bf6428b390fea57e34b3f1026465a079c622fe8b8b91b110340b5a1f6",
+      "evidence": "core-regressions/test_windows_manual_migration.log"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+execution:
+  mode: MANUAL_HANDOFF
+  adapter_profile_ref: null
+  sandbox_profile_ref: null
+  network_mode: NONE
+  completion_policy: EXPLICIT_AFTER_VERIFICATION

@@ -1,0 +1,7 @@
+COMMAND: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. /opt/pyvenv/bin/python -m unittest -q tests.test_engine
+MODULES: test_engine
+
+----------------------------------------------------------------------
+Ran 14 tests in 56.745s
+
+OK

@@ -1,0 +1,21 @@
+test_long_preparation_publication_validation_and_first_jit (tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_long_preparation_publication_validation_and_first_jit) ... FAIL
+
+======================================================================
+FAIL: test_long_preparation_publication_validation_and_first_jit (tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_long_preparation_publication_validation_and_first_jit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_11_long_path.py", line 27, in test_long_preparation_publication_validation_and_first_jit
+    self.approved();target=self.target();op=self.run_preparation(target)
+                                            ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 53, in run_preparation
+    self.assertEqual(result['state'],'SUCCEEDED',result)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'BLOCKED' != 'SUCCEEDED'
+- BLOCKED
++ SUCCEEDED
+ : {'operation_id': 'LWO-33E7308989D73335F5C40193602E7212', 'project_id': 'LWP-4CD7D9337BA29524DD6F', 'action': 'publish-project', 'request_digest': 'sha256:e7f70fa2f4a9c2333d707e48647ff04f7c8fe042636d25c7a040fec1669459d6', 'expected_fingerprint': 'sha256:dac55e5106ef1f5cf70a5c4774dfe6769840683558839c9d8aeed55ea603d48b', 'created_at': '2026-11-08T01:22:02Z', 'updated_at': '2026-11-08T01:22:15Z', 'started_at': '2026-11-08T01:22:02Z', 'finished_at': '2026-11-08T01:22:15Z', 'state': 'BLOCKED', 'phase': 'RECONCILIATION_REQUIRED', 'core_before': 'sha256:dac55e5106ef1f5cf70a5c4774dfe6769840683558839c9d8aeed55ea603d48b', 'core_after': None, 'before_active_run_ref': None, 'expected_draft_after': None, 'result': None, 'error': {'code': 'VALIDATION_FAILED', 'message_ru': 'Запрос или состояние проекта не прошли проверку.', 'next_action_ru': 'Проверьте данные и текущий статус, затем создайте новое действие.'}, 'receipt': {'kind': 'LOCAL_WEB_OPERATION_RECEIPT', 'receipt_version': 1, 'operation_id': 'LWO-33E7308989D73335F5C40193602E7212', 'project_ref': 'LWP-4CD7D9337BA29524DD6F', 'action_id': 'LW-C04', 'idempotency_key': 'preparation-test-000001', 'request_sha256': 'sha256:e7f70fa2f4a9c2333d707e48647ff04f7c8fe042636d25c7a040fec1669459d6', 'expected_core_fingerprint': 'sha256:dac55e5106ef1f5cf70a5c4774dfe6769840683558839c9d8aeed55ea603d48b', 'core_outcome': 'UNKNOWN_RECONCILE', 'created_at': '2026-11-08T01:22:02Z'}, 'record_digest': 'sha256:994d0253054955ae7c0c70fa59e9f595abe214f8950ee5eabe124856a61d0441'}
+
+----------------------------------------------------------------------
+Ran 1 test in 15.228s
+
+FAILED (failures=1)

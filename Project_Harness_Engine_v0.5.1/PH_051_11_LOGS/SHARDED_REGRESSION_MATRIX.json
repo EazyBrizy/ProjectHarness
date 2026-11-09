@@ -1,0 +1,671 @@
+{
+  "version": "0.5.1-WIP",
+  "status": "PASS",
+  "modules": 30,
+  "total_tests": 342,
+  "skipped": 2,
+  "passed": 340,
+  "failed_modules": [],
+  "results": [
+    {
+      "module": "tests.test_assessment_freshness",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_assessment_freshness"
+      ],
+      "exit": 0,
+      "tests": 10,
+      "skipped": 0,
+      "duration_s": 44.005,
+      "log": "test_assessment_freshness.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 10 tests in 42.677s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_canonical_target",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_canonical_target"
+      ],
+      "exit": 0,
+      "tests": 5,
+      "skipped": 0,
+      "duration_s": 15.382,
+      "log": "test_canonical_target.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 5 tests in 14.101s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_contract_hardening",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_contract_hardening"
+      ],
+      "exit": 0,
+      "tests": 31,
+      "skipped": 0,
+      "duration_s": 39.285,
+      "log": "test_contract_hardening.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 31 tests in 37.439s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_engine",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_engine"
+      ],
+      "exit": 0,
+      "tests": 14,
+      "skipped": 0,
+      "duration_s": 22.208,
+      "log": "test_engine.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 14 tests in 20.989s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_exact_assessment_ref",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_exact_assessment_ref"
+      ],
+      "exit": 0,
+      "tests": 5,
+      "skipped": 0,
+      "duration_s": 27.411,
+      "log": "test_exact_assessment_ref.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 5 tests in 26.156s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_gate_evidence_contract",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_gate_evidence_contract"
+      ],
+      "exit": 0,
+      "tests": 10,
+      "skipped": 0,
+      "duration_s": 121.859,
+      "log": "test_gate_evidence_contract.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 10 tests in 120.429s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_implementation_levels",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_implementation_levels"
+      ],
+      "exit": 0,
+      "tests": 8,
+      "skipped": 0,
+      "duration_s": 57.36,
+      "log": "test_implementation_levels.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 8 tests in 56.096s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_maintenance_lifecycle",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_maintenance_lifecycle"
+      ],
+      "exit": 0,
+      "tests": 7,
+      "skipped": 0,
+      "duration_s": 78.718,
+      "log": "test_maintenance_lifecycle.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 7 tests in 77.277s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_ph_051_01_contract_baseline",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_ph_051_01_contract_baseline"
+      ],
+      "exit": 0,
+      "tests": 10,
+      "skipped": 0,
+      "duration_s": 4.489,
+      "log": "test_ph_051_01_contract_baseline.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 10 tests in 1.458s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_ph_051_02_executor_protocol",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_ph_051_02_executor_protocol"
+      ],
+      "exit": 0,
+      "tests": 24,
+      "skipped": 0,
+      "duration_s": 1.594,
+      "log": "test_ph_051_02_executor_protocol.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 24 tests in 0.145s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_ph_051_03_rootless_podman",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_ph_051_03_rootless_podman"
+      ],
+      "exit": 0,
+      "tests": 20,
+      "skipped": 1,
+      "duration_s": 1.505,
+      "log": "test_ph_051_03_rootless_podman.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 20 tests in 0.155s",
+        "",
+        "OK (skipped=1)"
+      ]
+    },
+    {
+      "module": "tests.test_ph_051_04_disposable_roots",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_ph_051_04_disposable_roots"
+      ],
+      "exit": 0,
+      "tests": 21,
+      "skipped": 0,
+      "duration_s": 20.261,
+      "log": "test_ph_051_04_disposable_roots.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 21 tests in 18.985s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_ph_051_05_codex_adapter",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_ph_051_05_codex_adapter"
+      ],
+      "exit": 0,
+      "tests": 15,
+      "skipped": 1,
+      "duration_s": 5.042,
+      "log": "test_ph_051_05_codex_adapter.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 15 tests in 3.742s",
+        "",
+        "OK (skipped=1)"
+      ]
+    },
+    {
+      "module": "tests.test_ph_051_06_result_channel",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_ph_051_06_result_channel"
+      ],
+      "exit": 0,
+      "tests": 13,
+      "skipped": 0,
+      "duration_s": 4.091,
+      "log": "test_ph_051_06_result_channel.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 13 tests in 2.433s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_ph_051_07_sandbox_verification",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_ph_051_07_sandbox_verification"
+      ],
+      "exit": 0,
+      "tests": 9,
+      "skipped": 0,
+      "duration_s": 1.418,
+      "log": "test_ph_051_07_sandbox_verification.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 9 tests in 0.015s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_ph_051_08_atomic_apply",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_ph_051_08_atomic_apply"
+      ],
+      "exit": 0,
+      "tests": 25,
+      "skipped": 0,
+      "duration_s": 36.516,
+      "log": "test_ph_051_08_atomic_apply.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 25 tests in 34.693s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_ph_051_09_automatic_runtime",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_ph_051_09_automatic_runtime"
+      ],
+      "exit": 0,
+      "tests": 15,
+      "skipped": 0,
+      "duration_s": 23.447,
+      "log": "test_ph_051_09_automatic_runtime.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 15 tests in 21.974s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_ph_051_10_migration_recovery",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_ph_051_10_migration_recovery"
+      ],
+      "exit": 0,
+      "tests": 17,
+      "skipped": 0,
+      "duration_s": 19.221,
+      "log": "test_ph_051_10_migration_recovery.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 17 tests in 17.727s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_ph_051_11_operator_docs",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_ph_051_11_operator_docs"
+      ],
+      "exit": 0,
+      "tests": 5,
+      "skipped": 0,
+      "duration_s": 1.268,
+      "log": "test_ph_051_11_operator_docs.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 5 tests in 0.012s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_ph_f01_gate_semantics_regression",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_ph_f01_gate_semantics_regression"
+      ],
+      "exit": 0,
+      "tests": 3,
+      "skipped": 0,
+      "duration_s": 12.46,
+      "log": "test_ph_f01_gate_semantics_regression.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 3 tests in 11.126s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_ph_f01_planner_regression",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_ph_f01_planner_regression"
+      ],
+      "exit": 0,
+      "tests": 6,
+      "skipped": 0,
+      "duration_s": 56.216,
+      "log": "test_ph_f01_planner_regression.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 6 tests in 54.814s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_ph_f02_semantic_proof_contract",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_ph_f02_semantic_proof_contract"
+      ],
+      "exit": 0,
+      "tests": 5,
+      "skipped": 0,
+      "duration_s": 3.367,
+      "log": "test_ph_f02_semantic_proof_contract.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 5 tests in 1.974s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_ph_f03_active_stage_planning",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_ph_f03_active_stage_planning"
+      ],
+      "exit": 0,
+      "tests": 8,
+      "skipped": 0,
+      "duration_s": 31.629,
+      "log": "test_ph_f03_active_stage_planning.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 8 tests in 30.176s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_ph_f04_runtime_reachability",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_ph_f04_runtime_reachability"
+      ],
+      "exit": 0,
+      "tests": 10,
+      "skipped": 0,
+      "duration_s": 22.508,
+      "log": "test_ph_f04_runtime_reachability.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 10 tests in 20.950s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_ph_f05_intake_acceptance",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_ph_f05_intake_acceptance"
+      ],
+      "exit": 0,
+      "tests": 4,
+      "skipped": 0,
+      "duration_s": 4.015,
+      "log": "test_ph_f05_intake_acceptance.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 4 tests in 2.554s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_ph_f06_maturity_lifecycle",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_ph_f06_maturity_lifecycle"
+      ],
+      "exit": 0,
+      "tests": 13,
+      "skipped": 0,
+      "duration_s": 285.033,
+      "log": "test_ph_f06_maturity_lifecycle.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 13 tests in 283.691s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_ph_f08_release_acceptance",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_ph_f08_release_acceptance"
+      ],
+      "exit": 0,
+      "tests": 2,
+      "skipped": 0,
+      "duration_s": 47.429,
+      "log": "test_ph_f08_release_acceptance.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 2 tests in 46.139s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_stage_approval_preparation",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_stage_approval_preparation"
+      ],
+      "exit": 0,
+      "tests": 7,
+      "skipped": 0,
+      "duration_s": 18.439,
+      "log": "test_stage_approval_preparation.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 7 tests in 16.848s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_stage_gate_preparation_block_recovery",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_stage_gate_preparation_block_recovery"
+      ],
+      "exit": 0,
+      "tests": 5,
+      "skipped": 0,
+      "duration_s": 34.231,
+      "log": "test_stage_gate_preparation_block_recovery.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 5 tests in 32.714s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "module": "tests.test_stage_transaction_recovery",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-q",
+        "tests.test_stage_transaction_recovery"
+      ],
+      "exit": 0,
+      "tests": 15,
+      "skipped": 0,
+      "duration_s": 26.785,
+      "log": "test_stage_transaction_recovery.log",
+      "error_excerpt": null,
+      "last_lines": [
+        "----------------------------------------------------------------------",
+        "Ran 15 tests in 25.261s",
+        "",
+        "OK"
+      ]
+    }
+  ]
+}

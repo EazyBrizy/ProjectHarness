@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "runtime": "native-final/PH_LW_06_WINDOWS_TEST_REPORT.json",
+  "runtime_result": "64 PASS / 0 SKIP; doctor PASS",
+  "original_wrapper_status": "FAIL",
+  "original_docs": "FAIL: new document metadata date and README NO-GO parsed as ID",
+  "docs_retest": "docs-corrected/DOC_VALIDATION.json",
+  "docs_retest_status": "PASS",
+  "note": "Separate docs-only retest; 64 runtime methods were not rerun for formatting fixes."
+}

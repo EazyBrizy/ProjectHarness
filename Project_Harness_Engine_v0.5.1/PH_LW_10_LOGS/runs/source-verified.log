@@ -1,0 +1,63 @@
+Task queue depth is 1
+Task queue depth is 2
+Task queue depth is 2
+Task queue depth is 3
+Task queue depth is 1
+Task queue depth is 2
+Task queue depth is 1
+Task queue depth is 2
+Task queue depth is 1
+total open connections reached the connection limit, no longer accepting new connections
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+Exception in thread Thread-36 (run):
+Traceback (most recent call last):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083, in _bootstrap_inner
+    self._context.run(self.run)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\server.py", line 325, in run
+    self.asyncore.loop(
+    ~~~~~~~~~~~~~~~~~~^
+        timeout=self.adj.asyncore_loop_timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        map=self._map,
+        ^^^^^^^^^^^^^^
+        use_poll=self.adj.asyncore_use_poll,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\wasyncore.py", line 240, in loop
+    poll_fun(timeout, map)
+    ~~~~~~~~^^^^^^^^^^^^^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\wasyncore.py", line 167, in poll
+    r, w, e = select.select(r, w, e, timeout)
+              ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+OSError: [WinError 10038] Сделана попытка выполнить операцию на объекте, не являющемся сокетом
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 2
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+{"modules": ["tests.test_ph_lw_01_contract", "tests.test_ph_lw_03_service", "tests.test_ph_lw_04_http", "tests.test_ph_lw_05_http", "tests.test_ph_lw_04_05_acceptance", "tests.test_ph_lw_06_http", "tests.test_ph_lw_07_http", "tests.test_ph_lw_08_http", "tests.test_ph_lw_09_http", "tests.test_ph_lw_10_http", "tests.test_ph_lw_10_lifecycle.MigrationPollingTests", "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_migration_validator_confirmation_replay_history", "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_migration_process_crash_explicit_web_recovery_missing_root", "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_legacy_v041_migration_form_keeps_completed_runs"], "ran": 77, "failures": 0, "errors": 0, "skips": [], "elapsed_seconds": 670.897, "log": "tests.log", "status": "PASS"}

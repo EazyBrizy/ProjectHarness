@@ -1,0 +1,28 @@
+test_bootstrap_reissue_does_not_revoke_other_tabs (tests.test_ph_lw_11_desktop.DesktopContractTests.test_bootstrap_reissue_does_not_revoke_other_tabs) ... ok
+test_browser_failure_displays_only_native_fallback (tests.test_ph_lw_11_desktop.DesktopContractTests.test_browser_failure_displays_only_native_fallback) ... ok
+test_resume_read_is_readonly_restart_and_cas (tests.test_ph_lw_11_desktop.DesktopContractTests.test_resume_read_is_readonly_restart_and_cas) ... ok
+test_resume_rejects_unknown_fields_ids_paths_and_screen (tests.test_ph_lw_11_desktop.DesktopContractTests.test_resume_rejects_unknown_fields_ids_paths_and_screen) ... ok
+test_stop_busy_admission_and_background_work_then_clean_stop (tests.test_ph_lw_11_desktop.DesktopContractTests.test_stop_busy_admission_and_background_work_then_clean_stop) ... ok
+test_stop_requires_session_csrf_exact_origin_and_fields (tests.test_ph_lw_11_desktop.DesktopContractTests.test_stop_requires_session_csrf_exact_origin_and_fields) ... ok
+test_activate_replay_preserves_project_and_current_version (tests.test_ph_lw_11_desktop.InstallerTransactionTests.test_activate_replay_preserves_project_and_current_version) ... ok
+test_corruption_and_extra_files_refused_before_destination (tests.test_ph_lw_11_desktop.InstallerTransactionTests.test_corruption_and_extra_files_refused_before_destination) ... ok
+test_existing_foreign_directory_never_overwritten (tests.test_ph_lw_11_desktop.InstallerTransactionTests.test_existing_foreign_directory_never_overwritten) ... ok
+test_injected_enospc_and_interruption_preserve_current_and_retry (tests.test_ph_lw_11_desktop.InstallerTransactionTests.test_injected_enospc_and_interruption_preserve_current_and_retry) ... ok
+test_native_junction_and_hardlink_payload_rejected (tests.test_ph_lw_11_desktop.InstallerTransactionTests.test_native_junction_and_hardlink_payload_rejected) ... ok
+test_native_long_payload_path_without_system_setting_change (tests.test_ph_lw_11_desktop.InstallerTransactionTests.test_native_long_payload_path_without_system_setting_change) ... ok
+test_native_readonly_current_preserves_old_pointer (tests.test_ph_lw_11_desktop.InstallerTransactionTests.test_native_readonly_current_preserves_old_pointer) ... ok
+test_dpapi_and_native_mutex_subprocess (tests.test_ph_lw_11_desktop.NativeLauncherTests.test_dpapi_and_native_mutex_subprocess) ... ok
+test_edge_manual_code_login_without_fragment_or_external_requests (tests.test_ph_lw_11_desktop.NativeLauncherTests.test_edge_manual_code_login_without_fragment_or_external_requests) ... Task queue depth is 1
+ok
+test_fresh_authenticated_handshake_and_spoof_listener (tests.test_ph_lw_11_desktop.NativeLauncherTests.test_fresh_authenticated_handshake_and_spoof_listener) ... ok
+test_launcher_resume_and_new_cookie_tab_keep_independent_navigation (tests.test_ph_lw_11_desktop.NativeLauncherTests.test_launcher_resume_and_new_cookie_tab_keep_independent_navigation) ... Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 2
+Task queue depth is 1
+ok
+test_upload_success_waits_for_refresh_before_interview_can_start (tests.test_ph_lw_11_desktop.NativeLauncherTests.test_upload_success_waits_for_refresh_before_interview_can_start) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 10.603s
+
+OK

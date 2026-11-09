@@ -1,0 +1,9 @@
+test_all_routes_exact_origin_session_csrf_methods_no_writes (tests.test_ph_lw_07_http.ApprovalHttpTests.test_all_routes_exact_origin_session_csrf_methods_no_writes) ... ok
+test_forged_fields_duplicate_keys_invalid_types_and_stale_digest_rejected (tests.test_ph_lw_07_http.ApprovalHttpTests.test_forged_fields_duplicate_keys_invalid_types_and_stale_digest_rejected) ... ok
+test_four_posts_replay_reload_ready_and_prepare_honestly_pending (tests.test_ph_lw_07_http.ApprovalHttpTests.test_four_posts_replay_reload_ready_and_prepare_honestly_pending) ... ok
+test_gpt_actor_timestamp_forgery_cannot_become_local_consent (tests.test_ph_lw_07_http.ApprovalHttpTests.test_gpt_actor_timestamp_forgery_cannot_become_local_consent) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.808s
+
+OK

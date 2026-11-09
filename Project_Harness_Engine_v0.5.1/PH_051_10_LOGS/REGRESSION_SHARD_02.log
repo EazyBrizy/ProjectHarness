@@ -1,0 +1,38 @@
+COMMAND: python -m unittest -q tests.test_ph_f08_release_acceptance
+======================================================================
+ERROR: test_i03_i12_prototype_alpha_planning_exact_replay_and_stale_rejection (tests.test_ph_f08_release_acceptance.PHF08ReleaseAcceptanceTests.test_i03_i12_prototype_alpha_planning_exact_replay_and_stale_rejection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ph05110_work/build/engine/tests/test_ph_f08_release_acceptance.py", line 65, in test_i03_i12_prototype_alpha_planning_exact_replay_and_stale_rejection
+    accepted = accept(root, base / 'prototype-records', 'PROTOTYPE')
+  File "/mnt/data/ph05110_work/build/engine/tests/ph_f06_fixtures.py", line 215, in accept
+    path = reach_gate(root, records, level)
+  File "/mnt/data/ph05110_work/build/engine/tests/ph_f06_fixtures.py", line 191, in reach_gate
+    submit_gate_sources(root, load_data(path)['stage_approval'], records / f'{level}-sources.json')
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/ph05110_work/build/engine/tests/ph_f06_fixtures.py", line 154, in submit_gate_sources
+    bodies.append(proof(root, item[field], (item.get('required_evidence_kinds') or ['REVIEW_RECORD'])[0], mapping=mapping))
+                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/ph05110_work/build/engine/tests/ph_f06_fixtures.py", line 126, in proof
+    run = subprocess.run(command, cwd=root, capture_output=True, text=True, timeout=25, check=False)
+  File "/usr/lib/python3.13/subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1222, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 2129, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1269, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['/opt/pyvenv/bin/python', '-m', 'unittest', 'discover', '-s', 'tests', '-t', 'tests', '-p', 'test_phf06_product.py', '-k', 'test_core_cli_contract']' timed out after 25 seconds
+
+----------------------------------------------------------------------
+Ran 2 tests in 155.027s
+
+FAILED (errors=1)
+
+EXIT_CODE=1

@@ -1,0 +1,22 @@
+{'module': 'test_engine', 'state': 'PASS', 'returncode': 0, 'duration_sec': 23.1}
+{'module': 'test_exact_assessment_ref', 'state': 'PASS', 'returncode': 0, 'duration_sec': 27.19}
+{'module': 'test_contract_hardening', 'state': 'PASS', 'returncode': 0, 'duration_sec': 38.49}
+{'module': 'test_ph_051_01_contract_baseline', 'state': 'PASS', 'returncode': 0, 'duration_sec': 4.13}
+{'module': 'test_ph_051_02_executor_protocol', 'state': 'PASS', 'returncode': 0, 'duration_sec': 1.88}
+{'module': 'test_ph_051_03_rootless_podman', 'state': 'PASS', 'returncode': 0, 'duration_sec': 1.82}
+{'module': 'test_ph_051_07_sandbox_verification', 'state': 'PASS', 'returncode': 0, 'duration_sec': 1.68}
+{'module': 'test_ph_f02_semantic_proof_contract', 'state': 'PASS', 'returncode': 0, 'duration_sec': 4.04}
+{'module': 'test_gate_evidence_contract', 'state': 'TIMEOUT', 'returncode': None, 'duration_sec': 55.06}
+{'module': 'test_ph_f04_runtime_reachability', 'state': 'PASS', 'returncode': 0, 'duration_sec': 20.23}
+{'module': 'test_implementation_levels', 'state': 'PASS', 'returncode': 0, 'duration_sec': 52.78}
+{'module': 'test_ph_f05_intake_acceptance', 'state': 'PASS', 'returncode': 0, 'duration_sec': 3.87}
+{'module': 'test_ph_f03_active_stage_planning', 'state': 'PASS', 'returncode': 0, 'duration_sec': 29.11}
+{'module': 'test_maintenance_lifecycle', 'state': 'TIMEOUT', 'returncode': None, 'duration_sec': 55.07}
+{'module': 'test_ph_lw_04_http', 'state': 'PASS', 'returncode': 0, 'duration_sec': 1.41}
+{'module': 'test_ph_lw_02_windows_core', 'state': 'PASS', 'returncode': 0, 'duration_sec': 7.11}
+{'module': 'test_ph_lw_03_service', 'state': 'PASS', 'returncode': 0, 'duration_sec': 11.04}
+{'module': 'test_stage_approval_preparation', 'state': 'PASS', 'returncode': 0, 'duration_sec': 12.59}
+{'module': 'test_stage_gate_preparation_block_recovery', 'state': 'PASS', 'returncode': 0, 'duration_sec': 25.04}
+{'module': 'test_stage_transaction_recovery', 'state': 'PASS', 'returncode': 0, 'duration_sec': 21.31}
+{'module': 'test_ph_f06_maturity_lifecycle', 'state': 'TIMEOUT', 'returncode': None, 'duration_sec': 55.06}
+SUMMARY {'PASS': 18, 'FAIL': 0, 'TIMEOUT': 3}

@@ -1,0 +1,54 @@
+test_03_target_change_after_assessment_marks_old_context_stale (tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_03_target_change_after_assessment_marks_old_context_stale) ... ERROR
+
+======================================================================
+ERROR: test_03_target_change_after_assessment_marks_old_context_stale (tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_03_target_change_after_assessment_marks_old_context_stale)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_assessment_freshness.py", line 286, in test_03_target_change_after_assessment_marks_old_context_stale
+    accept_stage(
+    ~~~~~~~~~~~~^
+        root,
+        ^^^^^
+    ...<11 lines>...
+        ),
+        ^^
+    )
+    ^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\operation_guard.py", line 106, in wrapper
+    return function(root, *args, **kwargs)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\stages.py", line 2268, in accept_stage
+    committed_result = _transactional_write(
+        root,
+    ...<4 lines>...
+        result=planned_result,
+    )
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\stages.py", line 1381, in _transactional_write
+    outcome = apply_stage_transaction(
+        root,
+    ...<8 lines>...
+        replace_canonical=lambda source, target: os.replace(source, target),
+    )
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\stage_transactions.py", line 1098, in apply_stage_transaction
+    return _apply_stage_transaction_locked(
+        root, writes, transaction_id=transaction_id,
+        operation_kind=operation_kind, request_digest=request_digest,
+        result=result, replace_canonical=replace_canonical,
+    )
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\stage_transactions.py", line 1022, in _apply_stage_transaction_locked
+    journal = _prepare_stage_transaction(
+        root,
+    ...<4 lines>...
+        result=result,
+    )
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\stage_transactions.py", line 600, in _prepare_stage_transaction
+    _fsync_file(staged)
+    ~~~~~~~~~~~^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\stage_transactions.py", line 73, in _fsync_file
+    os.fsync(fd)
+    ~~~~~~~~^^^^
+OSError: [Errno 9] Bad file descriptor
+
+----------------------------------------------------------------------
+Ran 1 test in 16.155s
+
+FAILED (errors=1)

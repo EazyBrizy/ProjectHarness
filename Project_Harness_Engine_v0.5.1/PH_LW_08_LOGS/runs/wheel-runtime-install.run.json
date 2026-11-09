@@ -1,0 +1,22 @@
+{
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_08\\wheel-env\\Scripts\\python.exe",
+    "-m",
+    "pip",
+    "install",
+    "--no-index",
+    "--find-links",
+    "_tools/wheelhouse",
+    "--require-hashes",
+    "-r",
+    "Project_Harness_Engine_v0.5.1/local_web/requirements-web-win_amd64-cp314.lock"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T03:59:36.308339+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 180,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 10.482,
+  "log_sha256": "913f6f5faf01dc16afdb90c80c0f5a3417a7a9b81a855cafe5bbc346707ee863"
+}

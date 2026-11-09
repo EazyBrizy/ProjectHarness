@@ -1,0 +1,19 @@
+Exception when servicing <waitress.channel.HTTPChannel connected 127.0.0.1:60180 at 0x1b700132140>
+Traceback (most recent call last):
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 83, in handler_thread
+    task.service()
+    ~~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\channel.py", line 512, in service
+    self.server.pull_trigger()
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\server.py", line 334, in pull_trigger
+    self.trigger.pull_trigger()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\trigger.py", line 96, in pull_trigger
+    self._physical_pull()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\trigger.py", line 200, in _physical_pull
+    self.trigger.send(b"x")
+    ~~~~~~~~~~~~~~~~~^^^^^^
+OSError: [WinError 10038] Сделана попытка выполнить операцию на объекте, не являющемся сокетом
+{"modules": ["tests.test_ph_lw_04_http"], "ran": 17, "failures": 0, "errors": 0, "skips": [], "elapsed_seconds": 51.56, "log": "test_ph_lw_04_http.log", "status": "PASS"}

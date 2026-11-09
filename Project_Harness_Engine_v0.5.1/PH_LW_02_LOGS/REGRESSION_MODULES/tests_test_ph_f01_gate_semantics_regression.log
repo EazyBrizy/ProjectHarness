@@ -1,0 +1,9 @@
+test_01_preparation_fixture_has_all_four_mandatory_proof_kinds (tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_01_preparation_fixture_has_all_four_mandatory_proof_kinds)
+GREEN fixture preconditions, independent of PH-F02's later fix. ... ok
+test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds (tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds) ... ok
+test_ph_f02_noop_pass_keeps_gate_unclosed_without_subject_proofs (tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_keeps_gate_unclosed_without_subject_proofs) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 9.311s
+
+OK

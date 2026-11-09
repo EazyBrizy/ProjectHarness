@@ -1,0 +1,78 @@
+test_ui_upload_preview_duplicate_replace_and_no_documentation (tests.test_ph_lw_04_05_acceptance.BrowserImportAcceptance.test_ui_upload_preview_duplicate_replace_and_no_documentation) ... FAIL
+test_http_operation_replay_after_restart_and_new_stale_request (tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_http_operation_replay_after_restart_and_new_stale_request) ... ok
+test_production_wsgi_declared_and_chunked_body_header_and_idle_limits (tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_production_wsgi_declared_and_chunked_body_header_and_idle_limits) ... ERROR
+test_real_upload_malicious_archives_auth_and_read_only_preview (tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_real_upload_malicious_archives_auth_and_read_only_preview) ... ok
+
+======================================================================
+ERROR: test_production_wsgi_declared_and_chunked_body_header_and_idle_limits (tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_production_wsgi_declared_and_chunked_body_header_and_idle_limits)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_04_05_acceptance.py", line 158, in test_production_wsgi_declared_and_chunked_body_header_and_idle_limits
+    self.assertEqual(conn.getresponse().status, 413)
+                     ~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\_tools\Python314\Lib\http\client.py", line 1478, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\_tools\Python314\Lib\http\client.py", line 343, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\_tools\Python314\Lib\http\client.py", line 304, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\socket.py", line 729, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+TimeoutError: timed out
+
+======================================================================
+FAIL: test_ui_upload_preview_duplicate_replace_and_no_documentation (tests.test_ph_lw_04_05_acceptance.BrowserImportAcceptance.test_ui_upload_preview_duplicate_replace_and_no_documentation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_04_05_acceptance.py", line 235, in test_ui_upload_preview_duplicate_replace_and_no_documentation
+    expect(page.locator('#confirm-no-docs')).to_be_enabled()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\sync_api\_generated.py", line 14672, in to_be_enabled
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.to_be_enabled(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            enabled=enabled, timeout=to_milliseconds(timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 807, in to_be_enabled
+    await self._expect_impl(
+    ...<5 lines>...
+    )
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        AssertionError(
+        ^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        self._is_soft,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to be enabled
+Actual value: disabled 
+Call log:
+  - Expect "to_be_enabled" locator("#confirm-no-docs") with timeout 5000ms
+  - waiting for locator("#confirm-no-docs")
+    14 × locator resolved to <button disabled class="quiet" type="button" id="confirm-no-docs">Документации нет</button>
+       - unexpected value "disabled"
+
+Aria snapshot:
+- button "Документации нет" [disabled]
+
+----------------------------------------------------------------------
+Ran 4 tests in 31.026s
+
+FAILED (failures=1, errors=1)

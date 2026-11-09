@@ -1,0 +1,94 @@
+test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss (tests.test_ph_lw_07_http.ApprovalBrowserTests.test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss) ... FAIL
+test_all_routes_exact_origin_session_csrf_methods_no_writes (tests.test_ph_lw_07_http.ApprovalHttpTests.test_all_routes_exact_origin_session_csrf_methods_no_writes) ... ok
+test_forged_fields_duplicate_keys_invalid_types_and_stale_digest_rejected (tests.test_ph_lw_07_http.ApprovalHttpTests.test_forged_fields_duplicate_keys_invalid_types_and_stale_digest_rejected) ... ERROR
+test_four_posts_replay_reload_ready_and_prepare_honestly_pending (tests.test_ph_lw_07_http.ApprovalHttpTests.test_four_posts_replay_reload_ready_and_prepare_honestly_pending) ... ok
+test_gpt_actor_timestamp_forgery_cannot_become_local_consent (tests.test_ph_lw_07_http.ApprovalHttpTests.test_gpt_actor_timestamp_forgery_cannot_become_local_consent) ... ok
+
+======================================================================
+ERROR: test_forged_fields_duplicate_keys_invalid_types_and_stale_digest_rejected (tests.test_ph_lw_07_http.ApprovalHttpTests.test_forged_fields_duplicate_keys_invalid_types_and_stale_digest_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_07_http.py", line 89, in test_forged_fields_duplicate_keys_invalid_types_and_stale_digest_rejected
+    self.assertEqual(self.live.request('POST',self.base+'/approvals/decisions',value={**args,**fields})[0],400)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_04_05_acceptance.py", line 55, in request
+    conn.request(method, path, body=data, headers=hdr)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\http\client.py", line 1386, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\http\client.py", line 1432, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\http\client.py", line 1381, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\http\client.py", line 1141, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\http\client.py", line 1085, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "<WORKSPACE>\_tools\Python314\Lib\http\client.py", line 1051, in connect
+    self.sock = self._create_connection(
+                ~~~~~~~~~~~~~~~~~~~~~~~^
+        (self.host,self.port), self.timeout, self.source_address)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\socket.py", line 874, in create_connection
+    raise exceptions[0]
+  File "<WORKSPACE>\_tools\Python314\Lib\socket.py", line 859, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+OSError: [WinError 10055] Невозможно выполнить операцию на сокете, т.к. буфер слишком мал или очередь переполнена
+
+======================================================================
+FAIL: test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss (tests.test_ph_lw_07_http.ApprovalBrowserTests.test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_07_http.py", line 195, in test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss
+    expect(page.locator('#approvals-status')).to_contain_text(f'{index+1} из 5')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\sync_api\_generated.py", line 14961, in to_contain_text
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.to_contain_text(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        )
+        ^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 303, in to_contain_text
+    await self._expect_impl(
+    ...<9 lines>...
+    )
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        AssertionError(
+        ^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        self._is_soft,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to contain text '1 из 5'
+Actual value: 0 из 5 решений · WAITING_DECISION 
+Call log:
+  - Expect "to_contain_text" locator("#approvals-status") with timeout 5000ms
+  - waiting for locator("#approvals-status")
+    14 × locator resolved to <p role="status" aria-live="polite" id="approvals-status">0 из 5 решений · WAITING_DECISION</p>
+       - unexpected value "0 из 5 решений · WAITING_DECISION"
+
+Aria snapshot:
+- status: 0 из 5 решений · WAITING_DECISION
+
+----------------------------------------------------------------------
+Ran 5 tests in 16.966s
+
+FAILED (failures=1, errors=1)

@@ -1,0 +1,14 @@
+{
+  "command": [
+    "_tools/InnoSetup674/ISCC.exe",
+    "_scratch/ph_lw_11/build-first/Harness.iss"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T23:09:07.004916+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 120,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 7.079,
+  "log_sha256": "75904681463296159ffa09000ea91a0121ec29fadebb231ef86fa1e4cb6d99e2"
+}

@@ -1,0 +1,58 @@
+{
+  "stage_verdict": "PASS",
+  "native": {
+    "status": "PASS",
+    "tests": 183,
+    "skips": [],
+    "installed_wheel_tests": 181,
+    "ph_lw_10_tests": 29,
+    "source": "native-accepted/PH_LW_10_WINDOWS_TEST_REPORT.json",
+    "installed_parts": [
+      {
+        "part": "main",
+        "tests": 179,
+        "status": "FAIL",
+        "build_digest": "sha256:7f54e8fa19f2751a511c127deaa28904f19fd487249c148bf1ae71f3c1c5e9c1",
+        "evidence": "runs/installed-main.run.json"
+      },
+      {
+        "part": "native",
+        "tests": 1,
+        "status": "PASS",
+        "build_digest": "sha256:7f54e8fa19f2751a511c127deaa28904f19fd487249c148bf1ae71f3c1c5e9c1",
+        "evidence": "runs/installed-native.run.json"
+      },
+      {
+        "part": "verified",
+        "tests": 37,
+        "status": "PASS",
+        "build_digest": "sha256:cfa3d0b37dd4f8f717c52749ab440f4888220904eacf2f2d4c263156ba4a5e54",
+        "supersedes": "All corresponding browser/HTTP, migration/recovery methods and native picker in main/native runs",
+        "evidence": "runs/installed-verified.run.json"
+      }
+    ],
+    "monolithic_native_status": "FAIL",
+    "native_method": "Composite: full 182-method run plus final UI/HTTP/service/migration rechecks and one added deterministic polling test; immutable core and old tests verified by hashes",
+    "native_final_ui_tests": 49,
+    "native_final_ui_status": "PASS",
+    "native_final_ui_source": "source-verified/tests.json",
+    "final_source_recheck_tests": 77,
+    "installed_method": "Composite: main/native runs plus final installed browser/HTTP/migration/native-picker recheck and new deterministic polling test; original main FAIL preserved",
+    "ph_f06": "13 PASS, 0 SKIP",
+    "mandatory_not_run": []
+  },
+  "matrix": {
+    "modules": 49,
+    "test_methods": 575,
+    "module_statuses": {
+      "PASS": 39,
+      "PASS_WITH_SKIPS": 3,
+      "FAIL": 7
+    },
+    "failure_events": 24,
+    "error_events": 88,
+    "skips": 7,
+    "timeouts": 0,
+    "mandatory_not_run": []
+  }
+}

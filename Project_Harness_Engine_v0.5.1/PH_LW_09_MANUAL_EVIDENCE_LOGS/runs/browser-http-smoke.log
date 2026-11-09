@@ -1,0 +1,17 @@
+test_edge_external_agent_result_no_consent_verify_complete_next (tests.test_ph_lw_09_http.TasksBrowserTests.test_edge_external_agent_result_no_consent_verify_complete_next) ... Task queue depth is 1
+ok
+test_real_tcp_auth_consent_fields_replay_and_stale_view (tests.test_ph_lw_09_manual_evidence.ManualEvidenceHttpTests.test_real_tcp_auth_consent_fields_replay_and_stale_view) ... FAIL
+
+======================================================================
+FAIL: test_real_tcp_auth_consent_fields_replay_and_stale_view (tests.test_ph_lw_09_manual_evidence.ManualEvidenceHttpTests.test_real_tcp_auth_consent_fields_replay_and_stale_view)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_09_manual_evidence.py", line 154, in test_real_tcp_auth_consent_fields_replay_and_stale_view
+    self.assertEqual(live.request('POST',base+'/operations',value=request,headers=headers)[0],403)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 401 != 403
+
+----------------------------------------------------------------------
+Ran 2 tests in 108.503s
+
+FAILED (failures=1)

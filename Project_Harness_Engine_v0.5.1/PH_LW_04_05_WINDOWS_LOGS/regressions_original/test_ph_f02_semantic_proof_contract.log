@@ -1,0 +1,10 @@
+test_external_issuer_and_subject_are_not_interchangeable (tests.test_ph_f02_semantic_proof_contract.PHF02SemanticProofContractTests.test_external_issuer_and_subject_are_not_interchangeable) ... ok
+test_no_test_level_coverage_cannot_certify_test_report (tests.test_ph_f02_semantic_proof_contract.PHF02SemanticProofContractTests.test_no_test_level_coverage_cannot_certify_test_report) ... ok
+test_real_document_proof_has_exact_subject_and_source_integrity (tests.test_ph_f02_semantic_proof_contract.PHF02SemanticProofContractTests.test_real_document_proof_has_exact_subject_and_source_integrity) ... ok
+test_source_tamper_prevents_evidence_resolution (tests.test_ph_f02_semantic_proof_contract.PHF02SemanticProofContractTests.test_source_tamper_prevents_evidence_resolution) ... ok
+test_user_claim_or_generic_runtime_pass_never_certifies_document (tests.test_ph_f02_semantic_proof_contract.PHF02SemanticProofContractTests.test_user_claim_or_generic_runtime_pass_never_certifies_document) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 5.509s
+
+OK

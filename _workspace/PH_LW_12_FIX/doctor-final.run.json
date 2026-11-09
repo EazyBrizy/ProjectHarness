@@ -1,0 +1,13 @@
+{
+  "command": [
+    "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+    "-B",
+    "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1\\project-harness.py",
+    "doctor"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "exit": 0,
+  "status": "PASS",
+  "log": "doctor-final.log",
+  "log_sha256": "38159f7d536024eaafc5e73e86e531993b5f18846c805f741b46ba0947f5b11b"
+}

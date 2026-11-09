@@ -1,0 +1,43 @@
+{
+  "operation_id": "LWO-0822D5F3E1311DDE9B213D4C7A6CC8A8",
+  "project_id": "LWP-4FEFD6C3FD358320C38E",
+  "action": "verify",
+  "request_digest": "sha256:e3e905f8e50cd5607caf55ce8611789e3b43a45a9de1ed0b5148787a547d22e2",
+  "expected_fingerprint": "sha256:37a7e0b624b3c2d66ed9b80343d9fe7b954ed1c0b08101fa62be0c21a255ef9c",
+  "created_at": "2026-11-08T13:08:48Z",
+  "updated_at": "2026-11-08T13:08:50Z",
+  "started_at": "2026-11-08T13:08:48Z",
+  "finished_at": "2026-11-08T13:08:50Z",
+  "state": "SUCCEEDED",
+  "phase": "DONE",
+  "core_before": "sha256:37a7e0b624b3c2d66ed9b80343d9fe7b954ed1c0b08101fa62be0c21a255ef9c",
+  "core_after": "sha256:151dab50627c6292097e9a5911c65b4a83653efa37ea4d19d4174fb45b72a999",
+  "before_active_run_ref": null,
+  "expected_draft_after": null,
+  "result": {
+    "action": "verify",
+    "core_status": "BLOCKED",
+    "refs": {
+      "status": "BLOCKED"
+    }
+  },
+  "error": null,
+  "receipt": {
+    "kind": "LOCAL_WEB_OPERATION_RECEIPT",
+    "receipt_version": 1,
+    "operation_id": "LWO-0822D5F3E1311DDE9B213D4C7A6CC8A8",
+    "project_ref": "LWP-4FEFD6C3FD358320C38E",
+    "action_id": "LW-C12",
+    "idempotency_key": "browser-7ccf9d9350ddb99849ee7343ae7899c0",
+    "request_sha256": "sha256:e3e905f8e50cd5607caf55ce8611789e3b43a45a9de1ed0b5148787a547d22e2",
+    "expected_core_fingerprint": "sha256:37a7e0b624b3c2d66ed9b80343d9fe7b954ed1c0b08101fa62be0c21a255ef9c",
+    "core_outcome": "CONFIRMED_COMMITTED",
+    "created_at": "2026-11-08T13:08:48Z",
+    "verification_consent": {
+      "binding_digest": "sha256:78c4b6ff4308eb6f3aaca36931f40ca680f646406f4ebc96d69981fabf7045ce",
+      "plan_digest": "sha256:339ebeedd703cadef9bfdb98b021e40247770cc4f364910eda01ec4006d0247c",
+      "consent": false
+    }
+  },
+  "record_digest": "sha256:227f82146399819192c360aca4435486f79f26d9c6bc6da63ca5034bb37b45eb"
+}

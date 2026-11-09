@@ -1,0 +1,31 @@
+{
+  "name": "test_ph_f06_maturity_lifecycle-nonbrowser",
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;import project_harness;assert Path(project_harness.__file__).resolve().is_relative_to(Path(sys.prefix).resolve());sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel\\test_ph_f06_maturity_lifecycle-nonbrowser.log",
+    "tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_05_supplied_proofs_survive_assessment_then_sequential_baseline_reports_and_planner",
+    "tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_06_readme_beta_missing_execution_evidence_do_not_accept_or_run_commands",
+    "tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_07_stale_tree_and_exact_assessment_digest_never_mutate_acceptance",
+    "tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_08_baseline_acceptance_cannot_bypass_concurrent_maintenance",
+    "tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_10_clean_read_only_assessment_keeps_reserved_run_executable",
+    "tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_11_assessment_never_launders_preexisting_control_plane_tampering",
+    "tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_12_normalized_proof_tamper_or_generic_pass_rejected_before_import",
+    "tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_13_stale_normalized_reimport_keeps_immutable_fact_and_downgrades_assessment",
+    "tests.test_ph_f06_maturity_lifecycle.PHF06MaturityLifecycleTests.test_01_greenfield_all_four_stages_have_verified_immutable_acceptances",
+    "tests.test_ph_f06_maturity_lifecycle.PHF06MaturityLifecycleTests.test_02_maintenance_complete_level_up_release_and_idempotent_replay",
+    "tests.test_ph_f06_maturity_lifecycle.PHF06MaturityLifecycleTests.test_03_lower_equal_targets_noop_and_skip_rejected_without_history_changes",
+    "tests.test_ph_f06_maturity_lifecycle.PHF06MaturityLifecycleTests.test_04_new_level_up_cannot_reset_an_unfinished_cycle_or_active_run",
+    "tests.test_ph_f06_maturity_lifecycle.PHF06MigrationTests.test_09_migration_restart_preserves_historical_completed_runs"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_12\\Независимая папка wheel",
+  "exit": 1,
+  "status": "TIMEOUT",
+  "elapsed_seconds": 900.846,
+  "environment_ref": "WHEEL_ENVIRONMENT.json",
+  "process_status": "TIMEOUT",
+  "log_sha256": "15d29ccb39777ddf79c9dfea78a8833d9e0de4a400f531f52a9b60ac132145e3"
+}

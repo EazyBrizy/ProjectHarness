@@ -1,0 +1,74 @@
+Thread 0x00006d44 [asyncio_0] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\concurrent\futures\thread.py", line 116 in _worker
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x0000399c [harness-local-web_0] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\concurrent\futures\thread.py", line 116 in _worker
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x00003778 [Thread-33 (run)] (most recent call first):
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\wasyncore.py", line 167 in poll
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\wasyncore.py", line 240 in loop
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\server.py", line 325 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x00008978 [waitress-3] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x0000b124 [waitress-2] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x00009160 [waitress-1] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x000096a4 [waitress-0] (most recent call first):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\hashing.py", line 16 in <lambda>
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\hashing.py", line 16 in sha256_file
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\registry.py", line 178 in load_registries
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\stages.py", line 145 in _model
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\stages.py", line 153 in level_ordinal
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\stages.py", line 741 in validate_stage_cross_references
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\stages.py", line 2806 in stage_status
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_service.py", line 335 in get_status
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_http.py", line 537 in project_status
+  File "<WORKSPACE>\.venv\Lib\site-packages\flask\app.py", line 902 in dispatch_request
+  File "<WORKSPACE>\.venv\Lib\site-packages\flask\app.py", line 917 in full_dispatch_request
+  File "<WORKSPACE>\.venv\Lib\site-packages\flask\app.py", line 1511 in wsgi_app
+  File "<WORKSPACE>\.venv\Lib\site-packages\flask\app.py", line 1536 in __call__
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\proxy_headers.py", line 64 in translate_proxy_headers
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 435 in execute
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 167 in service
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\channel.py", line 430 in service
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 83 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Current thread 0x00003a10 (most recent call first):
+  File "<WORKSPACE>\tools\diagnose_ph_lw_10_polling.py", line 31 in closing
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\case.py", line 632 in _callCleanup
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\case.py", line 706 in doCleanups
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\case.py", line 673 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\case.py", line 725 in __call__
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\suite.py", line 122 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\suite.py", line 84 in __call__
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\runner.py", line 257 in run
+  File "<WORKSPACE>\tools\diagnose_ph_lw_10_polling.py", line 35 in <module>

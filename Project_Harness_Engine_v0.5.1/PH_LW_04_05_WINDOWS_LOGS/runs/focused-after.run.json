@@ -1,0 +1,21 @@
+{
+  "command": [
+    "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_malformed_action_and_non_ascii_csrf_are_denied_without_mutation",
+    "tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_http_replay_after_commit_returns_original_operation",
+    "tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_get_refresh_read_only_xss_text_and_download_paths_rejected",
+    "tests.test_ph_lw_05_http",
+    "tests.test_ph_lw_05_import"
+  ],
+  "cwd": "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+  "started_utc": "2026-11-06T23:20:55.299392+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 600,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 22.328,
+  "log_sha256": "a0c76b515bafe18b5d6e092d7c20049c24465f4a01123f5ee382263b86c637ad"
+}

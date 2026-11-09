@@ -1,0 +1,11 @@
+test_cleanup_denial_retains_original_error_and_requires_review (tests.test_ph_lw_12_blockers.DeepAppDataTests.test_cleanup_denial_retains_original_error_and_requires_review) ... ok
+test_deep_creation_cleanup_preserves_original_error_and_committed_root (tests.test_ph_lw_12_blockers.DeepAppDataTests.test_deep_creation_cleanup_preserves_original_error_and_committed_root) ... ok
+test_deep_intake_sources_replay_and_restart (tests.test_ph_lw_12_blockers.DeepAppDataTests.test_deep_intake_sources_replay_and_restart) ... ok
+test_deep_publication_keeps_identity_and_refuses_existing_destination (tests.test_ph_lw_12_blockers.DeepAppDataTests.test_deep_publication_keeps_identity_and_refuses_existing_destination) ... ok
+test_handoff_archive_long_output_keeps_exact_names_and_crc (tests.test_ph_lw_12_blockers.DeepAppDataTests.test_handoff_archive_long_output_keeps_exact_names_and_crc) ... ok
+test_long_control_plane_scan_keeps_files_and_detects_tamper (tests.test_ph_lw_12_blockers.DeepAppDataTests.test_long_control_plane_scan_keeps_files_and_detects_tamper) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.448s
+
+OK

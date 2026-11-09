@@ -1,0 +1,33 @@
+test_ambiguous_recovery_preserves_cli_change (tests.test_ph_lw_06_exchange.ExchangeTests.test_ambiguous_recovery_preserves_cli_change) ... ok
+test_commit_crash_after_and_before_atomic_public_api (tests.test_ph_lw_06_exchange.ExchangeTests.test_commit_crash_after_and_before_atomic_public_api) ... ok
+test_documented_and_no_documentation_greenfield_typed_draft_roundtrip (tests.test_ph_lw_06_exchange.ExchangeTests.test_documented_and_no_documentation_greenfield_typed_draft_roundtrip) ... ok
+test_export_policy_classification_consent_secrets_and_size (tests.test_ph_lw_06_exchange.ExchangeTests.test_export_policy_classification_consent_secrets_and_size) ... ok
+test_invalid_envelopes_are_no_write_and_repair_is_bounded (tests.test_ph_lw_06_exchange.ExchangeTests.test_invalid_envelopes_are_no_write_and_repair_is_bounded) ... 
+  test_invalid_envelopes_are_no_write_and_repair_is_bounded (tests.test_ph_lw_06_exchange.ExchangeTests.test_invalid_envelopes_are_no_write_and_repair_is_bounded) (code='APPROVAL_FORGERY') ... FAIL
+test_large_pack_has_all_parts_counts_and_hashes (tests.test_ph_lw_06_exchange.ExchangeTests.test_large_pack_has_all_parts_counts_and_hashes) ... ok
+test_parse_limits_duplicate_keys_yaml_deep_and_nonfinite_no_write (tests.test_ph_lw_06_exchange.ExchangeTests.test_parse_limits_duplicate_keys_yaml_deep_and_nonfinite_no_write) ... ok
+test_read_only_interview_review_download_and_pack_binding (tests.test_ph_lw_06_exchange.ExchangeTests.test_read_only_interview_review_download_and_pack_binding) ... ok
+test_reload_restart_exact_replay_and_cancel_before_commit (tests.test_ph_lw_06_exchange.ExchangeTests.test_reload_restart_exact_replay_and_cancel_before_commit) ... ok
+test_stale_input_source_changed_and_two_previews_cannot_overwrite (tests.test_ph_lw_06_exchange.ExchangeTests.test_stale_input_source_changed_and_two_previews_cannot_overwrite) ... ok
+test_synthetic_existing_approvals_unchanged_binding_or_invalidation (tests.test_ph_lw_06_exchange.ExchangeTests.test_synthetic_existing_approvals_unchanged_binding_or_invalidation) ... ok
+test_unknowns_unsure_and_pending_approvals_cannot_become_ready (tests.test_ph_lw_06_exchange.ExchangeTests.test_unknowns_unsure_and_pending_approvals_cannot_become_ready) ... ok
+
+======================================================================
+FAIL: test_invalid_envelopes_are_no_write_and_repair_is_bounded (tests.test_ph_lw_06_exchange.ExchangeTests.test_invalid_envelopes_are_no_write_and_repair_is_bounded) (code='APPROVAL_FORGERY')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_06_exchange.py", line 150, in test_invalid_envelopes_are_no_write_and_repair_is_bounded
+    self.assert_rejected_unchanged(reply, code)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_06_exchange.py", line 81, in assert_rejected_unchanged
+    self.assertEqual(result['error']['code'], code, result)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'DRAFT_SCHEMA_INVALID' != 'APPROVAL_FORGERY'
+- DRAFT_SCHEMA_INVALID
++ APPROVAL_FORGERY
+ : {'status': 'REJECTED', 'error': {'code': 'DRAFT_SCHEMA_INVALID', 'message_ru': 'PROJECT_INPUT@4 draft содержит неверные или недостающие поля.', 'next_action_ru': 'Проверьте ошибки, исправьте ответ или подготовьте новый пакет.', 'validation_errors': [{'path': 'approvals.project_definition.approved_at', 'keyword': 'type'}]}, 'repair_prompt': 'Repair the JSON reply for LOCAL_WEB_GPT_DRAFT_ONLY@2, export LWX-2DEEE572D107E8E8CCEB9C8F7C068A4E.\nKeep all exact bindings from the original pack. No approvals, actor, evidence or execution changes. Return one bounded JSON object, not YAML or a code fence. Preserve unknowns; do not invent defaults.\n{"code": "DRAFT_SCHEMA_INVALID", "errors": [{"path": "approvals.project_definition.approved_at", "keyword": "type"}]}\nPROJECT_INPUT@4 draft содержит неверные или недостающие поля.'}
+
+----------------------------------------------------------------------
+Ran 12 tests in 10.747s
+
+FAILED (failures=1)

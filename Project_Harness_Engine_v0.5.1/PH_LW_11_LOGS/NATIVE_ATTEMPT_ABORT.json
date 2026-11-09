@@ -1,0 +1,6 @@
+{
+  "status": "ABORTED",
+  "reason": "Final native aggregate stopped after reproducible Edge browser.close stall even on about:blank; completed cases retained; independent full core matrix continues; targeted non-browser desktop checks will run separately",
+  "process_id": 12116,
+  "run": "runs/native-ui-final.run.json"
+}

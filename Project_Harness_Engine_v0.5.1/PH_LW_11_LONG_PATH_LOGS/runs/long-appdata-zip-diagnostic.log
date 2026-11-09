@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>\_scratch\ph_lw_11_long_path\diagnose_zip.py", line 12, in <module>
+    result=service.upload_sources(pid,[('Документы.zip',BytesIO(archive([('Раздел/Требования.md',b'# fixture'),('skip.png',b'image')])))],mode='ADD',expected_fingerprint=state['fingerprint'],expected_source_revision=0)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_service.py", line 489, in upload_sources
+    return upload_sources(self, project_id, uploads, mode=mode,
+                          expected_fingerprint=expected_fingerprint,
+                          expected_source_revision=expected_source_revision)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_sources_service.py", line 132, in upload_sources
+    incoming = build_snapshot(imports_root, uploads, mode=mode, expected_revision=state['revision'])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_imports.py", line 398, in build_snapshot
+    raise ValidationFailure('SOURCE_IMPORT_REQUEST_INVALID')
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: SOURCE_IMPORT_REQUEST_INVALID
+Traceback (most recent call last):
+  File "<WORKSPACE>\_scratch\ph_lw_11_long_path\diagnose_zip.py", line 12, in <module>
+    result=service.upload_sources(pid,[('Документы.zip',BytesIO(archive([('Раздел/Требования.md',b'# fixture'),('skip.png',b'image')])))],mode='ADD',expected_fingerprint=state['fingerprint'],expected_source_revision=0)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_service.py", line 489, in upload_sources
+    return upload_sources(self, project_id, uploads, mode=mode,
+                          expected_fingerprint=expected_fingerprint,
+                          expected_source_revision=expected_source_revision)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_sources_service.py", line 132, in upload_sources
+    incoming = build_snapshot(imports_root, uploads, mode=mode, expected_revision=state['revision'])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_imports.py", line 398, in build_snapshot
+    raise ValidationFailure('SOURCE_IMPORT_REQUEST_INVALID')
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: SOURCE_IMPORT_REQUEST_INVALID

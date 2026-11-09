@@ -1,0 +1,15 @@
+{
+  "command": [
+    "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+    "-B",
+    "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Documentation_v0.5.1\\tools\\validate_documentation.py",
+    "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Documentation_v0.5.1",
+    "--json",
+    "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_workspace\\PH_LW_12_FIX\\DOC_VALIDATION.json"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "exit": 0,
+  "status": "PASS",
+  "log": "documentation-final-1.log",
+  "log_sha256": "3408cfe49de29d548858e704f3d7396d4454d7d162da2983fa0e8e275351f4ab"
+}

@@ -1,0 +1,41 @@
+test_nested_zip_long_path_preview_exact_bytes_and_readonly (tests.test_ph_lw_11_zip_path.LongAppDataZipTests.test_nested_zip_long_path_preview_exact_bytes_and_readonly) ... ERROR
+
+======================================================================
+ERROR: test_nested_zip_long_path_preview_exact_bytes_and_readonly (tests.test_ph_lw_11_zip_path.LongAppDataZipTests.test_nested_zip_long_path_preview_exact_bytes_and_readonly)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_11_zip_path.py", line 44, in test_nested_zip_long_path_preview_exact_bytes_and_readonly
+    result=self.push([('Документы.zip',wire)])
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 57, in push
+    return service.upload_sources(self.pid,
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+        [(name, BytesIO(content)) for name, content in files], mode=mode,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        expected_fingerprint=s['fingerprint'], expected_source_revision=state['source_revision'])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_service.py", line 489, in upload_sources
+    return upload_sources(self, project_id, uploads, mode=mode,
+                          expected_fingerprint=expected_fingerprint,
+                          expected_source_revision=expected_source_revision)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_sources_service.py", line 132, in upload_sources
+    incoming = build_snapshot(imports_root, uploads, mode=mode, expected_revision=state['revision'])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_imports.py", line 481, in build_snapshot
+    docs, nested_skipped, extracted = _extract_md_zip(staging / raw_rel, staging / material_rel)
+                                      ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_imports.py", line 184, in _extract_md_zip
+    indexed[key] = _native_io_path(info).is_dir()
+                   ~~~~~~~~~~~~~~~^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\platform_fs.py", line 79, in _native_io_path
+    path = Path(path).expanduser()
+           ~~~~^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 150, in __init__
+    raise TypeError(
+    ...<2 lines>...
+        f"not {type(path).__name__!r}")
+TypeError: argument should be a str or an os.PathLike object where __fspath__ returns a str, not 'ZipInfo'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.203s
+
+FAILED (errors=1)

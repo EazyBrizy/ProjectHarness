@@ -1,0 +1,125 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\local_web\windows\final_acceptance.py", line 111, in test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete
+    with page.expect_response(lambda r:r.url.endswith('/preparation/start')) as started:
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_scratch\ph_lw_12\wheel-venv\Lib\site-packages\playwright\sync_api\_generated.py", line 14811, in to_be_visible
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.to_be_visible(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            timeout=to_milliseconds(timeout), visible=visible
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "<WORKSPACE>\_scratch\ph_lw_12\wheel-venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "<WORKSPACE>\_scratch\ph_lw_12\wheel-venv\Lib\site-packages\playwright\_impl\_assertions.py", line 852, in to_be_visible
+    await self._expect_impl(
+    ...<5 lines>...
+    )
+  File "<WORKSPACE>\_scratch\ph_lw_12\wheel-venv\Lib\site-packages\playwright\_impl\_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        AssertionError(
+        ^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        self._is_soft,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "<WORKSPACE>\_scratch\ph_lw_12\wheel-venv\Lib\site-packages\playwright\_impl\_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to be visible
+Actual value: hidden 
+Call log:
+  - Expect "to_be_visible" locator("#preparation-complete") with timeout 180000ms
+  - waiting for locator("#preparation-complete")
+    355 × locator resolved to <div class="hidden" id="preparation-complete">…</div>
+        - unexpected value "hidden"
+
+Aria snapshot:
+- link "Перейти к содержимому":
+  - /url: "#workspace"
+- complementary "Навигация":
+  - strong: Project Harness
+  - text: Локальный мастер · 0.1.0-dev
+  - paragraph: РАБОЧАЯ ОБЛАСТЬ
+  - navigation "Разделы проекта":
+    - button "Проекты и запуск"
+    - button "Документы"
+    - button "Опрос и GPT"
+    - button "Согласования"
+    - button "Обзор проекта"
+    - button "Задачи и Run"
+    - button "Стадии и доказательства"
+    - button "Обслуживание"
+    - button "Диагностика"
+  - text: Только этот компьютер Без provider API, облака и автоматического запуска Codex
+- main:
+  - paragraph: ЛОКАЛЬНОЕ УПРАВЛЕНИЕ ПРОЕКТОМ
+  - heading "Согласования" [level=1]
+  - status: Сессия активна
+  - button "Обновить состояние"
+  - button "Выйти"
+  - button "Завершить Harness"
+  - status: Статус получен. GET не запускает проектные операции.
+  - paragraph: Проверьте содержание каждого решения, подтвердите отдельно или верните на доработку.
+  - region "Отдельные согласования":
+    - heading "Отдельные согласования" [level=2]
+    - status: 4 из 4 решений · READY_FOR_HANDOFF
+    - paragraph: Передача подтверждена. Проект пока не создан. Подтвердите новую папку в форме подготовки ниже.
+    - paragraph: Каждое решение относится к показанному содержанию и текущим источникам. Receipt фиксирует локальное действие; это не цифровая подпись и не удостоверение личности.
+    - paragraph: "Оператор каждого решения: ACT-WIN12-OPERATOR"
+    - button "Перечитать согласования"
+    - status
+    - heading "Project Definition · Согласовано" [level=3]
+    - text: "{ \"implementation\": { \"claimed_current_level\": \"NONE\", \"target_level\": \"MVP\" }, \"mode\": \"GREENFIELD\", \"profile\": { \"rationale\": \"The accepted first outcome is a local command-line tool.\", \"ref\": \"PRF-CLI-TOOL@1\" }, \"project\": { \"ambiguity_mode\": \"PRAGMATIC\", \"assumptions\": [ { \"owner\": \"ACT-USER-001\", \"review_trigger\": \"Before multi-process use\", \"statement\": \"A single local process writes the task file\" } ], \"connectivity\": \"OFFLINE_FIRST\", \"constraints\": { \"forbidden\": [ \"External service calls\", \"Provider billing or token accounting\" ], \"mandatory\": [ \"Use only the Python standard library\", \"Work without internet\" ], \"non_functional\": [ \"Deterministic tests\", \"Human-readable local data\" ] }, \"data\": { \"categories\": [ \"Task title\", \"Completion state\" ], \"sensitivity\": \"INTERNAL\", \"storage\": \"Local JSON file\" }, \"deployment\": { \"environment\": \"User workstation\", \"target\": \"LOCAL_CLI\" }, \"documentation\": { \"availability\": \"NONE\", \"normative_sources\": [], \"notes\": \"Пользователь подтвердил отсутствие документации.\" }, \"integrations\": [], \"mode\": \"GREENFIELD\", \"name\": \"PH-LW-12 no documentation\", \"platforms\": [ \"Python 3.11+ on Linux, macOS or Windows\" ], \"primary_outcome\": \"The user can add, list and complete tasks stored in a local JSON file.\", \"problem_statement\": \"A user needs a tiny local command-line task list without network dependencies.\", \"scale\": { \"growth\": \"No multi-user requirement\", \"initial\": \"One user and fewer than 1,000 tasks\" }, \"scope\": { \"in\": [ \"Add a task\", \"List tasks\", \"Mark a task complete\", \"Persist tasks locally\" ], \"out\": [ \"User accounts\", \"Cloud synchronization\", \"Web interface\", \"Network services\" ] }, \"slug\": \"ph-lw-12-no-documentation\", \"success_criteria\": [ { \"statement\": \"Automated tests cover add and list behavior\", \"verification\": \"python -m unittest discover -s tests -v\" }, { \"statement\": \"A later task adds and tests completion behavior\", \"verification\": \"python -m unittest discover -s tests -v\" }, { \"statement\": \"README documents commands\", \"verification\": \"README.md exists\" } ], \"unknowns\": [], \"users\": [ { \"name\": \"Local CLI user\", \"need\": \"Manage a small personal task list\" } ] }, \"project_name\": \"PH-LW-12 no documentation\", \"sources\": { \"repository_inventory_digest\": null, \"source_inventory_digest\": \"sha256:313ccca5e3faa76e64f63319d88291f51aef4925db7e295423f0330e1e707051\", \"source_inventory_sha256\": \"sha256:8f8caefcee4b3b3af5496b418eb3e3af16e455861b01f8dc8793e1425e5b5549\", \"source_revision\": 1, \"source_snapshot_ref\": null, \"source_tree_digest\": \"sha256:37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570\" } }"
+    - paragraph: "Оператор: ACT-WIN12-OPERATOR. Subject digest: sha256:1d9125083221b3b50982a12d4dc4e7c59a2534f8bd7c30f42301a8296bcf1f82. Draft: sha256:1bd2d06a4c1ca47d073dd70687ef8910d1f9d6189b5b9f59fda0e1126925305a. Source revision: 1."
+    - text: Комментарий (обязателен для доработки)
+    - textbox "Комментарий (обязателен для доработки)"
+    - checkbox "Я прочитал показанное содержание Project Definition и подтверждаю отдельное решение."
+    - text: Я прочитал показанное содержание Project Definition и подтверждаю отдельное решение.
+    - button "Подтвердить Project Definition" [disabled]
+    - button "На доработку"
+    - heading "Architecture · Согласовано" [level=3]
+    - text: "{ \"architecture\": { \"components\": [ { \"name\": \"CLI parser\", \"responsibility\": \"Parse add, list and done commands\" }, { \"name\": \"Task repository\", \"responsibility\": \"Load and atomically save task JSON\" } ], \"data_flow\": [ \"CLI input -> command handler -> repository -> JSON file -> rendered output\" ], \"decisions\": [ { \"decision\": \"Keep the initial implementation compact and dependency-free\", \"material\": true, \"rationale\": \"The project is intentionally small and reversible\", \"title\": \"Use a single Python module for the first vertical slice\" } ], \"interfaces\": [ \"Command-line arguments\", \"Local JSON file\" ], \"quality_attributes\": [ \"Offline operation\", \"Deterministic behavior\", \"Portable standard-library implementation\" ], \"risks\": [ \"Concurrent writers are outside the accepted first scope\" ], \"style\": \"MODULAR_MONOLITH_CLI\", \"summary\": \"A single Python module exposes CLI commands and a small JSON-backed repository abstraction.\" }, \"constraints\": { \"forbidden\": [ \"External service calls\", \"Provider billing or token accounting\" ], \"mandatory\": [ \"Use only the Python standard library\", \"Work without internet\" ], \"non_functional\": [ \"Deterministic tests\", \"Human-readable local data\" ] }, \"implementation\": { \"claimed_current_level\": \"NONE\", \"target_level\": \"MVP\" }, \"mode\": \"GREENFIELD\", \"project_name\": \"PH-LW-12 no documentation\", \"sources\": { \"repository_inventory_digest\": null, \"source_inventory_digest\": \"sha256:313ccca5e3faa76e64f63319d88291f51aef4925db7e295423f0330e1e707051\", \"source_inventory_sha256\": \"sha256:8f8caefcee4b3b3af5496b418eb3e3af16e455861b01f8dc8793e1425e5b5549\", \"source_revision\": 1, \"source_snapshot_ref\": null, \"source_tree_digest\": \"sha256:37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570\" } }"
+    - paragraph: "Оператор: ACT-WIN12-OPERATOR. Subject digest: sha256:f06ea30eae6449b87bc2345929c3c387f038d9d8f173cc668c5c51d8b8512d6e. Draft: sha256:1bd2d06a4c1ca47d073dd70687ef8910d1f9d6189b5b9f59fda0e1126925305a. Source revision: 1."
+    - text: Комментарий (обязателен для доработки)
+    - textbox "Комментарий (обязателен для доработки)"
+    - checkbox "Я прочитал показанное содержание Architecture и подтверждаю отдельное решение."
+    - text: Я прочитал показанное содержание Architecture и подтверждаю отдельное решение.
+    - button "Подтвердить Architecture" [disabled]
+    - button "На доработку"
+    - heading "Technology · Согласовано" [level=3]
+    - text: "{ \"implementation\": { \"claimed_current_level\": \"NONE\", \"target_level\": \"MVP\" }, \"mode\": \"GREENFIELD\", \"project_name\": \"PH-LW-12 no documentation\", \"skills\": { \"resolutions\": [ { \"action\": \"REUSE\", \"configuration\": {}, \"rationale\": \"The workflow is ordinary bounded implementation.\", \"skill_ref\": \"SKL-UNIVERSAL-IMPLEMENT@3\", \"workflow\": \"bounded implementation\" } ] }, \"sources\": { \"repository_inventory_digest\": null, \"source_inventory_digest\": \"sha256:313ccca5e3faa76e64f63319d88291f51aef4925db7e295423f0330e1e707051\", \"source_inventory_sha256\": \"sha256:8f8caefcee4b3b3af5496b418eb3e3af16e455861b01f8dc8793e1425e5b5549\", \"source_revision\": 1, \"source_snapshot_ref\": null, \"source_tree_digest\": \"sha256:37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570\" }, \"technology\": { \"build_commands\": [ [ \"python\", \"-m\", \"py_compile\", \"task_cli.py\" ] ], \"lint_commands\": [], \"selections\": [ { \"area\": \"LANGUAGE\", \"rationale\": \"Portable standard library and simple test loop\", \"technology\": \"Python\", \"version_constraint\": \">=3.11\" }, { \"area\": \"TEST_FRAMEWORK\", \"rationale\": \"No external dependencies\", \"technology\": \"unittest\", \"version_constraint\": \"stdlib\" } ], \"test_commands\": [ [ \"python\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tests\", \"-v\" ] ] } }"
+    - paragraph: "Оператор: ACT-WIN12-OPERATOR. Subject digest: sha256:c09a009f375b160060a982ff58257a33667ac64dbcfa867fccbf79cdeb778545. Draft: sha256:1bd2d06a4c1ca47d073dd70687ef8910d1f9d6189b5b9f59fda0e1126925305a. Source revision: 1."
+    - text: Комментарий (обязателен для доработки)
+    - textbox "Комментарий (обязателен для доработки)"
+    - checkbox "Я прочитал показанное содержание Technology и подтверждаю отдельное решение."
+    - text: Я прочитал показанное содержание Technology и подтверждаю отдельное решение.
+    - button "Подтвердить Technology" [disabled]
+    - button "На доработку"
+    - heading "Codex Handoff · Согласовано" [level=3]
+    - text: "{ \"draft\": { \"architecture\": { \"components\": [ { \"name\": \"CLI parser\", \"responsibility\": \"Parse add, list and done commands\" }, { \"name\": \"Task repository\", \"responsibility\": \"Load and atomically save task JSON\" } ], \"data_flow\": [ \"CLI input -> command handler -> repository -> JSON file -> rendered output\" ], \"decisions\": [ { \"decision\": \"Keep the initial implementation compact and dependency-free\", \"material\": true, \"rationale\": \"The project is intentionally small and reversible\", \"title\": \"Use a single Python module for the first vertical slice\" } ], \"interfaces\": [ \"Command-line arguments\", \"Local JSON file\" ], \"quality_attributes\": [ \"Offline operation\", \"Deterministic behavior\", \"Portable standard-library implementation\" ], \"risks\": [ \"Concurrent writers are outside the accepted first scope\" ], \"style\": \"MODULAR_MONOLITH_CLI\", \"summary\": \"A single Python module exposes CLI commands and a small JSON-backed repository abstraction.\" }, \"brownfield\": { \"baseline_summary\": null, \"documentation_conflicts\": [], \"known_defects\": [], \"known_gaps\": [], \"technical_debt\": [] }, \"execution\": { \"adapter_profile_ref\": null, \"completion_policy\": \"EXPLICIT_AFTER_VERIFICATION\", \"mode\": \"MANUAL_HANDOFF\", \"network_mode\": \"NONE\", \"sandbox_profile_ref\": null }, \"implementation\": { \"claimed_current_level\": \"NONE\", \"target_level\": \"MVP\" }, \"metadata\": { \"generated_at\": null, \"notes\": \"Fill semantic fields after documentation analysis and user interview.\", \"prepared_by\": \"BROWSER_GPT\" }, \"planning\": { \"work_packages\": [ { \"key\": \"wp-cli-core\", \"objective\": \"Provide the accepted add/list/done user outcome with deterministic tests and documentation.\", \"tasks\": [ { \"acceptance_criteria\": [ \"add appends a task with a stable numeric id and incomplete state\", \"list renders persisted tasks\", \"tests use an isolated temporary data file\", \"README documents add and list\" ], \"depends_on\": [], \"documentation\": { \"impact\": \"UPDATE_EXISTING\", \"required_updates\": [ \"README.md: add and list command examples\" ], \"source_refs\": [] }, \"expected_result\": \"task_cli.py supports add and list, tests pass and README contains usage.\", \"key\": \"task-add-list\", \"purpose\": \"Create the storage foundation and the first two user commands.\", \"scope\": { \"forbidden\": [ \"CODEX_START.md\", \"AGENTS.md\", \"PROJECT.md\", \"ARCHITECTURE.md\", \"TECHNOLOGY.md\" ], \"read\": [ \"PROJECT.md\", \"ARCHITECTURE.md\", \"TECHNOLOGY.md\", \"README.md\" ], \"write\": [ \"task_cli.py\", \"tests/**\", \"README.md\" ] }, \"title\": \"Implement add and list commands\", \"type\": \"IMPLEMENT\", \"verification\": { \"allow_manual\": true, \"commands\": [], \"expected_paths\": [ \"task_cli.py\", \"tests/test_task_cli.py\", \"README.md\" ], \"manual_checks\": [ \"Review add/list CLI and README against this Task\" ] } }, { \"acceptance_criteria\": [ \"done updates exactly one existing task\", \"list visibly distinguishes completed tasks\", \"tests cover success and unknown id\", \"README documents done\" ], \"depends_on\": [ \"task-add-list\" ], \"documentation\": { \"impact\": \"UPDATE_EXISTING\", \"required_updates\": [ \"README.md: done command example\" ], \"source_refs\": [] }, \"expected_result\": \"done marks a task complete and tests cover persisted completion state.\", \"key\": \"task-done\", \"purpose\": \"Complete the accepted user outcome after the storage contract exists.\", \"scope\": { \"forbidden\": [ \"CODEX_START.md\", \"AGENTS.md\", \"PROJECT.md\", \"ARCHITECTURE.md\", \"TECHNOLOGY.md\" ], \"read\": [ \"task_cli.py\", \"tests/**\", \"README.md\", \"PROJECT.md\" ], \"write\": [ \"task_cli.py\", \"tests/**\", \"README.md\" ] }, \"title\": \"Implement done command\", \"type\": \"IMPLEMENT\", \"verification\": { \"commands\": [ { \"argv\": [ \"python\", \"-m\", \"py_compile\", \"task_cli.py\" ], \"cwd\": \".\", \"timeout_seconds\": 60 }, { \"argv\": [ \"python\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tests\", \"-v\" ], \"cwd\": \".\", \"timeout_seconds\": 120 } ], \"expected_paths\": [ \"task_cli.py\", \"tests/test_task_cli.py\", \"README.md\" ], \"manual_checks\": [] } } ], \"title\": \"Deliver the local task CLI\" } ] }, \"profile\": { \"rationale\": \"The accepted first outcome is a local command-line tool.\", \"ref\": \"PRF-CLI-TOOL@1\" }, \"project\": { \"ambiguity_mode\": \"PRAGMATIC\", \"assumptions\": [ { \"owner\": \"ACT-USER-001\", \"review_trigger\": \"Before multi-process use\", \"statement\": \"A single local process writes the task file\" } ], \"connectivity\": \"OFFLINE_FIRST\", \"constraints\": { \"forbidden\": [ \"External service calls\", \"Provider billing or token accounting\" ], \"mandatory\": [ \"Use only the Python standard library\", \"Work without internet\" ], \"non_functional\": [ \"Deterministic tests\", \"Human-readable local data\" ] }, \"data\": { \"categories\": [ \"Task title\", \"Completion state\" ], \"sensitivity\": \"INTERNAL\", \"storage\": \"Local JSON file\" }, \"deployment\": { \"environment\": \"User workstation\", \"target\": \"LOCAL_CLI\" }, \"documentation\": { \"availability\": \"NONE\", \"normative_sources\": [], \"notes\": \"Пользователь подтвердил отсутствие документации.\" }, \"integrations\": [], \"mode\": \"GREENFIELD\", \"name\": \"PH-LW-12 no documentation\", \"platforms\": [ \"Python 3.11+ on Linux, macOS or Windows\" ], \"primary_outcome\": \"The user can add, list and complete tasks stored in a local JSON file.\", \"problem_statement\": \"A user needs a tiny local command-line task list without network dependencies.\", \"scale\": { \"growth\": \"No multi-user requirement\", \"initial\": \"One user and fewer than 1,000 tasks\" }, \"scope\": { \"in\": [ \"Add a task\", \"List tasks\", \"Mark a task complete\", \"Persist tasks locally\" ], \"out\": [ \"User accounts\", \"Cloud synchronization\", \"Web interface\", \"Network services\" ] }, \"slug\": \"ph-lw-12-no-documentation\", \"success_criteria\": [ { \"statement\": \"Automated tests cover add and list behavior\", \"verification\": \"python -m unittest discover -s tests -v\" }, { \"statement\": \"A later task adds and tests completion behavior\", \"verification\": \"python -m unittest discover -s tests -v\" }, { \"statement\": \"README documents commands\", \"verification\": \"README.md exists\" } ], \"unknowns\": [], \"users\": [ { \"name\": \"Local CLI user\", \"need\": \"Manage a small personal task list\" } ] }, \"schema_version\": 4, \"skills\": { \"resolutions\": [ { \"action\": \"REUSE\", \"configuration\": {}, \"rationale\": \"The workflow is ordinary bounded implementation.\", \"skill_ref\": \"SKL-UNIVERSAL-IMPLEMENT@3\", \"workflow\": \"bounded implementation\" } ] }, \"technology\": { \"build_commands\": [ [ \"python\", \"-m\", \"py_compile\", \"task_cli.py\" ] ], \"lint_commands\": [], \"selections\": [ { \"area\": \"LANGUAGE\", \"rationale\": \"Portable standard library and simple test loop\", \"technology\": \"Python\", \"version_constraint\": \">=3.11\" }, { \"area\": \"TEST_FRAMEWORK\", \"rationale\": \"No external dependencies\", \"technology\": \"unittest\", \"version_constraint\": \"stdlib\" } ], \"test_commands\": [ [ \"python\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tests\", \"-v\" ] ] } }, \"implementation\": { \"claimed_current_level\": \"NONE\", \"target_level\": \"MVP\" }, \"mode\": \"GREENFIELD\", \"obligations\": [ \"Передать согласованный scope, ограничения, architecture и technology без расширения target.\", \"MANUAL_HANDOFF; automatic executor выключен. Отдельные Stage decisions и semantic evidence обязательны.\", \"Детальные Task/JIT только active Stage; accepted history сохраняется.\", \"Подготовка Project Instance ожидает PH-LW-08; сейчас проект не создаётся.\" ], \"project_name\": \"PH-LW-12 no documentation\", \"sources\": { \"repository_inventory_digest\": null, \"source_inventory_digest\": \"sha256:313ccca5e3faa76e64f63319d88291f51aef4925db7e295423f0330e1e707051\", \"source_inventory_sha256\": \"sha256:8f8caefcee4b3b3af5496b418eb3e3af16e455861b01f8dc8793e1425e5b5549\", \"source_revision\": 1, \"source_snapshot_ref\": null, \"source_tree_digest\": \"sha256:37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570\" } }"
+    - paragraph: "Оператор: ACT-WIN12-OPERATOR. Subject digest: sha256:2fb26957bdf5eecbec13232a69acd755d489a085dab442d6ab91a3a4aa413706. Draft: sha256:1bd2d06a4c1ca47d073dd70687ef8910d1f9d6189b5b9f59fda0e1126925305a. Source revision: 1."
+    - text: Комментарий (обязателен для доработки)
+    - textbox "Комментарий (обязателен для доработки)"
+    - checkbox "Я прочитал показанное содержание Codex Handoff и подтверждаю отдельное решение."
+    - text: Я прочитал показанное содержание Codex Handoff и подтверждаю отдельное решение.
+    - button "Подтвердить передачу и подготовить проект" [disabled]
+    - button "На доработку"
+    - group: Receipts и история решений
+    - separator
+    - heading "Подготовка Project Instance" [level=2]
+    - status: Все согласования получены. Подтвердите новую папку; мастер соберёт и проверит проект.
+    - paragraph: <TEMP>\LW12 installed no-doc 93xw20le\Профиль с пробелами\HarnessProjects
+    - button "Перечитать подготовку"
+    - text: Имя новой папки проекта
+    - textbox "Имя новой папки проекта"
+    - checkbox "Подтверждаю новую папку в показанном каталоге. Существующая папка не заменяется."
+    - text: Подтверждаю новую папку в показанном каталоге. Существующая папка не заменяется.
+    - button "Собрать, проверить и разместить проект"
+  - text: "Project Harness 0.5.1 WIP · Local Web PH-LW-12 · Ручной маршрут · Полная v0.5.1: NO-GO"

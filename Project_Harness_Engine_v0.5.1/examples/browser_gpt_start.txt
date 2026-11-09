@@ -1,0 +1,19 @@
+Используй загруженный Project Harness как подготовительный слой в режиме PREPARE_FOR_CODEX.
+
+1. Не реализуй продуктовый код.
+2. Запусти `doctor` и сообщи фактический результат.
+3. Сначала определи нормативную, частичную, устаревшую и отсутствующую документацию.
+4. После первого проверяемого пользовательского результата запроси target implementation level: PROTOTYPE, ALPHA, BETA, MVP или RELEASE; сделай это до Architecture/Technology Baseline.
+5. `UNSURE` не заменяй автоматически: покажи рекомендацию и оставь `WAITING_DECISION` до явного выбора.
+6. Создай внешний START_INTAKE workspace; Brownfield/Hybrid workspace не размещай внутри source repository.
+7. Проанализируй источники до вопросов и не повторяй уже отвеченное.
+8. Для material неоднозначностей покажи 2–3 варианта с рекомендацией.
+9. Разделяй product scope, implementation level, profile, execution mode и deployment model.
+10. Для Brownfield maturity используй только read-only inventory и предоставленные evidence; не запускай repository commands автоматически.
+11. Сформируй strict PROJECT_INPUT@3, Project Definition, Brownfield Baseline при необходимости, Architecture Baseline, Technology Baseline, Skill Gap Analysis и атомарный DAG только active PROTOTYPE stage.
+12. Не считай обычные ответы approvals. Получи четыре явных подтверждения для Greenfield или пять для Brownfield/Hybrid.
+13. Создай Stage outlines до target, но скомпилируй executable prompt bundle только для первой READY Task active stage.
+14. Верни validated Codex Handoff ZIP, target/active stage, first task/run refs, validation report и известные ограничения.
+15. Не объявляй созданный handoff реализованным production-продуктом. После handoff действуют только публичный `next → external Codex → verify → complete`, предметные Gate evidence, formal Stage approval, reviewed active-stage planning и отдельные level-up/maintenance approvals. См. `docs/Project_Harness_Documentation_v0.5.0/08_Distribution/04_Operator_Runbook_v0.5.0.md`; `verify` не даёт OS sandbox.
+
+Следуй `templates/GPT_PREPARATION_INSTRUCTIONS.md` как нормативной инструкции.

@@ -1,0 +1,734 @@
+SUCCEEDED
+{
+  "project_id": "LWP-4B18E55BB0690C40D540",
+  "kind": "project",
+  "core_status": "ACTIVE",
+  "core_route": {
+    "route": "VERIFY_CURRENT_TASK",
+    "command": "project-harness verify --project <root> --allow-command-execution",
+    "reason": "Execute the current JIT with external Codex, then run independent verification.",
+    "external_prerequisite": "External agent implementation"
+  },
+  "persisted_next_route": "EXECUTE_CURRENT_TASK_WITH_CODEX",
+  "fingerprint": "sha256:9ede75b947918a344906777ce88ea570e1f4e974437b4a32e44435608ee30d30",
+  "done": [],
+  "current": {
+    "task_ref": "TSK-HARNESS-DEMO-TASK-CLI-001@1",
+    "title": "Implement add and list commands",
+    "status": "READY",
+    "implementation_stage": "PROTOTYPE",
+    "path": ".harness/tasks/TSK-HARNESS-DEMO-TASK-CLI-001@1.yaml"
+  },
+  "blockers": [],
+  "required_user_action": "project-harness verify --project <root> --allow-command-execution",
+  "refs": {
+    "current_task": {
+      "task_ref": "TSK-HARNESS-DEMO-TASK-CLI-001@1",
+      "title": "Implement add and list commands",
+      "status": "READY",
+      "implementation_stage": "PROTOTYPE",
+      "path": ".harness/tasks/TSK-HARNESS-DEMO-TASK-CLI-001@1.yaml"
+    },
+    "active_run": {
+      "run_ref": "RUN-HARNESS-DEMO-TASK-CLI-001-A1",
+      "run_plan_ref": "RNP-HARNESS-DEMO-TASK-CLI-001-A1",
+      "run_plan_path": ".harness/runtime/RUN_PLANS/RNP-HARNESS-DEMO-TASK-CLI-001-A1@1.yaml",
+      "task_ref": "TSK-HARNESS-DEMO-TASK-CLI-001@1",
+      "implementation_stage": "PROTOTYPE",
+      "target_implementation_level": "MVP",
+      "attempt_no": 1,
+      "prompt_bundle_ref": "CPB-HARNESS-DEMO-TASK-CLI-001-A1",
+      "prompt_bundle_path": ".harness/prompts/BUNDLES_BY_RUN/CPB-HARNESS-DEMO-TASK-CLI-001-A1.yaml",
+      "prompt_markdown_path": ".harness/prompts/BUNDLES_BY_RUN/CPB-HARNESS-DEMO-TASK-CLI-001-A1.md",
+      "context_packet_ref": "CPK-HARNESS-DEMO-TASK-CLI-001-A1",
+      "context_packet_path": ".harness/context/PACKETS_BY_RUN/CPK-HARNESS-DEMO-TASK-CLI-001-A1.yaml",
+      "capability_grant_ref": "CGR-HARNESS-DEMO-TASK-CLI-001-A1",
+      "capability_grant_path": ".harness/runtime/CAPABILITY_GRANTS/CGR-HARNESS-DEMO-TASK-CLI-001-A1.yaml",
+      "snapshot_ref": "SNP-HARNESS-DEMO-TASK-CLI-001-A1",
+      "snapshot_path": ".harness/runtime/SNAPSHOTS/SNP-HARNESS-DEMO-TASK-CLI-001-A1.yaml",
+      "allowed_agent_output_path": ".harness/runtime/AGENT_RESULTS/RUN-HARNESS-DEMO-TASK-CLI-001-A1.json",
+      "operation_journal_path": ".harness/runtime/OPERATION_JOURNAL/RUN-HARNESS-DEMO-TASK-CLI-001-A1.yaml",
+      "control_plane_phase": "RUN_RESERVED",
+      "verification_report_ref": null,
+      "verification_report_path": null,
+      "verification_evidence_ref": null,
+      "verification_evidence_path": null
+    },
+    "stage_plan_ref": "STG-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1",
+    "stage_plan_revision": 1,
+    "gate_ref": "GATE-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1",
+    "gate_revision": 1,
+    "baseline_revision": "tree:sha256:46d672fed66e21ccbcafa0f55c08ea1cabc52e591ccdfe8ec9ba1fcf6f1d4cdd",
+    "target_level": "MVP",
+    "active_stage": "PROTOTYPE",
+    "highest_accepted_level": "NONE"
+  },
+  "available_actions": [
+    {
+      "id": "LW-C01",
+      "action": "doctor",
+      "enabled": false,
+      "disabled_reason": "Доступно в следующем этапе Local Web; сейчас операция не реализована."
+    },
+    {
+      "id": "LW-C02",
+      "action": "start-intake",
+      "enabled": false,
+      "disabled_reason": "Доступно в следующем этапе Local Web; сейчас операция не реализована."
+    },
+    {
+      "id": "LW-C03",
+      "action": "check-intake",
+      "enabled": false,
+      "disabled_reason": "Невозможно выполнить из текущего состояния core."
+    },
+    {
+      "id": "LW-C04",
+      "action": "prepare",
+      "enabled": false,
+      "disabled_reason": "Невозможно выполнить из текущего состояния core."
+    },
+    {
+      "id": "LW-C05",
+      "action": "validate-handoff",
+      "enabled": false,
+      "disabled_reason": "Доступно в следующем этапе Local Web; сейчас операция не реализована."
+    },
+    {
+      "id": "LW-C06",
+      "action": "validate-project",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "id": "LW-C07",
+      "action": "migrate-project",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "id": "LW-C08",
+      "action": "get-status",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "id": "LW-C09",
+      "action": "next",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "id": "LW-C10",
+      "action": "executor-doctor",
+      "enabled": false,
+      "disabled_reason": "Автоматический исполнитель отключён в Local Web manual; Podman/egress acceptance остаётся NO-GO."
+    },
+    {
+      "id": "LW-C11",
+      "action": "execute-current",
+      "enabled": false,
+      "disabled_reason": "Автоматический исполнитель отключён в Local Web manual; Podman/egress acceptance остаётся NO-GO."
+    },
+    {
+      "id": "LW-C12",
+      "action": "verify",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "id": "LW-C13",
+      "action": "complete",
+      "enabled": false,
+      "disabled_reason": "Нужен текущий Task/Run и допустимый core route."
+    },
+    {
+      "id": "LW-C14",
+      "action": "block",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "id": "LW-C15",
+      "action": "resume",
+      "enabled": false,
+      "disabled_reason": "Нужен текущий Task/Run и допустимый core route."
+    },
+    {
+      "id": "LW-C16",
+      "action": "stage-status",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "id": "LW-C17",
+      "action": "prepare-stage-approval",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "id": "LW-C18",
+      "action": "prepare-active-stage-plan",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "id": "LW-C19",
+      "action": "plan-active-stage",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "id": "LW-C20",
+      "action": "resume-stage-gate",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "id": "LW-C21",
+      "action": "assess-maturity",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "id": "LW-C22",
+      "action": "accept-stage",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "id": "LW-C23",
+      "action": "level-up",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "id": "LW-C24",
+      "action": "start-maintenance",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "id": "LW-C25",
+      "action": "cancel-maintenance",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "id": "LW-C26",
+      "action": "demo",
+      "enabled": false,
+      "disabled_reason": "Доступно в следующем этапе Local Web; сейчас операция не реализована."
+    },
+    {
+      "id": "LW-DRAFT",
+      "action": "update-draft",
+      "enabled": false,
+      "disabled_reason": "Редактирование доступно только в intake workspace."
+    },
+    {
+      "id": "LW-RESULT",
+      "action": "receive-result",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "id": "LW-MANUAL-EVIDENCE",
+      "action": "manual-evidence",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "id": "LW-LIFECYCLE",
+      "action": "prepare-level-up",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "id": "LW-LIFECYCLE",
+      "action": "prepare-maintenance",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "id": "LW-LIFECYCLE",
+      "action": "prepare-maintenance-cancel",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "id": "LW-LIFECYCLE",
+      "action": "prepare-migration",
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "id": "LW-LIFECYCLE",
+      "action": "recover-migration",
+      "enabled": false,
+      "disabled_reason": "Выберите применимый manual проект."
+    }
+  ]
+}
+{
+  "project_id": "LWP-4B18E55BB0690C40D540",
+  "kind": "project",
+  "fingerprint": "sha256:9ede75b947918a344906777ce88ea570e1f4e974437b4a32e44435608ee30d30",
+  "status": {
+    "status": "ACTIVE",
+    "runtime_phase": "READY_FOR_CODEX",
+    "maintenance_route": null,
+    "target_level": "MVP",
+    "claimed_current_level": "NONE",
+    "observed_candidate_level": "NONE",
+    "highest_accepted_level": "NONE",
+    "active_stage": "PROTOTYPE",
+    "permitted_use": {
+      "status": "UNCONFIRMED",
+      "users": [
+        "DEVELOPER"
+      ],
+      "environments": [
+        "LOCAL"
+      ],
+      "data_classes": [
+        "PUBLIC"
+      ],
+      "data_constraints": [
+        "SYNTHETIC_ONLY"
+      ]
+    },
+    "next_route": "EXECUTE_CURRENT_TASK_WITH_CODEX",
+    "next_operator_route": {
+      "route": "VERIFY_CURRENT_TASK",
+      "command": "project-harness verify --project <root> --allow-command-execution",
+      "reason": "Execute the current JIT with external Codex, then run independent verification.",
+      "external_prerequisite": "External agent implementation"
+    },
+    "stage_plan_ref": "STG-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1",
+    "stage_plan_path": ".harness/stages/PLANS/STG-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1.yaml",
+    "stage_plan_revision": 1,
+    "stage_plan_status": "ACTIVE",
+    "gate_ref": "GATE-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1",
+    "gate_path": ".harness/stages/GATES/GATE-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1.yaml",
+    "gate_revision": 1,
+    "gate_digest": "sha256:056c04ef3770fab82a011a30a0b9911db0b4e61ddd24c8b654186a94c1bafb08",
+    "gate_status": "ACTIVE",
+    "baseline_revision": "tree:sha256:46d672fed66e21ccbcafa0f55c08ea1cabc52e591ccdfe8ec9ba1fcf6f1d4cdd",
+    "baseline_digest": "tree:sha256:46d672fed66e21ccbcafa0f55c08ea1cabc52e591ccdfe8ec9ba1fcf6f1d4cdd",
+    "gate_counts": {
+      "required_outcomes": {
+        "total": 3,
+        "by_status": {
+          "UNKNOWN": 3
+        }
+      },
+      "level_criteria": {
+        "total": 6,
+        "by_status": {
+          "UNKNOWN": 6
+        }
+      },
+      "hard_constraints": {
+        "total": 2,
+        "by_status": {
+          "UNKNOWN": 2
+        }
+      },
+      "profile_controls": {
+        "total": 1,
+        "by_status": {
+          "UNKNOWN": 1
+        }
+      },
+      "required_work_packages": {
+        "total": 1,
+        "by_status": {
+          "READY": 1
+        }
+      },
+      "critical_blockers": {
+        "total": 0,
+        "by_status": {}
+      }
+    },
+    "required_work_packages": [
+      {
+        "requested_ref": "WP-HARNESS-DEMO-TASK-CLI-001@1",
+        "current_ref": "WP-HARNESS-DEMO-TASK-CLI-001@1",
+        "path": ".harness/work-packages/WP-HARNESS-DEMO-TASK-CLI-001@1.yaml",
+        "status": "READY"
+      }
+    ],
+    "critical_blockers": [],
+    "stages": [
+      {
+        "level": "PROTOTYPE",
+        "status": "ACTIVE",
+        "stage_plan_ref": "STG-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1",
+        "stage_plan_path": ".harness/stages/PLANS/STG-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1.yaml",
+        "detailed_work_package_count": 1,
+        "review_required": false
+      },
+      {
+        "level": "ALPHA",
+        "status": "PLANNED",
+        "stage_plan_ref": "STG-HARNESS-DEMO-TASK-CLI-ALPHA-001@1",
+        "stage_plan_path": ".harness/stages/PLANS/STG-HARNESS-DEMO-TASK-CLI-ALPHA-001@1.yaml",
+        "detailed_work_package_count": 0,
+        "review_required": true
+      },
+      {
+        "level": "BETA",
+        "status": "PLANNED",
+        "stage_plan_ref": "STG-HARNESS-DEMO-TASK-CLI-BETA-001@1",
+        "stage_plan_path": ".harness/stages/PLANS/STG-HARNESS-DEMO-TASK-CLI-BETA-001@1.yaml",
+        "detailed_work_package_count": 0,
+        "review_required": true
+      },
+      {
+        "level": "MVP",
+        "status": "PLANNED",
+        "stage_plan_ref": "STG-HARNESS-DEMO-TASK-CLI-MVP-001@1",
+        "stage_plan_path": ".harness/stages/PLANS/STG-HARNESS-DEMO-TASK-CLI-MVP-001@1.yaml",
+        "detailed_work_package_count": 0,
+        "review_required": true
+      }
+    ],
+    "validation": {
+      "status": "PASS",
+      "active_stage": "PROTOTYPE",
+      "target_level": "MVP",
+      "errors": []
+    }
+  },
+  "definitions": {
+    "required_outcomes": [
+      {
+        "outcome_ref": "working_primary_flow",
+        "mandatory": true,
+        "applicability": "ALWAYS"
+      },
+      {
+        "outcome_ref": "documented_local_start",
+        "mandatory": true,
+        "applicability": "ALWAYS"
+      },
+      {
+        "outcome_ref": "prototype_permitted_use_boundary",
+        "mandatory": true,
+        "applicability": "ALWAYS"
+      }
+    ],
+    "level_criteria": [
+      {
+        "criterion_ref": "PROTOTYPE_CORE_FLOW",
+        "dimension": "FUNCTIONALITY",
+        "description": "Один законченный end-to-end core flow работает в заявленной области использования.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "TEST_REPORT",
+          "MANUAL_VERIFICATION"
+        ],
+        "execution_evidence_required": true
+      },
+      {
+        "criterion_ref": "PROTOTYPE_SIMPLE_ARCHITECTURE",
+        "dimension": "ARCHITECTURE_MAINTAINABILITY",
+        "description": "Реализация использует простую подходящую архитектурную границу без преждевременного усложнения.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "ARCHITECTURE_RECORD",
+          "REPOSITORY_ARTIFACT"
+        ],
+        "execution_evidence_required": false
+      },
+      {
+        "criterion_ref": "PROTOTYPE_LOCAL_START",
+        "dimension": "DEPLOYMENT_OPERABILITY",
+        "description": "Существует понятный и воспроизводимый способ локального запуска из принятой baseline.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "START_INSTRUCTIONS",
+          "CONFIGURATION"
+        ],
+        "execution_evidence_required": false
+      },
+      {
+        "criterion_ref": "PROTOTYPE_SMOKE_CHECK",
+        "dimension": "TESTING_VERIFICATION",
+        "description": "Основной сценарий имеет smoke-проверку.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "TEST_REPORT",
+          "MANUAL_VERIFICATION"
+        ],
+        "execution_evidence_required": true
+      },
+      {
+        "criterion_ref": "PROTOTYPE_LIMITATIONS",
+        "dimension": "DOCUMENTATION_SUPPORT",
+        "description": "Известные ограничения и следующий backlog явно документированы.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "LIMITATIONS_RECORD"
+        ],
+        "execution_evidence_required": false
+      },
+      {
+        "criterion_ref": "PROTOTYPE_PERMITTED_USE",
+        "dimension": "SECURITY_PRIVACY",
+        "description": "Зафиксирована допустимая область использования, включая environment и data boundary.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "PERMITTED_USE_RECORD"
+        ],
+        "execution_evidence_required": false
+      }
+    ],
+    "hard_constraints": [
+      {
+        "constraint_ref": "HARD_CONSTRAINT_001",
+        "statement": "Use only the Python standard library",
+        "source_ref": null,
+        "mandatory": true,
+        "required_evidence_kinds": [
+          "EXTERNAL_EVIDENCE"
+        ]
+      },
+      {
+        "constraint_ref": "HARD_CONSTRAINT_002",
+        "statement": "Work without internet",
+        "source_ref": null,
+        "mandatory": true,
+        "required_evidence_kinds": [
+          "EXTERNAL_EVIDENCE"
+        ]
+      }
+    ],
+    "profile_controls": [
+      {
+        "control_ref": "PRF-CLI-TOOL@1",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "source": "stage_gate.profile_control_refs"
+      }
+    ]
+  },
+  "record_history": {
+    "runtime/RUNS": [],
+    "runtime/TASK_REPORTS": [],
+    "evidence": []
+  },
+  "missing_subjects": [
+    {
+      "item_kind": "OUTCOME",
+      "subject_ref": "working_primary_flow",
+      "required_evidence_kinds": [],
+      "selected_evidence_kind": "REVIEW_RECORD",
+      "proof_methods": [
+        "OPERATOR_VERIFICATION"
+      ],
+      "source_requirement": "EXACT_SUBJECT_REVIEWABLE_SOURCE_WITH_DIGEST_AND_PROVENANCE",
+      "baseline_revision": "tree:sha256:46d672fed66e21ccbcafa0f55c08ea1cabc52e591ccdfe8ec9ba1fcf6f1d4cdd",
+      "reason": "No compatible PASS evidence is bound to the exact current product baseline."
+    },
+    {
+      "item_kind": "OUTCOME",
+      "subject_ref": "documented_local_start",
+      "required_evidence_kinds": [],
+      "selected_evidence_kind": "REVIEW_RECORD",
+      "proof_methods": [
+        "OPERATOR_VERIFICATION"
+      ],
+      "source_requirement": "EXACT_SUBJECT_REVIEWABLE_SOURCE_WITH_DIGEST_AND_PROVENANCE",
+      "baseline_revision": "tree:sha256:46d672fed66e21ccbcafa0f55c08ea1cabc52e591ccdfe8ec9ba1fcf6f1d4cdd",
+      "reason": "No compatible PASS evidence is bound to the exact current product baseline."
+    },
+    {
+      "item_kind": "OUTCOME",
+      "subject_ref": "prototype_permitted_use_boundary",
+      "required_evidence_kinds": [],
+      "selected_evidence_kind": "REVIEW_RECORD",
+      "proof_methods": [
+        "OPERATOR_VERIFICATION"
+      ],
+      "source_requirement": "EXACT_SUBJECT_REVIEWABLE_SOURCE_WITH_DIGEST_AND_PROVENANCE",
+      "baseline_revision": "tree:sha256:46d672fed66e21ccbcafa0f55c08ea1cabc52e591ccdfe8ec9ba1fcf6f1d4cdd",
+      "reason": "No compatible PASS evidence is bound to the exact current product baseline."
+    },
+    {
+      "item_kind": "LEVEL_CRITERION",
+      "subject_ref": "PROTOTYPE_CORE_FLOW",
+      "required_evidence_kinds": [
+        "TEST_REPORT",
+        "MANUAL_VERIFICATION"
+      ],
+      "selected_evidence_kind": "TEST_REPORT",
+      "proof_methods": [
+        "EXECUTED_TEST"
+      ],
+      "source_requirement": "EXACT_SUBJECT_REVIEWABLE_SOURCE_WITH_DIGEST_AND_PROVENANCE",
+      "baseline_revision": "tree:sha256:46d672fed66e21ccbcafa0f55c08ea1cabc52e591ccdfe8ec9ba1fcf6f1d4cdd",
+      "reason": "No compatible PASS evidence is bound to the exact current product baseline."
+    },
+    {
+      "item_kind": "LEVEL_CRITERION",
+      "subject_ref": "PROTOTYPE_SIMPLE_ARCHITECTURE",
+      "required_evidence_kinds": [
+        "ARCHITECTURE_RECORD",
+        "REPOSITORY_ARTIFACT"
+      ],
+      "selected_evidence_kind": "ARCHITECTURE_RECORD",
+      "proof_methods": [
+        "DOCUMENT_REVIEW"
+      ],
+      "source_requirement": "EXACT_SUBJECT_REVIEWABLE_SOURCE_WITH_DIGEST_AND_PROVENANCE",
+      "baseline_revision": "tree:sha256:46d672fed66e21ccbcafa0f55c08ea1cabc52e591ccdfe8ec9ba1fcf6f1d4cdd",
+      "reason": "No compatible PASS evidence is bound to the exact current product baseline."
+    },
+    {
+      "item_kind": "LEVEL_CRITERION",
+      "subject_ref": "PROTOTYPE_LOCAL_START",
+      "required_evidence_kinds": [
+        "START_INSTRUCTIONS",
+        "CONFIGURATION"
+      ],
+      "selected_evidence_kind": "START_INSTRUCTIONS",
+      "proof_methods": [
+        "DOCUMENT_REVIEW"
+      ],
+      "source_requirement": "EXACT_SUBJECT_REVIEWABLE_SOURCE_WITH_DIGEST_AND_PROVENANCE",
+      "baseline_revision": "tree:sha256:46d672fed66e21ccbcafa0f55c08ea1cabc52e591ccdfe8ec9ba1fcf6f1d4cdd",
+      "reason": "No compatible PASS evidence is bound to the exact current product baseline."
+    },
+    {
+      "item_kind": "LEVEL_CRITERION",
+      "subject_ref": "PROTOTYPE_SMOKE_CHECK",
+      "required_evidence_kinds": [
+        "TEST_REPORT",
+        "MANUAL_VERIFICATION"
+      ],
+      "selected_evidence_kind": "TEST_REPORT",
+      "proof_methods": [
+        "EXECUTED_TEST"
+      ],
+      "source_requirement": "EXACT_SUBJECT_REVIEWABLE_SOURCE_WITH_DIGEST_AND_PROVENANCE",
+      "baseline_revision": "tree:sha256:46d672fed66e21ccbcafa0f55c08ea1cabc52e591ccdfe8ec9ba1fcf6f1d4cdd",
+      "reason": "No compatible PASS evidence is bound to the exact current product baseline."
+    },
+    {
+      "item_kind": "LEVEL_CRITERION",
+      "subject_ref": "PROTOTYPE_LIMITATIONS",
+      "required_evidence_kinds": [
+        "LIMITATIONS_RECORD"
+      ],
+      "selected_evidence_kind": "LIMITATIONS_RECORD",
+      "proof_methods": [
+        "DOCUMENT_REVIEW"
+      ],
+      "source_requirement": "EXACT_SUBJECT_REVIEWABLE_SOURCE_WITH_DIGEST_AND_PROVENANCE",
+      "baseline_revision": "tree:sha256:46d672fed66e21ccbcafa0f55c08ea1cabc52e591ccdfe8ec9ba1fcf6f1d4cdd",
+      "reason": "No compatible PASS evidence is bound to the exact current product baseline."
+    },
+    {
+      "item_kind": "LEVEL_CRITERION",
+      "subject_ref": "PROTOTYPE_PERMITTED_USE",
+      "required_evidence_kinds": [
+        "PERMITTED_USE_RECORD"
+      ],
+      "selected_evidence_kind": "PERMITTED_USE_RECORD",
+      "proof_methods": [
+        "DOCUMENT_REVIEW"
+      ],
+      "source_requirement": "EXACT_SUBJECT_REVIEWABLE_SOURCE_WITH_DIGEST_AND_PROVENANCE",
+      "baseline_revision": "tree:sha256:46d672fed66e21ccbcafa0f55c08ea1cabc52e591ccdfe8ec9ba1fcf6f1d4cdd",
+      "reason": "No compatible PASS evidence is bound to the exact current product baseline."
+    },
+    {
+      "item_kind": "HARD_CONSTRAINT",
+      "subject_ref": "HARD_CONSTRAINT_001",
+      "required_evidence_kinds": [
+        "EXTERNAL_EVIDENCE"
+      ],
+      "selected_evidence_kind": "EXTERNAL_EVIDENCE",
+      "proof_methods": [
+        "EXTERNAL_SOURCE"
+      ],
+      "source_requirement": "EXACT_SUBJECT_REVIEWABLE_SOURCE_WITH_DIGEST_AND_PROVENANCE",
+      "baseline_revision": "tree:sha256:46d672fed66e21ccbcafa0f55c08ea1cabc52e591ccdfe8ec9ba1fcf6f1d4cdd",
+      "reason": "No compatible PASS evidence is bound to the exact current product baseline."
+    },
+    {
+      "item_kind": "HARD_CONSTRAINT",
+      "subject_ref": "HARD_CONSTRAINT_002",
+      "required_evidence_kinds": [
+        "EXTERNAL_EVIDENCE"
+      ],
+      "selected_evidence_kind": "EXTERNAL_EVIDENCE",
+      "proof_methods": [
+        "EXTERNAL_SOURCE"
+      ],
+      "source_requirement": "EXACT_SUBJECT_REVIEWABLE_SOURCE_WITH_DIGEST_AND_PROVENANCE",
+      "baseline_revision": "tree:sha256:46d672fed66e21ccbcafa0f55c08ea1cabc52e591ccdfe8ec9ba1fcf6f1d4cdd",
+      "reason": "No compatible PASS evidence is bound to the exact current product baseline."
+    },
+    {
+      "item_kind": "PROFILE_CONTROL",
+      "subject_ref": "PRF-CLI-TOOL@1",
+      "required_evidence_kinds": [],
+      "selected_evidence_kind": "REVIEW_RECORD",
+      "proof_methods": [
+        "OPERATOR_VERIFICATION"
+      ],
+      "source_requirement": "EXACT_SUBJECT_REVIEWABLE_SOURCE_WITH_DIGEST_AND_PROVENANCE",
+      "baseline_revision": "tree:sha256:46d672fed66e21ccbcafa0f55c08ea1cabc52e591ccdfe8ec9ba1fcf6f1d4cdd",
+      "reason": "No compatible PASS evidence is bound to the exact current product baseline."
+    }
+  ],
+  "evidence_candidates": [],
+  "maintenance": null,
+  "acceptance_history": [],
+  "stage_state": {
+    "scale_version": 1,
+    "target_level": "MVP",
+    "claimed_current_level": "NONE",
+    "observed_candidate_level": "NONE",
+    "highest_accepted_level": "NONE",
+    "active_stage": "PROTOTYPE",
+    "progression_policy": "SEQUENTIAL",
+    "future_stage_work": "FORBIDDEN",
+    "stage_path": [
+      "PROTOTYPE",
+      "ALPHA",
+      "BETA",
+      "MVP"
+    ],
+    "revision": 1,
+    "permitted_use": {
+      "status": "UNCONFIRMED",
+      "users": [
+        "DEVELOPER"
+      ],
+      "environments": [
+        "LOCAL"
+      ],
+      "data_classes": [
+        "PUBLIC"
+      ],
+      "data_constraints": [
+        "SYNTHETIC_ONLY"
+      ]
+    },
+    "last_acceptance_ref": null,
+    "last_assessment_ref": null,
+    "updated_at": "2026-11-07T11:58:54Z"
+  },
+  "automatic_executor": "DISABLED"
+}

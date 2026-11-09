@@ -1,0 +1,170 @@
+--- PH_F05/stages.py
++++ PH_F06/stages.py
+@@ -8,7 +8,7 @@
+ import re
+ from typing import Any, Iterable
+ 
+-from .errors import ValidationFailure, WaitingDecision, WaitingInput
++from .errors import SafetyViolation, ValidationFailure, WaitingDecision, WaitingInput
+ from .evidence import (
+     EVIDENCE_STATUSES,
+     allowed_evidence_kinds,
+@@ -17,6 +17,7 @@
+     resolve_evidence_artifact,
+     normalized_evidence_body,
+     validate_gate_evidence_closure,
++    validate_normalized_evidence_document,
+     validate_semantic_gate_proof,
+     write_normalized_evidence,
+ )
+@@ -31,7 +32,7 @@
+     recover_stage_transactions,
+ )
+ from .util import deep_get, id_token, nonempty, utc_now
+-from .workspace import snapshot_product
++from .workspace import check_control_plane, record_phase_boundary, snapshot_product
+ 
+ STAGE_STATE_PATH = Path(".harness/stages/STAGE_STATE.yaml")
+ STAGE_PLAN_INDEX_PATH = Path(".harness/stages/PLANS/INDEX.yaml")
+@@ -1862,6 +1863,11 @@
+         )
+     state_path, state_doc = _load_stage_state(root)
+     state = state_doc["implementation"]
++    # PH-F06: a baseline disposition is a Stage transition too. It must not
++    # supersede Tasks or clear the Run pointer of an open maintenance route.
++    from .maintenance import active_maintenance
++    if active_maintenance(root) is not None:
++        raise ValidationFailure("Stage acceptance is blocked while same-level maintenance work remains open")
+     current_active = state["active_stage"]
+     strict_details: dict[str, Any] | None = None
+     if strict_approval:
+@@ -2877,12 +2883,62 @@
+     registered_kinds = allowed_evidence_kinds(registry_root)
+     source_digest = f"sha256:{sha256_file(source_path)}"
+     source_ref = f"EXTERNAL-EVIDENCE-FILE:{source_digest}"
++    # Check normalized records and all source proofs before the first import.
++    # The compatibility path for legacy assessment records is unchanged; such
++    # records are still not sufficient semantic proof for a positive Gate.
++    preflight_ids: set[str] = set()
++    for raw in records:
++        if not isinstance(raw, dict):
++            raise ValidationFailure("Evidence entry must be an object")
++        evidence_id = str(raw.get("id"))
++        if evidence_id in preflight_ids:
++            raise ValidationFailure("External evidence file contains duplicate ids", evidence_id)
++        preflight_ids.add(evidence_id)
++        if "schema_version" in raw:
++            if project_root is None:
++                raise ValidationFailure("Normalized maturity evidence requires a prepared Project Instance for source resolution")
++            body = validate_normalized_evidence_document(project_root, {"verification_evidence": raw}, verify_sources=True)
++            if body["status"] == "NOT_APPLICABLE" and (
++                not nonempty(body.get("rationale")) or not nonempty(body.get("validator"))
++            ):
++                raise ValidationFailure("NOT_APPLICABLE evidence requires rationale and validator", body["id"])
++            if body["status"] == "PASS" and body["kind"] != "USER_CLAIM":
++                for subject in body["criterion_refs"] + body["outcome_refs"] + body["profile_control_refs"]:
++                    validate_semantic_gate_proof(project_root, body, subject_ref=subject)
++            existing_path = project_root / f".harness/evidence/{body['id']}.yaml"
++            if existing_path.exists():
++                existing = resolve_evidence_artifact(project_root, body["id"], verify_sources=True)
++                if canonical_json_bytes(existing["body"]) != canonical_json_bytes(body):
++                    raise ValidationFailure("Immutable evidence artifact already exists with different content", body["id"])
+     normalized: list[dict[str, Any]] = []
+     warnings: list[str] = []
+     seen_ids: set[str] = set()
+     for index, raw in enumerate(records, 1):
+         if not isinstance(raw, dict):
+             raise ValidationFailure("Evidence entry must be an object", index)
++        if "schema_version" in raw:
++            if project_root is None:
++                raise ValidationFailure("Normalized maturity evidence requires a prepared Project Instance for source resolution")
++            body = validate_normalized_evidence_document(
++                project_root, {"verification_evidence": raw}, verify_sources=True,
++            )
++            evidence_id = str(body["id"])
++            if evidence_id in seen_ids:
++                raise ValidationFailure("External evidence file contains duplicate ids", evidence_id)
++            seen_ids.add(evidence_id)
++            if body["status"] == "PASS" and body["kind"] != "USER_CLAIM":
++                subjects = body["criterion_refs"] + body["outcome_refs"] + body["profile_control_refs"]
++                for subject in subjects:
++                    validate_semantic_gate_proof(project_root, body, subject_ref=subject)
++            written = write_normalized_evidence(project_root, body)
++            item = deepcopy(written["body"])
++            if item["base_revision"] != repository_revision:
++                warnings.append(f"{evidence_id}: STALE base_revision")
++                item.update(status="UNKNOWN", stale=True)
++            if item["kind"] == "USER_CLAIM" and item["status"] == "PASS":
++                item.update(status="PARTIAL", rationale="USER_CLAIM cannot satisfy a mandatory maturity criterion.")
++            normalized.append(item)
++            continue
+         required = ["id", "kind", "criterion_refs", "status", "provenance", "base_revision"]
+         missing = [field for field in required if not nonempty(raw.get(field))]
+         if missing:
+@@ -3101,8 +3157,19 @@
+     workspace = workspace.expanduser().resolve()
+     is_project = (workspace / STAGE_STATE_PATH).exists()
+     stage_state: dict[str, Any] | None = None
++    assessment_run: dict[str, Any] | None = None
+     if is_project:
+         recover_stage_transactions(workspace)
++        from .maintenance import active_maintenance
++        if active_maintenance(workspace) is not None:
++            raise ValidationFailure("Maturity assessment is blocked while same-level maintenance work remains open")
++        runtime = load_data(workspace / ".harness/state/CURRENT_STATE.yaml")["state"]
++        active_run = runtime.get("active_run")
++        # A clean, already reserved Run must remain usable after read-only
++        # assessment. Never bless a pre-existing control-plane violation: only
++        # a PASS preflight can receive the narrow trusted phase below.
++        if isinstance(active_run, dict) and check_control_plane(workspace, active_run).get("status") == "PASS":
++            assessment_run = deepcopy(active_run)
+         accepted_input_path = workspace / ".harness/state/PROJECT_INPUT_ACCEPTED.yaml"
+         project_input = load_data(accepted_input_path)
+         stage_state = load_stage_state(workspace)
+@@ -3231,6 +3298,22 @@
+     else:
+         output = workspace / "MATURITY_ASSESSMENT.yaml"
+         write_data(output, {"maturity_assessment": assessment})
++    if assessment_run is not None:
++        expected_writes = {
++            output.relative_to(workspace).as_posix(), STAGE_STATE_PATH.as_posix(),
++            f".harness/stages/STATE_HISTORY/STAGE_STATE@{stage_doc['implementation']['revision']}.yaml",
++            *(f".harness/evidence/{item['id']}.yaml" for item in external),
++        }
++        control = check_control_plane(workspace, assessment_run)
++        unexpected = (set(control.get("changed") or []) | set(control.get("unexpected") or [])) - expected_writes
++        if unexpected or control.get("deleted") or control.get("unsafe") or control.get("agent_result", {}).get("status") == "FAIL":
++            raise SafetyViolation("Read-only assessment cannot seal unrelated control-plane changes", control)
++        if _product_baseline_revision(workspace) != repository_revision:
++            raise SafetyViolation("Product changed during read-only assessment; the assessment cannot refresh Run integrity")
++        record_phase_boundary(
++            workspace, assessment_run, phase="READ_ONLY_ASSESSMENT",
++            kernel_written_paths=sorted(expected_writes), recorded_at=utc_now(),
++        )
+     return {
+         "status": assessment["status"],
+         "assessment_ref": f"{assessment_id}@{assessment['revision']}",
+@@ -3304,6 +3387,23 @@
+             "changed": False,
+         }
+     old_target = state["target_level"]
++    # A new target cycle starts only at an accepted target boundary. A second
++    # decision must not reset an in-flight Stage/Gate/Run; exact replay returned
++    # above and lower/equal targets already returned without mutation.
++    project_runtime = load_data(root / ".harness/state/CURRENT_STATE.yaml")["state"]
++    if (
++        level_ordinal(accepted) < level_ordinal(old_target)
++        or project_runtime.get("project_status") != "TARGET_LEVEL_REACHED"
++        or project_runtime.get("next_route") != "TARGET_ALREADY_REACHED"
++        or project_runtime.get("active_run") is not None
++        or project_runtime.get("current_task_ref") is not None
++    ):
++        raise ValidationFailure(
++            "Level-up requires the current target cycle to be fully accepted and idle",
++            {"highest_accepted_level": accepted, "current_target": old_target,
++             "project_status": project_runtime.get("project_status"),
++             "next_route": project_runtime.get("next_route")},
++        )
+     old_path = list(state["stage_path"])
+     new_path = stage_path(target_level)
+     next_active = str(next_level(accepted))

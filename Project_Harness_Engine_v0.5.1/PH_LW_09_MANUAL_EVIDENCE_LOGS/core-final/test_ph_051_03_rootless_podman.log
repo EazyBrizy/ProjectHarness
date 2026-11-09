@@ -1,0 +1,179 @@
+test_01_interface_no_runtime_auto_activation (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_01_interface_no_runtime_auto_activation) ... ok
+test_02_profile_strict_positive (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_02_profile_strict_positive) ... ok
+test_03_profiles_fail_closed (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_03_profiles_fail_closed) ... ok
+test_04_limits_bounds_and_unknown (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_04_limits_bounds_and_unknown) ... ok
+test_05_command_is_single_podman_and_sealed_flags (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_05_command_is_single_podman_and_sealed_flags) ... ok
+test_06_mounts_disjoint_and_exact (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_06_mounts_disjoint_and_exact) ... ERROR
+test_07_no_podman_no_process (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_07_no_podman_no_process) ... ERROR
+test_08_root_host_fails_even_if_podman_exists (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_08_root_host_fails_even_if_podman_exists) ... ERROR
+test_09_egress_requires_governance_not_permanent_profile (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_09_egress_requires_governance_not_permanent_profile) ... ok
+test_10_no_doctor_without_executable (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_10_no_doctor_without_executable) ... ok
+test_11_rootless_info_fraud_and_failure (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_11_rootless_info_fraud_and_failure) ... ERROR
+test_12_direct_runner_rejects_untrusted_inputs_without_launch (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_12_direct_runner_rejects_untrusted_inputs_without_launch) ... ok
+test_13_doctor_fails_even_when_stale_cached_status_claimed (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_13_doctor_fails_even_when_stale_cached_status_claimed) ... FAIL
+test_14_kernel_checks_are_real_probes_not_mock_acceptance (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_14_kernel_checks_are_real_probes_not_mock_acceptance) ... ok
+test_15_spawn_unavailable_no_fallback (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_15_spawn_unavailable_no_fallback) ... ok
+test_16_no_host_agent_subprocess_in_sandbox_sources (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_16_no_host_agent_subprocess_in_sandbox_sources) ... ok
+test_17_bounded_output_overflow_without_host_agent (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_17_bounded_output_overflow_without_host_agent) ... FAIL
+test_18_bad_podman_json_never_passes_doctor (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_18_bad_podman_json_never_passes_doctor) ... ERROR
+test_18b_podman_run_start_failure_is_not_isolation_pass (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_18b_podman_run_start_failure_is_not_isolation_pass) ... 
+  test_18b_podman_run_start_failure_is_not_isolation_pass (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_18b_podman_run_start_failure_is_not_isolation_pass) (code=125) ... ERROR
+  test_18b_podman_run_start_failure_is_not_isolation_pass (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_18b_podman_run_start_failure_is_not_isolation_pass) (code=126) ... ERROR
+  test_18b_podman_run_start_failure_is_not_isolation_pass (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_18b_podman_run_start_failure_is_not_isolation_pass) (code=127) ... ERROR
+test_19_real_rootless_doctor_and_container_run (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_19_real_rootless_doctor_and_container_run)
+Security integration, not a fake/mock. Requires pinned digest image. ... skipped 'NOT RUN: real rootless Podman+locally pinned test image+executable are required'
+
+======================================================================
+ERROR: test_06_mounts_disjoint_and_exact (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_06_mounts_disjoint_and_exact)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_03_rootless_podman.py", line 121, in test_06_mounts_disjoint_and_exact
+    self.assertEqual(validate_execution_mounts(d)["output_dir"], d["output_dir"])
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\sandbox\profiles.py", line 121, in validate_execution_mounts
+    paths = {name: _directory(request[name], name) for name in names}
+                   ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\sandbox\profiles.py", line 99, in _directory
+    raise SandboxPolicyError(f"unsafe {name} mount path")
+project_harness.sandbox.profiles.SandboxPolicyError: unsafe execution_root mount path
+
+======================================================================
+ERROR: test_07_no_podman_no_process (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_07_no_podman_no_process)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_03_rootless_podman.py", line 140, in test_07_no_podman_no_process
+    with mock.patch("os.geteuid", return_value=1001), mock.patch.object(runner, "_podman", return_value=None), \
+         ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1510, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1480, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'os' (frozen)> does not have the attribute 'geteuid'
+
+======================================================================
+ERROR: test_08_root_host_fails_even_if_podman_exists (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_08_root_host_fails_even_if_podman_exists)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_03_rootless_podman.py", line 150, in test_08_root_host_fails_even_if_podman_exists
+    with mock.patch("os.geteuid", return_value=0), mock.patch.object(runner, "_podman") as podman:
+         ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1510, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1480, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'os' (frozen)> does not have the attribute 'geteuid'
+
+======================================================================
+ERROR: test_11_rootless_info_fraud_and_failure (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_11_rootless_info_fraud_and_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_03_rootless_podman.py", line 175, in test_11_rootless_info_fraud_and_failure
+    with mock.patch("os.geteuid", return_value=1001), mock.patch.object(r,"_podman",return_value="/usr/bin/podman"):
+         ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1510, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1480, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'os' (frozen)> does not have the attribute 'geteuid'
+
+======================================================================
+ERROR: test_18_bad_podman_json_never_passes_doctor (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_18_bad_podman_json_never_passes_doctor)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_03_rootless_podman.py", line 266, in test_18_bad_podman_json_never_passes_doctor
+    with mock.patch("os.geteuid",return_value=1001), mock.patch.object(runner,"_podman",return_value="/usr/bin/podman"), mock.patch.object(runner,"_control",return_value={"termination_reason":"EXITED","exit_code":0,"stdout":'{"host":"garbage"}'}):
+         ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1510, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1480, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'os' (frozen)> does not have the attribute 'geteuid'
+
+======================================================================
+ERROR: test_18b_podman_run_start_failure_is_not_isolation_pass (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_18b_podman_run_start_failure_is_not_isolation_pass) (code=125)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_03_rootless_podman.py", line 280, in test_18b_podman_run_start_failure_is_not_isolation_pass
+    mock.patch("os.geteuid",return_value=1001), mock.patch("os.getegid",return_value=1001):
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1510, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1480, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'os' (frozen)> does not have the attribute 'geteuid'
+
+======================================================================
+ERROR: test_18b_podman_run_start_failure_is_not_isolation_pass (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_18b_podman_run_start_failure_is_not_isolation_pass) (code=126)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_03_rootless_podman.py", line 280, in test_18b_podman_run_start_failure_is_not_isolation_pass
+    mock.patch("os.geteuid",return_value=1001), mock.patch("os.getegid",return_value=1001):
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1510, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1480, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'os' (frozen)> does not have the attribute 'geteuid'
+
+======================================================================
+ERROR: test_18b_podman_run_start_failure_is_not_isolation_pass (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_18b_podman_run_start_failure_is_not_isolation_pass) (code=127)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_03_rootless_podman.py", line 280, in test_18b_podman_run_start_failure_is_not_isolation_pass
+    mock.patch("os.geteuid",return_value=1001), mock.patch("os.getegid",return_value=1001):
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1510, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1480, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'os' (frozen)> does not have the attribute 'geteuid'
+
+======================================================================
+FAIL: test_13_doctor_fails_even_when_stale_cached_status_claimed (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_13_doctor_fails_even_when_stale_cached_status_claimed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_03_rootless_podman.py", line 212, in test_13_doctor_fails_even_when_stale_cached_status_claimed
+    self.assertEqual(r.run(request(d))["reason_code"],"SANDBOX_UNAVAILABLE")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'SANDBOX_POLICY_FAILURE' != 'SANDBOX_UNAVAILABLE'
+- SANDBOX_POLICY_FAILURE
++ SANDBOX_UNAVAILABLE
+
+
+======================================================================
+FAIL: test_17_bounded_output_overflow_without_host_agent (tests.test_ph_051_03_rootless_podman.RootlessPodmanSandboxTests.test_17_bounded_output_overflow_without_host_agent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_03_rootless_podman.py", line 259, in test_17_bounded_output_overflow_without_host_agent
+    self.assertEqual(result["termination_reason"], "OUTPUT_LIMIT_EXCEEDED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'SANDBOX_UNAVAILABLE' != 'OUTPUT_LIMIT_EXCEEDED'
+- SANDBOX_UNAVAILABLE
++ OUTPUT_LIMIT_EXCEEDED
+
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.092s
+
+FAILED (failures=2, errors=8, skipped=1)

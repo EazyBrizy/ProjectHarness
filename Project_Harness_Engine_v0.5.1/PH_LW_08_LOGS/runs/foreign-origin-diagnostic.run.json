@@ -1,0 +1,16 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import faulthandler,unittest; faulthandler.dump_traceback_later(20,repeat=True); unittest.main(module=None,argv=['unittest','-v','tests.test_ph_lw_04_05_acceptance.BrowserImportAcceptance.test_foreign_origin_browser_form_fetch_and_frame_are_denied'])"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T04:02:13.887999+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 90,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 37.029,
+  "log_sha256": "463d58309ff2d6de162352f8c760687f391130f450a8df8de975804d1dcfb7db"
+}

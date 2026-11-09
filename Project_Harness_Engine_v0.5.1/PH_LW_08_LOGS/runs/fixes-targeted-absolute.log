@@ -1,0 +1,11 @@
+test_persistent_read_handle_preserves_old_phase_and_requires_recovery (tests.test_ph_lw_08_preparation.PreparationJournalTests.test_persistent_read_handle_preserves_old_phase_and_requires_recovery) ... ok
+test_transient_get_read_handle_does_not_interrupt_atomic_phase_write (tests.test_ph_lw_08_preparation.PreparationJournalTests.test_transient_get_read_handle_does_not_interrupt_atomic_phase_write) ... ok
+test_edge_single_md_and_zip_full_flow_reconnect_first_jit_and_download (tests.test_ph_lw_08_http.PreparationBrowserTests.test_edge_single_md_and_zip_full_flow_reconnect_first_jit_and_download) ... ok
+test_all_routes_auth_origin_host_csrf_unknown_fields_no_writes (tests.test_ph_lw_08_http.PreparationHttpTests.test_all_routes_auth_origin_host_csrf_unknown_fields_no_writes) ... ok
+test_ui_upload_preview_duplicate_replace_and_no_documentation (tests.test_ph_lw_04_05_acceptance.BrowserImportAcceptance.test_ui_upload_preview_duplicate_replace_and_no_documentation) ... Task queue depth is 1
+ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 65.091s
+
+OK

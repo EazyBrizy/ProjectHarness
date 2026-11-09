@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests"
+  ],
+  "ran": 8,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 130.927,
+  "log": "test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.log",
+  "status": "PASS"
+}

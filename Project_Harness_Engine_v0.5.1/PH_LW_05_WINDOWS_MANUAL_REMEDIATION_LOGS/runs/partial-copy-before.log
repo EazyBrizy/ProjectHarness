@@ -1,0 +1,25 @@
+test_partial_copy_failure_preserves_source_and_removes_owned_stage (tests.test_windows_manual_migration.ManualMigrationTests.test_partial_copy_failure_preserves_source_and_removes_owned_stage) ... FAIL
+
+======================================================================
+FAIL: test_partial_copy_failure_preserves_source_and_removes_owned_stage (tests.test_windows_manual_migration.ManualMigrationTests.test_partial_copy_failure_preserves_source_and_removes_owned_stage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_windows_manual_migration.py", line 108, in test_partial_copy_failure_preserves_source_and_removes_owned_stage
+    self.assert_no_storage()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_windows_manual_migration.py", line 41, in assert_no_storage
+    self.assertEqual(list(self.root.parent.glob(f'.{self.root.name}.ph05110-*')), [])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [WindowsPath('<USERPROFILE>/AppData/Local[105 chars]4a')] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+WindowsPath('<TEMP>/manual-migration-o9h19l24/Проект с пробелами/.handoff.ph05110-staged-230fd7a30968453985d687fb43101c4a')
+
+- [WindowsPath('<TEMP>/manual-migration-o9h19l24/Проект с пробелами/.handoff.ph05110-staged-230fd7a30968453985d687fb43101c4a')]
++ []
+
+----------------------------------------------------------------------
+Ran 1 test in 11.000s
+
+FAILED (failures=1)

@@ -1,0 +1,75 @@
+{
+  "stage": "PH-051-02",
+  "all_passed": true,
+  "total": 202,
+  "preserved_tests": 178,
+  "new_tests": 24,
+  "groups": [
+    {
+      "group": "01",
+      "tests": 9,
+      "result": "PASS",
+      "log": "PH_051_02_LOGS/REGRESSION_GROUP_01.log",
+      "duration_seconds": 90.603
+    },
+    {
+      "group": "02",
+      "tests": 24,
+      "result": "PASS",
+      "log": "PH_051_02_LOGS/REGRESSION_GROUP_02.log",
+      "duration_seconds": 106.745
+    },
+    {
+      "group": "03",
+      "tests": 28,
+      "result": "PASS",
+      "log": "PH_051_02_LOGS/REGRESSION_GROUP_03.log",
+      "duration_seconds": 206.926
+    },
+    {
+      "group": "04",
+      "tests": 50,
+      "result": "PASS",
+      "log": "PH_051_02_LOGS/REGRESSION_GROUP_04.log",
+      "duration_seconds": 84.241
+    },
+    {
+      "group": "05",
+      "tests": 22,
+      "result": "PASS",
+      "log": "PH_051_02_LOGS/REGRESSION_GROUP_05.log",
+      "duration_seconds": 81.818
+    },
+    {
+      "group": "06",
+      "tests": 32,
+      "result": "PASS",
+      "log": "PH_051_02_LOGS/REGRESSION_GROUP_06.log",
+      "duration_seconds": 40.863
+    },
+    {
+      "group": "07",
+      "tests": 13,
+      "result": "PASS",
+      "log": "PH_051_02_LOGS/REGRESSION_GROUP_07.log",
+      "duration_seconds": 30.436
+    },
+    {
+      "group": "08",
+      "tests": 24,
+      "result": "PASS",
+      "log": "PH_051_02_LOGS/REGRESSION_GROUP_08.log",
+      "duration_seconds": 0.071
+    }
+  ],
+  "initial_errors": {
+    "groups": [
+      "05",
+      "06"
+    ],
+    "reason": "zipfile extraction lost source mode 0755 on bin/project-harness",
+    "correction": "restore source-archived 0755 in working extraction; no source patch",
+    "rerun": "PASS 22/22 and 32/32"
+  },
+  "security_tests_rootless_podman": "NOT_RUN_SCOPE_PH-051-03"
+}

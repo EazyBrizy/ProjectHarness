@@ -1,0 +1,2 @@
+tests.test_ph_lw_01_contract: PASS, ran=9, skips=0, 0.524s
+tests.test_ph_lw_03_service: PASS, ran=15, skips=0, 93.438s

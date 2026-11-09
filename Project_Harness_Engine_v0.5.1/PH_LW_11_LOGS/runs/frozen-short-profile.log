@@ -1,0 +1,21 @@
+Frozen server ready; PID 28676 PATH has no developer tools
+Frozen server ready; PID 11364 PATH has no developer tools
+Frozen server ready; PID 33916 PATH has no developer tools
+Frozen server ready; PID 23492 PATH has no developer tools
+Frozen server ready; PID 44300 PATH has no developer tools
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\local_web\windows\acceptance.py", line 192, in <module>
+    if __name__=='__main__':raise SystemExit(main())
+                                             ~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\local_web\windows\acceptance.py", line 180, in main
+    app_retained=byte_snapshot(runtime_root/'LocalAppData')
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_03_service.py", line 28, in byte_snapshot
+    return {p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+                                                           ~~~~~~~~~~~~^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '<WORKSPACE>\\_scratch\\Л11\\LocalAppData\\Google\\Chrome\\User Data\\lockfile'

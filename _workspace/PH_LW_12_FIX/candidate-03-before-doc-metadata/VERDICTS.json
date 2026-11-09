@@ -1,0 +1,75 @@
+{
+  "PH-LW-04": "GO in tested Windows scope",
+  "PH-LW-05": "GO in tested Windows scope",
+  "PH-LW-12": "GO with retained accepted limitations",
+  "LOCAL_WEB_MANUAL": "GO",
+  "AUTOMATIC_EXECUTOR": "previous NO-GO; disabled",
+  "v0.5.1": "NO-GO / NOT RELEASED",
+  "platform": "Windows 11 x64 / NTFS / non-admin only",
+  "accepted_not_run": [
+    "clean Windows without developer runtimes",
+    "physical offline",
+    "real disk-full",
+    "actual Unicode username"
+  ],
+  "windows_methods": 461,
+  "windows_counts": {
+    "PASS": 459,
+    "SKIP": 2
+  },
+  "windows_unclosed_methods": [],
+  "platform_skips": {
+    "tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_05_colliding_tree_rejected_without_rewriting_case": {
+      "status": "SKIP",
+      "reason": "skipped 'NTFS casefold aliases require a case-sensitive directory; ZIP test is cross-platform'",
+      "raw_log": "_scratch/ph_lw_12_fix/wheel/test_ph_lw_02_windows_core-nonbrowser.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningControlPlaneTests.test_agent_result_symlink_is_rejected": {
+      "status": "SKIP",
+      "reason": "skipped 'NOT RUN: native file symlink creation requires a Windows privilege unavailable to this non-admin user'",
+      "raw_log": "_scratch/ph_lw_12_fix/wheel/test_contract_hardening-nonbrowser.log"
+    }
+  },
+  "posix_methods_outside_windows_scope": 156,
+  "final_runs": {
+    "final03-installed-supported": {
+      "status": "PASS",
+      "exit": 0,
+      "log_sha256": "c28ca98018ccae09eccbf5021125f1584c3b6b2a5514abaebd7106bee635ef0f"
+    },
+    "final03-installed-deep": {
+      "status": "PASS",
+      "exit": 0,
+      "log_sha256": "2e3cd08f7ec1991c51a879946fb5a278ec64d5b8a79aa0079c6a6ca3638e5bed"
+    },
+    "final03-installer-recovery": {
+      "status": "PASS",
+      "exit": 0,
+      "log_sha256": "8009c5c45f9fa62c5942c72851dffeb6430df8b5f927599a323d3ee73c76759b"
+    },
+    "final03-installed-extended": {
+      "status": "PASS",
+      "exit": 0,
+      "log_sha256": "3d4518e4bea1bfcbd6b5feb5754f88289e4792b8018a633d0d9fdc7f75f43eba"
+    },
+    "final03-installed-deep-full": {
+      "status": "PASS",
+      "exit": 0,
+      "log_sha256": "ca91dc77cf9e8d11d6195e44f1d63d66bb5ae95e828ba96f1dc3bc626f418446"
+    },
+    "maturity-final03": {
+      "status": "PASS",
+      "exit": 0,
+      "log_sha256": "26a79abbc2166da212f0bd0ad3afe8e84e96fe43ee5caa2cb77c6098ac61b839"
+    }
+  },
+  "blockers": {
+    "LW12-DEEP-APPDATA-INTAKE": "CLOSED",
+    "LW12-MAINTENANCE-RESULT-CONFLICT": "CLOSED",
+    "LW12-PROJECT-LIST-PROJECTION": "CLOSED"
+  },
+  "zip_created": false,
+  "automatic_executor_enabled": false,
+  "system_settings_changed": false,
+  "visible_browser_windows_opened": false
+}

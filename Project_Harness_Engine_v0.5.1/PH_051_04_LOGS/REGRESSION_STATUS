@@ -1,0 +1,8 @@
+1 0 ----------------------------------------------------------------------|Ran 24 tests in 29.055s||OK|
+2 124 test_12_normalized_proof_tamper_or_generic_pass_rejected_before_import (tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_12_normalized_proof_tamper_or_generic_pass_rejected_before_import) ... ok|test_13_stale_normalized_reimport_keeps_immutable_fact_and_downgrades_assessment (tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_13_stale_normalized_reimport_keeps_immutable_fact_and_downgrades_assessment) ... ok|test_01_greenfield_all_four_stages_have_verified_immutable_acceptances (tests.test_ph_f06_maturity_lifecycle.PHF06MaturityLifecycleTests.test_01_greenfield_all_four_stages_have_verified_immutable_acceptances) ... ok|test_02_maintenance_complete_level_up_release_and_idempotent_replay (tests.test_ph_f06_maturity_lifecycle.PHF06MaturityLifecycleTests.test_02_maintenance_complete_level_up_release_and_idempotent_replay) ... 
+3 0 ----------------------------------------------------------------------|Ran 53 tests in 49.083s||OK (skipped=1)|
+4 0 ----------------------------------------------------------------------|Ran 24 tests in 26.894s||OK|
+5 0 ----------------------------------------------------------------------|Ran 16 tests in 62.684s||OK|
+6 0 ----------------------------------------------------------------------|Ran 30 tests in 89.136s||OK|
+7 0 ----------------------------------------------------------------------|Ran 16 tests in 49.478s||OK|
+8 0 ----------------------------------------------------------------------|Ran 17 tests in 59.464s||OK|

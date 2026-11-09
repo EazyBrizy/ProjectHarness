@@ -1,0 +1,25 @@
+[
+  {
+    "module": "tests.test_ph_lw_07_approvals",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_ph_lw_07_approvals",
+      "<WORKSPACE>\\_scratch\\ph_lw_07\\target-initial\\test_ph_lw_07_approvals.log"
+    ],
+    "started_utc": "2026-11-07T02:47:52.118216+00:00",
+    "exit": 1,
+    "status": "FAIL",
+    "modules": [
+      "tests.test_ph_lw_07_approvals"
+    ],
+    "ran": 16,
+    "failures": 0,
+    "errors": 5,
+    "skips": [],
+    "elapsed_seconds": 25.452,
+    "log": "test_ph_lw_07_approvals.log",
+    "log_sha256": "0ceaf5cd954e5f874c9fa88d5e94733714eea61f54984f51dafecb6bfe0dd356"
+  }
+]

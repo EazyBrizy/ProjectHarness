@@ -1,0 +1,47 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\local_web\windows\final_acceptance.py", line 126, in test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete
+    page.locator('#task-upload').click();expect(page.locator('#task-result-state')).to_contain_text('RESULT_RECEIVED')
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_scratch\ph_lw_12\wheel-venv\Lib\site-packages\playwright\sync_api\_generated.py", line 14961, in to_contain_text
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.to_contain_text(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        )
+        ^
+    )
+    ^
+  File "<WORKSPACE>\_scratch\ph_lw_12\wheel-venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "<WORKSPACE>\_scratch\ph_lw_12\wheel-venv\Lib\site-packages\playwright\_impl\_assertions.py", line 303, in to_contain_text
+    await self._expect_impl(
+    ...<9 lines>...
+    )
+  File "<WORKSPACE>\_scratch\ph_lw_12\wheel-venv\Lib\site-packages\playwright\_impl\_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        AssertionError(
+        ^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        self._is_soft,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "<WORKSPACE>\_scratch\ph_lw_12\wheel-venv\Lib\site-packages\playwright\_impl\_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to contain text 'RESULT_RECEIVED'
+Actual value: {
+  "status": "NOT_RECEIVED"
+} 
+Call log:
+  - Expect "to_contain_text" locator("#task-result-state") with timeout 5000ms
+  - waiting for locator("#task-result-state")
+    14 × locator resolved to <p id="task-result-state">{↵  "status": "NOT_RECEIVED"↵}</p>
+       - unexpected value "{
+  "status": "NOT_RECEIVED"
+}"
+
+Aria snapshot:
+- paragraph: "{ \"status\": \"NOT_RECEIVED\" }"

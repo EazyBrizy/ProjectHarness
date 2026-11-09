@@ -1,0 +1,6 @@
+test_real_tcp_auth_consent_fields_replay_and_stale_view (tests.test_ph_lw_09_manual_evidence.ManualEvidenceHttpTests.test_real_tcp_auth_consent_fields_replay_and_stale_view) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 20.572s
+
+OK

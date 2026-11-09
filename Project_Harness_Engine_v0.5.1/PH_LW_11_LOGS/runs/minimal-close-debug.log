@@ -1,0 +1,24 @@
+launch
+2026-11-07T23:53:46.046Z pw:browser <launching> C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=<TEMP>\playwright_chromiumdev_profile-WIWQNB --remote-debugging-pipe --no-startup-window
+2026-11-07T23:53:46.076Z pw:browser <launched> pid=35580
+page
+close
+2026-11-07T23:53:46.668Z pw:browser [pid=35580] <gracefully close start>
+Timeout (0:00:30)!
+Thread 0x000028d0 (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\windows_events.py", line 778 in _poll
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\windows_events.py", line 446 in select
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\base_events.py", line 2026 in _run_once
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\base_events.py", line 678 in run_forever
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\base_events.py", line 707 in run_until_complete
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\sync_api\_context_manager.py", line 60 in greenlet_main
+2026-11-07T23:54:16.682Z pw:browser [pid=35580] <kill>
+2026-11-07T23:54:16.682Z pw:browser [pid=35580] <will force kill>
+Timeout (0:00:30)!
+Thread 0x000028d0 (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\windows_events.py", line 778 in _poll
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\windows_events.py", line 446 in select
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\base_events.py", line 2026 in _run_once
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\base_events.py", line 678 in run_forever
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\base_events.py", line 707 in run_until_complete
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\sync_api\_context_manager.py", line 60 in greenlet_main

@@ -1,0 +1,16 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import faulthandler,unittest; faulthandler.dump_traceback_later(20,repeat=True); unittest.main(module=None,argv=['unittest','-v','tests.test_ph_lw_08_preparation.PreparationTests.test_missing_approval_readonly_get_and_no_target'])"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T03:41:31.929942+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 180,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 2.361,
+  "log_sha256": "a8a713dd9dbd30f1cea642a138898bdf4037d75e43ad268b5aed57528128f72e"
+}

@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_04_05_acceptance.py", line 147, in test_production_wsgi_declared_and_chunked_body_header_and_idle_limits
+    self.assertEqual(live.request('GET', '/health', headers={'X-Large': 'x' * (17 * 1024)})[0], 431)
+                     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_04_05_acceptance.py", line 57, in request
+    raw = res.read()
+  File "<WORKSPACE>\_tools\Python314\Lib\http\client.py", line 510, in read
+    s = self._safe_read(self.length)
+  File "<WORKSPACE>\_tools\Python314\Lib\http\client.py", line 667, in _safe_read
+    data = self.fp.read(cursize)
+  File "<WORKSPACE>\_tools\Python314\Lib\socket.py", line 729, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] Удаленный хост принудительно разорвал существующее подключение

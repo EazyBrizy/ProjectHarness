@@ -1,0 +1,255 @@
+test_01_cli_commands_exported_python_api_and_flags (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_01_cli_commands_exported_python_api_and_flags) ... ok
+test_02_manual_default_does_not_reserve_or_invoke_cli (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_02_manual_default_does_not_reserve_or_invoke_cli) ... FAIL
+test_03_missing_podman_doctor_fail_closed_no_host_fallback (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_03_missing_podman_doctor_fail_closed_no_host_fallback) ... ok
+test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug) ... 
+  test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug) (options={'network': 'EXPLICIT_APPROVED_EGRESS'}) ... FAIL
+  test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug) (options={'network': 'EXPLICIT_APPROVED_EGRESS', 'approval': WindowsPath('/dev/null')}) ... FAIL
+  test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug) (options={'adapter_profile': 'ADP-FOREIGN@1'}) ... FAIL
+  test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug) (options={'keep_execution_root': True}) ... FAIL
+  test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug) (options={'approval': WindowsPath('/dev/null')}) ... FAIL
+test_05_controlled_success_explicit_completion_and_idempotent_replay (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_05_controlled_success_explicit_completion_and_idempotent_replay) ... FAIL
+test_06_auto_after_pass_completes_without_stage_approval (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_06_auto_after_pass_completes_without_stage_approval) ... FAIL
+test_07_timeout_immutable_run_blocker_then_new_attempt_on_resume (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_07_timeout_immutable_run_blocker_then_new_attempt_on_resume) ... FAIL
+test_08_nonzero_or_agent_failed_or_result_missing_never_applies (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_08_nonzero_or_agent_failed_or_result_missing_never_applies) ... 
+  test_08_nonzero_or_agent_failed_or_result_missing_never_applies (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_08_nonzero_or_agent_failed_or_result_missing_never_applies) (name='NONZERO') ... FAIL
+  test_08_nonzero_or_agent_failed_or_result_missing_never_applies (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_08_nonzero_or_agent_failed_or_result_missing_never_applies) (name='MISSING') ... FAIL
+  test_08_nonzero_or_agent_failed_or_result_missing_never_applies (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_08_nonzero_or_agent_failed_or_result_missing_never_applies) (name='FAILED') ... FAIL
+test_09_scope_or_baseline_violation_no_apply (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_09_scope_or_baseline_violation_no_apply) ... 
+  test_09_scope_or_baseline_violation_no_apply (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_09_scope_or_baseline_violation_no_apply) (name='SCOPE') ... FAIL
+  test_09_scope_or_baseline_violation_no_apply (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_09_scope_or_baseline_violation_no_apply) (name='BASELINE') ... FAIL
+test_10_independent_verification_failure_never_applies (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_10_independent_verification_failure_never_applies) ... FAIL
+test_11_secret_echo_before_verification_never_applies (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_11_secret_echo_before_verification_never_applies) ... FAIL
+test_12_current_run_continuation_is_local_auto_not_host_verify (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_12_current_run_continuation_is_local_auto_not_host_verify) ... ok
+test_13_replayed_inflight_run_does_not_launch_twice (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_13_replayed_inflight_run_does_not_launch_twice) ... ERROR
+test_14_tampered_apply_evidence_fails_project_validation_and_completion (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_14_tampered_apply_evidence_fails_project_validation_and_completion) ... FAIL
+test_15_cli_json_exit_codes_manual_doctor_and_public_execute (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_15_cli_json_exit_codes_manual_doctor_and_public_execute) ... FAIL
+
+======================================================================
+ERROR: test_13_replayed_inflight_run_does_not_launch_twice (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_13_replayed_inflight_run_does_not_launch_twice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_09_automatic_runtime.py", line 306, in test_13_replayed_inflight_run_does_not_launch_twice
+    self.assertEqual(result["run_status"], "RUNNING")
+                     ~~~~~~^^^^^^^^^^^^^^
+KeyError: 'run_status'
+
+======================================================================
+FAIL: test_02_manual_default_does_not_reserve_or_invoke_cli (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_02_manual_default_does_not_reserve_or_invoke_cli)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_09_automatic_runtime.py", line 136, in test_02_manual_default_does_not_reserve_or_invoke_cli
+    self.assertEqual(executor_doctor(self.project)["reason_code"], "EXECUTOR_UNAVAILABLE")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'SANDBOX_UNAVAILABLE' != 'EXECUTOR_UNAVAILABLE'
+- SANDBOX_UNAVAILABLE
++ EXECUTOR_UNAVAILABLE
+
+
+======================================================================
+FAIL: test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug) (options={'network': 'EXPLICIT_APPROVED_EGRESS'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_09_automatic_runtime.py", line 164, in test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug
+    self.assertEqual(executor_doctor(self.project, **options)["reason_code"], reason)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'SANDBOX_UNAVAILABLE' != 'NETWORK_NOT_APPROVED'
+- SANDBOX_UNAVAILABLE
++ NETWORK_NOT_APPROVED
+
+
+======================================================================
+FAIL: test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug) (options={'network': 'EXPLICIT_APPROVED_EGRESS', 'approval': WindowsPath('/dev/null')})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_09_automatic_runtime.py", line 164, in test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug
+    self.assertEqual(executor_doctor(self.project, **options)["reason_code"], reason)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'SANDBOX_UNAVAILABLE' != 'NETWORK_NOT_APPROVED'
+- SANDBOX_UNAVAILABLE
++ NETWORK_NOT_APPROVED
+
+
+======================================================================
+FAIL: test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug) (options={'adapter_profile': 'ADP-FOREIGN@1'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_09_automatic_runtime.py", line 164, in test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug
+    self.assertEqual(executor_doctor(self.project, **options)["reason_code"], reason)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'SANDBOX_UNAVAILABLE' != 'SANDBOX_POLICY_FAILURE'
+- SANDBOX_UNAVAILABLE
++ SANDBOX_POLICY_FAILURE
+
+
+======================================================================
+FAIL: test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug) (options={'keep_execution_root': True})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_09_automatic_runtime.py", line 164, in test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug
+    self.assertEqual(executor_doctor(self.project, **options)["reason_code"], reason)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'SANDBOX_UNAVAILABLE' != 'SANDBOX_POLICY_FAILURE'
+- SANDBOX_UNAVAILABLE
++ SANDBOX_POLICY_FAILURE
+
+
+======================================================================
+FAIL: test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug) (options={'approval': WindowsPath('/dev/null')})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_09_automatic_runtime.py", line 164, in test_04_no_egress_or_unpinned_adapter_override_or_unapproved_debug
+    self.assertEqual(executor_doctor(self.project, **options)["reason_code"], reason)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'SANDBOX_UNAVAILABLE' != 'NETWORK_NOT_APPROVED'
+- SANDBOX_UNAVAILABLE
++ NETWORK_NOT_APPROVED
+
+
+======================================================================
+FAIL: test_05_controlled_success_explicit_completion_and_idempotent_replay (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_05_controlled_success_explicit_completion_and_idempotent_replay)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_09_automatic_runtime.py", line 171, in test_05_controlled_success_explicit_completion_and_idempotent_replay
+    self.assertEqual(result["status"], "SUCCEEDED", result)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'BLOCKED' != 'SUCCEEDED'
+- BLOCKED
++ SUCCEEDED
+ : {'status': 'BLOCKED', 'reason_code': 'SANDBOX_UNAVAILABLE', 'execution_mode': 'UNSUPPORTED_ON_NATIVE_WINDOWS', 'isolation_verified': False, 'message': 'No rootless Podman automatic execution or host fallback on native Windows'}
+
+======================================================================
+FAIL: test_06_auto_after_pass_completes_without_stage_approval (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_06_auto_after_pass_completes_without_stage_approval)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_09_automatic_runtime.py", line 201, in test_06_auto_after_pass_completes_without_stage_approval
+    self.assertEqual(result["status"], "COMPLETED", result)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'BLOCKED' != 'COMPLETED'
+- BLOCKED
++ COMPLETED
+ : {'status': 'BLOCKED', 'reason_code': 'SANDBOX_UNAVAILABLE', 'execution_mode': 'UNSUPPORTED_ON_NATIVE_WINDOWS', 'isolation_verified': False, 'message': 'No rootless Podman automatic execution or host fallback on native Windows'}
+
+======================================================================
+FAIL: test_07_timeout_immutable_run_blocker_then_new_attempt_on_resume (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_07_timeout_immutable_run_blocker_then_new_attempt_on_resume)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_09_automatic_runtime.py", line 210, in test_07_timeout_immutable_run_blocker_then_new_attempt_on_resume
+    self.assertEqual(result["status"], "TIMED_OUT", result)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'BLOCKED' != 'TIMED_OUT'
+- BLOCKED
++ TIMED_OUT
+ : {'status': 'BLOCKED', 'reason_code': 'SANDBOX_UNAVAILABLE', 'execution_mode': 'UNSUPPORTED_ON_NATIVE_WINDOWS', 'isolation_verified': False, 'message': 'No rootless Podman automatic execution or host fallback on native Windows'}
+
+======================================================================
+FAIL: test_08_nonzero_or_agent_failed_or_result_missing_never_applies (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_08_nonzero_or_agent_failed_or_result_missing_never_applies) (name='NONZERO')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_09_automatic_runtime.py", line 240, in test_08_nonzero_or_agent_failed_or_result_missing_never_applies
+    self.assertEqual(result["reason_code"], reason)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'SANDBOX_UNAVAILABLE' != 'EXECUTOR_EXIT_NONZERO'
+- SANDBOX_UNAVAILABLE
++ EXECUTOR_EXIT_NONZERO
+
+
+======================================================================
+FAIL: test_08_nonzero_or_agent_failed_or_result_missing_never_applies (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_08_nonzero_or_agent_failed_or_result_missing_never_applies) (name='MISSING')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_09_automatic_runtime.py", line 240, in test_08_nonzero_or_agent_failed_or_result_missing_never_applies
+    self.assertEqual(result["reason_code"], reason)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'SANDBOX_UNAVAILABLE' != 'RESULT_INVALID'
+- SANDBOX_UNAVAILABLE
++ RESULT_INVALID
+
+
+======================================================================
+FAIL: test_08_nonzero_or_agent_failed_or_result_missing_never_applies (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_08_nonzero_or_agent_failed_or_result_missing_never_applies) (name='FAILED')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_09_automatic_runtime.py", line 240, in test_08_nonzero_or_agent_failed_or_result_missing_never_applies
+    self.assertEqual(result["reason_code"], reason)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'SANDBOX_UNAVAILABLE' != 'RESULT_INVALID'
+- SANDBOX_UNAVAILABLE
++ RESULT_INVALID
+
+
+======================================================================
+FAIL: test_09_scope_or_baseline_violation_no_apply (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_09_scope_or_baseline_violation_no_apply) (name='SCOPE')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_09_automatic_runtime.py", line 259, in test_09_scope_or_baseline_violation_no_apply
+    self.assertEqual(result["reason_code"], reason, result)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'SANDBOX_UNAVAILABLE' != 'SCOPE_VIOLATION'
+- SANDBOX_UNAVAILABLE
++ SCOPE_VIOLATION
+ : {'status': 'BLOCKED', 'reason_code': 'SANDBOX_UNAVAILABLE', 'execution_mode': 'UNSUPPORTED_ON_NATIVE_WINDOWS', 'isolation_verified': False, 'message': 'No rootless Podman automatic execution or host fallback on native Windows'}
+
+======================================================================
+FAIL: test_09_scope_or_baseline_violation_no_apply (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_09_scope_or_baseline_violation_no_apply) (name='BASELINE')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_09_automatic_runtime.py", line 259, in test_09_scope_or_baseline_violation_no_apply
+    self.assertEqual(result["reason_code"], reason, result)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'SANDBOX_UNAVAILABLE' != 'BASELINE_CHANGED'
+- SANDBOX_UNAVAILABLE
++ BASELINE_CHANGED
+ : {'status': 'BLOCKED', 'reason_code': 'SANDBOX_UNAVAILABLE', 'execution_mode': 'UNSUPPORTED_ON_NATIVE_WINDOWS', 'isolation_verified': False, 'message': 'No rootless Podman automatic execution or host fallback on native Windows'}
+
+======================================================================
+FAIL: test_10_independent_verification_failure_never_applies (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_10_independent_verification_failure_never_applies)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_09_automatic_runtime.py", line 270, in test_10_independent_verification_failure_never_applies
+    self.assertEqual(result["status"], "FAILED_RETRYABLE", result)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'BLOCKED' != 'FAILED_RETRYABLE'
+- BLOCKED
++ FAILED_RETRYABLE
+ : {'status': 'BLOCKED', 'reason_code': 'SANDBOX_UNAVAILABLE', 'execution_mode': 'UNSUPPORTED_ON_NATIVE_WINDOWS', 'isolation_verified': False, 'message': 'No rootless Podman automatic execution or host fallback on native Windows'}
+
+======================================================================
+FAIL: test_11_secret_echo_before_verification_never_applies (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_11_secret_echo_before_verification_never_applies)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_09_automatic_runtime.py", line 281, in test_11_secret_echo_before_verification_never_applies
+    self.assertEqual(result["reason_code"], "SECRET_LEAK_DETECTED", result)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'SANDBOX_UNAVAILABLE' != 'SECRET_LEAK_DETECTED'
+- SANDBOX_UNAVAILABLE
++ SECRET_LEAK_DETECTED
+ : {'status': 'BLOCKED', 'reason_code': 'SANDBOX_UNAVAILABLE', 'execution_mode': 'UNSUPPORTED_ON_NATIVE_WINDOWS', 'isolation_verified': False, 'message': 'No rootless Podman automatic execution or host fallback on native Windows'}
+
+======================================================================
+FAIL: test_14_tampered_apply_evidence_fails_project_validation_and_completion (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_14_tampered_apply_evidence_fails_project_validation_and_completion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_09_automatic_runtime.py", line 313, in test_14_tampered_apply_evidence_fails_project_validation_and_completion
+    self.assertEqual(result["status"], "SUCCEEDED", result)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'BLOCKED' != 'SUCCEEDED'
+- BLOCKED
++ SUCCEEDED
+ : {'status': 'BLOCKED', 'reason_code': 'SANDBOX_UNAVAILABLE', 'execution_mode': 'UNSUPPORTED_ON_NATIVE_WINDOWS', 'isolation_verified': False, 'message': 'No rootless Podman automatic execution or host fallback on native Windows'}
+
+======================================================================
+FAIL: test_15_cli_json_exit_codes_manual_doctor_and_public_execute (tests.test_ph_051_09_automatic_runtime.AutomaticRunTests.test_15_cli_json_exit_codes_manual_doctor_and_public_execute)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_09_automatic_runtime.py", line 330, in test_15_cli_json_exit_codes_manual_doctor_and_public_execute
+    self.assertEqual(json.loads(capture.getvalue())["reason_code"], "EXECUTOR_UNAVAILABLE")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'SANDBOX_UNAVAILABLE' != 'EXECUTOR_UNAVAILABLE'
+- SANDBOX_UNAVAILABLE
++ EXECUTOR_UNAVAILABLE
+
+
+----------------------------------------------------------------------
+Ran 15 tests in 158.652s
+
+FAILED (failures=18, errors=1)

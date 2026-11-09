@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_ph_lw_04_http"
+  ],
+  "ran": 17,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 23.13,
+  "log": "stage_tests.log",
+  "status": "PASS"
+}

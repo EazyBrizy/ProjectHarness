@@ -1,0 +1,15 @@
+{
+  "command": [
+    "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "-B",
+    "tools/setup_ph_lw_11_zip_path_wheel.py"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-08T05:25:12.084063+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 600,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 46.663,
+  "log_sha256": "37271227d8854de9a2126f5f17915713a20c341b9dcccf1b3169bb16ffe19155"
+}

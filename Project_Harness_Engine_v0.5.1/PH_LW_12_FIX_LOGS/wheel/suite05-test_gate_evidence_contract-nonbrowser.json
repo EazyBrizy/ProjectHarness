@@ -1,0 +1,21 @@
+{
+  "modules": [
+    "tests.test_gate_evidence_contract.GateEvidenceContractTests.test_dangling_evidence_ref_is_rejected",
+    "tests.test_gate_evidence_contract.GateEvidenceContractTests.test_duplicate_conflicting_artifact_claiming_same_ref_is_rejected",
+    "tests.test_gate_evidence_contract.GateEvidenceContractTests.test_exact_valid_evidence_and_global_ref_pass",
+    "tests.test_gate_evidence_contract.GateEvidenceContractTests.test_explicit_unsupported_schema_version_is_invalid_not_legacy",
+    "tests.test_gate_evidence_contract.GateEvidenceContractTests.test_global_dangling_or_wrong_mapping_ref_blocks_acceptance",
+    "tests.test_gate_evidence_contract.GateEvidenceContractTests.test_legacy_evidence_is_readable_but_cannot_close_new_gate",
+    "tests.test_gate_evidence_contract.GateEvidenceContractTests.test_missing_provenance_stale_base_and_nonpositive_status_are_rejected",
+    "tests.test_gate_evidence_contract.GateEvidenceContractTests.test_runtime_evidence_uses_exact_post_verification_product_revision",
+    "tests.test_gate_evidence_contract.GateEvidenceContractTests.test_tampering_or_deletion_after_acceptance_fails_project_validation",
+    "tests.test_gate_evidence_contract.GateEvidenceContractTests.test_wrong_kind_and_wrong_subject_mapping_are_rejected"
+  ],
+  "ran": 10,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 220.257,
+  "log": "suite05-test_gate_evidence_contract-nonbrowser.log",
+  "status": "PASS"
+}

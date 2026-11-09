@@ -1,0 +1,17 @@
+{
+  "command": [
+    "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_03_target_change_after_assessment_marks_old_context_stale"
+  ],
+  "cwd": "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+  "started_utc": "2026-11-06T23:25:51.185958+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 180,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 17.281,
+  "log_sha256": "14a1f23527d6cc482c97d0d12b2ffe5b439caed229e83d67cb710d0fb9a7f189"
+}

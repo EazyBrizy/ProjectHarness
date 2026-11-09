@@ -1,0 +1,5 @@
+{
+  "status": "INTERRUPTED",
+  "scope": "regressions/ partial run",
+  "reason": "Additional direct regression proved: manual export cannot read the imported deep ZIP source. Preserve partial results; rerun final source inputs into regressions-final/ after the necessary exchange IO adaptation."
+}

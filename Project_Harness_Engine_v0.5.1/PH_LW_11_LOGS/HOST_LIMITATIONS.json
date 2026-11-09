@@ -1,0 +1,11 @@
+{
+  "platform": "Microsoft Windows NT 10.0.26200.0",
+  "user": "gvenv",
+  "non_admin": true,
+  "long_paths_enabled": 0,
+  "sandbox": null,
+  "vbox": null,
+  "vmware": null,
+  "no_security_settings_changed": true,
+  "hyperv_unavailable": "У вас нет разрешения на выполнение этой задачи. Обратитесь к администратору политики авторизации для компьютера \"VOLK\"."
+}

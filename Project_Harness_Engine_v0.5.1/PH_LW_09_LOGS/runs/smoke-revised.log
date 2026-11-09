@@ -1,0 +1,40 @@
+test_upload_verify_complete_next_and_exact_duplicate_replay (tests.test_ph_lw_09_tasks.TaskConsoleTests.test_upload_verify_complete_next_and_exact_duplicate_replay) ... ok
+test_exact_block_resume_and_old_result_rejected (tests.test_ph_lw_09_tasks.TaskConsoleTests.test_exact_block_resume_and_old_result_rejected) ... ok
+test_automatic_project_read_only_no_host_fallback (tests.test_ph_lw_09_tasks.TaskConsoleTests.test_automatic_project_read_only_no_host_fallback) ... ERROR
+
+======================================================================
+ERROR: test_automatic_project_read_only_no_host_fallback (tests.test_ph_lw_09_tasks.TaskConsoleTests.test_automatic_project_read_only_no_host_fallback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\project_input.py", line 778, in exact_execution_profile_bindings
+    path.resolve(strict=True).relative_to(project_root.resolve(strict=True))
+    ~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 938, in resolve
+    return self.with_segments(os.path.realpath(self, strict=strict))
+                              ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen ntpath>", line 709, in realpath
+FileNotFoundError: [WinError 3] Системе не удается найти указанный путь: '<TEMP>\\PH LW09 Задача fwtgxf9q\\fixture\\intake\\.harness\\config\\ADAPTERS\\ADP-CODEX-CLI-LOCAL-001@1.yaml'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_09_tasks.py", line 182, in test_automatic_project_read_only_no_host_fallback
+    root=self.project(automatic=True);before=byte_snapshot(root);v=view(self.service,self.pid)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_09_tasks.py", line 53, in project
+    _,_,self.root=prepare_demo(self.base/'fixture',data=fixture_input(**kwargs))
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_engine.py", line 68, in prepare_demo
+    result = prepare_handoff(workspace, output, keep_directory=extracted)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\operation_guard.py", line 106, in wrapper
+    return function(root, *args, **kwargs)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\compiler.py", line 898, in prepare_handoff
+    exact_execution_profile_bindings(workspace, project_input["execution"])
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\project_input.py", line 780, in exact_execution_profile_bindings
+    raise ValidationFailure("Exact execution profile is missing or escapes project", ref) from exc
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: Exact execution profile is missing or escapes project
+
+----------------------------------------------------------------------
+Ran 3 tests in 36.611s
+
+FAILED (errors=1)

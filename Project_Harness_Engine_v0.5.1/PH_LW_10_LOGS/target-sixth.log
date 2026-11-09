@@ -1,0 +1,22 @@
+test_native_folder_picker_selection_and_cancel (tests.test_ph_lw_10_lifecycle.NativeSelectionTests.test_native_folder_picker_selection_and_cancel) ... ok
+test_legacy_v041_migration_form_keeps_completed_runs (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_legacy_v041_migration_form_keeps_completed_runs) ... ERROR
+test_automatic_lifecycle_is_rejected_before_mutation (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_automatic_lifecycle_is_rejected_before_mutation) ... ok
+test_accepted_mvp_level_up_release_through_adapter (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_accepted_mvp_level_up_release_through_adapter) ... ok
+test_migration_process_crash_explicit_web_recovery_missing_root (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_migration_process_crash_explicit_web_recovery_missing_root) ... ok
+test_edge_supported_migration_confirmation_and_restart_replay (tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_supported_migration_confirmation_and_restart_replay) ... Task queue depth is 1
+Task queue depth is 2
+ok
+
+======================================================================
+ERROR: test_legacy_v041_migration_form_keeps_completed_runs (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_legacy_v041_migration_form_keeps_completed_runs)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_10_lifecycle.py", line 271, in test_legacy_v041_migration_form_keeps_completed_runs
+    self.assertEqual(load_data(root/'.harness/config/PROJECT_LOCK.yaml')['project_lock']['execution']['mode'],'MANUAL_HANDOFF')
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+KeyError: 'execution'
+
+----------------------------------------------------------------------
+Ran 6 tests in 837.250s
+
+FAILED (errors=1)

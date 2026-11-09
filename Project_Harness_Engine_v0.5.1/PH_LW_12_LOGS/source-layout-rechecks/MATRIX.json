@@ -1,0 +1,94 @@
+[
+  {
+    "module": "tests.test_ph_f01_gate_semantics_regression",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_ph_f01_gate_semantics_regression",
+      "<WORKSPACE>\\_scratch\\ph_lw_12\\source-layout-rechecks\\test_ph_f01_gate_semantics_regression.log"
+    ],
+    "started_utc": "2026-11-08T09:19:13.206975+00:00",
+    "exit": 0,
+    "status": "PASS",
+    "modules": [
+      "tests.test_ph_f01_gate_semantics_regression"
+    ],
+    "ran": 3,
+    "failures": 0,
+    "errors": 0,
+    "skips": [],
+    "elapsed_seconds": 47.965,
+    "log": "test_ph_f01_gate_semantics_regression.log",
+    "log_sha256": "a555c380905018825bc22ac573edc39fb6dda0f3ff58ef616d7bca1e36ff70b2"
+  },
+  {
+    "module": "tests.test_ph_f01_planner_regression",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_ph_f01_planner_regression",
+      "<WORKSPACE>\\_scratch\\ph_lw_12\\source-layout-rechecks\\test_ph_f01_planner_regression.log"
+    ],
+    "started_utc": "2026-11-08T09:19:13.207156+00:00",
+    "exit": 0,
+    "status": "PASS",
+    "modules": [
+      "tests.test_ph_f01_planner_regression"
+    ],
+    "ran": 6,
+    "failures": 0,
+    "errors": 0,
+    "skips": [],
+    "elapsed_seconds": 190.482,
+    "log": "test_ph_f01_planner_regression.log",
+    "log_sha256": "3dcdc24169f111af5979c291ff4acb2330484bbce243f859fa011f254011cb87"
+  },
+  {
+    "module": "tests.test_ph_f03_active_stage_planning",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_ph_f03_active_stage_planning",
+      "<WORKSPACE>\\_scratch\\ph_lw_12\\source-layout-rechecks\\test_ph_f03_active_stage_planning.log"
+    ],
+    "started_utc": "2026-11-08T09:20:01.181870+00:00",
+    "exit": 0,
+    "status": "PASS",
+    "modules": [
+      "tests.test_ph_f03_active_stage_planning"
+    ],
+    "ran": 8,
+    "failures": 0,
+    "errors": 0,
+    "skips": [],
+    "elapsed_seconds": 159.99,
+    "log": "test_ph_f03_active_stage_planning.log",
+    "log_sha256": "056ad5f42621450fbe8fe5664aa7383d8b41e6eee7a6926c70da790eb932c5af"
+  },
+  {
+    "module": "tests.test_ph_f04_runtime_reachability",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_ph_f04_runtime_reachability",
+      "<WORKSPACE>\\_scratch\\ph_lw_12\\source-layout-rechecks\\test_ph_f04_runtime_reachability.log"
+    ],
+    "started_utc": "2026-11-08T09:22:23.719085+00:00",
+    "exit": 0,
+    "status": "PASS",
+    "modules": [
+      "tests.test_ph_f04_runtime_reachability"
+    ],
+    "ran": 10,
+    "failures": 0,
+    "errors": 0,
+    "skips": [],
+    "elapsed_seconds": 114.775,
+    "log": "test_ph_f04_runtime_reachability.log",
+    "log_sha256": "f99d1268f3f94849ea752b1bd6f98be10bf38ea84b61e9ac98b43b387bed7b61"
+  }
+]

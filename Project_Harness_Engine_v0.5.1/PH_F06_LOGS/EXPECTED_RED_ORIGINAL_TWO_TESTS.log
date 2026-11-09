@@ -1,0 +1,29 @@
+test_05_supplied_proofs_survive_assessment_then_sequential_baseline_reports_and_planner (tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_05_supplied_proofs_survive_assessment_then_sequential_baseline_reports_and_planner) ... FAIL
+test_10_clean_read_only_assessment_keeps_reserved_run_executable (tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_10_clean_read_only_assessment_keeps_reserved_run_executable) ... FAIL
+
+======================================================================
+FAIL: test_05_supplied_proofs_survive_assessment_then_sequential_baseline_reports_and_planner (tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_05_supplied_proofs_survive_assessment_then_sequential_baseline_reports_and_planner)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ph_f06_work/Project_Harness_Engine_v0.5.0/tests/test_ph_f06_maturity_lifecycle.py", line 149, in test_05_supplied_proofs_survive_assessment_then_sequential_baseline_reports_and_planner
+    self.assertEqual(imported, body)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+AssertionError: {'sch[189 chars]e': 'EXTERNAL_EVIDENCE_IMPORT', 'source_ref': [983 chars]lse}} != {'sch[189 chars]e': 'INDEPENDENT_TEST_EXECUTION', 'source_ref'[1150 chars]t'}}}
+Diff is 3175 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_10_clean_read_only_assessment_keeps_reserved_run_executable (tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_10_clean_read_only_assessment_keeps_reserved_run_executable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ph_f06_work/Project_Harness_Engine_v0.5.0/tests/test_ph_f06_maturity_lifecycle.py", line 225, in test_10_clean_read_only_assessment_keeps_reserved_run_executable
+    result = complete_task(root, 'Existing product independently verified after read-only assessment')
+  File "/mnt/data/ph_f06_work/Project_Harness_Engine_v0.5.0/tests/ph_f06_fixtures.py", line 160, in complete_task
+    verification = cli('verify', '--project', root, '--allow-command-execution')
+  File "/mnt/data/ph_f06_work/Project_Harness_Engine_v0.5.0/tests/ph_f06_fixtures.py", line 45, in cli
+    raise AssertionError({'argv': args, 'exit_code': code, 'result': result})
+AssertionError: {'argv': ['verify', '--project', '/tmp/phf06-brownfield-9uxq_i83/build/project', '--allow-command-execution'], 'exit_code': 3, 'result': {'status': 'BLOCKED', 'reason': 'SAFETY_VIOLATION', 'task_ref': 'TSK-HARNESS-DEMO-TASK-CLI-001@2', 'run_ref': 'RUN-HARNESS-DEMO-TASK-CLI-001-A1', 'blocker_ref': 'BLK-HARNESS-DEMO-TASK-CLI-001', 'report_ref': 'VAL-HARNESS-DEMO-TASK-CLI-001-A1-SAFETY', 'evidence_ref': 'EVD-HARNESS-DEMO-TASK-CLI-001-A1-SAFETY', 'next_route': 'RESTORE_CONTROL_PLANE_FROM_TRUSTED_HANDOFF_OR_RESTART_RUN', 'control_plane': {'status': 'FAIL', 'changed': ['.harness/stages/STAGE_STATE.yaml'], 'deleted': [], 'unexpected': ['.harness/stages/ASSESSMENTS/VAL-HARNESS-DEMO-TASK-CLI-MATURITY-001@1.yaml', '.harness/stages/ASSESSMENTS/VAL-HARNESS-DEMO-TASK-CLI-MATURITY-001@2.yaml', '.harness/stages/STATE_HISTORY/STAGE_STATE@2.yaml', '.harness/stages/STATE_HISTORY/STAGE_STATE@3.yaml'], 'unsafe': [], 'phase': 'HANDOFF_SEALED', 'boundary_digest': 'sha256:8d9173b7d0babf9cea5ec09f57557cf6fa8267f2c095885742b51c21e2cb13fa', 'agent_result': {'status': 'ABSENT', 'path': '.harness/runtime/AGENT_RESULTS/RUN-HARNESS-DEMO-TASK-CLI-001-A1.json'}}, 'commands': []}}
+
+----------------------------------------------------------------------
+Ran 2 tests in 20.929s
+
+FAILED (failures=2)

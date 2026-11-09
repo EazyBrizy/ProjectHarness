@@ -1,0 +1,105 @@
+test_malformed_action_and_non_ascii_csrf_are_denied_without_mutation (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_malformed_action_and_non_ascii_csrf_are_denied_without_mutation) ... FAIL
+test_http_replay_after_commit_returns_original_operation (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_http_replay_after_commit_returns_original_operation) ... FAIL
+test_duplicate_multipart_scalar_fields_are_rejected (tests.test_ph_lw_05_http.SourceHttpSecurity.test_duplicate_multipart_scalar_fields_are_rejected) ... 
+  test_duplicate_multipart_scalar_fields_are_rejected (tests.test_ph_lw_05_http.SourceHttpSecurity.test_duplicate_multipart_scalar_fields_are_rejected) (field='mode') ... FAIL
+  test_duplicate_multipart_scalar_fields_are_rejected (tests.test_ph_lw_05_http.SourceHttpSecurity.test_duplicate_multipart_scalar_fields_are_rejected) (field='expected_source_revision') ... FAIL
+  test_duplicate_multipart_scalar_fields_are_rejected (tests.test_ph_lw_05_http.SourceHttpSecurity.test_duplicate_multipart_scalar_fields_are_rejected) (field='expected_fingerprint') ... FAIL
+test_zip_raw_source_can_exceed_md_entry_limit_and_replay (tests.test_ph_lw_05_import.LocalSourceImporter.test_zip_raw_source_can_exceed_md_entry_limit_and_replay) ... ERROR
+test_native_windows_snapshot_parent_junction_rejected (tests.test_ph_lw_05_import.LocalSourceImporter.test_native_windows_snapshot_parent_junction_rejected) ... FAIL
+
+======================================================================
+ERROR: test_zip_raw_source_can_exceed_md_entry_limit_and_replay (tests.test_ph_lw_05_import.LocalSourceImporter.test_zip_raw_source_can_exceed_md_entry_limit_and_replay)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 217, in test_zip_raw_source_can_exceed_md_entry_limit_and_replay
+    self.assertEqual(self.push([('large.zip', data)])['accepted_count'], 2)
+                     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 53, in push
+    return service.upload_sources(self.pid,
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+        [(name, BytesIO(content)) for name, content in files], mode=mode,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        expected_fingerprint=s['fingerprint'], expected_source_revision=state['source_revision'])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_service.py", line 372, in upload_sources
+    return upload_sources(self, project_id, uploads, mode=mode,
+                          expected_fingerprint=expected_fingerprint,
+                          expected_source_revision=expected_source_revision)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_sources_service.py", line 131, in upload_sources
+    outcome = refresh_intake_sources(root, snapshot_ref=incoming['snapshot_ref'],
+            expected_revision=state['revision'], expected_input_digest=draft_input_digest(root))
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\operation_guard.py", line 106, in wrapper
+    return function(root, *args, **kwargs)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\intake.py", line 318, in refresh_intake_sources
+    return _refresh(workspace, snapshot_ref=snapshot_ref,
+                    expected_revision=expected_revision, expected_input_digest=expected_input_digest,
+                    explicit_no_documentation=explicit_no_documentation)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_source_refresh.py", line 233, in refresh_intake_sources
+    loaded = verify_snapshot(imports_root, snapshot_ref)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_imports.py", line 380, in verify_snapshot
+    _file_checked(base, source['raw_storage_path'], source['sha256'])
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_imports.py", line 324, in _file_checked
+    raise SafetyViolation('SOURCE_SNAPSHOT_FILE_UNSAFE')
+project_harness.errors.SafetyViolation: SAFETY_VIOLATION: SOURCE_SNAPSHOT_FILE_UNSAFE
+
+======================================================================
+FAIL: test_malformed_action_and_non_ascii_csrf_are_denied_without_mutation (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_malformed_action_and_non_ascii_csrf_are_denied_without_mutation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_04_http.py", line 217, in test_malformed_action_and_non_ascii_csrf_are_denied_without_mutation
+    self.assertEqual(self.call('POST', path, body=req, origin=self.origin,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     headers={'X-CSRF-Token': csrf}).status_code, 400)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 500 != 400
+
+======================================================================
+FAIL: test_http_replay_after_commit_returns_original_operation (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_http_replay_after_commit_returns_original_operation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_04_http.py", line 237, in test_http_replay_after_commit_returns_original_operation
+    self.assertEqual(replay.status_code, 202, replay.json)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 409 != 202 : {'error': {'code': 'STALE_FINGERPRINT', 'message_ru': 'Состояние изменилось; обновите проект и повторите явно.', 'next_action_ru': 'Проверьте сессию, данные и актуальный статус.'}, 'status': 'FAILED'}
+
+======================================================================
+FAIL: test_duplicate_multipart_scalar_fields_are_rejected (tests.test_ph_lw_05_http.SourceHttpSecurity.test_duplicate_multipart_scalar_fields_are_rejected) (field='mode')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_http.py", line 100, in test_duplicate_multipart_scalar_fields_are_rejected
+    self.assertEqual(result.status_code, 400, result.json)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 200 != 400 : {'accepted': [{'byte_size': 7, 'document_ref': 'LMD-C2176CC8E84D4948A1CF9E5F', 'original_name': 'doc.md', 'relative_path': 'doc.md'}], 'accepted_count': 1, 'analysis_status': 'NOT_ANALYZED', 'project_id': 'LWP-66508DB51A5C7DB895AC', 'rejected_count': 0, 'skipped': [], 'skipped_count': 0, 'snapshot_ref': 'LWS-9512782E532C460CB5BBCD20B7C72AEC', 'source_revision': 1, 'status': 'IMPORTED_NOT_ANALYZED'}
+
+======================================================================
+FAIL: test_duplicate_multipart_scalar_fields_are_rejected (tests.test_ph_lw_05_http.SourceHttpSecurity.test_duplicate_multipart_scalar_fields_are_rejected) (field='expected_source_revision')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_http.py", line 100, in test_duplicate_multipart_scalar_fields_are_rejected
+    self.assertEqual(result.status_code, 400, result.json)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 409 != 400 : {'error': {'code': 'STALE_FINGERPRINT', 'message_ru': 'Состояние проекта изменилось после открытия формы.', 'next_action_ru': 'Обновите статус и повторите действие с новым ключом.'}, 'status': 'FAILED'}
+
+======================================================================
+FAIL: test_duplicate_multipart_scalar_fields_are_rejected (tests.test_ph_lw_05_http.SourceHttpSecurity.test_duplicate_multipart_scalar_fields_are_rejected) (field='expected_fingerprint')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_http.py", line 100, in test_duplicate_multipart_scalar_fields_are_rejected
+    self.assertEqual(result.status_code, 400, result.json)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 409 != 400 : {'error': {'code': 'STALE_FINGERPRINT', 'message_ru': 'Состояние проекта изменилось после открытия формы.', 'next_action_ru': 'Обновите статус и повторите действие с новым ключом.'}, 'status': 'FAILED'}
+
+======================================================================
+FAIL: test_native_windows_snapshot_parent_junction_rejected (tests.test_ph_lw_05_import.LocalSourceImporter.test_native_windows_snapshot_parent_junction_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 232, in test_native_windows_snapshot_parent_junction_rejected
+    with self.assertRaises(HarnessError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+AssertionError: HarnessError not raised
+
+----------------------------------------------------------------------
+Ran 5 tests in 7.344s
+
+FAILED (failures=6, errors=1)

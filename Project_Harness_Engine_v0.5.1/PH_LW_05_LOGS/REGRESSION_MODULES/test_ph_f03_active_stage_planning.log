@@ -1,0 +1,38 @@
+======================================================================
+ERROR: test_read_only_draft_schema_and_public_cli (tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_read_only_draft_schema_and_public_cli)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/tests/test_ph_f03_active_stage_planning.py", line 71, in test_read_only_draft_schema_and_public_cli
+    cli_result = subprocess.run([str(distribution_root() / "bin/project-harness"), "prepare-active-stage-plan",
+                                "--project", str(root), "--output", str(path)], capture_output=True, text=True)
+  File "/usr/lib/python3.13/subprocess.py", line 554, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1857, in _execute_child
+    self._posix_spawn(args, executable, env, restore_signals, close_fds,
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                      p2cread, p2cwrite,
+                      ^^^^^^^^^^^^^^^^^^
+                      c2pread, c2pwrite,
+                      ^^^^^^^^^^^^^^^^^^
+                      errread, errwrite)
+                      ^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1801, in _posix_spawn
+    self.pid = os.posix_spawn(executable, args, env, **kwargs)
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/bin/project-harness'
+
+----------------------------------------------------------------------
+Ran 8 tests in 26.843s
+
+FAILED (errors=1)

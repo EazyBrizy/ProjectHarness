@@ -1,0 +1,15 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "tools/setup_ph_lw_11_wheel.py"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T23:14:48.328902+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 180,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 40.38,
+  "log_sha256": "a5d8eb32579e9480de2ec4dd26bab386a876bcb40992d0b395dccd5eb1881d86"
+}

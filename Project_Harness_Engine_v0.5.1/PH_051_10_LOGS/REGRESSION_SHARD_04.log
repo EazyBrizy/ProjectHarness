@@ -1,0 +1,7 @@
+COMMAND: python -m unittest -q tests.test_engine
+----------------------------------------------------------------------
+Ran 14 tests in 83.996s
+
+OK
+
+EXIT_CODE=0

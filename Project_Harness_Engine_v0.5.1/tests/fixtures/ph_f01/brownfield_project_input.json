@@ -1,0 +1,390 @@
+{
+  "schema_version": 3,
+  "metadata": {
+    "prepared_by": "BROWSER_GPT",
+    "generated_at": "2026-08-17T08:00:00Z",
+    "notes": "PH-F01 separate Brownfield assessment source; accepted MVP is a synthetic governance fixture, not a product-readiness attestation."
+  },
+  "project": {
+    "name": "PH F01 Existing CLI Brownfield",
+    "slug": "ph-f01-existing-cli-brownfield",
+    "mode": "BROWNFIELD",
+    "documentation": {
+      "availability": "NONE",
+      "normative_sources": [],
+      "notes": "Existing minimal repository used strictly for an assessment fixture."
+    },
+    "problem_statement": "A user needs a tiny local command-line task list without network dependencies.",
+    "primary_outcome": "The user can add, list and complete tasks stored in a local JSON file.",
+    "users": [
+      {
+        "name": "Local CLI user",
+        "need": "Manage a small personal task list"
+      }
+    ],
+    "scale": {
+      "initial": "One user and fewer than 1,000 tasks",
+      "growth": "No multi-user requirement"
+    },
+    "connectivity": "OFFLINE_FIRST",
+    "platforms": [
+      "Python 3.11+ on Linux, macOS or Windows"
+    ],
+    "deployment": {
+      "target": "LOCAL_CLI",
+      "environment": "User workstation"
+    },
+    "data": {
+      "categories": [
+        "Task title",
+        "Completion state"
+      ],
+      "sensitivity": "INTERNAL",
+      "storage": "Local JSON file"
+    },
+    "integrations": [],
+    "scope": {
+      "in": [
+        "Add a task",
+        "List tasks",
+        "Mark a task complete",
+        "Persist tasks locally"
+      ],
+      "out": [
+        "User accounts",
+        "Cloud synchronization",
+        "Web interface",
+        "Network services"
+      ]
+    },
+    "constraints": {
+      "mandatory": [
+        "Use only the Python standard library",
+        "Work without internet"
+      ],
+      "forbidden": [
+        "External service calls",
+        "Provider billing or token accounting"
+      ],
+      "non_functional": [
+        "Deterministic tests",
+        "Human-readable local data"
+      ]
+    },
+    "success_criteria": [
+      {
+        "statement": "Automated tests cover add and list behavior",
+        "verification": "python -m unittest discover -s tests -v"
+      },
+      {
+        "statement": "A later task adds and tests completion behavior",
+        "verification": "python -m unittest discover -s tests -v"
+      },
+      {
+        "statement": "README documents commands",
+        "verification": "README.md exists"
+      }
+    ],
+    "assumptions": [
+      {
+        "statement": "A single local process writes the task file",
+        "owner": "ACT-USER-001",
+        "review_trigger": "Before multi-process use"
+      }
+    ],
+    "unknowns": [],
+    "ambiguity_mode": "PRAGMATIC"
+  },
+  "implementation": {
+    "target_level": "MVP",
+    "claimed_current_level": "UNKNOWN"
+  },
+  "profile": {
+    "ref": "PRF-CLI-TOOL@1",
+    "rationale": "The accepted first outcome is a local command-line tool."
+  },
+  "architecture": {
+    "summary": "A single Python module exposes CLI commands and a small JSON-backed repository abstraction.",
+    "style": "MODULAR_MONOLITH_CLI",
+    "components": [
+      {
+        "name": "CLI parser",
+        "responsibility": "Parse add, list and done commands"
+      },
+      {
+        "name": "Task repository",
+        "responsibility": "Load and atomically save task JSON"
+      }
+    ],
+    "interfaces": [
+      "Command-line arguments",
+      "Local JSON file"
+    ],
+    "data_flow": [
+      "CLI input -> command handler -> repository -> JSON file -> rendered output"
+    ],
+    "quality_attributes": [
+      "Offline operation",
+      "Deterministic behavior",
+      "Portable standard-library implementation"
+    ],
+    "decisions": [
+      {
+        "title": "Use a single Python module for the first vertical slice",
+        "decision": "Keep the initial implementation compact and dependency-free",
+        "rationale": "The project is intentionally small and reversible",
+        "material": true
+      }
+    ],
+    "risks": [
+      "Concurrent writers are outside the accepted first scope"
+    ]
+  },
+  "technology": {
+    "selections": [
+      {
+        "area": "LANGUAGE",
+        "technology": "Python",
+        "version_constraint": ">=3.11",
+        "rationale": "Portable standard library and simple test loop"
+      },
+      {
+        "area": "TEST_FRAMEWORK",
+        "technology": "unittest",
+        "version_constraint": "stdlib",
+        "rationale": "No external dependencies"
+      }
+    ],
+    "build_commands": [
+      [
+        "python",
+        "-m",
+        "py_compile",
+        "task_cli.py"
+      ]
+    ],
+    "test_commands": [
+      [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ]
+    ],
+    "lint_commands": []
+  },
+  "skills": {
+    "resolutions": [
+      {
+        "workflow": "bounded implementation",
+        "action": "REUSE",
+        "skill_ref": "SKL-UNIVERSAL-IMPLEMENT@3",
+        "configuration": {},
+        "rationale": "The workflow is ordinary bounded implementation."
+      }
+    ]
+  },
+  "planning": {
+    "work_packages": [
+      {
+        "key": "wp-cli-core",
+        "title": "Deliver the local task CLI",
+        "objective": "Provide the accepted add/list/done user outcome with deterministic tests and documentation.",
+        "tasks": [
+          {
+            "key": "task-add-list",
+            "title": "Implement add and list commands",
+            "type": "IMPLEMENT",
+            "purpose": "Create the storage foundation and the first two user commands.",
+            "expected_result": "task_cli.py supports add and list, tests pass and README contains usage.",
+            "depends_on": [],
+            "scope": {
+              "read": [
+                "PROJECT.md",
+                "ARCHITECTURE.md",
+                "TECHNOLOGY.md",
+                "README.md"
+              ],
+              "write": [
+                "task_cli.py",
+                "tests/**",
+                "README.md"
+              ],
+              "forbidden": [
+                "CODEX_START.md",
+                "AGENTS.md",
+                "PROJECT.md",
+                "ARCHITECTURE.md",
+                "TECHNOLOGY.md"
+              ]
+            },
+            "acceptance_criteria": [
+              "add appends a task with a stable numeric id and incomplete state",
+              "list renders persisted tasks",
+              "tests use an isolated temporary data file",
+              "README documents add and list"
+            ],
+            "verification": {
+              "commands": [
+                {
+                  "argv": [
+                    "python",
+                    "-m",
+                    "py_compile",
+                    "task_cli.py"
+                  ],
+                  "cwd": ".",
+                  "timeout_seconds": 60
+                },
+                {
+                  "argv": [
+                    "python",
+                    "-m",
+                    "unittest",
+                    "discover",
+                    "-s",
+                    "tests",
+                    "-v"
+                  ],
+                  "cwd": ".",
+                  "timeout_seconds": 120
+                }
+              ],
+              "expected_paths": [
+                "task_cli.py",
+                "tests/test_task_cli.py",
+                "README.md"
+              ],
+              "manual_checks": []
+            },
+            "documentation": {
+              "source_refs": [],
+              "impact": "UPDATE_EXISTING",
+              "required_updates": [
+                "README.md: add and list command examples"
+              ]
+            }
+          },
+          {
+            "key": "task-done",
+            "title": "Implement done command",
+            "type": "IMPLEMENT",
+            "purpose": "Complete the accepted user outcome after the storage contract exists.",
+            "expected_result": "done marks a task complete and tests cover persisted completion state.",
+            "depends_on": [
+              "task-add-list"
+            ],
+            "scope": {
+              "read": [
+                "task_cli.py",
+                "tests/**",
+                "README.md",
+                "PROJECT.md"
+              ],
+              "write": [
+                "task_cli.py",
+                "tests/**",
+                "README.md"
+              ],
+              "forbidden": [
+                "CODEX_START.md",
+                "AGENTS.md",
+                "PROJECT.md",
+                "ARCHITECTURE.md",
+                "TECHNOLOGY.md"
+              ]
+            },
+            "acceptance_criteria": [
+              "done updates exactly one existing task",
+              "list visibly distinguishes completed tasks",
+              "tests cover success and unknown id",
+              "README documents done"
+            ],
+            "verification": {
+              "commands": [
+                {
+                  "argv": [
+                    "python",
+                    "-m",
+                    "py_compile",
+                    "task_cli.py"
+                  ],
+                  "cwd": ".",
+                  "timeout_seconds": 60
+                },
+                {
+                  "argv": [
+                    "python",
+                    "-m",
+                    "unittest",
+                    "discover",
+                    "-s",
+                    "tests",
+                    "-v"
+                  ],
+                  "cwd": ".",
+                  "timeout_seconds": 120
+                }
+              ],
+              "expected_paths": [
+                "task_cli.py",
+                "tests/test_task_cli.py",
+                "README.md"
+              ],
+              "manual_checks": []
+            },
+            "documentation": {
+              "source_refs": [],
+              "impact": "UPDATE_EXISTING",
+              "required_updates": [
+                "README.md: done command example"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "brownfield": {
+    "baseline_summary": "Existing local CLI repository snapshot supplied only for PH-F01 tests.",
+    "known_defects": [],
+    "known_gaps": [],
+    "technical_debt": [],
+    "documentation_conflicts": []
+  },
+  "approvals": {
+    "project_definition": {
+      "approved": true,
+      "actor": "ACT-USER-001",
+      "approved_at": "2026-08-17T08:00:00Z",
+      "notes": "Fixture approval"
+    },
+    "architecture_baseline": {
+      "approved": true,
+      "actor": "ACT-USER-001",
+      "approved_at": "2026-08-17T08:00:00Z",
+      "notes": "Fixture approval"
+    },
+    "technology_baseline": {
+      "approved": true,
+      "actor": "ACT-USER-001",
+      "approved_at": "2026-08-17T08:00:00Z",
+      "notes": "Fixture approval"
+    },
+    "codex_handoff": {
+      "approved": true,
+      "actor": "ACT-USER-001",
+      "approved_at": "2026-08-17T08:00:00Z",
+      "notes": "Fixture approval"
+    },
+    "brownfield_baseline": {
+      "approved": true,
+      "actor": "ACT-PHF01-BROWNFIELD-001",
+      "approved_at": "2026-08-17T08:05:00Z",
+      "notes": "Formal Brownfield intake approval for the test fixture."
+    }
+  }
+}

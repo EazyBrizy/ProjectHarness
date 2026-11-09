@@ -1,0 +1,18 @@
+sandbox_profile:
+  id: SBX-ROOTLESS-PODMAN-001
+  revision: 1
+  status: ACTIVE
+  backend: ROOTLESS_PODMAN
+  image: registry.example/harness-codex-runtime@sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  network_mode: NONE
+  root_filesystem: READ_ONLY
+  run_as_non_root: true
+  drop_all_capabilities: true
+  no_new_privileges: true
+  writable_mounts: [/workspace/product, /output, /tmp]
+  limits:
+    timeout_seconds: 1200
+    memory_mb: 2048
+    cpu_count: 2
+    pids: 128
+    output_bytes: 52428800

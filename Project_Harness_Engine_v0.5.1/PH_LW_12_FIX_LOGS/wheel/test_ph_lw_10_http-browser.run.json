@@ -1,0 +1,37 @@
+{
+  "name": "test_ph_lw_10_http-browser",
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;import project_harness;assert Path(project_harness.__file__).resolve().is_relative_to(Path(sys.prefix).resolve());sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel\\test_ph_lw_10_http-browser.log",
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_brownfield_assessment_unknown_and_stale_readonly",
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_levelup_target_nearest_and_maintenance_cancel",
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_missing_semantic_review_cannot_accept",
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_prototype_accept_alpha_form_plan_first_ready_reload",
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_supported_migration_confirmation_and_restart_replay"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\Независимая папка wheel",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 180.554,
+  "environment_ref": "WHEEL_ENVIRONMENT.json",
+  "modules": [
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_brownfield_assessment_unknown_and_stale_readonly",
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_levelup_target_nearest_and_maintenance_cancel",
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_missing_semantic_review_cannot_accept",
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_prototype_accept_alpha_form_plan_first_ready_reload",
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_supported_migration_confirmation_and_restart_replay"
+  ],
+  "ran": 5,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "log": "test_ph_lw_10_http-browser.log",
+  "process_status": "PASS",
+  "log_sha256": "a2ba429a28ab1808049292bd390f443b6a344579540d3af17a63136602ac04ee",
+  "scope": "INSTALLED_WHEEL",
+  "runtime_freeze_sha256": "a0c9775c327500b45df478b466746c3a6aec792b67695fcfd43437255fe0b997"
+}

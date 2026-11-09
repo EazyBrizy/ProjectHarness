@@ -1,0 +1,8 @@
+test_auth_upload_list_preview_and_replay (tests.test_ph_lw_05_http.SourceHttpSecurity.test_auth_upload_list_preview_and_replay) ... skipped 'Flask 3.1.3 unavailable: real HTTP multipart security NOT RUN'
+test_documentation_none_after_import_explicit_and_no_external_requests (tests.test_ph_lw_05_http.SourceHttpSecurity.test_documentation_none_after_import_explicit_and_no_external_requests) ... skipped 'Flask 3.1.3 unavailable: real HTTP multipart security NOT RUN'
+test_malformed_upload_rejected_and_unknown_fields (tests.test_ph_lw_05_http.SourceHttpSecurity.test_malformed_upload_rejected_and_unknown_fields) ... skipped 'Flask 3.1.3 unavailable: real HTTP multipart security NOT RUN'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK (skipped=3)

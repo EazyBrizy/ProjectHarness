@@ -1,0 +1,14 @@
+test_agent_completed_cannot_override_failing_independent_check (tests.test_ph_051_07_sandbox_verification.VerifierTests.test_agent_completed_cannot_override_failing_independent_check) ... ok
+test_canonical_change_during_verifier_rejects (tests.test_ph_051_07_sandbox_verification.VerifierTests.test_canonical_change_during_verifier_rejects) ... ok
+test_changed_canonical_baseline_rejects_before_launch (tests.test_ph_051_07_sandbox_verification.VerifierTests.test_changed_canonical_baseline_rejects_before_launch) ... ok
+test_no_host_command_execution_when_sandbox_unavailable (tests.test_ph_051_07_sandbox_verification.VerifierTests.test_no_host_command_execution_when_sandbox_unavailable) ... ok
+test_no_unapproved_network_or_implicit_secrets (tests.test_ph_051_07_sandbox_verification.VerifierTests.test_no_unapproved_network_or_implicit_secrets) ... ok
+test_no_verification_command_blocks (tests.test_ph_051_07_sandbox_verification.VerifierTests.test_no_verification_command_blocks) ... ok
+test_success_is_only_task_proof_not_apply_or_gate_acceptance (tests.test_ph_051_07_sandbox_verification.VerifierTests.test_success_is_only_task_proof_not_apply_or_gate_acceptance) ... ok
+test_verifier_modifying_files_fails (tests.test_ph_051_07_sandbox_verification.VerifierTests.test_verifier_modifying_files_fails) ... ok
+test_wrong_path_blocks_before_command (tests.test_ph_051_07_sandbox_verification.VerifierTests.test_wrong_path_blocks_before_command) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.074s
+
+OK

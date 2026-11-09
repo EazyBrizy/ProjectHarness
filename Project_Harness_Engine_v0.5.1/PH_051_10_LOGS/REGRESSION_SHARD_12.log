@@ -1,0 +1,7 @@
+COMMAND: python -m unittest -q tests.test_ph_051_10_migration_recovery
+----------------------------------------------------------------------
+Ran 17 tests in 84.642s
+
+OK
+
+EXIT_CODE=0

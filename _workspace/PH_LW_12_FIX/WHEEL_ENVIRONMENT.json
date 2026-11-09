@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "command": [
+    "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\ph_lw_12_fix\\wheel-venv\\Scripts\\python.exe",
+    "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\tools\\ph_lw_12_fix_environment.py"
+  ],
+  "exit": 0,
+  "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\ph_lw_12_fix\\wheel-venv\\Scripts\\python.exe",
+  "prefix": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\ph_lw_12_fix\\wheel-venv",
+  "installed_package": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\ph_lw_12_fix\\wheel-venv\\Lib\\site-packages\\project_harness",
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\ph_lw_12_fix\\Независимая папка wheel",
+  "PYTHONPATH": "",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "filesystem": "NTFS",
+  "non_admin": true,
+  "dependencies": {
+    "Flask": "3.1.3",
+    "Waitress": "3.0.2",
+    "Playwright": "1.64.1",
+    "PyYAML": "6.0.3",
+    "jsonschema": "4.26.0"
+  },
+  "build_id": "PH-LW-12-FIX5-20261108",
+  "engine_build_digest": "sha256:0789035971ad3488b37a3d1cc480a9c7c63effcc3c67c540630e452b77f936ae",
+  "wheel_sha256": "22ce3cdca5fe875430d4780f163975ba896c3348fa2f30b5a88199064bec54a1",
+  "package_byte_equality": "PASS",
+  "pip_check": "No broken requirements found.",
+  "browser": "existing msedge headless",
+  "browser_version": "157.0.4341.42",
+  "browser_executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "browser_executable_sha256": "d258e512aa24947cfbef0c0033d8c3cd56ecb40f7b2ad59802fa75c4e4f3324d",
+  "dependency_install": "Offline --no-index --require-hashes; existing hash-locked wheelhouses",
+  "automatic_executor": "disabled",
+  "zip_created": false
+}

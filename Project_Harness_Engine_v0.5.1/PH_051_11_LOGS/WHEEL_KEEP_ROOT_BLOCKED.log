@@ -1,0 +1,14 @@
+ARGV: /mnt/data/ph05111_work/wheel_venv/bin/project-harness execute-current --project /mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/demo/harness-demo-codex-handoff --keep-execution-root
+EXIT: 3
+STDOUT:
+{
+  "status": "BLOCKED",
+  "reason_code": "EXECUTOR_UNAVAILABLE",
+  "execution_mode": "MANUAL_HANDOFF",
+  "message": "Automatic execution requires explicit project opt-in",
+  "project_status": "ACTIVE",
+  "task_ref": "TSK-HARNESS-DEMO-TASK-CLI-001",
+  "next_command": "project-harness executor-doctor --project <root>"
+}
+
+STDERR:

@@ -1,0 +1,15 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "_scratch/ph_lw_08/trace_browser.py"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T04:12:21.578739+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 240,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 91.209,
+  "log_sha256": "9de97459669351a0a415a50da978f35efaa4b30f038bba338f47685a591cdc9f"
+}

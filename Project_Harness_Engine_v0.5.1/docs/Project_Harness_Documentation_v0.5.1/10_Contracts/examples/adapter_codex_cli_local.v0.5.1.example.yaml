@@ -1,0 +1,19 @@
+agent_adapter_profile:
+  id: ADP-CODEX-CLI-LOCAL-001
+  revision: 1
+  status: ACTIVE
+  kind: CODEX_CLI_LOCAL
+  executable: codex
+  argv_template:
+    - codex
+    - exec
+    - --prompt-file
+    - "{prompt_bundle_path}"
+    - --result-file
+    - "{agent_result_path}"
+  working_directory: /workspace/product
+  timeout_seconds: 1200
+  stdin_mode: CLOSED
+  environment_allowlist: [LANG, LC_ALL]
+  secret_environment_refs: ["ENV:OPENAI_API_KEY"]
+  sandbox_profile_ref: SBX-ROOTLESS-PODMAN-001@1

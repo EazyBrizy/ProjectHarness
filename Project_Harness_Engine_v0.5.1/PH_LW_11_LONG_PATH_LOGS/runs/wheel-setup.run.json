@@ -1,0 +1,15 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "tools/setup_ph_lw_11_long_path_wheel.py"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-08T01:36:26.567756+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 180,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 43.05,
+  "log_sha256": "54e09d6c657bc576f18be6a7f5570f0df7b67649f0ea1cdcc753d4f8a93f1228"
+}

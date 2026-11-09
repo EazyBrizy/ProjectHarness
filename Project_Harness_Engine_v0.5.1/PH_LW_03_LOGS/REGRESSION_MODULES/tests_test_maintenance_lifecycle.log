@@ -1,0 +1,12 @@
+test_cancel_after_completed_product_change_is_rejected_without_rewrite (tests.test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_cancel_after_completed_product_change_is_rejected_without_rewrite) ... ok
+test_cli_exposes_public_start_and_cancel_operations (tests.test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_cli_exposes_public_start_and_cancel_operations) ... ok
+test_level_up_blocked_while_open_and_allowed_after_completion (tests.test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_level_up_blocked_while_open_and_allowed_after_completion) ... ok
+test_next_verify_complete_closes_maintenance_and_preserves_maturity (tests.test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_next_verify_complete_closes_maintenance_and_preserves_maturity) ... ok
+test_start_creates_governed_artifacts_and_exactly_one_first_jit (tests.test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_start_creates_governed_artifacts_and_exactly_one_first_jit) ... ok
+test_valid_pre_execution_cancel_restores_previous_route (tests.test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_valid_pre_execution_cancel_restores_previous_route) ... ok
+test_wrong_binding_future_scope_and_conflicting_duplicate_are_rejected (tests.test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_wrong_binding_future_scope_and_conflicting_duplicate_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 80.734s
+
+OK

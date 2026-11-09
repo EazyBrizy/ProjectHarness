@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "runtime_freeze_unchanged": true,
+  "wheel_crc_record_source": "PASS",
+  "frozen_inventory": "PASS",
+  "resource_mirrors": {
+    "schemas": {
+      "status": "PASS",
+      "files": 17
+    },
+    "registries": {
+      "status": "PASS",
+      "files": 7
+    },
+    "templates": {
+      "status": "PASS",
+      "files": 2
+    },
+    "skills": {
+      "status": "PASS",
+      "files": 3
+    }
+  },
+  "private_runtime_files": [],
+  "secret_scan": {
+    "status": "PASS",
+    "text_files": 263,
+    "patterns": [
+      "private_key",
+      "openai_key_shape",
+      "live_bootstrap_url",
+      "github_token_shape"
+    ],
+    "matches": [],
+    "limitations": "Bounded pattern scan of controlled runtime source/resources and documentation; no universal DLP or semantic/binary secret guarantee. Fixture and operator raw roots excluded from delivery."
+  },
+  "architecture": {
+    "payload_Harness_exe": "0x8664",
+    "setup_bootstrap": "0x14c",
+    "target": "Inno Setup ArchitecturesAllowed=x64compatible; Windows 11 x64 acceptance"
+  },
+  "preserved_archives": 8,
+  "zip_created": false
+}

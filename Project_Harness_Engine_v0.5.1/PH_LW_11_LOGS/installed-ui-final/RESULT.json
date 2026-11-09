@@ -1,0 +1,48 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]",
+  "non_admin": true,
+  "installer_sha256": "3fc408711384541011b7f2fe7f8e3f8eef42a5e6257d1f5b23c930ac55782a1f",
+  "clean_machine": "NOT RUN; developer host with sanitized installed-process PATH",
+  "physical_offline": "NOT RUN; no adapter/security setting changes",
+  "unicode_username": "NOT RUN; actual username unchanged; Unicode paths tested",
+  "real_disk_full": "NOT RUN; ENOSPC injection tested separately",
+  "commands": [
+    {
+      "command": [
+        "<WORKSPACE>\\_scratch\\ph_lw_11\\build-ui-final\\Harness-Setup-win-x64.exe",
+        "/VERYSILENT",
+        "/SUPPRESSMSGBOXES",
+        "/NORESTART",
+        "/DIR=<WORKSPACE>\\_scratch\\ph_lw_11\\installed-ui-final\\Установленная программа",
+        "/LOG=<WORKSPACE>\\_scratch\\ph_lw_11\\installed-ui-final\\install.log"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "<WORKSPACE>\\_scratch\\ph_lw_11\\installed-ui-final\\Установленная программа\\uninstall\\unins000.exe",
+        "/VERYSILENT",
+        "/SUPPRESSMSGBOXES",
+        "/NORESTART",
+        "/LOG=<WORKSPACE>\\_scratch\\ph_lw_11\\installed-ui-final\\uninstall.log"
+      ],
+      "exit": 0
+    }
+  ],
+  "filesystem": "NTFS",
+  "foreign_target_rejection": {
+    "exit": 7,
+    "sentinel_preserved": true
+  },
+  "tests": {
+    "ran": 4,
+    "errors": 0,
+    "failures": 0,
+    "skips": 0
+  },
+  "uninstall_preserved_projects": true,
+  "uninstall_preserved_app_data": true,
+  "executable_removed": true,
+  "status": "PASS"
+}

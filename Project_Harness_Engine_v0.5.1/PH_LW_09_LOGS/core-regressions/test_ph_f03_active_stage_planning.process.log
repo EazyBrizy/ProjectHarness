@@ -1,0 +1,1 @@
+{"modules": ["tests.test_ph_f03_active_stage_planning"], "ran": 8, "failures": 0, "errors": 0, "skips": [], "elapsed_seconds": 80.672, "log": "test_ph_f03_active_stage_planning.log", "status": "PASS"}

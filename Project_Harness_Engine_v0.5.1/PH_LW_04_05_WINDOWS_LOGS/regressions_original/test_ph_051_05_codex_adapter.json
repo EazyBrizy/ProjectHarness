@@ -1,0 +1,17 @@
+{
+  "modules": [
+    "tests.test_ph_051_05_codex_adapter"
+  ],
+  "ran": 15,
+  "failures": 0,
+  "errors": 5,
+  "skips": [
+    {
+      "test": "tests.test_ph_051_05_codex_adapter.RealRootlessIntegrationTests.test_15_fake_codex_in_real_rootless_podman_not_on_host",
+      "reason": "NOT RUN: real non-root Podman and pinned PH_TEST_PODMAN_IMAGE required"
+    }
+  ],
+  "elapsed_seconds": 50.306,
+  "log": "test_ph_051_05_codex_adapter.log",
+  "status": "FAIL"
+}

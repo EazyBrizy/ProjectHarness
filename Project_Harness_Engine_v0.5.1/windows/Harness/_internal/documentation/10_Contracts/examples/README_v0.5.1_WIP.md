@@ -1,0 +1,11 @@
+# PH-051-11 — примеры strict execution contracts (WIP)
+
+**Версия:** 0.5.1-WIP  
+**Дата:** 2026-10-25  
+**Обновлено:** 2026-10-29 (PH-051-11)  
+
+Файлы `adapter_codex_cli_local.v0.5.1.example.yaml` и `sandbox_rootless_podman.v0.5.1.example.yaml` проходят **структурную** проверку строгих `executor_profile.schema.json` и `sandbox_profile.schema.json`, но **не являются активированными Run approvals и не подтверждают** фактический CLI syntax или OS isolation. SBX image `registry.example/...@sha256:aaaa...` **выдуман только для схемы**; замените на реальный локально доступный digest (`podman image exists`) прежде чем ожидать `executor-doctor PASS`. ADP `argv_template` — нормативный пример, фактические flags `codex` должны быть проверены в pinned image. Нет shell interpolation/host subprocess. `ENV:OPENAI_API_KEY` — **только ссылка на имя**: в архиве нет значения; отсутствие переменной → `SECRET_REFERENCE_MISSING`, наличие не гарантирует safe network. Не заносить значение ни в один record.
+
+Для handoff/manual default используйте `execution_policy_manual.v0.5.1.example.yaml`: prepared v0.5.0 migration всегда default manual. `LOCAL_AUTOMATIC` требует точной принятой opt-in policy, версионированных ACTIVE ADP/SBX, immutable digests в `PROJECT_LOCK` и real doctor; **публичный `prepare` пока отклоняет новый automatic input**, а ручная модификация lock не разрешена. Допустимые пути persistent profiles: `.harness/config/ADAPTERS/ADP-CODEX-CLI-LOCAL-001@1.yaml` и `.harness/config/SANDBOXES/SBX-ROOTLESS-PODMAN-001@1.yaml` (только в управляемом подготовленном project context), не в командной строке `--adapter-profile` как переключатель на новый ADP.
+
+`egress_request_REJECTED.v0.5.1.example.yaml` — **намеренно не schema-valid formal approval**, только негативный пример capability intent. Текущий runner NONE-only, поэтому даже реальный `--approval` не разрешает `EXPLICIT_APPROVED_EGRESS`; это `NETWORK_NOT_APPROVED` без исполнения. Нельзя создавать из иллюстрации поддельный formal approval или заявлять реализованный destination allowlist. См. [runbook](../../05_Updates/14_Operator_Runbook_v0.5.1_WIP.md) и [security validation](../../05_Updates/15_Podman_Security_Validation_v0.5.1_WIP.md).

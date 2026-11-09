@@ -1,0 +1,38 @@
+test_internal_io_does_not_admit_device_unc_or_stream_input (tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_internal_io_does_not_admit_device_unc_or_stream_input) ... ok
+test_long_preparation_publication_validation_and_first_jit (tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_long_preparation_publication_validation_and_first_jit) ... FAIL
+test_long_publication_recovery_never_reexecutes_compiler (tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_long_publication_recovery_never_reexecutes_compiler) ... ERROR
+
+======================================================================
+ERROR: test_long_publication_recovery_never_reexecutes_compiler (tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_long_publication_recovery_never_reexecutes_compiler)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_11_long_path.py", line 58, in test_long_publication_recovery_never_reexecutes_compiler
+    result=recover_preparation(self.service,self.pid,confirm=True)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 342, in recover_preparation
+    result = _continue(service, record)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 268, in _continue
+    record['initial'] = inspect_initial_handoff(directory, archive)
+                        ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\materialization.py", line 63, in inspect_initial_handoff
+    raise ValidationFailure('INITIAL_VALIDATION_FAILED: ' + name, result)
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: INITIAL_VALIDATION_FAILED: directory
+
+======================================================================
+FAIL: test_long_preparation_publication_validation_and_first_jit (tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_long_preparation_publication_validation_and_first_jit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_11_long_path.py", line 29, in test_long_preparation_publication_validation_and_first_jit
+    self.approved();target=self.target();op=self.run_preparation(target)
+                                            ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 53, in run_preparation
+    self.assertEqual(result['state'],'SUCCEEDED',result)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'BLOCKED' != 'SUCCEEDED'
+- BLOCKED
++ SUCCEEDED
+ : {'operation_id': 'LWO-C921354FA265E024ADB7C46E5A33D3E9', 'project_id': 'LWP-E4D4F6F837852C2F9660', 'action': 'publish-project', 'request_digest': 'sha256:c4532efc6ab4522782192a077d11a0f584d789757bc842fdaa47da3fab3a995f', 'expected_fingerprint': 'sha256:273b64c0969a4bdc2251b16ae945d0fe405ceaa0b5749d0ff0b87ecb80a634b9', 'created_at': '2026-11-08T01:26:51Z', 'updated_at': '2026-11-08T01:27:16Z', 'started_at': '2026-11-08T01:26:51Z', 'finished_at': '2026-11-08T01:27:16Z', 'state': 'BLOCKED', 'phase': 'RECONCILIATION_REQUIRED', 'core_before': 'sha256:273b64c0969a4bdc2251b16ae945d0fe405ceaa0b5749d0ff0b87ecb80a634b9', 'core_after': None, 'before_active_run_ref': None, 'expected_draft_after': None, 'result': None, 'error': {'code': 'VALIDATION_FAILED', 'message_ru': 'Запрос или состояние проекта не прошли проверку.', 'next_action_ru': 'Проверьте данные и текущий статус, затем создайте новое действие.'}, 'receipt': {'kind': 'LOCAL_WEB_OPERATION_RECEIPT', 'receipt_version': 1, 'operation_id': 'LWO-C921354FA265E024ADB7C46E5A33D3E9', 'project_ref': 'LWP-E4D4F6F837852C2F9660', 'action_id': 'LW-C04', 'idempotency_key': 'preparation-test-000001', 'request_sha256': 'sha256:c4532efc6ab4522782192a077d11a0f584d789757bc842fdaa47da3fab3a995f', 'expected_core_fingerprint': 'sha256:273b64c0969a4bdc2251b16ae945d0fe405ceaa0b5749d0ff0b87ecb80a634b9', 'core_outcome': 'UNKNOWN_RECONCILE', 'created_at': '2026-11-08T01:26:51Z'}, 'record_digest': 'sha256:e5cc76b9181dedd8643e33abf52525e4d52e6236efdc204979e4c7a50b1109bc'}
+
+----------------------------------------------------------------------
+Ran 3 tests in 74.960s
+
+FAILED (failures=1, errors=1)

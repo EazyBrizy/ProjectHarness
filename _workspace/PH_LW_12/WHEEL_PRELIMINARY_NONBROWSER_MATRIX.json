@@ -1,0 +1,47 @@
+[
+  {
+    "name": "test_assessment_freshness-nonbrowser",
+    "command": [
+      "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\ph_lw_12\\wheel-venv\\Scripts\\python.exe",
+      "-B",
+      "-c",
+      "import sys,unittest,json;from pathlib import Path;import project_harness;assert Path(project_harness.__file__).resolve().is_relative_to(Path(sys.prefix).resolve());sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+      "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1",
+      "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\ph_lw_12\\wheel\\test_assessment_freshness-nonbrowser.log",
+      "tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_01_tree_a_assessment_rejected_on_tree_b_with_zero_acceptance_mutation",
+      "tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_02_reassessment_for_tree_b_restores_baseline_acceptance",
+      "tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_03_target_change_after_assessment_marks_old_context_stale",
+      "tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_04_previous_accepted_level_change_invalidates_old_assessment",
+      "tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_05_claimed_context_mismatch_is_rejected",
+      "tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_06_stale_external_evidence_cannot_close_baseline_criteria",
+      "tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_07_multi_level_acceptance_is_atomic_for_one_exact_current_assessment",
+      "tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_08_approval_baseline_revision_must_equal_current_tree",
+      "tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_09_non_completed_assessment_cannot_authorize_acceptance",
+      "tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_10_requested_level_cannot_exceed_recomputed_candidate"
+    ],
+    "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\ph_lw_12\\Независимая папка wheel",
+    "exit": 0,
+    "status": "PASS",
+    "elapsed_seconds": 105.3,
+    "environment_ref": "WHEEL_ENVIRONMENT.json",
+    "modules": [
+      "tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_01_tree_a_assessment_rejected_on_tree_b_with_zero_acceptance_mutation",
+      "tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_02_reassessment_for_tree_b_restores_baseline_acceptance",
+      "tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_03_target_change_after_assessment_marks_old_context_stale",
+      "tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_04_previous_accepted_level_change_invalidates_old_assessment",
+      "tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_05_claimed_context_mismatch_is_rejected",
+      "tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_06_stale_external_evidence_cannot_close_baseline_criteria",
+      "tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_07_multi_level_acceptance_is_atomic_for_one_exact_current_assessment",
+      "tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_08_approval_baseline_revision_must_equal_current_tree",
+      "tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_09_non_completed_assessment_cannot_authorize_acceptance",
+      "tests.test_assessment_freshness.BrownfieldAssessmentFreshnessTests.test_10_requested_level_cannot_exceed_recomputed_candidate"
+    ],
+    "ran": 10,
+    "failures": 0,
+    "errors": 0,
+    "skips": [],
+    "log": "test_assessment_freshness-nonbrowser.log",
+    "process_status": "PASS",
+    "log_sha256": "25fead0f86da3be9dcb963460850af37dc8953d5bb9a744a1b544bc0c2b9386e"
+  }
+]

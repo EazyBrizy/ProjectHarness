@@ -1,0 +1,55 @@
+{
+  "operation_id": "LWO-30F0EE3D758AB7F7C94E070E46ECA4CE",
+  "project_id": "LWP-D561F77DDAEB0CBF5BE3",
+  "action": "publish-project",
+  "request_digest": "sha256:4c441bbef5fb6859fca2770bf6ef6db1f0ff26ab3053ab480a49fd3f26b31e96",
+  "expected_fingerprint": "sha256:800ca71f9d94aa7e28d4a74951625bce61f4306ac75884ce1baebabf1b293505",
+  "created_at": "2026-11-08T14:18:32Z",
+  "updated_at": "2026-11-08T14:18:44Z",
+  "started_at": "2026-11-08T14:18:32Z",
+  "finished_at": "2026-11-08T14:18:44Z",
+  "state": "SUCCEEDED",
+  "phase": "DONE",
+  "core_before": "sha256:800ca71f9d94aa7e28d4a74951625bce61f4306ac75884ce1baebabf1b293505",
+  "core_after": "sha256:66375ea23b2285079cce818eddd7bdb3c75b956c3bb9f6df4e023582282741b4",
+  "before_active_run_ref": null,
+  "expected_draft_after": null,
+  "result": {
+    "status": "READY_FOR_CODEX",
+    "published_project_id": "LWP-ED24BEDE1B444C901AC0",
+    "artifact_ref": "LWO-30F0EE3D758AB7F7C94E070E46ECA4CE",
+    "destination": "<TEMP>\\LW12 installed no-doc z33u0ywh\\Профиль с пробелами\\HarnessProjects\\No documents product",
+    "zip_sha256": "sha256:4d66e9958ba6872d651a33cad8d5a7c370c3e8db37ca2eb662ae4fc81c93aaef",
+    "first_task_ref": "TSK-PH-LW-12-NO-DOCUMENTATION-001@1",
+    "first_run_ref": "RUN-PH-LW-12-NO-DOCUMENTATION-001-A1",
+    "initial_validation": {
+      "directory": "PASS",
+      "zip": "PASS",
+      "project": "PASS"
+    },
+    "current_validation": "PASS",
+    "active_stage": "PROTOTYPE",
+    "target_level": "MVP",
+    "current_task": {
+      "task_ref": "TSK-PH-LW-12-NO-DOCUMENTATION-001@1",
+      "title": "Implement add and list commands",
+      "status": "READY",
+      "implementation_stage": "PROTOTYPE",
+      "path": ".harness/tasks/TSK-PH-LW-12-NO-DOCUMENTATION-001@1.yaml"
+    }
+  },
+  "error": null,
+  "receipt": {
+    "kind": "LOCAL_WEB_OPERATION_RECEIPT",
+    "receipt_version": 1,
+    "operation_id": "LWO-30F0EE3D758AB7F7C94E070E46ECA4CE",
+    "project_ref": "LWP-D561F77DDAEB0CBF5BE3",
+    "action_id": "LW-C04",
+    "idempotency_key": "browser-a4ffd168c0f6d900d10a01b60b9bb18f",
+    "request_sha256": "sha256:4c441bbef5fb6859fca2770bf6ef6db1f0ff26ab3053ab480a49fd3f26b31e96",
+    "expected_core_fingerprint": "sha256:800ca71f9d94aa7e28d4a74951625bce61f4306ac75884ce1baebabf1b293505",
+    "core_outcome": "CONFIRMED_COMMITTED",
+    "created_at": "2026-11-08T14:18:32Z"
+  },
+  "record_digest": "sha256:41e8f1fbbfa087bb7910ffbe207863638b06a63465f43823b8c92e72d07523cc"
+}

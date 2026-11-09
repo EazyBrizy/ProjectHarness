@@ -1,0 +1,25 @@
+{
+  "modules": [
+    "tests.test_ph_lw_01_contract",
+    "tests.test_ph_lw_03_service",
+    "tests.test_ph_lw_04_http",
+    "tests.test_ph_lw_05_http",
+    "tests.test_ph_lw_04_05_acceptance",
+    "tests.test_ph_lw_06_http",
+    "tests.test_ph_lw_07_http",
+    "tests.test_ph_lw_08_http",
+    "tests.test_ph_lw_09_http",
+    "tests.test_ph_lw_10_http",
+    "tests.test_ph_lw_10_lifecycle.MigrationPollingTests",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_migration_validator_confirmation_replay_history",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_migration_process_crash_explicit_web_recovery_missing_root",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_legacy_v041_migration_form_keeps_completed_runs"
+  ],
+  "ran": 77,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 670.897,
+  "log": "tests.log",
+  "status": "PASS"
+}

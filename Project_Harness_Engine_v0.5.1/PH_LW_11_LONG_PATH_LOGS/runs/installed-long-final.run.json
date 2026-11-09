@@ -1,0 +1,23 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "Project_Harness_Engine_v0.5.1/local_web/windows/long_path_acceptance.py",
+    "--installer",
+    "_scratch/ph_lw_11_long_path/build/Harness-Setup-win-x64.exe",
+    "--output",
+    "_scratch/ph_lw_11_long_path/installed-long-final",
+    "--runtime-root",
+    "<WORKSPACE>\\_scratch\\Профиль3-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "--app-data-root",
+    "_scratch/Л11app-final"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-08T02:02:23.322263+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 1200,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 89.024,
+  "log_sha256": "44d50f0d142cee716f65d262a20e9088675a58326b59757c846dd7bf5790b439"
+}

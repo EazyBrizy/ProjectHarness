@@ -1,0 +1,7 @@
+COMMAND: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. /opt/pyvenv/bin/python -m unittest -q tests.test_ph_f05_intake_acceptance
+MODULES: test_ph_f05_intake_acceptance
+
+----------------------------------------------------------------------
+Ran 4 tests in 7.810s
+
+OK

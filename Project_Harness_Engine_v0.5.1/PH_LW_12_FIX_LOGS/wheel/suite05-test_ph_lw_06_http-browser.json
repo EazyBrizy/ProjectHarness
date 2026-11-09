@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_ph_lw_06_http.ExchangeBrowserTests.test_edge_two_greenfield_scenarios_typed_forms_fixture_exchange_reload_and_xss"
+  ],
+  "ran": 1,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 14.63,
+  "log": "suite05-test_ph_lw_06_http-browser.log",
+  "status": "PASS"
+}

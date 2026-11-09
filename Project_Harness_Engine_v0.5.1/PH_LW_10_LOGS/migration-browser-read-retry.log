@@ -1,0 +1,12 @@
+test_edge_supported_migration_confirmation_and_restart_replay (tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_supported_migration_confirmation_and_restart_replay) ... Task queue depth is 1
+Task queue depth is 2
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 2
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 28.819s
+
+OK

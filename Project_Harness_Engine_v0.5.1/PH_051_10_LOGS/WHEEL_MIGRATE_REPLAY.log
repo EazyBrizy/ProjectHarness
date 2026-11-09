@@ -1,0 +1,7 @@
+{
+  "status": "NO_ACTION",
+  "migration_id": "MIG-ENGINE-0.5.0-TO-0.5.1",
+  "project": "/mnt/data/ph05110_work/wheel_fixture/source/handoff",
+  "recovered": null,
+  "validation_status": "PASS"
+}

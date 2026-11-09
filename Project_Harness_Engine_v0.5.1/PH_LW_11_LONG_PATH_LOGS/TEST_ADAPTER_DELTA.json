@@ -1,0 +1,7 @@
+{
+  "changed_files": [
+    "local_web/windows/long_path_acceptance.py"
+  ],
+  "artifact_inputs_unchanged": true,
+  "scope": "Test fixture startup: long USERPROFILE/projects, separate short app-data; snapshots read all deep files and real app-data. No product assertion or timeout changed."
+}

@@ -1,0 +1,5 @@
+{
+  "status": "VALIDATION_FAILED",
+  "message": "Для команды ui нужны pinned Flask и Waitress из Local Web lock; никакой HTTP/Flask development-server fallback не допускается",
+  "details": null
+}

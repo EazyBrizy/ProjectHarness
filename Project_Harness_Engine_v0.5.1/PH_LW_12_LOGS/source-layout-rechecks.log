@@ -1,0 +1,4 @@
+tests.test_ph_f01_gate_semantics_regression: PASS, ran=3, skips=0, 47.965s
+tests.test_ph_f01_planner_regression: PASS, ran=6, skips=0, 190.482s
+tests.test_ph_f03_active_stage_planning: PASS, ran=8, skips=0, 159.99s
+tests.test_ph_f04_runtime_reachability: PASS, ran=10, skips=0, 114.775s

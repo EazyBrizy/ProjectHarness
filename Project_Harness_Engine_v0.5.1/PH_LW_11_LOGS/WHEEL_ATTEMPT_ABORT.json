@@ -1,0 +1,6 @@
+{
+  "status": "ABORTED",
+  "reason": "Browser.close stalled after manual-login assertions; same teardown reproduced separately; no semantic PASS claimed",
+  "process_id": 49200,
+  "run": "runs/installed-wheel-final.run.json"
+}

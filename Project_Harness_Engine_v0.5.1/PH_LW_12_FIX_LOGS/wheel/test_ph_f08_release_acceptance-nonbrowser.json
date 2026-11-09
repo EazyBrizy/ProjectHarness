@@ -1,0 +1,13 @@
+{
+  "modules": [
+    "tests.test_ph_f08_release_acceptance.PHF08ReleaseAcceptanceTests.test_i01_minimal_greenfield_waiting_decision_to_exact_first_jit",
+    "tests.test_ph_f08_release_acceptance.PHF08ReleaseAcceptanceTests.test_i03_i12_prototype_alpha_planning_exact_replay_and_stale_rejection"
+  ],
+  "ran": 2,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 43.046,
+  "log": "test_ph_f08_release_acceptance-nonbrowser.log",
+  "status": "PASS"
+}

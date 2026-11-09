@@ -1,0 +1,161 @@
+test_01_real_v050_to_manual_v051_preserves_accepted_history_and_stage (tests.test_ph_051_10_migration_recovery.V051MigrationTests.test_01_real_v050_to_manual_v051_preserves_accepted_history_and_stage) ... ok
+test_02_idempotent_replay_preserves_every_byte (tests.test_ph_051_10_migration_recovery.V051MigrationTests.test_02_idempotent_replay_preserves_every_byte) ... ok
+test_03_interrupt_after_old_rename_restores_exact_old_root (tests.test_ph_051_10_migration_recovery.V051MigrationTests.test_03_interrupt_after_old_rename_restores_exact_old_root) ... ok
+test_04_interrupt_after_new_rename_retains_committed_new (tests.test_ph_051_10_migration_recovery.V051MigrationTests.test_04_interrupt_after_new_rename_retains_committed_new) ... ok
+test_05_invalid_historical_control_rejected_without_migration (tests.test_ph_051_10_migration_recovery.V051MigrationTests.test_05_invalid_historical_control_rejected_without_migration) ... ok
+test_12_run_labels_are_bound_without_host_paths_or_secrets (tests.test_ph_051_10_migration_recovery.V051PodmanLabelsTests.test_12_run_labels_are_bound_without_host_paths_or_secrets) ... ok
+test_13_podman_refuses_foreign_or_unbound_container_identity (tests.test_ph_051_10_migration_recovery.V051PodmanLabelsTests.test_13_podman_refuses_foreign_or_unbound_container_identity) ... ERROR
+test_14_reaps_verified_exact_run_only_via_bounded_podman (tests.test_ph_051_10_migration_recovery.V051PodmanLabelsTests.test_14_reaps_verified_exact_run_only_via_bounded_podman) ... ERROR
+test_17_unproven_podman_cleanup_is_never_isolation_verified (tests.test_ph_051_10_migration_recovery.V051PodmanLabelsTests.test_17_unproven_podman_cleanup_is_never_isolation_verified) ... FAIL
+test_06_missing_podman_interrupted_run_is_fail_closed_not_reexecuted (tests.test_ph_051_10_migration_recovery.V051RecoveryTests.test_06_missing_podman_interrupted_run_is_fail_closed_not_reexecuted) ... ERROR
+test_07_orphan_run_quarantined_blocked_then_new_retry_exact_run (tests.test_ph_051_10_migration_recovery.V051RecoveryTests.test_07_orphan_run_quarantined_blocked_then_new_retry_exact_run) ... ERROR
+test_08_success_cleanup_no_residual_disposable_and_apply_idempotent (tests.test_ph_051_10_migration_recovery.V051RecoveryTests.test_08_success_cleanup_no_residual_disposable_and_apply_idempotent) ... FAIL
+test_09_cleanup_failure_does_not_turn_verified_run_into_failure (tests.test_ph_051_10_migration_recovery.V051RecoveryTests.test_09_cleanup_failure_does_not_turn_verified_run_into_failure) ... ERROR
+test_10_retirement_refuses_unsafe_symlink_without_touching_destination (tests.test_ph_051_10_migration_recovery.V051RecoveryTests.test_10_retirement_refuses_unsafe_symlink_without_touching_destination) ... ERROR
+test_11_stale_roots_quarantined_without_using_partial_result (tests.test_ph_051_10_migration_recovery.V051RecoveryTests.test_11_stale_roots_quarantined_without_using_partial_result) ... ERROR
+test_15_crash_after_verified_apply_recovers_cleanup_without_redispatch (tests.test_ph_051_10_migration_recovery.V051RecoveryTests.test_15_crash_after_verified_apply_recovers_cleanup_without_redispatch) ... FAIL
+test_16_post_commit_cleanup_without_podman_blocks_only_cleanup (tests.test_ph_051_10_migration_recovery.V051RecoveryTests.test_16_post_commit_cleanup_without_podman_blocks_only_cleanup) ... FAIL
+
+======================================================================
+ERROR: test_13_podman_refuses_foreign_or_unbound_container_identity (tests.test_ph_051_10_migration_recovery.V051PodmanLabelsTests.test_13_podman_refuses_foreign_or_unbound_container_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_10_migration_recovery.py", line 330, in test_13_podman_refuses_foreign_or_unbound_container_identity
+    mock.patch('os.geteuid', return_value=1001), \
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1510, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1480, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'os' (frozen)> does not have the attribute 'geteuid'
+
+======================================================================
+ERROR: test_14_reaps_verified_exact_run_only_via_bounded_podman (tests.test_ph_051_10_migration_recovery.V051PodmanLabelsTests.test_14_reaps_verified_exact_run_only_via_bounded_podman)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_10_migration_recovery.py", line 366, in test_14_reaps_verified_exact_run_only_via_bounded_podman
+    mock.patch('os.geteuid', return_value=1001), \
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1510, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1480, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'os' (frozen)> does not have the attribute 'geteuid'
+
+======================================================================
+ERROR: test_06_missing_podman_interrupted_run_is_fail_closed_not_reexecuted (tests.test_ph_051_10_migration_recovery.V051RecoveryTests.test_06_missing_podman_interrupted_run_is_fail_closed_not_reexecuted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_10_migration_recovery.py", line 178, in test_06_missing_podman_interrupted_run_is_fail_closed_not_reexecuted
+    self.assertEqual(result['run_status'], 'RUNNING')
+                     ~~~~~~^^^^^^^^^^^^^^
+KeyError: 'run_status'
+
+======================================================================
+ERROR: test_07_orphan_run_quarantined_blocked_then_new_retry_exact_run (tests.test_ph_051_10_migration_recovery.V051RecoveryTests.test_07_orphan_run_quarantined_blocked_then_new_retry_exact_run)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_10_migration_recovery.py", line 194, in test_07_orphan_run_quarantined_blocked_then_new_retry_exact_run
+    self.assertEqual(outcome['cleanup'], 'QUARANTINED')
+                     ~~~~~~~^^^^^^^^^^^
+KeyError: 'cleanup'
+
+======================================================================
+ERROR: test_09_cleanup_failure_does_not_turn_verified_run_into_failure (tests.test_ph_051_10_migration_recovery.V051RecoveryTests.test_09_cleanup_failure_does_not_turn_verified_run_into_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_10_migration_recovery.py", line 228, in test_09_cleanup_failure_does_not_turn_verified_run_into_failure
+    mock.patch('project_harness.runtime.finalize_execution_root',
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+               return_value={'status':'CLEANUP_FAILED', 'quarantined':True}):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1510, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1480, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'project_harness.runtime' from '<WORKSPACE>\\Project_Harness_Engine_v0.5.1\\src\\project_harness\\runtime.py'> does not have the attribute 'finalize_execution_root'
+
+======================================================================
+ERROR: test_10_retirement_refuses_unsafe_symlink_without_touching_destination (tests.test_ph_051_10_migration_recovery.V051RecoveryTests.test_10_retirement_refuses_unsafe_symlink_without_touching_destination)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_10_migration_recovery.py", line 288, in test_10_retirement_refuses_unsafe_symlink_without_touching_destination
+    root.symlink_to(external)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 1213, in symlink_to
+    os.symlink(target, self, target_is_directory)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [WinError 1314] Клиент не обладает требуемыми правами: '<TEMP>\\ph05110-run-w25nax72\\outside.txt' -> '<TEMP>\\ph05110-run-w25nax72\\trusted-runtime\\harness-demo-task-cli\\executions\\RUN-HARNESS-DEMO-TASK-CLI-001-A1'
+
+======================================================================
+ERROR: test_11_stale_roots_quarantined_without_using_partial_result (tests.test_ph_051_10_migration_recovery.V051RecoveryTests.test_11_stale_roots_quarantined_without_using_partial_result)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_10_migration_recovery.py", line 299, in test_11_stale_roots_quarantined_without_using_partial_result
+    data = quarantine_orphan_execution_roots(self.project, self.runtime)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 524, in quarantine_orphan_execution_roots
+    parent, _ = _runtime_run_root(project_root, runtime_root, "RUN-RECOVERY")
+                ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 413, in _runtime_run_root
+    _, parent = _runtime_execution_parent(project_root, runtime_root)
+                ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 398, in _runtime_execution_parent
+    if not stat.S_ISDIR(details.st_mode) or details.st_uid != os.geteuid():
+                                                              ^^^^^^^^^^
+AttributeError: module 'os' has no attribute 'geteuid'. Did you mean: 'getpid'?
+
+======================================================================
+FAIL: test_17_unproven_podman_cleanup_is_never_isolation_verified (tests.test_ph_051_10_migration_recovery.V051PodmanLabelsTests.test_17_unproven_podman_cleanup_is_never_isolation_verified)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_10_migration_recovery.py", line 349, in test_17_unproven_podman_cleanup_is_never_isolation_verified
+    self.assertEqual(result['reason_code'], 'SANDBOX_UNAVAILABLE')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'SANDBOX_POLICY_FAILURE' != 'SANDBOX_UNAVAILABLE'
+- SANDBOX_POLICY_FAILURE
++ SANDBOX_UNAVAILABLE
+
+
+======================================================================
+FAIL: test_08_success_cleanup_no_residual_disposable_and_apply_idempotent (tests.test_ph_051_10_migration_recovery.V051RecoveryTests.test_08_success_cleanup_no_residual_disposable_and_apply_idempotent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_10_migration_recovery.py", line 213, in test_08_success_cleanup_no_residual_disposable_and_apply_idempotent
+    self.assertEqual(output['status'], 'SUCCEEDED', output)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'BLOCKED' != 'SUCCEEDED'
+- BLOCKED
++ SUCCEEDED
+ : {'status': 'BLOCKED', 'reason_code': 'SANDBOX_UNAVAILABLE', 'execution_mode': 'UNSUPPORTED_ON_NATIVE_WINDOWS', 'isolation_verified': False, 'message': 'No rootless Podman automatic execution or host fallback on native Windows'}
+
+======================================================================
+FAIL: test_15_crash_after_verified_apply_recovers_cleanup_without_redispatch (tests.test_ph_051_10_migration_recovery.V051RecoveryTests.test_15_crash_after_verified_apply_recovers_cleanup_without_redispatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_10_migration_recovery.py", line 244, in test_15_crash_after_verified_apply_recovers_cleanup_without_redispatch
+    with self.assertRaises(KeyboardInterrupt):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: KeyboardInterrupt not raised
+
+======================================================================
+FAIL: test_16_post_commit_cleanup_without_podman_blocks_only_cleanup (tests.test_ph_051_10_migration_recovery.V051RecoveryTests.test_16_post_commit_cleanup_without_podman_blocks_only_cleanup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_10_migration_recovery.py", line 271, in test_16_post_commit_cleanup_without_podman_blocks_only_cleanup
+    with self.assertRaises(KeyboardInterrupt):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: KeyboardInterrupt not raised
+
+----------------------------------------------------------------------
+Ran 17 tests in 135.508s
+
+FAILED (failures=4, errors=7)

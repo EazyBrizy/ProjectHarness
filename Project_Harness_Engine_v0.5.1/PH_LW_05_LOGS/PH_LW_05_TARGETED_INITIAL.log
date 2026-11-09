@@ -1,0 +1,51 @@
+test_append_name_conflict_and_stale_revisions_do_not_mutate_core (tests.test_ph_lw_05_import.LocalSourceImporter.test_append_name_conflict_and_stale_revisions_do_not_mutate_core) ... ok
+test_corrupt_crc_oversized_entry_and_entry_count (tests.test_ph_lw_05_import.LocalSourceImporter.test_corrupt_crc_oversized_entry_and_entry_count) ... ok
+test_idempotent_identical_append_and_restart_replace_creates_revision (tests.test_ph_lw_05_import.LocalSourceImporter.test_idempotent_identical_append_and_restart_replace_creates_revision) ... ok
+test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change) ... ERROR
+test_multiple_md_and_nested_zip_unicode_spaces_unsupported_attachment (tests.test_ph_lw_05_import.LocalSourceImporter.test_multiple_md_and_nested_zip_unicode_spaces_unsupported_attachment) ... ok
+test_prepared_project_route_is_rejected_before_mutation (tests.test_ph_lw_05_import.LocalSourceImporter.test_prepared_project_route_is_rejected_before_mutation) ... ok
+test_recoverable_refresh_fault_rollback_without_mixed_core (tests.test_ph_lw_05_import.LocalSourceImporter.test_recoverable_refresh_fault_rollback_without_mixed_core) ... ok
+test_recovery_can_be_explicit_after_restart_no_get_side_effect (tests.test_ph_lw_05_import.LocalSourceImporter.test_recovery_can_be_explicit_after_restart_no_get_side_effect) ... ok
+test_single_md_no_fake_authority_utf8_bom_and_plain_preview (tests.test_ph_lw_05_import.LocalSourceImporter.test_single_md_no_fake_authority_utf8_bom_and_plain_preview) ... ok
+test_snapshot_digest_mismatch_blocks_preview_and_new_import (tests.test_ph_lw_05_import.LocalSourceImporter.test_snapshot_digest_mismatch_blocks_preview_and_new_import) ... ok
+test_special_symlink_fifo_reparse_and_encryption_rejected (tests.test_ph_lw_05_import.LocalSourceImporter.test_special_symlink_fifo_reparse_and_encryption_rejected) ... ok
+test_unsafe_top_level_filenames_and_encoding_fail (tests.test_ph_lw_05_import.LocalSourceImporter.test_unsafe_top_level_filenames_and_encoding_fail) ... 
+  test_unsafe_top_level_filenames_and_encoding_fail (tests.test_ph_lw_05_import.LocalSourceImporter.test_unsafe_top_level_filenames_and_encoding_fail) (name='file .md') ... FAIL
+test_unsafe_top_level_filenames_and_encoding_fail (tests.test_ph_lw_05_import.LocalSourceImporter.test_unsafe_top_level_filenames_and_encoding_fail) ... FAIL
+test_upload_source_bytes_not_modified_and_no_command_started (tests.test_ph_lw_05_import.LocalSourceImporter.test_upload_source_bytes_not_modified_and_no_command_started) ... ok
+test_user_confirmed_no_docs_no_source_revised_and_no_fabricated_files (tests.test_ph_lw_05_import.LocalSourceImporter.test_user_confirmed_no_docs_no_source_revised_and_no_fabricated_files) ... ok
+
+======================================================================
+ERROR: test_malicious_zip_cases_rejected_without_workspace_change (tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/tests/test_ph_lw_05_import.py", line 251, in test_malicious_zip_cases_rejected_without_workspace_change
+    self.assertEqual(len(list((self.imports / 'snapshots').iterdir())), 0)
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/pathlib/_local.py", line 577, in iterdir
+    with os.scandir(root_dir) as scandir_it:
+         ~~~~~~~~~~^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/ph-lw05-nw1fiee2/app-workspaces/session-91E1C788EE6B955B8F8324F0/imports/snapshots'
+
+======================================================================
+FAIL: test_unsafe_top_level_filenames_and_encoding_fail (tests.test_ph_lw_05_import.LocalSourceImporter.test_unsafe_top_level_filenames_and_encoding_fail) (name='file .md')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/tests/test_ph_lw_05_import.py", line 292, in test_unsafe_top_level_filenames_and_encoding_fail
+    with self.assertRaises(HarnessError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+AssertionError: HarnessError not raised
+
+======================================================================
+FAIL: test_unsafe_top_level_filenames_and_encoding_fail (tests.test_ph_lw_05_import.LocalSourceImporter.test_unsafe_top_level_filenames_and_encoding_fail)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/tests/test_ph_lw_05_import.py", line 296, in test_unsafe_top_level_filenames_and_encoding_fail
+    self.assertEqual(self.service.list_sources(self.pid)['source_revision'], 0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0
+
+----------------------------------------------------------------------
+Ran 14 tests in 1.055s
+
+FAILED (failures=2, errors=1)

@@ -1,0 +1,33 @@
+{
+  "command": [
+    "<WORKSPACE>/_scratch/ph_lw_11_zip_path/wheel-final-venv/Scripts/python.exe",
+    "-B",
+    "<WORKSPACE>/tools/verify_installed.py",
+    "--engine",
+    "<WORKSPACE>/Project_Harness_Engine_v0.5.1",
+    "--case",
+    "tests.test_ph_lw_11_desktop",
+    "--case",
+    "tests.test_ph_lw_04_http.LocalBrowserTests",
+    "--case",
+    "tests.test_ph_lw_04_05_acceptance.BrowserImportAcceptance",
+    "--case",
+    "tests.test_ph_lw_06_http.ExchangeBrowserTests",
+    "--case",
+    "tests.test_ph_lw_07_http.ApprovalBrowserTests",
+    "--case",
+    "tests.test_ph_lw_08_http.PreparationBrowserTests",
+    "--case",
+    "tests.test_ph_lw_09_http.TasksBrowserTests",
+    "--case",
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_11_zip_path\\Независимая финальная папка wheel",
+  "started_utc": "2026-11-08T05:33:47.611503+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 1800,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 390.7,
+  "log_sha256": "336e7782b519fe54e1393dee32e14ebd61e817df0fc0bf7e911544598703687d"
+}

@@ -1,0 +1,67 @@
+{
+  "version": "0.5.1",
+  "schema_version": 7,
+  "status": "PASS",
+  "root": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1",
+  "checks": [
+    {
+      "name": "Canonical registries",
+      "status": "PASS",
+      "details": {
+        "id_prefixes": 3,
+        "project_profiles": 1,
+        "statuses": 6,
+        "request_routing": 2,
+        "capabilities": 1,
+        "contracts": 6,
+        "implementation_levels": 1
+      }
+    },
+    {
+      "name": "Bundled schemas",
+      "status": "PASS",
+      "details": {
+        "count": 17,
+        "errors": []
+      }
+    },
+    {
+      "name": "Seed ACTIVE skills",
+      "status": "PASS",
+      "details": {
+        "count": 3,
+        "errors": []
+      }
+    },
+    {
+      "name": "Entry points and browser preparation template",
+      "status": "PASS",
+      "details": {
+        "missing": [],
+        "layout": "source"
+      }
+    },
+    {
+      "name": "Source and embedded resources",
+      "status": "PASS",
+      "details": {
+        "layout": "source",
+        "checked": 33,
+        "errors": []
+      }
+    },
+    {
+      "name": "Distribution manifest",
+      "status": "PASS",
+      "details": {
+        "entries": 3630,
+        "missing": [],
+        "extra": [],
+        "mismatched": [],
+        "excluded_runtime_records": [
+          ".harness/runtime/OPERATION_JOURNAL/*"
+        ]
+      }
+    }
+  ]
+}

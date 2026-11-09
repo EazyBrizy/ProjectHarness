@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_ph_lw_07_http.ApprovalBrowserTests.test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss"
+  ],
+  "ran": 1,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 18.361,
+  "log": "suite05-test_ph_lw_07_http-browser.log",
+  "status": "PASS"
+}

@@ -1,0 +1,15 @@
+{
+  "current_assessment_guard": {
+    "status": "VALIDATION_FAILED",
+    "message": "Maturity assessment is blocked while same-level maintenance work remains open",
+    "details": null
+  },
+  "current_acceptance_guard": {
+    "status": "VALIDATION_FAILED",
+    "message": "Stage acceptance is blocked while same-level maintenance work remains open",
+    "details": null
+  },
+  "original_exit_code": 0,
+  "original_stdout": "{\n  \"status\": \"ACCEPTED\",\n  \"accepted_levels\": [\n    \"ALPHA\"\n  ],\n  \"acceptance_refs\": [\n    \"VAL-HARNESS-DEMO-TASK-CLI-ALPHA-001@1\"\n  ],\n  \"highest_accepted_level\": \"ALPHA\",\n  \"active_stage\": \"BETA\",\n  \"target_level\": \"MVP\",\n  \"next_route\": \"PLAN_ACTIVE_STAGE\",\n  \"transaction_ref\": \"STX-PHF06-BASELINE-RED-ALPHA\",\n  \"idempotent\": false,\n  \"transaction_status\": \"COMMITTED\",\n  \"render_status\": \"PASS\"\n}\n",
+  "original_stderr": ""
+}

@@ -1,0 +1,13 @@
+{
+  "modules": [
+    "tests.test_ph_lw_09_http.TasksBrowserTests.test_edge_external_agent_result_no_consent_verify_complete_next",
+    "tests.test_ph_lw_09_http.TasksBrowserTests.test_edge_failing_check_block_resume_exact_ref"
+  ],
+  "ran": 2,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 103.765,
+  "log": "test_ph_lw_09_http-browser.log",
+  "status": "PASS"
+}

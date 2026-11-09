@@ -1,0 +1,32 @@
+test_handoff_archive_long_output_keeps_exact_names_and_crc (tests.test_ph_lw_12_blockers.DeepAppDataTests.test_handoff_archive_long_output_keeps_exact_names_and_crc) ... ERROR
+
+======================================================================
+ERROR: test_handoff_archive_long_output_keeps_exact_names_and_crc (tests.test_ph_lw_12_blockers.DeepAppDataTests.test_handoff_archive_long_output_keeps_exact_names_and_crc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] Системе не удается найти указанный путь: '<TEMP>\\LW12 deep fix 4ow3c1wm\\Глубокий-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\данные-yyyyyyyyyyyyyyyyyyyyyyyyy\\nested-publication-stage\\artifact-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_12_blockers.py", line 101, in test_handoff_archive_long_output_keeps_exact_names_and_crc
+    zip_directory(source,output)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\archive.py", line 30, in zip_directory
+    output.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 1016, in mkdir
+    self.mkdir(mode, parents=False, exist_ok=exist_ok)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] Системе не удается найти указанный путь: '<TEMP>\\LW12 deep fix 4ow3c1wm\\Глубокий-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\данные-yyyyyyyyyyyyyyyyyyyyyyyyy\\nested-publication-stage\\artifact-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.009s
+
+FAILED (errors=1)

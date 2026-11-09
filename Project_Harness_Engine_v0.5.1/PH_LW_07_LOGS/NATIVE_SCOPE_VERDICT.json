@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "tests": 86,
+  "skips": [],
+  "source": "native-retest/PH_LW_07_WINDOWS_TEST_REPORT.json",
+  "original_wrapper_status": "FAIL",
+  "doctor_retest": "runs/doctor-retest.run.json",
+  "doctor_retest_status": "PASS",
+  "note": "86 runtime tests and docs PASS; original doctor found stale manifest after report/test edits. Manifest synchronized and doctor retested separately; original FAIL preserved.",
+  "installed_wheel_tests": 84,
+  "installed_source": "runs/installed-wheel-final.run.json"
+}

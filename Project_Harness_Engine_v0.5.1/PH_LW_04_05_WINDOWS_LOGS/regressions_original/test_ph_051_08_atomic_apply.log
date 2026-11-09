@@ -1,0 +1,587 @@
+test_01_create_replace_and_allowed_delete_end_to_end (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_01_create_replace_and_allowed_delete_end_to_end) ... ERROR
+test_02_idempotent_replay_never_rewrites_immutable_evidence (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_02_idempotent_replay_never_rewrites_immutable_evidence) ... ERROR
+test_03_unverified_or_failing_sandbox_never_applies (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_03_unverified_or_failing_sandbox_never_applies) ... ERROR
+test_04_actual_vs_scope_violation_after_verification (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_04_actual_vs_scope_violation_after_verification) ... ERROR
+test_05_special_fifo_after_verification_rejected_without_opening (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_05_special_fifo_after_verification_rejected_without_opening) ... ERROR
+test_06_symlink_escape_and_hardlink_rejected (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_06_symlink_escape_and_hardlink_rejected) ... ERROR
+test_07_control_or_git_tree_in_disposable_rejected (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_07_control_or_git_tree_in_disposable_rejected) ... ERROR
+test_08_changed_canonical_baseline_denies_apply (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_08_changed_canonical_baseline_denies_apply) ... ERROR
+test_09_changed_verified_content_denies_apply (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_09_changed_verified_content_denies_apply) ... ERROR
+test_10_exact_secret_in_changed_file_blocks_before_write (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_10_exact_secret_in_changed_file_blocks_before_write) ... ERROR
+test_11_omitted_configured_secret_cannot_bypass_scan (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_11_omitted_configured_secret_cannot_bypass_scan) ... ERROR
+test_12_forged_agent_change_declaration_never_authorizes_apply (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_12_forged_agent_change_declaration_never_authorizes_apply) ... ERROR
+test_13_mode_only_or_mode_escalation_not_copied (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_13_mode_only_or_mode_escalation_not_copied) ... ERROR
+test_14_expected_path_absent_is_rejected (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_14_expected_path_absent_is_rejected) ... ERROR
+test_15_no_implicit_automatic_opt_in (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_15_no_implicit_automatic_opt_in) ... ERROR
+test_16_preserve_manual_runtime_with_public_opt_in_cli (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_16_preserve_manual_runtime_with_public_opt_in_cli) ... ok
+test_17_interrupted_apply_recovers_all_old_or_all_new (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_17_interrupted_apply_recovers_all_old_or_all_new) ... 
+  test_17_interrupted_apply_recovers_all_old_or_all_new (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_17_interrupted_apply_recovers_all_old_or_all_new) (point='JOURNAL_PREPARED') ... ERROR
+  test_17_interrupted_apply_recovers_all_old_or_all_new (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_17_interrupted_apply_recovers_all_old_or_all_new) (point='AFTER_OPERATION_1') ... ERROR
+  test_17_interrupted_apply_recovers_all_old_or_all_new (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_17_interrupted_apply_recovers_all_old_or_all_new) (point='AFTER_OPERATION_2') ... ERROR
+  test_17_interrupted_apply_recovers_all_old_or_all_new (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_17_interrupted_apply_recovers_all_old_or_all_new) (point='AFTER_OPERATION_3') ... ERROR
+  test_17_interrupted_apply_recovers_all_old_or_all_new (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_17_interrupted_apply_recovers_all_old_or_all_new) (point='PRODUCT_APPLIED') ... ERROR
+  test_17_interrupted_apply_recovers_all_old_or_all_new (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_17_interrupted_apply_recovers_all_old_or_all_new) (point='EVIDENCE_WRITTEN') ... ERROR
+  test_17_interrupted_apply_recovers_all_old_or_all_new (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_17_interrupted_apply_recovers_all_old_or_all_new) (point='BEFORE_COMMIT_MARKER') ... ERROR
+  test_17_interrupted_apply_recovers_all_old_or_all_new (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_17_interrupted_apply_recovers_all_old_or_all_new) (point='COMMITTED') ... ERROR
+test_18_recovery_is_safe_to_repeat_without_journal (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_18_recovery_is_safe_to_repeat_without_journal) ... ERROR
+test_19_exception_after_first_operation_rolls_back_immediately (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_19_exception_after_first_operation_rolls_back_immediately) ... ERROR
+test_20_recovery_rejects_corrupted_backup_before_touching_product (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_20_recovery_rejects_corrupted_backup_before_touching_product) ... ERROR
+test_21_post_commit_cleanup_exception_reports_committed_truthfully (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_21_post_commit_cleanup_exception_reports_committed_truthfully) ... ERROR
+test_22_fault_before_journal_marker_cannot_modify_canonical (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_22_fault_before_journal_marker_cannot_modify_canonical) ... ERROR
+test_23_bounded_log_exact_secret_is_rescanned_at_apply (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_23_bounded_log_exact_secret_is_rescanned_at_apply) ... ERROR
+test_24_parent_directory_symlink_after_verification (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_24_parent_directory_symlink_after_verification) ... ERROR
+test_25_replacing_product_preserves_nondefault_canonical_mode (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_25_replacing_product_preserves_nondefault_canonical_mode) ... ERROR
+
+======================================================================
+ERROR: test_01_create_replace_and_allowed_delete_end_to_end (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_01_create_replace_and_allowed_delete_end_to_end)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 136, in test_01_create_replace_and_allowed_delete_end_to_end
+    self._ready(replace_readme=True, delete_old=True)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-2melj_u7\\build\\handoff'
+
+======================================================================
+ERROR: test_02_idempotent_replay_never_rewrites_immutable_evidence (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_02_idempotent_replay_never_rewrites_immutable_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 155, in test_02_idempotent_replay_never_rewrites_immutable_evidence
+    self._ready()
+    ~~~~~~~~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-kv1cj_t_\\build\\handoff'
+
+======================================================================
+ERROR: test_03_unverified_or_failing_sandbox_never_applies (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_03_unverified_or_failing_sandbox_never_applies)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 165, in test_03_unverified_or_failing_sandbox_never_applies
+    self._ready()
+    ~~~~~~~~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-z8ihjz0u\\build\\handoff'
+
+======================================================================
+ERROR: test_04_actual_vs_scope_violation_after_verification (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_04_actual_vs_scope_violation_after_verification)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 173, in test_04_actual_vs_scope_violation_after_verification
+    self._ready()
+    ~~~~~~~~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-r49p3yru\\build\\handoff'
+
+======================================================================
+ERROR: test_05_special_fifo_after_verification_rejected_without_opening (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_05_special_fifo_after_verification_rejected_without_opening)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 178, in test_05_special_fifo_after_verification_rejected_without_opening
+    self._ready()
+    ~~~~~~~~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-mfdwf52p\\build\\handoff'
+
+======================================================================
+ERROR: test_06_symlink_escape_and_hardlink_rejected (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_06_symlink_escape_and_hardlink_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 183, in test_06_symlink_escape_and_hardlink_rejected
+    self._ready()
+    ~~~~~~~~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-txyej0eb\\build\\handoff'
+
+======================================================================
+ERROR: test_07_control_or_git_tree_in_disposable_rejected (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_07_control_or_git_tree_in_disposable_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 195, in test_07_control_or_git_tree_in_disposable_rejected
+    self._ready()
+    ~~~~~~~~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-3a4b34yf\\build\\handoff'
+
+======================================================================
+ERROR: test_08_changed_canonical_baseline_denies_apply (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_08_changed_canonical_baseline_denies_apply)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 205, in test_08_changed_canonical_baseline_denies_apply
+    self._ready()
+    ~~~~~~~~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-zplgjcqe\\build\\handoff'
+
+======================================================================
+ERROR: test_09_changed_verified_content_denies_apply (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_09_changed_verified_content_denies_apply)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 213, in test_09_changed_verified_content_denies_apply
+    self._ready()
+    ~~~~~~~~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-ungez672\\build\\handoff'
+
+======================================================================
+ERROR: test_10_exact_secret_in_changed_file_blocks_before_write (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_10_exact_secret_in_changed_file_blocks_before_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 218, in test_10_exact_secret_in_changed_file_blocks_before_write
+    self._ready(secrets={"FAKE_CLI_SECRET": "TOKEN-VERY-PRIVATE-98765"})
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-dehhdnn1\\build\\handoff'
+
+======================================================================
+ERROR: test_11_omitted_configured_secret_cannot_bypass_scan (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_11_omitted_configured_secret_cannot_bypass_scan)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 227, in test_11_omitted_configured_secret_cannot_bypass_scan
+    self._ready(secrets={"FAKE_CLI_SECRET": "secret-example-18926"})
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-grh24_ru\\build\\handoff'
+
+======================================================================
+ERROR: test_12_forged_agent_change_declaration_never_authorizes_apply (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_12_forged_agent_change_declaration_never_authorizes_apply)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 234, in test_12_forged_agent_change_declaration_never_authorizes_apply
+    self._ready(agent_diff={"added": [], "modified": [], "deleted": []})
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-qe6bjrd5\\build\\handoff'
+
+======================================================================
+ERROR: test_13_mode_only_or_mode_escalation_not_copied (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_13_mode_only_or_mode_escalation_not_copied)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 238, in test_13_mode_only_or_mode_escalation_not_copied
+    self._ready()
+    ~~~~~~~~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-4syp_b95\\build\\handoff'
+
+======================================================================
+ERROR: test_14_expected_path_absent_is_rejected (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_14_expected_path_absent_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 243, in test_14_expected_path_absent_is_rejected
+    self._ready()
+    ~~~~~~~~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-w8dvamqn\\build\\handoff'
+
+======================================================================
+ERROR: test_15_no_implicit_automatic_opt_in (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_15_no_implicit_automatic_opt_in)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 248, in test_15_no_implicit_automatic_opt_in
+    self._start(manual=True)
+    ~~~~~~~~~~~^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-cpepy7w3\\build\\handoff'
+
+======================================================================
+ERROR: test_17_interrupted_apply_recovers_all_old_or_all_new (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_17_interrupted_apply_recovers_all_old_or_all_new) (point='JOURNAL_PREPARED')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 268, in test_17_interrupted_apply_recovers_all_old_or_all_new
+    case._ready(replace_readme=True, delete_old=True)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-xki25idr\\build\\handoff'
+
+======================================================================
+ERROR: test_17_interrupted_apply_recovers_all_old_or_all_new (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_17_interrupted_apply_recovers_all_old_or_all_new) (point='AFTER_OPERATION_1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 268, in test_17_interrupted_apply_recovers_all_old_or_all_new
+    case._ready(replace_readme=True, delete_old=True)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-gaihpe6i\\build\\handoff'
+
+======================================================================
+ERROR: test_17_interrupted_apply_recovers_all_old_or_all_new (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_17_interrupted_apply_recovers_all_old_or_all_new) (point='AFTER_OPERATION_2')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 268, in test_17_interrupted_apply_recovers_all_old_or_all_new
+    case._ready(replace_readme=True, delete_old=True)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-8lan9f40\\build\\handoff'
+
+======================================================================
+ERROR: test_17_interrupted_apply_recovers_all_old_or_all_new (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_17_interrupted_apply_recovers_all_old_or_all_new) (point='AFTER_OPERATION_3')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 268, in test_17_interrupted_apply_recovers_all_old_or_all_new
+    case._ready(replace_readme=True, delete_old=True)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-ilikckqw\\build\\handoff'
+
+======================================================================
+ERROR: test_17_interrupted_apply_recovers_all_old_or_all_new (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_17_interrupted_apply_recovers_all_old_or_all_new) (point='PRODUCT_APPLIED')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 268, in test_17_interrupted_apply_recovers_all_old_or_all_new
+    case._ready(replace_readme=True, delete_old=True)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-vybgevty\\build\\handoff'
+
+======================================================================
+ERROR: test_17_interrupted_apply_recovers_all_old_or_all_new (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_17_interrupted_apply_recovers_all_old_or_all_new) (point='EVIDENCE_WRITTEN')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 268, in test_17_interrupted_apply_recovers_all_old_or_all_new
+    case._ready(replace_readme=True, delete_old=True)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-ikuzzcbj\\build\\handoff'
+
+======================================================================
+ERROR: test_17_interrupted_apply_recovers_all_old_or_all_new (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_17_interrupted_apply_recovers_all_old_or_all_new) (point='BEFORE_COMMIT_MARKER')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 268, in test_17_interrupted_apply_recovers_all_old_or_all_new
+    case._ready(replace_readme=True, delete_old=True)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-5g0np0xk\\build\\handoff'
+
+======================================================================
+ERROR: test_17_interrupted_apply_recovers_all_old_or_all_new (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_17_interrupted_apply_recovers_all_old_or_all_new) (point='COMMITTED')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 268, in test_17_interrupted_apply_recovers_all_old_or_all_new
+    case._ready(replace_readme=True, delete_old=True)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-_gzznksm\\build\\handoff'
+
+======================================================================
+ERROR: test_18_recovery_is_safe_to_repeat_without_journal (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_18_recovery_is_safe_to_repeat_without_journal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 289, in test_18_recovery_is_safe_to_repeat_without_journal
+    self._ready()
+    ~~~~~~~~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-hrkmiad9\\build\\handoff'
+
+======================================================================
+ERROR: test_19_exception_after_first_operation_rolls_back_immediately (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_19_exception_after_first_operation_rolls_back_immediately)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 294, in test_19_exception_after_first_operation_rolls_back_immediately
+    self._ready(replace_readme=True)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-0g77vul8\\build\\handoff'
+
+======================================================================
+ERROR: test_20_recovery_rejects_corrupted_backup_before_touching_product (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_20_recovery_rejects_corrupted_backup_before_touching_product)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 304, in test_20_recovery_rejects_corrupted_backup_before_touching_product
+    self._ready(replace_readme=True)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-fgy24g4i\\build\\handoff'
+
+======================================================================
+ERROR: test_21_post_commit_cleanup_exception_reports_committed_truthfully (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_21_post_commit_cleanup_exception_reports_committed_truthfully)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 321, in test_21_post_commit_cleanup_exception_reports_committed_truthfully
+    self._ready()
+    ~~~~~~~~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-r8jpy0_9\\build\\handoff'
+
+======================================================================
+ERROR: test_22_fault_before_journal_marker_cannot_modify_canonical (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_22_fault_before_journal_marker_cannot_modify_canonical)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 337, in test_22_fault_before_journal_marker_cannot_modify_canonical
+    self._ready()
+    ~~~~~~~~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-ehi9_0kp\\build\\handoff'
+
+======================================================================
+ERROR: test_23_bounded_log_exact_secret_is_rescanned_at_apply (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_23_bounded_log_exact_secret_is_rescanned_at_apply)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 354, in test_23_bounded_log_exact_secret_is_rescanned_at_apply
+    self._ready(secrets={"FAKE_CLI_SECRET": "VERY-PRIVATE-KEY-443211"})
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-40f1uhpk\\build\\handoff'
+
+======================================================================
+ERROR: test_24_parent_directory_symlink_after_verification (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_24_parent_directory_symlink_after_verification)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 364, in test_24_parent_directory_symlink_after_verification
+    self._ready()
+    ~~~~~~~~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 116, in _ready
+    self._start(new_old=delete_old, secrets=secrets)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 80, in _start
+    binding = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-8t0trkmx\\build\\handoff'
+
+======================================================================
+ERROR: test_25_replacing_product_preserves_nondefault_canonical_mode (tests.test_ph_051_08_atomic_apply.AtomicApplyTests.test_25_replacing_product_preserves_nondefault_canonical_mode)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_08_atomic_apply.py", line 379, in test_25_replacing_product_preserves_nondefault_canonical_mode
+    setup = prepare_execution_root(self.project, self.runtime_root, run_ref=self.active["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05108-test-d3mk4i0e\\build\\handoff'
+
+----------------------------------------------------------------------
+Ran 25 tests in 343.665s
+
+FAILED (errors=31)

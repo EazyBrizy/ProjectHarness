@@ -1,0 +1,29 @@
+{
+  "name": "test_ph_lw_10_http-nonbrowser",
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;import project_harness;assert Path(project_harness.__file__).resolve().is_relative_to(Path(sys.prefix).resolve());sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel\\test_ph_lw_10_http-nonbrowser.log",
+    "tests.test_ph_lw_10_http.LifecycleHttpTests.test_auth_csrf_origin_port_unknown_fields_and_readonly",
+    "tests.test_ph_lw_10_http.LifecycleHttpTests.test_draft_ownership_traversal_replay_conflict"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_12\\Независимая папка wheel",
+  "exit": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 94.008,
+  "environment_ref": "WHEEL_ENVIRONMENT.json",
+  "modules": [
+    "tests.test_ph_lw_10_http.LifecycleHttpTests.test_auth_csrf_origin_port_unknown_fields_and_readonly",
+    "tests.test_ph_lw_10_http.LifecycleHttpTests.test_draft_ownership_traversal_replay_conflict"
+  ],
+  "ran": 0,
+  "failures": 0,
+  "errors": 1,
+  "skips": [],
+  "log": "test_ph_lw_10_http-nonbrowser.log",
+  "process_status": "FAIL",
+  "log_sha256": "e563a009dee196fc8378c0e966c57f4ca5aaa093553b1549ca61493b0f065af6"
+}

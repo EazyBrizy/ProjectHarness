@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "before_sha256": "cbe77c67befd7e2999bc5f33db95e7c235ac4915c0069cfe7f590ee5b6797018",
+  "after_sha256": "7e9eb84a68cb83d4332a3891278fcf96c46e8b79dbe8584d0ce28fd6056e132f",
+  "only_disabled_reason_string_changed": true
+}

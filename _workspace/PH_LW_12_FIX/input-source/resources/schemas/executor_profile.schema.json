@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "SCHEMA-EXECUTOR-PROFILE@1",
+  "type": "object",
+  "required": [
+    "agent_adapter_profile"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "agent_adapter_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "revision",
+        "status",
+        "kind",
+        "executable",
+        "argv_template",
+        "working_directory",
+        "timeout_seconds",
+        "stdin_mode",
+        "environment_allowlist",
+        "secret_environment_refs",
+        "sandbox_profile_ref"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^ADP-[A-Z0-9][A-Z0-9-]*$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "status": {
+          "enum": [
+            "DRAFT",
+            "VALIDATED",
+            "ACTIVE",
+            "SUSPENDED",
+            "DEPRECATED",
+            "RETIRED"
+          ]
+        },
+        "kind": {
+          "const": "CODEX_CLI_LOCAL"
+        },
+        "executable": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^[a-zA-Z0-9_./-]+$"
+        },
+        "argv_template": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 64,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096,
+            "not": {
+              "pattern": "(?s)(\\$\\(|`|\\|\\||&&|[|;<>\\n\\r])"
+            }
+          }
+        },
+        "working_directory": {
+          "const": "/workspace/product"
+        },
+        "timeout_seconds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 86400
+        },
+        "stdin_mode": {
+          "const": "CLOSED"
+        },
+        "environment_allowlist": {
+          "type": "array",
+          "uniqueItems": true,
+          "maxItems": 32,
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z_][A-Z0-9_]*$"
+          }
+        },
+        "secret_environment_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "maxItems": 16,
+          "items": {
+            "type": "string",
+            "pattern": "^ENV:[A-Z_][A-Z0-9_]*$"
+          }
+        },
+        "sandbox_profile_ref": {
+          "type": "string",
+          "pattern": "^SBX-[A-Z0-9][A-Z0-9-]*@[1-9][0-9]*$"
+        }
+      }
+    }
+  }
+}

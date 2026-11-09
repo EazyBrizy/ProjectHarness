@@ -1,0 +1,15 @@
+test_handoff_archive_long_output_keeps_exact_names_and_crc (tests.test_ph_lw_12_blockers.DeepAppDataTests.test_handoff_archive_long_output_keeps_exact_names_and_crc) ... FAIL
+
+======================================================================
+FAIL: test_handoff_archive_long_output_keeps_exact_names_and_crc (tests.test_ph_lw_12_blockers.DeepAppDataTests.test_handoff_archive_long_output_keeps_exact_names_and_crc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_12_blockers.py", line 100, in test_handoff_archive_long_output_keeps_exact_names_and_crc
+    self.assertGreater(len(str(output.parent)),260)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 244 not greater than 260
+
+----------------------------------------------------------------------
+Ran 1 test in 0.011s
+
+FAILED (failures=1)

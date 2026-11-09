@@ -1,0 +1,17 @@
+{
+  "command": [
+    "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_051_10_migration_recovery.V051MigrationTests"
+  ],
+  "cwd": "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+  "started_utc": "2026-11-07T00:06:58.241668+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 240,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 67.582,
+  "log_sha256": "1eb064680fa4d7801dd824e3589ddb6c97d2f519310e78181a04ec74edf84df6"
+}

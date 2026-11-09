@@ -1,0 +1,14 @@
+{
+  "shard": 9,
+  "modules": [
+    "test_ph_051_02_executor_protocol",
+    "test_gate_evidence_contract",
+    "test_ph_f03_active_stage_planning",
+    "test_canonical_target"
+  ],
+  "exit_code": 0,
+  "tests": 47,
+  "seconds": 146.486,
+  "log": "PH_051_09_SHARD_09.log",
+  "result": "PASS"
+}

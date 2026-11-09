@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "scope": "Structural evidence in addition to runtime tests; IO implementations and guards are tested separately",
+  "files": [
+    {
+      "file": "compiler.py",
+      "before_sha256": "73c5bfbfb1668e99d35371d3c674bffdbb1ca0ed9b30e0430ba08c8cf557d9ae",
+      "after_sha256": "4a7912670dcf006cf363312642a6bd1de948e9a785fa21e51c7139a96fae5528",
+      "same_logic_after_explicit_io_adaptation_removed": true
+    },
+    {
+      "file": "hashing.py",
+      "before_sha256": "237da0505646d070fbee407d372096cf4c0bac7397a87279a8c0d8bcf519409b",
+      "after_sha256": "fe4ac9b231c0a217d16cf77c605837ab2447499a529e0042bab68b327008e3cc",
+      "same_logic_after_explicit_io_adaptation_removed": true
+    },
+    {
+      "file": "serialization.py",
+      "before_sha256": "fd229507e4114d9eaa19552c096c74315dcbd21f5f9af48e5876425c150c8ba7",
+      "after_sha256": "7dba2b898567c3b2dee168abbbccb1abe919797bc50cf58216ecc7aa0e35b8c6",
+      "same_logic_after_explicit_io_adaptation_removed": true
+    },
+    {
+      "file": "workspace.py",
+      "before_sha256": "508a273452fcc997e1f31daadd621ffd9599515febca1d2e3453bcbced5c952f",
+      "after_sha256": "99174e324d96cfd9931d7b2ca7b952efcbb5aecb8adc76265f7bb6c66d3cadf9",
+      "same_logic_after_explicit_io_adaptation_removed": true
+    },
+    {
+      "file": "validation.py",
+      "before_sha256": "5418cd7fbbff51729f99f55151125865e7287bac54983ccdba124406ce83d02c",
+      "after_sha256": "2dde523d51be4460022b3b5799f967d02eec6e369813f4374b0f975b90355f9c",
+      "same_logic_after_explicit_io_adaptation_removed": true
+    },
+    {
+      "file": "stages.py",
+      "before_sha256": "786905a7ccd1dfb710bf554a9e9e024c0c8c7ec10a6749da45c2f0d582c6fbdf",
+      "after_sha256": "bebbc9efdf5b635a532bfffcd2efc8ce8e133ca1d42e24efe7e1c1d882805bf6",
+      "same_logic_after_explicit_io_adaptation_removed": true
+    },
+    {
+      "file": "materialization.py",
+      "before_sha256": "428b0af172c6daeec39bd90ab346c31d2941603a75e074e99e854dd09dbc5abf",
+      "after_sha256": "312cf4945bbeeb671702ea956ae8f3b56a6c21b6d3977875e6a11ae664cd2807",
+      "same_logic_after_explicit_io_adaptation_removed": true
+    }
+  ]
+}

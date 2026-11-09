@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "scope": "Only source/wheel tests may use previous freeze. All actual installer/EXE runs repeated.",
+  "previous_freeze_sha256": "a0c9775c327500b45df478b466746c3a6aec792b67695fcfd43437255fe0b997",
+  "current_freeze_sha256": "fbcf823ad5773cd9e7d2dd4b0279c5e36054320982d23e46afb37c77ef78cf58",
+  "source_hashes_equal": true,
+  "wheel_sha256_equal": true,
+  "engine_build_digest_equal": true,
+  "documentation_changes": [
+    "13_Local_Web_Manual_Companion/23_PH_LW_12_Blocker_Fixes.md",
+    "FILE_INDEX.md",
+    "MANIFEST.sha256"
+  ],
+  "runtime_code_changed": false,
+  "tests_changed": false,
+  "chapter_body_unchanged": true,
+  "reason": "Required addendum base date only; generated index/manifest follow. Full aggregate unchanged."
+}

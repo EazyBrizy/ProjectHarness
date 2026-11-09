@@ -1,0 +1,159 @@
+WARNING: The directory '/home/oai/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Processing /mnt/data/work_ph_051_09/Project_Harness_Engine_v0.5.1/dist/project_harness_engine-0.5.1-py3-none-any.whl
+Installing collected packages: project-harness-engine
+Successfully installed project-harness-engine-0.5.1
+===== installed wheel CLI version =====
+0.5.1
+===== installed wheel doctor =====
+usage: project-harness [-h] [--version]
+                       {doctor,start-intake,check-intake,prepare,validate-handoff,validate-project,migrate-project,status,next,executor-doctor,execute-current,verify,complete,block,resume,stage-status,prepare-stage-approval,prepare-active-stage-plan,plan-active-stage,resume-stage-gate,assess-maturity,accept-stage,level-up,start-maintenance,cancel-maintenance,demo} ...
+project-harness: error: unrecognized arguments: --json
+===== installed wheel doctor (supported CLI) =====
+{
+  "version": "0.5.1",
+  "schema_version": 7,
+  "status": "PASS",
+  "root": "/mnt/data/work_ph_051_09/venv-ph09/lib/python3.13/site-packages/project_harness/resources",
+  "checks": [
+    {
+      "name": "Canonical registries",
+      "status": "PASS",
+      "details": {
+        "id_prefixes": 3,
+        "project_profiles": 1,
+        "statuses": 6,
+        "request_routing": 2,
+        "capabilities": 1,
+        "contracts": 6,
+        "implementation_levels": 1
+      }
+    },
+    {
+      "name": "Bundled schemas",
+      "status": "PASS",
+      "details": {
+        "count": 17,
+        "errors": []
+      }
+    },
+    {
+      "name": "Seed ACTIVE skills",
+      "status": "PASS",
+      "details": {
+        "count": 3,
+        "errors": []
+      }
+    },
+    {
+      "name": "Entry points and browser preparation template",
+      "status": "PASS",
+      "details": {
+        "missing": [],
+        "layout": "installed"
+      }
+    },
+    {
+      "name": "Source and embedded resources",
+      "status": "PASS",
+      "details": {
+        "layout": "installed",
+        "checked": 0,
+        "errors": []
+      }
+    }
+  ]
+}
+doctor_exit=0
+===== installed wheel public APIs =====
+execute_current: True
+executor_doctor: True
+project_status: True
+===== installed CLI subcommand flags =====
+usage: project-harness execute-current [-h] --project PROJECT
+                                       [--adapter-profile ADAPTER_PROFILE]
+                                       [--network {NONE,EXPLICIT_APPROVED_EGRESS}]
+                                       [--approval APPROVAL]
+                                       [--keep-execution-root]
+
+options:
+  -h, --help            show this help message and exit
+  --project PROJECT
+  --adapter-profile ADAPTER_PROFILE
+                        Only the exact pinned project ADP ref/path (no profile
+                        switching).
+  --network {NONE,EXPLICIT_APPROVED_EGRESS}
+  --approval APPROVAL   Exact per-Run approval; unimplemented egress cannot be
+                        enabled by this flag.
+  --keep-execution-root
+                        Requires an explicit debug policy; rejected by current
+                        strict policy.
+usage: project-harness executor-doctor [-h] --project PROJECT
+                                       [--adapter-profile ADAPTER_PROFILE]
+                                       [--network {NONE,EXPLICIT_APPROVED_EGRESS}]
+                                       [--approval APPROVAL]
+                                       [--keep-execution-root]
+
+options:
+  -h, --help            show this help message and exit
+  --project PROJECT
+  --adapter-profile ADAPTER_PROFILE
+                        Only the exact pinned project ADP ref/path (no profile
+                        switching).
+  --network {NONE,EXPLICIT_APPROVED_EGRESS}
+  --approval APPROVAL   Exact per-Run approval; unimplemented egress cannot be
+                        enabled by this flag.
+  --keep-execution-root
+                        Requires an explicit debug policy; rejected by current
+                        strict policy.
+===== installed-wheel generated Project Instance (manual default) =====
+handoff: /mnt/data/work_ph_051_09/wheel_smoke_project/handoff.zip project: /mnt/data/work_ph_051_09/wheel_smoke_project/handoff
+execution policy: {'mode': 'MANUAL_HANDOFF', 'adapter_profile_ref': None, 'sandbox_profile_ref': None, 'network_mode': 'NONE', 'completion_policy': 'EXPLICIT_AFTER_VERIFICATION'}
+===== executor-doctor installed-wheel manual opt-out =====
+{
+  "status": "BLOCKED",
+  "reason_code": "EXECUTOR_UNAVAILABLE",
+  "execution_mode": "MANUAL_HANDOFF",
+  "message": "Automatic execution requires explicit project opt-in"
+}
+executor_doctor_exit=3
+===== execute-current installed-wheel manual opt-out =====
+{
+  "status": "BLOCKED",
+  "reason_code": "EXECUTOR_UNAVAILABLE",
+  "execution_mode": "MANUAL_HANDOFF",
+  "message": "Automatic execution requires explicit project opt-in",
+  "project_status": "ACTIVE",
+  "task_ref": "TSK-HARNESS-DEMO-TASK-CLI-001",
+  "next_command": "project-harness executor-doctor --project <root>"
+}
+execute_current_exit=3
+===== installed-wheel validate-project still PASS =====
+  "status": "PASS",
+      "status": "PASS",
+      "status": "PASS",
+      "status": "PASS",
+      "status": "PASS",
+      "status": "PASS",
+      "status": "PASS",
+      "status": "PASS",
+      "status": "PASS",
+      "status": "PASS",
+      "status": "PASS",
+          "status": "PASS",
+      "status": "PASS",
+      "status": "PASS",
+      "status": "PASS",
+        "status": "PASS",
+      "status": "PASS",
+      "status": "PASS",
+      "status": "PASS",
+      "status": "PASS",
+          "status": "PASS",
+          "status": "PASS",
+      "status": "PASS",
+        "status": "PASS",
+      "status": "PASS",
+        "status": "PASS",
+      "status": "PASS",
+      "status": "PASS",
+validate_project_pipeline_exit=0

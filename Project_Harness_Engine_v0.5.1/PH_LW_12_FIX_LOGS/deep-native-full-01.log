@@ -1,0 +1,96 @@
+test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete (lw12_final_driver.InstalledFullFlowTests.test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete) ... {"native_deep_app_data_length": 242}
+Task queue depth is 1
+Task queue depth is 2
+ERROR
+
+======================================================================
+ERROR: test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete (lw12_final_driver.InstalledFullFlowTests.test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\local_web\windows\final_acceptance.py", line 122, in test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete
+    expect(page.locator('#approvals-status')).to_contain_text(str(i+1)+' из 4')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\sync_api\_generated.py", line 14961, in to_contain_text
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.to_contain_text(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        )
+        ^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 303, in to_contain_text
+    await self._expect_impl(
+    ...<9 lines>...
+    )
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        AssertionError(
+        ^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        self._is_soft,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to contain text '1 из 4'
+Actual value: 0 из 4 решений · WAITING_DECISION 
+Call log:
+  - Expect "to_contain_text" locator("#approvals-status") with timeout 30000ms
+  - waiting for locator("#approvals-status")
+    63 × locator resolved to <p role="status" aria-live="polite" id="approvals-status">0 из 4 решений · WAITING_DECISION</p>
+       - unexpected value "0 из 4 решений · WAITING_DECISION"
+
+Aria snapshot:
+- status: 0 из 4 решений · WAITING_DECISION
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\local_web\windows\final_acceptance.py", line 162, in test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete
+    (target/path.name).write_bytes(path.read_bytes())
+                                   ~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '<TEMP>\\LW12 installed no-doc 4rhczsq4\\Глубокий-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\данные-yyyyyyyyyyyyyyyyyyyyyyyyy\\ProjectHarness\\operations\\LWO-0E926F56078080B4F302B2491109BD6F.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\local_web\windows\final_acceptance.py", line 75, in test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete
+    with tempfile.TemporaryDirectory(prefix='LW12 installed no-doc ') as directory:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\tempfile.py", line 1051, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "<WORKSPACE>\_tools\Python314\Lib\tempfile.py", line 1055, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\tempfile.py", line 1035, in _rmtree
+    _shutil.rmtree(name, onexc=onexc, dir_fd=dir_fd, _onexc_kwargs=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\shutil.py", line 859, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\shutil.py", line 697, in _rmtree_unsafe
+    onexc(os.rmdir, fullname, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\shutil.py", line 693, in _rmtree_unsafe
+    os.rmdir(fullname)
+    ~~~~~~~~^^^^^^^^^^
+OSError: [WinError 145] Папка не пуста: '<TEMP>\\LW12 installed no-doc 4rhczsq4\\Глубокий-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\данные-yyyyyyyyyyyyyyyyyyyyyyyyy\\ProjectHarness\\intake_requests'
+
+----------------------------------------------------------------------
+Ran 1 test in 37.387s
+
+FAILED (errors=1)

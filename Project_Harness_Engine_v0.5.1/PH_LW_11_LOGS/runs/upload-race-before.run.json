@@ -1,0 +1,18 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_lw_11_desktop.NativeLauncherTests.test_upload_success_waits_for_refresh_before_interview_can_start"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T23:30:47.441400+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 90,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 77.248,
+  "log_sha256": "8eec4db4edccdbb270778e5b2af2df056da9b6ad6456ceaf7696ef14af5f9d69"
+}

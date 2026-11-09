@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "SCHEMA-APPLY-EVIDENCE@1",
+  "type": "object",
+  "required": [
+    "apply_evidence"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "apply_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "run_ref",
+        "verification_ref",
+        "baseline_before",
+        "baseline_after",
+        "status",
+        "write_set",
+        "applied_at"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^EVD-[A-Z0-9][A-Z0-9-]*$"
+        },
+        "run_ref": {
+          "type": "string",
+          "pattern": "^RUN-[A-Z0-9][A-Z0-9-]*@[1-9][0-9]*$"
+        },
+        "verification_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "baseline_before": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "baseline_after": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "status": {
+          "const": "PASS"
+        },
+        "write_set": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "operation",
+              "sha256_after"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!\\.harness(?:/|$)).+$"
+              },
+              "operation": {
+                "enum": [
+                  "CREATE",
+                  "REPLACE",
+                  "DELETE"
+                ]
+              },
+              "sha256_before": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^sha256:[0-9a-f]{64}$"
+              },
+              "sha256_after": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^sha256:[0-9a-f]{64}$"
+              }
+            }
+          }
+        },
+        "applied_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

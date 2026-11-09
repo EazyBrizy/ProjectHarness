@@ -1,0 +1,32 @@
+{
+  "files": [
+    "project_harness/archive.py",
+    "project_harness/compiler.py",
+    "project_harness/evidence.py",
+    "project_harness/intake.py",
+    "project_harness/inventory.py",
+    "project_harness/local_web_approvals.py",
+    "project_harness/local_web_drafts.py",
+    "project_harness/local_web_preparation.py",
+    "project_harness/local_web_service.py",
+    "project_harness/local_web_source_refresh.py",
+    "project_harness/local_web_sources_service.py",
+    "project_harness/local_web_tasks.py",
+    "project_harness/maintenance.py",
+    "project_harness/manual_tasks.py",
+    "project_harness/materialization.py",
+    "project_harness/operation_guard.py",
+    "project_harness/platform_fs.py",
+    "project_harness/resources/local_web/assets/app.js",
+    "project_harness/resources/local_web/assets/tasks.js",
+    "project_harness/resources/local_web/metadata_v1.json",
+    "project_harness/runtime.py",
+    "project_harness/safety.py",
+    "project_harness/serialization.py",
+    "project_harness/stages.py",
+    "project_harness/task_manual_evidence.py",
+    "project_harness/util.py",
+    "project_harness/workspace.py"
+  ],
+  "scope": "Native IO in reproduced deep manual path; serialized client JSON/multipart; fresh card view; read-only operation/preparation snapshots avoid mutable canonical enumeration. Full mutation/root/ownership/integrity checks retained; no schema/registry/state semantics changes."
+}

@@ -1,0 +1,7 @@
+test_read_only_draft_schema_and_public_cli (tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_read_only_draft_schema_and_public_cli) ... ok
+test_alpha_planning_has_two_real_public_commands (tests.test_ph_f04_runtime_reachability.PHF04RuntimeReachabilityTests.test_alpha_planning_has_two_real_public_commands) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 17.385s
+
+OK

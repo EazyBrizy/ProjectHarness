@@ -1,0 +1,2551 @@
+--- before/project_harness/archive.py
++++ after/project_harness/archive.py
+@@ -6,7 +6,7 @@
+ import zipfile
+ 
+ from .errors import ValidationFailure
+-from .platform_fs import ensure_native_path
++from .platform_fs import ensure_native_path, _native_io_path, native_resolve, native_walk
+ 
+ 
+ def _zip_time(timestamp: str | None) -> tuple[int, int, int, int, int, int]:
+@@ -25,17 +25,17 @@
+ def zip_directory(root: Path, output: Path, *, timestamp: str | None = None) -> None:
+     ensure_native_path(root, tree=True)
+     ensure_native_path(output.parent)
+-    root = root.resolve()
+-    output = output.expanduser().resolve()
+-    output.parent.mkdir(parents=True, exist_ok=True)
++    root = native_resolve(root)
++    output = native_resolve(output)
++    _native_io_path(output.parent).mkdir(parents=True, exist_ok=True)
+     stamp = _zip_time(timestamp)
+     handoff_lock = root / ".harness/config/PROJECT_LOCK.yaml"
+     stage_state = root / ".harness/stages/STAGE_STATE.yaml"
+-    if handoff_lock.exists() and not stage_state.exists():
++    if _native_io_path(handoff_lock).exists() and not _native_io_path(stage_state).exists():
+         raise ValidationFailure("Stage-aware handoff is missing canonical Stage State", str(stage_state))
+     try:
+-        with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
+-            for current, dirs, files in os.walk(root):
++        with zipfile.ZipFile(_native_io_path(output), "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
++            for current, dirs, files in native_walk(root):
+                 # Execution bindings are project-local metadata, never part of
+                 # handoff/export. Raw execution roots live outside this tree.
+                 relative_dir = Path(current).relative_to(root).as_posix()
+@@ -44,17 +44,17 @@
+                 base = Path(current)
+                 for name in sorted(files):
+                     path = base / name
+-                    if path.is_symlink() or name.endswith((".pyc", ".pyo")):
++                    if _native_io_path(path).is_symlink() or name.endswith((".pyc", ".pyo")):
+                         continue
+                     rel = Path(root.name) / path.relative_to(root)
+                     info = zipfile.ZipInfo(rel.as_posix(), date_time=stamp)
+                     info.compress_type = zipfile.ZIP_DEFLATED
+                     info.external_attr = (0o100644 & 0xFFFF) << 16
+-                    zf.writestr(info, path.read_bytes())
++                    zf.writestr(info, _native_io_path(path).read_bytes())
+             bad = zf.testzip()
+             if bad:
+                 raise ValidationFailure("Created ZIP failed CRC", bad)
+-            if handoff_lock.exists():
++            if _native_io_path(handoff_lock).exists():
+                 required = f"{root.name}/.harness/stages/STAGE_STATE.yaml"
+                 if required not in set(zf.namelist()):
+                     raise ValidationFailure("Created ZIP omitted canonical Stage State", required)
+--- before/project_harness/compiler.py
++++ after/project_harness/compiler.py
+@@ -21,7 +21,7 @@
+ from .render import render_project_documents, render_status
+ from .resources import distribution_root
+ from .safety import copy_tree_filtered
+-from .platform_fs import ensure_native_path, _native_io_path
++from .platform_fs import ensure_native_path, _native_io_path, native_resolve, native_glob, native_iterdir
+ from .serialization import canonical_json_bytes, load_data, write_data, atomic_write_text
+ from .stages import create_initial_stage_artifacts
+ from .util import ENGINE_VERSION, SCHEMA_VERSION, deep_get, id_token, nonempty, slugify, utc_now
+@@ -45,15 +45,15 @@
+ 
+ def _copy_intake_sources(workspace: Path, root: Path, inventory: dict[str, Any]) -> dict[str, Any]:
+     target = root / ".harness/incoming/SOURCES"
+-    target.mkdir(parents=True, exist_ok=True)
+-    source_paths = sorted((workspace / "sources").iterdir()) if (workspace / "sources").exists() else []
++    _native_io_path(target).mkdir(parents=True, exist_ok=True)
++    source_paths = sorted(native_iterdir(workspace / "sources")) if (_native_io_path(workspace / "sources")).exists() else []
+     mapping: dict[str, str] = {}
+     for path in source_paths:
+         destination = target / path.name
+-        if path.is_dir():
++        if _native_io_path(path).is_dir():
+             copy_tree_filtered(path, destination, excluded_dirs={".git", ".harness", "node_modules", ".venv", "__pycache__"})
+         else:
+-            shutil.copy2(path, destination)
++            shutil.copy2(_native_io_path(path), _native_io_path(destination))
+         mapping[path.name] = destination.relative_to(root).as_posix()
+     sanitized = deepcopy(inventory)
+     for source in sanitized["source_inventory"].get("sources") or []:
+@@ -66,7 +66,7 @@
+     distribution = distribution_root()
+     engine_root = root / ".harness/engine"
+     package_source = distribution / "src/project_harness"
+-    if not package_source.is_dir():
++    if not _native_io_path(package_source).is_dir():
+         # Installed wheel: copy the executing package itself into the handoff.
+         package_source = Path(__file__).resolve().parent
+     package_target = engine_root / "project_harness"
+@@ -97,9 +97,9 @@
+ def _seed_skills(root: Path, project_input: dict[str, Any]) -> tuple[list[str], dict[str, Any]]:
+     distribution = distribution_root()
+     active_dir = root / ".harness/skills/ACTIVE"
+-    active_dir.mkdir(parents=True, exist_ok=True)
++    _native_io_path(active_dir).mkdir(parents=True, exist_ok=True)
+     available: list[dict[str, Any]] = []
+-    for path in sorted((distribution / "skills").glob("SKL-*.yaml")):
++    for path in sorted(native_glob(distribution / "skills",'SKL-*.yaml')):
+         target = active_dir / path.name
+         shutil.copy2(path, target)
+         skill = load_data(path)["skill"]
+@@ -327,7 +327,7 @@
+         "status": "COMPLETED",
+     }
+     _write_entity(root, f".harness/intake/QUESTIONNAIRES/{questionnaire_id}@1.yaml", "questionnaire_session", questionnaire)
+-    if (workspace / "REPOSITORY_INVENTORY.yaml").exists():
++    if (_native_io_path(workspace / "REPOSITORY_INVENTORY.yaml")).exists():
+         riv = load_data(workspace / "REPOSITORY_INVENTORY.yaml")
+         riv["repository_inventory"]["repository_path"] = "."
+         write_data(
+@@ -876,7 +876,7 @@
+     ensure_native_path(output.parent)
+     if keep_directory is not None:
+         ensure_native_path(keep_directory, tree=True)
+-    workspace = workspace.expanduser().resolve()
++    workspace = native_resolve(workspace.expanduser())
+     checked = check_intake(workspace)
+     readiness = checked["readiness"]
+     if readiness["status"] == "WAITING_INPUT":
+@@ -904,14 +904,14 @@
+     slug = project.get("slug") or slugify(project["name"])
+     token = id_token(slug)
+     generated_at = deep_get(project_input, "metadata.generated_at") or utc_now()
+-    output = output.expanduser().resolve()
++    output = native_resolve(output.expanduser())
+     if output.suffix.lower() != ".zip":
+         output = output / f"{slug}_Codex_Handoff_v1.zip"
+ 
+     with tempfile.TemporaryDirectory(prefix="project-harness-handoff-") as temp_name:
+         temp_root = Path(temp_name)
+         handoff_root = temp_root / f"{slug}_Codex_Handoff_v1"
+-        handoff_root.mkdir(parents=True)
++        _native_io_path(handoff_root).mkdir(parents=True)
+ 
+         intake_state = load_data(workspace / "STATE.yaml")["state"]
+         if project["mode"] in {"BROWNFIELD", "HYBRID"}:
+@@ -947,10 +947,10 @@
+             ".harness/stages/PLANS", ".harness/stages/GATES", ".harness/stages/ACCEPTANCE", ".harness/stages/ASSESSMENTS", ".harness/stages/STATE_HISTORY", ".harness/stages/TRANSACTIONS",
+         ]
+         for relative in directories:
+-            (handoff_root / relative).mkdir(parents=True, exist_ok=True)
++            (_native_io_path(handoff_root / relative)).mkdir(parents=True, exist_ok=True)
+ 
+         distribution = distribution_root()
+-        for registry_file in sorted((distribution / "registries").glob("*.yaml")):
++        for registry_file in sorted(native_glob(distribution / "registries",'*.yaml')):
+             shutil.copy2(registry_file, handoff_root / ".harness/registries" / registry_file.name)
+         _copy_runtime(handoff_root)
+ 
+@@ -1160,8 +1160,8 @@
+             raise ValidationFailure("Generated handoff failed validation", final_validation)
+ 
+         if keep_directory:
+-            keep_directory = keep_directory.expanduser().resolve()
+-            if keep_directory.exists():
++            keep_directory = native_resolve(keep_directory.expanduser())
++            if _native_io_path(keep_directory).exists():
+                 shutil.rmtree(_native_io_path(keep_directory))
+             shutil.copytree(_native_io_path(handoff_root), _native_io_path(keep_directory))
+         zip_directory(handoff_root, output, timestamp=generated_at)
+--- before/project_harness/evidence.py
++++ after/project_harness/evidence.py
+@@ -6,6 +6,7 @@
+ import re
+ from typing import Any
+ 
++from .platform_fs import _native_io_path, native_resolve, native_iterdir
+ from .errors import ValidationFailure
+ from .hashing import sha256_file
+ from .registry import validate_implementation_levels
+@@ -70,7 +71,7 @@
+ 
+ def _project_registry_path(root: Path, name: str) -> Path:
+     project_copy = root / f".harness/registries/{name}.yaml"
+-    if project_copy.is_file():
++    if _native_io_path(project_copy).is_file():
+         return project_copy
+     return distribution_root() / f"registries/{name}.yaml"
+ 
+@@ -240,7 +241,7 @@
+                 raise ValidationFailure("Evidence source binding path must be canonical project-local POSIX path", path_value)
+             if verify_sources:
+                 full = resolve_inside(root, path_value)
+-                if full.is_symlink() or not full.is_file():
++                if _native_io_path(full).is_symlink() or not _native_io_path(full).is_file():
+                     raise ValidationFailure("Evidence bound source artifact is missing or not a regular file", path_value)
+                 actual = f"sha256:{sha256_file(full)}"
+                 if actual != digest:
+@@ -340,10 +341,10 @@
+ def _duplicate_artifact_paths(root: Path, ref: str, expected_path: Path) -> list[str]:
+     duplicates: list[str] = []
+     evidence_dir = root / ".harness/evidence"
+-    if not evidence_dir.is_dir():
++    if not _native_io_path(evidence_dir).is_dir():
+         return duplicates
+-    for candidate in sorted(evidence_dir.iterdir()):
+-        if candidate == expected_path or candidate.is_symlink() or not candidate.is_file():
++    for candidate in sorted(native_iterdir(evidence_dir)):
++        if candidate == expected_path or _native_io_path(candidate).is_symlink() or not _native_io_path(candidate).is_file():
+             continue
+         try:
+             value = load_data(candidate)
+@@ -361,11 +362,11 @@
+     *,
+     verify_sources: bool = True,
+ ) -> dict[str, Any]:
+-    root = root.expanduser().resolve()
++    root = native_resolve(root.expanduser())
+     ref = parse_evidence_ref(evidence_ref)
+     relative = canonical_evidence_relative_path(root, ref)
+     path = root / relative
+-    if path.is_symlink() or not path.is_file():
++    if _native_io_path(path).is_symlink() or not _native_io_path(path).is_file():
+         raise ValidationFailure("Referenced evidence artifact is absent at the exact canonical path", ref)
+     duplicates = _duplicate_artifact_paths(root, ref, path)
+     if duplicates:
+@@ -400,13 +401,13 @@
+ 
+ 
+ def write_normalized_evidence(root: Path, body: dict[str, Any]) -> dict[str, Any]:
+-    root = root.expanduser().resolve()
++    root = native_resolve(root.expanduser())
+     document = {"verification_evidence": deepcopy(body)}
+     normalized = validate_normalized_evidence_document(root, document, verify_sources=True)
+     relative = canonical_evidence_relative_path(root, normalized["ref"])
+     path = root / relative
+-    if path.exists():
+-        if path.is_symlink() or not path.is_file():
++    if _native_io_path(path).exists():
++        if _native_io_path(path).is_symlink() or not _native_io_path(path).is_file():
+             raise ValidationFailure("Immutable evidence path already exists but is not a regular file", relative)
+         existing = load_data(path)
+         if canonical_json_bytes(existing) != canonical_json_bytes(document):
+@@ -505,15 +506,15 @@
+     if not isinstance(path, str) or path.startswith((".harness/runtime/", ".harness/reports/", ".harness/evidence/")):
+         raise ValidationFailure("Gate proof requires an actual subject-specific source artifact", subject_ref)
+     full = resolve_inside(root, path)
+-    if full.is_symlink() or not full.is_file() or f"sha256:{sha256_file(full)}" != binding.get("sha256"):
++    if _native_io_path(full).is_symlink() or not _native_io_path(full).is_file() or f"sha256:{sha256_file(full)}" != binding.get("sha256"):
+         raise ValidationFailure("Gate proof source has been removed or altered", {"subject": subject_ref, "path": path})
+-    if full.stat().st_size > 2_000_000:
++    if _native_io_path(full).stat().st_size > 2_000_000:
+         raise ValidationFailure("Gate proof source exceeds the supported small-document limit", path)
+     if full.suffix.lower() in {".yaml", ".yml", ".json"}:
+         return path, load_data(full)
+     if full.suffix.lower() not in {".md", ".rst", ".txt", ".py", ".toml"}:
+         raise ValidationFailure("Gate proof document has unsupported type", path)
+-    return path, full.read_text(encoding="utf-8")
++    return path, _native_io_path(full).read_text(encoding="utf-8")
+ 
+ 
+ def validate_semantic_gate_proof(root: Path, body: dict[str, Any], *, subject_ref: str) -> None:
+@@ -626,7 +627,7 @@
+     base_revision: str,
+     overrides: list[dict[str, Any]] | None = None,
+ ) -> list[dict[str, str]]:
+-    root = root.expanduser().resolve()
++    root = native_resolve(root.expanduser())
+     if not isinstance(base_revision, str) or TREE_REVISION_PATTERN.fullmatch(base_revision) is None:
+         raise ValidationFailure("Gate evidence validation requires an exact product-tree baseline", base_revision)
+     requirements = gate_subject_requirements(root, level, overrides)
+--- before/project_harness/intake.py
++++ after/project_harness/intake.py
+@@ -17,7 +17,7 @@
+ from .safety import inspect_zip, repository_source_to_directory
+ from .serialization import load_data, write_data, atomic_write_text
+ from .util import id_token, slugify, utc_now
+-from .platform_fs import ensure_native_path
++from .platform_fs import ensure_native_path, _native_io_path, native_resolve, native_iterdir
+ 
+ 
+ def _deep_merge(base: dict[str, Any], overlay: dict[str, Any]) -> dict[str, Any]:
+@@ -31,19 +31,19 @@
+ 
+ 
+ def _copy_source(path: Path, destination: Path) -> Path:
+-    path = path.expanduser().resolve()
+-    destination.parent.mkdir(parents=True, exist_ok=True)
+-    if path.is_dir():
+-        if destination.exists():
+-            shutil.rmtree(destination)
++    path = native_resolve(path.expanduser())
++    _native_io_path(destination.parent).mkdir(parents=True, exist_ok=True)
++    if _native_io_path(path).is_dir():
++        if _native_io_path(destination).exists():
++            shutil.rmtree(_native_io_path(destination))
+         shutil.copytree(
+-            path,
+-            destination,
++            _native_io_path(path),
++            _native_io_path(destination),
+             symlinks=False,
+             ignore=shutil.ignore_patterns(".git", ".harness", "node_modules", ".venv", "__pycache__"),
+         )
+     else:
+-        shutil.copy2(path, destination)
++        shutil.copy2(_native_io_path(path), _native_io_path(destination))
+     return destination
+ 
+ 
+@@ -108,15 +108,15 @@
+         ensure_native_path(initial_input, file_ok=True)
+     if repository:
+         ensure_native_path(repository, tree=True, file_ok=True)
+-    workspace = workspace.expanduser().resolve()
++    workspace = native_resolve(workspace.expanduser())
+     mode = mode.upper()
+-    source_paths = [Path(item).expanduser().resolve() for item in sources]
+-    initial_input_path = initial_input.expanduser().resolve() if initial_input else None
++    source_paths = [native_resolve(Path(item).expanduser()) for item in sources]
++    initial_input_path = native_resolve(initial_input.expanduser()) if initial_input else None
+     # Intake is an external workspace. Never erase a supplied source or recursively
+     # copy a workspace into itself (including through a parent directory).
+     protected_paths = [*source_paths, *([initial_input_path] if initial_input_path else [])]
+     if repository is not None:
+-        protected_paths.append(repository.expanduser().resolve())
++        protected_paths.append(native_resolve(repository.expanduser()))
+     for protected in protected_paths:
+         if protected == workspace or workspace in protected.parents or protected in workspace.parents:
+             raise SafetyViolation(
+@@ -128,11 +128,11 @@
+     if mode in {"BROWNFIELD", "HYBRID"} and repository is None:
+         raise ValidationFailure("Brownfield/Hybrid intake requires --repository")
+     if repository is not None:
+-        repository = repository.expanduser().resolve()
++        repository = native_resolve(repository.expanduser())
+         # A provisional workspace must not be placed inside a directory repository.
+         # A ZIP repository is an immutable file, so a sibling workspace is safe and
+         # is the normal browser-upload layout.
+-        if repository.is_dir():
++        if _native_io_path(repository).is_dir():
+             try:
+                 workspace.relative_to(repository)
+             except ValueError:
+@@ -145,16 +145,16 @@
+     # Inspect portable ZIP names/CRC before creating or --force deleting the
+     # workspace. Windows reserved names and case aliases must fail pre-write.
+     for candidate in [*source_paths, *([repository] if repository is not None else [])]:
+-        if candidate.is_file() and candidate.suffix.lower() == '.zip':
++        if _native_io_path(candidate).is_file() and candidate.suffix.lower() == '.zip':
+             inspect_zip(candidate)
+-    if workspace.exists() and any(workspace.iterdir()) and not force:
++    if _native_io_path(workspace).exists() and any(native_iterdir(workspace)) and not force:
+         project_input_path = workspace / "PROJECT_INPUT.yaml"
+-        if project_input_path.exists():
++        if _native_io_path(project_input_path).exists():
+             return check_intake(workspace)
+         raise ValidationFailure("Workspace is not empty; use --force to replace it", str(workspace))
+-    if force and workspace.exists():
+-        shutil.rmtree(workspace)
+-    workspace.mkdir(parents=True, exist_ok=True)
++    if force and _native_io_path(workspace).exists():
++        shutil.rmtree(_native_io_path(workspace))
++    _native_io_path(workspace).mkdir(parents=True, exist_ok=True)
+ 
+     token = id_token(slugify(project_name))
+     session_ref = f"SES-{token}-001"
+@@ -164,7 +164,7 @@
+     copied_sources: list[Path] = []
+     source_dir = workspace / "sources"
+     for index, source in enumerate(source_paths, 1):
+-        if not source.exists():
++        if not _native_io_path(source).exists():
+             raise ValidationFailure("Project source does not exist", str(source))
+         copied_sources.append(_copy_source(source, source_dir / f"{index:03d}-{source.name}"))
+     source_inventory = build_source_inventory(copied_sources, session_ref=session_ref)
+@@ -183,7 +183,7 @@
+         [path.name for path in copied_sources],
+     )
+     if initial_input:
+-        loaded = load_data(initial_input.expanduser().resolve())
++        loaded = load_data(native_resolve(initial_input.expanduser()))
+         if not isinstance(loaded, dict):
+             raise ValidationFailure("Initial input must be an object")
+         template = _deep_merge(template, loaded)
+@@ -260,9 +260,9 @@
+ @guarded_mutation
+ def check_intake(workspace: Path) -> dict[str, Any]:
+     ensure_native_path(workspace, tree=True)
+-    workspace = workspace.expanduser().resolve()
++    workspace = native_resolve(workspace.expanduser())
+     input_path = workspace / "PROJECT_INPUT.yaml"
+-    if not input_path.exists():
++    if not _native_io_path(input_path).exists():
+         raise ValidationFailure("Not an intake workspace", str(workspace))
+     value = load_data(input_path)
+     value, migration = migrate_project_input(value)
+--- before/project_harness/inventory.py
++++ after/project_harness/inventory.py
+@@ -7,7 +7,7 @@
+ import zipfile
+ from typing import Any, Iterable
+ 
+-from .platform_fs import _native_io_path
++from .platform_fs import _native_io_path, native_resolve
+ from .errors import ValidationFailure
+ from .hashing import sha256_file, tree_entries, tree_hash
+ from .safety import DEFAULT_EXCLUDED_DIRS, inspect_zip
+@@ -97,7 +97,7 @@
+ 
+ 
+ def inventory_source(path: Path, ordinal: int) -> dict[str, Any]:
+-    path = path.expanduser().resolve()
++    path = native_resolve(path)
+     if not _native_io_path(path).exists():
+         raise ValidationFailure("Source does not exist", str(path))
+     source_id = f"SRC-INPUT-{ordinal:03d}"
+--- before/project_harness/local_web_approvals.py
++++ after/project_harness/local_web_approvals.py
+@@ -17,7 +17,7 @@
+ from .local_web_source_refresh import pending_refresh, _source_digest
+ from .local_web_sources_service import _check_prepared
+ from .operation_guard import project_operation_guard
+-from .platform_fs import ensure_native_path
++from .platform_fs import ensure_native_path, _native_io_path, native_glob
+ from .project_input import approvals_for_mode, validate_project_input, DEFAULT_EXECUTION_POLICY
+ from .serialization import load_data, pretty_json
+ 
+@@ -27,13 +27,13 @@
+ 
+ 
+ def assert_no_pending_approval(root: Path) -> None:
+-    if (root / STORE / 'pending.json').exists():
++    if (_native_io_path(root / STORE / 'pending.json')).exists():
+         raise ExchangeError('APPROVAL_RECOVERY_REQUIRED', 'Прерванное согласование требует явной сверки; изменения заблокированы.')
+ 
+ 
+ def _root(service, pid):
+     root, kind = service._registered(pid)
+-    if kind != 'workspace' or (root / '.harness').exists():
++    if kind != 'workspace' or (_native_io_path(root / '.harness')).exists():
+         raise ExchangeError('PROVISIONAL_ONLY', 'Согласования доступны только для provisional intake, не accepted Project Instance.')
+     if load_data(root / 'PROJECT_INPUT.yaml').get('execution') != DEFAULT_EXECUTION_POLICY:
+         raise ExchangeError('MANUAL_ONLY', 'Согласования Local Web поддерживают только MANUAL_HANDOFF с network NONE.')
+@@ -47,11 +47,11 @@
+     data = {'source_revision': source['revision'], 'source_inventory_digest': digest(source)}
+     data['source_tree_digest'] = _source_digest(root / 'sources')
+     imports = root.parent / 'imports'
+-    if root.name == 'intake' and imports.is_dir():
++    if root.name == 'intake' and _native_io_path(imports).is_dir():
+         data.update(_source_binding(source_state(imports)))
+     repo = root / 'REPOSITORY_INVENTORY.yaml'
+-    data['repository_inventory_digest'] = digest(load_data(repo)) if repo.exists() else None
+-    if repo.exists():
++    data['repository_inventory_digest'] = digest(load_data(repo)) if _native_io_path(repo).exists() else None
++    if _native_io_path(repo).exists():
+         from .inventory import build_repository_inventory
+         inventory = load_data(repo)['repository_inventory']
+         repository = Path(inventory['repository_path'])
+@@ -69,7 +69,7 @@
+ 
+ 
+ def _records(store):
+-    paths = sorted(store.glob('LWA-*.json'))
++    paths = sorted(native_glob(store,'LWA-*.json'))
+     if len(paths) > 256:
+         raise ExchangeError('APPROVAL_STORAGE_LIMIT', 'Достигнут лимит 256 решений; история сохранена.')
+     return sorted((_load(p) for p in paths), key=lambda r: r['sequence'])
+@@ -96,7 +96,7 @@
+         content = {'technology': value['technology'], 'skills': value['skills']}
+     elif name == 'brownfield_baseline':
+         repo = root / 'REPOSITORY_INVENTORY.yaml'
+-        inventory = load_data(repo)['repository_inventory'] if repo.exists() else {}
++        inventory = load_data(repo)['repository_inventory'] if _native_io_path(repo).exists() else {}
+         content = {'brownfield': value['brownfield'], 'evidence_context': {k: v for k, v in inventory.items()
+             if k not in {'repository_path', 'candidate_commands'}},
+             'obligations': 'Baseline inventory прочитан без запуска команд. Claimed level не является accepted level; Stage evidence и acceptance отдельны.'}
+@@ -112,7 +112,7 @@
+ def _review(service, pid, root, store):
+     value, sources, context = _context(root)
+     records = _records(store)
+-    actor = _load(store / 'actor.json')['actor'] if (store / 'actor.json').exists() else None
++    actor = _load(store / 'actor.json')['actor'] if (_native_io_path(store / 'actor.json')).exists() else None
+     order = approvals_for_mode(value['project']['mode'])
+     ready = validate_project_input(value, require_approvals=True)
+     complete = validate_project_input(value, require_approvals=False)['status'] == 'READY_FOR_HANDOFF'
+@@ -136,7 +136,7 @@
+         rows.append({'subject': name, 'label': LABELS[name], 'content': content,
+             'subject_digest': subject_digest, 'approved': approved and receipt is not None,
+             'receipt_id': receipt['receipt_id'] if receipt else None})
+-    pending = (store / 'pending.json').exists()
++    pending = (_native_io_path(store / 'pending.json')).exists()
+     next_subject = next((row['subject'] for row in rows if not row['approved']), None)
+     binding = {**sources, 'input_revision': draft_input_digest(root),
+                'fingerprint': service.core_fingerprint(root, 'workspace')}
+@@ -161,11 +161,11 @@
+ 
+ def _admit(service, pid, root):
+     _check_prepared(service, pid)
+-    if root.name == 'intake' and (root.parent / 'imports').is_dir() and pending_refresh(root):
++    if root.name == 'intake' and (_native_io_path(root.parent / 'imports')).is_dir() and pending_refresh(root):
+         raise ExchangeError('SOURCE_RECOVERY_REQUIRED', 'Сначала восстановите источники.')
+     # Companion state is bounded, preserved on limit and never silently pruned.
+     store = root / STORE
+-    if len(_records(store)) >= 256 or sum(p.stat().st_size for p in store.rglob('*') if p.is_file()) > 16 * 1024 * 1024:
++    if len(_records(store)) >= 256 or sum(_native_io_path(p).stat().st_size for p in native_glob(store,'*',recursive=True) if _native_io_path(p).is_file()) > 16 * 1024 * 1024:
+         raise ExchangeError('APPROVAL_STORAGE_LIMIT', 'Хранилище решений заполнено; история сохранена.')
+ 
+ 
+@@ -177,7 +177,7 @@
+     actor = actor.strip()
+     with project_operation_guard(root):
+         path = store / 'actor.json'
+-        if path.exists():
++        if _native_io_path(path).exists():
+             record = _load(path)
+             if record['actor'] != actor:
+                 raise ExchangeError('ACTOR_CONFLICT', 'Оператор уже задан для этой intake session.')
+@@ -192,7 +192,7 @@
+ 
+ def _finish(root, store, intent):
+     path = store / (intent['receipt_id'] + '.json')
+-    if path.exists():
++    if _native_io_path(path).exists():
+         receipt = _load(path)
+         if receipt['intent_digest'] != intent['intent_digest']:
+             raise ExchangeError('APPROVAL_RECOVERY_AMBIGUOUS', 'Receipt не совпал с intent.')
+@@ -205,7 +205,7 @@
+             'next_action': 'PREPARATION_PENDING_PH_LW_08' if checked['status'] == 'READY_FOR_HANDOFF' else 'CONTINUE_INTAKE'}
+         _save(path, receipt)
+         receipt = _load(path)
+-    (store / 'pending.json').unlink()
++    _native_io_path(store / 'pending.json').unlink()
+     return receipt
+ 
+ 
+@@ -218,7 +218,7 @@
+     receipt_id = 'LWA-' + digest([pid, idempotency_key]).split(':')[1][:32].upper()
+     with project_operation_guard(root):
+         path = store / (receipt_id + '.json')
+-        if path.exists():
++        if _native_io_path(path).exists():
+             prior = _load(path)
+             if prior['request_digest'] != request_digest:
+                 raise ExchangeError('APPROVAL_REPLAY_CONFLICT', 'Ключ уже связан с другим решением.')
+@@ -252,7 +252,7 @@
+             'after_digest': proposal['after_digest'], 'reset_subjects': proposal['reset_subjects']}
+         intent['intent_digest'] = digest(intent)
+         size = len(pretty_json(intent).encode('utf-8'))
+-        stored = sum(p.stat().st_size for p in store.rglob('*') if p.is_file())
++        stored = sum(_native_io_path(p).stat().st_size for p in native_glob(store,'*',recursive=True) if _native_io_path(p).is_file())
+         if size > 2 * 1024 * 1024 or stored + 2 * size + 8192 > 16 * 1024 * 1024:
+             raise ExchangeError('APPROVAL_STORAGE_LIMIT', 'Предмет согласования слишком велик.')
+         _private_directory(store)
+@@ -265,7 +265,7 @@
+     root, store = _root(service, pid)
+     with project_operation_guard(root):
+         marker = store / 'pending.json'
+-        if not marker.exists():
++        if not _native_io_path(marker).exists():
+             return {'status': 'CLEAN'}
+         intent = {k: v for k, v in _load(marker).items() if k != 'record_digest'}
+         if (intent.get('project_id') != pid or intent.get('intent_digest') != digest(
+@@ -274,7 +274,7 @@
+         actual = draft_input_digest(root)
+         if actual == intent['after_digest']:
+             return {'status': 'COMMITTED_RECOVERED', 'receipt': _finish(root, store, intent)}
+-        if actual == intent['binding']['input_revision'] and not (store / (intent['receipt_id'] + '.json')).exists():
+-            marker.unlink()
++        if actual == intent['binding']['input_revision'] and not (_native_io_path(store / (intent['receipt_id'] + '.json'))).exists():
++            _native_io_path(marker).unlink()
+             return {'status': 'NOT_COMMITTED'}
+         raise ExchangeError('APPROVAL_RECOVERY_AMBIGUOUS', 'Draft не совпал ни с before, ни с after. Требуется диагностика.')
+--- before/project_harness/local_web_drafts.py
++++ after/project_harness/local_web_drafts.py
+@@ -14,7 +14,7 @@
+ from .operation_guard import guarded_mutation
+ from .project_input import project_input_schema_issues, validate_project_input
+ from .serialization import load_data, pretty_json, write_data
+-from .platform_fs import ensure_native_path
++from .platform_fs import ensure_native_path, _native_io_path
+ 
+ # Leaf paths only.  These are semantic draft fields, *not* permissions to edit
+ # metadata/identity/source records/approvals/execution or arbitrary YAML keys.
+@@ -39,7 +39,7 @@
+ 
+ def draft_input_digest(workspace: Path) -> str:
+     path = Path(workspace) / 'PROJECT_INPUT.yaml'
+-    if not path.is_file() or path.is_symlink():
++    if not _native_io_path(path).is_file() or _native_io_path(path).is_symlink():
+         raise ValidationFailure('Не найден черновик PROJECT_INPUT.yaml', 'Зарегистрируйте intake workspace')
+     return 'sha256:' + sha256_file(path)
+ 
+--- before/project_harness/local_web_preparation.py
++++ after/project_harness/local_web_preparation.py
+@@ -18,7 +18,7 @@
+ from .materialization import (check_new_destination, directory_identity, inspect_initial_handoff,
+                               publish_project_directory, verify_published_project, handoff_tree_digest)
+ from .operation_guard import project_operation_guard
+-from .platform_fs import ensure_native_path, safe_relative, _native_io_path
++from .platform_fs import ensure_native_path, safe_relative, _native_io_path, native_glob, native_iterdir
+ from .project_input import DEFAULT_EXECUTION_POLICY
+ from .serialization import load_data, write_data
+ from .util import utc_now
+@@ -117,7 +117,7 @@
+     record_path = _record_path(service, pid)
+     # Atomic companion snapshots remain readable while the worker holds the
+     # canonical mutation fence. No inference/validation from partial core files.
+-    if record_path.exists():
++    if _native_io_path(record_path).exists():
+         record = _load(record_path)
+         op = service.get_operation(pid, record['operation_id'])
+         return {'project_id': pid, 'phase': record['phase'], 'operation_id': record['operation_id'],
+@@ -148,23 +148,23 @@
+         binding = _binding(service, pid)
+         if digest(binding) != binding_digest or service.core_fingerprint(root, kind) != expected_fingerprint:
+             raise ValidationFailure('STALE_PREPARATION: перечитайте согласования')
+-        if _record_path(service, pid).exists():
++        if _native_io_path(_record_path(service, pid)).exists():
+             raise ValidationFailure('PREPARATION_ALREADY_STARTED: используйте сохранённый результат или восстановление')
+         parent = service.projects_directory
+         ensure_native_path(parent)
+         destination = check_new_destination(parent / folder_name, excluded=_excluded(service))
+         # Creation is an explicit POST. Merely reading a proposal creates nothing.
+-        parent.mkdir(parents=True, exist_ok=True)
++        _native_io_path(parent).mkdir(parents=True, exist_ok=True)
+         path = _store(service)
+-        path.mkdir(mode=0o700, exist_ok=True)
+-        if len(list(path.glob('LWT-*.json'))) >= 256:
++        _native_io_path(path).mkdir(mode=0o700, exist_ok=True)
++        if len(list(native_glob(path,'LWT-*.json'))) >= 256:
+             raise ValidationFailure('TARGET_STORAGE_LIMIT')
+         target_id = 'LWT-' + digest([pid, str(destination), binding]).split(':')[1][:32].upper()
+         record = {'version': 1, 'target_id': target_id, 'project_id': pid, 'destination': str(destination),
+                   'parent_identity': directory_identity(parent), 'binding': binding,
+                   'expected_fingerprint': expected_fingerprint, 'confirmed_at': utc_now()}
+         existing = path / (target_id + '.json')
+-        if not existing.exists():
++        if not _native_io_path(existing).exists():
+             _save(existing, record)
+         return {'target_id': target_id, 'destination': str(destination), 'binding_digest': digest(binding),
+                 'expected_fingerprint': expected_fingerprint}
+@@ -183,13 +183,13 @@
+         request = OperationRequest(pid, 'publish-project', {'target_id': target_id, 'binding_digest': binding_digest},
+                                    idempotency_key, expected_fingerprint)
+         request_id = service._operation_id(request)
+-        if service._path(request_id).exists():
++        if _native_io_path(service._path(request_id)).exists():
+             previous = service._load_op(request_id)
+             expected = service._hash({'action':request.action,'payload':request.payload,'fingerprint':expected_fingerprint})
+             if previous['request_digest'] != expected:
+                 raise ValidationFailure('OPERATION_CONFLICT: idempotency key относится к другому запросу')
+         path = _record_path(service, pid)
+-        if path.exists():
++        if _native_io_path(path).exists():
+             record = _load(path)
+             if record['target_id'] != target_id or record['binding'] != target['binding']:
+                 raise ValidationFailure('PREPARATION_REPLAY_CONFLICT: другой input или destination')
+@@ -208,7 +208,7 @@
+     if digest(target['binding']) != payload['binding_digest']:
+         raise ValidationFailure('STALE_PREPARATION')
+     path = _record_path(service, pid)
+-    if path.exists():
++    if _native_io_path(path).exists():
+         prior = _load(path)
+         if prior['target_id'] != target['target_id'] or prior['binding'] != target['binding']:
+             raise ValidationFailure('PREPARATION_REPLAY_CONFLICT')
+@@ -239,13 +239,13 @@
+     if record['phase'] == 'INTENT':
+         check_new_destination(destination, excluded=_excluded(service))
+         # Unknown staging is never claimed or deleted after a mkdir interruption.
+-        if stage.exists():
++        if _native_io_path(stage).exists():
+             owner = _load(stage / 'owner.json')
+             if (owner['operation_id'] != record['operation_id'] or owner['project_id'] != pid or
+-                    {p.name for p in stage.iterdir()} != {'owner.json'}):
++                    {p.name for p in native_iterdir(stage)} != {'owner.json'}):
+                 raise ValidationFailure('STAGING_OWNERSHIP')
+         else:
+-            stage.mkdir(mode=0o700, exist_ok=False)
++            _native_io_path(stage).mkdir(mode=0o700, exist_ok=False)
+             _save(stage / 'owner.json', {'operation_id': record['operation_id'], 'project_id': pid})
+         record['phase'] = 'STAGING'
+         _save(path, record)
+@@ -253,7 +253,7 @@
+     if owner['operation_id'] != record['operation_id'] or owner['project_id'] != pid:
+         raise ValidationFailure('STAGING_OWNERSHIP')
+     if record['phase'] == 'STAGING':
+-        if directory.exists() or archive.exists():
++        if _native_io_path(directory).exists() or _native_io_path(archive).exists():
+             raise ValidationFailure('OUTPUT_COLLISION: compiler получает только новые staging paths')
+         _checkpoint('before_compile')
+         _assert_binding(service, pid, record['binding'])
+@@ -262,7 +262,7 @@
+         prepare_handoff(Path(record['binding']['workspace']), archive, keep_directory=directory)
+         _checkpoint('after_compile')
+     if record['phase'] == 'COMPILING':
+-        if not directory.is_dir() or not archive.is_file():
++        if not _native_io_path(directory).is_dir() or not _native_io_path(archive).is_file():
+             raise ValidationFailure('INCOMPLETE_COMPILE: staging сохранён; требуется диагностика, повтор compiler запрещён')
+         _checkpoint('before_validation')
+         record['initial'] = inspect_initial_handoff(directory, archive)
+@@ -271,7 +271,7 @@
+         _save(path, record)
+     if record['phase'] in {'VALIDATED', 'PUBLISHING'}:
+         _assert_binding(service, pid, record['binding'])
+-        if directory.exists() and (handoff_tree_digest(directory) != record['initial']['tree_digest'] or
++        if _native_io_path(directory).exists() and (handoff_tree_digest(directory) != record['initial']['tree_digest'] or
+                 'sha256:' + sha256_file(archive) != record['initial']['zip_sha256'] or
+                 directory_identity(directory) != record['initial']['directory_identity']):
+             raise ValidationFailure('STAGING_CHANGED')
+@@ -284,8 +284,8 @@
+             record['phase'] = 'PUBLISHING'
+             _save(path, record)
+         _checkpoint('before_rename')
+-        if destination.exists():
+-            if directory.exists():
++        if _native_io_path(destination).exists():
++            if _native_io_path(directory).exists():
+                 raise ValidationFailure('DESTINATION_EXISTS: чужая папка сохранена')
+             verify_published_project(destination, record['initial'])
+         else:
+@@ -327,7 +327,7 @@
+         # recovery may compile into a NEW owned staging. The partial directory
+         # is retained, never passed back to destructive keep_directory.
+         stage = Path(record['staging'])
+-        if record['phase'] == 'COMPILING' and (not (stage / 'project').is_dir() or not (stage / 'handoff.zip').is_file()):
++        if record['phase'] == 'COMPILING' and (not (_native_io_path(stage / 'project')).is_dir() or not (_native_io_path(stage / 'handoff.zip')).is_file()):
+             ensure_native_path(stage, tree=True)
+             owner = _load(stage / 'owner.json')
+             if owner['project_id'] != pid or owner['operation_id'] != record['operation_id']:
+--- before/project_harness/local_web_service.py
++++ after/project_harness/local_web_service.py
+@@ -21,7 +21,7 @@
+ from .hashing import sha256_file
+ from .local_web_drafts import draft_input_digest, preview_draft_update, update_provisional_draft
+ from .operation_guard import project_operation_guard
+-from .platform_fs import ensure_native_path
++from .platform_fs import ensure_native_path, _native_io_path, native_resolve, native_glob
+ from .project_input import validate_project_input
+ from .serialization import canonical_json_bytes, load_data, write_data
+ from .util import utc_now
+@@ -147,22 +147,22 @@
+     def __init__(self, app_data: Path, *, projects_directory: Path | None = None):
+         ensure_native_path(Path(app_data), tree=True)
+         base = Path(app_data).expanduser()
+-        if base.is_symlink():
++        if _native_io_path(base).is_symlink():
+             raise ValidationFailure('Каталог Local Web не должен быть ссылкой')
+-        self.app_data = base.resolve()
++        self.app_data = native_resolve(base)
+         # Trusted local configuration only; never accepted from HTTP JSON.
+         projects = projects_directory if projects_directory is not None else Path.home() / 'HarnessProjects'
+         ensure_native_path(Path(projects))
+         self.projects_directory = Path(projects).absolute()
+-        self.app_data.mkdir(parents=True, exist_ok=True, mode=0o700)
+-        if self.app_data.is_symlink() or not self.app_data.is_dir():
++        _native_io_path(self.app_data).mkdir(parents=True, exist_ok=True, mode=0o700)
++        if _native_io_path(self.app_data).is_symlink() or not _native_io_path(self.app_data).is_dir():
+             raise ValidationFailure('Каталог приложения должен быть обычной директорией')
+-        if os.name != 'nt' and self.app_data.stat().st_mode & 0o077:
++        if os.name != 'nt' and _native_io_path(self.app_data).stat().st_mode & 0o077:
+             raise ValidationFailure('Каталог приложения должен быть приватным (0700)')
+         for name in ('operations', 'artifacts'):
+             path = self.app_data / name
+-            path.mkdir(exist_ok=True, mode=0o700)
+-            if path.is_symlink() or not path.is_dir():
++            _native_io_path(path).mkdir(exist_ok=True, mode=0o700)
++            if _native_io_path(path).is_symlink() or not _native_io_path(path).is_dir():
+                 raise ValidationFailure('Небезопасная директория данных Local Web', name)
+         self._worker = ThreadPoolExecutor(max_workers=1, thread_name_prefix='harness-local-web')
+         self._futures: dict[str, Future[None]] = {}
+@@ -178,11 +178,11 @@
+ 
+     def _catalog(self) -> dict[str, Any]:
+         path = self._catalog_path()
+-        if path.is_symlink():
++        if _native_io_path(path).is_symlink():
+             raise ValidationFailure('Каталог Local Web не может быть ссылкой')
+-        if not path.exists():
++        if not _native_io_path(path).exists():
+             return {'version': 1, 'projects': {}}
+-        if not path.is_file():
++        if not _native_io_path(path).is_file():
+             raise ValidationFailure('Каталог Local Web должен быть обычным файлом')
+         catalog = load_data(path)
+         if (not isinstance(catalog, dict) or set(catalog) != {'version', 'projects'}
+@@ -195,18 +195,18 @@
+         if kind not in {'workspace', 'project', 'migration'}:
+             raise ValidationFailure('Неизвестный тип регистрируемого корня', kind)
+         raw = Path(root).expanduser()
+-        if raw.is_symlink():
++        if _native_io_path(raw).is_symlink():
+             raise ValidationFailure('Ссылка не может быть корнем проекта')
+         ensure_native_path(raw, tree=True)
+-        canonical = raw.resolve(strict=True)
+-        if not canonical.is_dir() or any(p.is_symlink() for p in [canonical, *canonical.parents]):
++        canonical = native_resolve(raw, strict=True)
++        if not _native_io_path(canonical).is_dir() or any(_native_io_path(p).is_symlink() for p in [canonical, *canonical.parents]):
+             raise ValidationFailure('Небезопасный project/workspace root')
+         if canonical == self.app_data or canonical in self.app_data.parents or self.app_data in canonical.parents:
+             raise ValidationFailure('Project root и app-data должны быть раздельными')
+         marker = (('PROJECT_INPUT.yaml', 'STATE.yaml') if kind == 'workspace' else
+                   ('.harness/state/CURRENT_STATE.yaml', '.harness/config/PROJECT_LOCK.yaml') if kind == 'migration' else
+                   ('.harness/state/CURRENT_STATE.yaml', '.harness/stages/STAGE_STATE.yaml'))
+-        if any(not (canonical / name).is_file() or (canonical / name).is_symlink() for name in marker):
++        if any(not (_native_io_path(canonical / name)).is_file() or (_native_io_path(canonical / name)).is_symlink() for name in marker):
+             raise ValidationFailure('У корня отсутствуют необходимые canonical файлы', kind)
+         # Ensure root is a real compatible instance, not a renamed arbitrary folder.
+         if kind == 'workspace':
+@@ -252,7 +252,7 @@
+         ensure_native_path(raw, tree=not migration_receipt)
+         from .lifecycle_forms import migration_recovery_context
+         pending_migration = migration_receipt or (item['kind'] in {'project','migration'} and migration_recovery_context(raw))
+-        if raw.is_symlink() or raw.resolve(strict=not bool(pending_migration)) != raw:
++        if _native_io_path(raw).is_symlink() or native_resolve(raw, strict=not bool(pending_migration)) != raw:
+             raise ValidationFailure('Путь проекта изменился или стал ссылкой')
+         return raw, item['kind']
+ 
+@@ -276,9 +276,9 @@
+         digest_set = {}
+         for name in names:
+             path = root / name
+-            if path.is_symlink():
++            if _native_io_path(path).is_symlink():
+                 raise ValidationFailure('Canonical fingerprint path is a link', name)
+-            digest_set[name] = sha256_file(path) if path.is_file() else None
++            digest_set[name] = sha256_file(path) if _native_io_path(path).is_file() else None
+         if kind in {'project', 'migration'}:
+             from .stages import product_baseline_revision
+             digest_set['product_baseline_revision'] = product_baseline_revision(root)
+@@ -310,7 +310,7 @@
+                     'refs': {}, 'available_actions': [{'id': 'LW-C07' if a == 'migrate-project' else 'LW-PREPARE-MIGRATION',
+                         'action': a, 'enabled': True, 'disabled_reason': None}
+                         for a in ('prepare-migration', 'migrate-project')]}
+-        if kind == 'workspace' and root.name == 'intake' and (root.parent / 'imports' / 'pending.json').exists():
++        if kind == 'workspace' and root.name == 'intake' and (_native_io_path(root.parent / 'imports' / 'pending.json')).exists():
+             raise ValidationFailure('SOURCE_RECOVERY_REQUIRED')
+         with project_operation_guard(root):
+             fingerprint = self.core_fingerprint(root, kind)
+@@ -459,13 +459,13 @@
+             raise ValidationFailure('Артефакт не принадлежит завершённой операции prepare')
+         directory = self.app_data / 'artifacts' / artifact_id
+         path = directory / 'handoff.zip'
+-        if (directory.is_symlink() or not directory.is_dir() or path.is_symlink()
+-                or not path.is_file() or path.resolve() != self.app_data / 'artifacts' / artifact_id / 'handoff.zip'):
++        if (_native_io_path(directory).is_symlink() or not _native_io_path(directory).is_dir() or _native_io_path(path).is_symlink()
++                or not _native_io_path(path).is_file() or native_resolve(path) != self.app_data / 'artifacts' / artifact_id / 'handoff.zip'):
+             raise ValidationFailure('Недоступен безопасный архив операции')
+-        stat = path.stat()
++        stat = _native_io_path(path).stat()
+         if stat.st_nlink != 1 or stat.st_size > 128 * 1024 * 1024:
+             raise ValidationFailure('Архив операции не является ограниченным обычным файлом')
+-        with path.open('rb') as source:
++        with _native_io_path(path).open('rb') as source:
+             data = source.read(128 * 1024 * 1024 + 1)
+         if len(data) > 128 * 1024 * 1024:
+             raise ValidationFailure('Архив операции превышает лимит')
+@@ -576,7 +576,7 @@
+ 
+     def _load_op(self, opid: str) -> dict[str, Any]:
+         path = self._path(opid)
+-        if not path.is_file() or path.is_symlink():
++        if not _native_io_path(path).is_file() or _native_io_path(path).is_symlink():
+             raise ValidationFailure('Операция не найдена')
+         value = load_data(path)
+         if (not isinstance(value, dict) or value.get('operation_id') != opid
+@@ -640,7 +640,7 @@
+         # Serialize journaling across multiple service instances; operation root
+         # fence is acquired later by the worker before the real core mutation.
+         with project_operation_guard(self.app_data):
+-            if path.exists():
++            if _native_io_path(path).exists():
+                 prior = self._load_op(opid)
+                 if prior['project_id'] != request.project_id or prior['request_digest'] != digest:
+                     raise ValidationFailure('OPERATION_CONFLICT: ключ уже связан с другим запросом')
+@@ -652,7 +652,7 @@
+                     raise ValidationFailure('ACTION_DISABLED: действие недоступно в текущем статусе')
+                 if request.expected_fingerprint != current['fingerprint']:
+                     raise ValidationFailure('STALE_FINGERPRINT: состояние изменилось, обновите статус')
+-            if len(list((self.app_data / 'operations').glob('*.json'))) >= 10_000:
++            if len(list(native_glob(self.app_data / 'operations','*.json'))) >= 10_000:
+                 raise ValidationFailure('Журнал операций достиг установленного лимита')
+             rec = {'operation_id': opid, 'project_id': request.project_id, 'action': request.action,
+                    'request_digest': digest, 'expected_fingerprint': request.expected_fingerprint,
+@@ -689,7 +689,7 @@
+                     assert_no_pending_exchange(root)
+                     if request.action != 'publish-project':
+                         from .local_web_preparation import _record_path
+-                        if _record_path(self, request.project_id).exists():
++                        if _native_io_path(_record_path(self, request.project_id)).exists():
+                             raise ValidationFailure('PREPARATION_ALREADY_STARTED: intake зафиксирован для публикации')
+                 op = self._load_op(opid)
+                 if op['state'] == 'CANCELLED':
+@@ -729,13 +729,13 @@
+                 elif request.action == 'prepare':
+                     from .compiler import prepare_handoff
+                     artifact_dir = self.app_data / 'artifacts' / opid
+-                    if artifact_dir.exists():
++                    if _native_io_path(artifact_dir).exists():
+                         raise ValidationFailure('OUTPUT_COLLISION: artifact directory already exists; explicit reconciliation required')
+-                    artifact_dir.mkdir(mode=0o700)
++                    _native_io_path(artifact_dir).mkdir(mode=0o700)
+                     output = artifact_dir / 'handoff.zip'
+                     directory = artifact_dir / 'handoff'
+                     outcome = prepare_handoff(root, output, keep_directory=directory)
+-                    if not output.is_file() or not directory.is_dir():
++                    if not _native_io_path(output).is_file() or not _native_io_path(directory).is_dir():
+                         raise ValidationFailure('Core prepare returned without required outputs')
+                     outcome = {'status': outcome.get('status', 'READY_FOR_CODEX'),
+                                'artifact_ref': opid, 'zip_sha256': 'sha256:' + sha256_file(output)}
+@@ -867,7 +867,7 @@
+                     project_status(root)
+                 elif op['action'] == 'prepare':
+                     archive = self.app_data / 'artifacts' / operation_id / 'handoff.zip'
+-                    if archive.is_file() and not archive.is_symlink():
++                    if _native_io_path(archive).is_file() and not _native_io_path(archive).is_symlink():
+                         from .validation import validate_handoff
+                         verified = validate_handoff(archive)
+                         if verified.get('status') == 'PASS':
+--- before/project_harness/local_web_source_refresh.py
++++ after/project_harness/local_web_source_refresh.py
+@@ -16,7 +16,7 @@
+ from uuid import uuid4
+ from typing import Any
+ 
+-from .platform_fs import _native_io_path, native_walk
++from .platform_fs import _native_io_path, native_walk, native_resolve
+ from .errors import SafetyViolation, ValidationFailure
+ from .hashing import sha256_file
+ from .inventory import build_source_inventory
+@@ -71,7 +71,7 @@
+     if _native_io_path(workspace).is_symlink() or workspace.name != 'intake':
+         raise ValidationFailure('SOURCE_REFRESH_REQUIRES_MANAGED_INTAKE')
+     directory = workspace.parent / 'imports'
+-    if _native_io_path(directory).is_symlink() or not _native_io_path(directory).is_dir() or directory.resolve() == workspace.resolve():
++    if _native_io_path(directory).is_symlink() or not _native_io_path(directory).is_dir() or native_resolve(directory) == native_resolve(workspace):
+         raise ValidationFailure('SOURCE_IMPORTS_NOT_MANAGED')
+     if os.name != 'nt' and _native_io_path(directory).stat().st_mode & 0o077:
+         raise SafetyViolation('SOURCE_IMPORTS_NOT_PRIVATE')
+@@ -106,7 +106,7 @@
+     canonical bytes and old sources are restored from immutable transaction
+     backups.  A damaged recovery journal fails closed (no guessed success).
+     """
+-    workspace = Path(workspace).resolve(strict=True)
++    workspace = native_resolve(workspace,strict=True)
+     imports_root = _imports(workspace)
+     marker = imports_root / 'pending.json'
+     if not _native_io_path(marker).exists():
+@@ -217,7 +217,7 @@
+     It never updates PROJECT_INPUT_ACCEPTED or a Project Instance.  The caller
+     must also reject service-owned prepare artifacts before invoking it.
+     """
+-    workspace = Path(workspace).expanduser().resolve(strict=True)
++    workspace = native_resolve(workspace,strict=True)
+     imports_root = _imports(workspace)
+     if pending_refresh(workspace):
+         recovery = recover_source_refresh(workspace)
+--- before/project_harness/local_web_sources_service.py
++++ after/project_harness/local_web_sources_service.py
+@@ -19,7 +19,7 @@
+                                 _snapshot, _active_state)
+ from .local_web_source_refresh import pending_refresh, recover_source_refresh
+ from .operation_guard import project_operation_guard
+-from .platform_fs import ensure_native_path, _native_io_path
++from .platform_fs import ensure_native_path, _native_io_path, native_glob
+ from .serialization import load_data, write_data, canonical_json_bytes
+ from .util import utc_now
+ 
+@@ -32,12 +32,12 @@
+         raise ValidationFailure('SOURCE_IMPORT_AFTER_PREPARATION_UNSUPPORTED')
+     managed_root = service.app_data.parent / (service.app_data.name + '-workspaces')
+     if (root.name != 'intake' or root.parent.parent != managed_root or
+-            not root.parent.name.startswith('session-') or root.is_symlink() or
+-            root.parent.is_symlink()):
++            not root.parent.name.startswith('session-') or _native_io_path(root).is_symlink() or
++            _native_io_path(root.parent).is_symlink()):
+         raise ValidationFailure('SOURCE_IMPORT_REQUIRES_LOCAL_WEB_WORKSPACE')
+     imports = root.parent / 'imports'
+     ensure_native_path(imports)
+-    if imports.is_symlink() or not imports.is_dir():
++    if _native_io_path(imports).is_symlink() or not _native_io_path(imports).is_dir():
+         raise ValidationFailure('SOURCE_IMPORTS_UNAVAILABLE')
+     return imports
+ 
+@@ -47,11 +47,11 @@
+     root, _ = service._registered(pid)
+     assert_no_pending_exchange(root)
+     from .local_web_preparation import _record_path
+-    if _record_path(service, pid).exists():
++    if _native_io_path(_record_path(service, pid)).exists():
+         raise ValidationFailure('SOURCE_REFRESH_AFTER_PREPARE_UNSUPPORTED')
+     # A successful prepare is immutable.  Source mutation cannot silently
+     # invalidate the previously accepted handoff or the Project Instance.
+-    for file in (service.app_data / 'operations').glob('LWO-*.json'):
++    for file in native_glob(service.app_data / 'operations','LWO-*.json'):
+         rec = service._load_op(file.stem)
+         if rec['project_id'] == pid and rec['action'] == 'prepare' and rec['state'] in ('RUNNING', 'SUCCEEDED', 'BLOCKED'):
+             raise ValidationFailure('SOURCE_REFRESH_AFTER_PREPARE_UNSUPPORTED')
+@@ -72,7 +72,7 @@
+     receipt_dir = _private_directory(service.app_data / 'intake_requests')
+     receipt = receipt_dir / (key + '.json')
+     with project_operation_guard(service.app_data):
+-        if receipt.is_file() and not receipt.is_symlink():
++        if _native_io_path(receipt).is_file() and not _native_io_path(receipt).is_symlink():
+             record = load_data(receipt)
+             if record.get('request_sha') != request_sha:
+                 raise ValidationFailure('OPERATION_CONFLICT: intake key reused for different data')
+@@ -80,13 +80,13 @@
+             _managed(service, root, kind)
+             return {'project_id': record['project_id'], 'source_revision':
+                     source_state(root.parent / 'imports')['revision'], 'replayed': True}
+-        if session.exists():
++        if _native_io_path(session).exists():
+             # Crash-safe resumption only if a completed matching catalog record
+             # exists; never force-delete a potentially live provisional input.
+             catalog = service._catalog()['projects']
+             for project_id, item in catalog.items():
+                 if item.get('root') == str(session / 'intake') and item.get('kind') == 'workspace':
+-                    if (session / 'creation_request.json').is_file() and not (session / 'creation_request.json').is_symlink():
++                    if (_native_io_path(session / 'creation_request.json')).is_file() and not (_native_io_path(session / 'creation_request.json')).is_symlink():
+                         if load_data(session / 'creation_request.json').get('request_sha') == request_sha:
+                             write_data(receipt, {'request_sha': request_sha, 'project_id': project_id})
+                             return {'project_id': project_id, 'source_revision':
+@@ -104,13 +104,17 @@
+             write_data(session / 'creation_request.json', {'request_sha': request_sha})
+             project_id = service.register_existing(root, kind='workspace')
+             write_data(receipt, {'request_sha': request_sha, 'project_id': project_id})
+-        except BaseException:
++        except BaseException as error:
+             # This deterministic workspace is not registered until successful
+             # start_intake. Keep it for operator diagnosis if registration itself
+             # committed before a fault; never erase an unknown committed project.
+-            if not any(item.get('root') == str(session / 'intake')
+-                       for item in service._catalog()['projects'].values()):
+-                shutil.rmtree(session)
++            try:
++                if not any(item.get('root') == str(session / 'intake')
++                           for item in service._catalog()['projects'].values()):
++                    ensure_native_path(session,tree=True)
++                    shutil.rmtree(_native_io_path(session))
++            except Exception as cleanup_error:
++                error.add_note('Intake cleanup requires operator review: '+str(cleanup_error))
+             raise
+     return {'project_id': project_id, 'source_revision': 1 if no_documentation else 0,
+             'replayed': False, 'status': 'DOCUMENTATION_NONE_CONFIRMED' if no_documentation else 'AWAITING_DOCUMENTS'}
+--- before/project_harness/local_web_tasks.py
++++ after/project_harness/local_web_tasks.py
+@@ -5,7 +5,7 @@
+ from pathlib import Path
+ from .errors import ValidationFailure
+ from .operation_guard import project_operation_guard
+-from .platform_fs import ensure_native_path
++from .platform_fs import ensure_native_path, _native_io_path, native_glob
+ from .serialization import load_data, write_data
+ from . import manual_tasks as core
+ 
+@@ -30,18 +30,18 @@
+         if service.core_fingerprint(root,'project') != expected_fingerprint: raise ValidationFailure('STALE_FINGERPRINT')
+         core.validate_manual_result(root,raw,binding_digest=binding_digest)
+         upload_id='LWR-'+hashlib.sha256((project_id+binding_digest).encode()+raw).hexdigest().upper()
+-        directory=service.app_data/'task-results'; directory.mkdir(exist_ok=True,mode=0o700)
++        directory=service.app_data/'task-results'; _native_io_path(directory).mkdir(exist_ok=True,mode=0o700)
+         ensure_native_path(directory,tree=True)
+-        if len(list(directory.glob('*.json'))) >= 1000 and not (directory/(upload_id+'.json')).exists():
++        if len(list(native_glob(directory,'*.json'))) >= 1000 and not (_native_io_path(directory/(upload_id+'.json'))).exists():
+             raise ValidationFailure('RESULT_STAGING_LIMIT')
+         record={'project_id':project_id,'binding_digest':binding_digest,'raw_sha256':hashlib.sha256(raw).hexdigest()}
+         path=directory/(upload_id+'.bin'); meta=directory/(upload_id+'.json')
+-        if meta.exists():
+-            if load_data(meta)!=record or path.read_bytes()!=raw: raise ValidationFailure('RESULT_CHANGED')
++        if _native_io_path(meta).exists():
++            if load_data(meta)!=record or _native_io_path(path).read_bytes()!=raw: raise ValidationFailure('RESULT_CHANGED')
+         else:
+-            if path.exists() and path.read_bytes()!=raw: raise ValidationFailure('RESULT_CHANGED')
+-            if not path.exists():
+-                with path.open('xb') as stream: stream.write(raw)
++            if _native_io_path(path).exists() and _native_io_path(path).read_bytes()!=raw: raise ValidationFailure('RESULT_CHANGED')
++            if not _native_io_path(path).exists():
++                with _native_io_path(path).open('xb') as stream: stream.write(raw)
+             write_data(meta,record)
+         return {'status':'STAGED_UNVERIFIED','upload_id':upload_id,'binding_digest':binding_digest}
+ 
+@@ -55,8 +55,8 @@
+             if not isinstance(uid,str) or not re.fullmatch('LWR-[A-F0-9]{64}',uid): raise ValidationFailure('RESULT_UPLOAD_UNKNOWN')
+             directory=service.app_data/'task-results'; ensure_native_path(directory,tree=True)
+             meta=load_data(directory/(uid+'.json')); path=directory/(uid+'.bin')
+-            if path.stat().st_nlink!=1 or path.stat().st_size>1024*1024: raise ValidationFailure('RESULT_INVALID')
+-            raw=path.read_bytes()
++            if _native_io_path(path).stat().st_nlink!=1 or _native_io_path(path).stat().st_size>1024*1024: raise ValidationFailure('RESULT_INVALID')
++            raw=_native_io_path(path).read_bytes()
+             if meta!={'project_id':project_id,'binding_digest':payload['binding_digest'],'raw_sha256':hashlib.sha256(raw).hexdigest()}:
+                 raise ValidationFailure('RESULT_UPLOAD_MISMATCH')
+         return core.ingest_manual_result(root,binding_digest=payload['binding_digest'],raw=raw)
+--- before/project_harness/maintenance.py
++++ after/project_harness/maintenance.py
+@@ -8,6 +8,7 @@
+ from typing import Any
+ 
+ from .operation_guard import guarded_mutation
++from .platform_fs import _native_io_path, native_resolve, native_glob
+ from .errors import ValidationFailure
+ from .hashing import sha256_bytes
+ from .project_input import _validate_schema_node
+@@ -41,7 +42,7 @@
+ def _schema(name: str, expected_id: str) -> dict[str, Any]:
+     path = distribution_root() / "schemas" / name
+     try:
+-        value = json.loads(path.read_text(encoding="utf-8"))
++        value = json.loads(_native_io_path(path).read_text(encoding="utf-8"))
+     except Exception as exc:
+         raise ValidationFailure("Cannot load maintenance governance schema", {"path": str(path), "error": str(exc)}) from exc
+     if value.get("$id") != expected_id:
+@@ -73,7 +74,7 @@
+ 
+ def _current_document(root: Path) -> dict[str, Any]:
+     path = root / MAINTENANCE_CURRENT_PATH
+-    if not path.exists():
++    if not _native_io_path(path).exists():
+         return {"maintenance_current": None}
+     value = load_data(path)
+     if not isinstance(value, dict) or "maintenance_current" not in value:
+@@ -85,7 +86,7 @@
+ 
+ 
+ def active_maintenance(root: Path) -> dict[str, Any] | None:
+-    root = root.expanduser().resolve()
++    root = native_resolve(root.expanduser())
+     body = _current_document(root).get("maintenance_current")
+     if not isinstance(body, dict):
+         return None
+@@ -120,12 +121,12 @@
+ 
+ 
+ def _load_plan(path: Path) -> tuple[dict[str, Any], dict[str, Any]]:
+-    value = load_data(path.expanduser().resolve())
++    value = load_data(native_resolve(path.expanduser()))
+     return validate_maintenance_plan_document(value), value
+ 
+ 
+ def _load_cancel(path: Path) -> tuple[dict[str, Any], dict[str, Any]]:
+-    value = load_data(path.expanduser().resolve())
++    value = load_data(native_resolve(path.expanduser()))
+     return validate_maintenance_cancel_document(value), value
+ 
+ 
+@@ -276,7 +277,7 @@
+ 
+ def _open_maintenance_wps(root: Path) -> list[str]:
+     index_path = root / ".harness/work-packages/INDEX.yaml"
+-    if not index_path.exists():
++    if not _native_io_path(index_path).exists():
+         return []
+     index = load_data(index_path).get("work_package_index") or {}
+     result: list[str] = []
+@@ -322,7 +323,7 @@
+ 
+ def _index_document(root: Path, rel: str, envelope: str, default: dict[str, Any]) -> dict[str, Any]:
+     path = root / rel
+-    if not path.exists():
++    if not _native_io_path(path).exists():
+         return {envelope: deepcopy(default)}
+     value = load_data(path)
+     if not isinstance(value, dict) or not isinstance(value.get(envelope), dict):
+@@ -364,7 +365,7 @@
+     writes: dict[Path, Any] = {}
+     plan_rel = Path(f".harness/maintenance/PLANS/{plan_ref}.yaml")
+     decision_rel = Path(f".harness/canonical/DECISIONS/{decision['id']}@1.yaml")
+-    if (root / plan_rel).exists() or (root / decision_rel).exists():
++    if (_native_io_path(root / plan_rel)).exists() or (_native_io_path(root / decision_rel)).exists():
+         raise ValidationFailure("Maintenance plan or Decision immutable path already exists", {"plan": plan_rel.as_posix(), "decision": decision_rel.as_posix()})
+     writes[plan_rel] = {"maintenance_plan": deepcopy(plan)}
+     writes[decision_rel] = {
+@@ -646,7 +647,7 @@
+ @guarded_mutation
+ def start_maintenance(root: Path, plan_path: Path) -> dict[str, Any]:
+     """Start an exact-bound, governed same-level maintenance Work Package."""
+-    root = root.expanduser().resolve()
++    root = native_resolve(root.expanduser())
+     recover_stage_transactions(root)
+     plan, source_document = _load_plan(plan_path)
+     context = _project_context(root)
+@@ -731,7 +732,7 @@
+     reports: list[dict[str, Any]] = []
+     for ref in state.get("task_report_refs") or []:
+         path = root / f".harness/reports/{ref}.yaml"
+-        if not path.exists():
++        if not _native_io_path(path).exists():
+             continue
+         report = load_data(path).get("task_report") or {}
+         task_id = str(report.get("task_ref") or "").split("@", 1)[0]
+@@ -776,7 +777,7 @@
+     if not isinstance(active, dict):
+         return {}, None
+     result_rel = str(active.get("allowed_agent_output_path") or "")
+-    if result_rel and (root / result_rel).exists():
++    if result_rel and (_native_io_path(root / result_rel)).exists():
+         raise ValidationFailure(
+             "Maintenance cancel is not permitted after an Agent Task Result was submitted; finish verification/completion or use an existing governed compensation route",
+             {"run_ref": active.get("run_ref"), "result_path": result_rel},
+@@ -797,7 +798,7 @@
+         )
+     run_ref = str(active["run_ref"])
+     run_path = Path(f".harness/runtime/RUNS/{run_ref}.yaml")
+-    if (root / run_path).exists():
++    if (_native_io_path(root / run_path)).exists():
+         raise ValidationFailure("Active maintenance Run immutable record already exists", run_ref)
+     run = {
+         "id": run_ref,
+@@ -827,8 +828,8 @@
+     task_ids = {str(ref).split("@", 1)[0] for ref in maintenance.get("task_refs") or []}
+     blocked_runs: list[dict[str, Any]] = []
+     run_dir = root / ".harness/runtime/RUNS"
+-    if run_dir.exists():
+-        for path in sorted(run_dir.glob("RUN-*.yaml")):
++    if _native_io_path(run_dir).exists():
++        for path in sorted(native_glob(run_dir,'RUN-*.yaml')):
+             run = load_data(path).get("run") or {}
+             task_id = str(run.get("task_ref") or "").split("@", 1)[0]
+             if task_id in task_ids and run.get("status") == "BLOCKED":
+@@ -861,7 +862,7 @@
+ @guarded_mutation
+ def cancel_maintenance(root: Path, approval_path: Path) -> dict[str, Any]:
+     """Cancel an open maintenance route only before product-changing completion."""
+-    root = root.expanduser().resolve()
++    root = native_resolve(root.expanduser())
+     recover_stage_transactions(root)
+     approval, source_document = _load_cancel(approval_path)
+     transaction_id = _transaction_id(approval["id"])
+@@ -926,7 +927,7 @@
+     writes[Path(".harness/work-packages/INDEX.yaml")] = wp_index_doc
+ 
+     decision_rel = Path(f".harness/canonical/DECISIONS/{approval['id']}@1.yaml")
+-    if (root / decision_rel).exists():
++    if (_native_io_path(root / decision_rel)).exists():
+         raise ValidationFailure("Maintenance cancel Decision already exists", approval["id"])
+     writes[decision_rel] = {
+         "decision": {
+@@ -1008,7 +1009,7 @@
+ 
+ def finalize_maintenance(root: Path, *, state_doc: dict[str, Any] | None = None) -> dict[str, Any]:
+     """Atomically close the open maintenance WP after all mandatory Tasks are DONE."""
+-    root = root.expanduser().resolve()
++    root = native_resolve(root.expanduser())
+     recover_stage_transactions(root)
+     maintenance = active_maintenance(root)
+     if maintenance is None:
+@@ -1127,12 +1128,12 @@
+ 
+ def validate_maintenance_artifacts(root: Path) -> dict[str, Any]:
+     """Validate stored plans and the single open maintenance route, if present."""
+-    root = root.expanduser().resolve()
++    root = native_resolve(root.expanduser())
+     errors: list[str] = []
+     plan_dir = root / ".harness/maintenance/PLANS"
+     plans: dict[str, dict[str, Any]] = {}
+-    if plan_dir.exists():
+-        for path in sorted(plan_dir.glob("*.yaml")):
++    if _native_io_path(plan_dir).exists():
++        for path in sorted(native_glob(plan_dir,'*.yaml')):
+             try:
+                 plan = validate_maintenance_plan_document(load_data(path))
+                 ref = _canonical_ref(plan)
+--- before/project_harness/manual_tasks.py
++++ after/project_harness/manual_tasks.py
+@@ -13,7 +13,7 @@
+ 
+ from .errors import ValidationFailure, SafetyViolation
+ from .operation_guard import guarded_mutation, project_operation_guard
+-from .platform_fs import ensure_native_path, safe_relative
++from .platform_fs import ensure_native_path, safe_relative, _native_io_path, native_resolve
+ from .serialization import canonical_json_bytes, load_data, write_data
+ from .hashing import sha256_file
+ from .util import resolve_inside, utc_now
+@@ -30,7 +30,7 @@
+     safe_relative(relative, field='canonical artifact')
+     path = resolve_inside(root, relative)
+     ensure_native_path(path.parent)
+-    if not path.is_file() or path.is_symlink() or path.stat().st_nlink != 1 or path.stat().st_size > 8*1024*1024:
++    if not _native_io_path(path).is_file() or _native_io_path(path).is_symlink() or _native_io_path(path).stat().st_nlink != 1 or _native_io_path(path).stat().st_size > 8*1024*1024:
+         raise ValidationFailure('TASK_ARTIFACT_INVALID')
+     return load_data(path)
+ 
+@@ -83,7 +83,7 @@
+ 
+ def _receipt(root: Path, active: dict) -> dict | None:
+     relative = _receipt_path(active)
+-    if not (root/relative).exists(): return None
++    if not (_native_io_path(root/relative)).exists(): return None
+     value = _read(root, relative)
+     if value.get('schema') != 'LOCAL_MANUAL_RESULT_RECEIPT_V1' or value.get('binding') != _binding(root, active):
+         raise ValidationFailure('STALE_RESULT_BASELINE: результат привязан к другой версии продукта')
+@@ -132,14 +132,14 @@
+     Interrupted publication is fail-closed: no overwrite, no inferred PASS and
+     no automatic replay of external commands. The operator inspects core state.
+     """
+-    root = root.resolve(); active = _active(root); binding = _binding(root, active)
++    root = native_resolve(root); active = _active(root); binding = _binding(root, active)
+     if digest(binding) != binding_digest: raise ValidationFailure('STALE_RESULT_BASELINE')
+     output = root / active['allowed_agent_output_path']
+     existing = _receipt(root, active)
+     if raw is None:
+         # The path is kernel-selected, never supplied by the browser.
+         _, expected_hash, metadata = secure_read_agent_result(root, active['allowed_agent_output_path'])
+-        with output.open('rb') as stream: raw = stream.read(AGENT_RESULT_MAX_BYTES+1)
++        with _native_io_path(output).open('rb') as stream: raw = stream.read(AGENT_RESULT_MAX_BYTES+1)
+         if 'sha256:'+hashlib.sha256(raw).hexdigest()!=expected_hash: raise ValidationFailure('RESULT_CHANGED')
+         assert_agent_result_unchanged(root,metadata)
+     value = parse_result(raw, active)
+@@ -147,11 +147,11 @@
+     if existing:
+         if existing['result_sha256'] != result_hash: raise ValidationFailure('RESULT_CHANGED')
+         return {'status':'RESULT_RECEIVED', 'run_ref':active['run_ref'], 'result_sha256':result_hash}
+-    if output.exists():
++    if _native_io_path(output).exists():
+         _, current_hash, _ = secure_read_agent_result(root, active['allowed_agent_output_path'])
+         if current_hash != result_hash: raise ValidationFailure('RESULT_CHANGED: canonical channel already occupied')
+     else:
+-        with output.open('xb') as stream:
++        with _native_io_path(output).open('xb') as stream:
+             stream.write(raw); stream.flush(); os.fsync(stream.fileno())
+     _, published_hash, metadata = secure_read_agent_result(root,active['allowed_agent_output_path'])
+     if published_hash != result_hash or binding != _binding(root,active):
+@@ -175,11 +175,11 @@
+         resolved_cwd = resolve_inside(root, cwd)
+         # Mirror subprocess executable resolution; never install missing tools.
+         executable = Path(argv[0])
+-        if executable.is_absolute(): available = executable.is_file()
+-        elif len(executable.parts) > 1: available = (resolved_cwd/executable).is_file()
++        if executable.is_absolute(): available = _native_io_path(executable).is_file()
++        elif len(executable.parts) > 1: available = (_native_io_path(resolved_cwd/executable)).is_file()
+         else: available = shutil.which(argv[0]) is not None
+         commands.append({'argv':argv, 'cwd':str(resolved_cwd), 'timeout_seconds':timeout,
+-            'prerequisite':None if available and resolved_cwd.is_dir() else 'PRODUCT_TOOLCHAIN_OR_CWD_MISSING'})
++            'prerequisite':None if available and _native_io_path(resolved_cwd).is_dir() else 'PRODUCT_TOOLCHAIN_OR_CWD_MISSING'})
+     plan = {'run_ref':active['run_ref'], 'task_ref':active['task_ref'], 'commands':commands,
+         'manual_checks':verification.get('manual_checks') or [], 'expected_paths':verification.get('expected_paths') or []}
+     return {**plan, 'digest':digest(plan)}
+@@ -281,11 +281,11 @@
+             result['binding_digest']=digest(_binding(root,active))
+             bundle = _read(root,active['prompt_bundle_path'])['compiled_prompt_bundle']
+             prompt_path = resolve_inside(root,active['prompt_markdown_path'])
+-            if prompt_path.stat().st_size > 256*1024 or 'sha256:'+sha256_file(prompt_path) != bundle['prompt_text_sha256']:
++            if _native_io_path(prompt_path).stat().st_size > 256*1024 or 'sha256:'+sha256_file(prompt_path) != bundle['prompt_text_sha256']:
+                 raise ValidationFailure('JIT_DIGEST_MISMATCH')
+             if bundle['task_ref'] != active['task_ref'] or bundle['run_ref'] != active['run_ref']:
+                 raise ValidationFailure('JIT_REF_MISMATCH')
+-            result['prompt_text']=prompt_path.read_text('utf-8'); result['context']=_read(root,active['context_packet_path'])
++            result['prompt_text']=_native_io_path(prompt_path).read_text('utf-8'); result['context']=_read(root,active['context_packet_path'])
+             result['verification_plan']=_plan(root,active)
+             if not automatic and result['verification_plan']['manual_checks']:
+                 from .task_manual_evidence import manual_evidence_context
+@@ -293,7 +293,7 @@
+             try:
+                 receipt = _receipt(root,active)
+                 if receipt: result['result']={'status':'RESULT_RECEIVED', **receipt}
+-                elif (root/active['allowed_agent_output_path']).exists(): result['result']={'status':'CANONICAL_CHANNEL_PENDING_INTAKE'}
++                elif (_native_io_path(root/active['allowed_agent_output_path'])).exists(): result['result']={'status':'CANONICAL_CHANNEL_PENDING_INTAKE'}
+             except ValidationFailure as exc: result['result']={'status':'STALE_OR_CHANGED','error':exc.message}
+             if active.get('verification_report_path'):
+                 result['verification_report']=_read(root,active['verification_report_path'])['validation_report']
+--- before/project_harness/materialization.py
++++ after/project_harness/materialization.py
+@@ -14,14 +14,14 @@
+ from .errors import ValidationFailure
+ from .hashing import sha256_file
+ from .operation_guard import project_operation_guard
+-from .platform_fs import ensure_native_path, ensure_writable_target, safe_relative, _native_io_path, native_glob
++from .platform_fs import ensure_native_path, ensure_writable_target, safe_relative, _native_io_path, native_glob, native_resolve
+ from .serialization import load_data
+ from .validation import validate_handoff, validate_project_directory
+ 
+ 
+ def directory_identity(path: Path) -> list[int]:
+     ensure_native_path(path, tree=True)
+-    info = path.stat()
++    info = _native_io_path(path).stat()
+     return [info.st_dev, info.st_ino]
+ 
+ 
+@@ -38,18 +38,18 @@
+     if not path.is_absolute() or '..' in path.parts:
+         raise ValidationFailure('DESTINATION_INVALID: требуется новая абсолютная локальная папка')
+     ensure_native_path(path)
+-    if path.is_symlink() or path.exists():
++    if _native_io_path(path).is_symlink() or _native_io_path(path).exists():
+         raise ValidationFailure('DESTINATION_EXISTS: выберите новое имя; существующая папка сохранена')
+-    canonical = path.resolve()
++    canonical = native_resolve(path)
+     for other in excluded:
+-        other = other.resolve()
++        other = native_resolve(other)
+         if canonical == other or canonical in other.parents or other in canonical.parents:
+             raise ValidationFailure('DESTINATION_COLLISION: папка пересекается с рабочими данными')
+     parent = path.parent
+-    while not parent.exists():
++    while not _native_io_path(parent).exists():
+         parent = parent.parent
+     ensure_writable_target(parent)
+-    if not parent.is_dir():
++    if not _native_io_path(parent).is_dir():
+         raise ValidationFailure('DESTINATION_PARENT_INVALID')
+     return canonical
+ 
+@@ -69,7 +69,7 @@
+         raise ValidationFailure('FIRST_JIT_MISMATCH')
+     # Two independently valid outputs are insufficient: ZIP must contain the
+     # exact same compiler tree that is about to be published.
+-    with zipfile.ZipFile(archive) as zf:
++    with zipfile.ZipFile(_native_io_path(archive)) as zf:
+         zipped = {name.split('/', 1)[1]: hashlib.sha256(zf.read(name)).hexdigest()
+                   for name in zf.namelist() if not name.endswith('/')}
+     actual = {p.relative_to(directory).as_posix(): sha256_file(p) for p in native_glob(directory, '*', recursive=True) if _native_io_path(p).is_file()}
+@@ -96,13 +96,13 @@
+         check_new_destination(destination)
+         if directory_identity(staged) != identity:
+             raise ValidationFailure('STAGING_IDENTITY_CHANGED')
+-        if staged.stat().st_dev != destination.parent.stat().st_dev:
++        if _native_io_path(staged).stat().st_dev != _native_io_path(destination.parent).stat().st_dev:
+             raise ValidationFailure('CROSS_VOLUME_UNSUPPORTED: staging должен быть рядом с новой папкой')
+         if os.name != 'nt':
+             raise ValidationFailure('PUBLICATION_PLATFORM_UNSUPPORTED: требуется native Windows')
+         # Windows os.rename raises FileExistsError even for an empty existing
+         # destination. Unlike os.replace, it never overwrites another folder.
+-        os.rename(staged, destination)
++        os.rename(_native_io_path(staged), _native_io_path(destination))
+ 
+ 
+ def verify_published_project(destination: Path, initial: dict) -> dict:
+--- before/project_harness/operation_guard.py
++++ after/project_harness/operation_guard.py
+@@ -18,7 +18,7 @@
+ from typing import Callable, Iterator, TypeVar
+ 
+ from .errors import SafetyViolation, ValidationFailure
+-from .platform_fs import ensure_native_path
++from .platform_fs import ensure_native_path, native_resolve
+ 
+ _T = TypeVar('_T')
+ _local = threading.local()
+@@ -33,7 +33,7 @@
+     must acquire the Stage lock and then call an unguarded public operation.
+     """
+     ensure_native_path(Path(root))
+-    canonical = Path(root).expanduser().resolve()
++    canonical = native_resolve(root)
+     if canonical.is_symlink():
+         raise SafetyViolation('Operation root cannot be a symlink', str(canonical))
+     key = hashlib.sha256(os.path.normcase(str(canonical)).encode('utf-8')).hexdigest()
+--- before/project_harness/platform_fs.py
++++ after/project_harness/platform_fs.py
+@@ -95,6 +95,27 @@
+     iterator = io_root.rglob(pattern) if recursive else io_root.glob(pattern)
+     for path in iterator:
+         yield root / path.relative_to(io_root)
++
++
++def native_iterdir(root: Path):
++    """Enumerate with extended IO while keeping ordinary logical paths."""
++    for child in _native_io_path(root).iterdir():
++        yield root / child.name
++
++
++def native_resolve(path: Path, *, strict: bool = False) -> Path:
++    """Resolve an admitted local path without leaking a Win32 IO spelling.
++
++    Reparse/namespace checks precede resolution, including for missing paths.
++    Lock keys, catalog roots and returned refs retain their ordinary spelling.
++    """
++    path=Path(path).expanduser()
++    ensure_native_path(path,file_ok=True)
++    resolved=_native_io_path(path).resolve(strict=strict)
++    if os.name=='nt':
++        resolved=Path(str(resolved).removeprefix('\\\\?\\'))
++        assert_windows_root_form(resolved)
++    return resolved
+ 
+ 
+ def _is_link_or_junction(path: Path) -> bool:
+@@ -167,9 +188,9 @@
+     ACL/sharing violations are additionally enforced by the OS at replace time;
+     they are NOT misclassified as successful writes.
+     """
+-    if os.name != 'nt' or not path.exists():
++    if os.name != 'nt' or not _native_io_path(path).exists():
+         return
+-    info = path.stat()
++    info = _native_io_path(path).stat()
+     readonly = getattr(stat, 'FILE_ATTRIBUTE_READONLY', 0x1)
+     if (getattr(info, 'st_file_attributes', 0) & readonly) or not (info.st_mode & stat.S_IWRITE):
+         raise ValidationFailure("WINDOWS_READ_ONLY_TARGET", str(path))
+@@ -183,7 +204,7 @@
+     reconcile and commit. It lives in a user temporary directory, never in an
+     agent mount or the canonical project tree. Contention fails closed.
+     """
+-    canonical = Path(project).resolve()
++    canonical = native_resolve(project)
+     ensure_native_path(canonical)
+     parent = Path(tempfile.gettempdir()) / 'project-harness-stage-locks'
+     parent.mkdir(mode=0o700, exist_ok=True)
+--- before/project_harness/resources/local_web/assets/app.js
++++ after/project_harness/resources/local_web/assets/app.js
+@@ -43,18 +43,30 @@
+   if (typeof value === 'string') return value;
+   return JSON.stringify(value, null, 2);
+ }
++let apiRequests = Promise.resolve();
+ async function api(path, options = {}) {
++  const method = options.method || 'GET';
++  if (method !== 'GET' && path !== '/api/ui/resume') await resumeWrites;
++  // One tab must not contend with its own reads (including the project list).
++  // Keep the original binding/consent and never replay a mutation.
++  const previous = apiRequests;
++  let release;
++  apiRequests = new Promise(resolve => { release = resolve; });
++  await previous;
++  try { return await requestApi(path, options); }
++  finally { release(); }
++}
++async function requestApi(path, options = {}) {
+   const method = options.method || 'GET';
+   // Navigation saves share the app-data fence with operation admission.
+   // Finish our own earlier save before a user mutation; never replay a POST.
+-  if (method !== 'GET' && path !== '/api/ui/resume') await resumeWrites;
+   const headers = { Accept: 'application/json' };
+   if (method !== 'GET') {
+-    headers['Content-Type'] = 'application/json';
++    if (!options.formData) headers['Content-Type'] = 'application/json';
+     if (state.csrf) headers['X-CSRF-Token'] = state.csrf;
+   }
+   const response = await fetch(path, { method, headers, credentials: 'same-origin',
+-                                        cache: 'no-store', body: options.body ? JSON.stringify(options.body) : undefined });
++                                        cache: 'no-store', body: options.formData || (options.body ? JSON.stringify(options.body) : undefined) });
+   let result;
+   try { result = await response.json(); }
+   catch (_error) { throw new Error('Сервер вернул неизвестный формат.'); }
+@@ -66,7 +78,7 @@
+     const readAttempt = options.readAttempt || 0;
+     if (method === 'GET' && info.code === 'OPERATION_CONFLICT' && readAttempt < 12) {
+       await new Promise(resolve => setTimeout(resolve, 250));
+-      return api(path, {...options, readAttempt: readAttempt + 1});
++      return requestApi(path, {...options, readAttempt: readAttempt + 1});
+     }
+     const error = new Error(info.message_ru || 'Действие не выполнено.');
+     error.result = result;
+@@ -200,6 +212,8 @@
+   }
+ }
+ function renderView(view) {
++  state.projects = state.projects.map(entry => entry.project_id === view.project_id ?
++    {...entry, kind:view.kind, core_status:view.core_status} : entry);
+   $('project-empty').classList.add('hidden');
+   $('project-details').classList.remove('hidden');
+   const refs = view.refs || {};
+--- before/project_harness/resources/local_web/assets/tasks.js
++++ after/project_harness/resources/local_web/assets/tasks.js
+@@ -66,8 +66,7 @@
+     if (uploadFile) {
+       if (uploadFile.size>1048576) throw new Error('Result ограничен 1 MiB.');
+       const data=new FormData();data.set('expected_fingerprint',v.fingerprint);data.set('binding_digest',v.binding_digest);data.set('result',uploadFile);
+-      const response=await fetch(taskBase(pid)+'/tasks/result-upload',{method:'POST',credentials:'same-origin',headers:{'X-CSRF-Token':state.csrf},body:data});
+-      const staged=await response.json();if (!response.ok) throw new Error(staged.error?.message_ru || 'Result отклонён');
++      const staged=await api(taskBase(pid)+'/tasks/result-upload',{method:'POST',formData:data});
+       payload.upload_id=staged.upload_id;
+     }
+     const op=await api(taskBase(pid)+'/operations',{method:'POST',body:{action,payload,expected_fingerprint:v.fingerprint,idempotency_key:newIdempotencyKey()}});
+--- before/project_harness/resources/local_web/metadata_v1.json
++++ after/project_harness/resources/local_web/metadata_v1.json
+@@ -5,7 +5,7 @@
+   "core_schema_version": 7,
+   "project_input_schema": "SCHEMA-PROJECT-PREPARATION-INPUT@4",
+   "local_web_version": "0.1.0-dev",
+-  "local_web_build_id": "PH-LW-12-20261108",
++  "local_web_build_id": "PH-LW-12-FIX3-20261108",
+   "base_lineage": "PH-051-11-WIP-NOT-RELEASED",
+   "declared_target_base": "PH-051-12-WIP-NO-GO-NOT_SUPPLIED",
+   "source_engine_zip_sha256": "44b75136131d917403b99299077e829c025783a6bb94c2b539fbe0b913449dbd",
+@@ -17,7 +17,7 @@
+   "automatic_executor_release_status": "NO-GO",
+   "local_web_manual_release_status": "NO-GO",
+   "dependency_lock": "local_web/requirements-web-win_amd64-cp314.lock",
+-  "note": "PH-LW-12 final manual acceptance; navigation resume ordering regression fixed; exact verdict in PH_LW_12_TEST_REPORT.md; automatic executor disabled; full v0.5.1 NO-GO.",
++  "note": "Windows-only PH-LW-12 blocker fixes; pre-acceptance immutable build. Exact-hash verdict in PH_LW_12_FIX_TEST_REPORT.md; automatic executor disabled; full v0.5.1 NOT RELEASED.",
+   "platform_acceptance": {
+     "report": "PH_LW_04_05_WINDOWS_ACCEPTANCE_TEST_REPORT.md",
+     "scope": "PH-LW-04/05 Windows HTTP acceptance; full installer/lifecycle acceptance pending"
+@@ -37,7 +37,7 @@
+     "exchange_envelope": "LOCAL_WEB_GPT_DRAFT_ONLY@2",
+     "artifact_policy": "Unpacked working files; ZIP only on explicit user request"
+   },
+-  "engine_build_digest": "sha256:54aff06eb60bd64b4c87e69c9b7d5c3133f4747bdff0c4ee1f570874cfac8b08",
++  "engine_build_digest": "sha256:6633069ce2a0b38d64169b4e3ce343badf421919a923329afb6ee887a847dc91",
+   "engine_build_digest_definition": "SHA256 of sorted SHA256 + two spaces + relative path + LF for src/project_harness files, excluding this metadata file and caches",
+   "ph_lw_07": {
+     "report": "PH_LW_07_TEST_REPORT.md",
+@@ -86,5 +86,11 @@
+     "input_wheel_sha256": "9bb3e87fdf2b297e7292fd5d2216fc1a61c9dbe49e2e4cf018f5eb5f2aa19bc2",
+     "input_installer_sha256": "0550a5582182ab95aa8b5376b878cdb3210b126a53b6fd6f90746417d50abb94",
+     "artifact_policy": "Unpacked files, wheel and Windows installer; no Engine/Documentation ZIP"
++  },
++  "ph_lw_12_fixes": {
++    "report": "PH_LW_12_FIX_TEST_REPORT.md",
++    "input_wheel_sha256": "765e9bb3a63773e1d4710e21ad330c18713555fb6cf5d8e84660eee52c03ef93",
++    "input_installer_sha256": "454d3db52f3c880a3ff1b1243059cf5818961c9f8fc22adca4eb9949a7dac630",
++    "scope": "Three PH-LW-12 blockers; Windows only; exact-hash verdict external to pre-acceptance build metadata"
+   }
+ }
+--- before/project_harness/runtime.py
++++ after/project_harness/runtime.py
+@@ -30,7 +30,7 @@
+ from .stages import _product_baseline_revision, load_current_target_level, load_stage_state, runtime_continuation
+ from .stage_gate_lifecycle import evaluate_stage_gate_readiness, materialize_preparation_task_evidence
+ from .util import resolve_inside, utc_now
+-from .platform_fs import ensure_native_path
++from .platform_fs import ensure_native_path, _native_io_path, native_resolve, native_glob, native_iterdir
+ from .workspace import (
+     load_phase_boundary,
+     assert_agent_result_unchanged,
+@@ -49,7 +49,7 @@
+ 
+ def _state(root: Path) -> tuple[Path, dict[str, Any]]:
+     path = root / ".harness/state/CURRENT_STATE.yaml"
+-    if not path.exists():
++    if not _native_io_path(path).exists():
+         raise ValidationFailure("Project Harness state is missing", str(path))
+     value = load_data(path)
+     if not isinstance(value, dict) or not isinstance(value.get("state"), dict):
+@@ -94,7 +94,7 @@
+     previous_ref = f"{task_id}@{task['revision']}"
+     task.update(changes)
+     revision = int(task["revision"]) + 1
+-    while (root / f".harness/tasks/{task_id}@{revision}.yaml").exists():
++    while (_native_io_path(root / f".harness/tasks/{task_id}@{revision}.yaml")).exists():
+         revision += 1
+     task["revision"] = revision
+     task["previous_revision_ref"] = previous_ref
+@@ -140,7 +140,7 @@
+ 
+ 
+ def project_status(root: Path) -> dict[str, Any]:
+-    root = root.expanduser().resolve()
++    root = native_resolve(root.expanduser())
+     _, state_doc = _state(root)
+     state = state_doc["state"]
+     implementation = load_stage_state(root)
+@@ -184,7 +184,7 @@
+ def next_task(root: Path) -> dict[str, Any]:
+     """Advance only a reachable current-stage runtime route; never guess a boundary."""
+     ensure_native_path(root, tree=True)
+-    root = root.expanduser().resolve()
++    root = native_resolve(root.expanduser())
+     _, state_doc = _state(root)
+     state = state_doc["state"]
+     implementation = load_stage_state(root)
+@@ -302,7 +302,7 @@
+ def _run_command(root: Path, item: Any, default_timeout: int) -> dict[str, Any]:
+     argv, cwd_value, timeout = _normalize_command(item, default_timeout)
+     cwd = resolve_inside(root, cwd_value)
+-    if not cwd.is_dir():
++    if not _native_io_path(cwd).is_dir():
+         raise ValidationFailure("Verification cwd does not exist", str(cwd_value))
+     started = utc_now()
+     try:
+@@ -370,7 +370,7 @@
+ 
+ def _next_blocker_id(root: Path, task_id: str) -> str:
+     token = task_id.removeprefix("TSK-").rsplit("-", 1)[0] or "PROJECT"
+-    sequence = len(list((root / ".harness/blockers").glob("BLK-*@1.yaml"))) + 1
++    sequence = len(list(native_glob(root / ".harness/blockers",'BLK-*@1.yaml'))) + 1
+     return f"BLK-{token}-{sequence:03d}"
+ 
+ 
+@@ -555,7 +555,7 @@
+ @guarded_mutation
+ def verify_current(root: Path, *, allow_command_execution: bool = False) -> dict[str, Any]:
+     ensure_native_path(root, tree=True)
+-    root = root.expanduser().resolve()
++    root = native_resolve(root.expanduser())
+     state_path, state_doc = _state(root)
+     state = state_doc["state"]
+     active = state.get("active_run")
+@@ -613,7 +613,7 @@
+         except HarnessError as exc:
+             missing_paths.append(f"unsafe:{relative}:{exc.code}")
+             continue
+-        if not path.exists():
++        if not _native_io_path(path).exists():
+             missing_paths.append(relative)
+     expected_gate = "PASS" if not missing_paths else "FAIL"
+     manual_checks = verification.get("manual_checks") or []
+@@ -638,8 +638,8 @@
+     # Keep legacy first-attempt IDs; every later check gets fresh exact refs.
+     report_base, evidence_base = report_id, evidence_id
+     verification_attempt = 1
+-    while ((root / f'.harness/reports/{report_id}.yaml').exists() or
+-           (root / f'.harness/evidence/{evidence_id}.yaml').exists()):
++    while ((_native_io_path(root / f'.harness/reports/{report_id}.yaml')).exists() or
++           (_native_io_path(root / f'.harness/evidence/{evidence_id}.yaml')).exists()):
+         verification_attempt += 1
+         if verification_attempt > 1000:
+             raise ValidationFailure('Verification attempt limit reached; block/resume a new Run')
+@@ -875,7 +875,7 @@
+ @guarded_mutation
+ def complete_current(root: Path, result_path: Path) -> dict[str, Any]:
+     ensure_native_path(root, tree=True)
+-    root = root.expanduser().resolve()
++    root = native_resolve(root.expanduser())
+     state_path, state_doc = _state(root)
+     state = state_doc["state"]
+     active = state.get("active_run")
+@@ -919,8 +919,8 @@
+         evidence_ref = active.get("automatic_apply_evidence_ref")
+         proof_path = root / ".harness/evidence" / (str(evidence_ref) + ".yaml")
+         if (report.get("verification_backend") != "SANDBOXED" or
+-                not isinstance(evidence_ref, str) or not proof_path.is_file() or
+-                proof_path.is_symlink() or
++                not isinstance(evidence_ref, str) or not _native_io_path(proof_path).is_file() or
++                _native_io_path(proof_path).is_symlink() or
+                 load_data(proof_path).get("apply_evidence", {}).get("run_ref") != active["run_ref"] + "@1"):
+             raise ValidationFailure("Automatic completion requires exact signed SANDBOXED verification and Apply Evidence")
+     if report.get("status") != "PASS":
+@@ -1112,7 +1112,7 @@
+ def block_current(root: Path, reason: str, *, options: list[str] | None = None,
+                   run_status: str = "BLOCKED", reason_code: str | None = None,
+                   execution_origin: str | None = None) -> dict[str, Any]:
+-    root = root.expanduser().resolve()
++    root = native_resolve(root.expanduser())
+     state_path, state_doc = _state(root)
+     state = state_doc["state"]
+     active = state.get("active_run")
+@@ -1219,7 +1219,7 @@
+ 
+ @guarded_mutation
+ def resume_blocked(root: Path, *, resolution: str, blocker_ref: str | None = None) -> dict[str, Any]:
+-    root = root.expanduser().resolve()
++    root = native_resolve(root.expanduser())
+     ensure_current_project_contract(root)
+     state_path, state_doc = _state(root)
+     state = state_doc["state"]
+@@ -1233,7 +1233,7 @@
+     if not blocker_ref:
+         raise ValidationFailure("No open blocker to resume")
+     blocker_path = root / f".harness/blockers/{blocker_ref}@1.yaml"
+-    if not blocker_path.exists():
++    if not _native_io_path(blocker_path).exists():
+         raise ValidationFailure("Blocker record is missing", blocker_ref)
+     blocker = load_data(blocker_path)["blocker"]
+     if blocker.get("status") != "OPEN":
+@@ -1302,7 +1302,7 @@
+     boundary = load_phase_boundary(root, active)  # validates the whole digest chain
+     phase = boundary.get("phase")
+     journal_path = root / str(active["operation_journal_path"])
+-    if not journal_path.exists():
++    if not _native_io_path(journal_path).exists():
+         return None
+     raw = load_data(journal_path).get("operation_journal") or {}
+     phases = [entry.get("phase") for entry in raw.get("boundaries") or []]
+@@ -1373,7 +1373,7 @@
+         return _automatic_response("SANDBOX_UNAVAILABLE",
+             execution_mode="UNSUPPORTED_ON_NATIVE_WINDOWS", isolation_verified=False,
+             message="Rootless Podman automatic executor is Linux-only; Windows manual mode cannot run a host agent")
+-    root = Path(root).expanduser().resolve()
++    root = native_resolve(Path(root).expanduser())
+     try:
+         lock = load_data(root / ".harness/config/PROJECT_LOCK.yaml")["project_lock"]
+         policy = lock.get("execution") or {}
+@@ -1405,7 +1405,7 @@
+ def _execution_runtime_root() -> Path:
+     # A stable per-UID host root outside canonical product and agent mounts.
+     # This is not a user-controlled arbitrary mount-source override.
+-    return Path(tempfile.gettempdir()).resolve() / f"project-harness-v051-runtime-{os.geteuid()}"
++    return native_resolve(Path(tempfile.gettempdir())) / f"project-harness-v051-runtime-{os.geteuid()}"
+ 
+ 
+ @contextmanager
+@@ -1417,9 +1417,9 @@
+     """
+     import fcntl  # Linux/rootless Podman target platform; fail-closed elsewhere.
+     base = Path(runtime_root).absolute()
+-    if base.is_symlink() or base == root or base in root.parents or root in base.parents:
++    if _native_io_path(base).is_symlink() or base == root or base in root.parents or root in base.parents:
+         raise SafetyViolation("Unsafe automatic runtime lock location")
+-    base.mkdir(mode=0o700, parents=True, exist_ok=True)
++    _native_io_path(base).mkdir(mode=0o700, parents=True, exist_ok=True)
+     metadata = base.lstat()
+     if not stat.S_ISDIR(metadata.st_mode) or metadata.st_uid != os.geteuid() or metadata.st_mode & 0o077:
+         raise SafetyViolation("Automatic runtime lock root is not private")
+@@ -1454,9 +1454,9 @@
+     """
+     rel = f".harness/runtime/CLEANUP_REPORTS/{active['run_ref']}.yaml"
+     path = root / rel
+-    if path.is_symlink():
++    if _native_io_path(path).is_symlink():
+         raise SafetyViolation("Unsafe exact cleanup report path")
+-    if path.exists():
++    if _native_io_path(path).exists():
+         previous = load_data(path).get("execution_cleanup")
+         if not isinstance(previous, dict) or previous.get("run_ref") != active["run_ref"]:
+             raise SafetyViolation("Conflicting immutable cleanup status")
+@@ -1506,20 +1506,20 @@
+                           ("EVD-APPLY-" + active["run_ref"].removeprefix("RUN-") + ".yaml"))
+     # If journal staging or an old post-commit cleanup is incomplete, the
+     # recovery primitive decides all-old / all-new before any new attempt.
+-    if run_root.is_dir() and ((run_root / ".apply-journal").exists() or
+-                              (run_root / ".apply-journal").is_symlink()):
++    if _native_io_path(run_root).is_dir() and ((_native_io_path(run_root / ".apply-journal")).exists() or
++                              (_native_io_path(run_root / ".apply-journal")).is_symlink()):
+         try:
+             recovered = recover_apply(root, run_root)
+         except (SafetyViolation, ValidationFailure, ApplyFailure, OSError):
+             return _automatic_response("APPLY_FAILED_RECOVERABLE", run_ref=active["run_ref"],
+                                        message="Apply journal cannot be reconciled; original Run quarantined in place")
+-    if run_root.is_dir() and ((run_root / ".apply-cleanup").exists() or
+-                              (run_root / ".apply-cleanup").is_symlink()):
++    if _native_io_path(run_root).is_dir() and ((_native_io_path(run_root / ".apply-cleanup")).exists() or
++                              (_native_io_path(run_root / ".apply-cleanup")).is_symlink()):
+         # A retired apply journal is never an authorization to reapply. A
+         # lingering cleanup directory can be quarantined with the old Run.
+         pass
+-    committed = recovered.get("status") == "APPLIED" or committed_evidence.exists()
+-    if committed_evidence.is_symlink():
++    committed = recovered.get("status") == "APPLIED" or _native_io_path(committed_evidence).exists()
++    if _native_io_path(committed_evidence).is_symlink():
+         return _automatic_response("APPLY_FAILED_RECOVERABLE", message="Untrusted Apply Evidence")
+     # Avoid old root reuse even if agent-result.json is syntactically valid.
+     clean = _cleanup_automatic_attempt(root, runtime_root, active, quarantine=True,
+@@ -1555,8 +1555,8 @@
+                                    message="Verified Run cleanup needs trusted Podman inspection")
+     from .execution_roots import _runtime_run_root
+     _, run_root = _runtime_run_root(root, runtime_root, active["run_ref"])
+-    if run_root.is_dir() and ((run_root / ".apply-journal").exists() or
+-                              (run_root / ".apply-journal").is_symlink()):
++    if _native_io_path(run_root).is_dir() and ((_native_io_path(run_root / ".apply-journal")).exists() or
++                              (_native_io_path(run_root / ".apply-journal")).is_symlink()):
+         try:
+             recover_apply(root, run_root)
+         except (SafetyViolation, ValidationFailure, ApplyFailure, OSError):
+@@ -1611,7 +1611,7 @@
+     report_rel = f".harness/reports/{report_id}.yaml"
+     evidence_rel = f".harness/evidence/{evidence_id}.yaml"
+     for rel in (report_rel, evidence_rel):
+-        if (root / rel).exists() or (root / rel).is_symlink():
++        if (_native_io_path(root / rel)).exists() or (_native_io_path(root / rel)).is_symlink():
+             raise ValidationFailure("Automatic verification record already exists; immutable replay refused", rel)
+     after = snapshot_product(root)
+     if after != verification.get("verified_product_files"):
+@@ -1698,7 +1698,7 @@
+         return _automatic_response("SANDBOX_UNAVAILABLE",
+             execution_mode="UNSUPPORTED_ON_NATIVE_WINDOWS", isolation_verified=False,
+             message="No rootless Podman automatic execution or host fallback on native Windows")
+-    root = Path(root).expanduser().resolve()
++    root = native_resolve(Path(root).expanduser())
+     runtime_dir = Path(runtime_root).absolute() if runtime_root is not None else _execution_runtime_root()
+     try:
+         with _automatic_project_lock(root, runtime_dir):
+@@ -1722,9 +1722,9 @@
+                 if previous is not None:
+                     if previous["phase"] == "AUTO_VERIFIED":
+                         receipt = root / ".harness/runtime/CLEANUP_REPORTS" / (active["run_ref"] + ".yaml")
+-                        if receipt.is_symlink():
++                        if _native_io_path(receipt).is_symlink():
+                             raise SafetyViolation("Forged automatic cleanup receipt")
+-                        if not receipt.is_file():
++                        if not _native_io_path(receipt).is_file():
+                             retirement = _recover_verified_cleanup(root, runtime_dir, active)
+                             if retirement["status"] != "PASS":
+                                 return {**retirement, "run_ref": active["run_ref"],
+@@ -1762,8 +1762,8 @@
+             _, current_root = _runtime_run_root(root, runtime_dir,
+                                                 active["run_ref"] if active else "RUN-RECOVERY")
+             executions = current_root.parent
+-            stale = [entry for entry in executions.iterdir()
+-                     if entry.is_dir() and entry.name != (active or {}).get("run_ref") ] if executions.exists() else []
++            stale = [entry for entry in native_iterdir(executions)
++                     if _native_io_path(entry).is_dir() and entry.name != (active or {}).get("run_ref") ] if _native_io_path(executions).exists() else []
+             if stale:
+                 orphan_check = RootlessPodmanRunner().project_orphan_containers(root)
+                 if orphan_check.get("status") != "PASS":
+--- before/project_harness/safety.py
++++ after/project_harness/safety.py
+@@ -6,7 +6,7 @@
+ import stat
+ import zipfile
+ 
+-from .platform_fs import _native_io_path, native_walk
++from .platform_fs import _native_io_path, native_walk, native_resolve, native_iterdir
+ from .errors import SafetyViolation, ValidationFailure
+ from .platform_fs import safe_relative, ensure_native_path
+ 
+@@ -42,7 +42,7 @@
+ 
+ def inspect_zip(path: Path) -> list[zipfile.ZipInfo]:
+     try:
+-        with zipfile.ZipFile(path) as zf:
++        with zipfile.ZipFile(_native_io_path(path)) as zf:
+             infos = zf.infolist()
+             seen: set[str] = set()
+             for info in infos:
+@@ -65,29 +65,29 @@
+ def safe_extract_zip(path: Path, destination: Path) -> None:
+     ensure_native_path(destination, tree=True)
+     infos = inspect_zip(path)  # Full CRC and path collision check BEFORE any write.
+-    destination.mkdir(parents=True, exist_ok=True)
+-    with zipfile.ZipFile(path) as zf:
++    _native_io_path(destination).mkdir(parents=True, exist_ok=True)
++    with zipfile.ZipFile(_native_io_path(path)) as zf:
+         for info in infos:
+             member = _safe_zip_member(info.filename)
+             mode = (info.external_attr >> 16) & 0xFFFF
+             if stat.S_ISLNK(mode):
+                 raise SafetyViolation("ZIP symlinks are not allowed", info.filename)
+-            target = (destination / Path(*member.parts)).resolve()
++            target = native_resolve(destination / Path(*member.parts))
+             try:
+-                target.relative_to(destination.resolve())
++                target.relative_to(native_resolve(destination))
+             except ValueError as exc:
+                 raise SafetyViolation("ZIP entry escapes destination", info.filename) from exc
+             if info.is_dir():
+-                target.mkdir(parents=True, exist_ok=True)
+-                continue
+-            target.parent.mkdir(parents=True, exist_ok=True)
+-            with zf.open(info) as src, target.open("wb") as dst:
++                _native_io_path(target).mkdir(parents=True, exist_ok=True)
++                continue
++            _native_io_path(target.parent).mkdir(parents=True, exist_ok=True)
++            with zf.open(info) as src, _native_io_path(target).open("wb") as dst:
+                 shutil.copyfileobj(src, dst)
+ 
+ 
+ def detect_single_root(directory: Path) -> Path:
+-    children = [p for p in directory.iterdir() if p.name not in {"__MACOSX", ".DS_Store"}]
+-    if len(children) == 1 and children[0].is_dir():
++    children = [p for p in native_iterdir(directory) if p.name not in {"__MACOSX", ".DS_Store"}]
++    if len(children) == 1 and _native_io_path(children[0]).is_dir():
+         return children[0]
+     return directory
+ 
+--- before/project_harness/serialization.py
++++ after/project_harness/serialization.py
+@@ -74,6 +74,7 @@
+ 
+ 
+ def append_jsonl(path: Path, value: Any) -> None:
++    path = _native_io_path(path)
+     path.parent.mkdir(parents=True, exist_ok=True)
+     line = json.dumps(value, ensure_ascii=False, sort_keys=True) + "\n"
+     with path.open("a", encoding="utf-8", newline="\n") as fh:
+--- before/project_harness/stages.py
++++ after/project_harness/stages.py
+@@ -23,7 +23,7 @@
+     write_normalized_evidence,
+ )
+ from .hashing import sha256_file, tree_entries, tree_hash
+-from .platform_fs import _native_io_path
++from .platform_fs import _native_io_path, native_resolve, native_glob, native_iterdir
+ from .registry import implementation_level_model, load_registries
+ from .serialization import canonical_json_bytes, load_data, write_data
+ from .stage_approvals import is_strict_stage_approval, validate_stage_approval_document
+@@ -101,7 +101,7 @@
+     assessment_file = assessment_dir / expected_filename
+     if assessment_file.name != expected_filename or assessment_file.parent != assessment_dir:
+         raise ValidationFailure("Resolved maturity assessment path is not exact", canonical_ref)
+-    if not assessment_file.is_file():
++    if not _native_io_path(assessment_file).is_file():
+         raise ValidationFailure("Referenced maturity assessment is absent", canonical_ref)
+ 
+     actual_digest = f"sha256:{sha256_file(assessment_file)}"
+@@ -300,7 +300,7 @@
+ 
+ 
+ def load_stage_state(root: Path) -> dict[str, Any]:
+-    return deepcopy(_load_stage_state(root.expanduser().resolve())[1]["implementation"])
++    return deepcopy(_load_stage_state(native_resolve(root.expanduser()))[1]["implementation"])
+ 
+ 
+ def load_current_target_level(
+@@ -314,7 +314,7 @@
+     never fall back to the immutable accepted intake record. Before preparation,
+     the current intake target remains the value in PROJECT_INPUT.yaml.
+     """
+-    workspace = workspace.expanduser().resolve()
++    workspace = native_resolve(workspace.expanduser())
+     stage_state_path = workspace / STAGE_STATE_PATH
+     if _native_io_path(stage_state_path).is_file():
+         implementation = stage_state if stage_state is not None else load_stage_state(workspace)
+@@ -573,7 +573,7 @@
+     scope_refs: list[str],
+     work_package_refs: list[str],
+ ) -> dict[str, Any]:
+-    root = root.resolve()
++    root = native_resolve(root)
+     target = deep_get(project_input, "implementation.target_level")
+     claimed = deep_get(project_input, "implementation.claimed_current_level")
+     if target not in canonical_levels():
+@@ -707,7 +707,7 @@
+ 
+ 
+ def validate_stage_cross_references(root: Path) -> dict[str, Any]:
+-    root = root.resolve()
++    root = native_resolve(root)
+     state = load_stage_state(root)
+     plan_index = _load_index(root, STAGE_PLAN_INDEX_PATH, "stage_plan_index")
+     gate_index = _load_index(root, STAGE_GATE_INDEX_PATH, "stage_gate_index")
+@@ -758,7 +758,7 @@
+         return entity.get("maintenance_route") is None and entity.get("implementation_stage") == active
+ 
+     task_index_path = root / ".harness/tasks/INDEX.yaml"
+-    if task_index_path.exists():
++    if _native_io_path(task_index_path).exists():
+         task_index = load_data(task_index_path).get("task_index") or {}
+         for task_id, rel in (task_index.get("current") or {}).items():
+             task = load_data(root / rel).get("task") or {}
+@@ -767,7 +767,7 @@
+                     f"{task_id}: task is not bound to the current executable Stage/maintenance route"
+                 )
+     wp_index_path = root / ".harness/work-packages/INDEX.yaml"
+-    if wp_index_path.exists():
++    if _native_io_path(wp_index_path).exists():
+         wp_index = load_data(wp_index_path).get("work_package_index") or {}
+         for wp_id, rel in (wp_index.get("current") or {}).items():
+             wp = load_data(root / rel).get("work_package") or {}
+@@ -779,7 +779,7 @@
+ 
+ 
+ def mark_active_stage_verifying(root: Path) -> dict[str, Any]:
+-    root = root.expanduser().resolve()
++    root = native_resolve(root.expanduser())
+     recover_stage_transactions(root)
+     state_path, state_doc = _load_stage_state(root)
+     state = state_doc["implementation"]
+@@ -818,7 +818,7 @@
+ 
+ def _all_required_work_packages_complete(root: Path, refs: Iterable[str]) -> tuple[bool, list[str]]:
+     index_path = root / ".harness/work-packages/INDEX.yaml"
+-    index = load_data(index_path).get("work_package_index") if index_path.exists() else None
++    index = load_data(index_path).get("work_package_index") if _native_io_path(index_path).exists() else None
+     current = index.get("current") if isinstance(index, dict) else {}
+     incomplete: list[str] = []
+     for ref in refs:
+@@ -840,7 +840,7 @@
+     views and the ``.harness`` control plane are excluded, so operator drafts and
+     governed evidence do not invalidate the product baseline by themselves.
+     """
+-    root = root.expanduser().resolve()
++    root = native_resolve(root.expanduser())
+     files = [root / relative for relative in snapshot_product(root)]
+     return f"tree:sha256:{tree_hash(root, files)}"
+ 
+@@ -1244,9 +1244,9 @@
+     pattern = re.compile(rf"^{re.escape(assessment_id)}@(?P<revision>[1-9][0-9]*)\.yaml$")
+     revisions = [
+         int(match.group("revision"))
+-        for path in directory.iterdir()
+-        if path.is_file() and (match := pattern.fullmatch(path.name)) is not None
+-    ] if directory.is_dir() else []
++        for path in native_iterdir(directory)
++        if _native_io_path(path).is_file() and (match := pattern.fullmatch(path.name)) is not None
++    ] if _native_io_path(directory).is_dir() else []
+     return max(revisions, default=0) + 1
+ 
+ 
+@@ -1285,7 +1285,7 @@
+ 
+     stale_ref = f"{source['id']}@{revision}"
+     output = root / f".harness/stages/ASSESSMENTS/{stale_ref}.yaml"
+-    if output.exists():
++    if _native_io_path(output).exists():
+         raise ValidationFailure("Immutable assessment staleness revision already exists", stale_ref)
+     write_data(output, {"maturity_assessment": stale})
+     return {
+@@ -1344,7 +1344,7 @@
+ 
+ 
+ def _approval_payload(path: Path, *, envelope_candidates: tuple[str, ...]) -> tuple[dict[str, Any], str]:
+-    value = load_data(path.expanduser().resolve())
++    value = load_data(native_resolve(path.expanduser()))
+     if not isinstance(value, dict):
+         raise ValidationFailure("Approval record must be an object", str(path))
+     for envelope in envelope_candidates:
+@@ -1821,7 +1821,7 @@
+ 
+ @guarded_mutation
+ def accept_stage(root: Path, level: str, approval_path: Path) -> dict[str, Any]:
+-    root = root.expanduser().resolve()
++    root = native_resolve(root.expanduser())
+     if level not in canonical_levels():
+         raise ValidationFailure("Stage level is not canonical", level)
+     approval, approval_envelope = _approval_payload(approval_path, envelope_candidates=("stage_approval", "approval"))
+@@ -1830,7 +1830,7 @@
+     if strict_markers.intersection(approval) and not strict_approval:
+         raise ValidationFailure("Stage approval contains strict-schema markers but does not identify the supported schema", {"schema_version": approval.get("schema_version"), "schema_ref": approval.get("schema_ref")})
+     if strict_approval:
+-        raw_document = load_data(approval_path.expanduser().resolve())
++        raw_document = load_data(native_resolve(approval_path.expanduser()))
+         if approval_envelope != "stage_approval":
+             raise ValidationFailure("Strict Stage approval requires the exact stage_approval envelope")
+         approval = validate_stage_approval_document(raw_document)
+@@ -1973,7 +1973,7 @@
+     if method == "SATISFIED_BY_BASELINE":
+         accepted_stage_set = set(levels_to_accept)
+         task_index_path = Path(".harness/tasks/INDEX.yaml")
+-        if (root / task_index_path).exists():
++        if (_native_io_path(root / task_index_path)).exists():
+             task_index_doc = load_data(root / task_index_path)
+             task_index = task_index_doc.get("task_index") or {}
+             task_index_changed = False
+@@ -1997,7 +1997,7 @@
+                 writes[task_index_path] = task_index_doc
+ 
+         wp_index_path = Path(".harness/work-packages/INDEX.yaml")
+-        if (root / wp_index_path).exists():
++        if (_native_io_path(root / wp_index_path)).exists():
+             wp_index_doc = load_data(root / wp_index_path)
+             wp_index = wp_index_doc.get("work_package_index") or {}
+             wp_index_changed = False
+@@ -2149,7 +2149,7 @@
+         acceptance_id = _acceptance_id(id_token(load_data(root / ".harness/config/PROJECT.yaml")["project"]["id_token"]), accepted_level)
+         # id_token is idempotent for an already-normalized project token.
+         acceptance_rel = Path(f".harness/stages/ACCEPTANCE/{acceptance_id}@1.yaml")
+-        if (root / acceptance_rel).exists() or acceptance_rel in writes:
++        if (_native_io_path(root / acceptance_rel)).exists() or acceptance_rel in writes:
+             raise ValidationFailure("Stage Acceptance Report already exists", acceptance_id)
+         report = {
+             "id": acceptance_id,
+@@ -2219,7 +2219,7 @@
+     writes[STAGE_PLAN_INDEX_PATH] = {"stage_plan_index": plan_index_new}
+     writes[STAGE_GATE_INDEX_PATH] = {"stage_gate_index": gate_index_new}
+     decision_rel = Path(f".harness/canonical/DECISIONS/{approval['id']}@1.yaml")
+-    if (root / decision_rel).exists():
++    if (_native_io_path(root / decision_rel)).exists():
+         raise ValidationFailure("Approval decision already exists", approval["id"])
+     writes[decision_rel] = {
+         "decision": {
+@@ -2283,7 +2283,7 @@
+ 
+ 
+ def _current_stage_gate_context(root: Path) -> dict[str, Any]:
+-    root = root.expanduser().resolve()
++    root = native_resolve(root.expanduser())
+     state = load_stage_state(root)
+     target = load_current_target_level(root, stage_state=state)
+     active = str(state["active_stage"])
+@@ -2318,7 +2318,7 @@
+         return {"ref": None, "path": None, "baseline_revision": None}
+     relative = f".harness/stages/ACCEPTANCE/{ref}.yaml"
+     path = root / relative
+-    if not path.is_file():
++    if not _native_io_path(path).is_file():
+         raise ValidationFailure("Last Stage Acceptance Report is missing", {"ref": ref, "path": relative})
+     value = load_data(path)
+     report = value.get("stage_acceptance") if isinstance(value, dict) else None
+@@ -2333,7 +2333,7 @@
+ def _current_work_package_views(root: Path, refs: Iterable[Any]) -> list[dict[str, Any]]:
+     index: dict[str, Any] = {}
+     index_path = root / ".harness/work-packages/INDEX.yaml"
+-    if index_path.is_file():
++    if _native_io_path(index_path).is_file():
+         value = load_data(index_path)
+         index = value.get("work_package_index") if isinstance(value, dict) else {}
+         if not isinstance(index, dict):
+@@ -2344,7 +2344,7 @@
+         requested_ref = str(raw_ref)
+         entity_id = requested_ref.split("@", 1)[0]
+         relative = current.get(entity_id)
+-        if not relative or not (root / str(relative)).is_file():
++        if not relative or not (_native_io_path(root / str(relative))).is_file():
+             views.append({"requested_ref": requested_ref, "current_ref": None, "path": None, "status": "MISSING"})
+             continue
+         value = load_data(root / str(relative))
+@@ -2363,10 +2363,10 @@
+         requested_ref = str(raw_ref)
+         entity_id = requested_ref.split("@", 1)[0]
+         candidates: list[tuple[int, Path]] = []
+-        if blocker_dir.is_dir():
+-            for path in blocker_dir.glob(f"{entity_id}@*.yaml"):
++        if _native_io_path(blocker_dir).is_dir():
++            for path in native_glob(blocker_dir,f'{entity_id}@*.yaml'):
+                 match = re.fullmatch(re.escape(entity_id) + r"@([1-9][0-9]*)\.yaml", path.name)
+-                if match and path.is_file() and not path.is_symlink():
++                if match and _native_io_path(path).is_file() and not _native_io_path(path).is_symlink():
+                     candidates.append((int(match.group(1)), path))
+         if not candidates:
+             views.append({"requested_ref": requested_ref, "current_ref": None, "path": None, "status": "MISSING", "kind": None, "reason": None})
+@@ -2438,9 +2438,9 @@
+     baseline = str(context["baseline_revision"])
+     directory = root / ".harness/evidence"
+     result: list[dict[str, Any]] = []
+-    if not directory.is_dir():
++    if not _native_io_path(directory).is_dir():
+         return result
+-    for path in sorted(directory.glob("EVD-*.yaml"), key=lambda item: item.name):
++    for path in sorted(native_glob(directory,'EVD-*.yaml'), key=lambda item: item.name):
+         try:
+             resolved = resolve_evidence_artifact(root, path.stem, verify_sources=True)
+         except ValidationFailure:
+@@ -2561,10 +2561,10 @@
+ 
+ 
+ def _safe_stage_approval_output(root: Path, output_path: Path) -> Path:
+-    root = root.expanduser().resolve()
++    root = native_resolve(root.expanduser())
+     raw = output_path.expanduser()
+     if not raw.is_absolute(): raw = Path.cwd() / raw
+-    output = raw.parent.resolve() / raw.name
++    output = native_resolve(raw.parent) / raw.name
+     if output == root or not output.name:
+         raise ValidationFailure("Stage approval output must be a file path", str(output))
+     try: relative = output.relative_to(root)
+@@ -2578,10 +2578,10 @@
+ @guarded_mutation
+ def prepare_stage_approval(root: Path, output_path: Path, *, force: bool = False) -> dict[str, Any]:
+     """Write one deterministic, not-approved exact-bound operator draft."""
+-    root = root.expanduser().resolve(); output = _safe_stage_approval_output(root, output_path)
+-    if output.is_symlink() or output.is_dir():
++    root = native_resolve(root.expanduser()); output = _safe_stage_approval_output(root, output_path)
++    if _native_io_path(output).is_symlink() or _native_io_path(output).is_dir():
+         raise ValidationFailure("Stage approval output is not a replaceable regular file", str(output))
+-    if output.exists() and not force:
++    if _native_io_path(output).exists() and not force:
+         raise ValidationFailure("Stage approval output already exists; use --force to replace it explicitly", str(output))
+     document, _ = _build_stage_approval_draft(root, require_preparable=True)
+     write_data(output, document)
+@@ -2736,7 +2736,7 @@
+ 
+ 
+ def stage_status(root: Path) -> dict[str, Any]:
+-    root = root.expanduser().resolve()
++    root = native_resolve(root.expanduser())
+     state = load_stage_state(root)
+     current_target = load_current_target_level(root, stage_state=state)
+     project_state = load_data(root / ".harness/state/CURRENT_STATE.yaml").get("state") or {}
+@@ -2808,7 +2808,7 @@
+     }
+ 
+ def _repository_paths(repository: Path) -> list[str]:
+-    if not repository.is_dir():
++    if not _native_io_path(repository).is_dir():
+         return []
+     paths: list[str] = []
+     for path in tree_entries(
+@@ -2896,7 +2896,7 @@
+ ) -> tuple[list[dict[str, Any]], list[str]]:
+     if path is None:
+         return [], []
+-    source_path = path.expanduser().resolve()
++    source_path = native_resolve(path.expanduser())
+     value = load_data(source_path)
+     records = value.get("evidence") if isinstance(value, dict) else None
+     if not isinstance(records, list):
+@@ -2928,7 +2928,7 @@
+                 for subject in body["criterion_refs"] + body["outcome_refs"] + body["profile_control_refs"]:
+                     validate_semantic_gate_proof(project_root, body, subject_ref=subject)
+             existing_path = project_root / f".harness/evidence/{body['id']}.yaml"
+-            if existing_path.exists():
++            if _native_io_path(existing_path).exists():
+                 existing = resolve_evidence_artifact(project_root, body["id"], verify_sources=True)
+                 if canonical_json_bytes(existing["body"]) != canonical_json_bytes(body):
+                     raise ValidationFailure("Immutable evidence artifact already exists with different content", body["id"])
+@@ -2996,7 +2996,7 @@
+         if project_root is not None:
+             existing_created_at: str | None = None
+             existing_path = project_root / f".harness/evidence/{evidence_id}.yaml"
+-            if existing_path.is_file():
++            if _native_io_path(existing_path).is_file():
+                 try:
+                     existing_body = load_data(existing_path).get("verification_evidence") or {}
+                     if existing_body.get("schema_version") == 1:
+@@ -3177,8 +3177,8 @@
+ 
+ @guarded_mutation
+ def assess_maturity(workspace: Path, *, evidence_path: Path | None = None) -> dict[str, Any]:
+-    workspace = workspace.expanduser().resolve()
+-    is_project = (workspace / STAGE_STATE_PATH).exists()
++    workspace = native_resolve(workspace.expanduser())
++    is_project = (_native_io_path(workspace / STAGE_STATE_PATH)).exists()
+     stage_state: dict[str, Any] | None = None
+     assessment_run: dict[str, Any] | None = None
+     if is_project:
+@@ -3210,7 +3210,7 @@
+     else:
+         input_path = workspace / "PROJECT_INPUT.yaml"
+         inventory_path = workspace / "REPOSITORY_INVENTORY.yaml"
+-        if not input_path.exists() or not inventory_path.exists():
++        if not _native_io_path(input_path).exists() or not _native_io_path(inventory_path).exists():
+             raise ValidationFailure("Maturity assessment requires a Brownfield/Hybrid intake workspace or prepared project")
+         project_input = load_data(input_path)
+         inventory_doc = load_data(inventory_path)
+@@ -3298,11 +3298,11 @@
+         raise ValidationFailure("Assessment route is invalid", route)
+     if is_project:
+         output = workspace / f".harness/stages/ASSESSMENTS/{assessment_id}@1.yaml"
+-        if output.exists():
++        if _native_io_path(output).exists():
+             # Immutable revision: allocate the next revision instead of overwriting.
+             revisions = [
+                 int(path.stem.rsplit("@", 1)[1])
+-                for path in output.parent.glob(f"{assessment_id}@*.yaml")
++                for path in native_glob(output.parent,f'{assessment_id}@*.yaml')
+                 if "@" in path.stem and path.stem.rsplit("@", 1)[1].isdigit()
+             ]
+             assessment["revision"] = max(revisions, default=0) + 1
+@@ -3358,7 +3358,7 @@
+ 
+ @guarded_mutation
+ def level_up(root: Path, target_level: str, approval_path: Path) -> dict[str, Any]:
+-    root = root.expanduser().resolve()
++    root = native_resolve(root.expanduser())
+     if target_level not in canonical_levels():
+         raise ValidationFailure("Level-up target is not canonical", target_level)
+     approval, _ = _approval_payload(approval_path, envelope_candidates=("level_up_approval", "approval"))
+@@ -3387,7 +3387,7 @@
+         raise ValidationFailure("Level-up requires an accepted implementation stage", accepted)
+     if level_ordinal(target_level) > level_ordinal(accepted):
+         wp_index_path = root / ".harness/work-packages/INDEX.yaml"
+-        if wp_index_path.exists():
++        if _native_io_path(wp_index_path).exists():
+             wp_index = load_data(wp_index_path).get("work_package_index") or {}
+             open_maintenance: list[str] = []
+             for wp_id, rel in (wp_index.get("current") or {}).items():
+@@ -3440,7 +3440,7 @@
+     baseline_ref = load_data(root / ".harness/config/PROJECT.yaml")["project"]["project_definition_ref"]
+     scope_refs: list[str] = []
+     requirements_dir = root / ".harness/canonical/REQUIREMENTS"
+-    for path in sorted(requirements_dir.glob("REQ-*@*.yaml")):
++    for path in sorted(native_glob(requirements_dir,'REQ-*@*.yaml')):
+         req = load_data(path).get("requirement") or {}
+         if req.get("id") and req.get("revision"):
+             scope_refs.append(f"{req['id']}@{req['revision']}")
+@@ -3536,7 +3536,7 @@
+ 
+     # Future prompt plans should normally be absent. Any present stale assumptions are superseded safely.
+     prompt_index_updates: list[str] = []
+-    for path in sorted((root / ".harness/prompts/PLANS").glob("PPL-*@*.yaml")):
++    for path in sorted(native_glob(root / ".harness/prompts/PLANS",'PPL-*@*.yaml')):
+         value = load_data(path)
+         prompt = value.get("prompt_plan") if isinstance(value, dict) else None
+         if not isinstance(prompt, dict):
+@@ -3566,7 +3566,7 @@
+     writes[STAGE_PLAN_INDEX_PATH] = {"stage_plan_index": plan_index_new}
+     writes[STAGE_GATE_INDEX_PATH] = {"stage_gate_index": gate_index_new}
+     decision_rel = Path(f".harness/canonical/DECISIONS/{approval['id']}@1.yaml")
+-    if (root / decision_rel).exists():
++    if (_native_io_path(root / decision_rel)).exists():
+         raise ValidationFailure("Level-up decision already exists", approval["id"])
+     writes[decision_rel] = {
+         "decision": {
+--- before/project_harness/task_manual_evidence.py
++++ after/project_harness/task_manual_evidence.py
+@@ -5,6 +5,7 @@
+ from __future__ import annotations
+ import json
+ from pathlib import Path
++from .platform_fs import _native_io_path
+ from .errors import ValidationFailure
+ from .operation_guard import guarded_mutation, project_operation_guard
+ from .serialization import canonical_json_bytes, write_data
+@@ -116,7 +117,7 @@
+     _validate(root, active, document)
+     relative, evidence_path, ref = _paths(active)
+     request_digest = tasks.digest(document)
+-    if (root/relative).exists():
++    if (_native_io_path(root/relative)).exists():
+         existing = tasks._read(root, relative)
+         if existing.get('request_digest') != request_digest:
+             raise ValidationFailure('MANUAL_EVIDENCE_CHANGED: use block/resume for a new review')
+@@ -155,7 +156,7 @@
+     checks = tasks.runtime._trusted_task(root, active).get('verification',{}).get('manual_checks') or []
+     if not checks: return {'status':'PASS','evidence_ref':None,'reason':'NO_MANUAL_CHECKS'}
+     relative, evidence_path, ref = _paths(active)
+-    if not (root/relative).exists(): return {'status':'BLOCKED','evidence_ref':None,'reason':'MANUAL_EVIDENCE_REQUIRED'}
++    if not (_native_io_path(root/relative)).exists(): return {'status':'BLOCKED','evidence_ref':None,'reason':'MANUAL_EVIDENCE_REQUIRED'}
+     try:
+         receipt = tasks._read(root,relative)
+         if set(receipt) != {'schema','request_digest','document','received_at','evidence_ref'} or receipt['schema'] != 'TASK_MANUAL_EVIDENCE_RECEIPT_V1' or receipt['evidence_ref'] != ref:
+--- before/project_harness/util.py
++++ after/project_harness/util.py
+@@ -7,7 +7,7 @@
+ from typing import Any, Iterable
+ 
+ from .errors import SafetyViolation, ValidationFailure
+-from .platform_fs import safe_relative
++from .platform_fs import safe_relative, native_resolve
+ 
+ ENGINE_VERSION = "0.5.1"
+ SCHEMA_VERSION = 7
+@@ -80,9 +80,9 @@
+     rel = safe_relative(relative, field="relative")
+     if rel.is_absolute() or ".." in rel.parts:
+         raise SafetyViolation("Unsafe relative path", str(relative))
+-    candidate = (root / rel).resolve()
++    candidate = native_resolve(root / rel)
+     try:
+-        candidate.relative_to(root.resolve())
++        candidate.relative_to(native_resolve(root))
+     except ValueError as exc:
+         raise SafetyViolation("Path escapes root", str(relative)) from exc
+     return candidate
+--- before/project_harness/workspace.py
++++ after/project_harness/workspace.py
+@@ -10,7 +10,7 @@
+ from .errors import SafetyViolation, ValidationFailure
+ from .hashing import sha256_bytes, sha256_file
+ from .serialization import canonical_json_bytes, load_data, write_data
+-from .platform_fs import _native_io_path, native_walk
++from .platform_fs import _native_io_path, native_walk, native_resolve
+ 
+ EXCLUDED_ROOT_DIRS = {".harness", ".git", "node_modules", ".venv", "venv", "__pycache__"}
+ EXCLUDED_NAMES = {".DS_Store"}
+@@ -32,7 +32,7 @@
+ 
+ 
+ def snapshot_product(root: Path) -> dict[str, dict[str, Any]]:
+-    root = root.resolve()
++    root = native_resolve(root)
+     result: dict[str, dict[str, Any]] = {}
+     for current, dirs, files in native_walk(root):
+         base = Path(current)
+@@ -44,7 +44,7 @@
+             if name in EXCLUDED_NAMES or (base == root and name in EXCLUDED_ROOT_FILES):
+                 continue
+             path = base / name
+-            if path.is_symlink():
++            if _native_io_path(path).is_symlink():
+                 continue
+             rel = path.relative_to(root).as_posix()
+             result[rel] = {
+@@ -102,7 +102,7 @@
+ def _record_for_path(path: Path) -> dict[str, Any]:
+     info = _native_io_path(path).lstat()
+     if stat.S_ISLNK(info.st_mode):
+-        return {"type": "SYMLINK", "target": os.readlink(path), "size": info.st_size, "nlink": info.st_nlink}
++        return {"type": "SYMLINK", "target": os.readlink(_native_io_path(path)), "size": info.st_size, "nlink": info.st_nlink}
+     if not stat.S_ISREG(info.st_mode):
+         return {"type": "NON_REGULAR", "mode": info.st_mode, "size": info.st_size, "nlink": info.st_nlink}
+     return {
+@@ -120,11 +120,11 @@
+     Only exact protocol anchor paths supplied by the Kernel may be excluded to
+     avoid self-referential snapshot/journal hashing.
+     """
+-    root = root.resolve()
++    root = native_resolve(root)
+     excluded = {item.replace("\\", "/") for item in (exclude_paths or set())}
+     result: dict[str, dict[str, Any]] = {}
+     harness = root / ".harness"
+-    if harness.exists():
++    if _native_io_path(harness).exists():
+         for current, dirs, files in native_walk(harness, followlinks=False):
+             base = Path(current)
+             retained_dirs: list[str] = []
+@@ -133,7 +133,7 @@
+                 rel = path.relative_to(root).as_posix()
+                 if rel in excluded:
+                     continue
+-                if path.is_symlink():
++                if _native_io_path(path).is_symlink():
+                     result[rel] = _record_for_path(path)
+                 else:
+                     retained_dirs.append(name)
+@@ -146,7 +146,7 @@
+                 result[rel] = _record_for_path(path)
+     for name in sorted(PROTECTED_ROOT_FILES):
+         path = root / name
+-        if path.exists() or path.is_symlink():
++        if _native_io_path(path).exists() or _native_io_path(path).is_symlink():
+             if name not in excluded:
+                 result[name] = _record_for_path(path)
+     return result
+@@ -233,7 +233,7 @@
+     maintenance_route: str | None = None,
+     maintenance_plan_ref: str | None = None,
+ ) -> dict[str, Any]:
+-    snapshot_rel = path.resolve().relative_to(root.resolve()).as_posix()
++    snapshot_rel = native_resolve(path).relative_to(native_resolve(root)).as_posix()
+     expected_paths = [snapshot_rel, operation_journal_path]
+     product_files = snapshot_product(root)
+     snapshot = {
+@@ -285,7 +285,7 @@
+     kernel_written_paths: list[str] | None = None,
+     recorded_at: str,
+ ) -> dict[str, Any]:
+-    root = root.resolve()
++    root = native_resolve(root)
+     journal_rel = _journal_relative(active)
+     journal_path = root / journal_rel
+     allowed = str(active.get("allowed_agent_output_path") or f".harness/runtime/AGENT_RESULTS/{active['run_ref']}.json")
+@@ -294,7 +294,7 @@
+         "expected_paths": [journal_rel],
+         "allowed_agent_output_path": allowed,
+     }
+-    if journal_path.exists():
++    if _native_io_path(journal_path).exists():
+         journal_doc = load_data(journal_path)
+         journal = journal_doc.get("operation_journal")
+         if not isinstance(journal, dict):
+@@ -332,7 +332,7 @@
+ 
+ 
+ def load_phase_boundary(root: Path, active: dict[str, Any]) -> dict[str, Any]:
+-    root = root.resolve()
++    root = native_resolve(root)
+     journal_rel = _journal_relative(active)
+     journal_path = root / journal_rel
+     if not _native_io_path(journal_path).exists():
+@@ -373,18 +373,18 @@
+     *,
+     max_bytes: int = AGENT_RESULT_MAX_BYTES,
+ ) -> tuple[dict[str, Any], str, dict[str, Any]]:
+-    root = root.resolve()
++    root = native_resolve(root)
+     normalized = expected_relative.replace("\\", "/")
+-    result_root = (root / ".harness/runtime/AGENT_RESULTS").resolve()
++    result_root = native_resolve(root / ".harness/runtime/AGENT_RESULTS")
+     path = root / normalized
+     try:
+-        resolved_parent = path.parent.resolve(strict=True)
++        resolved_parent = native_resolve(path.parent,strict=True)
+     except OSError as exc:
+         raise ValidationFailure("Agent Task Result parent directory is missing", normalized) from exc
+     if resolved_parent != result_root:
+         raise SafetyViolation("Agent Task Result path escapes the exact result channel", normalized)
+     try:
+-        before = path.lstat()
++        before = _native_io_path(path).lstat()
+     except FileNotFoundError as exc:
+         raise ValidationFailure("Agent Task Result is missing", normalized) from exc
+     if stat.S_ISLNK(before.st_mode) or not stat.S_ISREG(before.st_mode):
+@@ -396,7 +396,7 @@
+     flags = os.O_RDONLY
+     if hasattr(os, "O_NOFOLLOW"):
+         flags |= os.O_NOFOLLOW
+-    fd = os.open(path, flags)
++    fd = os.open(_native_io_path(path), flags)
+     try:
+         opened = os.fstat(fd)
+         if not stat.S_ISREG(opened.st_mode) or opened.st_nlink != 1:
+@@ -455,7 +455,7 @@
+     *,
+     allow_missing_agent_result: bool = True,
+ ) -> dict[str, Any]:
+-    root = root.resolve()
++    root = native_resolve(root)
+     try:
+         boundary = load_phase_boundary(root, active)
+     except (SafetyViolation, ValidationFailure) as exc:
+@@ -476,7 +476,7 @@
+     agent_check: dict[str, Any] = {"status": "ABSENT", "path": allowed}
+     if allowed:
+         candidate = root / allowed
+-        if candidate.exists() or candidate.is_symlink():
++        if _native_io_path(candidate).exists() or _native_io_path(candidate).is_symlink():
+             try:
+                 value, digest, metadata = secure_read_agent_result(root, allowed)
+                 agent_check = {

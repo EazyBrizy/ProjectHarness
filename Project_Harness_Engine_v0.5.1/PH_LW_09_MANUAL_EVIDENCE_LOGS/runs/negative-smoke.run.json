@@ -1,0 +1,18 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_lw_09_tasks.TaskConsoleTests.test_manual_checks_cannot_pass_by_allow_manual_flag"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T09:05:49.186336+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 120,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 17.654,
+  "log_sha256": "7715e9023661f53b39e2cfae046a99bfefb536374ef26588834d2f3bf1c9f736"
+}

@@ -1,0 +1,35 @@
+test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete (lw12_final_driver.InstalledFullFlowTests.test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete) ... {"native_deep_app_data_length": 242}
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+ERROR
+
+======================================================================
+ERROR: test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete (lw12_final_driver.InstalledFullFlowTests.test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\local_web\windows\final_acceptance.py", line 143, in test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete
+    implement_first_task(root) # external fixture agent; product plane only
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_engine.py", line 75, in implement_first_task
+        (root / "task_cli.py").write_text(
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+            """from __future__ import annotations
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<50 lines>...
+            encoding="utf-8",
+            ^^^^^^^^^^^^^^^^^
+        )
+        ^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '<TEMP>\\LW12 installed no-doc br02f5f6\\profile-ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp\\HarnessProjects\\No documents product\\task_cli.py'
+
+----------------------------------------------------------------------
+Ran 1 test in 25.284s
+
+FAILED (errors=1)

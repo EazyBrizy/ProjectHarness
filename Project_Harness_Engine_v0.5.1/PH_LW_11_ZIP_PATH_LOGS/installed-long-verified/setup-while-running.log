@@ -1,0 +1,20 @@
+2026-11-08 08:33:18.721   Log opened. (Time zone: UTC+03:00)
+2026-11-08 08:33:18.721   Setup version: Inno Setup version 6.7.4
+2026-11-08 08:33:18.721   Original Setup EXE: <WORKSPACE>\_scratch\ph_lw_11_zip_path\build-final\Harness-Setup-win-x64.exe
+2026-11-08 08:33:18.721   Setup command line: /SL5="$BC1E28,14590239,893952,<WORKSPACE>\_scratch\ph_lw_11_zip_path\build-final\Harness-Setup-win-x64.exe" /VERYSILENT /SUPPRESSMSGBOXES /NORESTART "/DIR=<WORKSPACE>\_scratch\ph_lw_11_zip_path\installed-long-verified\Установленная программа" /LOG=<WORKSPACE>\_scratch\ph_lw_11_zip_path\installed-long-verified\setup-while-running.log
+2026-11-08 08:33:18.722   Windows version: 10.0.26200
+2026-11-08 08:33:18.722   Windows architecture: x64 (64-bit)
+2026-11-08 08:33:18.722   Machine types supported by system: x86 x64
+2026-11-08 08:33:18.722   User privileges: None
+2026-11-08 08:33:18.726   Administrative install mode: No
+2026-11-08 08:33:18.726   Install mode root key: HKEY_CURRENT_USER
+2026-11-08 08:33:18.726   64-bit install mode: Yes
+2026-11-08 08:33:18.726   RedirectionGuard status for current process: Enabled in enforcing mode
+2026-11-08 08:33:18.727   Created temporary directory: <TEMP>\is-HQH5BFDV1Y.tmp
+2026-11-08 08:33:18.728   Defaulting to Cancel for suppressed message box (OK/Cancel):
+                          Setup has detected that Project Harness Local Web is currently running.
+                          
+                          Please close all instances of it now, then click OK to continue, or Cancel to exit.
+2026-11-08 08:33:18.728   Got EAbort exception.
+2026-11-08 08:33:18.728   Deinitializing Setup.
+2026-11-08 08:33:18.729   Log closed.

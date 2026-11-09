@@ -1,0 +1,239 @@
+{
+  "status": "PASS",
+  "root": "/mnt/data/ph051_work/olddemo/harness-demo-codex-handoff",
+  "compatibility_mode": null,
+  "legacy_status_mappings": [],
+  "checks": [
+    {
+      "name": "Required handoff artifacts",
+      "status": "PASS",
+      "details": {
+        "missing": []
+      }
+    },
+    {
+      "name": "No symlinks",
+      "status": "PASS",
+      "details": {
+        "symlinks": []
+      }
+    },
+    {
+      "name": "Machine-readable files parse",
+      "status": "PASS",
+      "details": {
+        "parsed": 146,
+        "errors": []
+      }
+    },
+    {
+      "name": "Engine/schema lock",
+      "status": "PASS",
+      "details": {
+        "engine": "0.5.0",
+        "schema": 6,
+        "mode": "V0.5.0_MANUAL_COMPATIBILITY",
+        "expected_current": {
+          "engine": "0.5.1",
+          "schema": 7
+        }
+      }
+    },
+    {
+      "name": "Required implementation-stage artifacts",
+      "status": "PASS",
+      "details": {
+        "missing": []
+      }
+    },
+    {
+      "name": "Exact registry versions",
+      "status": "PASS",
+      "details": {
+        "errors": [],
+        "compatibility_mode": false
+      }
+    },
+    {
+      "name": "Exact registry digests",
+      "status": "PASS",
+      "details": {
+        "errors": []
+      }
+    },
+    {
+      "name": "Registry-driven entity statuses",
+      "status": "PASS",
+      "details": {
+        "errors": [],
+        "legacy_status_mappings": []
+      }
+    },
+    {
+      "name": "Decision contract and Brownfield approval",
+      "status": "PASS",
+      "details": {
+        "decisions": 1,
+        "brownfield_baselines": 0,
+        "legacy_contract_gap": false,
+        "legacy_brownfield_approval_gap": false,
+        "legacy_brownfield_revisions": [],
+        "errors": []
+      }
+    },
+    {
+      "name": "Implementation Stage contracts and invariants",
+      "status": "PASS",
+      "details": {
+        "target_level": "MVP",
+        "active_stage": "PROTOTYPE",
+        "highest_accepted_level": "NONE",
+        "artifact_counts": {
+          "plans": 4,
+          "gates": 4,
+          "acceptances": 0,
+          "assessments": 0,
+          "evidence_normalized": 0,
+          "evidence_legacy": 0
+        },
+        "cross_references": {
+          "status": "PASS",
+          "active_stage": "PROTOTYPE",
+          "target_level": "MVP",
+          "errors": []
+        },
+        "errors": []
+      }
+    },
+    {
+      "name": "Task index and causal DAG",
+      "status": "PASS",
+      "details": {
+        "tasks": 2,
+        "errors": []
+      }
+    },
+    {
+      "name": "Current task and runtime state",
+      "status": "PASS",
+      "details": {
+        "project_status": "ACTIVE",
+        "current_task": "TSK-HARNESS-DEMO-TASK-CLI-001",
+        "run": "RUN-HARNESS-DEMO-TASK-CLI-001-A1",
+        "errors": []
+      }
+    },
+    {
+      "name": "Protected control-plane phase boundary",
+      "status": "PASS",
+      "details": {
+        "status": "PASS",
+        "changed": [],
+        "deleted": [],
+        "unexpected": [],
+        "unsafe": [],
+        "phase": "HANDOFF_SEALED",
+        "boundary_digest": "sha256:24cc78f6fd05b2fb47b6ff9726c94e67038dd493a2d612f4d79c455193505972",
+        "agent_result": {
+          "status": "ABSENT",
+          "path": ".harness/runtime/AGENT_RESULTS/RUN-HARNESS-DEMO-TASK-CLI-001-A1.json"
+        }
+      }
+    },
+    {
+      "name": "JIT prompt bundles",
+      "status": "PASS",
+      "details": {
+        "count": 1,
+        "refs": [
+          "CPB-HARNESS-DEMO-TASK-CLI-001-A1"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "name": "Project skill resolution index",
+      "status": "PASS",
+      "details": {
+        "errors": []
+      }
+    },
+    {
+      "name": "Provider accounting remains excluded",
+      "status": "PASS",
+      "details": {
+        "hits": []
+      }
+    },
+    {
+      "name": "Stage transaction journals and crash recovery",
+      "status": "PASS",
+      "details": {
+        "recovery": {
+          "status": "PASS",
+          "recovered": [],
+          "transactions": 0
+        },
+        "validation": {
+          "status": "PASS",
+          "transactions": 0,
+          "committed": 0,
+          "rolled_back": 0,
+          "latest_completed_transition": null,
+          "errors": []
+        }
+      }
+    },
+    {
+      "name": "Persisted runtime continuation and Stage boundary reachability",
+      "status": "PASS",
+      "details": {
+        "status": "PASS",
+        "project_status": "ACTIVE",
+        "next_route": "EXECUTE_CURRENT_TASK_WITH_CODEX",
+        "active_stage": "PROTOTYPE",
+        "execution_stage": "PROTOTYPE",
+        "stage_plan_ref": "STG-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1",
+        "gate_ref": "GATE-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1",
+        "stage_plan_status": "ACTIVE",
+        "gate_status": "ACTIVE",
+        "current_task_ref": "TSK-HARNESS-DEMO-TASK-CLI-001",
+        "continuation": {
+          "route": "VERIFY_CURRENT_TASK",
+          "command": "project-harness verify --project <root> --allow-command-execution",
+          "reason": "Execute the current JIT with external Codex, then run independent verification.",
+          "external_prerequisite": "External agent implementation"
+        },
+        "maintenance_route": null,
+        "errors": []
+      }
+    },
+    {
+      "name": "Governed same-level maintenance artifacts",
+      "status": "PASS",
+      "details": {
+        "status": "PASS",
+        "plans": 0,
+        "open_work_packages": [],
+        "active_plan_ref": null,
+        "errors": []
+      }
+    }
+  ],
+  "errors": [],
+  "stage_transaction_recovery": {
+    "recovery": {
+      "status": "PASS",
+      "recovered": [],
+      "transactions": 0
+    },
+    "validation": {
+      "status": "PASS",
+      "transactions": 0,
+      "committed": 0,
+      "rolled_back": 0,
+      "latest_completed_transition": null,
+      "errors": []
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "command": [
+    "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_lw_04_http.FlaskAppSecurityTests",
+    "tests.test_ph_lw_05_import",
+    "tests.test_ph_lw_05_http"
+  ],
+  "cwd": "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+  "started_utc": "2026-11-06T23:16:01.918325+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 900,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 210.875,
+  "log_sha256": "4dbc6a8c25f671d18691d7f105f8a455daad4512c655ed533f73272c9f2f415e"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "suite05-test_ph_f01_gate_semantics_regression-nonbrowser",
+  "command": [
+    "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\source\\suite05-test_ph_f01_gate_semantics_regression-nonbrowser.log",
+    "tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_01_preparation_fixture_has_all_four_mandatory_proof_kinds",
+    "tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds",
+    "tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_keeps_gate_unclosed_without_subject_proofs"
+  ],
+  "cwd": "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 35.646,
+  "environment_ref": "INPUT_BASELINE.json",
+  "modules": [
+    "tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_01_preparation_fixture_has_all_four_mandatory_proof_kinds",
+    "tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds",
+    "tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_keeps_gate_unclosed_without_subject_proofs"
+  ],
+  "ran": 3,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "log": "suite05-test_ph_f01_gate_semantics_regression-nonbrowser.log",
+  "process_status": "PASS",
+  "log_sha256": "5c18aecab58160ced53a8aed6cb33264a569a0a8a46288f1775b6f35562056ae",
+  "scope": "SOURCE_LAYOUT_ONLY",
+  "runtime_freeze_sha256": "01ef2ddce6e42787b5937f937112f0b02ddefb05321eb348d59319a08bd941cf"
+}

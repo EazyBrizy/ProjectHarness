@@ -1,0 +1,16 @@
+{
+  "modules": [
+    "tests.test_ph_lw_11_desktop.NativeLauncherTests.test_dpapi_and_native_mutex_subprocess",
+    "tests.test_ph_lw_11_desktop.NativeLauncherTests.test_edge_manual_code_login_without_fragment_or_external_requests",
+    "tests.test_ph_lw_11_desktop.NativeLauncherTests.test_fresh_authenticated_handshake_and_spoof_listener",
+    "tests.test_ph_lw_11_desktop.NativeLauncherTests.test_launcher_resume_and_new_cookie_tab_keep_independent_navigation",
+    "tests.test_ph_lw_11_desktop.NativeLauncherTests.test_upload_success_waits_for_refresh_before_interview_can_start"
+  ],
+  "ran": 5,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 9.005,
+  "log": "test_ph_lw_11_desktop-browser.log",
+  "status": "PASS"
+}

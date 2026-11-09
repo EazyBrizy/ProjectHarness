@@ -1,0 +1,39 @@
+test_owned_receipt_remains_readable_during_backup_cleanup (tests.test_ph_lw_10_lifecycle.MigrationPollingTests.test_owned_receipt_remains_readable_during_backup_cleanup) ... ERROR
+
+======================================================================
+ERROR: test_owned_receipt_remains_readable_during_backup_cleanup (tests.test_ph_lw_10_lifecycle.MigrationPollingTests.test_owned_receipt_remains_readable_during_backup_cleanup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_10_lifecycle.py", line 111, in test_owned_receipt_remains_readable_during_backup_cleanup
+    current=service.get_operation(pid,op['operation_id'])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_service.py", line 600, in get_operation
+    self._registered(project_id)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_service.py", line 251, in _registered
+    pending_migration = item['kind'] in {'project','migration'} and migration_recovery_context(raw)
+                                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\lifecycle_forms.py", line 183, in migration_recovery_context
+    trees[name] = {p.relative_to(folder).as_posix(): sha256_file(p) for p in sorted(folder.rglob('*')) if p.is_file()}
+                                                     ~~~~~~~~~~~^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1176, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1180, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1247, in _execute_mock_call
+    result = effect(*args, **kwargs)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_10_lifecycle.py", line 105, in racing_read
+    return original(path)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\hashing.py", line 15, in sha256_file
+    with path.open("rb") as fh:
+         ~~~~~~~~~^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '<TEMP>\\LW10 concurrent migration 5nhhno7x\\legacy\\.handoff.ph05110-backup-faa11e05d5e249f3b08eecb5569449ff\\.harness\\canonical\\ARCHITECTURE\\ARB-HARNESS-DEMO-TASK-CLI-001@1.yaml'
+
+----------------------------------------------------------------------
+Ran 1 test in 17.899s
+
+FAILED (errors=1)

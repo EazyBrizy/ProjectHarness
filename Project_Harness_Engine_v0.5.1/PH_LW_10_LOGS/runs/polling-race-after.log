@@ -1,0 +1,6 @@
+test_owned_receipt_remains_readable_during_backup_cleanup (tests.test_ph_lw_10_lifecycle.MigrationPollingTests.test_owned_receipt_remains_readable_during_backup_cleanup) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 16.472s
+
+OK

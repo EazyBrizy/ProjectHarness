@@ -1,0 +1,16 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "-c",
+    "from pathlib import Path; from local_web.run_windows_acceptance import run_suite; names=['tests.test_ph_lw_04_http','tests.test_ph_lw_05_http','tests.test_ph_lw_04_05_acceptance','tests.test_ph_lw_06_http','tests.test_ph_lw_07_http','tests.test_ph_lw_08_http','tests.test_ph_lw_09_http','tests.test_ph_lw_10_http']; r=run_suite(names,Path('_scratch/ph_lw_10/ui-final/tests.log'),reject_skips=True); raise SystemExit(0 if r['status']=='PASS' else 1)"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T13:11:40.439591+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 1800,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 555.126,
+  "log_sha256": "9dfc47ed15723f3882d41e59c0ed66c483f0de7348b5606d42471ee07d3fb5e1"
+}

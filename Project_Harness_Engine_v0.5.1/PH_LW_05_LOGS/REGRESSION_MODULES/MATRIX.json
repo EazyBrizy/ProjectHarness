@@ -1,0 +1,261 @@
+{
+  "modules": [
+    {
+      "module": "test_assessment_freshness",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 43.89,
+      "result_tail": "----------------------------------------------------------------------\nRan 10 tests in 42.519s\n\nOK\n"
+    },
+    {
+      "module": "test_canonical_target",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 14.67,
+      "result_tail": "----------------------------------------------------------------------\nRan 5 tests in 13.255s\n\nOK\n"
+    },
+    {
+      "module": "test_contract_hardening",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 40.5,
+      "result_tail": "----------------------------------------------------------------------\nRan 31 tests in 38.636s\n\nOK\n"
+    },
+    {
+      "module": "test_engine",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 21.83,
+      "result_tail": "----------------------------------------------------------------------\nRan 14 tests in 20.488s\n\nOK\n"
+    },
+    {
+      "module": "test_exact_assessment_ref",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 29.0,
+      "result_tail": "----------------------------------------------------------------------\nRan 5 tests in 27.901s\n\nOK\n"
+    },
+    {
+      "module": "test_gate_evidence_contract",
+      "status": "TIMEOUT",
+      "returncode": null,
+      "duration_seconds": 75.09,
+      "result_tail": "\nTIMEOUT after 75 seconds\n"
+    },
+    {
+      "module": "test_implementation_levels",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 54.18,
+      "result_tail": "----------------------------------------------------------------------\nRan 8 tests in 52.760s\n\nOK\n"
+    },
+    {
+      "module": "test_maintenance_lifecycle",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 70.31,
+      "result_tail": "----------------------------------------------------------------------\nRan 7 tests in 68.994s\n\nOK\n"
+    },
+    {
+      "module": "test_ph_051_01_contract_baseline",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 4.23,
+      "result_tail": "----------------------------------------------------------------------\nRan 10 tests in 1.465s\n\nOK\n"
+    },
+    {
+      "module": "test_ph_051_02_executor_protocol",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 1.59,
+      "result_tail": "----------------------------------------------------------------------\nRan 24 tests in 0.180s\n\nOK\n"
+    },
+    {
+      "module": "test_ph_051_03_rootless_podman",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 1.65,
+      "result_tail": "----------------------------------------------------------------------\nRan 20 tests in 0.191s\n\nOK (skipped=1)\n"
+    },
+    {
+      "module": "test_ph_051_04_disposable_roots",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 21.79,
+      "result_tail": "----------------------------------------------------------------------\nRan 21 tests in 20.541s\n\nOK\n"
+    },
+    {
+      "module": "test_ph_051_05_codex_adapter",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 5.12,
+      "result_tail": "----------------------------------------------------------------------\nRan 15 tests in 3.867s\n\nOK (skipped=1)\n"
+    },
+    {
+      "module": "test_ph_051_06_result_channel",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 3.43,
+      "result_tail": "----------------------------------------------------------------------\nRan 13 tests in 2.012s\n\nOK\n"
+    },
+    {
+      "module": "test_ph_051_07_sandbox_verification",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 1.18,
+      "result_tail": "----------------------------------------------------------------------\nRan 9 tests in 0.028s\n\nOK\n"
+    },
+    {
+      "module": "test_ph_051_08_atomic_apply",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 35.13,
+      "result_tail": "----------------------------------------------------------------------\nRan 25 tests in 33.579s\n\nOK\n"
+    },
+    {
+      "module": "test_ph_051_09_automatic_runtime",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 21.14,
+      "result_tail": "----------------------------------------------------------------------\nRan 15 tests in 19.827s\n\nOK\n"
+    },
+    {
+      "module": "test_ph_051_10_migration_recovery",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 17.02,
+      "result_tail": "----------------------------------------------------------------------\nRan 17 tests in 15.802s\n\nOK\n"
+    },
+    {
+      "module": "test_ph_051_11_operator_docs",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 1.09,
+      "result_tail": "----------------------------------------------------------------------\nRan 5 tests in 0.010s\n\nOK\n"
+    },
+    {
+      "module": "test_ph_f01_gate_semantics_regression",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 11.9,
+      "result_tail": "----------------------------------------------------------------------\nRan 3 tests in 10.672s\n\nOK\n"
+    },
+    {
+      "module": "test_ph_f01_planner_regression",
+      "status": "FAIL",
+      "returncode": 1,
+      "duration_seconds": 25.25,
+      "result_tail": "^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/subprocess.py\", line 1972, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nPermissionError: [Errno 13] Permission denied: '/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/bin/project-harness'\n\n----------------------------------------------------------------------\nRan 6 tests in 24.160s\n\nFAILED (errors=6)\n"
+    },
+    {
+      "module": "test_ph_f02_semantic_proof_contract",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 3.54,
+      "result_tail": "----------------------------------------------------------------------\nRan 5 tests in 2.162s\n\nOK\n"
+    },
+    {
+      "module": "test_ph_f03_active_stage_planning",
+      "status": "FAIL",
+      "returncode": 1,
+      "duration_seconds": 28.23,
+      "result_tail": "y\", line 1801, in _posix_spawn\n    self.pid = os.posix_spawn(executable, args, env, **kwargs)\n               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nPermissionError: [Errno 13] Permission denied: '/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/bin/project-harness'\n\n----------------------------------------------------------------------\nRan 8 tests in 26.843s\n\nFAILED (errors=1)\n"
+    },
+    {
+      "module": "test_ph_f04_runtime_reachability",
+      "status": "FAIL",
+      "returncode": 1,
+      "duration_seconds": 17.49,
+      "result_tail": "\", line 1801, in _posix_spawn\n    self.pid = os.posix_spawn(executable, args, env, **kwargs)\n               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nPermissionError: [Errno 13] Permission denied: '/mnt/data/ph_lw05_work/source/Project_Harness_Engine_v0.5.1/bin/project-harness'\n\n----------------------------------------------------------------------\nRan 10 tests in 15.974s\n\nFAILED (errors=1)\n"
+    },
+    {
+      "module": "test_ph_f05_intake_acceptance",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 3.31,
+      "result_tail": "----------------------------------------------------------------------\nRan 4 tests in 2.107s\n\nOK\n"
+    },
+    {
+      "module": "test_ph_f06_maturity_lifecycle",
+      "status": "TIMEOUT",
+      "returncode": null,
+      "duration_seconds": 75.1,
+      "result_tail": "\nTIMEOUT after 75 seconds\n"
+    },
+    {
+      "module": "test_ph_f08_release_acceptance",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 43.66,
+      "result_tail": "----------------------------------------------------------------------\nRan 2 tests in 42.133s\n\nOK\n"
+    },
+    {
+      "module": "test_ph_lw_01_contract",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 2.21,
+      "result_tail": "----------------------------------------------------------------------\nRan 9 tests in 0.885s\n\nOK\n"
+    },
+    {
+      "module": "test_ph_lw_02_windows_core",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 6.94,
+      "result_tail": "----------------------------------------------------------------------\nRan 14 tests in 5.681s\n\nOK (skipped=2)\n"
+    },
+    {
+      "module": "test_ph_lw_03_service",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 12.1,
+      "result_tail": "----------------------------------------------------------------------\nRan 15 tests in 10.985s\n\nOK (skipped=1)\n"
+    },
+    {
+      "module": "test_ph_lw_04_http",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 1.34,
+      "result_tail": "----------------------------------------------------------------------\nRan 15 tests in 0.026s\n\nOK (skipped=10)\n"
+    },
+    {
+      "module": "test_ph_lw_05_http",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 1.19,
+      "result_tail": "----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK (skipped=3)\n"
+    },
+    {
+      "module": "test_ph_lw_05_import",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 2.58,
+      "result_tail": "----------------------------------------------------------------------\nRan 14 tests in 1.329s\n\nOK\n"
+    },
+    {
+      "module": "test_stage_approval_preparation",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 14.79,
+      "result_tail": "----------------------------------------------------------------------\nRan 7 tests in 13.487s\n\nOK\n"
+    },
+    {
+      "module": "test_stage_gate_preparation_block_recovery",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 28.9,
+      "result_tail": "----------------------------------------------------------------------\nRan 5 tests in 27.771s\n\nOK\n"
+    },
+    {
+      "module": "test_stage_transaction_recovery",
+      "status": "PASS",
+      "returncode": 0,
+      "duration_seconds": 24.63,
+      "result_tail": "----------------------------------------------------------------------\nRan 15 tests in 23.470s\n\nOK\n"
+    }
+  ],
+  "totals": {
+    "PASS": 31,
+    "FAIL": 3,
+    "TIMEOUT": 2
+  }
+}

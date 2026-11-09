@@ -1,0 +1,7 @@
+COMMAND: python -m unittest -q tests.test_stage_transaction_recovery tests.test_maintenance_lifecycle tests.test_stage_approval_preparation tests.test_ph_f02_semantic_proof_contract
+----------------------------------------------------------------------
+Ran 34 tests in 463.872s
+
+OK
+
+EXIT_CODE=0

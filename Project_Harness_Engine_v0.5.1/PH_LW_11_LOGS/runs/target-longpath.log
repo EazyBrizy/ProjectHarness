@@ -1,0 +1,43 @@
+test_bootstrap_reissue_does_not_revoke_other_tabs (tests.test_ph_lw_11_desktop.DesktopContractTests.test_bootstrap_reissue_does_not_revoke_other_tabs) ... ok
+test_browser_failure_displays_only_native_fallback (tests.test_ph_lw_11_desktop.DesktopContractTests.test_browser_failure_displays_only_native_fallback) ... ok
+test_resume_read_is_readonly_restart_and_cas (tests.test_ph_lw_11_desktop.DesktopContractTests.test_resume_read_is_readonly_restart_and_cas) ... ok
+test_resume_rejects_unknown_fields_ids_paths_and_screen (tests.test_ph_lw_11_desktop.DesktopContractTests.test_resume_rejects_unknown_fields_ids_paths_and_screen) ... ok
+test_stop_busy_admission_and_background_work_then_clean_stop (tests.test_ph_lw_11_desktop.DesktopContractTests.test_stop_busy_admission_and_background_work_then_clean_stop) ... ok
+test_stop_requires_session_csrf_exact_origin_and_fields (tests.test_ph_lw_11_desktop.DesktopContractTests.test_stop_requires_session_csrf_exact_origin_and_fields) ... ok
+test_activate_replay_preserves_project_and_current_version (tests.test_ph_lw_11_desktop.InstallerTransactionTests.test_activate_replay_preserves_project_and_current_version) ... ok
+test_corruption_and_extra_files_refused_before_destination (tests.test_ph_lw_11_desktop.InstallerTransactionTests.test_corruption_and_extra_files_refused_before_destination) ... ok
+test_existing_foreign_directory_never_overwritten (tests.test_ph_lw_11_desktop.InstallerTransactionTests.test_existing_foreign_directory_never_overwritten) ... ok
+test_injected_enospc_and_interruption_preserve_current_and_retry (tests.test_ph_lw_11_desktop.InstallerTransactionTests.test_injected_enospc_and_interruption_preserve_current_and_retry) ... ok
+test_native_long_payload_path_without_system_setting_change (tests.test_ph_lw_11_desktop.InstallerTransactionTests.test_native_long_payload_path_without_system_setting_change) ... ERROR
+test_native_readonly_current_preserves_old_pointer (tests.test_ph_lw_11_desktop.InstallerTransactionTests.test_native_readonly_current_preserves_old_pointer) ... ok
+test_dpapi_and_native_mutex_subprocess (tests.test_ph_lw_11_desktop.NativeLauncherTests.test_dpapi_and_native_mutex_subprocess) ... ok
+test_fresh_authenticated_handshake_and_spoof_listener (tests.test_ph_lw_11_desktop.NativeLauncherTests.test_fresh_authenticated_handshake_and_spoof_listener) ... ok
+
+======================================================================
+ERROR: test_native_long_payload_path_without_system_setting_change (tests.test_ph_lw_11_desktop.InstallerTransactionTests.test_native_long_payload_path_without_system_setting_change)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_11_desktop.py", line 105, in tearDown
+    def tearDown(self):self.tmp.cleanup()
+                       ~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\_tools\Python314\Lib\tempfile.py", line 1055, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\tempfile.py", line 1035, in _rmtree
+    _shutil.rmtree(name, onexc=onexc, dir_fd=dir_fd, _onexc_kwargs=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\shutil.py", line 859, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\shutil.py", line 697, in _rmtree_unsafe
+    onexc(os.rmdir, fullname, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\shutil.py", line 693, in _rmtree_unsafe
+    os.rmdir(fullname)
+    ~~~~~~~~^^^^^^^^^^
+OSError: [WinError 145] Папка не пуста: '<TEMP>\\harness-lw11-package-r1flqk7z\\payload\\documentation\\nested-nested-nested-nested-nested-nested-nested-nested-nested-nested-nested-nested-nested-nested-nested-'
+
+----------------------------------------------------------------------
+Ran 14 tests in 6.836s
+
+FAILED (errors=1)

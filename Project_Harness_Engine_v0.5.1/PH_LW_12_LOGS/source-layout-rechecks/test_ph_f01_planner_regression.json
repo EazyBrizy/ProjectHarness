@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_ph_f01_planner_regression"
+  ],
+  "ran": 6,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 189.823,
+  "log": "test_ph_f01_planner_regression.log",
+  "status": "PASS"
+}

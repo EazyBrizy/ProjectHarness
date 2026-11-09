@@ -1,0 +1,9 @@
+test_external_project_conflict_is_not_replayed_automatically (tests.test_ph_lw_12_blockers.BlockerBrowserTests.test_external_project_conflict_is_not_replayed_automatically) ... ok
+test_multipart_result_waits_for_navigation_resume (tests.test_ph_lw_12_blockers.BlockerBrowserTests.test_multipart_result_waits_for_navigation_resume) ... ok
+test_project_card_matches_fresh_core_after_browser_block (tests.test_ph_lw_12_blockers.BlockerBrowserTests.test_project_card_matches_fresh_core_after_browser_block) ... ok
+test_result_upload_waits_for_prior_project_read_without_post_replay (tests.test_ph_lw_12_blockers.BlockerBrowserTests.test_result_upload_waits_for_prior_project_read_without_post_replay) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 75.066s
+
+OK

@@ -1,0 +1,9 @@
+{
+  "scope": "Startup/snapshots for long project AND app-data roots. Snapshot retention covers all Harness-owned files, excluding unrelated browser profiles (same original domain).",
+  "user_directive": "Use existing authorized browser window; do not open new visible browser windows.",
+  "second_launch": "Real Harness.exe --no-browser: existing product contract requires rejection with exact exit 1; first process/mutex/catalog checks unchanged. Normal second launch that opens a browser is NOT RUN in this repeat per user directive.",
+  "headless_browser_tests": "Pinned existing Edge headless isolated test contexts, no visible browser windows or account authentication.",
+  "old_test_files_changed": false,
+  "assertions_or_deadlines_weakened": false,
+  "adjusted_assertion": "Only the new adapter expectation for the user-requested no-browser command: exact exit 1 instead of the ordinary browser-launch exit 0. Original test files unchanged; GUI launch case is not claimed PASS."
+}

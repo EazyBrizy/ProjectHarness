@@ -1,0 +1,3 @@
+# Windows acceptance evidence
+
+Raw runs remain in workspace `_scratch`. Published copies replace workspace/user/temp paths and bootstrap URL values. `EVIDENCE_INDEX.json` binds raw and redacted SHA-256 separately; hashes inside copied raw run metadata refer to the raw logs. Final matrix explicitly supersedes older runs; failures, subtest errors and skips are retained. The initial monolithic run was interrupted after the confirmed Windows fsync defect; the bounded 37-module run replaces it. Exploratory browser harness failures (CORS event observation, form navigation, hidden locator) are retained in workspace; final stage/installed-wheel runs use the corrected fixtures. No private user documents or active credentials are included.

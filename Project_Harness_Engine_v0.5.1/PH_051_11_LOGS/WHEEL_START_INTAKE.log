@@ -1,0 +1,62 @@
+ARGV: /mnt/data/ph05111_work/wheel_venv/bin/project-harness start-intake --workspace /mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/intake --project-name Sample Intake --mode greenfield
+EXIT: 3
+STDOUT:
+{
+  "status": "WAITING_INPUT",
+  "workspace": "/mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/intake",
+  "session_ref": "SES-SAMPLE-INTAKE-001",
+  "questions_path": "/mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/intake/QUESTIONS.md",
+  "project_input_path": "/mnt/data/ph05111_work/OPERATOR_SMOKE_PROJECT/intake/PROJECT_INPUT.yaml",
+  "readiness": {
+    "status": "WAITING_INPUT",
+    "schema_id": "SCHEMA-PROJECT-PREPARATION-INPUT@4",
+    "schema_version": 4,
+    "missing_fields": [
+      "project.documentation.availability",
+      "project.problem_statement",
+      "project.primary_outcome",
+      "implementation.target_level",
+      "project.users",
+      "project.scale.initial",
+      "project.connectivity",
+      "project.platforms",
+      "project.deployment.target",
+      "project.data.sensitivity",
+      "project.success_criteria",
+      "project.scope.in",
+      "profile.ref",
+      "architecture.summary",
+      "architecture.style",
+      "architecture.components",
+      "technology.selections",
+      "planning.work_packages"
+    ],
+    "missing_approvals": [
+      "project_definition",
+      "architecture_baseline",
+      "technology_baseline",
+      "codex_handoff"
+    ],
+    "errors": [],
+    "warnings": [
+      "Explicit approvals are still required: project_definition, architecture_baseline, technology_baseline, codex_handoff"
+    ],
+    "implementation_recommendation": null,
+    "schema_errors": [],
+    "migration": {
+      "migration_id": "MIG-ENGINE-0.5.0-TO-0.5.1",
+      "execution_policy_migration_id": null,
+      "predecessor_migration_id": null,
+      "status": "NO_ACTION",
+      "from_schema_version": 4,
+      "to_schema_version": 4,
+      "actions": [],
+      "unknown_properties": [],
+      "requires_manual_correction": false
+    },
+    "task_count": 0,
+    "work_package_count": 0
+  }
+}
+
+STDERR:

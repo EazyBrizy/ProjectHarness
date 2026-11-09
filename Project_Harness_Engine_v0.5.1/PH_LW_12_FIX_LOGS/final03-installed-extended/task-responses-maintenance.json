@@ -1,0 +1,51 @@
+[
+  {
+    "path": "projects/LWP-729ED1A6A57AE8AB6BEC/operations",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-18128B5CBB4C9EB2E2010F29EFB8B869",
+      "state": "QUEUED"
+    }
+  },
+  {
+    "path": "projects/LWP-729ED1A6A57AE8AB6BEC/tasks/result-upload",
+    "status": 201,
+    "body": {
+      "binding_digest": "sha256:674d8646478a1ea45d603f68a221f0f087455cbe893da3af0d8ec0bd85cb161a",
+      "status": "STAGED_UNVERIFIED",
+      "upload_id": "LWR-3411F0EACD3BD3E42F2FE4A4983F51B81DB1A45563AC21E237CF85CA08AE4DB0"
+    }
+  },
+  {
+    "path": "projects/LWP-729ED1A6A57AE8AB6BEC/operations",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-0CB3436571B1BEA3212C7A14F56235A4",
+      "state": "QUEUED"
+    }
+  },
+  {
+    "path": "projects/LWP-729ED1A6A57AE8AB6BEC/operations",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-FD1D8DA47D16F441DDEC060B4F21458E",
+      "state": "QUEUED"
+    }
+  },
+  {
+    "path": "projects/LWP-729ED1A6A57AE8AB6BEC/operations",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-D190AD52A086BF322D34D7CDFA522EDC",
+      "state": "QUEUED"
+    }
+  },
+  {
+    "path": "projects/LWP-729ED1A6A57AE8AB6BEC/operations",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-313BB26CE55109838F72D991BBF79D59",
+      "state": "QUEUED"
+    }
+  }
+]

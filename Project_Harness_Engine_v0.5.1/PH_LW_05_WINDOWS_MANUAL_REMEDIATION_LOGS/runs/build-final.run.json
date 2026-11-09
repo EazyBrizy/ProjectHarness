@@ -1,0 +1,18 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "tools/package_acceptance.py",
+    "--output",
+    "_deliverables/PH_LW_05_WINDOWS_MANUAL_REMEDIATION_2026-11-07",
+    "--hash-name",
+    "PH_LW_05_WINDOWS_MANUAL_REMEDIATION_SHA256.txt"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T00:18:10.345675+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 300,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 11.178,
+  "log_sha256": "ed571e401172b9d84fb75123a7002a9e9d0859e0950ee952476d7b62fedeebce"
+}

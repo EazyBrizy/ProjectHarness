@@ -1,0 +1,20 @@
+{
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1\\local_web\\windows\\final_acceptance.py",
+    "--installer",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1\\windows\\Harness-Setup-win-x64.exe",
+    "--output",
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\installed-extended-final",
+    "--advanced-fixtures",
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\advanced-fixtures"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-08T10:30:12.708819+00:00",
+  "freeze_sha256": "71d1bdd414c72410b4d17f833b1e9c75d11c3b5286fa1b65214ef7b3b7e53f00",
+  "exit": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 405.784,
+  "log_sha256": "cbf602fc1811cc470acfcdef6fc9cb7309c9bd885f3e7032df587f2df047e200"
+}

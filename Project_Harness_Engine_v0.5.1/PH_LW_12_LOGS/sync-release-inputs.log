@@ -1,0 +1,17 @@
+Processing .\.
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: project-harness-engine
+  Building wheel for project-harness-engine (pyproject.toml): started
+  Building wheel for project-harness-engine (pyproject.toml): finished with status 'done'
+  Created wheel for project-harness-engine: filename=project_harness_engine-0.5.1-py3-none-any.whl size=939187 sha256=aceab24a8599667130875e0331e5d7c114ce5e48b7647ebb3aa161d148d996f7
+  Stored in directory: <TEMP>\pip-ephem-wheel-cache-zar_e5ff\wheels\32\e2\08\3d08569f61b74ebdf383ad88cc3a38c85693183d811bf44bf7
+Successfully built project-harness-engine
+{
+  "status": "PASS",
+  "engine_build_digest": "sha256:346991463712efee4470e523b515cec4732bfd8d33d655815361624681c64b5b",
+  "zip_created": false,
+  "engine_manifest_sha256": "168f5d08d78acde4aec195ba475f5ab14a93ae098b80dee6435bec633234b4a9",
+  "docs_manifest_sha256": "7888fcd4b78321577cd640d25110fab862821c93f7a15c4e838f5d8d016ce092",
+  "wheel_sha256": "aceab24a8599667130875e0331e5d7c114ce5e48b7647ebb3aa161d148d996f7"
+}

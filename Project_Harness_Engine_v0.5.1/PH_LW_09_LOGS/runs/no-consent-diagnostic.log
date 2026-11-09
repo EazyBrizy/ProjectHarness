@@ -1,0 +1,18 @@
+test_no_consent_never_executes_product_commands (tests.test_ph_lw_09_tasks.TaskConsoleTests.test_no_consent_never_executes_product_commands) ... FAIL
+
+======================================================================
+FAIL: test_no_consent_never_executes_product_commands (tests.test_ph_lw_09_tasks.TaskConsoleTests.test_no_consent_never_executes_product_commands)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_09_tasks.py", line 120, in test_no_consent_never_executes_product_commands
+    accepted=self.verify(True);self.assertEqual(accepted['state'],'SUCCEEDED',accepted)
+                               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'BLOCKED' != 'SUCCEEDED'
+- BLOCKED
++ SUCCEEDED
+ : {'operation_id': 'LWO-8838B933C80B44466E78CF5D7E493394', 'project_id': 'LWP-4EF58891872CC77E8A60', 'action': 'verify', 'request_digest': 'sha256:fa056721ab4f053ae8a7d6681f9c1ce0135bfe9da904708130b0e63a4de062a0', 'expected_fingerprint': 'sha256:55a4a9972a8100670972e27ea5f2ac87c0d54c88e260ef1542cfa0a4d7ad5206', 'created_at': '2026-11-07T04:59:54Z', 'updated_at': '2026-11-07T04:59:55Z', 'started_at': '2026-11-07T04:59:54Z', 'finished_at': '2026-11-07T04:59:55Z', 'state': 'BLOCKED', 'phase': 'RECONCILIATION_REQUIRED', 'core_before': 'sha256:55a4a9972a8100670972e27ea5f2ac87c0d54c88e260ef1542cfa0a4d7ad5206', 'core_after': None, 'before_active_run_ref': None, 'expected_draft_after': None, 'result': None, 'error': {'code': 'VALIDATION_FAILED', 'message_ru': 'Запрос или состояние проекта не прошли проверку.', 'next_action_ru': 'Проверьте данные и текущий статус, затем создайте новое действие.'}, 'receipt': {'kind': 'LOCAL_WEB_OPERATION_RECEIPT', 'receipt_version': 1, 'operation_id': 'LWO-8838B933C80B44466E78CF5D7E493394', 'project_ref': 'LWP-4EF58891872CC77E8A60', 'action_id': 'LW-C12', 'idempotency_key': 'task-test-key-00000003', 'request_sha256': 'sha256:fa056721ab4f053ae8a7d6681f9c1ce0135bfe9da904708130b0e63a4de062a0', 'expected_core_fingerprint': 'sha256:55a4a9972a8100670972e27ea5f2ac87c0d54c88e260ef1542cfa0a4d7ad5206', 'core_outcome': 'UNKNOWN_RECONCILE', 'created_at': '2026-11-07T04:59:54Z', 'verification_consent': {'binding_digest': 'sha256:3169e35914eb3ced2a1fa4c5e08f362057e06eb84effd965d67f5820b1871d2c', 'plan_digest': 'sha256:818a31cd7472bab4752dad3031b12771cc1940270fc4bd28b66e40248bed891f', 'consent': True}}, 'record_digest': 'sha256:2e5e97df41892e8b12e83c85b5141f63cc7ee08fc38f7187bab34213085051d8'}
+
+----------------------------------------------------------------------
+Ran 1 test in 14.898s
+
+FAILED (failures=1)

@@ -1,0 +1,19 @@
+{
+  "command": [
+    "./.venv/Scripts/python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_lw_10_http",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_interruption_after_commit_never_reexecutes"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T11:37:11.464149+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 1800,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 202.735,
+  "log_sha256": "fce7935a9c669264ec45f978b48cd1ff41814fc336c55c14bc1b851220f9cfea"
+}

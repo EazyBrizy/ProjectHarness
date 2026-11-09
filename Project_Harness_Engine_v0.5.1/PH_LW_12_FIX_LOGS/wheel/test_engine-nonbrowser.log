@@ -1,0 +1,19 @@
+test_01_doctor_passes (tests.test_engine.ProjectHarnessTests.test_01_doctor_passes) ... ok
+test_02_start_intake_is_external_and_waits_for_input (tests.test_engine.ProjectHarnessTests.test_02_start_intake_is_external_and_waits_for_input) ... ok
+test_03_complete_answers_still_require_explicit_approvals (tests.test_engine.ProjectHarnessTests.test_03_complete_answers_still_require_explicit_approvals) ... ok
+test_04_greenfield_handoff_is_valid_and_jit (tests.test_engine.ProjectHarnessTests.test_04_greenfield_handoff_is_valid_and_jit) ... ok
+test_05_manifest_detects_tampering (tests.test_engine.ProjectHarnessTests.test_05_manifest_detects_tampering) ... ok
+test_06_brownfield_intake_and_prepare_do_not_modify_source (tests.test_engine.ProjectHarnessTests.test_06_brownfield_intake_and_prepare_do_not_modify_source) ... ok
+test_07_next_is_idempotent_until_state_changes (tests.test_engine.ProjectHarnessTests.test_07_next_is_idempotent_until_state_changes) ... ok
+test_08_scope_violation_fails_independent_verification (tests.test_engine.ProjectHarnessTests.test_08_scope_violation_fails_independent_verification) ... ok
+test_09_agent_declared_diff_must_match_observed_diff (tests.test_engine.ProjectHarnessTests.test_09_agent_declared_diff_must_match_observed_diff) ... ok
+test_10_full_two_task_execution_reaches_stage_gate_and_jit_compiles_second (tests.test_engine.ProjectHarnessTests.test_10_full_two_task_execution_reaches_stage_gate_and_jit_compiles_second) ... ok
+test_11_block_resume_preserves_history_and_uses_new_attempt (tests.test_engine.ProjectHarnessTests.test_11_block_resume_preserves_history_and_uses_new_attempt) ... ok
+test_12_zip_traversal_is_rejected (tests.test_engine.ProjectHarnessTests.test_12_zip_traversal_is_rejected) ... ok
+test_13_normal_brownfield_zip_is_accepted_and_remains_immutable (tests.test_engine.ProjectHarnessTests.test_13_normal_brownfield_zip_is_accepted_and_remains_immutable) ... ok
+test_14_provider_accounting_fields_are_rejected (tests.test_engine.ProjectHarnessTests.test_14_provider_accounting_fields_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 91.219s
+
+OK

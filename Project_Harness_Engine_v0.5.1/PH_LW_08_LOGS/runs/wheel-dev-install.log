@@ -1,0 +1,16 @@
+Looking in links: _tools/devwheelhouse
+Processing .\_tools\devwheelhouse\attrs-26.1.0-py3-none-any.whl (from -r _workspace/requirements-dev-win_amd64-cp314.lock (line 4))
+Processing .\_tools\devwheelhouse\greenlet-3.5.6-cp314-cp314-win_amd64.whl (from -r _workspace/requirements-dev-win_amd64-cp314.lock (line 5))
+Processing .\_tools\devwheelhouse\jsonschema_specifications-2025.9.1-py3-none-any.whl (from -r _workspace/requirements-dev-win_amd64-cp314.lock (line 6))
+Processing .\_tools\devwheelhouse\jsonschema-4.26.0-py3-none-any.whl (from -r _workspace/requirements-dev-win_amd64-cp314.lock (line 7))
+Processing .\_tools\devwheelhouse\packaging-26.3-py3-none-any.whl (from -r _workspace/requirements-dev-win_amd64-cp314.lock (line 8))
+Processing .\_tools\devwheelhouse\playwright-1.64.1-py3-none-win_amd64.whl (from -r _workspace/requirements-dev-win_amd64-cp314.lock (line 9))
+Processing .\_tools\devwheelhouse\pyee-14.0.0-py3-none-any.whl (from -r _workspace/requirements-dev-win_amd64-cp314.lock (line 10))
+Processing .\_tools\devwheelhouse\referencing-0.37.0-py3-none-any.whl (from -r _workspace/requirements-dev-win_amd64-cp314.lock (line 11))
+Processing .\_tools\devwheelhouse\rpds_py-2026.9.1-cp314-cp314-win_amd64.whl (from -r _workspace/requirements-dev-win_amd64-cp314.lock (line 12))
+Processing .\_tools\devwheelhouse\setuptools-84.2.1-py3-none-any.whl (from -r _workspace/requirements-dev-win_amd64-cp314.lock (line 13))
+Processing .\_tools\devwheelhouse\typing_extensions-4.16.0-py3-none-any.whl (from -r _workspace/requirements-dev-win_amd64-cp314.lock (line 14))
+Processing .\_tools\devwheelhouse\wheel-0.48.0-py3-none-any.whl (from -r _workspace/requirements-dev-win_amd64-cp314.lock (line 15))
+Installing collected packages: typing-extensions, setuptools, rpds-py, packaging, greenlet, attrs, wheel, referencing, pyee, playwright, jsonschema-specifications, jsonschema
+
+Successfully installed attrs-26.1.0 greenlet-3.5.6 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 packaging-26.3 playwright-1.64.1 pyee-14.0.0 referencing-0.37.0 rpds-py-2026.9.1 setuptools-84.2.1 typing-extensions-4.16.0 wheel-0.48.0

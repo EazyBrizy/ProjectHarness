@@ -1,0 +1,22 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "tools/run_regressions.py",
+    "--output",
+    "_scratch/ph_lw_09_manual_evidence/core-manual-recheck",
+    "--jobs",
+    "1",
+    "--timeout",
+    "3600",
+    "tests.test_ph_f06_maturity_lifecycle"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T09:49:47.874176+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 3900,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 1773.877,
+  "log_sha256": "df42d4c445361ee543c1a2d71b743a528b908519dea2655a6fe641ee8c1d03b0"
+}

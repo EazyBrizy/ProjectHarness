@@ -1,0 +1,1225 @@
+{
+  "scope": "Fresh final runs only; diagnostic failures retained separately",
+  "methods": {
+    "tests.test_contract_hardening.ContractHardeningBrownfieldTests.test_brownfield_four_approvals_waits_for_separate_decision": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningBrownfieldTests.test_explicit_brownfield_approval_creates_immutable_decision": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningBrownfieldTests.test_greenfield_four_approvals_is_ready": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningControlPlaneTests.test_agent_result_hardlink_is_rejected": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningControlPlaneTests.test_agent_result_symlink_is_rejected": {
+      "status": "SKIP",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningControlPlaneTests.test_declared_product_diff_still_passes": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningControlPlaneTests.test_exact_regular_result_and_kernel_verify_records_are_allowed": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningControlPlaneTests.test_product_change_after_verify_requires_reverification": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningControlPlaneTests.test_project_lock_mutation_blocks_before_commands": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningControlPlaneTests.test_prompt_bundle_deletion_blocks_before_commands": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningControlPlaneTests.test_task_contract_mutation_blocks_before_commands": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningControlPlaneTests.test_unexpected_protected_file_is_detected": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningControlPlaneTests.test_verification_command_control_plane_write_is_not_sealed_as_trusted": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningControlPlaneTests.test_wrong_run_result_file_is_unexpected": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningMigrationTests.test_completed_v041_history_is_preserved_and_requires_maturity_review": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningMigrationTests.test_migration_preserves_unknown_properties_and_reports_exact_paths": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningMigrationTests.test_migration_with_agent_output_fails_transactionally": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningMigrationTests.test_project_migration_requires_target_without_mutation": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningMigrationTests.test_unexecuted_v041_project_is_recompiled_and_migration_is_idempotent": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningMigrationTests.test_v1_to_v4_migration_is_explicit_conservative_and_idempotent": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningSchemaTests.test_conditional_brownfield_approval_is_enforced_by_both_layers": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningSchemaTests.test_machine_schema_and_python_acceptance_match_fixture_matrix": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningSchemaTests.test_provider_accounting_inside_open_configuration_is_still_rejected": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningSchemaTests.test_unknown_properties_are_rejected_at_every_normative_level": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningSchemaTests.test_wrong_type_and_empty_required_collection_are_not_accepted": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningSensitivityTests.test_all_six_canonical_classes_are_ready": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningSensitivityTests.test_questionnaire_options_match_schema_enum": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningSensitivityTests.test_unknown_is_waiting_input_and_unrecognized_value_is_invalid": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningStatusTests.test_legacy_v041_completed_project_is_read_compatibly_without_rewrite": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningStatusTests.test_new_task_and_run_completed_values_are_rejected": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_contract_hardening.ContractHardeningStatusTests.test_success_uses_entity_specific_terminal_statuses": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_contract_hardening.log"
+    },
+    "tests.test_engine.ProjectHarnessTests.test_01_doctor_passes": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_engine.log"
+    },
+    "tests.test_engine.ProjectHarnessTests.test_02_start_intake_is_external_and_waits_for_input": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_engine.log"
+    },
+    "tests.test_engine.ProjectHarnessTests.test_03_complete_answers_still_require_explicit_approvals": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_engine.log"
+    },
+    "tests.test_engine.ProjectHarnessTests.test_04_greenfield_handoff_is_valid_and_jit": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_engine.log"
+    },
+    "tests.test_engine.ProjectHarnessTests.test_05_manifest_detects_tampering": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_engine.log"
+    },
+    "tests.test_engine.ProjectHarnessTests.test_06_brownfield_intake_and_prepare_do_not_modify_source": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_engine.log"
+    },
+    "tests.test_engine.ProjectHarnessTests.test_07_next_is_idempotent_until_state_changes": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_engine.log"
+    },
+    "tests.test_engine.ProjectHarnessTests.test_08_scope_violation_fails_independent_verification": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_engine.log"
+    },
+    "tests.test_engine.ProjectHarnessTests.test_09_agent_declared_diff_must_match_observed_diff": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_engine.log"
+    },
+    "tests.test_engine.ProjectHarnessTests.test_10_full_two_task_execution_reaches_stage_gate_and_jit_compiles_second": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_engine.log"
+    },
+    "tests.test_engine.ProjectHarnessTests.test_11_block_resume_preserves_history_and_uses_new_attempt": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_engine.log"
+    },
+    "tests.test_engine.ProjectHarnessTests.test_12_zip_traversal_is_rejected": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_engine.log"
+    },
+    "tests.test_engine.ProjectHarnessTests.test_13_normal_brownfield_zip_is_accepted_and_remains_immutable": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_engine.log"
+    },
+    "tests.test_engine.ProjectHarnessTests.test_14_provider_accounting_fields_are_rejected": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_engine.log"
+    },
+    "tests.test_gate_evidence_contract.GateEvidenceContractTests.test_dangling_evidence_ref_is_rejected": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_gate_evidence_contract.log"
+    },
+    "tests.test_gate_evidence_contract.GateEvidenceContractTests.test_duplicate_conflicting_artifact_claiming_same_ref_is_rejected": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_gate_evidence_contract.log"
+    },
+    "tests.test_gate_evidence_contract.GateEvidenceContractTests.test_exact_valid_evidence_and_global_ref_pass": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_gate_evidence_contract.log"
+    },
+    "tests.test_gate_evidence_contract.GateEvidenceContractTests.test_explicit_unsupported_schema_version_is_invalid_not_legacy": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_gate_evidence_contract.log"
+    },
+    "tests.test_gate_evidence_contract.GateEvidenceContractTests.test_global_dangling_or_wrong_mapping_ref_blocks_acceptance": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_gate_evidence_contract.log"
+    },
+    "tests.test_gate_evidence_contract.GateEvidenceContractTests.test_legacy_evidence_is_readable_but_cannot_close_new_gate": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_gate_evidence_contract.log"
+    },
+    "tests.test_gate_evidence_contract.GateEvidenceContractTests.test_missing_provenance_stale_base_and_nonpositive_status_are_rejected": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_gate_evidence_contract.log"
+    },
+    "tests.test_gate_evidence_contract.GateEvidenceContractTests.test_runtime_evidence_uses_exact_post_verification_product_revision": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_gate_evidence_contract.log"
+    },
+    "tests.test_gate_evidence_contract.GateEvidenceContractTests.test_tampering_or_deletion_after_acceptance_fails_project_validation": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_gate_evidence_contract.log"
+    },
+    "tests.test_gate_evidence_contract.GateEvidenceContractTests.test_wrong_kind_and_wrong_subject_mapping_are_rejected": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_gate_evidence_contract.log"
+    },
+    "tests.test_ph_051_10_migration_recovery.V051MigrationTests.test_01_real_v050_to_manual_v051_preserves_accepted_history_and_stage": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_051_10_migration_recovery.V051MigrationTests.log"
+    },
+    "tests.test_ph_051_10_migration_recovery.V051MigrationTests.test_02_idempotent_replay_preserves_every_byte": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_051_10_migration_recovery.V051MigrationTests.log"
+    },
+    "tests.test_ph_051_10_migration_recovery.V051MigrationTests.test_03_interrupt_after_old_rename_restores_exact_old_root": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_051_10_migration_recovery.V051MigrationTests.log"
+    },
+    "tests.test_ph_051_10_migration_recovery.V051MigrationTests.test_04_interrupt_after_new_rename_retains_committed_new": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_051_10_migration_recovery.V051MigrationTests.log"
+    },
+    "tests.test_ph_051_10_migration_recovery.V051MigrationTests.test_05_invalid_historical_control_rejected_without_migration": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_051_10_migration_recovery.V051MigrationTests.log"
+    },
+    "tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_05_supplied_proofs_survive_assessment_then_sequential_baseline_reports_and_planner": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.log"
+    },
+    "tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_06_readme_beta_missing_execution_evidence_do_not_accept_or_run_commands": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.log"
+    },
+    "tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_07_stale_tree_and_exact_assessment_digest_never_mutate_acceptance": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.log"
+    },
+    "tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_08_baseline_acceptance_cannot_bypass_concurrent_maintenance": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.log"
+    },
+    "tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_10_clean_read_only_assessment_keeps_reserved_run_executable": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.log"
+    },
+    "tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_11_assessment_never_launders_preexisting_control_plane_tampering": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.log"
+    },
+    "tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_12_normalized_proof_tamper_or_generic_pass_rejected_before_import": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.log"
+    },
+    "tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_13_stale_normalized_reimport_keeps_immutable_fact_and_downgrades_assessment": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.log"
+    },
+    "tests.test_ph_f06_maturity_lifecycle.PHF06MigrationTests.test_09_migration_restart_preserves_historical_completed_runs": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_f06_maturity_lifecycle.PHF06MigrationTests.log"
+    },
+    "tests.test_ph_lw_01_contract.PHLW01ContractTests.test_01_exact_26_cli_commands_with_no_invented_api": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_01_contract.PHLW01ContractTests.test_02_python_apis_actual_public_and_unavailable_demo": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_01_contract.PHLW01ContractTests.test_03_no_mutations_on_GET_and_unsafe_routes_classified": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_01_contract.PHLW01ContractTests.test_04_intake_approvals_distinct_and_manual_draft": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_01_contract.PHLW01ContractTests.test_05_strict_shell_schemas_and_untrusted_rejection": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_01_contract.PHLW01ContractTests.test_06_fixture_inventory_and_no_fake_prod_evidence": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_01_contract.PHLW01ContractTests.test_07_pinned_web_dependencies_only_not_imported_into_core": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_01_contract.PHLW01ContractTests.test_08_provenance_locked_and_release_verdict_separate": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_01_contract.PHLW01ContractTests.test_09_additive_resources_available_in_distribution": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_01_no_fcntl_during_package_cli_manual_import": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_02_windows_core.log"
+    },
+    "tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_02_unsupported_host_fails_closed_not_host_exec": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_02_windows_core.log"
+    },
+    "tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_03_windows_drive_device_unc_root_forms": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_02_windows_core.log"
+    },
+    "tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_04_windows_relative_drive_ads_device_and_escape": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_02_windows_core.log"
+    },
+    "tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_05_colliding_tree_rejected_without_rewriting_case": {
+      "status": "SKIP",
+      "evidence": "regressions-final/test_ph_lw_02_windows_core.log"
+    },
+    "tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_06_unsafe_zip_rejected_before_extraction": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_02_windows_core.log"
+    },
+    "tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_06b_unsafe_source_zip_rejected_before_intake_workspace_writes": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_02_windows_core.log"
+    },
+    "tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_07_utf8_crlf_and_atomic_temp_close": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_02_windows_core.log"
+    },
+    "tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_08_permission_or_busy_replace_propagates_without_writes": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_02_windows_core.log"
+    },
+    "tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_09_second_process_cannot_bypass_real_os_stage_lock": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_02_windows_core.log"
+    },
+    "tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_10_stage_fault_midwrite_reconciles_all_old": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_02_windows_core.log"
+    },
+    "tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_11_manual_greenfield_full_api_through_complete": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_02_windows_core.log"
+    },
+    "tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_12_native_windows_disk_root_and_read_only": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_02_windows_core.log"
+    },
+    "tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_13_native_windows_open_handle_replace_denial": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_02_windows_core.log"
+    },
+    "tests.test_ph_lw_03_service.LocalWebServiceTests.test_01_status_provisional_is_read_only_even_with_pending_input": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_03_service.log"
+    },
+    "tests.test_ph_lw_03_service.LocalWebServiceTests.test_02_project_status_is_byte_identical_with_stage_refs": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_03_service.log"
+    },
+    "tests.test_ph_lw_03_service.LocalWebServiceTests.test_03_check_intake_WAITING_INPUT_is_not_internal_error_and_replay": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_03_service.log"
+    },
+    "tests.test_ph_lw_03_service.LocalWebServiceTests.test_04_update_draft_invalidates_existing_approvals_atomically": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_03_service.log"
+    },
+    "tests.test_ph_lw_03_service.LocalWebServiceTests.test_05_unknown_field_sensitive_execution_and_unregistered_path_rejected_prewrite": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_03_service.log"
+    },
+    "tests.test_ph_lw_03_service.LocalWebServiceTests.test_06_stale_fingerprint_after_cli_mutation_rejected_before_draft": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_03_service.log"
+    },
+    "tests.test_ph_lw_03_service.LocalWebServiceTests.test_07_duplicate_next_two_service_instances_same_key_no_second_run": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_03_service.log"
+    },
+    "tests.test_ph_lw_03_service.LocalWebServiceTests.test_08_real_second_process_and_cli_cannot_bypass_lock": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_03_service.log"
+    },
+    "tests.test_ph_lw_03_service.LocalWebServiceTests.test_09_new_operation_does_not_run_from_stale_snapshot_after_next": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_03_service.log"
+    },
+    "tests.test_ph_lw_03_service.LocalWebServiceTests.test_10_crash_after_atomic_draft_write_before_ui_result_reconciles": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_03_service.log"
+    },
+    "tests.test_ph_lw_03_service.LocalWebServiceTests.test_11_prepare_is_real_core_zip_in_app_owned_folder_duplicate_no_overwrite": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_03_service.log"
+    },
+    "tests.test_ph_lw_03_service.LocalWebServiceTests.test_12_crash_after_handoff_publish_recovers_from_valid_exact_artifact": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_03_service.log"
+    },
+    "tests.test_ph_lw_03_service.LocalWebServiceTests.test_13_queued_durable_request_on_reconnect_not_replayed": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_03_service.log"
+    },
+    "tests.test_ph_lw_03_service.LocalWebServiceTests.test_14_crash_after_next_commit_cannot_claim_other_run_as_own": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_03_service.log"
+    },
+    "tests.test_ph_lw_03_service.LocalWebServiceTests.test_15_real_windows_two_process_ntfs_security": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_03_service.log"
+    },
+    "tests.test_ph_lw_05_import.LocalSourceImporter.test_append_name_conflict_and_stale_revisions_do_not_mutate_core": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_05_import.log"
+    },
+    "tests.test_ph_lw_05_import.LocalSourceImporter.test_corrupt_crc_oversized_entry_and_entry_count": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_05_import.log"
+    },
+    "tests.test_ph_lw_05_import.LocalSourceImporter.test_idempotent_identical_append_and_restart_replace_creates_revision": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_05_import.log"
+    },
+    "tests.test_ph_lw_05_import.LocalSourceImporter.test_malicious_zip_cases_rejected_without_workspace_change": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_05_import.log"
+    },
+    "tests.test_ph_lw_05_import.LocalSourceImporter.test_multiple_md_and_nested_zip_unicode_spaces_unsupported_attachment": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_05_import.log"
+    },
+    "tests.test_ph_lw_05_import.LocalSourceImporter.test_native_windows_snapshot_parent_junction_rejected": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_05_import.log"
+    },
+    "tests.test_ph_lw_05_import.LocalSourceImporter.test_prepared_project_route_is_rejected_before_mutation": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_05_import.log"
+    },
+    "tests.test_ph_lw_05_import.LocalSourceImporter.test_recoverable_refresh_fault_rollback_without_mixed_core": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_05_import.log"
+    },
+    "tests.test_ph_lw_05_import.LocalSourceImporter.test_recovery_can_be_explicit_after_restart_no_get_side_effect": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_05_import.log"
+    },
+    "tests.test_ph_lw_05_import.LocalSourceImporter.test_single_md_no_fake_authority_utf8_bom_and_plain_preview": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_05_import.log"
+    },
+    "tests.test_ph_lw_05_import.LocalSourceImporter.test_snapshot_digest_mismatch_blocks_preview_and_new_import": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_05_import.log"
+    },
+    "tests.test_ph_lw_05_import.LocalSourceImporter.test_snapshot_hardlink_and_copy_time_tamper_fail_closed": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_05_import.log"
+    },
+    "tests.test_ph_lw_05_import.LocalSourceImporter.test_special_symlink_fifo_reparse_and_encryption_rejected": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_05_import.log"
+    },
+    "tests.test_ph_lw_05_import.LocalSourceImporter.test_unsafe_top_level_filenames_and_encoding_fail": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_05_import.log"
+    },
+    "tests.test_ph_lw_05_import.LocalSourceImporter.test_upload_source_bytes_not_modified_and_no_command_started": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_05_import.log"
+    },
+    "tests.test_ph_lw_05_import.LocalSourceImporter.test_user_confirmed_no_docs_no_source_revised_and_no_fabricated_files": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_05_import.log"
+    },
+    "tests.test_ph_lw_05_import.LocalSourceImporter.test_zip_raw_source_can_exceed_md_entry_limit_and_replay": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_05_import.log"
+    },
+    "tests.test_ph_lw_06_exchange.ExchangeTests.test_actual_pack_limit_and_confidential_project_fail_closed": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_06_exchange.log"
+    },
+    "tests.test_ph_lw_06_exchange.ExchangeTests.test_ambiguous_recovery_preserves_cli_change": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_06_exchange.log"
+    },
+    "tests.test_ph_lw_06_exchange.ExchangeTests.test_commit_crash_after_and_before_atomic_public_api": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_06_exchange.log"
+    },
+    "tests.test_ph_lw_06_exchange.ExchangeTests.test_documented_and_no_documentation_greenfield_typed_draft_roundtrip": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_06_exchange.log"
+    },
+    "tests.test_ph_lw_06_exchange.ExchangeTests.test_export_policy_classification_consent_secrets_and_size": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_06_exchange.log"
+    },
+    "tests.test_ph_lw_06_exchange.ExchangeTests.test_forged_source_ref_and_semantic_repair_identifies_exact_field": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_06_exchange.log"
+    },
+    "tests.test_ph_lw_06_exchange.ExchangeTests.test_invalid_envelopes_are_no_write_and_repair_is_bounded": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_06_exchange.log"
+    },
+    "tests.test_ph_lw_06_exchange.ExchangeTests.test_large_pack_has_all_parts_counts_and_hashes": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_06_exchange.log"
+    },
+    "tests.test_ph_lw_06_exchange.ExchangeTests.test_native_child_process_crash_after_commit_then_restart_recovery": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_06_exchange.log"
+    },
+    "tests.test_ph_lw_06_exchange.ExchangeTests.test_parse_limits_duplicate_keys_yaml_deep_and_nonfinite_no_write": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_06_exchange.log"
+    },
+    "tests.test_ph_lw_06_exchange.ExchangeTests.test_read_only_interview_review_download_and_pack_binding": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_06_exchange.log"
+    },
+    "tests.test_ph_lw_06_exchange.ExchangeTests.test_reload_restart_exact_replay_and_cancel_before_commit": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_06_exchange.log"
+    },
+    "tests.test_ph_lw_06_exchange.ExchangeTests.test_source_provenance_reaffirmation_after_refresh": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_06_exchange.log"
+    },
+    "tests.test_ph_lw_06_exchange.ExchangeTests.test_stale_input_source_changed_and_two_previews_cannot_overwrite": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_06_exchange.log"
+    },
+    "tests.test_ph_lw_06_exchange.ExchangeTests.test_synthetic_existing_approvals_unchanged_binding_or_invalidation": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_06_exchange.log"
+    },
+    "tests.test_ph_lw_06_exchange.ExchangeTests.test_unknowns_unsure_and_pending_approvals_cannot_become_ready": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_06_exchange.log"
+    },
+    "tests.test_ph_lw_07_approvals.ApprovalTests.test_actor_is_explicit_once_and_server_time_ignores_build_epoch": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_07_approvals.log"
+    },
+    "tests.test_ph_lw_07_approvals.ApprovalTests.test_ambiguous_recovery_fails_closed_and_keeps_intent": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_07_approvals.log"
+    },
+    "tests.test_ph_lw_07_approvals.ApprovalTests.test_brownfield_hybrid_five_actions_baseline_order_and_repository_read_only": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_07_approvals.log"
+    },
+    "tests.test_ph_lw_07_approvals.ApprovalTests.test_concurrent_double_click_has_one_receipt": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_07_approvals.log"
+    },
+    "tests.test_ph_lw_07_approvals.ApprovalTests.test_four_independent_actions_ready_only_after_handoff_and_no_project": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_07_approvals.log"
+    },
+    "tests.test_ph_lw_07_approvals.ApprovalTests.test_get_is_read_only_with_actor_decisions_and_pending": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_07_approvals.log"
+    },
+    "tests.test_ph_lw_07_approvals.ApprovalTests.test_invalid_public_receipt_and_storage_budget_fail_before_write": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_07_approvals.log"
+    },
+    "tests.test_ph_lw_07_approvals.ApprovalTests.test_material_draft_change_invalidation_and_immutable_receipts": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_07_approvals.log"
+    },
+    "tests.test_ph_lw_07_approvals.ApprovalTests.test_missing_approval_and_wrong_sequence_are_no_write": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_07_approvals.log"
+    },
+    "tests.test_ph_lw_07_approvals.ApprovalTests.test_missing_material_fields_never_get_approved": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_07_approvals.log"
+    },
+    "tests.test_ph_lw_07_approvals.ApprovalTests.test_native_child_crash_before_after_commit_and_restart_recovery": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_07_approvals.log"
+    },
+    "tests.test_ph_lw_07_approvals.ApprovalTests.test_prepared_history_guard_and_bounded_unknown_subject": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_07_approvals.log"
+    },
+    "tests.test_ph_lw_07_approvals.ApprovalTests.test_replay_exact_after_restart_and_key_conflict_no_write": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_07_approvals.log"
+    },
+    "tests.test_ph_lw_07_approvals.ApprovalTests.test_rework_comment_only_current_draft_and_dependent_approvals_reset": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_07_approvals.log"
+    },
+    "tests.test_ph_lw_07_approvals.ApprovalTests.test_source_change_invalidates_and_stale_request_rejected": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_07_approvals.log"
+    },
+    "tests.test_ph_lw_07_approvals.ApprovalTests.test_stale_second_tab_fingerprint_and_subject_digest": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_07_approvals.log"
+    },
+    "tests.test_ph_lw_07_approvals.ApprovalTests.test_unbound_canonical_fields_block_until_explicit_reset": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_07_approvals.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_after_catalog": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_after_compile": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_after_result": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_after_validation": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_before_catalog": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_before_compile": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_before_rename": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_before_validation": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationJournalTests.test_persistent_read_handle_preserves_old_phase_and_requires_recovery": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationJournalTests.test_transient_get_read_handle_does_not_interrupt_atomic_phase_write": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationProcessCrashTests.test_real_process_exit_after_compile_rename_catalog": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationTests.test_different_target_stale_fingerprint_cross_project_and_build_binding": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationTests.test_existing_destination_sentinel_and_empty_folder_are_unchanged": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationTests.test_faults_recover_without_duplicate_compile_or_first_run": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationTests.test_invalid_names_paths_and_unknown_targets_reject": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationTests.test_missing_approval_readonly_get_and_no_target": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationTests.test_mutable_validation_does_not_require_initial_manifest_after_product_edit": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationTests.test_output_collision_is_never_sent_to_destructive_compiler": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationTests.test_partial_compile_explicit_retry_uses_new_staging_and_preserves_partial": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationTests.test_race_at_rename_never_clobbers_sentinel": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationTests.test_readonly_root_and_junction_rejected_before_mutation": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationTests.test_real_windows_locked_directory_handle_and_retry": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationTests.test_registered_open_folder_and_artifact_tamper": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationTests.test_single_md_and_zip_real_directory_validation_one_first_jit": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationTests.test_stale_sources_and_build_fail_before_compile": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationTests.test_target_collision_after_confirmation_before_worker_preserves_user_files": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_08_preparation.PreparationTests.test_zip_with_unicode_subdirectories": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_08_preparation.log"
+    },
+    "tests.test_ph_lw_09_manual_evidence.ManualEvidenceHttpTests.test_real_tcp_auth_consent_fields_replay_and_stale_view": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_09_manual_evidence.log"
+    },
+    "tests.test_ph_lw_09_manual_evidence.ManualEvidenceTests.test_automatic_and_unpermitted_manual_task_refused": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_09_manual_evidence.log"
+    },
+    "tests.test_ph_lw_09_manual_evidence.ManualEvidenceTests.test_block_resume_does_not_reuse_old_run_proof": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_09_manual_evidence.log"
+    },
+    "tests.test_ph_lw_09_manual_evidence.ManualEvidenceTests.test_consent_unknown_fields_and_missing_checks_rejected_before_mutation": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_09_manual_evidence.log"
+    },
+    "tests.test_ph_lw_09_manual_evidence.ManualEvidenceTests.test_control_tamper_or_partial_publication_never_becomes_trusted": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_09_manual_evidence.log"
+    },
+    "tests.test_ph_lw_09_manual_evidence.ManualEvidenceTests.test_fail_review_is_not_pass_and_cannot_be_overwritten": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_09_manual_evidence.log"
+    },
+    "tests.test_ph_lw_09_manual_evidence.ManualEvidenceTests.test_forged_stale_refs_plan_and_product_source_digest_rejected": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_09_manual_evidence.log"
+    },
+    "tests.test_ph_lw_09_manual_evidence.ManualEvidenceTests.test_later_product_edit_invalidates_manual_proof_even_on_reverify": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_09_manual_evidence.log"
+    },
+    "tests.test_ph_lw_09_manual_evidence.ManualEvidenceTests.test_positive_explicit_review_verify_complete_and_immutable_replay": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_09_manual_evidence.log"
+    },
+    "tests.test_ph_lw_09_manual_evidence.ManualEvidenceTests.test_review_file_tamper_is_safety_block_not_positive_evidence": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_09_manual_evidence.log"
+    },
+    "tests.test_ph_lw_09_manual_evidence.ManualEvidenceTests.test_strict_json_limits_and_duplicate_keys": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_ph_lw_09_manual_evidence.log"
+    },
+    "tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_internal_io_does_not_admit_device_unc_or_stream_input": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_long_preparation_publication_validation_and_first_jit": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_long_publication_recovery_never_reexecutes_compiler": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_11_zip_path.LongAppDataZipTests.test_deep_copy_time_tamper_and_hardlink_fail_closed": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_11_zip_path.LongAppDataZipTests.test_deep_snapshot_tamper_and_junction_rejected_readonly": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_11_zip_path.LongAppDataZipTests.test_imported_long_zip_document_manual_exchange_roundtrip": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_11_zip_path.LongAppDataZipTests.test_interrupted_zip_refresh_explicit_restart_recovery_exact_bytes": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_11_zip_path.LongAppDataZipTests.test_negative_zip_contracts_at_long_root_keep_canonical_bytes": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_11_zip_path.LongAppDataZipTests.test_nested_zip_long_path_preview_exact_bytes_and_readonly": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_11_zip_path.LongAppDataZipTests.test_zip_append_replay_restart_replace_preserves_old_snapshot": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_deterministic_force_and_safe_no_overwrite": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_approval_preparation.log"
+    },
+    "tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_filled_generated_record_is_accepted": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_approval_preparation.log"
+    },
+    "tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_generated_draft_has_exact_contract_and_unknown_results": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_approval_preparation.log"
+    },
+    "tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_preparation_only_writes_requested_operator_file_and_never_approves": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_approval_preparation.log"
+    },
+    "tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_product_or_gate_change_updates_new_draft_and_rejects_old_record": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_approval_preparation.log"
+    },
+    "tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_public_api_and_cli_write_the_required_output_file": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_approval_preparation.log"
+    },
+    "tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_stage_status_exposes_exact_gate_counts_baseline_and_route": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_approval_preparation.log"
+    },
+    "tests.test_stage_gate_preparation_block_recovery.StageGatePreparationBlockRecoveryTests.test_baseline_drift_recovery_returns_active_preparation_then_accepts": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_gate_preparation_block_recovery.log"
+    },
+    "tests.test_stage_gate_preparation_block_recovery.StageGatePreparationBlockRecoveryTests.test_last_ordinary_task_creates_one_idempotent_preparation_wp_and_first_jit": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_gate_preparation_block_recovery.log"
+    },
+    "tests.test_stage_gate_preparation_block_recovery.StageGatePreparationBlockRecoveryTests.test_malformed_strict_approvals_do_not_mutate_state": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_gate_preparation_block_recovery.log"
+    },
+    "tests.test_stage_gate_preparation_block_recovery.StageGatePreparationBlockRecoveryTests.test_preparation_completion_refreshes_verifying_gate_and_exact_draft_without_future_stage_work": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_gate_preparation_block_recovery.log"
+    },
+    "tests.test_stage_gate_preparation_block_recovery.StageGatePreparationBlockRecoveryTests.test_valid_unknown_persists_gate_blocker_then_recovers_to_verifying_and_accepts_target": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_gate_preparation_block_recovery.log"
+    },
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_01_controlled_failure_at_every_apply_point_restores_full_old_state": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_transaction_recovery.log"
+    },
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_02_abrupt_crash_after_every_apply_point_recovers_only_old_or_new": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_transaction_recovery.log"
+    },
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_03_prepared_journal_write_failure_changes_no_canonical_state": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_transaction_recovery.log"
+    },
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_04_durable_prepared_crash_before_replacements_is_recovered_idempotently": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_transaction_recovery.log"
+    },
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_05_per_entry_state_write_failure_rolls_back_verified_old_state": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_transaction_recovery.log"
+    },
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_06_one_shot_final_committed_marker_failure_returns_committed_success": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_transaction_recovery.log"
+    },
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_07_persistent_commit_marker_failure_reports_error_only_after_full_rollback": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_transaction_recovery.log"
+    },
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_08_crash_with_all_replacements_and_no_commit_marker_recovers_commit": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_transaction_recovery.log"
+    },
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_09_committed_replay_is_idempotent_and_does_not_create_second_transition": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_transaction_recovery.log"
+    },
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_10_rolled_back_transaction_id_requires_new_approval": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_transaction_recovery.log"
+    },
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_11_corrupt_backup_blocks_recovery_validation_and_new_mutation": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_transaction_recovery.log"
+    },
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_12_level_up_apply_failure_restores_exact_pre_level_up_state": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_transaction_recovery.log"
+    },
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_13_level_up_missing_commit_marker_recovers_and_replays_idempotently": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_transaction_recovery.log"
+    },
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_14_render_failure_is_a_recoverable_warning_after_commit": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_transaction_recovery.log"
+    },
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_15_validate_project_rejects_mixed_committed_canonical_state": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_stage_transaction_recovery.log"
+    },
+    "tests.test_windows_manual_migration.ManualMigrationTests.test_cli_migration_replay_and_manual_verified_completion": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_windows_manual_migration.log"
+    },
+    "tests.test_windows_manual_migration.ManualMigrationTests.test_partial_copy_failure_preserves_source_and_removes_owned_stage": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_windows_manual_migration.log"
+    },
+    "tests.test_windows_manual_migration.ManualMigrationTests.test_readonly_source_refusal_preserves_original_and_cleans_owned_stage": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_windows_manual_migration.log"
+    },
+    "tests.test_windows_manual_migration.ManualMigrationTests.test_real_process_exit_at_both_swap_boundaries_recovers_via_public_api": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_windows_manual_migration.log"
+    },
+    "tests.test_windows_manual_migration.ManualMigrationTests.test_second_rename_failure_rolls_back_and_retry_preserves_history": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_windows_manual_migration.log"
+    },
+    "tests.test_windows_manual_migration.ManualMigrationTests.test_staged_flush_failure_preserves_every_canonical_byte_and_no_journal": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_windows_manual_migration.log"
+    },
+    "tests.test_windows_manual_migration.ManualMigrationTests.test_windows_automatic_requests_never_dispatch_or_mutate_manual_project": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_windows_manual_migration.log"
+    },
+    "tests.test_windows_manual_migration.ManualMigrationTests.test_windows_open_handle_denial_is_read_only_and_retryable": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_windows_manual_migration.log"
+    },
+    "tests.test_windows_manual_migration.MigrationCleanupScopeTests.test_cleanup_never_clears_readonly_on_hardlinked_external_file": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_windows_manual_migration.log"
+    },
+    "tests.test_windows_manual_migration.MigrationCleanupScopeTests.test_cleanup_refuses_unowned_sibling_and_different_parent_without_mutation": {
+      "status": "PASS",
+      "evidence": "regressions-final/test_windows_manual_migration.log"
+    },
+    "tests.test_ph_lw_04_http.LocalHttpDependencyIndependent.test_assets_are_local_text_only_and_no_dynamic_html": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_04_http.LocalHttpDependencyIndependent.test_auth_bootstrap_one_use_rotation_expiry_idle_csrf": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_04_http.LocalHttpDependencyIndependent.test_missing_web_dependencies_fail_before_binding_or_browser": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_04_http.LocalHttpDependencyIndependent.test_service_catalog_no_path_and_artifact_owner_validation": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_04_http.LocalHttpDependencyIndependent.test_socket_is_prebound_ipv4_loopback_and_non_wildcard": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_get_refresh_read_only_xss_text_and_download_paths_rejected": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_http_replay_after_commit_returns_original_operation": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_malformed_action_and_non_ascii_csrf_are_denied_without_mutation": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_no_access_to_another_project_artifact_and_tamper": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_session_csrf_exact_json_and_security_headers": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_token_replay_expiry_bad_host_origin_null_and_wrong_port": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_unauthenticated_all_private_routes_and_public_health_minimal": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_04_http.RealWaitressHttpTests.test_not_bound_to_nonloopback_lan_if_available": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_04_http.RealWaitressHttpTests.test_real_tcp_host_csrf_no_session_replay_body_limit": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_05_http.SourceHttpSecurity.test_auth_upload_list_preview_and_replay": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_05_http.SourceHttpSecurity.test_documentation_none_after_import_explicit_and_no_external_requests": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_05_http.SourceHttpSecurity.test_duplicate_multipart_scalar_fields_are_rejected": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_05_http.SourceHttpSecurity.test_malformed_upload_rejected_and_unknown_fields": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_06_http.ExchangeHttpTests.test_http_duplicate_unknown_oversize_and_wrong_project_no_mutation": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_06_http.ExchangeHttpTests.test_http_negative_then_preview_cancel_commit_replay_and_check_intake": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_06_http.ExchangeHttpTests.test_http_security_all_new_routes_and_read_only_gets": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_07_http.ApprovalHttpTests.test_all_routes_exact_origin_session_csrf_methods_no_writes": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_07_http.ApprovalHttpTests.test_forged_fields_duplicate_keys_invalid_types_and_stale_digest_rejected": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_07_http.ApprovalHttpTests.test_four_posts_replay_reload_ready_and_prepare_honestly_pending": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_07_http.ApprovalHttpTests.test_gpt_actor_timestamp_forgery_cannot_become_local_consent": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_08_http.PreparationHttpTests.test_all_routes_auth_origin_host_csrf_unknown_fields_no_writes": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_09_http.TasksHttpTests.test_http_auth_origin_csrf_exact_fields_get_no_mutation": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_09_http.TasksHttpTests.test_http_forged_result_staging_and_duplicate_click": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_10_http.LifecycleHttpTests.test_auth_csrf_origin_port_unknown_fields_and_readonly": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_10_http.LifecycleHttpTests.test_draft_ownership_traversal_replay_conflict": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-nonbrowser.log"
+    },
+    "tests.test_ph_lw_11_desktop.DesktopContractTests.test_bootstrap_reissue_does_not_revoke_other_tabs": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_11_desktop.DesktopContractTests.test_browser_failure_displays_only_native_fallback": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_11_desktop.DesktopContractTests.test_resume_read_is_readonly_restart_and_cas": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_11_desktop.DesktopContractTests.test_resume_rejects_unknown_fields_ids_paths_and_screen": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_11_desktop.DesktopContractTests.test_stop_busy_admission_and_background_work_then_clean_stop": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_11_desktop.DesktopContractTests.test_stop_requires_session_csrf_exact_origin_and_fields": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_11_desktop.InstallerTransactionTests.test_activate_replay_preserves_project_and_current_version": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_11_desktop.InstallerTransactionTests.test_corruption_and_extra_files_refused_before_destination": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_11_desktop.InstallerTransactionTests.test_existing_foreign_directory_never_overwritten": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_11_desktop.InstallerTransactionTests.test_injected_enospc_and_interruption_preserve_current_and_retry": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_11_desktop.InstallerTransactionTests.test_native_junction_and_hardlink_payload_rejected": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_11_desktop.InstallerTransactionTests.test_native_long_payload_path_without_system_setting_change": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_11_desktop.InstallerTransactionTests.test_native_readonly_current_preserves_old_pointer": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_11_desktop.NativeLauncherTests.test_dpapi_and_native_mutex_subprocess": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_11_desktop.NativeLauncherTests.test_edge_manual_code_login_without_fragment_or_external_requests": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_11_desktop.NativeLauncherTests.test_fresh_authenticated_handshake_and_spoof_listener": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_11_desktop.NativeLauncherTests.test_launcher_resume_and_new_cookie_tab_keep_independent_navigation": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_11_desktop.NativeLauncherTests.test_upload_success_waits_for_refresh_before_interview_can_start": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_04_http.LocalBrowserTests.test_browser_bootstrap_fragment_removed_no_external_requests_xss_inert": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_04_http.LocalBrowserTests.test_not_bound_to_nonloopback_lan_if_available": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_04_http.LocalBrowserTests.test_real_tcp_host_csrf_no_session_replay_body_limit": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_04_05_acceptance.BrowserImportAcceptance.test_foreign_origin_browser_form_fetch_and_frame_are_denied": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_04_05_acceptance.BrowserImportAcceptance.test_ui_upload_preview_duplicate_replace_and_no_documentation": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_06_http.ExchangeBrowserTests.test_edge_two_greenfield_scenarios_typed_forms_fixture_exchange_reload_and_xss": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_07_http.ApprovalBrowserTests.test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_08_http.PreparationBrowserTests.test_edge_single_md_and_zip_full_flow_reconnect_first_jit_and_download": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_09_http.TasksBrowserTests.test_edge_external_agent_result_no_consent_verify_complete_next": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_09_http.TasksBrowserTests.test_edge_failing_check_block_resume_exact_ref": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_brownfield_assessment_unknown_and_stale_readonly": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_levelup_target_nearest_and_maintenance_cancel": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_missing_semantic_review_cannot_accept": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_prototype_accept_alpha_form_plan_first_ready_reload": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    },
+    "tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_supported_migration_confirmation_and_restart_replay": {
+      "status": "PASS",
+      "evidence": "runs/installed-final-browser.log"
+    }
+  }
+}

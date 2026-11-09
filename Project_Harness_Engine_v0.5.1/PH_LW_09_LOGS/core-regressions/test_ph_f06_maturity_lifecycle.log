@@ -1,0 +1,32 @@
+test_05_supplied_proofs_survive_assessment_then_sequential_baseline_reports_and_planner (tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_05_supplied_proofs_survive_assessment_then_sequential_baseline_reports_and_planner) ... ok
+test_06_readme_beta_missing_execution_evidence_do_not_accept_or_run_commands (tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_06_readme_beta_missing_execution_evidence_do_not_accept_or_run_commands) ... ok
+test_07_stale_tree_and_exact_assessment_digest_never_mutate_acceptance (tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_07_stale_tree_and_exact_assessment_digest_never_mutate_acceptance) ... ok
+test_08_baseline_acceptance_cannot_bypass_concurrent_maintenance (tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_08_baseline_acceptance_cannot_bypass_concurrent_maintenance) ... ok
+test_10_clean_read_only_assessment_keeps_reserved_run_executable (tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_10_clean_read_only_assessment_keeps_reserved_run_executable) ... ok
+test_11_assessment_never_launders_preexisting_control_plane_tampering (tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_11_assessment_never_launders_preexisting_control_plane_tampering) ... ok
+test_12_normalized_proof_tamper_or_generic_pass_rejected_before_import (tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_12_normalized_proof_tamper_or_generic_pass_rejected_before_import) ... ok
+test_13_stale_normalized_reimport_keeps_immutable_fact_and_downgrades_assessment (tests.test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.test_13_stale_normalized_reimport_keeps_immutable_fact_and_downgrades_assessment) ... ok
+setUpClass (tests.test_ph_f06_maturity_lifecycle.PHF06MaturityLifecycleTests) ... ERROR
+test_09_migration_restart_preserves_historical_completed_runs (tests.test_ph_f06_maturity_lifecycle.PHF06MigrationTests.test_09_migration_restart_preserves_historical_completed_runs) ... ok
+
+======================================================================
+ERROR: setUpClass (tests.test_ph_f06_maturity_lifecycle.PHF06MaturityLifecycleTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_f06_maturity_lifecycle.py", line 32, in setUpClass
+    result = accept(cls.mvp, cls.base / 'mvp-records', level)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\ph_f06_fixtures.py", line 215, in accept
+    path = reach_gate(root, records, level)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\ph_f06_fixtures.py", line 185, in reach_gate
+    complete_task(root, f'External fixture agent completed {task_ref}')
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\ph_f06_fixtures.py", line 160, in complete_task
+    verification = cli('verify', '--project', root, '--allow-command-execution')
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\ph_f06_fixtures.py", line 45, in cli
+    raise AssertionError({'argv': args, 'exit_code': code, 'result': result})
+AssertionError: {'argv': ['verify', '--project', '<TEMP>\\phf06-rwiiidmo\\mvp', '--allow-command-execution'], 'exit_code': 3, 'result': {'status': 'BLOCKED', 'report_ref': 'VAL-HARNESS-DEMO-TASK-CLI-004-A1', 'report_path': '.harness/reports/VAL-HARNESS-DEMO-TASK-CLI-004-A1.yaml', 'gates': {'control_plane': 'PASS', 'scope': 'PASS', 'commands': 'PASS', 'expected_paths': 'PASS', 'manual_checks': 'BLOCKED'}, 'control_plane': {'status': 'PASS', 'changed': [], 'deleted': [], 'unexpected': [], 'unsafe': [], 'phase': 'RUN_RESERVED', 'boundary_digest': 'sha256:81e9899de4534f55da7ebb78bfc32dab1a889cf42eab25efb14d9b75ef5d8bbb', 'agent_result': {'status': 'ABSENT', 'path': '.harness/runtime/AGENT_RESULTS/RUN-HARNESS-DEMO-TASK-CLI-004-A1.json'}}, 'phase_boundary_digest': 'sha256:1b35b324394de114573f5a49b827b556f5520c718cd84b38e55a3766384a75ed', 'diff': {'added': [], 'modified': ['README.md'], 'deleted': []}, 'commands': [], 'missing_expected_paths': []}}
+
+----------------------------------------------------------------------
+Ran 9 tests in 188.040s
+
+FAILED (errors=1)

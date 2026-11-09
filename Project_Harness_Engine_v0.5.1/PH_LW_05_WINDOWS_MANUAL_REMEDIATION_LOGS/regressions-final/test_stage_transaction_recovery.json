@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_stage_transaction_recovery"
+  ],
+  "ran": 15,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 127.454,
+  "log": "test_stage_transaction_recovery.log",
+  "status": "PASS"
+}

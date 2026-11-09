@@ -1,0 +1,4 @@
+{
+  "sha256": "b7b96d3454b5fd71f29e238ccd1cc32518ccccabfb203563071a19b87eaa5fbb",
+  "reason": "Wait until UI reads finish; construct external fixture result before starting UI reads. No core assertions changed."
+}

@@ -1,0 +1,9 @@
+test_edge_single_md_and_zip_full_flow_reconnect_first_jit_and_download (tests.test_ph_lw_08_http.FrozenPreparationBrowserTests.test_edge_single_md_and_zip_full_flow_reconnect_first_jit_and_download) ... ok
+test_crash_recovery_retains_project_and_replaces_stale_record (acceptance.InstalledLifecycleTests.test_crash_recovery_retains_project_and_replaces_stale_record) ... ok
+test_package_doctor_and_not_an_interpreter (acceptance.InstalledLifecycleTests.test_package_doctor_and_not_an_interpreter) ... ok
+test_restart_resume_second_launch_collision_and_clean_stop (acceptance.InstalledLifecycleTests.test_restart_resume_second_launch_collision_and_clean_stop) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 95.661s
+
+OK

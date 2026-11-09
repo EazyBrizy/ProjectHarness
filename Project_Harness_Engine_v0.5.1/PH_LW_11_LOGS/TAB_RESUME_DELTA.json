@@ -1,0 +1,13 @@
+{
+  "before_digest": "sha256:4b27f43c688e005453ee966620116de591cebbbea8f81a69410fe87f9d39babb",
+  "after_digest": "sha256:6c39f9441c520713f7161d51a88403ea04e30068cb1373f531771cfe8b325b97",
+  "changed_source_files": [
+    "resources/local_web/assets/app.js",
+    "resources/local_web/metadata_v1.json"
+  ],
+  "reproduction": "runs/tab-resume-before.log",
+  "fixed": "runs/desktop-source-tab-final.log",
+  "previous_tests_unchanged": true,
+  "new_desktop_methods": 18,
+  "fix": "Launcher/manual-code restores global screen; fresh cookie tab starts at project selector; reload uses tab screen. Only app.js and generated metadata changed after previous regression runs."
+}

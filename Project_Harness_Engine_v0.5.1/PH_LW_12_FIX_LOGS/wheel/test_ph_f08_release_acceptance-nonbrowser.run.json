@@ -1,0 +1,31 @@
+{
+  "name": "test_ph_f08_release_acceptance-nonbrowser",
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;import project_harness;assert Path(project_harness.__file__).resolve().is_relative_to(Path(sys.prefix).resolve());sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel\\test_ph_f08_release_acceptance-nonbrowser.log",
+    "tests.test_ph_f08_release_acceptance.PHF08ReleaseAcceptanceTests.test_i01_minimal_greenfield_waiting_decision_to_exact_first_jit",
+    "tests.test_ph_f08_release_acceptance.PHF08ReleaseAcceptanceTests.test_i03_i12_prototype_alpha_planning_exact_replay_and_stale_rejection"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\Независимая папка wheel",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 43.046,
+  "environment_ref": "WHEEL_ENVIRONMENT.json",
+  "modules": [
+    "tests.test_ph_f08_release_acceptance.PHF08ReleaseAcceptanceTests.test_i01_minimal_greenfield_waiting_decision_to_exact_first_jit",
+    "tests.test_ph_f08_release_acceptance.PHF08ReleaseAcceptanceTests.test_i03_i12_prototype_alpha_planning_exact_replay_and_stale_rejection"
+  ],
+  "ran": 2,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "log": "test_ph_f08_release_acceptance-nonbrowser.log",
+  "process_status": "PASS",
+  "log_sha256": "02ec5b8ded57edc26181c1c5743b148917bcbb0f39038f566a40bb88aa338408",
+  "scope": "INSTALLED_WHEEL",
+  "runtime_freeze_sha256": "a0c9775c327500b45df478b466746c3a6aec792b67695fcfd43437255fe0b997"
+}

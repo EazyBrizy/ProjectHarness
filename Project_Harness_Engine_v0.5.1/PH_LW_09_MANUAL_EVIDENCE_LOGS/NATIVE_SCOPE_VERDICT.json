@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "tests": 154,
+  "skips": [],
+  "installed_wheel_tests": 152,
+  "ph_f06": "13 PASS, 0 SKIP",
+  "source": "native-final/PH_LW_09_WINDOWS_TEST_REPORT.json",
+  "installed_source": "runs/installed-final.run.json",
+  "monolithic_native_status": "FAIL: one Edge locator timeout and stale test manifest",
+  "monolithic_installed_status": "FAIL: one import UI expectation timeout; 152 tests, 0 errors, 0 skips",
+  "installed_resolved_by": "runs/installed-import-recheck.run.json",
+  "native_resolved_by": [
+    "runs/edge-failure-diagnostic.run.json",
+    "runs/doctor-after-inventory.run.json"
+  ],
+  "method": "Current result per test/module; raw failed attempts preserved; no timeout/assertion relaxation"
+}

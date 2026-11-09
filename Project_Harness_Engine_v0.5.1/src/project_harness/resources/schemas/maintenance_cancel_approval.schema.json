@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "SCHEMA-MAINTENANCE-CANCEL-APPROVAL@1",
+  "title": "Project Harness exact-bound maintenance cancel approval",
+  "type": "object",
+  "required": ["maintenance_cancel_approval"],
+  "properties": {
+    "maintenance_cancel_approval": {
+      "type": "object",
+      "required": [
+        "schema_version", "schema_ref", "record_kind", "id", "revision", "kind", "approved",
+        "actor", "approved_at", "maintenance_plan_ref", "work_package_ref", "highest_accepted_level",
+        "target_level", "last_acceptance_ref", "rationale", "cancel_mode"
+      ],
+      "properties": {
+        "schema_version": {"const": 1},
+        "schema_ref": {"const": "SCHEMA-MAINTENANCE-CANCEL-APPROVAL@1"},
+        "record_kind": {"const": "MAINTENANCE_CANCEL_APPROVAL"},
+        "id": {"type": "string", "pattern": "^DEC-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?$"},
+        "revision": {"const": 1},
+        "kind": {"const": "CANCEL_MAINTENANCE"},
+        "approved": {"const": true},
+        "actor": {"type": "string", "pattern": "^ACT-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?$"},
+        "approved_at": {"type": "string", "format": "date-time"},
+        "maintenance_plan_ref": {"type": "string", "pattern": "^RQP-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?@[1-9][0-9]*$"},
+        "work_package_ref": {"type": "string", "pattern": "^WP-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?@[1-9][0-9]*$"},
+        "highest_accepted_level": {"enum": ["PROTOTYPE", "ALPHA", "BETA", "MVP", "RELEASE"]},
+        "target_level": {"enum": ["PROTOTYPE", "ALPHA", "BETA", "MVP", "RELEASE"]},
+        "last_acceptance_ref": {"type": "string", "pattern": "^[A-Z][A-Z0-9]*-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?@[1-9][0-9]*$"},
+        "rationale": {"type": "string", "minLength": 1},
+        "cancel_mode": {"const": "PRE_PRODUCT_CHANGE_ONLY"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

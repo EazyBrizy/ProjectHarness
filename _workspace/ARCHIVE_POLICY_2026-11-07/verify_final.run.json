@@ -1,0 +1,17 @@
+{
+  "command": [
+    "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+    "-B",
+    "_workspace/ARCHIVE_POLICY_2026-11-07/verify.py",
+    "--output",
+    "changes_final.json"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-07T01:37:47.541156+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 60,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 0.557,
+  "log_sha256": "7bd5682c04ece985221068365eb0b08725eaf51b248309265d45abbda5d8b5b9"
+}

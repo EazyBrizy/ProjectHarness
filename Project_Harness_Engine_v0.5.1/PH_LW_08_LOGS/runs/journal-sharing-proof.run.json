@@ -1,0 +1,14 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "_scratch/ph_lw_08/reproduce_read_handle.py"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T04:32:50.128361+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 30,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 0.583,
+  "log_sha256": "c8c39fe79cb8b7bdbc8c88306a640d7712b2415e27bb6f87939c8b4ed63d2f73"
+}

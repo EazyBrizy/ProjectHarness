@@ -1,0 +1,23 @@
+{
+  "modules": [
+    "tests.test_ph_lw_04_http",
+    "tests.test_ph_lw_05_import",
+    "tests.test_ph_lw_05_http",
+    "tests.test_ph_lw_04_05_acceptance",
+    "tests.test_ph_lw_06_exchange",
+    "tests.test_ph_lw_06_http",
+    "tests.test_ph_lw_07_approvals",
+    "tests.test_ph_lw_07_http",
+    "tests.test_ph_lw_08_preparation",
+    "tests.test_ph_lw_08_http",
+    "tests.test_ph_lw_09_tasks",
+    "tests.test_ph_lw_09_http"
+  ],
+  "ran": 143,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 1082.104,
+  "log": "stage_tests.log",
+  "status": "PASS"
+}

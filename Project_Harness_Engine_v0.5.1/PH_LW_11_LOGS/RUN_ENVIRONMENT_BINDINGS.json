@@ -1,0 +1,769 @@
+[
+  {
+    "run": "runs/build-docs-final.run.json",
+    "command_interpreter": "_scratch/ph_lw_11/build-env/Scripts/python.exe",
+    "environment": "build-docs-final/BUILD_RESULT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/build-extended.run.json",
+    "command_interpreter": "_scratch/ph_lw_11/build-env/Scripts/python.exe",
+    "environment": "build-docs-final/BUILD_RESULT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/build-final.run.json",
+    "command_interpreter": "_scratch/ph_lw_11/build-env/Scripts/python.exe",
+    "environment": "build-docs-final/BUILD_RESULT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/build-first.run.json",
+    "command_interpreter": "_scratch/ph_lw_11/build-env/Scripts/python.exe",
+    "environment": "build-docs-final/BUILD_RESULT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/build-longpath.run.json",
+    "command_interpreter": "_scratch/ph_lw_11/build-env/Scripts/python.exe",
+    "environment": "build-docs-final/BUILD_RESULT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/build-tab-final.run.json",
+    "command_interpreter": "_scratch/ph_lw_11/build-env/Scripts/python.exe",
+    "environment": "build-docs-final/BUILD_RESULT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/build-ui-final.run.json",
+    "command_interpreter": "_scratch/ph_lw_11/build-env/Scripts/python.exe",
+    "environment": "build-docs-final/BUILD_RESULT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/desktop-source-isolated.run.json",
+    "command_interpreter": "<WORKSPACE>/.venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/desktop-source-settled.run.json",
+    "command_interpreter": "<WORKSPACE>/.venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/desktop-source-tab-final.run.json",
+    "command_interpreter": "<WORKSPACE>/.venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/failed-installer-fixture-cleanup.run.json",
+    "command_interpreter": "_scratch/ph_lw_11/installer-fault-tab-final/Программа/uninstall/unins000.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/frozen-docs-final.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/frozen-extended.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/frozen-final.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/frozen-first.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/frozen-longpath.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/frozen-second.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/frozen-short-profile.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/frozen-tab-final.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/frozen-ui-final.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/installed-nonbrowser-final.run.json",
+    "command_interpreter": "<WORKSPACE>/_scratch/ph_lw_11/wheel-venv/Scripts/python.exe",
+    "environment": "WHEEL_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/installed-settled-final.run.json",
+    "command_interpreter": "<WORKSPACE>/_scratch/ph_lw_11/wheel-venv/Scripts/python.exe",
+    "environment": "WHEEL_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/installed-tab-final.run.json",
+    "command_interpreter": "<WORKSPACE>/_scratch/ph_lw_11/wheel-venv/Scripts/python.exe",
+    "environment": "WHEEL_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/installed-wheel-final.run.json",
+    "command_interpreter": "<WORKSPACE>/_scratch/ph_lw_11/wheel-venv/Scripts/python.exe",
+    "environment": "WHEEL_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/installer-fault-docs-final.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/installer-fault-final.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/installer-fault-tab-final.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/installer-fault-tab-verified.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/installer-fault-ui-final.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/installer-second.run.json",
+    "command_interpreter": "_tools/InnoSetup674/ISCC.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/interactive-cleanup.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/lifecycle-frozen-recheck.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/long-path-final.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/manual-login-diagnostic.run.json",
+    "command_interpreter": "<WORKSPACE>/_scratch/ph_lw_11/wheel-venv/Scripts/python.exe",
+    "environment": "WHEEL_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "TIMEOUT",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/manual-login-explicit-context.run.json",
+    "command_interpreter": "<WORKSPACE>/_scratch/ph_lw_11/wheel-venv/Scripts/python.exe",
+    "environment": "WHEEL_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "TIMEOUT",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/manual-login-lines.run.json",
+    "command_interpreter": "<WORKSPACE>/_scratch/ph_lw_11/wheel-venv/Scripts/python.exe",
+    "environment": "WHEEL_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "TIMEOUT",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/manual-login-settled.run.json",
+    "command_interpreter": "<WORKSPACE>/_scratch/ph_lw_11/wheel-venv/Scripts/python.exe",
+    "environment": "WHEEL_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "TIMEOUT",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/minimal-close-debug.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "TIMEOUT",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/minimal-close-idle.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/minimal-close-source.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "TIMEOUT",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/minimal-close-wheel.run.json",
+    "command_interpreter": "_scratch/ph_lw_11/wheel-venv/Scripts/python.exe",
+    "environment": "WHEEL_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "TIMEOUT",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/native-ui-final.run.json",
+    "command_interpreter": "pwsh",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/sync-final-build.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/sync-first.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/sync-longpath.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/sync-ui-final.run.json",
+    "command_interpreter": "<WORKSPACE>/.venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/tab-resume-before.run.json",
+    "command_interpreter": "<WORKSPACE>/.venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/target-final.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/target-first.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/target-fixed-cleanup.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/target-longpath.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/upload-race-before-corrected.run.json",
+    "command_interpreter": "<WORKSPACE>/.venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/upload-race-before.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/upload-race-fixed.run.json",
+    "command_interpreter": "<WORKSPACE>/.venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/upload-race-repro.run.json",
+    "command_interpreter": "<WORKSPACE>/.venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/wheel-refresh-final.run.json",
+    "command_interpreter": "_scratch/ph_lw_11/wheel-venv/Scripts/python.exe",
+    "environment": "WHEEL_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/wheel-refresh-tab-final.run.json",
+    "command_interpreter": "_scratch/ph_lw_11/wheel-venv/Scripts/python.exe",
+    "environment": "WHEEL_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/wheel-refresh-ui-final.run.json",
+    "command_interpreter": "_scratch/ph_lw_11/wheel-venv/Scripts/python.exe",
+    "environment": "WHEEL_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/wheel-setup.run.json",
+    "command_interpreter": ".venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "runs/wheel-tab-final-build.run.json",
+    "command_interpreter": "<WORKSPACE>/.venv/Scripts/python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS",
+    "note": "Dependency/runtime environment binding; exact build digest is in each run or freeze/delta evidence. Historical failed attempts retain their original result."
+  },
+  {
+    "run": "regressions/test_assessment_freshness.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_canonical_target.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_contract_hardening.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS_WITH_SKIPS"
+  },
+  {
+    "run": "regressions/test_engine.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_exact_assessment_ref.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_gate_evidence_contract.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_implementation_levels.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_maintenance_lifecycle.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_ph_051_01_contract_baseline.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_ph_051_02_executor_protocol.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS_WITH_SKIPS"
+  },
+  {
+    "run": "regressions/test_ph_051_03_rootless_podman.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL"
+  },
+  {
+    "run": "regressions/test_ph_051_04_disposable_roots.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL"
+  },
+  {
+    "run": "regressions/test_ph_051_05_codex_adapter.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL"
+  },
+  {
+    "run": "regressions/test_ph_051_06_result_channel.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL"
+  },
+  {
+    "run": "regressions/test_ph_051_07_sandbox_verification.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_ph_051_08_atomic_apply.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL"
+  },
+  {
+    "run": "regressions/test_ph_051_09_automatic_runtime.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL"
+  },
+  {
+    "run": "regressions/test_ph_051_10_migration_recovery.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "FAIL"
+  },
+  {
+    "run": "regressions/test_ph_051_11_operator_docs.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_ph_f01_gate_semantics_regression.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_ph_f01_planner_regression.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_ph_f02_semantic_proof_contract.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_ph_f03_active_stage_planning.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_ph_f04_runtime_reachability.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_ph_f05_intake_acceptance.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_ph_f06_maturity_lifecycle.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_ph_f08_release_acceptance.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_ph_lw_01_contract.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_ph_lw_02_windows_core.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS_WITH_SKIPS"
+  },
+  {
+    "run": "regressions/test_ph_lw_03_service.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_ph_lw_05_import.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_ph_lw_06_exchange.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_ph_lw_07_approvals.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_ph_lw_08_preparation.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_ph_lw_09_manual_evidence.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_ph_lw_09_tasks.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_ph_lw_10_lifecycle.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "TIMEOUT"
+  },
+  {
+    "run": "regressions/test_stage_approval_preparation.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_stage_gate_preparation_block_recovery.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_stage_transaction_recovery.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  },
+  {
+    "run": "regressions/test_windows_manual_migration.log",
+    "command_interpreter": "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "environment": "SOURCE_ENVIRONMENT.json",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "status": "PASS"
+  }
+]

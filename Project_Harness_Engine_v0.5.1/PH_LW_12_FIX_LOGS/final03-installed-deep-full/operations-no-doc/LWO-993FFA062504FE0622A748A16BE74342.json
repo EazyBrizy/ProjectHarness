@@ -1,0 +1,41 @@
+{
+  "operation_id": "LWO-993FFA062504FE0622A748A16BE74342",
+  "project_id": "LWP-FE0F639548735D07A573",
+  "action": "complete",
+  "request_digest": "sha256:47f7ecc127fe77f815bd0c7253a527de6dfe3697da186b1ad855ae42a426f76a",
+  "expected_fingerprint": "sha256:43e5e79b66fee982081809b165cee9bc849e21f51b507195a6e4e23005a6eeff",
+  "created_at": "2026-11-08T13:36:25Z",
+  "updated_at": "2026-11-08T13:36:27Z",
+  "started_at": "2026-11-08T13:36:25Z",
+  "finished_at": "2026-11-08T13:36:27Z",
+  "state": "SUCCEEDED",
+  "phase": "DONE",
+  "core_before": "sha256:43e5e79b66fee982081809b165cee9bc849e21f51b507195a6e4e23005a6eeff",
+  "core_after": "sha256:6bcb54215dcb943cf0cb15088c5c3834300733f23e8676ce3eca5a89df2195c7",
+  "before_active_run_ref": null,
+  "expected_draft_after": null,
+  "result": {
+    "action": "complete",
+    "core_status": "COMPLETED",
+    "refs": {
+      "status": "COMPLETED",
+      "task_ref": "TSK-PH-LW-12-NO-DOCUMENTATION-001@2",
+      "run_ref": "RUN-PH-LW-12-NO-DOCUMENTATION-001-A1",
+      "next_route": "COMPILE_NEXT_READY_TASK"
+    }
+  },
+  "error": null,
+  "receipt": {
+    "kind": "LOCAL_WEB_OPERATION_RECEIPT",
+    "receipt_version": 1,
+    "operation_id": "LWO-993FFA062504FE0622A748A16BE74342",
+    "project_ref": "LWP-FE0F639548735D07A573",
+    "action_id": "LW-C13",
+    "idempotency_key": "browser-8ae30d02f36e68be2cd0fa7da59a4c36",
+    "request_sha256": "sha256:47f7ecc127fe77f815bd0c7253a527de6dfe3697da186b1ad855ae42a426f76a",
+    "expected_core_fingerprint": "sha256:43e5e79b66fee982081809b165cee9bc849e21f51b507195a6e4e23005a6eeff",
+    "core_outcome": "CONFIRMED_COMMITTED",
+    "created_at": "2026-11-08T13:36:25Z"
+  },
+  "record_digest": "sha256:86b011f3391f448c20699efadd65b667edd0d5cf30603fcce572276c8d2ba104"
+}

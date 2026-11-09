@@ -1,0 +1,7 @@
+COMMAND: python -m unittest -q tests.test_ph_051_08_atomic_apply tests.test_stage_gate_preparation_block_recovery tests.test_ph_051_04_disposable_roots tests.test_exact_assessment_ref
+----------------------------------------------------------------------
+Ran 56 tests in 439.836s
+
+OK
+
+EXIT_CODE=0

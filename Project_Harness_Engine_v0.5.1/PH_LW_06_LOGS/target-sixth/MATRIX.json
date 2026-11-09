@@ -1,0 +1,48 @@
+[
+  {
+    "module": "tests.test_ph_lw_06_exchange",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_ph_lw_06_exchange",
+      "<WORKSPACE>\\_scratch\\ph_lw_06\\target-sixth\\test_ph_lw_06_exchange.log"
+    ],
+    "started_utc": "2026-11-07T01:53:54.203348+00:00",
+    "exit": 0,
+    "status": "PASS",
+    "modules": [
+      "tests.test_ph_lw_06_exchange"
+    ],
+    "ran": 15,
+    "failures": 0,
+    "errors": 0,
+    "skips": [],
+    "elapsed_seconds": 13.679,
+    "log": "test_ph_lw_06_exchange.log",
+    "log_sha256": "2cf106801c5874a8c8b6d3b6177b643c9db9ffffb6e34b6905ddb2c697c8aa40"
+  },
+  {
+    "module": "tests.test_ph_lw_06_http",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_ph_lw_06_http",
+      "<WORKSPACE>\\_scratch\\ph_lw_06\\target-sixth\\test_ph_lw_06_http.log"
+    ],
+    "started_utc": "2026-11-07T01:53:54.203227+00:00",
+    "exit": 0,
+    "status": "PASS",
+    "modules": [
+      "tests.test_ph_lw_06_http"
+    ],
+    "ran": 4,
+    "failures": 0,
+    "errors": 0,
+    "skips": [],
+    "elapsed_seconds": 13.273,
+    "log": "test_ph_lw_06_http.log",
+    "log_sha256": "021a1b3613e06b809d2a7af004e7ec925bf617a19d862866b048ce339f5c4a30"
+  }
+]

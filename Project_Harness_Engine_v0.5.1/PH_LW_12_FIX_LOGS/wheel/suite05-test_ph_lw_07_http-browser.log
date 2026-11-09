@@ -1,0 +1,6 @@
+test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss (tests.test_ph_lw_07_http.ApprovalBrowserTests.test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 18.104s
+
+OK

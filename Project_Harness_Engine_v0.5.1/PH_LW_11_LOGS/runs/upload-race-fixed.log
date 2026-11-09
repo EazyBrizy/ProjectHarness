@@ -1,0 +1,8 @@
+test_upload_success_waits_for_refresh_before_interview_can_start (tests.test_ph_lw_11_desktop.NativeLauncherTests.test_upload_success_waits_for_refresh_before_interview_can_start) ... Task queue depth is 1
+Task queue depth is 2
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 11.229s
+
+OK

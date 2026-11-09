@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "exact_saved_versions": {
+    "RUNNER_EXTENDED_FINAL.py": "cdf1f3e014ac22a75cb07793326307a417b1ddcfbf6a4b7766ccf67fc18a5719",
+    "RUNNER_FOCUS3.py": "54e7e6fe204199ec87f0a9a8172a191b145d21a813a29c425277cf19abb4e81c",
+    "RUNNER_NO_DOC_FINAL.py": "dab3cfb9b3a46eabca0ba88d1ffc4e55a82ca20ffe85485fdd656c164ba6cfa8",
+    "RUNNER_MAINTENANCE_FINAL.py": "b7b96d3454b5fd71f29e238ccd1cc32518ccccabfb203563071a19b87eaa5fbb"
+  },
+  "reconstructed_versions": "EXTENDED_FINAL matches captured TEST_RUNNER_FREEZE; NO_DOC_FINAL matches captured launch hash. Others copied directly before changes.",
+  "production_runtime": "Unchanged final RUNTIME_FREEZE for every run"
+}

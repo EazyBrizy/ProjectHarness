@@ -1,0 +1,16 @@
+{
+  "Engine": {
+    "archive": "/mnt/data/Project_Harness_Engine_v0.5.1_PH_051_05.zip",
+    "archive_sha256": "e61c41c4e4d16f7596100f22b66c2f65b6a44a4b73917bcb020d7aef69ee5ccf",
+    "zip_crc": "PASS",
+    "original_manifest": "PASS",
+    "manifest_entries": 534
+  },
+  "Documentation": {
+    "archive": "/mnt/data/Project_Harness_Documentation_v0.5.1_PH_051_05.zip",
+    "archive_sha256": "e35437b7185f7c6bc5f189fd05676a36bf61d356b9d27764fe2eed4673904d81",
+    "zip_crc": "PASS",
+    "original_manifest": "PASS",
+    "manifest_entries": 121
+  }
+}

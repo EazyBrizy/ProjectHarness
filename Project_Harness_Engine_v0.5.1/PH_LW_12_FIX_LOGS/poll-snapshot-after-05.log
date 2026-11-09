@@ -1,0 +1,8 @@
+<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\__init__.py
+test_operation_snapshot_survives_worker_temp_file_rename (tests.test_ph_lw_12_blockers.DeepAppDataTests.test_operation_snapshot_survives_worker_temp_file_rename) ... ok
+test_preparation_poll_during_write_is_conflict_not_internal_error (tests.test_ph_lw_12_blockers.DeepAppDataTests.test_preparation_poll_during_write_is_conflict_not_internal_error) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.958s
+
+OK

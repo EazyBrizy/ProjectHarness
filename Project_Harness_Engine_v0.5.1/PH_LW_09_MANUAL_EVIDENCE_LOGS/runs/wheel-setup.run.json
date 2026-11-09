@@ -1,0 +1,15 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "tools/setup_ph_lw_09_manual_evidence_wheel.py"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T09:13:44.171808+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 240,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 58.714,
+  "log_sha256": "ae8653e48c82fd030a617ef8a9e1bb3ae66a1c78a9bff5ef8e4e9631019060a2"
+}

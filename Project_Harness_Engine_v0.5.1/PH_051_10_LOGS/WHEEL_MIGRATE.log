@@ -1,0 +1,17 @@
+{
+  "status": "MIGRATED",
+  "migration_id": "MIG-ENGINE-0.5.0-TO-0.5.1",
+  "engine_version": "0.5.1",
+  "schema_version": 7,
+  "execution": {
+    "mode": "MANUAL_HANDOFF",
+    "adapter_profile_ref": null,
+    "sandbox_profile_ref": null,
+    "network_mode": "NONE",
+    "completion_policy": "EXPLICIT_AFTER_VERIFICATION"
+  },
+  "immutable_record_count": 11,
+  "validation_status": "PASS",
+  "project": "/mnt/data/ph05110_work/wheel_fixture/source/handoff",
+  "recovered": null
+}

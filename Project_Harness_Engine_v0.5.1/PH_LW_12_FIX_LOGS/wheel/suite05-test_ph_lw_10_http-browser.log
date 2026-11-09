@@ -1,0 +1,10 @@
+test_edge_brownfield_assessment_unknown_and_stale_readonly (tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_brownfield_assessment_unknown_and_stale_readonly) ... ok
+test_edge_levelup_target_nearest_and_maintenance_cancel (tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_levelup_target_nearest_and_maintenance_cancel) ... ok
+test_edge_missing_semantic_review_cannot_accept (tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_missing_semantic_review_cannot_accept) ... ok
+test_edge_prototype_accept_alpha_form_plan_first_ready_reload (tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_prototype_accept_alpha_form_plan_first_ready_reload) ... ok
+test_edge_supported_migration_confirmation_and_restart_replay (tests.test_ph_lw_10_http.LifecycleBrowserTests.test_edge_supported_migration_confirmation_and_restart_replay) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 165.075s
+
+OK

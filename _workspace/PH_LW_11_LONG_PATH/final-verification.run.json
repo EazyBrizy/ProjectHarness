@@ -1,0 +1,15 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "tools/verify_ph_lw_11_long_path.py"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-08T02:06:07.502579+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 600,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 7.374,
+  "log_sha256": "490d8619713cc863684e4c27146fb73ecdd9d76e28d5afdc2c97ad66ee0d0b78"
+}

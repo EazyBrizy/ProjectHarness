@@ -1,0 +1,11 @@
+{
+  "shard": 2,
+  "modules": [
+    "test_ph_f08_release_acceptance"
+  ],
+  "exit_code": 0,
+  "tests": 2,
+  "seconds": 45.238,
+  "log": "PH_051_09_SHARD_02.log",
+  "result": "PASS"
+}

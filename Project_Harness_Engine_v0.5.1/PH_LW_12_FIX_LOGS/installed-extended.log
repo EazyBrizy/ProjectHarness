@@ -1,0 +1,45 @@
+Frozen server ready; PID 45944 PATH has no developer tools
+Frozen server ready; PID 48896 PATH has no developer tools
+Frozen server ready; PID 52988 PATH has no developer tools
+Frozen server ready; PID 30852 PATH has no developer tools
+Frozen server ready; PID 32804 PATH has no developer tools
+Frozen server ready; PID 34072 PATH has no developer tools
+Frozen server ready; PID 16016 PATH has no developer tools
+Frozen server ready; PID 41800 PATH has no developer tools
+Frozen server ready; PID 47264 PATH has no developer tools
+Frozen server ready; PID 29888 PATH has no developer tools
+Frozen server ready; PID 25360 PATH has no developer tools
+Frozen server ready; PID 44880 PATH has no developer tools
+Frozen server ready; PID 30472 PATH has no developer tools
+Frozen server ready; PID 15664 PATH has no developer tools
+Frozen server ready; PID 1208 PATH has no developer tools
+Frozen server ready; PID 52380 PATH has no developer tools
+Frozen server ready; PID 49372 PATH has no developer tools
+Frozen server ready; PID 7680 PATH has no developer tools
+Frozen server ready; PID 30624 PATH has no developer tools
+Frozen server ready; PID 49556 PATH has no developer tools
+Frozen server ready; PID 12492 PATH has no developer tools
+{
+  "status": "FAIL",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]",
+  "non_admin": true,
+  "build_id": "PH-LW-12-FIX-20261108",
+  "installer_sha256": "8a0edc1ac42d91f5a4bb497c9e4d703644eefe310886daad7a4226b17923d87b",
+  "driver_package": "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel-venv\\Lib\\site-packages\\project_harness\\__init__.py",
+  "tests": {
+    "ran": 22,
+    "failures": 0,
+    "errors": 1,
+    "skips": 0
+  },
+  "advanced_fixture_boundary": "Public-kernel initial fixtures and catalog registration; all tested browser segment mutations through UI. Migration downgrade is an explicit legacy-state fixture, not acceptance mutation.",
+  "advanced_fixture_cache": "<WORKSPACE>\\_scratch\\ph_lw_12\\advanced-fixtures",
+  "product_sdk": "Existing Task command fixtures explicitly use developer interpreter as product SDK; separate no-doc full flow uses manual checks without product SDK.",
+  "clean_machine": "NOT RUN; accepted limitation",
+  "physical_offline": "NOT RUN; accepted limitation",
+  "actual_unicode_username": "NOT RUN; accepted limitation",
+  "real_disk_full": "NOT RUN; accepted limitation",
+  "uninstall_exit": 0,
+  "zip_created": false
+}

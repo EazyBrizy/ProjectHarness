@@ -1,0 +1,258 @@
+{
+  "rows": [
+    {
+      "id": "LW-E01",
+      "check": "Чистая Windows 11 x64, non-admin, нет Python/Node/WSL/Podman, offline installer",
+      "status": "NOT RUN — ACCEPTED LIMITATION",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": "NOT RUN accepted limitation"
+    },
+    {
+      "id": "LW-E02",
+      "check": "Source/wheel/frozen startup из другой CWD, Unicode user path",
+      "status": "FAIL — NEW DEEP APP-DATA BOUNDARY",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": "Baseline long paths PASS; additional deeper app-data stress FAIL remains OPEN"
+    },
+    {
+      "id": "LW-E03",
+      "check": "Один MD и несколько MD",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E04",
+      "check": "ZIP с подпапками/кириллицей/пробелами и неподдержанными картинками",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E05",
+      "check": "Нет документации",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E06",
+      "check": "Значимый unknown, sensitivity UNKNOWN, target UNSURE",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E07",
+      "check": "GPT export→fixture response→preview→apply",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E08",
+      "check": "GPT response wrong project, old export, source changed, extra field, approved:true, AUTO/egress",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E09",
+      "check": "Четыре Greenfield/пять Brownfield approvals, один отсутствует",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E10",
+      "check": "Смена содержания после draft approval, two-tab confirmation",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E11",
+      "check": "Fully approved prepare",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E12",
+      "check": "Destination существует, содержит sentinel; output collision",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E13",
+      "check": "Stage only active details",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E14",
+      "check": "Manual Task: result → independent verify PASS → complete → next",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E15",
+      "check": "Agent COMPLETED при verification FAIL/forbidden writes/tamper",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E16",
+      "check": "Verification commands без consent, с consent, missing SDK",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E17",
+      "check": "Block/resume ordinary Task; Gate BLOCKED/recovery",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E18",
+      "check": "Prototype Gate accept→Alpha reviewed plan→first READY",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E19",
+      "check": "Accepted MVP→level-up RELEASE и illegal skip/no-op",
+      "status": "FAIL UI projection; core/form/history transition PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E20",
+      "check": "Maintenance start→tasks→complete/cancel allowed branch",
+      "status": "FAIL",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E21",
+      "check": "Brownfield assessment, stale ref/digest/claim, fake README maturity",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E22",
+      "check": "Supported migration→restart→replay",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E23",
+      "check": "No session/expired bootstrap/replay/unknown Host/foreign Origin/wrong port/CSRF",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E24",
+      "check": "XSS filenames/MD/GPT/results, iframe, external image/CSP",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E25",
+      "check": "ZIP Slip/UNC/drive-relative/ADS/device names/trailing dots/casefold collisions/links",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E26",
+      "check": "ZIP bomb/oversize/entry count/depth/CRC/encryption/partial stream",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E27",
+      "check": "Cross-project artifact ID / traversal / arbitrary absolute path / untrusted open-folder",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E28",
+      "check": "Browser reload/close/reopen, 2 tabs, duplicate same key, key changed payload",
+      "status": "FAIL observed project-list projection; reload/replay/concurrency methods PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E29",
+      "check": "GUI-vs-CLI/process concurrency, current core changed",
+      "status": "PASS_WITH_EXPLICIT_SKIPS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E30",
+      "check": "Crash до mutation/после kernel commit/до UI result; неоднозначная verify",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E31",
+      "check": "Interrupted publish/install; disk full/locked file/permission",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": "Real disk-full NOT RUN accepted; actual interruption/read-only/injection remain separate evidence"
+    },
+    {
+      "id": "LW-E32",
+      "check": "Второй launcher/занятый порт/stale instance record",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": "Fresh visible-browser second launch NOT RUN per user instruction; exact --no-browser refusal and historical normal launch kept"
+    },
+    {
+      "id": "LW-E33",
+      "check": "Все элементы CONTROL_MAP",
+      "status": "PASS controls/disabled reasons; workflow failures remain E19/E20",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E34",
+      "check": "Export/distribution/log scan",
+      "status": "PASS — bounded scans; not universal DLP",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E35",
+      "check": "Frozen uninstall / дальнейший запуск / offline assets",
+      "status": "PASS",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    },
+    {
+      "id": "LW-E36",
+      "check": "Source/wheel/ZIP/installer exact integrity и legacy suite",
+      "status": "PASS integrity; regression results separate",
+      "evidence": "METHOD_RESULTS.json; final_run_statuses in VERDICTS.json; CONTROL_MATRIX.json",
+      "qualification": null
+    }
+  ],
+  "mandatory_missing_tests": [],
+  "decision": "NO-GO"
+}

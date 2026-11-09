@@ -1,0 +1,20 @@
+{
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1\\local_web\\windows\\final_acceptance.py",
+    "--installer",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1\\windows\\Harness-Setup-win-x64.exe",
+    "--output",
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\installed-no-doc-final",
+    "--case",
+    "__main__.InstalledFullFlowTests.test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-08T10:47:53.325675+00:00",
+  "freeze_sha256": "71d1bdd414c72410b4d17f833b1e9c75d11c3b5286fa1b65214ef7b3b7e53f00",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 73.705,
+  "log_sha256": "5a8cf664755a69c1f841724d16a26efc16962433e35e7ef16bc6805b856801eb"
+}

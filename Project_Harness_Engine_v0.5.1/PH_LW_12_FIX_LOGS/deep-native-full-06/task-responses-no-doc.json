@@ -1,0 +1,35 @@
+[
+  {
+    "path": "projects/LWP-D2830E39C4CE09CCC3EF/operations",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-7B0B1D91404C8428F4E98AB6CB4BAFB0",
+      "state": "QUEUED"
+    }
+  },
+  {
+    "path": "projects/LWP-5BA946BD203E828181C8/tasks/result-upload",
+    "status": 201,
+    "body": {
+      "binding_digest": "sha256:73f55a07f2598dfa7dad32d29875a71b44512ffc8fcdcf43e310db6b6b2ba7d3",
+      "status": "STAGED_UNVERIFIED",
+      "upload_id": "LWR-9AC96050D7DDE9F3B8123B7AAFF9C3EEB7DEA9BFFC83D72264F23CF957FDF2BF"
+    }
+  },
+  {
+    "path": "projects/LWP-5BA946BD203E828181C8/operations",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-F812E408190F77341C2A6FD0568589D0",
+      "state": "QUEUED"
+    }
+  },
+  {
+    "path": "projects/LWP-5BA946BD203E828181C8/operations",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-152E894E56BC2A6B3D99551AFC64A5D8",
+      "state": "QUEUED"
+    }
+  }
+]

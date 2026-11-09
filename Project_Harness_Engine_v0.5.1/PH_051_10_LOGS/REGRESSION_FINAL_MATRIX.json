@@ -1,0 +1,218 @@
+{
+  "status": "PASS",
+  "tests": 335,
+  "skipped": 2,
+  "shards": [
+    {
+      "shard": 1,
+      "modules": [
+        "test_ph_f06_maturity_lifecycle"
+      ],
+      "exit_code": 0,
+      "tests": 13,
+      "skipped": 0,
+      "seconds": 559.045,
+      "log": "REGRESSION_RETRY_SHARD_01.log",
+      "result": "PASS",
+      "initial_exit_code": 1,
+      "initial_tests": 11,
+      "rerun_reason": "parallel nested-CLI timeout"
+    },
+    {
+      "shard": 2,
+      "modules": [
+        "test_ph_f08_release_acceptance"
+      ],
+      "exit_code": 0,
+      "tests": 2,
+      "skipped": 0,
+      "seconds": 102.587,
+      "log": "REGRESSION_RETRY_SHARD_02.log",
+      "result": "PASS",
+      "initial_exit_code": 1,
+      "initial_tests": 2,
+      "rerun_reason": "parallel nested-CLI timeout"
+    },
+    {
+      "shard": 3,
+      "modules": [
+        "test_ph_f05_intake_acceptance"
+      ],
+      "exit_code": 0,
+      "tests": 4,
+      "skipped": 0,
+      "seconds": 15.27,
+      "log": "REGRESSION_SHARD_03.log",
+      "result": "PASS"
+    },
+    {
+      "shard": 4,
+      "modules": [
+        "test_engine"
+      ],
+      "exit_code": 0,
+      "tests": 14,
+      "skipped": 0,
+      "seconds": 87.51,
+      "log": "REGRESSION_SHARD_04.log",
+      "result": "PASS"
+    },
+    {
+      "shard": 5,
+      "modules": [
+        "test_contract_hardening",
+        "test_ph_051_06_result_channel",
+        "test_ph_f01_planner_regression"
+      ],
+      "exit_code": 0,
+      "tests": 50,
+      "skipped": 0,
+      "seconds": 204.206,
+      "log": "REGRESSION_RETRY_SHARD_05.log",
+      "result": "PASS",
+      "initial_exit_code": 1,
+      "initial_tests": 50,
+      "rerun_reason": "directly affected test fixture run_id missing"
+    },
+    {
+      "shard": 6,
+      "modules": [
+        "test_stage_transaction_recovery",
+        "test_maintenance_lifecycle",
+        "test_stage_approval_preparation",
+        "test_ph_f02_semantic_proof_contract"
+      ],
+      "exit_code": 0,
+      "tests": 34,
+      "skipped": 0,
+      "seconds": 468.26,
+      "log": "REGRESSION_SHARD_06.log",
+      "result": "PASS"
+    },
+    {
+      "shard": 7,
+      "modules": [
+        "test_assessment_freshness",
+        "test_ph_051_05_codex_adapter",
+        "test_ph_051_01_contract_baseline",
+        "test_ph_f01_gate_semantics_regression"
+      ],
+      "exit_code": 0,
+      "tests": 38,
+      "skipped": 1,
+      "seconds": 298.71,
+      "log": "REGRESSION_SHARD_07.log",
+      "result": "PASS"
+    },
+    {
+      "shard": 8,
+      "modules": [
+        "test_implementation_levels",
+        "test_ph_051_03_rootless_podman",
+        "test_ph_f04_runtime_reachability",
+        "test_ph_051_07_sandbox_verification"
+      ],
+      "exit_code": 0,
+      "tests": 47,
+      "skipped": 1,
+      "seconds": 350.17,
+      "log": "REGRESSION_SHARD_08.log",
+      "result": "PASS"
+    },
+    {
+      "shard": 9,
+      "modules": [
+        "test_ph_051_02_executor_protocol",
+        "test_gate_evidence_contract",
+        "test_ph_f03_active_stage_planning",
+        "test_canonical_target"
+      ],
+      "exit_code": 0,
+      "tests": 47,
+      "skipped": 0,
+      "seconds": 563.13,
+      "log": "REGRESSION_SHARD_09.log",
+      "result": "PASS"
+    },
+    {
+      "shard": 10,
+      "modules": [
+        "test_ph_051_08_atomic_apply",
+        "test_stage_gate_preparation_block_recovery",
+        "test_ph_051_04_disposable_roots",
+        "test_exact_assessment_ref"
+      ],
+      "exit_code": 0,
+      "tests": 56,
+      "skipped": 0,
+      "seconds": 443.76,
+      "log": "REGRESSION_SHARD_10.log",
+      "result": "PASS"
+    },
+    {
+      "shard": 11,
+      "modules": [
+        "test_ph_051_09_automatic_runtime"
+      ],
+      "exit_code": 0,
+      "tests": 15,
+      "skipped": 0,
+      "seconds": 125.23,
+      "log": "REGRESSION_SHARD_11.log",
+      "result": "PASS"
+    },
+    {
+      "shard": 12,
+      "modules": [
+        "test_ph_051_10_migration_recovery"
+      ],
+      "exit_code": 0,
+      "tests": 17,
+      "skipped": 0,
+      "seconds": 90.39,
+      "log": "REGRESSION_SHARD_12.log",
+      "result": "PASS"
+    }
+  ],
+  "elapsed_seconds": 578.41,
+  "all_modules": [
+    "test_ph_f06_maturity_lifecycle",
+    "test_ph_f08_release_acceptance",
+    "test_ph_f05_intake_acceptance",
+    "test_engine",
+    "test_contract_hardening",
+    "test_ph_051_06_result_channel",
+    "test_ph_f01_planner_regression",
+    "test_stage_transaction_recovery",
+    "test_maintenance_lifecycle",
+    "test_stage_approval_preparation",
+    "test_ph_f02_semantic_proof_contract",
+    "test_assessment_freshness",
+    "test_ph_051_05_codex_adapter",
+    "test_ph_051_01_contract_baseline",
+    "test_ph_f01_gate_semantics_regression",
+    "test_implementation_levels",
+    "test_ph_051_03_rootless_podman",
+    "test_ph_f04_runtime_reachability",
+    "test_ph_051_07_sandbox_verification",
+    "test_ph_051_02_executor_protocol",
+    "test_gate_evidence_contract",
+    "test_ph_f03_active_stage_planning",
+    "test_canonical_target",
+    "test_ph_051_08_atomic_apply",
+    "test_stage_gate_preparation_block_recovery",
+    "test_ph_051_04_disposable_roots",
+    "test_exact_assessment_ref",
+    "test_ph_051_09_automatic_runtime",
+    "test_ph_051_10_migration_recovery"
+  ],
+  "initial_combined_status": "FAIL",
+  "initial_combined_tests": 335,
+  "initial_failed_shards": [
+    1,
+    2,
+    5
+  ],
+  "total_tests": 337,
+  "mode": "nine original passing shards plus three failed shards independently rerun sequentially against changed worktree; no claim one monolithic simultaneous run"
+}

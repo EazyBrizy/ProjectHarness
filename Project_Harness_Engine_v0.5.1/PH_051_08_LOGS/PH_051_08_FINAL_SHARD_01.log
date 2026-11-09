@@ -1,0 +1,7 @@
+COMMAND: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. /opt/pyvenv/bin/python -m unittest -q tests.test_ph_f06_maturity_lifecycle
+MODULES: test_ph_f06_maturity_lifecycle
+
+----------------------------------------------------------------------
+Ran 13 tests in 322.741s
+
+OK

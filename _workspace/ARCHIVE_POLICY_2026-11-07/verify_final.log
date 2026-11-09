@@ -1,0 +1,113 @@
+{
+  "status": "FAIL",
+  "manifest_entries": {
+    "Project_Harness_Documentation_v0.5.1": 145,
+    "Project_Harness_Engine_v0.5.1": 1427
+  },
+  "documentation_mirror_files": 146,
+  "local_links": 59,
+  "tracked_files": 1836,
+  "new_archives": [],
+  "changed_files": [
+    {
+      "file": "AGENTS.md",
+      "before_sha256": "da29882d5f3ad353775ccbf578fc604938e5b3761555194f008559f048c53a75",
+      "after_sha256": "afc9a144b0c6c4b6fa331039776b8ade9aaa03912c2aa0e05926ac5305e8dc21"
+    },
+    {
+      "file": "Project_Harness_Documentation_v0.5.1/FILE_INDEX.md",
+      "before_sha256": "a0d8d4953a7c24e2aca1da3078400209a05cd16568fd245a1cb78e1a1afa4b9f",
+      "after_sha256": "8bdaf0388bc28b8b09a61947d9e0b77f64919fcf41347c2b1ee778b62afaf1e3"
+    },
+    {
+      "file": "Project_Harness_Documentation_v0.5.1/MANIFEST.sha256",
+      "before_sha256": "4dea8a66859a60527165358bfcf97a5fc70422acc2c28582518a864efe770fdc",
+      "after_sha256": "936d7bd085927e878f81318a614948011cecd010cd57e6ad657a0d7b9f0393f7"
+    },
+    {
+      "file": "Project_Harness_Documentation_v0.5.1/Project_Harness_Architecture_v0.5.0_FULL.md",
+      "before_sha256": "419c3e815457855d43da2173fa375d5e1d7e245d4eee59819e96cd960da4c15e",
+      "after_sha256": "c594781233b570ff40bd340bf130af2b9032e60880ee57e155a349767bf595c9"
+    },
+    {
+      "file": "Project_Harness_Documentation_v0.5.1/README.md",
+      "before_sha256": "978eb47e9b00ff71f8e8a211e6ea444f387f6ddbdb61cfe75caaaf38a6d59c6b",
+      "after_sha256": "a9b8919c663de2b5bb7250cf62c5d51dc2fe4d9b0acf0bd6e264ec99b636f428"
+    },
+    {
+      "file": "Project_Harness_Engine_v0.5.1/MANIFEST.sha256",
+      "before_sha256": "4288114b8e2ab05d548accfe9a93b728e38987a0ed012b183265a35a83b5426e",
+      "after_sha256": "5ce1fa809fa84acb5ac40839dfde0c2ac21a532085cf4b0a9248e4e5ade702bc"
+    },
+    {
+      "file": "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1/FILE_INDEX.md",
+      "before_sha256": "a0d8d4953a7c24e2aca1da3078400209a05cd16568fd245a1cb78e1a1afa4b9f",
+      "after_sha256": "8bdaf0388bc28b8b09a61947d9e0b77f64919fcf41347c2b1ee778b62afaf1e3"
+    },
+    {
+      "file": "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1/MANIFEST.sha256",
+      "before_sha256": "4dea8a66859a60527165358bfcf97a5fc70422acc2c28582518a864efe770fdc",
+      "after_sha256": "936d7bd085927e878f81318a614948011cecd010cd57e6ad657a0d7b9f0393f7"
+    },
+    {
+      "file": "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1/Project_Harness_Architecture_v0.5.0_FULL.md",
+      "before_sha256": "419c3e815457855d43da2173fa375d5e1d7e245d4eee59819e96cd960da4c15e",
+      "after_sha256": "c594781233b570ff40bd340bf130af2b9032e60880ee57e155a349767bf595c9"
+    },
+    {
+      "file": "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1/README.md",
+      "before_sha256": "978eb47e9b00ff71f8e8a211e6ea444f387f6ddbdb61cfe75caaaf38a6d59c6b",
+      "after_sha256": "a9b8919c663de2b5bb7250cf62c5d51dc2fe4d9b0acf0bd6e264ec99b636f428"
+    },
+    {
+      "file": "Project_Harness_Engine_v0.5.1/pyproject.toml",
+      "before_sha256": "73b8f295ec0b455b96ab865bd400d25c76f0cc71b07bc16cf271e268608639cf",
+      "after_sha256": "c2c5bc26e2ebaa80cf38d5667067da5537c5c6773b4107a31ab366d11ca38014"
+    },
+    {
+      "file": "Project_Harness_Engine_v0.5.1/src/project_harness/local_web_exchange_contract.py",
+      "before_sha256": null,
+      "after_sha256": "d129e908845b9e6ed8b986a09c82a11326dc505d58c05074c06cfa115c1c674b"
+    },
+    {
+      "file": "Project_Harness_Engine_v0.5.1/src/project_harness/project_input.py",
+      "before_sha256": "776479d364fde56b47c91e3e230097688a98c20ca2a7be77581bcbd837d40083",
+      "after_sha256": "a9a404c5e1fbb2a45ea500f35ea446431e21ca31019b61d0413a03319c86029c"
+    },
+    {
+      "file": "Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/GPT_PREPARATION.md",
+      "before_sha256": null,
+      "after_sha256": "25576bbb3382827c178a88f805f57b2885a4837032b86c10e403b754d945fde3"
+    },
+    {
+      "file": "Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/gpt_exchange_reply_v2.schema.json",
+      "before_sha256": null,
+      "after_sha256": "0a34e81b87bacb3abbd7b31f4e7d3caa40b2f941ae86407c2f651e133b8ebf36"
+    },
+    {
+      "file": "README.md",
+      "before_sha256": "24a337f7f0bb582c0a396e34956cf5484dec0467b0806af8ec24216400633df6",
+      "after_sha256": "8ed2a00ba680f05efe18b54dd29cb6971f63de5ebb3de7ef7f0878e8c75d1164"
+    },
+    {
+      "file": "_workspace/CURRENT_TASK.md",
+      "before_sha256": "e3addca5a70ab7a8f7f5c82a84a5308558832e583710b27bb0d5175779950874",
+      "after_sha256": "c808a0c5050aff2eef9416853787f576cd150421809b593d973927b097681636"
+    },
+    {
+      "file": "_workspace/RUNBOOK.md",
+      "before_sha256": "1f9a4225c8717864a8095f5f313de4a00236e12fda4b53c8c6a298a862853f43",
+      "after_sha256": "76b1a75f828018d2b03d8aeb4b5452ba52d3d859d3ea8ffe9a4e5ad604bdb4c6"
+    }
+  ],
+  "errors": [
+    "Outside allowed file changes: Project_Harness_Engine_v0.5.1/pyproject.toml",
+    "Outside allowed file changes: Project_Harness_Engine_v0.5.1/src/project_harness/local_web_exchange_contract.py",
+    "Outside allowed file changes: Project_Harness_Engine_v0.5.1/src/project_harness/project_input.py",
+    "Outside allowed file changes: Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/GPT_PREPARATION.md",
+    "Outside allowed file changes: Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/gpt_exchange_reply_v2.schema.json",
+    "Manifest inventory mismatch: Project_Harness_Engine_v0.5.1",
+    "Manifest hash mismatch: Project_Harness_Engine_v0.5.1/pyproject.toml",
+    "Manifest hash mismatch: Project_Harness_Engine_v0.5.1/src/project_harness/project_input.py"
+  ]
+}

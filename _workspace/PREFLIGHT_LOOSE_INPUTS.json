@@ -1,0 +1,17 @@
+[
+  {
+    "file": "AGENTS.md",
+    "sha256": "e7564fb083afa0e67a4898f330a315d8ea4124f387825d96089c616d843dd392",
+    "matches_supplied_download": true
+  },
+  {
+    "file": "Project_Harness_v0.5.0_Remediation_Plan_RU (1).md",
+    "sha256": "877d59d59dd448e2296c81ed046f09fb548989660fd751de0320943cc5af649b",
+    "matches_supplied_download": true
+  },
+  {
+    "file": "Project_Harness_v0.5.1_Implementation_Plan_RU (1).md",
+    "sha256": "1d087907076211f944b77714b6ac0c57406edf1f1be380e8a203220a771a6ac8",
+    "matches_supplied_download": true
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "name": "suite05-test_ph_lw_04_05_acceptance-browser",
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;import project_harness;assert Path(project_harness.__file__).resolve().is_relative_to(Path(sys.prefix).resolve());sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel\\suite05-test_ph_lw_04_05_acceptance-browser.log",
+    "tests.test_ph_lw_04_05_acceptance.BrowserImportAcceptance.test_foreign_origin_browser_form_fetch_and_frame_are_denied",
+    "tests.test_ph_lw_04_05_acceptance.BrowserImportAcceptance.test_ui_upload_preview_duplicate_replace_and_no_documentation"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\Независимая папка wheel",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 8.666,
+  "environment_ref": "WHEEL_ENVIRONMENT.json",
+  "modules": [
+    "tests.test_ph_lw_04_05_acceptance.BrowserImportAcceptance.test_foreign_origin_browser_form_fetch_and_frame_are_denied",
+    "tests.test_ph_lw_04_05_acceptance.BrowserImportAcceptance.test_ui_upload_preview_duplicate_replace_and_no_documentation"
+  ],
+  "ran": 2,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "log": "suite05-test_ph_lw_04_05_acceptance-browser.log",
+  "process_status": "PASS",
+  "log_sha256": "0c708192e2c09077d458dc5830f6ad860f67eacef62d441f6b65554d5ba18a3c",
+  "scope": "INSTALLED_WHEEL",
+  "runtime_freeze_sha256": "01ef2ddce6e42787b5937f937112f0b02ddefb05321eb348d59319a08bd941cf"
+}

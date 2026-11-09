@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>\_scratch\ph_lw_12\wheel-venv\Lib\site-packages\project_harness\operation_guard.py", line 72, in project_operation_guard
+    msvcrt.locking(fd, msvcrt.LK_NBLCK, 1)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\local_web\windows\final_acceptance.py", line 287, in test_maintenance_task_completion_through_browser
+    'work_package.tasks.0.verification.manual_checks':'README describes current CLI',
+    
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_09_tasks.py", line 38, in agent_result
+    v=core.task_console(root); active=v['active_run']
+  File "<WORKSPACE>\_scratch\ph_lw_12\wheel-venv\Lib\site-packages\project_harness\manual_tasks.py", line 239, in task_console
+    with project_operation_guard(root):
+         ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "<WORKSPACE>\_scratch\ph_lw_12\wheel-venv\Lib\site-packages\project_harness\operation_guard.py", line 74, in project_operation_guard
+    raise ValidationFailure('OPERATION_CONFLICT: operation already running for project', key) from exc
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: OPERATION_CONFLICT: operation already running for project

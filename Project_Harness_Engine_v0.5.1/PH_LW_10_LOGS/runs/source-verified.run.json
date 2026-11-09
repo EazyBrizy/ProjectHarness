@@ -1,0 +1,16 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "-c",
+    "from pathlib import Path; from local_web.run_windows_acceptance import run_suite; names=['tests.test_ph_lw_01_contract','tests.test_ph_lw_03_service','tests.test_ph_lw_04_http','tests.test_ph_lw_05_http','tests.test_ph_lw_04_05_acceptance','tests.test_ph_lw_06_http','tests.test_ph_lw_07_http','tests.test_ph_lw_08_http','tests.test_ph_lw_09_http','tests.test_ph_lw_10_http','tests.test_ph_lw_10_lifecycle.MigrationPollingTests','tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_migration_validator_confirmation_replay_history','tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_migration_process_crash_explicit_web_recovery_missing_root','tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_legacy_v041_migration_form_keeps_completed_runs']; r=run_suite(names,Path('_scratch/ph_lw_10/source-verified/tests.log'),reject_skips=True); raise SystemExit(0 if r['status']=='PASS' else 1)"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T13:27:48.506279+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 1800,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 671.367,
+  "log_sha256": "866457e7859d76db5c0dd5759cc1d213414f035418015a81d49a59ce03a8b0bb"
+}

@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "rows": [
+    {
+      "control": "Host/Origin/port/session/CSRF/replay",
+      "status": "PASS",
+      "evidence": "Current PH-LW-04/05 TCP and actual EXE negative cases"
+    },
+    {
+      "control": "XSS/text-only/CSP/no external requests",
+      "status": "PASS",
+      "evidence": "Current Edge source/GPT/results and actual EXE flows"
+    },
+    {
+      "control": "ZIP limits/CRC/encryption/traversal/reparse",
+      "status": "PASS",
+      "evidence": "Current import/core NTFS boundary and real EXE hostile ZIP cases"
+    },
+    {
+      "control": "Revision/replay/concurrency/recovery",
+      "status": "PASS",
+      "evidence": "Current shared fence/CLI/process/transaction/installer tests"
+    },
+    {
+      "control": "Immutable evidence/history/consent/manual boundary",
+      "status": "PASS",
+      "evidence": "Current Task/Stage/Brownfield/migration/maturity suites"
+    },
+    {
+      "control": "Distribution/log contents",
+      "status": "PASS",
+      "evidence": "INTEGRITY.json; PUBLISHED_LOG_SCAN.json; VISUAL_QA.json"
+    }
+  ],
+  "platform_skips": {
+    "tests.test_contract_hardening.ContractHardeningControlPlaneTests.test_agent_result_symlink_is_rejected": {
+      "status": "SKIP",
+      "reason": "skipped 'NOT RUN: native file symlink creation requires a Windows privilege unavailable to this non-admin user'",
+      "raw_log": "_scratch/ph_lw_12_fix/wheel/suite05-test_contract_hardening-nonbrowser.log"
+    },
+    "tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_05_colliding_tree_rejected_without_rewriting_case": {
+      "status": "SKIP",
+      "reason": "skipped 'NTFS casefold aliases require a case-sensitive directory; ZIP test is cross-platform'",
+      "raw_log": "_scratch/ph_lw_12_fix/wheel/suite05-test_ph_lw_02_windows_core-nonbrowser.log"
+    }
+  },
+  "scan_limits": "Bounded patterns and synthetic UI review; no universal DLP claim",
+  "automatic_executor": "NO-GO; disabled"
+}

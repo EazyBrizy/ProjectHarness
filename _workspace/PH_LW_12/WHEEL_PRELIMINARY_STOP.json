@@ -1,0 +1,5 @@
+{
+  "status": "ABORTED",
+  "reason": "Reporting metadata corrected before final freeze; preserve preliminary logs and run the final wheel bytes",
+  "pid": 53432
+}

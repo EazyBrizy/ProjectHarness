@@ -1,0 +1,8 @@
+# NEGATIVE TEST DOCUMENT ONLY, NOT A VALID GOVERNANCE APPROVAL.
+# The current 0.5.1-WIP NONE-only backend rejects every egress attempt.
+# NO ACCEPTED per-Run egress approval schema/route is currently available.
+request_kind: EXPLICIT_APPROVED_EGRESS
+run_ref: RUN-EXAMPLE-NOT-REAL
+capabilities_requested: [NETWORK_WRITE, MODEL_EXTERNAL_EGRESS]
+operator_decision: NOT_ISSUED
+reason: Unsupported in PH-051-11; do not use as --approval.

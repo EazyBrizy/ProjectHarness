@@ -1,0 +1,16 @@
+test_real_tcp_auth_consent_fields_replay_and_stale_view (tests.test_ph_lw_09_manual_evidence.ManualEvidenceHttpTests.test_real_tcp_auth_consent_fields_replay_and_stale_view) ... ok
+test_automatic_and_unpermitted_manual_task_refused (tests.test_ph_lw_09_manual_evidence.ManualEvidenceTests.test_automatic_and_unpermitted_manual_task_refused) ... ok
+test_block_resume_does_not_reuse_old_run_proof (tests.test_ph_lw_09_manual_evidence.ManualEvidenceTests.test_block_resume_does_not_reuse_old_run_proof) ... ok
+test_consent_unknown_fields_and_missing_checks_rejected_before_mutation (tests.test_ph_lw_09_manual_evidence.ManualEvidenceTests.test_consent_unknown_fields_and_missing_checks_rejected_before_mutation) ... ok
+test_control_tamper_or_partial_publication_never_becomes_trusted (tests.test_ph_lw_09_manual_evidence.ManualEvidenceTests.test_control_tamper_or_partial_publication_never_becomes_trusted) ... ok
+test_fail_review_is_not_pass_and_cannot_be_overwritten (tests.test_ph_lw_09_manual_evidence.ManualEvidenceTests.test_fail_review_is_not_pass_and_cannot_be_overwritten) ... ok
+test_forged_stale_refs_plan_and_product_source_digest_rejected (tests.test_ph_lw_09_manual_evidence.ManualEvidenceTests.test_forged_stale_refs_plan_and_product_source_digest_rejected) ... ok
+test_later_product_edit_invalidates_manual_proof_even_on_reverify (tests.test_ph_lw_09_manual_evidence.ManualEvidenceTests.test_later_product_edit_invalidates_manual_proof_even_on_reverify) ... ok
+test_positive_explicit_review_verify_complete_and_immutable_replay (tests.test_ph_lw_09_manual_evidence.ManualEvidenceTests.test_positive_explicit_review_verify_complete_and_immutable_replay) ... ok
+test_review_file_tamper_is_safety_block_not_positive_evidence (tests.test_ph_lw_09_manual_evidence.ManualEvidenceTests.test_review_file_tamper_is_safety_block_not_positive_evidence) ... ok
+test_strict_json_limits_and_duplicate_keys (tests.test_ph_lw_09_manual_evidence.ManualEvidenceTests.test_strict_json_limits_and_duplicate_keys) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 212.058s
+
+OK

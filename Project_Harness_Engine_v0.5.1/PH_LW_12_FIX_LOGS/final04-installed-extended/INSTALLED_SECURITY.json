@@ -1,0 +1,29 @@
+{
+  "checked_host_origin_csrf": true,
+  "bootstrap_replay": true,
+  "cross_project": true,
+  "malicious_zip_names": [
+    "../escape.md",
+    "C:/drive.md",
+    "C:relative.md",
+    "//host/share.md",
+    "x:ads.md",
+    "NUL.md",
+    "trail. /x.md",
+    "a\\b.md"
+  ],
+  "archive_attacks": [
+    "casefold_collision",
+    "unicode_collision",
+    "symlink_entry",
+    "crc_corruption",
+    "encryption",
+    "entry_count",
+    "depth",
+    "oversize_entry",
+    "compression_bomb",
+    "nested_zip"
+  ],
+  "no_lan_cors": true,
+  "raw_credentials_logged": false
+}

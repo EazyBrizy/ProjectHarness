@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_ph_lw_11_zip_path"
+  ],
+  "ran": 7,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 6.909,
+  "log": "test_ph_lw_11_zip_path.log",
+  "status": "PASS"
+}

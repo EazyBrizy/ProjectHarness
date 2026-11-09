@@ -1,0 +1,58 @@
+test_foreign_origin_browser_form_fetch_and_frame_are_denied (tests.test_ph_lw_04_05_acceptance.BrowserImportAcceptance.test_foreign_origin_browser_form_fetch_and_frame_are_denied) ... Timeout (0:00:20)!
+Thread 0x0000a9e0 [Thread-2 (serve_forever)] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\selectors.py", line 305 in _select
+  File "<WORKSPACE>\_tools\Python314\Lib\selectors.py", line 314 in select
+  File "<WORKSPACE>\_tools\Python314\Lib\socketserver.py", line 235 in serve_forever
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x00004a3c [Thread-1 (run)] (most recent call first):
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\wasyncore.py", line 167 in poll
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\wasyncore.py", line 240 in loop
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\server.py", line 325 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x0000013c [waitress-3] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x00008e08 [waitress-2] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x00002210 [waitress-1] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x00005514 [waitress-0] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x0000b3c0 (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\windows_events.py", line 778 in _poll
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\windows_events.py", line 446 in select
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\base_events.py", line 2026 in _run_once
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\base_events.py", line 678 in run_forever
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\base_events.py", line 707 in run_until_complete
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\sync_api\_context_manager.py", line 60 in greenlet_main
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 36.238s
+
+OK

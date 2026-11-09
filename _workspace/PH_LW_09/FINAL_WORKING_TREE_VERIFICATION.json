@@ -1,0 +1,111 @@
+{
+  "status": "PASS",
+  "verified_utc": "2026-11-07T05:47:43.414730+00:00",
+  "scope": "PH-LW-09 exact unpacked pair, not full release",
+  "trees": {
+    "Project_Harness_Engine_v0.5.1": {
+      "status": "PASS",
+      "files": 2301,
+      "manifest_sha256": "a68ca9f744554c7afaa1fdce32104f37222d8f1f55653d3546adc8f7d958e7a2"
+    },
+    "Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 149,
+      "manifest_sha256": "b9a6679877aa1bdd5f39fd810b61a8454acf04bfd3379949c1614dd2320b894b"
+    },
+    "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 149,
+      "manifest_sha256": "b9a6679877aa1bdd5f39fd810b61a8454acf04bfd3379949c1614dd2320b894b"
+    }
+  },
+  "wheel_sha256": "877c465bbcb9a4187d4cf49f1e49eabf655ed2b9f21ff0aaf4b05ad2852d685e",
+  "engine_build_digest": "sha256:cb4c7dc78793622090d6a6e3b5ddb4a72148078ee6106568297a081022295b3b",
+  "immutable_files_verified": 1978,
+  "historical_engine_evidence_preserved": 1617,
+  "archives_preserved": 4,
+  "input_baseline_sha256": "41d63e40e3b2ecb2f6fe1a621179cacfd8cb6c4478a4eb26870c17f52a0c37f2",
+  "input_file_hashes_sha256": "18c9b7359ebb7f1bb510f582e217721dfaa7078d9696b6a0c2880ff284521d1b",
+  "changed_file_hashes_sha256": "5a9df3dc718312f248184fd93df3dcfa424e6446f5f2bbcda8943cde7f425d93",
+  "evidence_files_verified": 173,
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\tools\\check_workspace.py"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+      "started_utc": "2026-11-07T05:47:40.280552+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "log": "workspace.log",
+      "log_sha256": "1a3b30b4ef5da56321e640b06f471e36bebed92e79d9d1d02fef455739ed7340"
+    },
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1\\project-harness.py",
+        "doctor"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1",
+      "started_utc": "2026-11-07T05:47:40.616249+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "log": "doctor.log",
+      "log_sha256": "fd1ff0869e6e6ea0e096e617949a275a4415da476bd37b3c3eff535e599966b2"
+    },
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Documentation_v0.5.1\\tools\\validate_documentation.py",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Documentation_v0.5.1",
+        "--json",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_workspace\\PH_LW_09\\DOC_VALIDATION.json"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+      "started_utc": "2026-11-07T05:47:41.987845+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "log": "docs.log",
+      "log_sha256": "3f5115baa7bcbac1e43048c6326babeeb5c89a436278b1ddeeb561f88c38eed4"
+    }
+  ],
+  "native_acceptance": {
+    "status": "PASS",
+    "tests": 143,
+    "skips": [],
+    "source": "native-verified/PH_LW_09_WINDOWS_TEST_REPORT.json",
+    "installed_wheel_tests": 141,
+    "installed_source": "runs/installed-wheel-verified.run.json",
+    "native_wrapper_status": "PASS"
+  },
+  "workspace_files": {
+    "AGENTS.md": "afc9a144b0c6c4b6fa331039776b8ade9aaa03912c2aa0e05926ac5305e8dc21",
+    "README.md": "f7c803418d54190f91edfcaaf0c2ac4876fbd39f28d8050afa2d51e67694f5ae",
+    "_workspace/CURRENT_TASK.md": "f176426da4d6efc9664d3d917f91b66c0ea657d4ae917ab314f9f424aed0bea9",
+    "_workspace/PROJECT_MAP.md": "f8b4155f376ec6dfe78699c56d4e65183d6c616a5e26a95a62fa5dab05ff5bd5",
+    "_workspace/RUNBOOK.md": "522496b1362ebf824308fd54de3ada3b2089c31dba10981624942e8cd8755840",
+    "tools/check_workspace.py": "568fd1ef2c8609b9fa0a8d7ebd2ba4b7692405efe9bf0efa7761a40e516c00d8",
+    "tools/verify_installed.py": "fded8f7c21b29ef04c7803eab0ed99697593df0dca205153398d4290a52c8648",
+    "tools/sync_working_tree.py": "9b211015aeaabb5532fa5d8b5cd6661fc1f488291c0c1bd5ed6de095a6237ea6",
+    "tools/begin_ph_lw_09.py": "cfa9ccea992f7da9f829020f0404230020c919b8e089e35847d5123c05322621",
+    "tools/finalize_ph_lw_09_evidence.py": "a4b6622f903dad73f456273853def1a7152a7fd5334e9c7d6d871b3a21216037",
+    "tools/verify_ph_lw_09_working_tree.py": "4598872c205f22fa627298346bf8d43d144c7c51dbd4ab5b96abc1ba504238cf",
+    "tools/setup_ph_lw_09_wheel.py": "51e124ee3ff266eb62b8fec957f04e6273cd7181e49c925a99e8d47bf22814b1"
+  },
+  "zip_created": false,
+  "verdicts": {
+    "PH-LW-04": "PASS",
+    "PH-LW-05": "PASS",
+    "PH-LW-06": "PASS",
+    "PH-LW-07": "PASS",
+    "PH-LW-08": "PASS",
+    "PH-LW-09": "NO-GO",
+    "LOCAL_WEB_MANUAL": "NO-GO",
+    "AUTOMATIC_EXECUTOR": "NO-GO",
+    "v0.5.1": "NO-GO / NOT RELEASED"
+  },
+  "blockers": [
+    "PH-F06 manual lifecycle: missing Task-level manual proof; setUpClass ERROR, four mandatory tests NOT RUN"
+  ]
+}

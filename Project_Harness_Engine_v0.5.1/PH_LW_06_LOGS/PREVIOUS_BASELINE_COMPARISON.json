@@ -1,0 +1,158 @@
+{
+  "status": "UNCHANGED_RESULTS_FOR_ALL_38_PREVIOUS_MODULES",
+  "reference": "../PH_LW_05_WINDOWS_MANUAL_REMEDIATION_LOGS/REGRESSION_MATRIX_COMBINED.json",
+  "rows": [
+    {
+      "module": "tests.test_assessment_freshness",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_canonical_target",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_contract_hardening",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_engine",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_exact_assessment_ref",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_gate_evidence_contract",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_implementation_levels",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_maintenance_lifecycle",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_051_01_contract_baseline",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_051_02_executor_protocol",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_051_03_rootless_podman",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_051_04_disposable_roots",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_051_05_codex_adapter",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_051_06_result_channel",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_051_07_sandbox_verification",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_051_08_atomic_apply",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_051_09_automatic_runtime",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_051_10_migration_recovery",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_051_11_operator_docs",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_f01_gate_semantics_regression",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_f01_planner_regression",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_f02_semantic_proof_contract",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_f03_active_stage_planning",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_f04_runtime_reachability",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_f05_intake_acceptance",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_f06_maturity_lifecycle",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_f08_release_acceptance",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_lw_01_contract",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_lw_02_windows_core",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_lw_03_service",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_lw_04_05_acceptance",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_lw_04_http",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_lw_05_http",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_ph_lw_05_import",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_stage_approval_preparation",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_stage_gate_preparation_block_recovery",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_stage_transaction_recovery",
+      "differences": {}
+    },
+    {
+      "module": "tests.test_windows_manual_migration",
+      "differences": {}
+    }
+  ]
+}

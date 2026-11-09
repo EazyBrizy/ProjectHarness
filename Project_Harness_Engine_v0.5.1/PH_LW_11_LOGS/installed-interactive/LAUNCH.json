@@ -1,0 +1,12 @@
+{
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_11\\build-ui-final\\Harness-Setup-win-x64.exe",
+    "/DIR=<WORKSPACE>\\_scratch\\ph_lw_11\\installed-interactive\\Программа",
+    "/LOG=<WORKSPACE>\\_scratch\\ph_lw_11\\installed-interactive\\install.log",
+    "/NORESTART"
+  ],
+  "pid": 6712,
+  "installer_sha256": "3fc408711384541011b7f2fe7f8e3f8eef42a5e6257d1f5b23c930ac55782a1f",
+  "runtime_root": "<WORKSPACE>\\_scratch\\Л11interactive",
+  "status": "RUNNING_INTERACTIVE"
+}

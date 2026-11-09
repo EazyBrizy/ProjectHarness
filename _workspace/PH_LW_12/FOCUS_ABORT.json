@@ -1,0 +1,5 @@
+{
+  "status": "ABORTED",
+  "reason": "New no-doc test reloaded before receiving preparation/start 202. Test corrected to preserve the same admitted-operation boundary as existing PH-LW-08 browser acceptance. Runtime bytes unchanged.",
+  "pid": 29980
+}

@@ -1,0 +1,5 @@
+adapter_factory= True
+active_profile_loader= True
+trusted_runner= RootlessPodmanRunner
+source_module= /mnt/data/ph05105_workspace/wheel_smoke/venv/lib/python3.13/site-packages/project_harness/executors/codex_cli_local.py
+PASS installed wheel adapter import

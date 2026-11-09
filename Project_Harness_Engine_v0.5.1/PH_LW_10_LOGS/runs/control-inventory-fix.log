@@ -1,0 +1,6 @@
+test_01_status_provisional_is_read_only_even_with_pending_input (tests.test_ph_lw_03_service.LocalWebServiceTests.test_01_status_provisional_is_read_only_even_with_pending_input) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.221s
+
+OK

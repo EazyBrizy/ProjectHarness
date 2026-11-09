@@ -1,0 +1,239 @@
+[
+  {
+    "path": "projects/LWP-A23B94211639116B3CF7/operations",
+    "method": "POST",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-E40ACDC66F9286021FA01BEA7A593072",
+      "state": "QUEUED"
+    }
+  },
+  {
+    "path": "projects/LWP-A23B94211639116B3CF7/tasks/result-upload",
+    "method": "POST",
+    "status": 201,
+    "body": {
+      "binding_digest": "sha256:fc420a42bd356dc44fa73912200cd82ce96abdc62bf3c3812b2954906805d683",
+      "status": "STAGED_UNVERIFIED",
+      "upload_id": "LWR-09FA0F0812B93822AC994781540FD376334477FE06AE10CDE29A83A8E2D287C3"
+    }
+  },
+  {
+    "path": "projects/LWP-A23B94211639116B3CF7/operations",
+    "method": "POST",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-0BBCE045A84F92A70CC1866A67BAF507",
+      "state": "QUEUED"
+    }
+  },
+  {
+    "path": "projects/LWP-A23B94211639116B3CF7/tasks",
+    "method": "GET",
+    "status": 409,
+    "body": {
+      "error": {
+        "code": "OPERATION_CONFLICT",
+        "message_ru": "С этим проектом уже работает другая операция.",
+        "next_action_ru": "Получите статус существующей операции и повторите позже."
+      },
+      "status": "FAILED"
+    }
+  },
+  {
+    "path": "projects/LWP-A23B94211639116B3CF7/tasks",
+    "method": "GET",
+    "status": 409,
+    "body": {
+      "error": {
+        "code": "OPERATION_CONFLICT",
+        "message_ru": "С этим проектом уже работает другая операция.",
+        "next_action_ru": "Получите статус существующей операции и повторите позже."
+      },
+      "status": "FAILED"
+    }
+  },
+  {
+    "path": "projects/LWP-A23B94211639116B3CF7/tasks",
+    "method": "GET",
+    "status": 409,
+    "body": {
+      "error": {
+        "code": "OPERATION_CONFLICT",
+        "message_ru": "С этим проектом уже работает другая операция.",
+        "next_action_ru": "Получите статус существующей операции и повторите позже."
+      },
+      "status": "FAILED"
+    }
+  },
+  {
+    "path": "projects/LWP-A23B94211639116B3CF7/tasks",
+    "method": "GET",
+    "status": 409,
+    "body": {
+      "error": {
+        "code": "OPERATION_CONFLICT",
+        "message_ru": "С этим проектом уже работает другая операция.",
+        "next_action_ru": "Получите статус существующей операции и повторите позже."
+      },
+      "status": "FAILED"
+    }
+  },
+  {
+    "path": "projects/LWP-A23B94211639116B3CF7/tasks",
+    "method": "GET",
+    "status": 409,
+    "body": {
+      "error": {
+        "code": "OPERATION_CONFLICT",
+        "message_ru": "С этим проектом уже работает другая операция.",
+        "next_action_ru": "Получите статус существующей операции и повторите позже."
+      },
+      "status": "FAILED"
+    }
+  },
+  {
+    "path": "projects/LWP-A23B94211639116B3CF7/operations",
+    "method": "POST",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-A3D0C110D094F54665A6309521D092FE",
+      "state": "QUEUED"
+    }
+  },
+  {
+    "path": "projects/LWP-A23B94211639116B3CF7/operations",
+    "method": "POST",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-551F96CA8A97D16EC5A83C1C054CBC15",
+      "state": "QUEUED"
+    }
+  },
+  {
+    "path": "projects/LWP-A23B94211639116B3CF7/operations",
+    "method": "POST",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-4A05DE28E9B1E396B70A7343E6DE6144",
+      "state": "QUEUED"
+    }
+  },
+  {
+    "path": "projects/LWP-A23B94211639116B3CF7/lifecycle",
+    "method": "GET",
+    "status": 409,
+    "body": {
+      "error": {
+        "code": "OPERATION_CONFLICT",
+        "message_ru": "С этим проектом уже работает другая операция.",
+        "next_action_ru": "Получите статус существующей операции и повторите позже."
+      },
+      "status": "FAILED"
+    }
+  },
+  {
+    "path": "projects/LWP-A23B94211639116B3CF7/lifecycle",
+    "method": "GET",
+    "status": 409,
+    "body": {
+      "error": {
+        "code": "OPERATION_CONFLICT",
+        "message_ru": "С этим проектом уже работает другая операция.",
+        "next_action_ru": "Получите статус существующей операции и повторите позже."
+      },
+      "status": "FAILED"
+    }
+  },
+  {
+    "path": "projects/LWP-A23B94211639116B3CF7/lifecycle",
+    "method": "GET",
+    "status": 409,
+    "body": {
+      "error": {
+        "code": "OPERATION_CONFLICT",
+        "message_ru": "С этим проектом уже работает другая операция.",
+        "next_action_ru": "Получите статус существующей операции и повторите позже."
+      },
+      "status": "FAILED"
+    }
+  },
+  {
+    "path": "projects/LWP-A23B94211639116B3CF7/lifecycle",
+    "method": "GET",
+    "status": 409,
+    "body": {
+      "error": {
+        "code": "OPERATION_CONFLICT",
+        "message_ru": "С этим проектом уже работает другая операция.",
+        "next_action_ru": "Получите статус существующей операции и повторите позже."
+      },
+      "status": "FAILED"
+    }
+  },
+  {
+    "path": "projects/LWP-A23B94211639116B3CF7/lifecycle",
+    "method": "GET",
+    "status": 409,
+    "body": {
+      "error": {
+        "code": "OPERATION_CONFLICT",
+        "message_ru": "С этим проектом уже работает другая операция.",
+        "next_action_ru": "Получите статус существующей операции и повторите позже."
+      },
+      "status": "FAILED"
+    }
+  },
+  {
+    "path": "projects/LWP-A23B94211639116B3CF7/lifecycle",
+    "method": "GET",
+    "status": 409,
+    "body": {
+      "error": {
+        "code": "OPERATION_CONFLICT",
+        "message_ru": "С этим проектом уже работает другая операция.",
+        "next_action_ru": "Получите статус существующей операции и повторите позже."
+      },
+      "status": "FAILED"
+    }
+  },
+  {
+    "path": "projects/LWP-A23B94211639116B3CF7/lifecycle",
+    "method": "GET",
+    "status": 409,
+    "body": {
+      "error": {
+        "code": "OPERATION_CONFLICT",
+        "message_ru": "С этим проектом уже работает другая операция.",
+        "next_action_ru": "Получите статус существующей операции и повторите позже."
+      },
+      "status": "FAILED"
+    }
+  },
+  {
+    "path": "projects/LWP-A23B94211639116B3CF7/lifecycle",
+    "method": "GET",
+    "status": 409,
+    "body": {
+      "error": {
+        "code": "OPERATION_CONFLICT",
+        "message_ru": "С этим проектом уже работает другая операция.",
+        "next_action_ru": "Получите статус существующей операции и повторите позже."
+      },
+      "status": "FAILED"
+    }
+  },
+  {
+    "path": "projects/LWP-A23B94211639116B3CF7/lifecycle",
+    "method": "GET",
+    "status": 409,
+    "body": {
+      "error": {
+        "code": "OPERATION_CONFLICT",
+        "message_ru": "С этим проектом уже работает другая операция.",
+        "next_action_ru": "Получите статус существующей операции и повторите позже."
+      },
+      "status": "FAILED"
+    }
+  }
+]

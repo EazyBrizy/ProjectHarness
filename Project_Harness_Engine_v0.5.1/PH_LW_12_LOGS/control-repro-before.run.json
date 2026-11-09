@@ -1,0 +1,19 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_final_ui_has_no_obsolete_manual_lifecycle_placeholders",
+    "tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_stage_status_and_manual_evidence_use_existing_forms"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-08T09:02:10.967662+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 120,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 103.24,
+  "log_sha256": "ccbea84074595c2819feb8676963c35eb9cc2afa002af3cf492ca223d5c03b10"
+}

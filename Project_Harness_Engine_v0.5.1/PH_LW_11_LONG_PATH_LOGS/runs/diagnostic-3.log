@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>\_scratch\ph_lw_11_long_path\diagnose.py", line 4, in <module>
+    import project_harness.local_web_preparation as prep
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 18, in <module>
+    from .materialization import (check_new_destination, directory_identity, inspect_initial_handoff,
+                                  publish_project_directory, verify_published_project, handoff_tree_digest)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\materialization.py", line 19, in <module>
+    from .validation import validate_handoff, validate_project_directory
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\validation.py", line 996
+    prompt = _native_io_path(md_path).read_text(encoding="utf-8")
+    ^^^^^^
+IndentationError: expected an indented block after 'else' statement on line 995

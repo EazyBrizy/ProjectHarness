@@ -1,0 +1,15 @@
+{
+  "modules": [
+    "tests.test_ph_lw_05_http.SourceHttpSecurity.test_auth_upload_list_preview_and_replay",
+    "tests.test_ph_lw_05_http.SourceHttpSecurity.test_documentation_none_after_import_explicit_and_no_external_requests",
+    "tests.test_ph_lw_05_http.SourceHttpSecurity.test_duplicate_multipart_scalar_fields_are_rejected",
+    "tests.test_ph_lw_05_http.SourceHttpSecurity.test_malformed_upload_rejected_and_unknown_fields"
+  ],
+  "ran": 4,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 1.874,
+  "log": "suite05-test_ph_lw_05_http-nonbrowser.log",
+  "status": "PASS"
+}

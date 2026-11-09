@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "commands": [
+    [
+      "<WORKSPACE>\\_tools\\Python314\\python.exe",
+      "-m",
+      "venv",
+      "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel-venv"
+    ],
+    [
+      "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel-venv\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "--no-index",
+      "--find-links",
+      "<WORKSPACE>\\_tools\\wheelhouse",
+      "--require-hashes",
+      "-r",
+      "<WORKSPACE>\\Project_Harness_Engine_v0.5.1\\local_web\\requirements-web-win_amd64-cp314.lock"
+    ],
+    [
+      "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel-venv\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "--no-index",
+      "--find-links",
+      "<WORKSPACE>\\_tools\\devwheelhouse",
+      "--require-hashes",
+      "-r",
+      "<WORKSPACE>\\_workspace\\requirements-dev-win_amd64-cp314.lock"
+    ],
+    [
+      "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel-venv\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "--no-index",
+      "--no-deps",
+      "<WORKSPACE>\\Project_Harness_Engine_v0.5.1\\dist\\project_harness_engine-0.5.1-py3-none-any.whl"
+    ]
+  ]
+}

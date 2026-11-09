@@ -1,0 +1,32 @@
+[
+  {
+    "pid": 7772,
+    "command": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\ph_lw_12_fix\\wheel-venv\\Scripts\\python.exe -B C:\\Users\\gvenv\\Desktop\\ProjectHarness\\tools\\ph_lw_12_fix_maturity_driver.py --engine C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1 --case tests.test_ph_f06_maturity_lifecycle",
+    "reason": "Candidate 01 publication IO blocker requires a new immutable build; preserve existing attempt"
+  },
+  {
+    "pid": 17220,
+    "command": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\ph_lw_12_fix\\wheel-venv\\Scripts\\python.exe -B C:\\Users\\gvenv\\Desktop\\ProjectHarness\\tools\\ph_lw_12_fix_maturity_driver.py --engine C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1 --case tests.test_ph_f06_maturity_lifecycle",
+    "reason": "Candidate 01 publication IO blocker requires a new immutable build; preserve existing attempt"
+  },
+  {
+    "pid": 34148,
+    "command": "\"C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe\" -B tools/ph_lw_12_fix_suites.py nonbrowser",
+    "reason": "Candidate 01 publication IO blocker requires a new immutable build; preserve existing attempt"
+  },
+  {
+    "pid": 37716,
+    "command": "\"C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe\" -B tools/ph_lw_12_fix_suites.py nonbrowser",
+    "reason": "Candidate 01 publication IO blocker requires a new immutable build; preserve existing attempt"
+  },
+  {
+    "pid": 20856,
+    "command": "\"C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe\" -B tools/ph_lw_12_fix_suites.py browser",
+    "reason": "Candidate 01 publication IO blocker requires a new immutable build; preserve existing attempt"
+  },
+  {
+    "pid": 9208,
+    "command": "\"C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe\" -B tools/ph_lw_12_fix_suites.py browser",
+    "reason": "Candidate 01 publication IO blocker requires a new immutable build; preserve existing attempt"
+  }
+]

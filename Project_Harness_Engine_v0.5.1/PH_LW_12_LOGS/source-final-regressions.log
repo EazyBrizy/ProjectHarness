@@ -1,0 +1,59 @@
+test_final_ui_has_no_obsolete_manual_lifecycle_placeholders (tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_final_ui_has_no_obsolete_manual_lifecycle_placeholders) ... ok
+test_navigation_resume_finishes_before_user_mutation (tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_navigation_resume_finishes_before_user_mutation) ... Task queue depth is 1
+Task queue depth is 2
+ok
+test_refresh_after_commit_does_not_reuse_older_lifecycle_response (tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_refresh_after_commit_does_not_reuse_older_lifecycle_response) ... Task queue depth is 1
+Task queue depth is 2
+ok
+test_stage_status_and_manual_evidence_use_existing_forms (tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_stage_status_and_manual_evidence_use_existing_forms) ... Task queue depth is 1
+Exception while serving /api/projects/LWP-46220425CE23A72140EA/lifecycle
+Traceback (most recent call last):
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\channel.py", line 430, in service
+    task.service()
+    ~~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 167, in service
+    self.execute()
+    ~~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 473, in execute
+    self.write(chunk)
+    ~~~~~~~~~~^^^^^^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 331, in write
+    channel.write_soon(towrite)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\channel.py", line 388, in write_soon
+    self.server.pull_trigger()
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\server.py", line 334, in pull_trigger
+    self.trigger.pull_trigger()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\trigger.py", line 96, in pull_trigger
+    self._physical_pull()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\trigger.py", line 200, in _physical_pull
+    self.trigger.send(b"x")
+    ~~~~~~~~~~~~~~~~~^^^^^^
+OSError: [WinError 10038] Сделана попытка выполнить операцию на объекте, не являющемся сокетом
+Exception when servicing <waitress.channel.HTTPChannel connected 127.0.0.1:51148 at 0x1a4a04ae030>
+Traceback (most recent call last):
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 83, in handler_thread
+    task.service()
+    ~~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\channel.py", line 512, in service
+    self.server.pull_trigger()
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\server.py", line 334, in pull_trigger
+    self.trigger.pull_trigger()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\trigger.py", line 96, in pull_trigger
+    self._physical_pull()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\trigger.py", line 200, in _physical_pull
+    self.trigger.send(b"x")
+    ~~~~~~~~~~~~~~~~~^^^^^^
+OSError: [WinError 10038] Сделана попытка выполнить операцию на объекте, не являющемся сокетом
+ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 36.866s
+
+OK

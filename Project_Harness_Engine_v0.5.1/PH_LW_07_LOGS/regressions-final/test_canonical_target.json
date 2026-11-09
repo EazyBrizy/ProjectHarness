@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_canonical_target"
+  ],
+  "ran": 5,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 34.038,
+  "log": "test_canonical_target.log",
+  "status": "PASS"
+}

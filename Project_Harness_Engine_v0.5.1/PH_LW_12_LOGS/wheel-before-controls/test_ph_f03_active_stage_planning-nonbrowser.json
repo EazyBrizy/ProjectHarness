@@ -1,0 +1,19 @@
+{
+  "modules": [
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_alpha_apply_exact_revision_indexes_first_jit_and_replay",
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_edited_record_needs_review_and_material_change_is_blocked",
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_level_up_mvp_release_first_ready_jit",
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_no_write_to_control_plane_or_unaccepted_requirements",
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_read_only_draft_schema_and_public_cli",
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_stale_product_baseline_fails_before_mutation",
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_tampered_binding_and_future_work_rejected",
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_transaction_recovery_restores_pre_plan_boundary"
+  ],
+  "ran": 0,
+  "failures": 0,
+  "errors": 1,
+  "skips": [],
+  "elapsed_seconds": 0.236,
+  "log": "test_ph_f03_active_stage_planning-nonbrowser.log",
+  "status": "FAIL"
+}

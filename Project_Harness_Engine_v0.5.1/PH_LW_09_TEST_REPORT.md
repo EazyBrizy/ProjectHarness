@@ -1,0 +1,46 @@
+# PH-LW-09 — фактический отчёт
+
+Дата: 2026-11-07. **PH-LW-09: NO-GO — новый manual lifecycle blocker.** Код, целевые tests, документация и приёмка полного prompt r2 выполнены на распакованной проверенной базе PH-LW-08; этап не принят из-за описанного ниже regression. Automatic executor выключен; PH-LW-10 не выполнялся; Engine/Documentation ZIP не создавались. Handoff ZIP внутри тестовых compiler fixtures — штатный продуктовый output, не архив поставки Engine.
+
+## База и изменения
+
+Входные Engine manifest `dbccdd6a9d4b0f505aa6626e157aebd171dc6e9a1d4c19c075cfd797cc874802`, Documentation manifest `8124e124f2fcae5207cd1e68f0559608120f7815888e02904e4a665a7b6885ec`, wheel `91367028938d984b0c5f91a6dba9fe953a888d6cd9c9944ccb94cb9f6e94049e` совпали; drift отсутствовал. [Baseline](../_workspace/PH_LW_09/INPUT_BASELINE.json), [input hashes](../_workspace/PH_LW_09/INPUT_FILE_HASHES.json). Правило пользователя о работе без ZIP заменяет историческое требование r2; исторические источники не переписаны.
+
+Allowed changes: public manual Task/result API, Local Web Task orchestration/service/HTTP/UI, прямые manual fixes в runtime/result reader, новые tests/runner, docs/mirror, metadata/wheel/manifests, новые evidence и workspace navigation/tooling. [Changed files](PH_LW_09_CHANGED_FILES.md), [сохранённые инварианты](PH_LW_09_PRESERVED_INVARIANTS.md).
+
+Реализованы current-stage Work Packages/Tasks/dependencies, canonical future Stage Plan outlines, exact Task/Run/JIT/context previews, read-only copy, idempotent next. Private upload либо exact canonical result channel проходит strict JSON/schema/ref/path/baseline validation и kernel ingestion. Один неизменяемый result на Run; claim агента, independent PASS и Task completion различаются. Verification consent bound к current Run/product/plan digest, показывает точные argv/cwd/timeout и host-code предупреждение. Без consent команды не запускаются; toolchain не устанавливается. Реальные gates/diff/errors отображаются без повышения статуса. Block/resume требует reason/resolution, exact OPEN blocker revision и актуальный fingerprint. Safety recovery fail-closed. Automatic projects не переключаются в manual.
+
+Прямые обнаруженные core defects: `allow_manual:true` считался доказательством manual checks; теперь непустые checks без поддержанного evidence остаются BLOCKED. Повторный verify перезаписывал report перед отказом immutable evidence; теперь каждый check получает отдельные exact report/evidence refs, прежние байты сохранены. Host verify также отклоняет ещё READY automatic policy до первого automatic phase. Result reader отвергает duplicate JSON keys/nonfinite constants. Core schemas/registries, Stage planner и semantic evidence contract не изменены.
+
+## Фактическая приёмка
+
+| Run | Результат |
+|---|---|
+| Новые PH-LW-09 modules | 28 methods PASS, 0 SKIP |
+| Native Windows suite PH-LW-04–09 | 143 PASS, 0 SKIP; wrapper/doctor/docs PASS |
+| Installed wheel, отдельная venv и Unicode CWD | 141 PASS, 0 SKIP; site-packages import, console doctor/launcher и TCP health PASS |
+| Полная свежая matrix | 46 modules / 531 methods; 35 PASS / 3 PASS_WITH_SKIPS / 8 FAIL |
+| Failure/error/skip/timeout events | 24 / 89 / 7 / 0 |
+| Обязательные методы NOT RUN из-за setUpClass ERROR | 4 метода PHF06MaturityLifecycleTests; незакрытый gate |
+
+Стенд: настоящий Windows 11 x64, NTFS, non-admin, Python 3.14.10 x64, Flask 3.1.3, Waitress 3.0.2, реальный Edge/TCP. [Native report](PH_LW_09_LOGS/native-verified/PH_LW_09_WINDOWS_TEST_REPORT.json), [source environment](PH_LW_09_LOGS/SOURCE_ENVIRONMENT.json), [wheel environment](PH_LW_09_LOGS/WHEEL_ENVIRONMENT.json). Команды, CWD, timeout, exit и log hashes — [evidence index](PH_LW_09_LOGS/EVIDENCE_INDEX.json) и `runs/*.run.json`. Полный [matrix](PH_LW_09_LOGS/REGRESSION_MATRIX_CURRENT.json) сохраняет унаследованные FAIL/SKIP; [сравнение](PH_LW_09_LOGS/PREVIOUS_BASELINE_COMPARISON.json) подтверждает одинаковые результаты 43 из 44 прежних модулей и одинаковые failed test IDs семи прежних FAIL-модулей. Новый восьмой FAIL — PH-F06, не automatic/Podman blocker и не основание объявить весь этап PASS.
+
+## Новый blocker: отсутствует поддержанный Task-level manual proof
+
+`tests.test_ph_f06_maturity_lifecycle` ранее PASS: 13 methods; сейчас 9 methods, один `setUpClass ERROR`, четыре обязательных метода NOT RUN. [Полный log](PH_LW_09_LOGS/core-regressions/test_ph_f06_maturity_lifecycle.log). `active_stage_planning.py` создаёт обычные Tasks с непустым `manual_checks` и `allow_manual:true`. Fixture `ph_f06_fixtures.complete_task` вызывает verify до предоставления независимого manual proof; отдельные Stage sources создаются позже и не доказывают конкретный Task check. Прежний runtime считал один флаг permission достаточным для PASS. PH-LW-09 прямо запрещает PASS для missing manual checks, поэтому исправленный runtime возвращает BLOCKED, а существующий lifecycle fixture больше не проходит.
+
+Это реальный blocker manual пути после PROTOTYPE, а не допустимый унаследованный automatic NO-GO. Возврат shortcut, подавление ошибки, удаление manual checks или ослабление старого теста не применялись. Planner, schemas/registries и исторический PH-F06 PASS оставлены неизменными. В принятом core contract нет Task-level intake evidence для таких свободно заданных checks. Произвольный новый proof schema/API или перенос Stage approval в Task completion изменили бы контракт; такой change не выполнялся молча. До согласованного решения и positive/negative/recovery coverage PH-LW-09 остаётся NO-GO. Следующий разрешённый предмет работы — этот blocker, только по отдельному заданию, без автоматического перехода к PH-LW-10.
+
+В Edge явный fixture external agent реально изменяет продукт, затем браузер выполняет upload → received → no-consent BLOCKED → consent → real verify PASS → complete → next, без private Python editing canonical state. Второй браузерный путь проверяет failing exit 9 → block → exact-ref resume. Fixture запись файла — действие тестового внешнего исполнителя, не evidence реального Codex/Podman. Негативные tests: forged/wrong/stale refs, changed result/baseline, forbidden writes, control tamper до intake и из verification command, missing tools/dependencies/paths, unknown fields, hardlink, consent/plan mismatch, foreign upload, duplicate click/multi-tab, partial publication и ambiguous recovery без повторного запуска команд. Fault-injection fixtures явно отделены от позитивного публичного маршрута.
+
+Ранние FAIL сохранены: неверное использование Windows directory preflight для файла; некорректная automatic fixture без профилей; UI refresh race; повторная verification с прежним immutable evidence ID; docs README распознавался validator как неизвестный prefix NO; setup logger не сериализовал Path. Исправлены реализация/fixtures/тексты, semantic ожидания не ослаблены. Browser expectation timeout приведён к 30 секундам для реальных операций. Промежуточные native/wheel runs остановлены после обнаружения пропуска future outlines, отмечены INTERRUPTED отдельным record; их raw FAIL exits не переписаны. Финальные suites выполнены на зафиксированной сборке последовательно. Core suite начат до read-only outline дополнения; его core runtime исходники не менялись, финальный native/wheel проверяет окончательный Local Web source.
+
+Одна ранняя одиночная диагностика не имеет отдельного сохранённого raw stdout; причина и граница evidence зафиксированы в [diagnostic note](PH_LW_09_LOGS/EARLY_DIAGNOSTIC_NOTE.md). Её результат не использован для acceptance verdict.
+
+В native stdout сохранены Waitress queue diagnostics и два `WinError 10038` при обслуживании/закрытии тестового сервера; аналогичные две записи есть в предыдущем PH-LW-08 native log. Они не скрыты: runner завершил 143 tests без unittest errors/failures и с exit 0. Это наблюдение о тестовом harness, не отдельное доказательство корректности всех сценариев shutdown.
+
+## Итоговые файлы и открытые gates
+
+Build `PH-LW-09-20261107`; source digest `sha256:cb4c7dc78793622090d6a6e3b5ddb4a72148078ee6106568297a081022295b3b`; wheel SHA-256 `877c465bbcb9a4187d4cf49f1e49eabf655ed2b9f21ff0aaf4b05ad2852d685e`. Docs mirror побайтово совпадает; build/lib и wheel сгенерированы из src. [Финальная аттестация](../_workspace/PH_LW_09/FINAL_WORKING_TREE_VERIFICATION.json), [output hashes](../_workspace/PH_LW_09/SHA256.txt), [изменённые hashes](../_workspace/PH_LW_09/CHANGED_FILE_HASHES.json).
+
+Отдельные verdicts PH-LW-04/05/06/07/08 — PASS в их scopes; новые PH-LW-09 target/native/wheel checks PASS, **PH-LW-09 в целом NO-GO** из-за manual lifecycle blocker. `LOCAL_WEB_MANUAL: NO-GO` до закрытия blocker и PH-LW-12; `AUTOMATIC_EXECUTOR: NO-GO`; полная v0.5.1 `NO-GO / NOT RELEASED`. NOT RUN: четыре метода PH-F06 после setUpClass ERROR, physical power-loss/storage-failure, clean-machine installer, реальный внешний Codex, полный lifecycle PH-LW-10–12, positive governed per-Run egress и rootless Podman security acceptance. Неоднозначный interrupted commit требует canonical диагностики и не auto-replay; task-level manual evidence ingestion вне текущего core contract, такие checks блокируют completion. Staged uploads остаются private/bounded; не входят в поставку. Следующий шаг — только новое задание пользователя; PH-LW-10 не начат.

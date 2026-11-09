@@ -1,0 +1,7 @@
+test_i01_minimal_greenfield_waiting_decision_to_exact_first_jit (tests.test_ph_f08_release_acceptance.PHF08ReleaseAcceptanceTests.test_i01_minimal_greenfield_waiting_decision_to_exact_first_jit) ... ok
+test_i03_i12_prototype_alpha_planning_exact_replay_and_stale_rejection (tests.test_ph_f08_release_acceptance.PHF08ReleaseAcceptanceTests.test_i03_i12_prototype_alpha_planning_exact_replay_and_stale_rejection) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 54.448s
+
+OK

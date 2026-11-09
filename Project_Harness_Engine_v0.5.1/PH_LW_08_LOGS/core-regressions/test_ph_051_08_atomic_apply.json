@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_ph_051_08_atomic_apply"
+  ],
+  "ran": 25,
+  "failures": 0,
+  "errors": 31,
+  "skips": [],
+  "elapsed_seconds": 281.782,
+  "log": "test_ph_051_08_atomic_apply.log",
+  "status": "FAIL"
+}

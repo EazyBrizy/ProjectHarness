@@ -1,0 +1,21 @@
+{
+  "command": [
+    "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "-B",
+    "Project_Harness_Engine_v0.5.1/local_web/windows/zip_path_acceptance.py",
+    "--installer",
+    "_scratch/ph_lw_11_zip_path/build-final/Harness-Setup-win-x64.exe",
+    "--output",
+    "_scratch/ph_lw_11_zip_path/installed-long-final",
+    "--runtime-root",
+    "<WORKSPACE>\\_scratch\\ZIPПрофиль2-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-08T05:26:28.944218+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 1200,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 188.348,
+  "log_sha256": "dfeb94bbeef6b6100873a1872150ad4e896910d0c3debc1b747f0ec239e3d381"
+}

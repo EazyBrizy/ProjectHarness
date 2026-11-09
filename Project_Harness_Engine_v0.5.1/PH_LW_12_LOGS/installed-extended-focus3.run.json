@@ -1,0 +1,28 @@
+{
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1\\local_web\\windows\\final_acceptance.py",
+    "--installer",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1\\windows\\Harness-Setup-win-x64.exe",
+    "--output",
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\installed-extended-focus3",
+    "--advanced-fixtures",
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\advanced-fixtures",
+    "--case",
+    "__main__.InstalledFullFlowTests.test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete",
+    "--case",
+    "__main__.AdditionalLifecycleTests.test_accepted_mvp_to_release_form_preserves_history",
+    "--case",
+    "__main__.AdditionalLifecycleTests.test_maintenance_task_completion_through_browser",
+    "--case",
+    "__main__.transport.ProductionHttpAcceptance.test_production_wsgi_declared_and_chunked_body_header_and_idle_limits"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-08T10:44:45.222145+00:00",
+  "freeze_sha256": "71d1bdd414c72410b4d17f833b1e9c75d11c3b5286fa1b65214ef7b3b7e53f00",
+  "exit": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 187.209,
+  "log_sha256": "74057bdd69aafe3361ab082c53d137e8137532328f9fd0dfc60da7f72e1fe8ab"
+}

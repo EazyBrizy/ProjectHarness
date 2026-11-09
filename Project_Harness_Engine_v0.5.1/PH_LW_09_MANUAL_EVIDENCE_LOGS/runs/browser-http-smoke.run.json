@@ -1,0 +1,19 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_lw_09_http.TasksBrowserTests.test_edge_external_agent_result_no_consent_verify_complete_next",
+    "tests.test_ph_lw_09_manual_evidence.ManualEvidenceHttpTests"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T09:09:38.969205+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 600,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 109.371,
+  "log_sha256": "b4c2efe51d5f884e152da8452ac3602faa358f7011ade538c4034f2839a856f1"
+}

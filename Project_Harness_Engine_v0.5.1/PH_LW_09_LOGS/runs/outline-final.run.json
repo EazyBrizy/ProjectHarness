@@ -1,0 +1,18 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_lw_09_tasks.TaskConsoleTests.test_read_only_refs_current_stage_and_exact_prompt"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T05:09:32.130479+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 180,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 14.917,
+  "log_sha256": "291c7266860d9ec90fa25742cccfa43f98d13677cd4f73da65c2deb2495c971b"
+}

@@ -1,0 +1,59 @@
+[
+  {
+    "path": "projects/LWP-B771D1FBE1B28C911593/operations",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-3EA524508A965C96363EB4F54A293FCA",
+      "state": "QUEUED"
+    }
+  },
+  {
+    "path": "projects/LWP-FE0F639548735D07A573/tasks/result-upload",
+    "status": 201,
+    "body": {
+      "binding_digest": "sha256:69a2c3ac54962faa6387324adcbf69a4e3a7f097411f77ad143039d870ec7a13",
+      "status": "STAGED_UNVERIFIED",
+      "upload_id": "LWR-02EA00DCC5817DF16D96A388CAF5399A4E2097FD02176424905E0B2AB5A80043"
+    }
+  },
+  {
+    "path": "projects/LWP-FE0F639548735D07A573/operations",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-69107D332FA231F6E68E0852152F9CB9",
+      "state": "QUEUED"
+    }
+  },
+  {
+    "path": "projects/LWP-FE0F639548735D07A573/operations",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-926C5B4BC411764A9C6E448B52BC21B8",
+      "state": "QUEUED"
+    }
+  },
+  {
+    "path": "projects/LWP-FE0F639548735D07A573/operations",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-792F2EAF0FFEF205CC318B6A47346037",
+      "state": "QUEUED"
+    }
+  },
+  {
+    "path": "projects/LWP-FE0F639548735D07A573/operations",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-401BF089A03F24388992C6ED51545A15",
+      "state": "QUEUED"
+    }
+  },
+  {
+    "path": "projects/LWP-FE0F639548735D07A573/operations",
+    "status": 202,
+    "body": {
+      "operation_id": "LWO-993FFA062504FE0622A748A16BE74342",
+      "state": "QUEUED"
+    }
+  }
+]

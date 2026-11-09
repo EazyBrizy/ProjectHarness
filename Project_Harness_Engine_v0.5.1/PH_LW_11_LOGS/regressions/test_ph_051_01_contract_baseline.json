@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_ph_051_01_contract_baseline"
+  ],
+  "ran": 10,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 10.01,
+  "log": "test_ph_051_01_contract_baseline.log",
+  "status": "PASS"
+}

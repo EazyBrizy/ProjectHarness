@@ -1,0 +1,14 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "tools/check_workspace.py"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T02:01:10.372431+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 600,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 0.307,
+  "log_sha256": "ed43947b3efece6ec6bfacef4312532404dc4da45daa59a904b54990a02ec6dd"
+}

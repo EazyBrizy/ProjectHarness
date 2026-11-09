@@ -1,0 +1,87 @@
+test_accepted_mvp_level_up_release_through_adapter (tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_accepted_mvp_level_up_release_through_adapter) ... Timeout (0:05:00)!
+Thread 0x00004a88 [Thread-68 (_readerthread)] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\subprocess.py", line 1614 in _readerthread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x0000573c [Thread-67 (_readerthread)] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\subprocess.py", line 1614 in _readerthread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x000094e8 [harness-local-web_0] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\concurrent\futures\thread.py", line 116 in _worker
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x00004a28 (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1134 in join
+  File "<WORKSPACE>\_tools\Python314\Lib\subprocess.py", line 1662 in _communicate
+  File "<WORKSPACE>\_tools\Python314\Lib\subprocess.py", line 1221 in communicate
+  File "<WORKSPACE>\_tools\Python314\Lib\subprocess.py", line 557 in run
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\ph_f06_fixtures.py", line 168 in complete_task
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\ph_f06_fixtures.py", line 206 in reach_gate
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\ph_f06_fixtures.py", line 236 in accept
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_10_lifecycle.py", line 223 in test_accepted_mvp_level_up_release_through_adapter
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\case.py", line 615 in _callTestMethod
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\case.py", line 669 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\case.py", line 725 in __call__
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\suite.py", line 122 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\suite.py", line 84 in __call__
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\runner.py", line 257 in run
+  File "<WORKSPACE>\_scratch\ph_lw_11\recheck_lifecycle.py", line 11 in <module>
+Timeout (0:05:00)!
+Thread 0x000094e8 [harness-local-web_0] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\concurrent\futures\thread.py", line 116 in _worker
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x00004a28 (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line ??? in _format_parsed_parts
+  <invalid frame>
+Timeout (0:05:00)!
+Thread 0x00007fa0 [Thread-134 (_readerthread)] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\subprocess.py", line 1614 in _readerthread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x0000a2b4 [Thread-133 (_readerthread)] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\subprocess.py", line 1614 in _readerthread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x000094e8 [harness-local-web_0] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\concurrent\futures\thread.py", line 116 in _worker
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x00004a28 (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1134 in join
+  File "<WORKSPACE>\_tools\Python314\Lib\subprocess.py", line 1662 in _communicate
+  File "<WORKSPACE>\_tools\Python314\Lib\subprocess.py", line 1221 in communicate
+  File "<WORKSPACE>\_tools\Python314\Lib\subprocess.py", line 557 in run
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\ph_f06_fixtures.py", line 126 in proof
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\ph_f06_fixtures.py", line 154 in submit_gate_sources
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\ph_f06_fixtures.py", line 212 in reach_gate
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\ph_f06_fixtures.py", line 236 in accept
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_10_lifecycle.py", line 223 in test_accepted_mvp_level_up_release_through_adapter
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\case.py", line 615 in _callTestMethod
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\case.py", line 669 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\case.py", line 725 in __call__
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\suite.py", line 122 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\suite.py", line 84 in __call__
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\runner.py", line 257 in run
+  File "<WORKSPACE>\_scratch\ph_lw_11\recheck_lifecycle.py", line 11 in <module>
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 947.791s
+
+OK

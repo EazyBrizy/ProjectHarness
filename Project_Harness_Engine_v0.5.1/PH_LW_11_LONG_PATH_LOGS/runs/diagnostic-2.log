@@ -1,0 +1,43 @@
+test_long_preparation_publication_validation_and_first_jit (tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_long_preparation_publication_validation_and_first_jit) ... Traceback (most recent call last):
+  File "<WORKSPACE>\_scratch\ph_lw_11_long_path\diagnose.py", line 7, in observe
+    try:return original(*args,**kwargs)
+               ~~~~~~~~^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 268, in _continue
+    record['initial'] = inspect_initial_handoff(directory, archive)
+                        ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\materialization.py", line 59, in inspect_initial_handoff
+    for name, result in [('directory', validate_handoff(directory)),
+                                       ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\validation.py", line 1077, in validate_handoff
+    return validate_handoff_directory(path, check_manifest=True, check_control_plane_state=True)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\validation.py", line 996, in validate_handoff_directory
+    prompt = md_path.read_text(encoding="utf-8")
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '<TEMP>\\ph-lw06-wb3jdtx5\\Длинный-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\.harness-preparation-40f410efe6e29afeb281f7a323dfe650\\project\\.harness\\prompts\\BUNDLES_BY_RUN\\CPB-PH-LW-06-FIXTURE-001-A1.md'
+DETAILS None
+FAIL
+
+======================================================================
+FAIL: test_long_preparation_publication_validation_and_first_jit (tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_long_preparation_publication_validation_and_first_jit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_11_long_path.py", line 27, in test_long_preparation_publication_validation_and_first_jit
+    self.approved();target=self.target();op=self.run_preparation(target)
+                                            ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 53, in run_preparation
+    self.assertEqual(result['state'],'SUCCEEDED',result)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'BLOCKED' != 'SUCCEEDED'
+- BLOCKED
++ SUCCEEDED
+ : {'operation_id': 'LWO-95186C444E2FB022200250709F38F4B8', 'project_id': 'LWP-01694B46D17DAE5B6B49', 'action': 'publish-project', 'request_digest': 'sha256:d3b886d0a4045076884f546b6e9af329c53364c6a12bb4afe6504bdfeb137070', 'expected_fingerprint': 'sha256:427c75258d55dc8f0a34ed21110b56870dfb5dc48c7d091c2237d3e69f510474', 'created_at': '2026-11-08T01:23:31Z', 'updated_at': '2026-11-08T01:23:45Z', 'started_at': '2026-11-08T01:23:31Z', 'finished_at': '2026-11-08T01:23:45Z', 'state': 'BLOCKED', 'phase': 'RECONCILIATION_REQUIRED', 'core_before': 'sha256:427c75258d55dc8f0a34ed21110b56870dfb5dc48c7d091c2237d3e69f510474', 'core_after': None, 'before_active_run_ref': None, 'expected_draft_after': None, 'result': None, 'error': {'code': 'PREPARATION_IO_BLOCKED', 'message_ru': 'Размещение прервано из-за доступа к файлам или занятого handle.', 'next_action_ru': 'Освободите файл или место на диске и выполните явную сверку подготовки.'}, 'receipt': {'kind': 'LOCAL_WEB_OPERATION_RECEIPT', 'receipt_version': 1, 'operation_id': 'LWO-95186C444E2FB022200250709F38F4B8', 'project_ref': 'LWP-01694B46D17DAE5B6B49', 'action_id': 'LW-C04', 'idempotency_key': 'preparation-test-000001', 'request_sha256': 'sha256:d3b886d0a4045076884f546b6e9af329c53364c6a12bb4afe6504bdfeb137070', 'expected_core_fingerprint': 'sha256:427c75258d55dc8f0a34ed21110b56870dfb5dc48c7d091c2237d3e69f510474', 'core_outcome': 'UNKNOWN_RECONCILE', 'created_at': '2026-11-08T01:23:31Z'}, 'record_digest': 'sha256:e57016321ec76ad6cac1cd1171151222acae02c051d495d9ce5b774d331b7bf8'}
+
+----------------------------------------------------------------------
+Ran 1 test in 15.505s
+
+FAILED (failures=1)

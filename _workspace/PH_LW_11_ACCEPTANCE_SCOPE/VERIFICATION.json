@@ -1,0 +1,82 @@
+{
+  "status": "PASS",
+  "verified_utc": "2026-11-08T08:28:35.522655+00:00",
+  "scope": "Documentary acceptance decision only; no runtime or historical evidence changes",
+  "effective_verdicts": {
+    "PH-LW-11": "GO",
+    "qualifier": "С принятыми пользователем ограничениями",
+    "LOCAL_WEB_MANUAL": "NO-GO; PH-LW-12 not started",
+    "AUTOMATIC_EXECUTOR": "NO-GO; disabled",
+    "v0.5.1": "NO-GO / NOT RELEASED"
+  },
+  "accepted_not_run_count": 4,
+  "source_tests_docs_wheel_frozen_installer_unchanged": true,
+  "previous_attestation_unchanged": true,
+  "protected_existing_files_verified": 4339,
+  "wheel_sha256": "9bb3e87fdf2b297e7292fd5d2216fc1a61c9dbe49e2e4cf018f5eb5f2aa19bc2",
+  "installer_sha256": "0550a5582182ab95aa8b5376b878cdb3210b126a53b6fd6f90746417d50abb94",
+  "document_sha256": "1e100445d68221f0134842ee23741072f0b014e0534bd5ca8cdcf44ca562c221",
+  "decision_sha256": "a531fb36763a46fa67e47b50eeebd3dee2fee90ccf10c10a17cdba93270c2b29",
+  "input_file_hashes_sha256": "b0d3ba897325c60001891980471df6336c7b833435223a33731cab3dd83ab770",
+  "changed_file_hashes_sha256": "b056873964163c41da3022651126ef44d538c504a9393c8462d05625eec3cc0c",
+  "script_sha256": "248274b39e3f8d8dfe8207a2113db45c7ef0b88be871724076d5a2216616d403",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\tools\\check_workspace.py"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+      "exit": 0,
+      "status": "PASS",
+      "log": "workspace.log",
+      "log_sha256": "e740978a697131353b3c0bade4b80e84f36984084ac733f17c68eb7eafd0dee4"
+    },
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Documentation_v0.5.1\\tools\\validate_documentation.py",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Documentation_v0.5.1",
+        "--json",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_workspace\\PH_LW_11_ACCEPTANCE_SCOPE\\DOC_VALIDATION.json"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+      "exit": 0,
+      "status": "PASS",
+      "log": "docs.log",
+      "log_sha256": "5dfde1f3d4a08afb43bfbca4a56c43b8acb67fa331e22793a7530224fa87818e"
+    }
+  ],
+  "trees": {
+    "Project_Harness_Engine_v0.5.1": {
+      "status": "PASS",
+      "files": 3988,
+      "manifest_sha256": "21e5b511814ad3b4471fd7d2fcd06ab8f4df86fca8558ed7d166ea6a21e2594e"
+    },
+    "Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 154,
+      "manifest_sha256": "0127d336e7598d83254827fe0c901f031cf1c9425bae679abbbf465f5f21973b"
+    },
+    "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 154,
+      "manifest_sha256": "0127d336e7598d83254827fe0c901f031cf1c9425bae679abbbf465f5f21973b"
+    }
+  },
+  "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]",
+  "interpreter": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "runtime_tests": "NOT RUN; inputs unchanged, prior validated results retained",
+  "zip_created": false,
+  "system_settings_changed": false,
+  "PH-LW-12_started": false,
+  "workspace_files": {
+    "README.md": "382d093ea776326ba5f8611d4bfd5c66ff957ca5c3ae3839a2a88606bafdd6dd",
+    "_workspace/CURRENT_TASK.md": "d231ce99b8409538e2f1c1eb92532f10219bfdd96b26a8e8ee2e1ca1720624e6",
+    "_workspace/PROJECT_MAP.md": "13e4b5f495fed771ab0c739ac7eb5c7758dec7d04a4ca84f796fbf9794531a41",
+    "_workspace/RUNBOOK.md": "840c3a91b0075cbcbb2f17d63bfaceefd4e7d6a2b95f4a31408f207eeb2e69e2"
+  }
+}

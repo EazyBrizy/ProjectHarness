@@ -1,0 +1,23 @@
+ARGV: /mnt/data/ph05111_work/wheel_venv/bin/project-harness execute-current --help
+EXIT: 0
+STDOUT:
+usage: project-harness execute-current [-h] --project PROJECT
+                                       [--adapter-profile ADAPTER_PROFILE]
+                                       [--network {NONE,EXPLICIT_APPROVED_EGRESS}]
+                                       [--approval APPROVAL]
+                                       [--keep-execution-root]
+
+options:
+  -h, --help            show this help message and exit
+  --project PROJECT
+  --adapter-profile ADAPTER_PROFILE
+                        Only the exact pinned project ADP ref/path (no profile
+                        switching).
+  --network {NONE,EXPLICIT_APPROVED_EGRESS}
+  --approval APPROVAL   Exact per-Run approval; unimplemented egress cannot be
+                        enabled by this flag.
+  --keep-execution-root
+                        Requires an explicit debug policy; rejected by current
+                        strict policy.
+
+STDERR:

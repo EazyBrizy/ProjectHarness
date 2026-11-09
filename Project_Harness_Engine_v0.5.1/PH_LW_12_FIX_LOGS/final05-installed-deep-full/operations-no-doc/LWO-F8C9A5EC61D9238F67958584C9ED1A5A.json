@@ -1,0 +1,51 @@
+{
+  "operation_id": "LWO-F8C9A5EC61D9238F67958584C9ED1A5A",
+  "project_id": "LWP-20C0A050E1271872885C",
+  "action": "update-draft",
+  "request_digest": "sha256:f063b03a7f332887b6129c9204fbe630cf900dd72167c30fc1f4be587b8ac806",
+  "expected_fingerprint": "sha256:7e5595308b610a272038a276cf7c499e5591bdcc5bfac3f41391f657c07907b8",
+  "created_at": "2026-11-08T15:03:36Z",
+  "updated_at": "2026-11-08T15:03:36Z",
+  "started_at": "2026-11-08T15:03:36Z",
+  "finished_at": "2026-11-08T15:03:36Z",
+  "state": "SUCCEEDED",
+  "phase": "DONE",
+  "core_before": "sha256:7e5595308b610a272038a276cf7c499e5591bdcc5bfac3f41391f657c07907b8",
+  "core_after": "sha256:2c392fdca2e40b3081bb588e35599f4c77d77fe5fdb5913a8153bcb45989388a",
+  "before_active_run_ref": null,
+  "expected_draft_after": "sha256:9a4686b2fde112de1edda45320a1527a26e6b3d2fbbeb6cb7942821ce46a770a",
+  "result": {
+    "action": "update-draft",
+    "core_status": "WAITING_INPUT",
+    "refs": {
+      "before_digest": "sha256:93e20129506846a3c41867efdfff677dbece7b26e6250434c9b3e0a99f827159",
+      "after_digest": "sha256:9a4686b2fde112de1edda45320a1527a26e6b3d2fbbeb6cb7942821ce46a770a",
+      "changed": true,
+      "changed_fields": [
+        "implementation.target_level"
+      ],
+      "approvals_invalidated": true,
+      "readiness_status": "WAITING_INPUT",
+      "missing_approvals": [
+        "project_definition",
+        "architecture_baseline",
+        "technology_baseline",
+        "codex_handoff"
+      ]
+    }
+  },
+  "error": null,
+  "receipt": {
+    "kind": "LOCAL_WEB_OPERATION_RECEIPT",
+    "receipt_version": 1,
+    "operation_id": "LWO-F8C9A5EC61D9238F67958584C9ED1A5A",
+    "project_ref": "LWP-20C0A050E1271872885C",
+    "action_id": "LW-DRAFT",
+    "idempotency_key": "browser-8a19aeaaad184dd4e62010815509033e",
+    "request_sha256": "sha256:f063b03a7f332887b6129c9204fbe630cf900dd72167c30fc1f4be587b8ac806",
+    "expected_core_fingerprint": "sha256:7e5595308b610a272038a276cf7c499e5591bdcc5bfac3f41391f657c07907b8",
+    "core_outcome": "CONFIRMED_COMMITTED",
+    "created_at": "2026-11-08T15:03:36Z"
+  },
+  "record_digest": "sha256:0f2bce6357f7f90f753b764070dd472aa73b795391c43aa3cd9a064d51604ef9"
+}

@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "ran": 1,
+  "failures": 0,
+  "errors": 0,
+  "kind": "Native source Edge/TCP; actual frozen delivery tested separately"
+}

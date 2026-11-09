@@ -1,0 +1,9 @@
+test_auth_upload_list_preview_and_replay (tests.test_ph_lw_05_http.SourceHttpSecurity.test_auth_upload_list_preview_and_replay) ... ok
+test_documentation_none_after_import_explicit_and_no_external_requests (tests.test_ph_lw_05_http.SourceHttpSecurity.test_documentation_none_after_import_explicit_and_no_external_requests) ... ok
+test_duplicate_multipart_scalar_fields_are_rejected (tests.test_ph_lw_05_http.SourceHttpSecurity.test_duplicate_multipart_scalar_fields_are_rejected) ... ok
+test_malformed_upload_rejected_and_unknown_fields (tests.test_ph_lw_05_http.SourceHttpSecurity.test_malformed_upload_rejected_and_unknown_fields) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.451s
+
+OK

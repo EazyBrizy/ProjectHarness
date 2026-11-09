@@ -1,0 +1,18 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_lw_09_http.TasksBrowserTests.test_edge_failing_check_block_resume_exact_ref"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T09:43:39.277596+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 300,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 169.977,
+  "log_sha256": "e206a209cc1c35a6d0381a912836bb410f03177e97fb7b70ec9a6fdf52889818"
+}

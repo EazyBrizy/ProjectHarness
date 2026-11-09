@@ -1,0 +1,4 @@
+test_ph_f03_active_stage_planning PASS 25.81
+test_ph_f01_planner_regression PASS 42.26
+test_gate_evidence_contract PASS 92.44
+test_ph_f06_maturity_lifecycle PASS 208.87

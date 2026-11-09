@@ -1,0 +1,15 @@
+test_01_v3_read_conservatively_v4_replay_no_mutation (tests.test_ph_051_01_contract_baseline.PH05101ContractTests.test_01_v3_read_conservatively_v4_replay_no_mutation) ... ok
+test_02_distribution_versions_and_dedicated_sbx_contract (tests.test_ph_051_01_contract_baseline.PH05101ContractTests.test_02_distribution_versions_and_dedicated_sbx_contract) ... ok
+test_03_strict_policy_unknown_fields_wrong_refs_and_secrets (tests.test_ph_051_01_contract_baseline.PH05101ContractTests.test_03_strict_policy_unknown_fields_wrong_refs_and_secrets) ... ok
+test_04_exact_profiles_active_and_sha256_binding (tests.test_ph_051_01_contract_baseline.PH05101ContractTests.test_04_exact_profiles_active_and_sha256_binding) ... ok
+test_05_profile_negative_image_backend_status_untrusted_env (tests.test_ph_051_01_contract_baseline.PH05101ContractTests.test_05_profile_negative_image_backend_status_untrusted_env) ... ok
+test_06_automatic_execution_not_available_no_host_fallback (tests.test_ph_051_01_contract_baseline.PH05101ContractTests.test_06_automatic_execution_not_available_no_host_fallback) ... ok
+test_06b_explicit_auto_prepare_still_fails_closed (tests.test_ph_051_01_contract_baseline.PH05101ContractTests.test_06b_explicit_auto_prepare_still_fails_closed) ... ok
+test_07_manual_prepare_lock_v7_no_activation (tests.test_ph_051_01_contract_baseline.PH05101ContractTests.test_07_manual_prepare_lock_v7_no_activation) ... ok
+test_08_all_new_json_schemas_draft_valid (tests.test_ph_051_01_contract_baseline.PH05101ContractTests.test_08_all_new_json_schemas_draft_valid) ... ok
+test_09_sample_result_and_apply_contracts_strict (tests.test_ph_051_01_contract_baseline.PH05101ContractTests.test_09_sample_result_and_apply_contracts_strict) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 8.849s
+
+OK

@@ -1,0 +1,7 @@
+test_navigation_resume_finishes_before_user_mutation (tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_navigation_resume_finishes_before_user_mutation) ... Task queue depth is 1
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 4.107s
+
+OK

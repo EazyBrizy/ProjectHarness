@@ -1,0 +1,49 @@
+test_edge_single_md_and_zip_full_flow_reconnect_first_jit_and_download (tests.test_ph_lw_08_http.FrozenPreparationBrowserTests.test_edge_single_md_and_zip_full_flow_reconnect_first_jit_and_download) ... FAIL
+test_crash_recovery_retains_project_and_replaces_stale_record (acceptance.InstalledLifecycleTests.test_crash_recovery_retains_project_and_replaces_stale_record) ... ok
+test_package_doctor_and_not_an_interpreter (acceptance.InstalledLifecycleTests.test_package_doctor_and_not_an_interpreter) ... ok
+test_restart_resume_second_launch_collision_and_clean_stop (acceptance.InstalledLifecycleTests.test_restart_resume_second_launch_collision_and_clean_stop) ... ok
+
+======================================================================
+FAIL: test_edge_single_md_and_zip_full_flow_reconnect_first_jit_and_download (tests.test_ph_lw_08_http.FrozenPreparationBrowserTests.test_edge_single_md_and_zip_full_flow_reconnect_first_jit_and_download)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<inherited PH-LW-08 browser scenario against installed EXE>", line 36, in test_edge_single_md_and_zip_full_flow_reconnect_first_jit_and_download
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\sync_api\_generated.py", line 15216, in to_have_count
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.to_have_count(count=count, timeout=to_milliseconds(timeout))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 465, in to_have_count
+    await self._expect_impl(
+    ...<5 lines>...
+    )
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        AssertionError(
+        ^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        self._is_soft,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to have count '1'
+Actual value: 0 
+Call log:
+  - Expect "to_have_count" locator("#export-history a") with timeout 5000ms
+  - waiting for locator("#export-history a")
+    14 × locator resolved to 0 elements
+       - unexpected value "0"
+
+
+----------------------------------------------------------------------
+Ran 4 tests in 95.424s
+
+FAILED (failures=1)

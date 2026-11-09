@@ -1,0 +1,16 @@
+{
+  "status": "PARTIAL / VISUAL_CHECK_NOT_COMPLETED",
+  "interactive_install": "PASS: nonsilent setup log records completion and Run entry",
+  "postinstall_launcher": "PASS: authenticated live server and empty project catalog observed; no extra launch used",
+  "wizard_visual": "NOT RUN: Computer Use stopped because browser URL could not be determined confidently; installer UI clicks were not recorded by this agent",
+  "automatic_intake_created": false,
+  "clean_stop": "PASS",
+  "uninstall_exit": 0,
+  "uninstall_command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_11\\installed-interactive\\Программа\\uninstall\\unins000.exe",
+    "/VERYSILENT",
+    "/SUPPRESSMSGBOXES",
+    "/NORESTART",
+    "/LOG=<WORKSPACE>\\_scratch\\ph_lw_11\\installed-interactive\\uninstall.log"
+  ]
+}

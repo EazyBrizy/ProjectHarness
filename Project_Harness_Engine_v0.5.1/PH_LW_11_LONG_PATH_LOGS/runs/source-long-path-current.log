@@ -1,0 +1,8 @@
+test_internal_io_does_not_admit_device_unc_or_stream_input (tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_internal_io_does_not_admit_device_unc_or_stream_input) ... ok
+test_long_preparation_publication_validation_and_first_jit (tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_long_preparation_publication_validation_and_first_jit) ... ok
+test_long_publication_recovery_never_reexecutes_compiler (tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_long_publication_recovery_never_reexecutes_compiler) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 64.411s
+
+OK

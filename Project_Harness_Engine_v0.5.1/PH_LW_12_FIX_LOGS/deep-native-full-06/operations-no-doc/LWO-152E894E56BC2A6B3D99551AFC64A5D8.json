@@ -1,0 +1,41 @@
+{
+  "operation_id": "LWO-152E894E56BC2A6B3D99551AFC64A5D8",
+  "project_id": "LWP-5BA946BD203E828181C8",
+  "action": "verify",
+  "request_digest": "sha256:3a9a20e6dd3bbc2bbd6eee6be8864f872991178bec45880bb3dcbff94815e2e6",
+  "expected_fingerprint": "sha256:14b877d555e8688208ddcc0bad5016018d9f0804aebaa14abb1dbb18f8b19435",
+  "created_at": "2026-11-08T13:04:16Z",
+  "updated_at": "2026-11-08T13:04:17Z",
+  "started_at": "2026-11-08T13:04:17Z",
+  "finished_at": "2026-11-08T13:04:17Z",
+  "state": "BLOCKED",
+  "phase": "RECONCILIATION_REQUIRED",
+  "core_before": "sha256:14b877d555e8688208ddcc0bad5016018d9f0804aebaa14abb1dbb18f8b19435",
+  "core_after": null,
+  "before_active_run_ref": null,
+  "expected_draft_after": null,
+  "result": null,
+  "error": {
+    "code": "VALIDATION_FAILED",
+    "message_ru": "Запрос или состояние проекта не прошли проверку.",
+    "next_action_ru": "Проверьте данные и текущий статус, затем создайте новое действие."
+  },
+  "receipt": {
+    "kind": "LOCAL_WEB_OPERATION_RECEIPT",
+    "receipt_version": 1,
+    "operation_id": "LWO-152E894E56BC2A6B3D99551AFC64A5D8",
+    "project_ref": "LWP-5BA946BD203E828181C8",
+    "action_id": "LW-C12",
+    "idempotency_key": "browser-871be626f8193e289d3ac996a11fa5fd",
+    "request_sha256": "sha256:3a9a20e6dd3bbc2bbd6eee6be8864f872991178bec45880bb3dcbff94815e2e6",
+    "expected_core_fingerprint": "sha256:14b877d555e8688208ddcc0bad5016018d9f0804aebaa14abb1dbb18f8b19435",
+    "core_outcome": "UNKNOWN_RECONCILE",
+    "created_at": "2026-11-08T13:04:16Z",
+    "verification_consent": {
+      "binding_digest": "sha256:73f55a07f2598dfa7dad32d29875a71b44512ffc8fcdcf43e310db6b6b2ba7d3",
+      "plan_digest": "sha256:339ebeedd703cadef9bfdb98b021e40247770cc4f364910eda01ec4006d0247c",
+      "consent": false
+    }
+  },
+  "record_digest": "sha256:a8048a73af29ff0fd13ba23d954a7187780beda3e60b75503edf52679bfbcd46"
+}

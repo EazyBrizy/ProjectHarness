@@ -1,0 +1,128 @@
+{
+  "status": "ACTIVE",
+  "runtime_phase": "READY_FOR_CODEX",
+  "maintenance_route": null,
+  "target_level": "MVP",
+  "claimed_current_level": "NONE",
+  "observed_candidate_level": "NONE",
+  "highest_accepted_level": "NONE",
+  "active_stage": "PROTOTYPE",
+  "permitted_use": {
+    "status": "UNCONFIRMED",
+    "users": [
+      "DEVELOPER"
+    ],
+    "environments": [
+      "LOCAL"
+    ],
+    "data_classes": [
+      "PUBLIC"
+    ],
+    "data_constraints": [
+      "SYNTHETIC_ONLY"
+    ]
+  },
+  "next_route": "EXECUTE_CURRENT_TASK_WITH_CODEX",
+  "next_operator_route": {
+    "route": "VERIFY_CURRENT_TASK",
+    "command": "project-harness verify --project <root> --allow-command-execution",
+    "reason": "Execute the current JIT with external Codex, then run independent verification.",
+    "external_prerequisite": "External agent implementation"
+  },
+  "stage_plan_ref": "STG-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1",
+  "stage_plan_path": ".harness/stages/PLANS/STG-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1.yaml",
+  "stage_plan_revision": 1,
+  "stage_plan_status": "ACTIVE",
+  "gate_ref": "GATE-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1",
+  "gate_path": ".harness/stages/GATES/GATE-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1.yaml",
+  "gate_revision": 1,
+  "gate_digest": "sha256:81f2659926e166296ae4c8784c628f5245389f76db9ca75ff777cae2150b8b86",
+  "gate_status": "ACTIVE",
+  "baseline_revision": "tree:sha256:46d672fed66e21ccbcafa0f55c08ea1cabc52e591ccdfe8ec9ba1fcf6f1d4cdd",
+  "baseline_digest": "tree:sha256:46d672fed66e21ccbcafa0f55c08ea1cabc52e591ccdfe8ec9ba1fcf6f1d4cdd",
+  "gate_counts": {
+    "required_outcomes": {
+      "total": 3,
+      "by_status": {
+        "UNKNOWN": 3
+      }
+    },
+    "level_criteria": {
+      "total": 6,
+      "by_status": {
+        "UNKNOWN": 6
+      }
+    },
+    "hard_constraints": {
+      "total": 2,
+      "by_status": {
+        "UNKNOWN": 2
+      }
+    },
+    "profile_controls": {
+      "total": 1,
+      "by_status": {
+        "UNKNOWN": 1
+      }
+    },
+    "required_work_packages": {
+      "total": 1,
+      "by_status": {
+        "READY": 1
+      }
+    },
+    "critical_blockers": {
+      "total": 0,
+      "by_status": {}
+    }
+  },
+  "required_work_packages": [
+    {
+      "requested_ref": "WP-HARNESS-DEMO-TASK-CLI-001@1",
+      "current_ref": "WP-HARNESS-DEMO-TASK-CLI-001@1",
+      "path": ".harness/work-packages/WP-HARNESS-DEMO-TASK-CLI-001@1.yaml",
+      "status": "READY"
+    }
+  ],
+  "critical_blockers": [],
+  "stages": [
+    {
+      "level": "PROTOTYPE",
+      "status": "ACTIVE",
+      "stage_plan_ref": "STG-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1",
+      "stage_plan_path": ".harness/stages/PLANS/STG-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1.yaml",
+      "detailed_work_package_count": 1,
+      "review_required": false
+    },
+    {
+      "level": "ALPHA",
+      "status": "PLANNED",
+      "stage_plan_ref": "STG-HARNESS-DEMO-TASK-CLI-ALPHA-001@1",
+      "stage_plan_path": ".harness/stages/PLANS/STG-HARNESS-DEMO-TASK-CLI-ALPHA-001@1.yaml",
+      "detailed_work_package_count": 0,
+      "review_required": true
+    },
+    {
+      "level": "BETA",
+      "status": "PLANNED",
+      "stage_plan_ref": "STG-HARNESS-DEMO-TASK-CLI-BETA-001@1",
+      "stage_plan_path": ".harness/stages/PLANS/STG-HARNESS-DEMO-TASK-CLI-BETA-001@1.yaml",
+      "detailed_work_package_count": 0,
+      "review_required": true
+    },
+    {
+      "level": "MVP",
+      "status": "PLANNED",
+      "stage_plan_ref": "STG-HARNESS-DEMO-TASK-CLI-MVP-001@1",
+      "stage_plan_path": ".harness/stages/PLANS/STG-HARNESS-DEMO-TASK-CLI-MVP-001@1.yaml",
+      "detailed_work_package_count": 0,
+      "review_required": true
+    }
+  ],
+  "validation": {
+    "status": "PASS",
+    "active_stage": "PROTOTYPE",
+    "target_level": "MVP",
+    "errors": []
+  }
+}

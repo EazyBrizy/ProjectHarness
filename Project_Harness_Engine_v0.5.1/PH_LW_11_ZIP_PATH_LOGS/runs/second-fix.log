@@ -1,0 +1,41 @@
+test_nested_zip_long_path_preview_exact_bytes_and_readonly (tests.test_ph_lw_11_zip_path.LongAppDataZipTests.test_nested_zip_long_path_preview_exact_bytes_and_readonly) ... ERROR
+
+======================================================================
+ERROR: test_nested_zip_long_path_preview_exact_bytes_and_readonly (tests.test_ph_lw_11_zip_path.LongAppDataZipTests.test_nested_zip_long_path_preview_exact_bytes_and_readonly)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_11_zip_path.py", line 44, in test_nested_zip_long_path_preview_exact_bytes_and_readonly
+    result=self.push([('Документы.zip',wire)])
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 57, in push
+    return service.upload_sources(self.pid,
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+        [(name, BytesIO(content)) for name, content in files], mode=mode,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        expected_fingerprint=s['fingerprint'], expected_source_revision=state['source_revision'])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_service.py", line 489, in upload_sources
+    return upload_sources(self, project_id, uploads, mode=mode,
+                          expected_fingerprint=expected_fingerprint,
+                          expected_source_revision=expected_source_revision)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_sources_service.py", line 139, in upload_sources
+    outcome = refresh_intake_sources(root, snapshot_ref=incoming['snapshot_ref'],
+            expected_revision=state['revision'], expected_input_digest=draft_input_digest(root))
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\operation_guard.py", line 106, in wrapper
+    return function(root, *args, **kwargs)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\intake.py", line 318, in refresh_intake_sources
+    return _refresh(workspace, snapshot_ref=snapshot_ref,
+                    expected_revision=expected_revision, expected_input_digest=expected_input_digest,
+                    explicit_no_documentation=explicit_no_documentation)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_source_refresh.py", line 332, in refresh_intake_sources
+    'new_source_digest': _source_digest(tx_root / 'new' / 'sources'),
+                         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_source_refresh.py", line 46, in _source_digest
+    entries.append((_native_io_path(str(rel / name)).replace(_native_io_path('\\'), '/'), 'dir'))
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Path.replace() takes 2 positional arguments but 3 were given
+
+----------------------------------------------------------------------
+Ran 1 test in 0.416s
+
+FAILED (errors=1)

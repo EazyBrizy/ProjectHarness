@@ -1,0 +1,17 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "tools/diagnose_ph_lw_10_polling.py",
+    "--output",
+    "polling-diagnostic"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T13:23:06.573418+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 300,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 76.212,
+  "log_sha256": "9e5b61ff36301b8193791c660446dd02d8ddbf515c72944365ae8dac9bcb72f5"
+}

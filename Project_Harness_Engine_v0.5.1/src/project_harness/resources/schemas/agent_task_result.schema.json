@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "SCHEMA-AGENT-TASK-RESULT@1",
+  "title": "Agent Task Result",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "task_ref",
+    "run_ref",
+    "status",
+    "summary",
+    "changes",
+    "commands",
+    "tests",
+    "evidence",
+    "blockers"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "task_ref": {
+      "type": "string",
+      "pattern": "^TSK-"
+    },
+    "run_ref": {
+      "type": "string",
+      "pattern": "^RUN-"
+    },
+    "status": {
+      "enum": [
+        "COMPLETED",
+        "BLOCKED",
+        "FAILED"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "changes": {
+      "type": "object",
+      "required": [
+        "added",
+        "modified",
+        "deleted"
+      ],
+      "properties": {
+        "added": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "modified": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "deleted": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "commands": {
+      "type": "array"
+    },
+    "tests": {
+      "type": "array"
+    },
+    "evidence": {
+      "type": "array"
+    },
+    "blockers": {
+      "type": "array"
+    },
+    "notes": {
+      "type": "array"
+    },
+    "stage_scope_violations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

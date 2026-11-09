@@ -1,0 +1,29 @@
+{
+  "name": "test_ph_lw_09_http-nonbrowser",
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;import project_harness;assert Path(project_harness.__file__).resolve().is_relative_to(Path(sys.prefix).resolve());sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel\\test_ph_lw_09_http-nonbrowser.log",
+    "tests.test_ph_lw_09_http.TasksHttpTests.test_http_auth_origin_csrf_exact_fields_get_no_mutation",
+    "tests.test_ph_lw_09_http.TasksHttpTests.test_http_forged_result_staging_and_duplicate_click"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_12\\Независимая папка wheel",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 24.658,
+  "environment_ref": "WHEEL_ENVIRONMENT.json",
+  "modules": [
+    "tests.test_ph_lw_09_http.TasksHttpTests.test_http_auth_origin_csrf_exact_fields_get_no_mutation",
+    "tests.test_ph_lw_09_http.TasksHttpTests.test_http_forged_result_staging_and_duplicate_click"
+  ],
+  "ran": 2,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "log": "test_ph_lw_09_http-nonbrowser.log",
+  "process_status": "PASS",
+  "log_sha256": "4a6c3ab0615ec29a2682ff1948b07755661aa9534ab828498631fe54a9067718"
+}

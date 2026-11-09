@@ -1,0 +1,17 @@
+{
+  "command": [
+    "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+    "-B",
+    "tools/workspace_preflight.py",
+    "--output",
+    "_workspace/ARCHIVE_POLICY_2026-11-07/inputs.json"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-07T01:35:54.715788+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 60,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 0.309,
+  "log_sha256": "ad5215700d6d1d0af23a488c0fac406225dda96a7f4e70ca386cc0033bddb2ef"
+}

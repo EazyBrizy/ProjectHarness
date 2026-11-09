@@ -1,0 +1,101 @@
+{
+  "prompt": "Harness_Local_Web_Prompts_RU_r2/prompts/PH_LW_10.md",
+  "verdict_source": "NATIVE_SCOPE_VERDICT.json",
+  "note": "Static requirement-to-test mapping; actual PASS/FAIL comes only from final run logs.",
+  "requirements": [
+    {
+      "item": 1,
+      "contract": "Canonical target/active/claimed/observed/highest accepted; read-only semantic/history overview",
+      "tests": [
+        "LifecycleServiceTests.test_get_is_read_only_and_lists_exact_semantic_subjects",
+        "LifecycleServiceTests.test_level_up_nearest_stage_canonical_target_and_noop",
+        "LifecycleBrowserTests.test_edge_prototype_accept_alpha_form_plan_first_ready_reload"
+      ]
+    },
+    {
+      "item": 2,
+      "contract": "Separate exact Stage review/approval and semantic resolver",
+      "tests": [
+        "LifecycleBrowserTests.test_edge_prototype_accept_alpha_form_plan_first_ready_reload",
+        "LifecycleBrowserTests.test_edge_missing_semantic_review_cannot_accept",
+        "LifecycleServiceTests.test_forged_semantic_source_rejected_even_all_pass",
+        "LifecycleServiceTests.test_consent_unknown_fields_changed_binding_and_cross_project_draft"
+      ]
+    },
+    {
+      "item": 3,
+      "contract": "Separate Gate recovery, ordinary Task blocker retained",
+      "tests": [
+        "LifecycleServiceTests.test_gate_recovery_is_separate_from_task_recovery",
+        "Existing core Stage Gate/PH-F06 regression modules in REGRESSION_MATRIX_CURRENT.json"
+      ]
+    },
+    {
+      "item": 4,
+      "contract": "Prepared reviewed active plan; strict context; first READY; no invented decision",
+      "tests": [
+        "LifecycleServiceTests.test_prototype_accept_alpha_plan_first_ready_and_exact_replay",
+        "LifecycleServiceTests.test_edited_active_plan_requires_review_and_rejects_material_scope_change",
+        "LifecycleBrowserTests.test_edge_prototype_accept_alpha_form_plan_first_ready_reload"
+      ]
+    },
+    {
+      "item": 5,
+      "contract": "Canonical target; sequential level-up; no-op/unfinished-cycle refusals",
+      "tests": [
+        "LifecycleServiceTests.test_level_up_nearest_stage_canonical_target_and_noop",
+        "LifecycleServiceTests.test_accepted_mvp_level_up_release_through_adapter",
+        "LifecycleBrowserTests.test_edge_levelup_target_nearest_and_maintenance_cancel"
+      ]
+    },
+    {
+      "item": 6,
+      "contract": "Same-level maintenance through ordinary Tasks; allowed completion/cancel only",
+      "tests": [
+        "LifecycleServiceTests.test_maintenance_start_cancel_preserves_maturity",
+        "LifecycleServiceTests.test_maintenance_complete_uses_existing_manual_task_lifecycle",
+        "LifecycleServiceTests.test_maintenance_cancel_after_completed_product_change_rejected",
+        "LifecycleBrowserTests.test_edge_levelup_target_nearest_and_maintenance_cancel"
+      ]
+    },
+    {
+      "item": 7,
+      "contract": "Explicit native selection; readonly Brownfield/Hybrid inventory and assessment; stale rejection",
+      "tests": [
+        "NativeSelectionTests.test_native_folder_picker_selection_and_cancel",
+        "LifecycleServiceTests.test_selection_is_narrow_and_cancel_does_not_mutate_repository",
+        "LifecycleServiceTests.test_brownfield_readonly_assessment_rejects_stale_repository",
+        "LifecycleBrowserTests.test_edge_brownfield_assessment_unknown_and_stale_readonly"
+      ]
+    },
+    {
+      "item": 8,
+      "contract": "Validated migration, confirmation, manual default, history preservation, replay and explicit recovery",
+      "tests": [
+        "LifecycleServiceTests.test_migration_validator_confirmation_replay_history",
+        "LifecycleServiceTests.test_legacy_v041_migration_form_keeps_completed_runs",
+        "LifecycleServiceTests.test_migration_process_crash_explicit_web_recovery_missing_root",
+        "LifecycleBrowserTests.test_edge_supported_migration_confirmation_and_restart_replay",
+        "MigrationPollingTests.test_owned_receipt_remains_readable_during_backup_cleanup"
+      ]
+    },
+    {
+      "item": 9,
+      "contract": "Required schema fields in normal forms; guarded auth/revision/replay",
+      "tests": [
+        "LifecycleBrowserTests.test_edge_prototype_accept_alpha_form_plan_first_ready_reload",
+        "LifecycleBrowserTests.test_edge_levelup_target_nearest_and_maintenance_cancel",
+        "LifecycleHttpTests.test_auth_csrf_origin_port_unknown_fields_and_readonly",
+        "LifecycleHttpTests.test_draft_ownership_traversal_replay_conflict",
+        "LifecycleServiceTests.test_stale_form_and_replay_key_payload_conflict",
+        "LifecycleServiceTests.test_interruption_after_commit_never_reexecutes",
+        "LifecycleServiceTests.test_automatic_lifecycle_is_rejected_before_mutation"
+      ]
+    }
+  ],
+  "boundaries": {
+    "automatic_executor": "DISABLED",
+    "PH-LW-11": "NOT STARTED",
+    "Engine_Documentation_ZIP": "NOT CREATED"
+  }
+}

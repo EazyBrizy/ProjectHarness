@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_ph_lw_06_exchange"
+  ],
+  "ran": 16,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 19.954,
+  "log": "test_ph_lw_06_exchange.log",
+  "status": "PASS"
+}

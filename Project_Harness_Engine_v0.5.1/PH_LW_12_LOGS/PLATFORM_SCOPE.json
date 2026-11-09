@@ -1,0 +1,6 @@
+{
+  "platform": "Windows only",
+  "user_instruction": "мы не используем линукс нигде",
+  "prior_linux_attempt": "Stopped at user instruction; runner removed; no Linux result credited; raw private diagnostic omitted from distribution",
+  "future_linux_jobs_authorized": false
+}

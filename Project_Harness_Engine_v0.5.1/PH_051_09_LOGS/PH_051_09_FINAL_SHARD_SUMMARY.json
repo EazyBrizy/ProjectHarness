@@ -1,0 +1,175 @@
+{
+  "status": "PASS",
+  "tests": 320,
+  "shards": [
+    {
+      "shard": 1,
+      "modules": [
+        "test_ph_f06_maturity_lifecycle"
+      ],
+      "exit_code": 0,
+      "tests": 13,
+      "seconds": 264.122,
+      "log": "PH_051_09_SHARD_01.log",
+      "result": "PASS"
+    },
+    {
+      "shard": 2,
+      "modules": [
+        "test_ph_f08_release_acceptance"
+      ],
+      "exit_code": 0,
+      "tests": 2,
+      "seconds": 45.238,
+      "log": "PH_051_09_SHARD_02.log",
+      "result": "PASS"
+    },
+    {
+      "shard": 3,
+      "modules": [
+        "test_ph_f05_intake_acceptance"
+      ],
+      "exit_code": 0,
+      "tests": 4,
+      "seconds": 1.636,
+      "log": "PH_051_09_SHARD_03.log",
+      "result": "PASS"
+    },
+    {
+      "shard": 4,
+      "modules": [
+        "test_engine"
+      ],
+      "exit_code": 0,
+      "tests": 14,
+      "seconds": 21.001,
+      "log": "PH_051_09_SHARD_04.log",
+      "result": "PASS"
+    },
+    {
+      "shard": 5,
+      "modules": [
+        "test_contract_hardening",
+        "test_ph_051_06_result_channel",
+        "test_ph_f01_planner_regression"
+      ],
+      "exit_code": 0,
+      "tests": 50,
+      "seconds": 86.458,
+      "log": "PH_051_09_SHARD_05.log",
+      "result": "PASS"
+    },
+    {
+      "shard": 6,
+      "modules": [
+        "test_stage_transaction_recovery",
+        "test_maintenance_lifecycle",
+        "test_stage_approval_preparation",
+        "test_ph_f02_semantic_proof_contract"
+      ],
+      "exit_code": 0,
+      "tests": 34,
+      "seconds": 112.398,
+      "log": "PH_051_09_SHARD_06.log",
+      "result": "PASS"
+    },
+    {
+      "shard": 7,
+      "modules": [
+        "test_assessment_freshness",
+        "test_ph_051_05_codex_adapter",
+        "test_ph_051_01_contract_baseline",
+        "test_ph_f01_gate_semantics_regression"
+      ],
+      "exit_code": 0,
+      "tests": 38,
+      "seconds": 58.24,
+      "log": "PH_051_09_SHARD_07.log",
+      "result": "PASS"
+    },
+    {
+      "shard": 8,
+      "modules": [
+        "test_implementation_levels",
+        "test_ph_051_03_rootless_podman",
+        "test_ph_f04_runtime_reachability",
+        "test_ph_051_07_sandbox_verification"
+      ],
+      "exit_code": 0,
+      "tests": 47,
+      "seconds": 75.47,
+      "log": "PH_051_09_SHARD_08.log",
+      "result": "PASS"
+    },
+    {
+      "shard": 9,
+      "modules": [
+        "test_ph_051_02_executor_protocol",
+        "test_gate_evidence_contract",
+        "test_ph_f03_active_stage_planning",
+        "test_canonical_target"
+      ],
+      "exit_code": 0,
+      "tests": 47,
+      "seconds": 146.486,
+      "log": "PH_051_09_SHARD_09.log",
+      "result": "PASS"
+    },
+    {
+      "shard": 10,
+      "modules": [
+        "test_ph_051_08_atomic_apply",
+        "test_stage_gate_preparation_block_recovery",
+        "test_ph_051_04_disposable_roots",
+        "test_exact_assessment_ref"
+      ],
+      "exit_code": 0,
+      "tests": 56,
+      "seconds": 99.037,
+      "log": "PH_051_09_SHARD_10.log",
+      "result": "PASS"
+    },
+    {
+      "shard": 11,
+      "modules": [
+        "test_ph_051_09_automatic_runtime"
+      ],
+      "exit_code": 0,
+      "tests": 15,
+      "seconds": 21.181,
+      "log": "PH_051_09_SHARD_11.log",
+      "result": "PASS"
+    }
+  ],
+  "elapsed_seconds": 265.2,
+  "all_modules": [
+    "test_ph_f06_maturity_lifecycle",
+    "test_ph_f08_release_acceptance",
+    "test_ph_f05_intake_acceptance",
+    "test_engine",
+    "test_contract_hardening",
+    "test_ph_051_06_result_channel",
+    "test_ph_f01_planner_regression",
+    "test_stage_transaction_recovery",
+    "test_maintenance_lifecycle",
+    "test_stage_approval_preparation",
+    "test_ph_f02_semantic_proof_contract",
+    "test_assessment_freshness",
+    "test_ph_051_05_codex_adapter",
+    "test_ph_051_01_contract_baseline",
+    "test_ph_f01_gate_semantics_regression",
+    "test_implementation_levels",
+    "test_ph_051_03_rootless_podman",
+    "test_ph_f04_runtime_reachability",
+    "test_ph_051_07_sandbox_verification",
+    "test_ph_051_02_executor_protocol",
+    "test_gate_evidence_contract",
+    "test_ph_f03_active_stage_planning",
+    "test_canonical_target",
+    "test_ph_051_08_atomic_apply",
+    "test_stage_gate_preparation_block_recovery",
+    "test_ph_051_04_disposable_roots",
+    "test_exact_assessment_ref",
+    "test_ph_051_09_automatic_runtime"
+  ]
+}

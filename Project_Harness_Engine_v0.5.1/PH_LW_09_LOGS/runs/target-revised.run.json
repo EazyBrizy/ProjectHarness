@@ -1,0 +1,18 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_lw_09_tasks"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T04:55:11.253067+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 900,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 246.438,
+  "log_sha256": "5f21decf767bf0c48e563693ea35d64e4244550f7c07885b3194f3e7504a9cb8"
+}

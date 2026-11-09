@@ -1,0 +1,2 @@
+total open connections reached the connection limit, no longer accepting new connections
+{"modules": ["tests.test_ph_lw_04_05_acceptance"], "ran": 6, "failures": 0, "errors": 0, "skips": [], "elapsed_seconds": 160.588, "log": "test_ph_lw_04_05_acceptance.log", "status": "PASS"}

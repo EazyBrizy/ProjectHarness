@@ -1,0 +1,15 @@
+{
+  "command": [
+    "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+    "-B",
+    "tools/verify_ph_lw_11_zip_path.py"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-08T05:44:31.234389+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 600,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 6.804,
+  "log_sha256": "dd3bdb9c4f26f6b5d4f68f3c59f89a677bdb117cb888463b11d48af0c9e9d24e"
+}

@@ -1,0 +1,15 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "_scratch/ph_lw_11/recheck_lifecycle.py"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-08T00:00:17.788211+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 1800,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 948.963,
+  "log_sha256": "f64b608552aac2e2babc826a5aeb74ce66c08deb0890f916b833fd5db0fd7a6e"
+}

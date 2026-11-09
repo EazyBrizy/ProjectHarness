@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "captured_utc": "2026-11-08T05:03:36.984076+00:00",
+  "trees": {
+    "Project_Harness_Engine_v0.5.1": {
+      "status": "PASS",
+      "files": 3785,
+      "manifest_sha256": "5ec46c824fad59b021d3c3430d6948d1c3ffbb5f7edf6ec75f82be4869848508"
+    },
+    "Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 153,
+      "manifest_sha256": "fb7b86518e57ef3e0ba3f74418b4bf6906124db0536c0e7952b5505153f83f76"
+    },
+    "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 153,
+      "manifest_sha256": "fb7b86518e57ef3e0ba3f74418b4bf6906124db0536c0e7952b5505153f83f76"
+    }
+  },
+  "wheel_sha256": "60a77d83e27de1e3e914ab7a21df1aa50d0348c07199765fb1ef33f9ffc15f40",
+  "installer_sha256": "43cc06e7e3d1eac23133e1d324c911fb943ae37c403ef36dd860d766e37c2741",
+  "workspace_files": {
+    "README.md": "ce5bf4cc489a55c26cade0a12e433515f2cb0956d800b0ec542b262534b11487",
+    "_workspace/CURRENT_TASK.md": "276d1e7a904834c4d8974c92413d736403bd7fc722bb3211c84f19d04b04ad59",
+    "_workspace/PROJECT_MAP.md": "3396b35903d57c7008fad83dfa1454bdbb76a35c90dfdcbf517671b59758a56f",
+    "_workspace/RUNBOOK.md": "e839c76569cf97c56ea93b2f0272c58a036e57a32cb5a97dc9fd4d427d6f889e",
+    "tools/begin_ph_lw_11_long_path.py": "7cf300e9db6eaa4fa6aaae661cf26122bd682d4451a5ccfc64ac888f97e41d21",
+    "tools/check_ph_lw_11_long_path_logic.py": "1c767561557f900b0ee5d55f02f7d554a5de000b0a2801eb882ffde7730ecbe6",
+    "tools/diagnose_ph_lw_11_long_path.py": "e0ba1c9980ad44a5923c09cf26b570e60102c2dce10bb41a50e445b8cab7a6bd",
+    "tools/finalize_ph_lw_11_long_path.py": "9bcf32173413fe11c22b4f9193c274aab542d0ee57569291843f7dd02b757e94",
+    "tools/freeze_ph_lw_11_long_path.py": "2be34a78aa8403cd453bfe316ebfd9afbbde4a39c4c7852a0ecbf82215f6383f",
+    "tools/recheck_ph_lw_11_long_path.py": "6fb2d4be77409dc0dd4011463cf4ea51157dc71c958d834123c1ebb51781dbfe",
+    "tools/report_ph_lw_11_long_path.py": "a30648e65d1955d39d27b814c55efe20e93521ec4586a9f65c91c1bbd2e0068b",
+    "tools/setup_ph_lw_11_long_path_wheel.py": "1ba24c3fdcdf2f3b040aa587392d9a9e0996ec93e212da0fc8dd96dcd770025e",
+    "tools/verify_ph_lw_11_long_path.py": "d7eb38db6a9790c44233bbdf01153014c40f386dc4227fd015ad827a781d201a"
+  },
+  "drift": []
+}

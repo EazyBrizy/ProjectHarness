@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_ph_lw_08_http.PreparationHttpTests.test_all_routes_auth_origin_host_csrf_unknown_fields_no_writes"
+  ],
+  "ran": 1,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 0.575,
+  "log": "suite05-test_ph_lw_08_http-nonbrowser.log",
+  "status": "PASS"
+}

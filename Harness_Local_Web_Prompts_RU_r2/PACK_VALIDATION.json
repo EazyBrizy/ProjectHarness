@@ -1,0 +1,36 @@
+{
+  "artifact": "Harness Local Web implementation prompt pack",
+  "revision": "r2",
+  "clarified_on": "2026-11-01",
+  "status": "PASS",
+  "checks": {
+    "twelve_prompts": true,
+    "each_prompt_explicitly_says_wip_no_go": true,
+    "combined_matches_each_standalone_prompt": true,
+    "old_ambiguous_common_context_removed": true,
+    "full_release_no_go_preserved": true,
+    "control_map_unchanged": true,
+    "balanced_markdown_fences": true,
+    "engine_and_documentation_unchanged": true
+  },
+  "baseline_integrity": {
+    "Project_Harness_Engine_v0.5.1.zip": {
+      "sha256": "c4bd7bd446f926f32ccfe185fe89ede27207ca6ef0998a35ba3c971293b91174",
+      "matches_expected": true,
+      "zip_crc": "PASS",
+      "manifest_entries_verified": 802
+    },
+    "Project_Harness_Documentation_v0.5.1.zip": {
+      "sha256": "3a5eee4fac314b5ecaec2edb338d64dd26ecddecc3d0e9212fdeff62ca88209a",
+      "matches_expected": true,
+      "zip_crc": "PASS",
+      "manifest_entries_verified": 133
+    }
+  },
+  "implementation_performed": false,
+  "engine_source_modified": false,
+  "runtime_tests_executed": false,
+  "windows_tests_executed": false,
+  "podman_tests_executed": false,
+  "note": "PASS относится только к проверенным текстовым согласованиям и целостности файлов. Полная v0.5.1 остаётся NO-GO; Local Web пока не реализован."
+}

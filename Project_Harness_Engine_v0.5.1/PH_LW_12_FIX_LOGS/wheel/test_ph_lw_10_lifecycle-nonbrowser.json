@@ -1,0 +1,33 @@
+{
+  "modules": [
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_accepted_mvp_level_up_release_through_adapter",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_automatic_lifecycle_is_rejected_before_mutation",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_brownfield_readonly_assessment_rejects_stale_repository",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_consent_unknown_fields_changed_binding_and_cross_project_draft",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_edited_active_plan_requires_review_and_rejects_material_scope_change",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_forged_semantic_source_rejected_even_all_pass",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_gate_recovery_is_separate_from_task_recovery",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_get_is_read_only_and_lists_exact_semantic_subjects",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_interruption_after_commit_never_reexecutes",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_legacy_v041_migration_form_keeps_completed_runs",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_level_up_nearest_stage_canonical_target_and_noop",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_maintenance_cancel_after_completed_product_change_rejected",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_maintenance_complete_uses_existing_manual_task_lifecycle",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_maintenance_start_cancel_preserves_maturity",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_migration_process_crash_explicit_web_recovery_missing_root",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_migration_validator_confirmation_replay_history",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_missing_proof_and_unknown_results_cannot_raise_maturity",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_prototype_accept_alpha_plan_first_ready_and_exact_replay",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_selection_is_narrow_and_cancel_does_not_mutate_repository",
+    "tests.test_ph_lw_10_lifecycle.LifecycleServiceTests.test_stale_form_and_replay_key_payload_conflict",
+    "tests.test_ph_lw_10_lifecycle.MigrationPollingTests.test_owned_receipt_remains_readable_during_backup_cleanup",
+    "tests.test_ph_lw_10_lifecycle.NativeSelectionTests.test_native_folder_picker_selection_and_cancel"
+  ],
+  "ran": 22,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 1170.653,
+  "log": "test_ph_lw_10_lifecycle-nonbrowser.log",
+  "status": "PASS"
+}

@@ -1,0 +1,6 @@
+test_manual_checks_cannot_pass_by_allow_manual_flag (tests.test_ph_lw_09_tasks.TaskConsoleTests.test_manual_checks_cannot_pass_by_allow_manual_flag) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 16.039s
+
+OK

@@ -1,0 +1,109 @@
+test_foreign_origin_browser_form_fetch_and_frame_are_denied (tests.test_ph_lw_04_05_acceptance.BrowserImportAcceptance.test_foreign_origin_browser_form_fetch_and_frame_are_denied) ... ok
+test_ui_upload_preview_duplicate_replace_and_no_documentation (tests.test_ph_lw_04_05_acceptance.BrowserImportAcceptance.test_ui_upload_preview_duplicate_replace_and_no_documentation) ... FAIL
+test_http_operation_replay_after_restart_and_new_stale_request (tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_http_operation_replay_after_restart_and_new_stale_request) ... ok
+test_production_wsgi_declared_and_chunked_body_header_and_idle_limits (tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_production_wsgi_declared_and_chunked_body_header_and_idle_limits) ... ok
+test_real_bootstrap_elapsed_expiry_and_connection_limit (tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_real_bootstrap_elapsed_expiry_and_connection_limit) ... ok
+test_real_upload_malicious_archives_auth_and_read_only_preview (tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_real_upload_malicious_archives_auth_and_read_only_preview) ... ok
+
+======================================================================
+FAIL: test_ui_upload_preview_duplicate_replace_and_no_documentation (tests.test_ph_lw_04_05_acceptance.BrowserImportAcceptance.test_ui_upload_preview_duplicate_replace_and_no_documentation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_04_05_acceptance.py", line 312, in test_ui_upload_preview_duplicate_replace_and_no_documentation
+    expect(page.get_by_role('button', name='Проверить опрос', exact=True, include_hidden=True)).to_be_enabled()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\sync_api\_generated.py", line 14672, in to_be_enabled
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.to_be_enabled(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            enabled=enabled, timeout=to_milliseconds(timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 807, in to_be_enabled
+    await self._expect_impl(
+    ...<5 lines>...
+    )
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        AssertionError(
+        ^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        self._is_soft,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to be enabled
+Actual value: None
+Error: element(s) not found 
+Call log:
+  - Expect "to_be_enabled" get_by_role("button", name="Проверить опрос", exact=True) with timeout 5000ms
+  - waiting for get_by_role("button", name="Проверить опрос", exact=True)
+
+Aria snapshot:
+- link "Перейти к содержимому":
+  - /url: "#workspace"
+- complementary "Навигация":
+  - strong: Project Harness
+  - text: Локальный мастер · 0.1.0-dev
+  - paragraph: РАБОЧАЯ ОБЛАСТЬ
+  - navigation "Разделы проекта":
+    - button "Проекты и запуск"
+    - button "Документы"
+    - button "Опрос и GPT"
+    - button "Согласования"
+    - button "Обзор проекта"
+    - button "Задачи и Run"
+    - button "Стадии и доказательства"
+    - button "Обслуживание"
+    - button "Диагностика"
+  - text: Только этот компьютер Без provider API, облака и автоматического запуска Codex
+- main:
+  - paragraph: ЛОКАЛЬНОЕ УПРАВЛЕНИЕ ПРОЕКТОМ
+  - heading "Документы" [level=1]
+  - status: Сессия активна
+  - button "Обновить состояние"
+  - button "Выйти"
+  - status: Intake создан. Теперь загрузите MD/ZIP. Без анализа и подтверждений.
+  - paragraph: Приём MD/ZIP в приватный snapshot; анализ и согласования отдельно.
+  - region "Документы и источники":
+    - heading "Документы и источники" [level=2]
+    - paragraph: Только локальные MD (UTF-8) и ZIP с MD. Импорт не анализирует документы и не отправляет их в интернет.
+    - heading "Начать Greenfield опрос" [level=3]
+    - text: Название проекта
+    - textbox "Название проекта": Браузерная приёмка
+    - button "Создать intake для документов"
+    - button "Документации нет"
+    - paragraph: Новые Brownfield/Hybrid intake с репозиторием через браузер пока не поддерживаются.
+    - heading "Загрузить документы в выбранный intake" [level=3]
+    - group "Загрузка Markdown и ZIP":
+      - text: Выберите MD/ZIP или перетащите файлы сюда
+      - button "Выберите MD/ZIP или перетащите файлы сюда"
+      - paragraph: Файлы не выбраны
+    - text: Способ изменения источников
+    - combobox "Способ изменения источников":
+      - option "Добавить" [selected]
+      - option "Заменить весь набор"
+    - button "Импортировать файлы" [disabled]
+    - button "Документации нет"
+    - status
+    - heading "Принятые источники и история" [level=3]
+    - paragraph: "Revision 0; выбор: UNANSWERED; 0 MD документов, 0 пропущено. Документы импортированы — анализ ещё не выполнен."
+    - heading "Предпросмотр как экранированный текст" [level=3]
+    - text: Выберите документ для просмотра.
+    - paragraph: "Лимиты: HTTP 64 MiB; один файл ZIP 8 MiB; суммарное содержимое до 128 MiB; до 1000 элементов; вложенность до 16; сжатие до 200:1. Опасный ZIP отклоняется целиком."
+  - text: "Project Harness 0.5.1 WIP · Local Web PH-LW-05 · Ручной маршрут · Полная v0.5.1: NO-GO"
+
+----------------------------------------------------------------------
+Ran 6 tests in 232.135s
+
+FAILED (failures=1)

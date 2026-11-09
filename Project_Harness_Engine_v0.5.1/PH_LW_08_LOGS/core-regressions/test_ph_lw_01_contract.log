@@ -1,0 +1,14 @@
+test_01_exact_26_cli_commands_with_no_invented_api (tests.test_ph_lw_01_contract.PHLW01ContractTests.test_01_exact_26_cli_commands_with_no_invented_api) ... ok
+test_02_python_apis_actual_public_and_unavailable_demo (tests.test_ph_lw_01_contract.PHLW01ContractTests.test_02_python_apis_actual_public_and_unavailable_demo) ... ok
+test_03_no_mutations_on_GET_and_unsafe_routes_classified (tests.test_ph_lw_01_contract.PHLW01ContractTests.test_03_no_mutations_on_GET_and_unsafe_routes_classified) ... ok
+test_04_intake_approvals_distinct_and_manual_draft (tests.test_ph_lw_01_contract.PHLW01ContractTests.test_04_intake_approvals_distinct_and_manual_draft) ... ok
+test_05_strict_shell_schemas_and_untrusted_rejection (tests.test_ph_lw_01_contract.PHLW01ContractTests.test_05_strict_shell_schemas_and_untrusted_rejection) ... ok
+test_06_fixture_inventory_and_no_fake_prod_evidence (tests.test_ph_lw_01_contract.PHLW01ContractTests.test_06_fixture_inventory_and_no_fake_prod_evidence) ... ok
+test_07_pinned_web_dependencies_only_not_imported_into_core (tests.test_ph_lw_01_contract.PHLW01ContractTests.test_07_pinned_web_dependencies_only_not_imported_into_core) ... ok
+test_08_provenance_locked_and_release_verdict_separate (tests.test_ph_lw_01_contract.PHLW01ContractTests.test_08_provenance_locked_and_release_verdict_separate) ... ok
+test_09_additive_resources_available_in_distribution (tests.test_ph_lw_01_contract.PHLW01ContractTests.test_09_additive_resources_available_in_distribution) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.082s
+
+OK

@@ -1,0 +1,175 @@
+test_project_card_matches_fresh_core_after_browser_block (tests.test_ph_lw_12_blockers.BlockerBrowserTests.test_project_card_matches_fresh_core_after_browser_block) ... Task queue depth is 1
+Task queue depth is 2
+Timeout (0:00:45)!
+Thread 0x0000886c [harness-local-web_0] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\concurrent\futures\thread.py", line 116 in _worker
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x00006f68 [Thread-1 (run)] (most recent call first):
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\wasyncore.py", line 167 in poll
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\wasyncore.py", line 240 in loop
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\server.py", line 325 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x00009a5c [waitress-3] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x0000c8f4 [waitress-2] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x000009b4 [waitress-1] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x00007e1c [waitress-0] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x0000b558 (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\windows_events.py", line 778 in _poll
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\windows_events.py", line 446 in select
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\base_events.py", line 2026 in _run_once
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\base_events.py", line 678 in run_forever
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\base_events.py", line 707 in run_until_complete
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\sync_api\_context_manager.py", line 60 in greenlet_main
+FAIL
+
+======================================================================
+FAIL: test_project_card_matches_fresh_core_after_browser_block (tests.test_ph_lw_12_blockers.BlockerBrowserTests.test_project_card_matches_fresh_core_after_browser_block)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_12_blockers.py", line 142, in test_project_card_matches_fresh_core_after_browser_block
+    expect(page.locator('#core-status')).to_have_text('TASK_BLOCKED')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\sync_api\_generated.py", line 15528, in to_have_text
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.to_have_text(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        )
+        ^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 648, in to_have_text
+    await self._expect_impl(
+    ...<9 lines>...
+    )
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        AssertionError(
+        ^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        self._is_soft,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to have text 'TASK_BLOCKED'
+Actual value: BLOCKED 
+Call log:
+  - Expect "to_have_text" locator("#core-status") with timeout 30000ms
+  - waiting for locator("#core-status")
+    5 × locator resolved to <dd id="core-status">ACTIVE</dd>
+      - unexpected value "ACTIVE"
+    57 × locator resolved to <dd id="core-status">BLOCKED</dd>
+       - unexpected value "BLOCKED"
+
+Aria snapshot:
+- link "Перейти к содержимому":
+  - /url: "#workspace"
+- complementary "Навигация":
+  - strong: Project Harness
+  - text: Локальный мастер · 0.1.0-dev
+  - paragraph: РАБОЧАЯ ОБЛАСТЬ
+  - navigation "Разделы проекта":
+    - button "Проекты и запуск"
+    - button "Документы"
+    - button "Опрос и GPT"
+    - button "Согласования"
+    - button "Обзор проекта"
+    - button "Задачи и Run"
+    - button "Стадии и доказательства"
+    - button "Обслуживание"
+    - button "Диагностика"
+  - text: Только этот компьютер Без provider API, облака и автоматического запуска Codex
+- main:
+  - paragraph: ЛОКАЛЬНОЕ УПРАВЛЕНИЕ ПРОЕКТОМ
+  - heading "Задачи и Run" [level=1]
+  - status: Сессия активна
+  - button "Обновить состояние"
+  - button "Выйти"
+  - button "Завершить Harness"
+  - status: Статус получен. GET не запускает проектные операции.
+  - paragraph: Exact JIT → результат внешнего агента → независимая проверка → завершение Task.
+  - region "Текущая Task / ручной Run":
+    - heading "Текущая Task / ручной Run" [level=2]
+    - status: "Режим: MANUAL_HANDOFF; стадия: PROTOTYPE; Task: BLOCKED; завершено: 0. Следующий шаг: Устраните blocker и укажите resolution"
+    - paragraph: Передайте закреплённый JIT внешнему агенту вручную. GET не создаёт Run.
+    - button "Получить следующую задачу" [disabled]
+    - group: Work Packages, Tasks и зависимости
+    - group: Future stages — только outlines
+    - heading "Task Contract и exact refs" [level=3]
+    - text: "{ \"task\": { \"acceptance_criteria\": [ \"add appends a task with a stable numeric id and incomplete state\", \"list renders persisted tasks\", \"tests use an isolated temporary data file\", \"README documents add and list\" ], \"architecture_refs\": [ \"ARB-HARNESS-DEMO-TASK-CLI-001@1\" ], \"blocked_at\": \"2026-11-08T12:04:44Z\", \"blocker_ref\": \"BLK-HARNESS-DEMO-TASK-CLI-001\", \"constraint_refs\": [ \"CST-HARNESS-DEMO-TASK-CLI-001@1\", \"CST-HARNESS-DEMO-TASK-CLI-002@1\", \"CST-HARNESS-DEMO-TASK-CLI-003@1\", \"CST-HARNESS-DEMO-TASK-CLI-004@1\", \"CST-HARNESS-DEMO-TASK-CLI-005@1\", \"CST-HARNESS-DEMO-TASK-CLI-006@1\" ], \"context_plan_ref\": \"CTX-HARNESS-DEMO-TASK-CLI-001@1\", \"context_policy_ref\": \"CTP-TASK-STANDARD@1\", \"depends_on_tasks\": [], \"documentation\": { \"impact\": \"UPDATE_EXISTING\", \"required_updates\": [ \"README.md: add and list command examples\" ], \"source_refs\": [] }, \"expected_result\": \"task_cli.py supports add and list, tests pass and README contains usage.\", \"id\": \"TSK-HARNESS-DEMO-TASK-CLI-001\", \"implementation_stage\": \"PROTOTYPE\", \"previous_revision_ref\": \"TSK-HARNESS-DEMO-TASK-CLI-001@1\", \"priority\": \"NORMAL\", \"produces_artifacts\": [], \"prompt_plan_ref\": \"PPL-HARNESS-DEMO-TASK-CLI-001@1\", \"prompt_spec_ref\": \"PSP-IMPLEMENT@1\", \"purpose\": \"Create the storage foundation and the first two user commands.\", \"requirement_refs\": [ \"REQ-HARNESS-DEMO-TASK-CLI-001@1\", \"REQ-HARNESS-DEMO-TASK-CLI-002@1\", \"REQ-HARNESS-DEMO-TASK-CLI-003@1\", \"REQ-HARNESS-DEMO-TASK-CLI-004@1\" ], \"requires_artifacts\": [], \"revision\": 2, \"rollback\": { \"strategy\": \"RESTORE_PRE_RUN_SNAPSHOT\" }, \"route\": { \"primary_skill_ref\": \"SKL-UNIVERSAL-IMPLEMENT@3\", \"required_capabilities\": [ \"FILESYSTEM_READ\", \"FILESYSTEM_WRITE\", \"COMMAND_EXECUTE\" ], \"supporting_skill_refs\": [] }, \"scope\": { \"forbidden\": [ \"CODEX_START.md\", \"AGENTS.md\", \"PROJECT.md\", \"ARCHITECTURE.md\", \"TECHNOLOGY.md\" ], \"read\": [ \"PROJECT.md\", \"ARCHITECTURE.md\", \"TECHNOLOGY.md\", \"README.md\" ], \"write\": [ \"task_cli.py\", \"tests/**\", \"README.md\" ] }, \"sequence\": 10, \"status\": \"BLOCKED\", \"title\": \"Implement add and list commands\", \"track\": \"PRIMARY\", \"type\": \"IMPLEMENT\", \"updated_at\": \"2026-11-08T12:04:44Z\", \"verification\": { \"allow_manual\": true, \"commands\": [], \"expected_paths\": [ \"task_cli.py\", \"tests/test_task_cli.py\", \"README.md\" ], \"manual_checks\": [ \"Review visible behavior\" ] }, \"verification_profile_ref\": \"VFP-HARNESS-DEMO-TASK-CLI-001@1\", \"work_package_ref\": \"WP-HARNESS-DEMO-TASK-CLI-001\" }, \"run\": null, \"binding_digest\": null } Закреплённый JIT для ручной передачи Codex"
+    - textbox "Закреплённый JIT для ручной передачи Codex"
+    - button "Копировать промпт" [disabled]
+    - group: Context Packet
+    - heading "1. Результат внешнего агента" [level=3]
+    - paragraph: COMPLETED в файле — заявление агента. Оно не означает независимый PASS или завершение Task.
+    - paragraph: "{ \"status\": \"NOT_RECEIVED\" }"
+    - text: Выберите Agent Task Result JSON (до 1 MiB)
+    - button "Выберите Agent Task Result JSON (до 1 MiB)"
+    - button "Получить результат из файла" [disabled]
+    - button "Получить из exact canonical channel" [disabled]
+    - heading "2. Независимая проверка" [level=3]
+    - text: Нет
+    - paragraph: "Продуктовые команды: выполнение кода на вашем компьютере, не sandbox. Проверьте точные argv, cwd и timeout. Недостающий toolchain устанавливается отдельно."
+    - checkbox "Разрешаю только показанный план проверки для этого Run и текущего baseline"
+    - text: Разрешаю только показанный план проверки для этого Run и текущего baseline
+    - button "Проверить" [disabled]
+    - text: Независимая проверка ещё не выполнена.
+    - heading "3. Завершение Task" [level=3]
+    - button "Завершить" [disabled]
+    - paragraph: Core повторно проверяет PASS, result, фактический diff и product baseline. Stage acceptance выполняется отдельно.
+    - group:
+      - text: "Block / resume и восстановление [ { \"created_at\": \"2026-11-08T12:04:44Z\", \"id\": \"BLK-HARNESS-DEMO-TASK-CLI-001\", \"implementation_stage\": \"PROTOTYPE\", \"kind\": \"EXECUTION_BLOCKER\", \"reason\": \"Explicit PH-LW-12 regression blocker\", \"recovery_options\": [ \"Resolve missing input and resume\", \"Change task scope\", \"Defer task\", \"Cancel route\" ], \"resume_condition\": \"A resolution note is supplied and the affected task contract remains valid or is revised through an approved decision.\", \"revision\": 1, \"run_ref\": \"RUN-HARNESS-DEMO-TASK-CLI-001-A1\", \"status\": \"OPEN\", \"task_ref\": \"TSK-HARNESS-DEMO-TASK-CLI-001@1\" } ] Причина блокировки"
+      - textbox "Причина блокировки": Explicit PH-LW-12 regression blocker
+      - button "Заблокировать Run" [disabled]
+      - text: Exact OPEN blocker ref
+      - combobox "Exact OPEN blocker ref":
+        - option "BLK-HARNESS-DEMO-TASK-CLI-001@1" [selected]
+      - text: Что исправлено
+      - textbox "Что исправлено"
+      - button "Возобновить с новым Run"
+      - paragraph: После прерывания сначала перечитайте состояние. Команды автоматически не перезапускаются. Неоднозначный commit требует диагностики canonical состояния.
+      - button "Сверить последнюю операцию без повторного запуска"
+    - status: "{ \"action\": \"block\", \"error\": null, \"finished_at\": \"2026-11-08T12:04:45Z\", \"operation_id\": \"LWO-B09241DA364D402CE3D7F7D230B6E18D\", \"phase\": \"DONE\", \"result\": { \"action\": \"block\", \"core_status\": \"BLOCKED\", \"refs\": { \"run_ref\": \"RUN-HARNESS-DEMO-TASK-CLI-001-A1\", \"status\": \"BLOCKED\", \"task_ref\": \"TSK-HARNESS-DEMO-TASK-CLI-001@2\" } }, \"state\": \"SUCCEEDED\", \"updated_at\": \"2026-11-08T12:04:45Z\" }"
+  - text: "Project Harness 0.5.1 WIP · Local Web PH-LW-12 · Ручной маршрут · Полная v0.5.1: NO-GO"
+
+----------------------------------------------------------------------
+Ran 1 test in 46.053s
+
+FAILED (failures=1)

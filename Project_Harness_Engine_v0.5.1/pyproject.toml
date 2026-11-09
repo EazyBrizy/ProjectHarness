@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "project-harness-engine"
+version = "0.5.1"
+description = "Browser GPT preparation layer and governed JIT handoff runtime for Codex"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{name = "Project Harness"}]
+keywords = ["codex", "prompt-engineering", "project-planning", "governance"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+dependencies = []
+
+[project.optional-dependencies]
+yaml = ["PyYAML>=6.0,<7"]
+local-web = ["Flask==3.1.3", "Waitress==3.0.2"]
+
+[project.scripts]
+project-harness = "project_harness.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+project_harness = [
+  "resources/VERSION",
+  "resources/registries/*.yaml",
+  "resources/schemas/*.json",
+  "resources/skills/*.yaml",
+  "resources/templates/*.md",
+  "resources/fixtures/*.json",
+  "resources/fixtures/*.zip",
+  "resources/local_web/*.json",
+  "resources/local_web/*.md",
+  "resources/local_web/assets/*.html",
+  "resources/local_web/assets/*.css",
+  "resources/local_web/assets/*.js",
+]

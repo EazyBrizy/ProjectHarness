@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "external_expected_hashes": "NOT PROVIDED; observed digests are provenance, not independent authenticity proof",
+  "archives": [
+    {
+      "file": "Project_Harness_Engine_v0.5.1_PH_LW_05.zip",
+      "sha256": "d247127b5ab91b1dffd0f1f0649225bcf2b0bf02abea85a3c211cf3580b40c76",
+      "bytes": 5068551,
+      "members": 1152,
+      "crc": "PASS",
+      "manifests": [
+        {
+          "path": "Project_Harness_Engine_v0.5.1/MANIFEST.sha256",
+          "verified": 1151,
+          "unlisted": []
+        },
+        {
+          "path": "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1/MANIFEST.sha256",
+          "verified": 143,
+          "unlisted": []
+        }
+      ],
+      "roots": [
+        "Project_Harness_Engine_v0.5.1"
+      ]
+    },
+    {
+      "file": "Project_Harness_Documentation_v0.5.1_PH_LW_05.zip",
+      "sha256": "fd6a5d2aff1495708c30cf4f493ef30aed5bc6095a84a2fcd00e4a984013f1df",
+      "bytes": 933932,
+      "members": 144,
+      "crc": "PASS",
+      "manifests": [
+        {
+          "path": "Project_Harness_Documentation_v0.5.1/MANIFEST.sha256",
+          "verified": 143,
+          "unlisted": []
+        }
+      ],
+      "roots": [
+        "Project_Harness_Documentation_v0.5.1"
+      ]
+    },
+    {
+      "file": "Project_Harness_Implementation_Specifications_v0.4.1_to_v1.0 (1).zip",
+      "sha256": "56bca615b7da5a0f48d0479c2de24ccd151fcefbf453fdfea89eab0d2675219e",
+      "bytes": 92795,
+      "members": 12,
+      "crc": "PASS",
+      "manifests": [
+        {
+          "path": "Project_Harness_Implementation_Specifications_v0.4.1_to_v1.0/MANIFEST.sha256",
+          "verified": 10,
+          "unlisted": []
+        }
+      ],
+      "roots": [
+        "Project_Harness_Implementation_Specifications_v0.4.1_to_v1.0"
+      ]
+    },
+    {
+      "file": "Project_Harness_Windows_Local_Web_Implementation_Prompts_RU_r2 (1).zip",
+      "sha256": "4d85691a5bc89a9ef3a449097898d8b727a041e70c0b13ec9ba45535bcce2829",
+      "bytes": 103142,
+      "members": 21,
+      "crc": "PASS",
+      "manifests": [
+        {
+          "path": "Harness_Local_Web_Prompts_RU_r2/MANIFEST.sha256",
+          "verified": 20,
+          "unlisted": []
+        }
+      ],
+      "roots": [
+        "Harness_Local_Web_Prompts_RU_r2"
+      ]
+    }
+  ]
+}

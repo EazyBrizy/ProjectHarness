@@ -1,0 +1,15 @@
+test_alpha_planning_has_two_real_public_commands (tests.test_ph_f04_runtime_reachability.PHF04RuntimeReachabilityTests.test_alpha_planning_has_two_real_public_commands) ... ok
+test_forged_stage_boundary_without_review_contract_is_not_actionable (tests.test_ph_f04_runtime_reachability.PHF04RuntimeReachabilityTests.test_forged_stage_boundary_without_review_contract_is_not_actionable) ... ok
+test_future_stage_task_cannot_get_new_jit_even_if_scheduler_tampered (tests.test_ph_f04_runtime_reachability.PHF04RuntimeReachabilityTests.test_future_stage_task_cannot_get_new_jit_even_if_scheduler_tampered) ... ok
+test_inconsistent_planning_contract_is_rejected_before_reservation (tests.test_ph_f04_runtime_reachability.PHF04RuntimeReachabilityTests.test_inconsistent_planning_contract_is_rejected_before_reservation) ... ok
+test_maintenance_running_at_predecessor_stage_is_not_future_work (tests.test_ph_f04_runtime_reachability.PHF04RuntimeReachabilityTests.test_maintenance_running_at_predecessor_stage_is_not_future_work) ... ok
+test_next_recomputes_operator_route_after_ready_task_reservation (tests.test_ph_f04_runtime_reachability.PHF04RuntimeReachabilityTests.test_next_recomputes_operator_route_after_ready_task_reservation) ... ok
+test_ordinary_blocker_is_not_stage_gate_blocker (tests.test_ph_f04_runtime_reachability.PHF04RuntimeReachabilityTests.test_ordinary_blocker_is_not_stage_gate_blocker) ... ok
+test_planned_ready_jit_is_stable_and_current_stage_only (tests.test_ph_f04_runtime_reachability.PHF04RuntimeReachabilityTests.test_planned_ready_jit_is_stable_and_current_stage_only) ... ok
+test_terminal_release_does_not_advertise_impossible_level_up (tests.test_ph_f04_runtime_reachability.PHF04RuntimeReachabilityTests.test_terminal_release_does_not_advertise_impossible_level_up) ... ok
+test_unsupported_boundary_is_defect_not_stage_planning (tests.test_ph_f04_runtime_reachability.PHF04RuntimeReachabilityTests.test_unsupported_boundary_is_defect_not_stage_planning) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 78.075s
+
+OK

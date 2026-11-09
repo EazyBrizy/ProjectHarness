@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_ph_051_02_executor_protocol"
+  ],
+  "ran": 24,
+  "failures": 0,
+  "errors": 1,
+  "skips": [],
+  "elapsed_seconds": 0.849,
+  "log": "test_ph_051_02_executor_protocol.log",
+  "status": "FAIL"
+}

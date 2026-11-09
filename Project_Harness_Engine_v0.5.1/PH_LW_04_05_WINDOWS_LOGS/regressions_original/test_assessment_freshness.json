@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_assessment_freshness"
+  ],
+  "ran": 10,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 187.409,
+  "log": "test_assessment_freshness.log",
+  "status": "PASS"
+}

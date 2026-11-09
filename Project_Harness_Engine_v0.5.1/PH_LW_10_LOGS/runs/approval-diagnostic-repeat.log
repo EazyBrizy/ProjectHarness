@@ -1,0 +1,123 @@
+test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss (tests.test_ph_lw_07_http.ApprovalBrowserTests.test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss) ... Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+FAIL
+
+======================================================================
+FAIL: test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss (tests.test_ph_lw_07_http.ApprovalBrowserTests.test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_07_http.py", line 195, in test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss
+    expect(page.locator('#approvals-status')).to_contain_text(f'{index+1} из 5')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\sync_api\_generated.py", line 14961, in to_contain_text
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.to_contain_text(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        )
+        ^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 303, in to_contain_text
+    await self._expect_impl(
+    ...<9 lines>...
+    )
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        AssertionError(
+        ^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        self._is_soft,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to contain text '1 из 5'
+Actual value: 0 из 5 решений · WAITING_DECISION 
+Call log:
+  - Expect "to_contain_text" locator("#approvals-status") with timeout 5000ms
+  - waiting for locator("#approvals-status")
+    14 × locator resolved to <p role="status" aria-live="polite" id="approvals-status">0 из 5 решений · WAITING_DECISION</p>
+       - unexpected value "0 из 5 решений · WAITING_DECISION"
+
+Aria snapshot:
+- status: 0 из 5 решений · WAITING_DECISION
+
+----------------------------------------------------------------------
+Ran 1 test in 13.376s
+
+FAILED (failures=1)
+test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss (tests.test_ph_lw_07_http.ApprovalBrowserTests.test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss) ... Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+FAIL
+
+======================================================================
+FAIL: test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss (tests.test_ph_lw_07_http.ApprovalBrowserTests.test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_07_http.py", line 195, in test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss
+    expect(page.locator('#approvals-status')).to_contain_text(f'{index+1} из 5')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\sync_api\_generated.py", line 14961, in to_contain_text
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.to_contain_text(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        )
+        ^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 303, in to_contain_text
+    await self._expect_impl(
+    ...<9 lines>...
+    )
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        AssertionError(
+        ^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        self._is_soft,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to contain text '1 из 5'
+Actual value: 0 из 5 решений · WAITING_DECISION 
+Call log:
+  - Expect "to_contain_text" locator("#approvals-status") with timeout 5000ms
+  - waiting for locator("#approvals-status")
+    14 × locator resolved to <p role="status" aria-live="polite" id="approvals-status">0 из 5 решений · WAITING_DECISION</p>
+       - unexpected value "0 из 5 решений · WAITING_DECISION"
+
+Aria snapshot:
+- status: 0 из 5 решений · WAITING_DECISION
+
+----------------------------------------------------------------------
+Ran 1 test in 13.954s
+
+FAILED (failures=1)
+test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss (tests.test_ph_lw_07_http.ApprovalBrowserTests.test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss) ... Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 18.099s
+
+OK

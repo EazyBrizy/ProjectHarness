@@ -1,0 +1,33 @@
+{
+  "stage_verdict": "NO-GO",
+  "blocker": "tests.test_ph_f06_maturity_lifecycle",
+  "native": {
+    "status": "PASS",
+    "tests": 143,
+    "skips": [],
+    "source": "native-verified/PH_LW_09_WINDOWS_TEST_REPORT.json",
+    "installed_wheel_tests": 141,
+    "installed_source": "runs/installed-wheel-verified.run.json",
+    "native_wrapper_status": "PASS"
+  },
+  "matrix": {
+    "modules": 46,
+    "test_methods": 531,
+    "module_statuses": {
+      "PASS": 35,
+      "PASS_WITH_SKIPS": 3,
+      "FAIL": 8
+    },
+    "failure_events": 24,
+    "error_events": 89,
+    "skips": 7,
+    "timeouts": 0,
+    "not_run_due_to_setup_error": [
+      "tests.test_ph_f06_maturity_lifecycle.PHF06MaturityLifecycleTests.test_01_greenfield_all_four_stages_have_verified_immutable_acceptances",
+      "tests.test_ph_f06_maturity_lifecycle.PHF06MaturityLifecycleTests.test_02_maintenance_complete_level_up_release_and_idempotent_replay",
+      "tests.test_ph_f06_maturity_lifecycle.PHF06MaturityLifecycleTests.test_03_lower_equal_targets_noop_and_skip_rejected_without_history_changes",
+      "tests.test_ph_f06_maturity_lifecycle.PHF06MaturityLifecycleTests.test_04_new_level_up_cannot_reset_an_unfinished_cycle_or_active_run"
+    ]
+  },
+  "new_tests": 28
+}

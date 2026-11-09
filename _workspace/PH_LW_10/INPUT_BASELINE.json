@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "captured_utc": "2026-11-07T11:17:59.508518+00:00",
+  "source_checkpoint": "PH-LW-09 MANUAL EVIDENCE PASS with explicit rechecks",
+  "trees": {
+    "Project_Harness_Engine_v0.5.1": {
+      "status": "PASS",
+      "files": 2489,
+      "manifest_sha256": "7c2e2fff193d2ca00f1b51ffc8e102cedd1737d12722d83f4f1cd1b33ce32e7e"
+    },
+    "Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 150,
+      "manifest_sha256": "73ad285065b83f3d6898435725c7075c14ac5369bc79ba4dc68313278e23e4b5"
+    },
+    "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 150,
+      "manifest_sha256": "73ad285065b83f3d6898435725c7075c14ac5369bc79ba4dc68313278e23e4b5"
+    }
+  },
+  "wheel_sha256": "55402b3e747196789ebdd2dea75534e12a8a49cf10c820de8094901734903489",
+  "workspace_files": {
+    "AGENTS.md": "afc9a144b0c6c4b6fa331039776b8ade9aaa03912c2aa0e05926ac5305e8dc21",
+    "README.md": "e4782fb9abab9dc0dd3c8a1475bc7b34c563e8be7e5a9cf08bd9f69e61fe7205",
+    "_workspace/CURRENT_TASK.md": "ca9108db8ee624d6693dc7519e51bcacfa71c6ad4df561555fd70f347c6efde9",
+    "_workspace/PROJECT_MAP.md": "8945a32719dbf8247839ad9c0f958e4050905618b8a7c3602fc2d4586e2aaa05",
+    "_workspace/RUNBOOK.md": "b4973e6ea5fa29e659192654eaa684b9645226d748805b9abb5e61ac9bd28d2e",
+    "tools/check_workspace.py": "568fd1ef2c8609b9fa0a8d7ebd2ba4b7692405efe9bf0efa7761a40e516c00d8",
+    "tools/verify_installed.py": "bddbf7541c5d3371f4b8dfa1e8ddec8ac72911292e7fb95635b7a7d784550b75",
+    "tools/sync_working_tree.py": "9b211015aeaabb5532fa5d8b5cd6661fc1f488291c0c1bd5ed6de095a6237ea6",
+    "tools/begin_ph_lw_09_manual_evidence.py": "7c821326606e604c0fc1c6422164f7f9d29064e25de2e32a76bf057ba9d3e3c6",
+    "tools/finalize_ph_lw_09_manual_evidence.py": "29cdefcb78fbb74d116edb2366165bd3bbc101b620487f2fa83b3d7c033f3ad0",
+    "tools/verify_ph_lw_09_manual_evidence.py": "aca8cfc304e8bed3f0d478790a1c6f62eed9738a08142161a36d4807d86527ef",
+    "tools/setup_ph_lw_09_manual_evidence_wheel.py": "c9c53940e0c5c7fbd0d0c7d6e76201948074723abf8cf550bed1840f45e15f17",
+    "tools/freeze_ph_lw_09_manual_evidence.py": "ba517cb456679beb76a5e5e74cf5e9089ff7b7ef1e3b0c770a7e6c57241a27c6"
+  },
+  "drift": []
+}

@@ -1,0 +1,213 @@
+{
+  "controls": [
+    {
+      "id": "LW-C01",
+      "cli": "doctor",
+      "status": "TRUTHFUL_DISABLED",
+      "ui": "#lifecycle-actions / schema-driven reviewed form",
+      "reason": "Current UI explicitly states operation is not implemented",
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C02",
+      "cli": "start-intake",
+      "status": "AVAILABLE_WITH_CORE_PRECONDITIONS",
+      "ui": "#create-intake / #create-no-docs",
+      "reason": null,
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C03",
+      "cli": "check-intake",
+      "status": "AVAILABLE_WITH_CORE_PRECONDITIONS",
+      "ui": "#save-answers / #check-answers",
+      "reason": null,
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C04",
+      "cli": "prepare",
+      "status": "AVAILABLE_WITH_CORE_PRECONDITIONS",
+      "ui": "#prepare-project",
+      "reason": null,
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C05",
+      "cli": "validate-handoff",
+      "status": "TRUTHFUL_DISABLED",
+      "ui": "#lifecycle-actions / schema-driven reviewed form",
+      "reason": "Current UI explicitly states operation is not implemented",
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C06",
+      "cli": "validate-project",
+      "status": "AVAILABLE_WITH_CORE_PRECONDITIONS",
+      "ui": "#action-list",
+      "reason": null,
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C07",
+      "cli": "migrate-project",
+      "status": "AVAILABLE_WITH_CORE_PRECONDITIONS",
+      "ui": "prepare-migration form",
+      "reason": null,
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C08",
+      "cli": "status",
+      "status": "AVAILABLE_WITH_CORE_PRECONDITIONS",
+      "ui": "#project-details",
+      "reason": null,
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C09",
+      "cli": "next",
+      "status": "AVAILABLE_WITH_CORE_PRECONDITIONS",
+      "ui": "#task-next",
+      "reason": null,
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C10",
+      "cli": "executor-doctor",
+      "status": "TRUTHFUL_DISABLED",
+      "ui": "#lifecycle-actions / schema-driven reviewed form",
+      "reason": "Automatic executor remains disabled",
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C11",
+      "cli": "execute-current",
+      "status": "TRUTHFUL_DISABLED",
+      "ui": "#lifecycle-actions / schema-driven reviewed form",
+      "reason": "Automatic executor remains disabled",
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C12",
+      "cli": "verify",
+      "status": "AVAILABLE_WITH_CORE_PRECONDITIONS",
+      "ui": "#task-verify",
+      "reason": null,
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C13",
+      "cli": "complete",
+      "status": "AVAILABLE_WITH_CORE_PRECONDITIONS",
+      "ui": "#task-complete",
+      "reason": null,
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C14",
+      "cli": "block",
+      "status": "AVAILABLE_WITH_CORE_PRECONDITIONS",
+      "ui": "#task-block",
+      "reason": null,
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C15",
+      "cli": "resume",
+      "status": "AVAILABLE_WITH_CORE_PRECONDITIONS",
+      "ui": "#task-resume",
+      "reason": null,
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C16",
+      "cli": "stage-status",
+      "status": "AVAILABLE_WITH_CORE_PRECONDITIONS",
+      "ui": "#navigation gates / stage-status button",
+      "reason": null,
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C17",
+      "cli": "prepare-stage-approval",
+      "status": "AVAILABLE_WITH_CORE_PRECONDITIONS",
+      "ui": "#lifecycle-actions / schema-driven reviewed form",
+      "reason": null,
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C18",
+      "cli": "prepare-active-stage-plan",
+      "status": "AVAILABLE_WITH_CORE_PRECONDITIONS",
+      "ui": "#lifecycle-actions / schema-driven reviewed form",
+      "reason": null,
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C19",
+      "cli": "plan-active-stage",
+      "status": "AVAILABLE_WITH_CORE_PRECONDITIONS",
+      "ui": "#lifecycle-actions / schema-driven reviewed form",
+      "reason": null,
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C20",
+      "cli": "resume-stage-gate",
+      "status": "AVAILABLE_WITH_CORE_PRECONDITIONS",
+      "ui": "#lifecycle-actions / schema-driven reviewed form",
+      "reason": null,
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C21",
+      "cli": "assess-maturity",
+      "status": "AVAILABLE_WITH_CORE_PRECONDITIONS",
+      "ui": "#lifecycle-actions / schema-driven reviewed form",
+      "reason": null,
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C22",
+      "cli": "accept-stage",
+      "status": "AVAILABLE_WITH_CORE_PRECONDITIONS",
+      "ui": "#lifecycle-actions / schema-driven reviewed form",
+      "reason": null,
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C23",
+      "cli": "level-up",
+      "status": "AVAILABLE_WITH_CORE_PRECONDITIONS",
+      "ui": "#lifecycle-actions / schema-driven reviewed form",
+      "reason": null,
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C24",
+      "cli": "start-maintenance",
+      "status": "AVAILABLE_WITH_CORE_PRECONDITIONS",
+      "ui": "#lifecycle-actions / schema-driven reviewed form",
+      "reason": null,
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C25",
+      "cli": "cancel-maintenance",
+      "status": "AVAILABLE_WITH_CORE_PRECONDITIONS",
+      "ui": "#lifecycle-actions / schema-driven reviewed form",
+      "reason": null,
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    },
+    {
+      "id": "LW-C26",
+      "cli": "demo",
+      "status": "TRUTHFUL_DISABLED",
+      "ui": "#lifecycle-actions / schema-driven reviewed form",
+      "reason": "Current UI explicitly states operation is not implemented",
+      "evidence": "source-final-regressions.log; wheel-browser-final.log; installed-extended-final/browser.log; current native method matrix"
+    }
+  ],
+  "operation_log_export": "Explicit disabled button and truthful reason; per-operation result panels exist"
+}

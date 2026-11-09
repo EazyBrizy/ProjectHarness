@@ -1,0 +1,35 @@
+{
+  "name": "test_ph_lw_04_05_acceptance-nonbrowser",
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;import project_harness;assert Path(project_harness.__file__).resolve().is_relative_to(Path(sys.prefix).resolve());sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel\\test_ph_lw_04_05_acceptance-nonbrowser.log",
+    "tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_http_operation_replay_after_restart_and_new_stale_request",
+    "tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_production_wsgi_declared_and_chunked_body_header_and_idle_limits",
+    "tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_real_bootstrap_elapsed_expiry_and_connection_limit",
+    "tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_real_upload_malicious_archives_auth_and_read_only_preview"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\Независимая папка wheel",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 122.795,
+  "environment_ref": "WHEEL_ENVIRONMENT.json",
+  "modules": [
+    "tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_http_operation_replay_after_restart_and_new_stale_request",
+    "tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_production_wsgi_declared_and_chunked_body_header_and_idle_limits",
+    "tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_real_bootstrap_elapsed_expiry_and_connection_limit",
+    "tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_real_upload_malicious_archives_auth_and_read_only_preview"
+  ],
+  "ran": 4,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "log": "test_ph_lw_04_05_acceptance-nonbrowser.log",
+  "process_status": "PASS",
+  "log_sha256": "a8a795422cbc449fb1817be12a2b9bf2ee5e1bfdd7bdd9a6527af2c69ead3d9b",
+  "scope": "INSTALLED_WHEEL",
+  "runtime_freeze_sha256": "a0c9775c327500b45df478b466746c3a6aec792b67695fcfd43437255fe0b997"
+}

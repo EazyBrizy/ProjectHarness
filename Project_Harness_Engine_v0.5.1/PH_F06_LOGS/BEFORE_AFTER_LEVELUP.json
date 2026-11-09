@@ -1,0 +1,15 @@
+{
+  "current_guard": {
+    "status": "VALIDATION_FAILED",
+    "message": "Level-up requires the current target cycle to be fully accepted and idle",
+    "details": {
+      "highest_accepted_level": "PROTOTYPE",
+      "current_target": "MVP",
+      "project_status": "ACTIVE",
+      "next_route": "PLAN_ACTIVE_STAGE"
+    }
+  },
+  "original_exit_code": 0,
+  "original_stdout": "{\n  \"status\": \"ACTIVE\",\n  \"old_target_level\": \"MVP\",\n  \"target_level\": \"RELEASE\",\n  \"highest_accepted_level\": \"PROTOTYPE\",\n  \"active_stage\": \"ALPHA\",\n  \"stage_path\": [\n    \"PROTOTYPE\",\n    \"ALPHA\",\n    \"BETA\",\n    \"MVP\",\n    \"RELEASE\"\n  ],\n  \"historical_stage_path\": [\n    \"PROTOTYPE\",\n    \"ALPHA\",\n    \"BETA\",\n    \"MVP\"\n  ],\n  \"stale_prompt_plan_paths\": [\n    \".harness/prompts/PLANS/PPL-HARNESS-DEMO-TASK-CLI-001@2.yaml\",\n    \".harness/prompts/PLANS/PPL-HARNESS-DEMO-TASK-CLI-002@2.yaml\"\n  ],\n  \"next_route\": \"PLAN_ACTIVE_STAGE\",\n  \"transaction_ref\": \"STX-PHF06-UP-RED-UNFINISHED\",\n  \"idempotent\": false,\n  \"transaction_status\": \"COMMITTED\",\n  \"render_status\": \"PASS\"\n}\n",
+  "original_stderr": ""
+}

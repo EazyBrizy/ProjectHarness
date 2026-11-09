@@ -1,0 +1,25 @@
+{
+  "skill": {
+    "id": "SKL-UNIVERSAL-DOCUMENT",
+    "revision": 1,
+    "namespace": "harness",
+    "level": "UNIVERSAL",
+    "status": "ACTIVE",
+    "purpose": "Bounded documentation change traced to accepted requirements and implementation state.",
+    "applies_to_task_types": [
+      "DOCUMENT",
+      "DESIGN"
+    ],
+    "required_capabilities": [
+      "FILESYSTEM_READ",
+      "FILESYSTEM_WRITE"
+    ],
+    "prohibited_operations": [
+      "GIT_PUSH",
+      "DEPLOY",
+      "RELEASE_PUBLISH"
+    ],
+    "output_contract_ref": "SCHEMA-AGENT-TASK-RESULT@1",
+    "verification_profile_ref": "VFP-DOCUMENT-TARGETED@1"
+  }
+}

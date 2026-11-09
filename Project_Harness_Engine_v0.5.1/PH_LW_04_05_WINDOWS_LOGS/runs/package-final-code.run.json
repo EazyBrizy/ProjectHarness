@@ -1,0 +1,14 @@
+{
+  "command": [
+    "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "tools/package_acceptance.py"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-06T23:47:21.703333+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 180,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 10.231,
+  "log_sha256": "d6619e023349c45bb1ac7dffb811df9b1a5c9fec8449600c634e9cdfdbb383d5"
+}

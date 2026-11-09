@@ -1,0 +1,18 @@
+{
+  "command": [
+    "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_lw_05_import"
+  ],
+  "cwd": "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+  "started_utc": "2026-11-08T05:09:25.401147+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 300,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 23.97,
+  "log_sha256": "a0bbe5c932a73782c5e80f6609656b08ee0d46742c903d8c466e5c0e30e5b592"
+}

@@ -1,0 +1,11 @@
+{
+  "input_archives": {
+    "Project_Harness_Engine_v0.5.1_PH_LW_05.zip": "d48a47b43957df5fd3e4e57db98f0b4e2e73c668893489a528e9c739200cb6ef",
+    "Project_Harness_Documentation_v0.5.1_PH_LW_05.zip": "5d610858306dc91e1b125711e30dc84e7f4aed046d4d72c20f0ff401f05f9b8b"
+  },
+  "wheel_sha256": "10dd00a409b673cd81286902058c22b0aac4170b7f2a17f403ec1941a6d4a78a",
+  "source_sha256": "4540a50f93b59415d500f814ccf6e5d525b04b13cc79e21f99ba6a7616c65a2a",
+  "installed_final_run": "runs/installed-wheel-final.run.json",
+  "earlier_installed_run": "runs/installed-wheel.run.json (41 tests, earlier candidate wheel; superseded)",
+  "final_zip_attestation": "External FINAL_VERIFICATION/FINAL_ARCHIVE_VERIFICATION.json binds final ZIP hashes; no self-hash cycle."
+}

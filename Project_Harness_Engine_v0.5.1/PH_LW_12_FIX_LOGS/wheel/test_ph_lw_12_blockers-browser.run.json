@@ -1,0 +1,35 @@
+{
+  "name": "test_ph_lw_12_blockers-browser",
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;import project_harness;assert Path(project_harness.__file__).resolve().is_relative_to(Path(sys.prefix).resolve());sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel\\test_ph_lw_12_blockers-browser.log",
+    "tests.test_ph_lw_12_blockers.BlockerBrowserTests.test_external_project_conflict_is_not_replayed_automatically",
+    "tests.test_ph_lw_12_blockers.BlockerBrowserTests.test_multipart_result_waits_for_navigation_resume",
+    "tests.test_ph_lw_12_blockers.BlockerBrowserTests.test_project_card_matches_fresh_core_after_browser_block",
+    "tests.test_ph_lw_12_blockers.BlockerBrowserTests.test_result_upload_waits_for_prior_project_read_without_post_replay"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\Независимая папка wheel",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 75.275,
+  "environment_ref": "WHEEL_ENVIRONMENT.json",
+  "modules": [
+    "tests.test_ph_lw_12_blockers.BlockerBrowserTests.test_external_project_conflict_is_not_replayed_automatically",
+    "tests.test_ph_lw_12_blockers.BlockerBrowserTests.test_multipart_result_waits_for_navigation_resume",
+    "tests.test_ph_lw_12_blockers.BlockerBrowserTests.test_project_card_matches_fresh_core_after_browser_block",
+    "tests.test_ph_lw_12_blockers.BlockerBrowserTests.test_result_upload_waits_for_prior_project_read_without_post_replay"
+  ],
+  "ran": 4,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "log": "test_ph_lw_12_blockers-browser.log",
+  "process_status": "PASS",
+  "log_sha256": "c6876d8a0144453456bb63ed11cbe47c205b53b55f28c3413776bb6e54df542e",
+  "scope": "INSTALLED_WHEEL",
+  "runtime_freeze_sha256": "a0c9775c327500b45df478b466746c3a6aec792b67695fcfd43437255fe0b997"
+}

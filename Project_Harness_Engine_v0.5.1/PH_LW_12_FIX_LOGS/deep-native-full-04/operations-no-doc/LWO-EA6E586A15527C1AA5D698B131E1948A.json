@@ -1,0 +1,36 @@
+{
+  "operation_id": "LWO-EA6E586A15527C1AA5D698B131E1948A",
+  "project_id": "LWP-3CB104ACBAB5AC351635",
+  "action": "publish-project",
+  "request_digest": "sha256:572e8b061b7c3ec8419b30bd43b13d2ff8d548ca3ab391e4557cca84a59619d8",
+  "expected_fingerprint": "sha256:2fec7a6f9c6351b2e185c3b3398b5381aebe8323345486e23fae462a9e6d1caa",
+  "created_at": "2026-11-08T12:55:14Z",
+  "updated_at": "2026-11-08T12:55:32Z",
+  "started_at": "2026-11-08T12:55:14Z",
+  "finished_at": "2026-11-08T12:55:32Z",
+  "state": "BLOCKED",
+  "phase": "RECONCILIATION_REQUIRED",
+  "core_before": "sha256:2fec7a6f9c6351b2e185c3b3398b5381aebe8323345486e23fae462a9e6d1caa",
+  "core_after": null,
+  "before_active_run_ref": null,
+  "expected_draft_after": null,
+  "result": null,
+  "error": {
+    "code": "PREPARATION_IO_BLOCKED",
+    "message_ru": "Размещение прервано из-за доступа к файлам или занятого handle.",
+    "next_action_ru": "Освободите файл или место на диске и выполните явную сверку подготовки."
+  },
+  "receipt": {
+    "kind": "LOCAL_WEB_OPERATION_RECEIPT",
+    "receipt_version": 1,
+    "operation_id": "LWO-EA6E586A15527C1AA5D698B131E1948A",
+    "project_ref": "LWP-3CB104ACBAB5AC351635",
+    "action_id": "LW-C04",
+    "idempotency_key": "browser-b3c4593c8d3e2b5c444d42152a39c7ce",
+    "request_sha256": "sha256:572e8b061b7c3ec8419b30bd43b13d2ff8d548ca3ab391e4557cca84a59619d8",
+    "expected_core_fingerprint": "sha256:2fec7a6f9c6351b2e185c3b3398b5381aebe8323345486e23fae462a9e6d1caa",
+    "core_outcome": "UNKNOWN_RECONCILE",
+    "created_at": "2026-11-08T12:55:14Z"
+  },
+  "record_digest": "sha256:996da0bce6b450d35693248e46ca6120ff499e0a81a65a1fb41655b6654de79a"
+}

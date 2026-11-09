@@ -1,0 +1,18 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_lw_03_service.LocalWebServiceTests.test_01_status_provisional_is_read_only_even_with_pending_input"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T12:29:15.599089+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 60,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 0.699,
+  "log_sha256": "6045e99acdc5e75cd537369ae3c27098b3912125c49cfa5124b4b955e14ee57b"
+}

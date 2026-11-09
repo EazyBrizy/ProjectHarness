@@ -1,0 +1,11 @@
+test_01_greenfield_and_brownfield_fixture_independence_and_statuses (tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_01_greenfield_and_brownfield_fixture_independence_and_statuses) ... ok
+test_02_accepted_prototype_fixture_exposes_real_planning_boundary (tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_02_accepted_prototype_fixture_exposes_real_planning_boundary) ... ok
+test_03_mvp_target_reached_fixture_then_governed_level_up_to_release (tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_03_mvp_target_reached_fixture_then_governed_level_up_to_release) ... ok
+test_ph_f03_accept_prototype_to_first_alpha_ready_jit (tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_ph_f03_accept_prototype_to_first_alpha_ready_jit) ... ok
+test_ph_f03_level_up_mvp_to_first_release_ready_jit (tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_ph_f03_level_up_mvp_to_first_release_ready_jit) ... ok
+test_ph_f03_route_is_actionable_in_public_status_api (tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_ph_f03_route_is_actionable_in_public_status_api) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 85.995s
+
+OK

@@ -1,0 +1,64 @@
+Frozen server ready; PID 22068 PATH has no developer tools
+Frozen server ready; PID 37512 PATH has no developer tools
+Frozen server ready; PID 39744 PATH has no developer tools
+Frozen server ready; PID 30000 PATH has no developer tools
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]",
+  "non_admin": true,
+  "installer_sha256": "8a0edc1ac42d91f5a4bb497c9e4d703644eefe310886daad7a4226b17923d87b",
+  "clean_machine": "NOT RUN; developer host with sanitized installed-process PATH",
+  "physical_offline": "NOT RUN; no adapter/security setting changes",
+  "unicode_username": "NOT RUN; actual username unchanged; Unicode paths tested",
+  "real_disk_full": "NOT RUN; ENOSPC injection tested separately",
+  "commands": [
+    {
+      "command": [
+        "<WORKSPACE>\\Project_Harness_Engine_v0.5.1\\windows\\Harness-Setup-win-x64.exe",
+        "/VERYSILENT",
+        "/SUPPRESSMSGBOXES",
+        "/NORESTART",
+        "/DIR=<WORKSPACE>\\_scratch\\ph_lw_12_fix\\installed-deep\\Установленная программа",
+        "/LOG=<WORKSPACE>\\_scratch\\ph_lw_12_fix\\installed-deep\\install.log"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\installed-deep\\Установленная программа\\uninstall\\unins000.exe",
+        "/VERYSILENT",
+        "/SUPPRESSMSGBOXES",
+        "/NORESTART",
+        "/LOG=<WORKSPACE>\\_scratch\\ph_lw_12_fix\\installed-deep\\uninstall.log"
+      ],
+      "exit": 0
+    }
+  ],
+  "filesystem": "NTFS",
+  "foreign_target_rejection": {
+    "exit": 7,
+    "sentinel_preserved": true
+  },
+  "tests": {
+    "ran": 4,
+    "errors": 1,
+    "failures": 1,
+    "skips": 0
+  },
+  "uninstall_preserved_projects": true,
+  "uninstall_preserved_app_data": true,
+  "executable_removed": true,
+  "status": "FAIL"
+}
+{
+  "maximum_retained_project_file_path_length": 382,
+  "maximum_retained_app_data_file_path_length": 354,
+  "retained_import_document_count": 1,
+  "retained_file_count": 255,
+  "long_paths_enabled_before": 0,
+  "long_paths_enabled_after": 0,
+  "system_settings_changed": false,
+  "app_data_fixture": "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\\u0414\u043b\u0438\u043d\u043d\u044b\u0439-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\app-data-profile",
+  "startup_adapter": "Long USERPROFILE/project root AND long app-data root; same real installed EXE",
+  "snapshot_adapter": "Same assertions; independent extended IO reads every deep fixture file"
+}

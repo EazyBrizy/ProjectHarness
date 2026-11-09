@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_ph_f01_gate_semantics_regression"
+  ],
+  "ran": 3,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 34.319,
+  "log": "test_ph_f01_gate_semantics_regression.log",
+  "status": "PASS"
+}

@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_ph_lw_08_http.PreparationBrowserTests.test_edge_single_md_and_zip_full_flow_reconnect_first_jit_and_download"
+  ],
+  "ran": 1,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 75.603,
+  "log": "suite05-test_ph_lw_08_http-browser.log",
+  "status": "PASS"
+}

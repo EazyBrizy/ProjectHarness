@@ -1,0 +1,68 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 206] Имя файла или его расширение имеет слишком большую длину: '<WORKSPACE>\\_scratch\\ph_lw_11_long_path\\installed-long\\LocalAppData\\ProjectHarness-workspaces\\session-A7F0593FCBB6A3112B305AD2\\imports\\quarantine\\upload-3f0484bb4cc84601be9b1ebee3e7c8d3\\materialized\\LSD-59D1CD9F5468492CB5BC06D5'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<WORKSPACE>\_scratch\ph_lw_11_long_path\diagnose_zip.py", line 12, in <module>
+    result=service.upload_sources(pid,[('Документы.zip',BytesIO(archive([('Раздел/Требования.md',b'# fixture'),('skip.png',b'image')])))],mode='append',expected_fingerprint=state['fingerprint'],expected_source_revision=0)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_service.py", line 489, in upload_sources
+    return upload_sources(self, project_id, uploads, mode=mode,
+                          expected_fingerprint=expected_fingerprint,
+                          expected_source_revision=expected_source_revision)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_sources_service.py", line 132, in upload_sources
+    incoming = build_snapshot(imports_root, uploads, mode=mode, expected_revision=state['revision'])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_imports.py", line 480, in build_snapshot
+    docs, nested_skipped, extracted = _extract_md_zip(staging / raw_rel, staging / material_rel)
+                                      ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_imports.py", line 140, in _extract_md_zip
+    _private_directory(destination)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_imports.py", line 46, in _private_directory
+    path.mkdir(mode=0o700, parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 1016, in mkdir
+    self.mkdir(mode, parents=False, exist_ok=exist_ok)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 206] Имя файла или его расширение имеет слишком большую длину: '<WORKSPACE>\\_scratch\\ph_lw_11_long_path\\installed-long\\LocalAppData\\ProjectHarness-workspaces\\session-A7F0593FCBB6A3112B305AD2\\imports\\quarantine\\upload-3f0484bb4cc84601be9b1ebee3e7c8d3\\materialized\\LSD-59D1CD9F5468492CB5BC06D5'
+Traceback (most recent call last):
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 206] Имя файла или его расширение имеет слишком большую длину: '<WORKSPACE>\\_scratch\\ph_lw_11_long_path\\installed-long\\LocalAppData\\ProjectHarness-workspaces\\session-A7F0593FCBB6A3112B305AD2\\imports\\quarantine\\upload-3f0484bb4cc84601be9b1ebee3e7c8d3\\materialized\\LSD-59D1CD9F5468492CB5BC06D5'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<WORKSPACE>\_scratch\ph_lw_11_long_path\diagnose_zip.py", line 12, in <module>
+    result=service.upload_sources(pid,[('Документы.zip',BytesIO(archive([('Раздел/Требования.md',b'# fixture'),('skip.png',b'image')])))],mode='append',expected_fingerprint=state['fingerprint'],expected_source_revision=0)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_service.py", line 489, in upload_sources
+    return upload_sources(self, project_id, uploads, mode=mode,
+                          expected_fingerprint=expected_fingerprint,
+                          expected_source_revision=expected_source_revision)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_sources_service.py", line 132, in upload_sources
+    incoming = build_snapshot(imports_root, uploads, mode=mode, expected_revision=state['revision'])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_imports.py", line 480, in build_snapshot
+    docs, nested_skipped, extracted = _extract_md_zip(staging / raw_rel, staging / material_rel)
+                                      ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_imports.py", line 140, in _extract_md_zip
+    _private_directory(destination)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_imports.py", line 46, in _private_directory
+    path.mkdir(mode=0o700, parents=True, exist_ok=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 1016, in mkdir
+    self.mkdir(mode, parents=False, exist_ok=exist_ok)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 206] Имя файла или его расширение имеет слишком большую длину: '<WORKSPACE>\\_scratch\\ph_lw_11_long_path\\installed-long\\LocalAppData\\ProjectHarness-workspaces\\session-A7F0593FCBB6A3112B305AD2\\imports\\quarantine\\upload-3f0484bb4cc84601be9b1ebee3e7c8d3\\materialized\\LSD-59D1CD9F5468492CB5BC06D5'

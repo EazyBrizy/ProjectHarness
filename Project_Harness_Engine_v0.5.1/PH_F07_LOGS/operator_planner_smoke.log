@@ -1,0 +1,9 @@
+WAITING_INPUT start-intake
+WAITING_INPUT check-intake
+ACTIVE stage-status
+STAGE_PLANNING_REQUIRED next
+DRAFT_PREPARED prepare-active-stage-plan
+STAGE_PLANNED plan-active-stage
+STAGE_PLANNED plan-active-stage
+READY_FOR_CODEX next
+PASS validate-project

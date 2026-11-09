@@ -1,0 +1,183 @@
+{
+  "status": "PASS",
+  "scope": "Working-tree integrity and factual report linkage; not a release GO",
+  "verified_utc": "2026-11-08T10:57:57.474855+00:00",
+  "trees": {
+    "Project_Harness_Engine_v0.5.1": {
+      "status": "PASS",
+      "files": 4566,
+      "manifest_sha256": "a22c9070bc78bb056b9bc1db8e42ef3697f7e62e91141e8d2c46266cc396cfac"
+    },
+    "Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 155,
+      "manifest_sha256": "ea15c5603687fa7b86cd3aa9bd2285e5fe75cf72f8fb9f1f608115f105d398b4"
+    },
+    "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 155,
+      "manifest_sha256": "ea15c5603687fa7b86cd3aa9bd2285e5fe75cf72f8fb9f1f608115f105d398b4"
+    }
+  },
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\tools\\check_workspace.py"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+      "exit": 0,
+      "status": "PASS",
+      "log": "workspace-final-attempt-2.log",
+      "log_sha256": "4efd63b697bece24a4c9112303ed1dc73cb1db033ed8e96702fb34597f308aac"
+    },
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Documentation_v0.5.1\\tools\\validate_documentation.py",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Documentation_v0.5.1",
+        "--json",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_workspace\\PH_LW_12\\DOC_VALIDATION.json"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+      "exit": 0,
+      "status": "PASS",
+      "log": "documentation-final-attempt-1.log",
+      "log_sha256": "d1278bc12b449cf501b66d92be6dfa20073169db0e79af9db7999496d0939734"
+    },
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1\\project-harness.py",
+        "doctor"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+      "exit": 0,
+      "status": "PASS",
+      "log": "doctor-final-attempt-1.log",
+      "log_sha256": "3ea0acdcd5ff628a1189c76b6f6f4086f59c42c1da9d29f37a0e4952632d45e3"
+    },
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\tools\\ph_lw_12_integrity.py"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+      "exit": 0,
+      "status": "PASS",
+      "log": "integrity-final-attempt-1.log",
+      "log_sha256": "a4b1bd3bc5fbfc2ffaa9560f404acdbe4c55a8da5246c4bd9b3f863d4b3b441e"
+    }
+  ],
+  "source_digest": "sha256:54aff06eb60bd64b4c87e69c9b7d5c3133f4747bdff0c4ee1f570874cfac8b08",
+  "wheel_sha256": "765e9bb3a63773e1d4710e21ad330c18713555fb6cf5d8e84660eee52c03ef93",
+  "installer_sha256": "454d3db52f3c880a3ff1b1243059cf5818961c9f8fc22adca4eb9949a7dac630",
+  "runtime_freeze_unchanged": true,
+  "historical_files_preserved": 3208,
+  "old_test_files_unchanged": 69,
+  "new_report_links_checked": 34,
+  "archives": [
+    {
+      "file": "_deliverables/PH_LW_04_05_WINDOWS_RETEST_2026-11-07/Project_Harness_Documentation_v0.5.1_PH_LW_05.zip",
+      "sha256": "5d610858306dc91e1b125711e30dc84e7f4aed046d4d72c20f0ff401f05f9b8b",
+      "crc": "PASS",
+      "unchanged": true
+    },
+    {
+      "file": "_deliverables/PH_LW_04_05_WINDOWS_RETEST_2026-11-07/Project_Harness_Engine_v0.5.1_PH_LW_05.zip",
+      "sha256": "d48a47b43957df5fd3e4e57db98f0b4e2e73c668893489a528e9c739200cb6ef",
+      "crc": "PASS",
+      "unchanged": true
+    },
+    {
+      "file": "_deliverables/PH_LW_05_WINDOWS_MANUAL_REMEDIATION_2026-11-07/Project_Harness_Documentation_v0.5.1_PH_LW_05.zip",
+      "sha256": "5b1dbed1ab7b876b8d5f078596c5c7ca327cd1f269d438407e88ac7bd95d4bd9",
+      "crc": "PASS",
+      "unchanged": true
+    },
+    {
+      "file": "_deliverables/PH_LW_05_WINDOWS_MANUAL_REMEDIATION_2026-11-07/Project_Harness_Engine_v0.5.1_PH_LW_05.zip",
+      "sha256": "c8ccd7f1f1b93200db1936d58c274bf535fae09aa616309b54bed8e0e3da33f2",
+      "crc": "PASS",
+      "unchanged": true
+    },
+    {
+      "file": "_inputs/Project_Harness_Documentation_v0.5.1_PH_LW_05.zip",
+      "sha256": "fd6a5d2aff1495708c30cf4f493ef30aed5bc6095a84a2fcd00e4a984013f1df",
+      "crc": "PASS",
+      "unchanged": true
+    },
+    {
+      "file": "_inputs/Project_Harness_Engine_v0.5.1_PH_LW_05.zip",
+      "sha256": "d247127b5ab91b1dffd0f1f0649225bcf2b0bf02abea85a3c211cf3580b40c76",
+      "crc": "PASS",
+      "unchanged": true
+    },
+    {
+      "file": "_inputs/Project_Harness_Implementation_Specifications_v0.4.1_to_v1.0 (1).zip",
+      "sha256": "56bca615b7da5a0f48d0479c2de24ccd151fcefbf453fdfea89eab0d2675219e",
+      "crc": "PASS",
+      "unchanged": true
+    },
+    {
+      "file": "_inputs/Project_Harness_Windows_Local_Web_Implementation_Prompts_RU_r2 (1).zip",
+      "sha256": "4d85691a5bc89a9ef3a449097898d8b727a041e70c0b13ec9ba45535bcce2829",
+      "crc": "PASS",
+      "unchanged": true
+    }
+  ],
+  "zip_created": false,
+  "verdicts": {
+    "PH-LW-04": "GO in tested Windows scope",
+    "PH-LW-05": "NO-GO for deep app-data intake; baseline source-import coverage recorded separately",
+    "PH-LW-12": "NO-GO",
+    "LOCAL_WEB_MANUAL": "NO-GO",
+    "AUTOMATIC_EXECUTOR": "NO-GO; disabled; previous verdict",
+    "v0.5.1": "NO-GO / NOT RELEASED"
+  },
+  "accepted_not_run": [
+    "clean Windows without developer runtimes",
+    "physical offline",
+    "real disk-full",
+    "actual Unicode username"
+  ],
+  "open_blockers": [
+    {
+      "id": "LW12-DEEP-APPDATA-INTAKE",
+      "status": "OPEN",
+      "summary": "Deep app-data root: public intake creation fails at intake.py:157 with WinError 206; cleanup at local_web_sources_service.py:113 masks it with WinError 145. No catalog registration; partial app-owned session remains.",
+      "evidence": "ADDITIONAL_PATH_STRESS.json; installed-basic-final/RESULT.json"
+    },
+    {
+      "id": "LW12-MAINTENANCE-RESULT-CONFLICT",
+      "status": "OPEN",
+      "summary": "Actual installed EXE maintenance result-upload returns HTTP 409 OPERATION_CONFLICT after navigation/refresh; result stays NOT_RECEIVED. Own UI read overlap is suspected; exact lock holder was not traced.",
+      "evidence": "installed-maintenance-final/task-responses-maintenance.json; browser.log; ui-test_maintenance_task_completion_through_browser.json"
+    },
+    {
+      "id": "LW12-PROJECT-LIST-PROJECTION",
+      "status": "OPEN / OBSERVED UI INCONSISTENCY",
+      "summary": "After successful MVP to RELEASE, main lifecycle shows STAGE_PLANNING_REQUIRED while project-list card still shows TARGET_LEVEL_REACHED. Screenshot observation; likely stale state.projects cache, not a newly asserted test.",
+      "evidence": "UI_PROJECTION_OBSERVATION.json; installed-extended-focus3/screenshots/10/mvp-to-release.png"
+    },
+    {
+      "id": "LW12-DELIVERY-RUNS",
+      "status": "OPEN",
+      "runs": {
+        "installed-extended-final": "FAIL",
+        "installed-extended-focus3": "FAIL",
+        "installed-maintenance-final": "FAIL"
+      }
+    }
+  ],
+  "workspace_files": {
+    "README.md": "2747bc83744a4ec4bde41245e783195c6dafbd2b0e962cd1b710f085b338d890",
+    "_workspace/CURRENT_TASK.md": "252db4bd3c1b39d7dbe1407a2f57870205c261b63f0c1aa45452d0f92850da81",
+    "_workspace/PROJECT_MAP.md": "e8b96943399222d295c8fec3368bdd671f169eeec740721847c8a0e6b2469112",
+    "_workspace/RUNBOOK.md": "b69b699dc1c007f473b4366e7246dd3e3f1e84e314ac9f410733c0d0d0c3af6e"
+  }
+}

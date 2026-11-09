@@ -1,0 +1,85 @@
+[
+  {
+    "group": 1,
+    "exit": 0,
+    "tests": 9,
+    "seconds": 132.775,
+    "modules": [
+      "test_ph_f08_release_acceptance",
+      "test_maintenance_lifecycle"
+    ],
+    "summary": "ntenanceLifecycleTests.test_valid_pre_execution_cancel_restores_previous_route) ... ok\ntest_wrong_binding_future_scope_and_conflicting_duplicate_are_rejected (test_maintenance_lifecycle.SameLevelMaintenanceLifecycleTests.test_wrong_binding_future_scope_and_conflicting_duplicate_are_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 132.775s\n\nOK\n"
+  },
+  {
+    "group": 2,
+    "exit": 0,
+    "tests": 24,
+    "seconds": 149.567,
+    "modules": [
+      "test_engine",
+      "test_gate_evidence_contract"
+    ],
+    "summary": "gate_evidence_contract.GateEvidenceContractTests.test_tampering_or_deletion_after_acceptance_fails_project_validation) ... ok\ntest_wrong_kind_and_wrong_subject_mapping_are_rejected (test_gate_evidence_contract.GateEvidenceContractTests.test_wrong_kind_and_wrong_subject_mapping_are_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 24 tests in 149.567s\n\nOK\n"
+  },
+  {
+    "group": 3,
+    "exit": 0,
+    "tests": 28,
+    "seconds": 247.003,
+    "modules": [
+      "test_ph_f06_maturity_lifecycle",
+      "test_canonical_target",
+      "test_ph_051_01_contract_baseline"
+    ],
+    "summary": "_all_new_json_schemas_draft_valid (test_ph_051_01_contract_baseline.PH05101ContractTests.test_08_all_new_json_schemas_draft_valid) ... ok\ntest_09_sample_result_and_apply_contracts_strict (test_ph_051_01_contract_baseline.PH05101ContractTests.test_09_sample_result_and_apply_contracts_strict) ... ok\n\n----------------------------------------------------------------------\nRan 28 tests in 247.003s\n\nOK\n"
+  },
+  {
+    "group": 4,
+    "exit": 0,
+    "tests": 50,
+    "seconds": 125.895,
+    "modules": [
+      "test_ph_f05_intake_acceptance",
+      "test_assessment_freshness",
+      "test_exact_assessment_ref",
+      "test_contract_hardening"
+    ],
+    "summary": "alues_are_rejected (test_contract_hardening.ContractHardeningStatusTests.test_new_task_and_run_completed_values_are_rejected) ... ok\ntest_success_uses_entity_specific_terminal_statuses (test_contract_hardening.ContractHardeningStatusTests.test_success_uses_entity_specific_terminal_statuses) ... ok\n\n----------------------------------------------------------------------\nRan 50 tests in 125.895s\n\nOK\n"
+  },
+  {
+    "group": 5,
+    "exit": 0,
+    "tests": 22,
+    "seconds": 143.839,
+    "modules": [
+      "test_ph_f03_active_stage_planning",
+      "test_implementation_levels",
+      "test_ph_f01_planner_regression"
+    ],
+    "summary": "_jit (test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_ph_f03_level_up_mvp_to_first_release_ready_jit) ... ok\ntest_ph_f03_route_is_actionable_in_public_status_api (test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_ph_f03_route_is_actionable_in_public_status_api) ... ok\n\n----------------------------------------------------------------------\nRan 22 tests in 143.839s\n\nOK\n"
+  },
+  {
+    "group": 6,
+    "exit": 0,
+    "tests": 32,
+    "seconds": 78.968,
+    "modules": [
+      "test_ph_f04_runtime_reachability",
+      "test_stage_transaction_recovery",
+      "test_stage_approval_preparation"
+    ],
+    "summary": "eparation.StageApprovalPreparationTests.test_public_api_and_cli_write_the_required_output_file) ... ok\ntest_stage_status_exposes_exact_gate_counts_baseline_and_route (test_stage_approval_preparation.StageApprovalPreparationTests.test_stage_status_exposes_exact_gate_counts_baseline_and_route) ... ok\n\n----------------------------------------------------------------------\nRan 32 tests in 78.968s\n\nOK\n"
+  },
+  {
+    "group": 7,
+    "exit": 0,
+    "tests": 13,
+    "seconds": 61.085,
+    "modules": [
+      "test_ph_f02_semantic_proof_contract",
+      "test_stage_gate_preparation_block_recovery",
+      "test_ph_f01_gate_semantics_regression"
+    ],
+    "summary": "F01GateSemanticsTests.test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds) ... ok\ntest_ph_f02_noop_pass_keeps_gate_unclosed_without_subject_proofs (test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_keeps_gate_unclosed_without_subject_proofs) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 61.085s\n\nOK\n"
+  }
+]

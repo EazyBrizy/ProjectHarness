@@ -1,0 +1,15 @@
+{
+  "command": [
+    "<WORKSPACE>/_scratch/ph_lw_11/wheel-venv/Scripts/python.exe",
+    "-B",
+    "<WORKSPACE>/_scratch/ph_lw_11/diagnose_manual_login_lines.py"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_11\\Независимая папка wheel",
+  "started_utc": "2026-11-07T23:52:05.481456+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 90,
+  "exit_code": null,
+  "status": "TIMEOUT",
+  "elapsed_seconds": 94.944,
+  "log_sha256": "f89d00b24ed175be0432f2466ce1a924084a13f9d4f84db6e4177c894d982908"
+}

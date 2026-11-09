@@ -1,0 +1,16 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "tools/ph_lw_12_diagnostic.py",
+    "tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_refresh_after_commit_does_not_reuse_older_lifecycle_response"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-08T09:36:47.355586+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 240,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 29.221,
+  "log_sha256": "c5e962dbebd53ebc6089fa1e1961e71ad1f52bfd46035c2bfe788d91edbf062d"
+}

@@ -1,0 +1,16 @@
+{
+  "command": [
+    "powershell.exe",
+    "-NoProfile",
+    "-Command",
+    "$sample=[ordered]@{Time=(Get-Date -Format o);Tcp=@(Get-NetTCPConnection | Group-Object State | Select-Object Name,Count);Processes=@(Get-Process | Where-Object { $_.ProcessName -in @(\"python\",\"msedge\",\"node\") } | Select-Object ProcessName,Id,Handles,WorkingSet64,CPU);Memory=(Get-CimInstance Win32_OperatingSystem | Select-Object TotalVisibleMemorySize,FreePhysicalMemory,TotalVirtualMemorySize,FreeVirtualMemory)}; $sample | ConvertTo-Json -Depth 4; exit 0"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T13:08:33.478093+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 90,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 3.058,
+  "log_sha256": "bcdcb5f5075f8baa3c79f8bbc5477d58ade9ca37d6b99ebfa8b36b6ce909689c"
+}

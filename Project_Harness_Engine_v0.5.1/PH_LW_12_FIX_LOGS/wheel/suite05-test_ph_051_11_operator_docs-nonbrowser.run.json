@@ -1,0 +1,37 @@
+{
+  "name": "suite05-test_ph_051_11_operator_docs-nonbrowser",
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;import project_harness;assert Path(project_harness.__file__).resolve().is_relative_to(Path(sys.prefix).resolve());sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel\\suite05-test_ph_051_11_operator_docs-nonbrowser.log",
+    "tests.test_ph_051_11_operator_docs.OperatorDocsContractTests.test_01_examples_exact_schema_and_runtime_profile_validation",
+    "tests.test_ph_051_11_operator_docs.OperatorDocsContractTests.test_02_safe_default_and_all_samples_synced",
+    "tests.test_ph_051_11_operator_docs.OperatorDocsContractTests.test_03_current_cli_flags_and_docs_names",
+    "tests.test_ph_051_11_operator_docs.OperatorDocsContractTests.test_04_nested_manifest_is_included_and_bound_by_distribution_manifest",
+    "tests.test_ph_051_11_operator_docs.OperatorDocsContractTests.test_05_security_matrix_makes_no_mock_attestation_claim"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\Независимая папка wheel",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 0.078,
+  "environment_ref": "WHEEL_ENVIRONMENT.json",
+  "modules": [
+    "tests.test_ph_051_11_operator_docs.OperatorDocsContractTests.test_01_examples_exact_schema_and_runtime_profile_validation",
+    "tests.test_ph_051_11_operator_docs.OperatorDocsContractTests.test_02_safe_default_and_all_samples_synced",
+    "tests.test_ph_051_11_operator_docs.OperatorDocsContractTests.test_03_current_cli_flags_and_docs_names",
+    "tests.test_ph_051_11_operator_docs.OperatorDocsContractTests.test_04_nested_manifest_is_included_and_bound_by_distribution_manifest",
+    "tests.test_ph_051_11_operator_docs.OperatorDocsContractTests.test_05_security_matrix_makes_no_mock_attestation_claim"
+  ],
+  "ran": 5,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "log": "suite05-test_ph_051_11_operator_docs-nonbrowser.log",
+  "process_status": "PASS",
+  "log_sha256": "259c36d677aadda609ea578eaa5e850d2c9a24e15d8514472ac0c731ad595f80",
+  "scope": "INSTALLED_WHEEL",
+  "runtime_freeze_sha256": "01ef2ddce6e42787b5937f937112f0b02ddefb05321eb348d59319a08bd941cf"
+}

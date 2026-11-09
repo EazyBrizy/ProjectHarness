@@ -1,0 +1,187 @@
+test_final_ui_has_no_obsolete_manual_lifecycle_placeholders (tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_final_ui_has_no_obsolete_manual_lifecycle_placeholders) ... FAIL
+test_stage_status_and_manual_evidence_use_existing_forms (tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_stage_status_and_manual_evidence_use_existing_forms) ... Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 2
+FAIL
+
+======================================================================
+FAIL: test_final_ui_has_no_obsolete_manual_lifecycle_placeholders (tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_final_ui_has_no_obsolete_manual_lifecycle_placeholders)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_12_acceptance.py", line 13, in test_final_ui_has_no_obsolete_manual_lifecycle_placeholders
+    self.assertNotIn('ожидает PH-LW-09',assets.joinpath('index.html').read_text('utf-8'))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ожидает PH-LW-09' unexpectedly found in '<!doctype html>\n<html lang="ru">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1">\n  <meta name="color-scheme" content="light">\n  <title>Project Harness — локальный мастер</title>\n  <link rel="stylesheet" href="/assets/app.css">\n  <script src="/assets/app.js" defer></script>\n  <script src="/assets/interview.js" defer></script>\n  <script src="/assets/approvals.js" defer></script>\n  <script src="/assets/preparation.js" defer></script>\n  <script src="/assets/tasks.js" defer></script>\n  <script src="/assets/lifecycle.js" defer></script>\n</head>\n<body>\n  <a class="skip" href="#workspace">Перейти к содержимому</a>\n  <div class="app">\n    <aside class="sidebar" aria-label="Навигация">\n      <div class="brand">\n        <span class="brand-symbol" aria-hidden="true">H</span>\n        <div><strong>Project Harness</strong><small>Локальный мастер · 0.1.0-dev</small></div>\n      </div>\n      <p class="nav-label">РАБОЧАЯ ОБЛАСТЬ</p>\n      <nav id="navigation" aria-label="Разделы проекта">\n        <button type="button" class="nav-item active" data-screen="projects" aria-current="page">Проекты и запуск</button>\n        <button type="button" class="nav-item" data-screen="documents">Документы</button>\n        <button type="button" class="nav-item" data-screen="interview">Опрос и GPT</button>\n        <button type="button" class="nav-item" data-screen="approvals">Согласования</button>\n        <button type="button" class="nav-item" data-screen="overview">Обзор проекта</button>\n        <button type="button" class="nav-item" data-screen="tasks">Задачи и Run</button>\n        <button type="button" class="nav-item" data-screen="gates">Стадии и доказательства</button>\n        <button type="button" class="nav-item" data-screen="maintenance">Обслуживание</button>\n        <button type="button" class="nav-item" data-screen="diagnostics">Диагностика</button>\n      </nav>\n      <div class="sidebar-foot">\n        <span class="local-dot" aria-hidden="true"></span> Только этот компьютер\n        <small>Без provider API, облака и автоматического запуска Codex</small>\n      </div>\n    </aside>\n    <main id="workspace" tabindex="-1">\n      <header class="topbar">\n        <div><p class="eyebrow">ЛОКАЛЬНОЕ УПРАВЛЕНИЕ ПРОЕКТОМ</p><h1 id="screen-title">Проекты</h1></div>\n        <div class="top-actions">\n          <span id="session-state" role="status" class="status">Проверка входа…</span>\n          <button type="button" id="refresh" class="outline" disabled>Обновить состояние</button>\n          <button type="button" id="logout" class="quiet" disabled>Выйти</button>\n          <button type="button" id="stop-harness" class="quiet" disabled>Завершить Harness</button>\n        </div>\n      </header>\n      <div id="notice" role="status" aria-live="polite" class="notice">Подключаемся к локальному серверу…</div>\n      <section id="session-gate" class="panel hidden" aria-labelledby="gate-title">\n        <h2 id="gate-title">Нужен локальный вход</h2>\n        <p>Откройте Harness через ярлык или Harness.exe. Повторный запуск безопасно открывает работающий сервер.</p>\n        <p>Если браузер не открылся автоматически, введите код из локального окна Harness. Новый запуск выдаёт новый код; останавливать сервер не нужно.</p>\n        <label>Одноразовый код <input id="manual-bootstrap" type="password" autocomplete="off" maxlength="128"></label>\n        <button type="button" id="manual-login">Войти по локальному коду</button>\n      </section>\n      <section id="content" class="hidden" aria-live="off">\n        <div class="page-intro"><p id="screen-description">Начните с MD/ZIP документов или выберите «Документации нет». Для продолжения выберите существующий проект.</p></div>\n        <section id="lifecycle-panel" class="panel hidden" aria-labelledby="lifecycle-title">\n          <h2 id="lifecycle-title">Стадии, evidence и обслуживание</h2>\n          <p id="lifecycle-summary" role="status">Выберите проект.</p>\n          <dl id="lifecycle-levels" class="details"></dl>\n          <h3>Что мешает принять Stage</h3><pre id="lifecycle-gaps"></pre>\n          <details><summary>Exact plan / gate / baseline, constraints и evidence</summary><pre id="lifecycle-context"></pre></details>\n          <details><summary>История acceptance — только чтение</summary><pre id="lifecycle-history"></pre></details>\n          <div id="lifecycle-actions" class="actions"></div>\n          <p>Gate blocker восстанавливается отдельно от Task blocker. Missing evidence закрывается существующими preparation Tasks и проверяемыми источниками. Assessment не повышает accepted level.</p>\n          <div id="lifecycle-form-panel" hidden>\n            <h3 id="lifecycle-form-title">Просмотр черновика</h3>\n            <p>Проверьте каждый результат и источник отдельно. Formal approval создаётся только после подтверждения ниже. Изменение work plan требует rationale; accepted scope не расширяется.</p>\n            <div id="lifecycle-fields"></div>\n            <details><summary>Дополнительно: exact JSON (импорт не означает approval)</summary>\n              <textarea id="lifecycle-json" rows="12" aria-label="Lifecycle JSON"></textarea>\n              <button type="button" id="lifecycle-import">Прочитать JSON в форму</button>\n              <button type="button" id="lifecycle-export">Показать JSON текущей формы</button>\n            </details>\n            <label>Actor (ACT-...) <input id="lifecycle-actor" maxlength="160" placeholder="ACT-OPERATOR-001"></label>\n            <label>Rationale для изменённого reviewed plan<textarea id="lifecycle-rationale" maxlength="4000" rows="3"></textarea></label>\n            <label><input type="checkbox" id="lifecycle-confirm"> Я рассмотрел точный текущий контекст и отдельно подтверждаю это действие</label>\n            <button type="button" id="lifecycle-apply">Применить рассмотренный документ</button>\n          </div>\n          <pre id="lifecycle-operation" role="status" aria-live="polite"></pre>\n          <button type="button" id="lifecycle-reconcile" disabled>Сверить прерванную операцию без повтора</button>\n        </section>\n        <section id="tasks-panel" class="panel hidden" aria-labelledby="tasks-title">\n          <h2 id="tasks-title">Текущая Task / ручной Run</h2>\n          <p id="tasks-summary" role="status">Выберите Project Instance.</p>\n          <p id="tasks-disabled" class="notice"></p>\n          <button type="button" id="task-next" disabled>Получить следующую задачу</button>\n          <details><summary>Work Packages, Tasks и зависимости</summary><pre id="tasks-list"></pre></details>\n          <details><summary>Future stages — только outlines</summary><pre id="tasks-outlines"></pre></details>\n          <h3>Task Contract и exact refs</h3><pre id="task-contract"></pre>\n          <label for="task-prompt">Закреплённый JIT для ручной передачи Codex</label>\n          <textarea id="task-prompt" rows="12" readonly></textarea>\n          <button type="button" id="task-copy" disabled>Копировать промпт</button>\n          <details><summary>Context Packet</summary><pre id="task-context"></pre></details>\n          <h3>1. Результат внешнего агента</h3>\n          <p>COMPLETED в файле — заявление агента. Оно не означает независимый PASS или завершение Task.</p>\n          <p id="task-result-state"></p>\n          <label for="task-result-file">Выберите Agent Task Result JSON (до 1 MiB)</label>\n          <input id="task-result-file" type="file" accept=".json,application/json">\n          <button type="button" id="task-upload" disabled>Получить результат из файла</button>\n          <button type="button" id="task-canonical" disabled>Получить из exact canonical channel</button>\n          <h3>2. Независимая проверка</h3><pre id="task-plan"></pre>\n          <details id="task-manual-panel"><summary>Manual checks: независимое review оператора</summary>\n            <p>Проверьте каждый пункт и выбранные файлы. Запишите наблюдения и отдельный PASS/FAIL. Evidence не завершает Task и не подтверждает Stage.</p>\n            <label>Reviewer <input id="task-manual-reviewer" maxlength="200"></label>\n            <div id="task-manual-checks"></div>\n            <label><input type="checkbox" id="task-manual-confirm"> Я лично выполнил указанные проверки и подтверждаю observations для текущих файлов</label>\n            <button type="button" id="task-manual-submit" disabled>Сохранить manual evidence</button>\n            <pre id="task-manual-state"></pre>\n          </details>\n          <p>Продуктовые команды: выполнение кода на вашем компьютере, не sandbox. Проверьте точные argv, cwd и timeout. Недостающий toolchain устанавливается отдельно.</p>\n          <label><input type="checkbox" id="task-consent"> Разрешаю только показанный план проверки для этого Run и текущего baseline</label>\n          <button type="button" id="task-verify" disabled>Проверить</button>\n          <pre id="task-verification"></pre>\n          <h3>3. Завершение Task</h3>\n          <button type="button" id="task-complete" disabled>Завершить</button>\n          <p>Core повторно проверяет PASS, result, фактический diff и product baseline. Stage acceptance выполняется отдельно.</p>\n          <details><summary>Block / resume и восстановление</summary>\n            <pre id="task-blockers"></pre>\n            <label for="task-reason">Причина блокировки</label><textarea id="task-reason" maxlength="4000" rows="3"></textarea>\n            <button type="button" id="task-block" disabled>Заблокировать Run</button>\n            <label for="task-blocker-ref">Exact OPEN blocker ref</label><select id="task-blocker-ref"></select>\n            <label for="task-resolution">Что исправлено</label><textarea id="task-resolution" maxlength="4000" rows="3"></textarea>\n            <button type="button" id="task-resume" disabled>Возобновить с новым Run</button>\n            <p>После прерывания сначала перечитайте состояние. Команды автоматически не перезапускаются. Неоднозначный commit требует диагностики canonical состояния.</p>\n            <button type="button" id="task-reconcile" disabled>Сверить последнюю операцию без повторного запуска</button>\n          </details>\n          <pre id="task-operation" role="status"></pre>\n        </section>\n        <div id="project-layout" class="layout">\n          <section class="panel project-panel" aria-labelledby="project-list-title">\n            <div class="panel-heading"><h2 id="project-list-title">Мои проекты</h2><span id="project-count" class="small">—</span></div>\n            <div id="project-list" class="project-list"><p class="muted">Загрузка…</p></div>\n            <button id="select-existing-project" type="button">Открыть существующий Harness project…</button>\n            <p class="muted small">Новые Greenfield intake создаются во вкладке «Документы». Существующие проекты доступны только в рамках уже поддержанных ручных операций.</p>\n          </section>\n          <section class="panel detail-panel" aria-labelledby="detail-title">\n            <div class="panel-heading"><h2 id="detail-title">Текущий статус</h2><span id="project-kind" class="small"></span></div>\n            <div id="project-empty" class="empty"><strong>Проект не выбран</strong><p>Выберите проект слева. Доступны только чтение и действия, уже поддержанные ядром.</p></div>\n            <div id="project-details" class="hidden">\n              <dl class="details">\n                <div><dt>Статус</dt><dd id="core-status">—</dd></div>\n                <div><dt>Активная стадия</dt><dd id="active-stage">—</dd></div>\n                <div><dt>Целевой уровень</dt><dd id="target-level">—</dd></div>\n                <div><dt>Принятый уровень</dt><dd id="accepted-level">—</dd></div>\n                <div><dt>Текущая задача</dt><dd id="current-task">—</dd></div>\n              </dl>\n              <h3>Что завершено</h3><p id="done" class="body-value">—</p>\n              <h3>Что мешает продолжить</h3><p id="blockers" class="body-value">—</p>\n              <div class="next"><span class="eyebrow">ЧТО НУЖНО СДЕЛАТЬ</span><p id="next-action">—</p></div>\n              <h3>Доступные действия</h3>\n              <p class="muted small">Каждое изменение требует отдельного подтверждения, точного fingerprint и защищённого POST.</p>\n              <div id="action-list" class="actions"></div>\n              <div id="operation-view" class="hidden operation" role="status" aria-live="polite"></div>\n            </div>\n          </section>\n        </div>\n      </section>\n      <section id="documents-panel" class="panel hidden" aria-labelledby="documents-title">\n        <h2 id="documents-title">Документы и источники</h2>\n        <p class="muted">Только локальные MD (UTF-8) и ZIP с MD. Импорт не анализирует документы и не отправляет их в интернет.</p>\n        <div class="document-grid">\n          <div>\n            <h3>Начать Greenfield опрос</h3>\n            <label for="new-project-name">Название проекта</label>\n            <input id="new-project-name" type="text" maxlength="120" autocomplete="off" placeholder="Название проекта">\n            <div class="button-cluster">\n              <button id="create-intake" type="button" class="outline">Создать intake для документов</button>\n              <button id="create-no-docs" type="button" class="outline">Документации нет</button>\n            </div>\n            <label>Existing repository mode <select id="repository-mode"><option>BROWNFIELD</option><option>HYBRID</option></select></label>\n            <button id="select-repository" type="button">Выбрать существующий репозиторий…</button>\n            <p class="small muted">Системное окно выбора папки. Assessment и preparation читают исходный репозиторий; новый Project Instance размещается отдельно.</p>\n          </div>\n          <div>\n            <h3>Загрузить документы в выбранный intake</h3>\n            <div id="upload-zone" class="upload-zone" role="group" aria-label="Загрузка Markdown и ZIP">\n              <label for="source-files">Выберите MD/ZIP или перетащите файлы сюда</label>\n              <input id="source-files" type="file" accept=".md,.zip" multiple>\n              <p id="upload-selected" class="small muted">Файлы не выбраны</p>\n            </div>\n            <label for="source-import-mode">Способ изменения источников</label>\n            <select id="source-import-mode"><option value="append">Добавить</option><option value="replace">Заменить весь набор</option></select>\n            <div class="button-cluster">\n              <button id="upload-sources" class="outline" type="button" disabled>Импортировать файлы</button>\n              <button id="confirm-no-docs" class="quiet" type="button" disabled>Документации нет</button>\n            </div>\n            <progress id="upload-progress" class="hidden" max="100" value="0" aria-label="Прогресс загрузки"></progress>\n            <p id="upload-result" role="status" aria-live="polite" class="small"></p>\n          </div>\n        </div>\n        <h3>Принятые источники и история</h3>\n        <p id="source-summary" class="muted">Выберите intake из списка проектов.</p>\n        <div id="source-list" class="source-list"></div>\n        <h3>Предпросмотр как экранированный текст</h3>\n        <pre id="source-preview" class="source-preview" aria-live="polite">Выберите документ для просмотра.</pre>\n        <p class="muted small">Лимиты: весь запрос с ZIP до 64 MiB; один MD или распакованный элемент до 8 MiB; суммарное распакованное содержимое до 128 MiB; до 1000 элементов; вложенность до 16; сжатие до 200:1. Опасный ZIP отклоняется целиком.</p>\n      </section>\n      <section id="interview-panel" class="panel hidden" aria-labelledby="interview-title">\n        <h2 id="interview-title">Опрос и обмен с GPT</h2>\n        <p id="interview-status" role="status">Выберите intake во вкладке «Проекты».</p>\n        <div id="interview-body" class="hidden">\n          <div class="next"><p id="interview-next"></p></div>\n          <p id="interview-documents" class="body-value"></p>\n          <button id="interview-documents-link" type="button" class="quiet">Открыть документы</button>\n          <details><summary>Известные ответы и provenance</summary><div id="known-answers"></div></details>\n          <h3>Текущие вопросы</h3>\n          <p class="muted">Ответы сохраняются как draft. Они не являются approvals или verified facts.</p>\n          <form id="answers-form"><div id="question-fields" class="interview-fields"></div>\n            <button id="save-answers" type="submit" class="outline">Сохранить ответы</button>\n          </form>\n          <button id="check-answers" type="button" class="outline">Проверить readiness</button>\n          <button id="recover-reply" type="button" class="outline hidden">Сверить прерванный commit</button>\n          <details><summary>Оставшиеся blockers и readiness ядра</summary><pre id="interview-readiness" class="source-preview"></pre></details>\n          <hr>\n          <h3>1. Подготовить пакет для внешнего GPT</h3>\n          <p>Сначала проверьте состав и право передачи. Export содержит все документы, текущий draft, вопросы и schemas. Сервер ничего не отправляет внешней модели.</p>\n          <button id="review-export" type="button" class="outline">Проверить состав пакета</button>\n          <div id="export-review" class="hidden">\n            <p id="export-warning" class="body-value"></p>\n            <div id="export-documents"></div>\n            <label for="draft-classification">Класс данных draft и ответов</label>\n            <select id="draft-classification"><option value="UNKNOWN">Не проверено</option><option>PUBLIC</option><option>INTERNAL</option><option>CONFIDENTIAL</option><option>RESTRICTED</option><option>SECRET</option><option>REGULATED</option></select>\n            <label class="consent"><input id="export-consent" type="checkbox"> Я проверил все перечисленные документы и draft: секретов нет, внешняя передача разрешена.</label>\n            <button id="create-export" type="button" class="outline">Создать пакет для GPT</button>\n          </div>\n          <div id="export-history"></div>\n          <hr>\n          <h3>2. Вставить ответ GPT</h3>\n          <label for="gpt-reply">JSON draft (до 512 KiB)</label>\n          <textarea id="gpt-reply" rows="8" spellcheck="false" placeholder="Вставьте полный JSON ответ из ручного обмена"></textarea>\n          <button id="preview-reply" type="button" class="outline">Проверить и показать diff</button>\n          <div id="repair-area" class="hidden"><p>Ответ отклонён; сессия не изменена. Исправьте ответ по этому ограниченному prompt.</p><pre id="repair-prompt" class="source-preview"></pre>\n            <button id="copy-repair" type="button" class="outline">Копировать repair prompt</button></div>\n          <div id="import-preview" class="hidden">\n            <h3>3. Проверить изменения перед применением</h3>\n            <p id="preview-summary" role="status"></p>\n            <div id="reply-diff"></div>\n            <button id="commit-reply" type="button" class="outline">Применить как draft</button>\n            <button id="cancel-reply" type="button" class="quiet">Отменить import до commit</button>\n          </div>\n          <div id="import-history"></div>\n        </div>\n      </section>\n      <section id="approvals-panel" class="panel hidden" aria-labelledby="approvals-title">\n        <h2 id="approvals-title">Отдельные согласования</h2>\n        <p id="approvals-status" role="status" aria-live="polite">Выберите intake.</p>\n        <p id="approvals-next" class="next"></p>\n        <p>Каждое решение относится к показанному содержанию и текущим источникам. Receipt фиксирует локальное действие; это не цифровая подпись и не удостоверение личности.</p>\n        <form id="approval-actor-form">\n          <label for="approval-actor">Имя оператора для этой intake session</label>\n          <input id="approval-actor" maxlength="120" autocomplete="off" required>\n          <button id="save-approval-actor" type="submit" class="outline">Установить оператора</button>\n        </form>\n        <p id="approval-actor-display"></p>\n        <button id="refresh-approvals" type="button" class="outline">Перечитать согласования</button>\n        <button id="recover-approval" type="button" class="outline hidden">Сверить прерванное согласование</button>\n        <button id="retry-approval" type="button" class="outline hidden">Повторить тот же запрос</button>\n        <div id="approval-invalidations" role="status"></div>\n        <button id="invalidate-approvals" type="button" class="outline hidden">Сбросить устаревшие approvals текущего draft</button>\n        <div id="approval-subjects"></div>\n        <details><summary>Receipts и история решений</summary><div id="approval-receipts"></div></details>\n        <hr>\n        <h2>Подготовка Project Instance</h2>\n        <p id="preparation-status" role="status" aria-live="polite">Сначала завершите согласования.</p>\n        <p id="preparation-parent" class="body-value"></p>\n        <button id="refresh-preparation" type="button" class="outline">Перечитать подготовку</button>\n        <form id="preparation-form" class="hidden">\n          <label for="project-folder-name">Имя новой папки проекта</label>\n          <input id="project-folder-name" maxlength="80" required autocomplete="off">\n          <label class="consent"><input id="confirm-new-folder" type="checkbox"> Подтверждаю новую папку в показанном каталоге. Существующая папка не заменяется.</label>\n          <button id="prepare-project" type="submit" class="outline">Собрать, проверить и разместить проект</button>\n        </form>\n        <button id="recover-preparation" type="button" class="outline hidden">Сверить и продолжить подготовку</button>\n        <div id="preparation-complete" class="hidden">\n          <h3>Проект готов к ручной передаче Codex</h3>\n          <p id="published-folder" class="body-value"></p><pre id="published-refs"></pre>\n          <p>Первый JIT уже зарезервирован. Скопируйте промпт и передайте его Codex. Ручной lifecycle в интерфейсе ожидает PH-LW-09.</p>\n          <label for="first-prompt">Первый JIT — доступен для выделения и Ctrl+C</label>\n          <textarea id="first-prompt" rows="12" readonly spellcheck="false"></textarea>\n          <button id="copy-first-prompt" type="button" class="outline">Копировать промпт</button>\n          <button id="open-project-folder" type="button" class="outline">Открыть папку</button>\n          <a id="download-handoff" class="outline" download>Экспортировать ZIP</a>\n          <p>ZIP хранит исходный immutable handoff. После изменений продукта используется validate-project; initial manifest не является проверкой текущего проекта.</p>\n        </div>\n      </section>\n      <footer>Project Harness 0.5.1 WIP · Local Web PH-LW-11 · Ручной маршрут · Полная v0.5.1: NO-GO</footer>\n    </main>\n  </div>\n</body>\n</html>\n'
+
+======================================================================
+FAIL: test_stage_status_and_manual_evidence_use_existing_forms (tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_stage_status_and_manual_evidence_use_existing_forms)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_12_acceptance.py", line 33, in test_stage_status_and_manual_evidence_use_existing_forms
+    expect(status).to_be_enabled();status.click()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\sync_api\_generated.py", line 14672, in to_be_enabled
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.to_be_enabled(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            enabled=enabled, timeout=to_milliseconds(timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 807, in to_be_enabled
+    await self._expect_impl(
+    ...<5 lines>...
+    )
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        AssertionError(
+        ^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        self._is_soft,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to be enabled
+Actual value: None
+Error: element(s) not found 
+Call log:
+  - Expect "to_be_enabled" locator("#action-list button").filter(has_text="stage-status") with timeout 5000ms
+  - waiting for locator("#action-list button").filter(has_text="stage-status")
+
+Aria snapshot:
+- link "Перейти к содержимому":
+  - /url: "#workspace"
+- complementary "Навигация":
+  - strong: Project Harness
+  - text: Локальный мастер · 0.1.0-dev
+  - paragraph: РАБОЧАЯ ОБЛАСТЬ
+  - navigation "Разделы проекта":
+    - button "Проекты и запуск"
+    - button "Документы"
+    - button "Опрос и GPT"
+    - button "Согласования"
+    - button "Обзор проекта"
+    - button "Задачи и Run"
+    - button "Стадии и доказательства"
+    - button "Обслуживание"
+    - button "Диагностика"
+  - text: Только этот компьютер Без provider API, облака и автоматического запуска Codex
+- main:
+  - paragraph: ЛОКАЛЬНОЕ УПРАВЛЕНИЕ ПРОЕКТОМ
+  - heading "Проекты" [level=1]
+  - status: Сессия активна
+  - button "Обновить состояние"
+  - button "Выйти"
+  - button "Завершить Harness"
+  - status: Статус получен. GET не запускает проектные операции.
+  - paragraph: Загрузите MD/ZIP документов или выберите «Документации нет». Можно продолжить существующий проект.
+  - region "Мои проекты":
+    - heading "Мои проекты" [level=2]
+    - text: 1 шт.
+    - button "LWP-4412185A6CE1D49D906B Проект · ACTIVE" [pressed]:
+      - strong: LWP-4412185A6CE1D49D906B
+      - text: Проект · ACTIVE
+    - button "Открыть существующий Harness project…"
+    - paragraph: Новые Greenfield intake создаются во вкладке «Документы». Существующие проекты доступны только в рамках уже поддержанных ручных операций.
+  - region "Текущий статус":
+    - heading "Текущий статус" [level=2]
+    - text: Project Instance
+    - term: Статус
+    - definition: ACTIVE
+    - term: Активная стадия
+    - definition: PROTOTYPE
+    - term: Целевой уровень
+    - definition: MVP
+    - term: Принятый уровень
+    - definition: NONE
+    - term: Текущая задача
+    - definition: "{ \"implementation_stage\": \"PROTOTYPE\", \"path\": \".harness/tasks/TSK-HARNESS-DEMO-TASK-CLI-001@1.yaml\", \"status\": \"READY\", \"task_ref\": \"TSK-HARNESS-DEMO-TASK-CLI-001@1\", \"title\": \"Implement add and list commands\" }"
+    - heading "Что завершено" [level=3]
+    - paragraph: Нет
+    - heading "Что мешает продолжить" [level=3]
+    - paragraph: Нет
+    - text: ЧТО НУЖНО СДЕЛАТЬ
+    - paragraph: project-harness verify --project <root> --allow-command-execution
+    - heading "Доступные действия" [level=3]
+    - paragraph: Каждое изменение требует отдельного подтверждения, точного fingerprint и защищённого POST.
+    - button "doctor" [disabled]
+    - text: Доступно в следующем этапе Local Web; сейчас операция не реализована.
+    - button "start-intake" [disabled]
+    - text: Доступно в следующем этапе Local Web; сейчас операция не реализована.
+    - button "Проверить опрос" [disabled]
+    - text: Невозможно выполнить из текущего состояния core.
+    - button "Подготовить handoff" [disabled]
+    - text: Project Instance уже опубликован.
+    - button "validate-handoff" [disabled]
+    - text: Доступно в следующем этапе Local Web; сейчас операция не реализована.
+    - button "Проверить проект"
+    - text: Требуется явное подтверждение; статус перепроверяется сервером.
+    - button "Подтвердить migration"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Открыть текущую задачу"
+    - text: Откройте отдельную форму Task/Run.
+    - button "executor-doctor" [disabled]
+    - text: Автоматический исполнитель отключён в Local Web manual; Podman/egress acceptance остаётся NO-GO.
+    - button "execute-current" [disabled]
+    - text: Автоматический исполнитель отключён в Local Web manual; Podman/egress acceptance остаётся NO-GO.
+    - button "Проверить текущий Run"
+    - text: Откройте отдельную форму Task/Run.
+    - button "complete"
+    - text: Нужен текущий Task/Run и допустимый core route.
+    - button "block"
+    - text: Откройте отдельную форму Task/Run.
+    - button "resume"
+    - text: Нужен текущий Task/Run и допустимый core route.
+    - button "Показать Stage State"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Подготовить Stage review"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Подготовить active Stage plan"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Применить reviewed plan"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Возобновить Stage Gate"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Оценить Brownfield / Hybrid"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Принять Stage"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Подтвердить level-up"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Начать maintenance"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Отменить maintenance"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "demo" [disabled]
+    - text: Доступно в следующем этапе Local Web; сейчас операция не реализована.
+    - button "Редактировать черновик" [disabled]
+    - text: Редактирование доступно только в intake workspace.
+    - button "receive-result"
+    - text: Откройте отдельную форму Task/Run.
+    - button "manual-evidence" [disabled]
+    - text: Форма появится на следующем этапе Local Web.
+    - button "Выбрать новый target"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Подготовить same-level maintenance"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Подготовить отмену maintenance"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Просмотреть план migration"
+    - text: Открыть форму с exact refs и отдельным подтверждением.
+    - button "Восстановить прерванную migration" [disabled]
+    - text: Выберите применимый manual проект.
+  - text: "Project Harness 0.5.1 WIP · Local Web PH-LW-11 · Ручной маршрут · Полная v0.5.1: NO-GO"
+
+----------------------------------------------------------------------
+Ran 2 tests in 101.955s
+
+FAILED (failures=2)

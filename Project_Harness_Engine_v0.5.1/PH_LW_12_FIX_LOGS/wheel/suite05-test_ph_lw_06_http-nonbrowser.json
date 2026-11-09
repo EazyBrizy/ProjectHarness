@@ -1,0 +1,14 @@
+{
+  "modules": [
+    "tests.test_ph_lw_06_http.ExchangeHttpTests.test_http_duplicate_unknown_oversize_and_wrong_project_no_mutation",
+    "tests.test_ph_lw_06_http.ExchangeHttpTests.test_http_negative_then_preview_cancel_commit_replay_and_check_intake",
+    "tests.test_ph_lw_06_http.ExchangeHttpTests.test_http_security_all_new_routes_and_read_only_gets"
+  ],
+  "ran": 3,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 1.95,
+  "log": "suite05-test_ph_lw_06_http-nonbrowser.log",
+  "status": "PASS"
+}

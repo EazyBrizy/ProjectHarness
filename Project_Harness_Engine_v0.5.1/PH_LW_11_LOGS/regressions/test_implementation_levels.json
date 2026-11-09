@@ -1,0 +1,12 @@
+{
+  "modules": [
+    "tests.test_implementation_levels"
+  ],
+  "ran": 8,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 117.688,
+  "log": "test_implementation_levels.log",
+  "status": "PASS"
+}

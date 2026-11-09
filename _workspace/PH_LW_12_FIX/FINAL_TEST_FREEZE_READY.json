@@ -1,0 +1,5 @@
+{
+  "status": "READY",
+  "freeze": "sha256:d7cf88070662b89d572311db630db7d69583c22ef71f0f95913eb820046356e2",
+  "runtime_mutation_allowed": false
+}

@@ -1,0 +1,7 @@
+COMMAND: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. /opt/pyvenv/bin/python -m unittest -q tests.test_contract_hardening tests.test_ph_051_06_result_channel tests.test_ph_f01_planner_regression
+MODULES: test_contract_hardening, test_ph_051_06_result_channel, test_ph_f01_planner_regression
+
+----------------------------------------------------------------------
+Ran 50 tests in 162.217s
+
+OK

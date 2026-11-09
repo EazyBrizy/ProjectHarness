@@ -1,0 +1,48 @@
+[
+  {
+    "module": "tests.test_ph_lw_01_contract",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_ph_lw_01_contract",
+      "<WORKSPACE>\\_scratch\\ph_lw_10\\core-service-recheck\\test_ph_lw_01_contract.log"
+    ],
+    "started_utc": "2026-11-07T12:30:39.660203+00:00",
+    "exit": 0,
+    "status": "PASS",
+    "modules": [
+      "tests.test_ph_lw_01_contract"
+    ],
+    "ran": 9,
+    "failures": 0,
+    "errors": 0,
+    "skips": [],
+    "elapsed_seconds": 0.524,
+    "log": "test_ph_lw_01_contract.log",
+    "log_sha256": "b21d9d9146ea3d060fb789bb3172d019ee1a9eaf296f5a7bfa1f9b387cb22927"
+  },
+  {
+    "module": "tests.test_ph_lw_03_service",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_ph_lw_03_service",
+      "<WORKSPACE>\\_scratch\\ph_lw_10\\core-service-recheck\\test_ph_lw_03_service.log"
+    ],
+    "started_utc": "2026-11-07T12:30:40.199004+00:00",
+    "exit": 0,
+    "status": "PASS",
+    "modules": [
+      "tests.test_ph_lw_03_service"
+    ],
+    "ran": 15,
+    "failures": 0,
+    "errors": 0,
+    "skips": [],
+    "elapsed_seconds": 93.438,
+    "log": "test_ph_lw_03_service.log",
+    "log_sha256": "1fe44121497d273075ab20500a5e20e95b29900e9e0cfbb8828a8d0b463af405"
+  }
+]

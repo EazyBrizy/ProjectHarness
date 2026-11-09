@@ -1,0 +1,18 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_lw_12_acceptance.FinalBrowserRegressionTests.test_refresh_after_commit_does_not_reuse_older_lifecycle_response"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-08T09:22:47.329729+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 180,
+  "exit_code": null,
+  "status": "TIMEOUT",
+  "elapsed_seconds": 190.816,
+  "log_sha256": "eff5e55b75145f1eb48128c2573f1b5ea84ae2ea2fb2e6e4aebd439af962a50c"
+}

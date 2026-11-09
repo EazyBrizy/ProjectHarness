@@ -1,0 +1,107 @@
+{
+  "status": "PASS",
+  "verified_utc": "2026-11-07T02:23:29.203165+00:00",
+  "scope": "Exact unpacked working pair; not a full v0.5.1 release verdict",
+  "input_archives": [
+    {
+      "file": "Project_Harness_Engine_v0.5.1_PH_LW_05.zip",
+      "sha256": "c8ccd7f1f1b93200db1936d58c274bf535fae09aa616309b54bed8e0e3da33f2",
+      "crc": "PASS"
+    },
+    {
+      "file": "Project_Harness_Documentation_v0.5.1_PH_LW_05.zip",
+      "sha256": "5b1dbed1ab7b876b8d5f078596c5c7ca327cd1f269d438407e88ac7bd95d4bd9",
+      "crc": "PASS"
+    }
+  ],
+  "historical_engine_evidence_preserved": 969,
+  "evidence_files_verified_against_raw_and_published_hashes": 216,
+  "trees": {
+    "Project_Harness_Engine_v0.5.1": {
+      "status": "PASS",
+      "files": 1667,
+      "manifest_sha256": "ad8baab86981abd99951c2793468b9c520291443279fac62ad9280614b840745"
+    },
+    "Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 146,
+      "manifest_sha256": "30a9e17207887b0d9d473e63806c2ad369242b5c3d5534d1ec94d1a3faefa57b"
+    },
+    "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 146,
+      "manifest_sha256": "30a9e17207887b0d9d473e63806c2ad369242b5c3d5534d1ec94d1a3faefa57b"
+    }
+  },
+  "wheel_sha256": "04c34ced9484c0664f399ef45fe393c475c55d33fdf0fd6df8bd8bbfbc25e1dc",
+  "engine_build_digest": "sha256:803c13cbe3b1447cafd5d9f822ecc9cadec7aa9fa05539f3736816a0e642f0df",
+  "changed_file_hashes_sha256": "3b37536d39aa4593234a823a2a0a7286e809780f1508128dd868550aac0cbc99",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\tools\\check_workspace.py"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+      "started_utc": "2026-11-07T02:23:26.498697+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "log": "workspace-check.log",
+      "log_sha256": "81f4c6117c491c69145ef468a0291561f32b099555c23c3de9ce6db946e91656"
+    },
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1\\project-harness.py",
+        "doctor"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1",
+      "started_utc": "2026-11-07T02:23:26.707055+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "log": "doctor.log",
+      "log_sha256": "7f5e14eaa302fe7efe61cb03c92f32c7afd716702bba1818c34f91bb0df4228e"
+    },
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Documentation_v0.5.1\\tools\\validate_documentation.py",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Documentation_v0.5.1",
+        "--json",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_workspace\\PH_LW_06\\DOC_VALIDATION.json"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+      "started_utc": "2026-11-07T02:23:27.989046+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "log": "documentation.log",
+      "log_sha256": "703bd96454a3e102a72978eb3bafd6ea14e3f5a34a3c58afdef76f592cea31ad"
+    }
+  ],
+  "native_acceptance": "PASS",
+  "installed_wheel_acceptance": "PASS",
+  "workspace_files": {
+    "AGENTS.md": "afc9a144b0c6c4b6fa331039776b8ade9aaa03912c2aa0e05926ac5305e8dc21",
+    "README.md": "8ed2a00ba680f05efe18b54dd29cb6971f63de5ebb3de7ef7f0878e8c75d1164",
+    "_workspace/CURRENT_TASK.md": "662ef90376016608da1d43b0a6635186eed096acb46b3ce64e4c7815be57b592",
+    "_workspace/PROJECT_MAP.md": "ef78b4f14bf1463ad42db6887fe002991a70a7acf36255130bd4b67df4489280",
+    "_workspace/RUNBOOK.md": "1c9cf33959a738ac49658d1d2a1709f0aee05c902743968ac2af829ea14e61b3",
+    "_workspace/ARCHIVE_POLICY_TASK_COMPLETED.md": "c808a0c5050aff2eef9416853787f576cd150421809b593d973927b097681636",
+    "_workspace/ARCHIVE_POLICY_2026-11-07/REPORT.md": "28e8ec0747fba6ea1e414cdcf7d88ee3d1ac9ed0913cbc89bd8d28cb64b38b1e",
+    "tools/sync_working_tree.py": "4dcd552b5d8aec06384cf104cfdc5089c3bbc8dc556716bc38d2cbc2bc153d0c",
+    "tools/check_workspace.py": "4b3f772d8004b0b38847343a9382bc2c8e5e116721e18630af7a934dbc836daa",
+    "tools/verify_installed.py": "5d960d2f72a686dee0be29907c105851ab4168e8c607eb41def202e080cbe45f",
+    "tools/finalize_ph_lw_06_evidence.py": "6b41fdc962cf643d32aff7d0cfc59e6809af2ce0ee9fc7d8ec5a8c149cc7dbc1",
+    "tools/verify_ph_lw_06_working_tree.py": "a44cc96e6229c9f4f5107d6e59dfc51ab25c12d015adeceab53656a2fcd3f54d"
+  },
+  "zip_created": false,
+  "zip_reason": "Explicit user archive-policy override dated 2026-11-07",
+  "verdicts": {
+    "PH-LW-04": "PASS",
+    "PH-LW-05": "PASS",
+    "PH-LW-06": "PASS",
+    "LOCAL_WEB_MANUAL": "NO-GO",
+    "AUTOMATIC_EXECUTOR": "NO-GO",
+    "v0.5.1": "NO-GO / NOT RELEASED"
+  }
+}

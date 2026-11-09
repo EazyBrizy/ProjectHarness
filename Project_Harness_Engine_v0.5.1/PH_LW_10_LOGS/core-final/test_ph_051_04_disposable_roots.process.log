@@ -1,0 +1,1 @@
+{"modules": ["tests.test_ph_051_04_disposable_roots"], "ran": 21, "failures": 0, "errors": 16, "skips": [{"test": "tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_09_reject_special_file_and_no_binding_or_partial_root", "reason": "Unix FIFO required"}], "elapsed_seconds": 165.25, "log": "test_ph_051_04_disposable_roots.log", "status": "FAIL"}

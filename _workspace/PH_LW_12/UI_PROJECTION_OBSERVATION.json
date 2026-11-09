@@ -1,0 +1,18 @@
+{
+  "id": "LW12-PROJECT-LIST-PROJECTION",
+  "status": "OPEN / OBSERVED",
+  "build_id": "PH-LW-12-20261108",
+  "evidence": "_scratch/ph_lw_12/installed-extended-focus3/screenshots/10/mvp-to-release.png",
+  "sha256": "d4da22b147fa1db9c638692366d1ba5cd25db29057a984125b98c80f7648859d",
+  "observation": {
+    "lifecycle_summary": "STAGE_PLANNING_REQUIRED",
+    "active_stage": "RELEASE",
+    "highest_accepted": "MVP",
+    "project_list_card": "TARGET_LEVEL_REACHED"
+  },
+  "suspected_cause": "renderProjects reads state.projects entries; post-commit selectProject reads detail, leaving list entries stale until list refresh. Inference from current source, not a newly asserted regression.",
+  "source": {
+    "app.js": "af75825c36d62e3bbf07f2dd1ab5c76c16c7c1b932a2a525e4ce18d267aebac2"
+  },
+  "new_runtime_fix_applied": false
+}

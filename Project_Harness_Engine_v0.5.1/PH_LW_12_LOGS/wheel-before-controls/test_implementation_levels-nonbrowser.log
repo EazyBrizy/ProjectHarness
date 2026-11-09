@@ -1,0 +1,13 @@
+test_01_registry_graph_and_input_decision_semantics (tests.test_implementation_levels.ImplementationLevelTests.test_01_registry_graph_and_input_decision_semantics) ... ok
+test_02_stage_planning_is_sequential_and_only_active_stage_is_detailed (tests.test_implementation_levels.ImplementationLevelTests.test_02_stage_planning_is_sequential_and_only_active_stage_is_detailed) ... ok
+test_03_runtime_rejects_task_from_future_stage (tests.test_implementation_levels.ImplementationLevelTests.test_03_runtime_rejects_task_from_future_stage) ... ok
+test_04_gate_rejects_unknown_and_unjustified_na_then_accepts_immutable_report (tests.test_implementation_levels.ImplementationLevelTests.test_04_gate_rejects_unknown_and_unjustified_na_then_accepts_immutable_report) ... ok
+test_05_acceptance_transition_rolls_back_on_mid_commit_failure (tests.test_implementation_levels.ImplementationLevelTests.test_05_acceptance_transition_rolls_back_on_mid_commit_failure) ... ok
+test_06_maturity_assessment_is_read_only_repeatable_and_stale_aware (tests.test_implementation_levels.ImplementationLevelTests.test_06_maturity_assessment_is_read_only_repeatable_and_stale_aware) ... ok
+test_07_baseline_assessment_can_accept_multiple_prior_levels_without_skipping_reports (tests.test_implementation_levels.ImplementationLevelTests.test_07_baseline_assessment_can_accept_multiple_prior_levels_without_skipping_reports) ... ok
+test_08_level_up_and_same_level_maintenance_preserve_acceptance_history (tests.test_implementation_levels.ImplementationLevelTests.test_08_level_up_and_same_level_maintenance_preserve_acceptance_history) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 137.889s
+
+OK

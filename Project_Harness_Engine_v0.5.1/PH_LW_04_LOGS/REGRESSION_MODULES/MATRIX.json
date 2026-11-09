@@ -1,0 +1,206 @@
+[
+  {
+    "module": "test_contract_hardening",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 38.49
+  },
+  {
+    "module": "test_engine",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 23.1
+  },
+  {
+    "module": "test_exact_assessment_ref",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 27.19
+  },
+  {
+    "module": "test_gate_evidence_contract",
+    "state": "TIMEOUT",
+    "returncode": null,
+    "duration_sec": 55.06
+  },
+  {
+    "module": "test_implementation_levels",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 52.78
+  },
+  {
+    "module": "test_maintenance_lifecycle",
+    "state": "TIMEOUT",
+    "returncode": null,
+    "duration_sec": 55.07
+  },
+  {
+    "module": "test_ph_051_01_contract_baseline",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 4.13
+  },
+  {
+    "module": "test_ph_051_02_executor_protocol",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 1.88
+  },
+  {
+    "module": "test_ph_051_03_rootless_podman",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 1.82
+  },
+  {
+    "module": "test_ph_051_07_sandbox_verification",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 1.68
+  },
+  {
+    "module": "test_ph_f02_semantic_proof_contract",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 4.04
+  },
+  {
+    "module": "test_ph_f03_active_stage_planning",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 29.11
+  },
+  {
+    "module": "test_ph_f04_runtime_reachability",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 20.23
+  },
+  {
+    "module": "test_ph_f05_intake_acceptance",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 3.87
+  },
+  {
+    "module": "test_ph_f06_maturity_lifecycle",
+    "state": "TIMEOUT",
+    "returncode": null,
+    "duration_sec": 55.06
+  },
+  {
+    "module": "test_ph_lw_02_windows_core",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 7.11
+  },
+  {
+    "module": "test_ph_lw_03_service",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 11.04
+  },
+  {
+    "module": "test_ph_lw_04_http",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 1.41
+  },
+  {
+    "module": "test_stage_approval_preparation",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 12.59
+  },
+  {
+    "module": "test_stage_gate_preparation_block_recovery",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 25.04
+  },
+  {
+    "module": "test_stage_transaction_recovery",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 21.31
+  },
+  {
+    "module": "test_assessment_freshness",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 28.33
+  },
+  {
+    "module": "test_canonical_target",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 9.83
+  },
+  {
+    "module": "test_ph_051_04_disposable_roots",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 14.71
+  },
+  {
+    "module": "test_ph_051_05_codex_adapter",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 3.73
+  },
+  {
+    "module": "test_ph_051_06_result_channel",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 2.77
+  },
+  {
+    "module": "test_ph_051_08_atomic_apply",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 28.61
+  },
+  {
+    "module": "test_ph_051_09_automatic_runtime",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 19.19
+  },
+  {
+    "module": "test_ph_051_10_migration_recovery",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 16.58
+  },
+  {
+    "module": "test_ph_051_11_operator_docs",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 0.92
+  },
+  {
+    "module": "test_ph_f01_gate_semantics_regression",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 8.63
+  },
+  {
+    "module": "test_ph_f01_planner_regression",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 35.14
+  },
+  {
+    "module": "test_ph_f08_release_acceptance",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 30.52
+  },
+  {
+    "module": "test_ph_lw_01_contract",
+    "state": "PASS",
+    "returncode": 0,
+    "duration_sec": 1.97
+  }
+]

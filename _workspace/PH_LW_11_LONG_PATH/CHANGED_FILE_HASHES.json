@@ -1,0 +1,1057 @@
+[
+  {
+    "file": "Project_Harness_Documentation_v0.5.1/13_Local_Web_Manual_Companion/19_PH_LW_11_Windows_Installation.md",
+    "before_sha256": "63d6dcd7c7cf195d069dbc67d1cb46216a460f33a28b7db388af2b06a65ffd67",
+    "after_sha256": "8012c781c4c2165ecdadb213182d27837e9ad47ba56374b07ea627771aaaa341"
+  },
+  {
+    "file": "Project_Harness_Documentation_v0.5.1/13_Local_Web_Manual_Companion/20_PH_LW_11_Long_Path_Preparation.md",
+    "before_sha256": null,
+    "after_sha256": "2dcecb4f69821b30f25fd2f8f8965ca834caff1e9f3becfc58b72da6f9f9e92b"
+  },
+  {
+    "file": "Project_Harness_Documentation_v0.5.1/FILE_INDEX.md",
+    "before_sha256": "dafeb1db70e929e462f2e5bbc0f6018c839a2b952754f7b59c453c17c7aaf95d",
+    "after_sha256": "a788314f6e605401852a3cfa6655afffb03dd3ad14ea665105825edb8fbe416a"
+  },
+  {
+    "file": "Project_Harness_Documentation_v0.5.1/MANIFEST.sha256",
+    "before_sha256": "adf0231771e1cdff9609ef48c5cb5abf796b295036b6ed4a02c3615cd7ad53b2",
+    "after_sha256": "fb7b86518e57ef3e0ba3f74418b4bf6906124db0536c0e7952b5505153f83f76"
+  },
+  {
+    "file": "Project_Harness_Documentation_v0.5.1/Project_Harness_Architecture_v0.5.0_FULL.md",
+    "before_sha256": "b130bfcee7c44e52dc7c840d3be90a24adafd90aaa1c250900db08203829eac1",
+    "after_sha256": "1ccfc26bbec25a7be50db470b4bc80a00d9a66b07c1e888b14a4861ee0ee820c"
+  },
+  {
+    "file": "Project_Harness_Documentation_v0.5.1/README.md",
+    "before_sha256": "55bf68a45b0ed308b26b17b04e9b292785472553b0fc35c3b19f826455141701",
+    "after_sha256": "85bebef70bb5f3f3661b17c4e6792118094b274f2ffd5e1be06240a48946c93a"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/MANIFEST.sha256",
+    "before_sha256": "4ab86e19de8df70901f05a78cc245bd57e057b5418db1e2e7be37b126481d115",
+    "after_sha256": "5ec46c824fad59b021d3c3430d6948d1c3ffbb5f7edf6ec75f82be4869848508"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_CHANGED_FILES.md",
+    "before_sha256": null,
+    "after_sha256": "361c97cce940f4ed7bcfdb9edc2440189060f93f9d5dd649749522fb60d4d143"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/BUILD_PROVENANCE.json",
+    "before_sha256": null,
+    "after_sha256": "034286781a4c1855eb212be89f532dd05721c3d2f2705b9f6a2d20539147d000"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/EVIDENCE_INDEX.json",
+    "before_sha256": null,
+    "after_sha256": "c83075a1e5c6c48e0f002a738bd279be4c88b8de804d28b2c6527f5caf6eb2d6"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/FINAL_BUILD_FREEZE.json",
+    "before_sha256": null,
+    "after_sha256": "90c216c9cb11b8b86cad85dfab0c662e4a89aec8a7ffa7f7f8d037fbee429f9c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/INSTALLER_SIGNATURE.json",
+    "before_sha256": null,
+    "after_sha256": "4070b7c917f83866d7ce5f72e741647b94a36052152a84279b28d2eeece63008"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/LOGIC_DELTA.json",
+    "before_sha256": null,
+    "after_sha256": "23a5114e50647ce75f19143ba925eb4058cda8171249a241bde9fdf383225844"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/METHOD_RESULTS.json",
+    "before_sha256": null,
+    "after_sha256": "2f24730190e8ccdd60b4be7f95e97b7c25aa99e81c84c40b2f82447500ee3378"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/PRE_LONG_ADAPTER_FREEZE.json",
+    "before_sha256": null,
+    "after_sha256": "0ece20f434f8057979eaa5b98aaedb92740abf44befa865e4bc2da7b15bbdb33"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/SOURCE_ENVIRONMENT.json",
+    "before_sha256": null,
+    "after_sha256": "b9db46dab03ea54464803befe424f7ecc514554736cfe09b7525b1470302e19f"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/TEST_ADAPTER_DELTA.json",
+    "before_sha256": null,
+    "after_sha256": "1dd49c6e2e13c42d4c20b736614ac839634f4ae6d383005c7481d7e56abaf537"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/VERDICTS.json",
+    "before_sha256": null,
+    "after_sha256": "be04eaa5b548f0fc4b298c666acb7ce4a35012a63ab9d6971aadc3854d0e8a35"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/WHEEL_ENVIRONMENT.json",
+    "before_sha256": null,
+    "after_sha256": "21b8ce866d529a083cb1522fedcb58733c2245bd088eb4c11b049622389c049a"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/build/BUILD_RESULT.json",
+    "before_sha256": null,
+    "after_sha256": "0e308cc7b665417027393ede69be57e571860f0228ae48d3d7e20bfb0342ad29"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long-final/RESULT.json",
+    "before_sha256": null,
+    "after_sha256": "f354e65a9d4708ca446bf981ced81db37559afb989fd77b4830727d9e6763af8"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long-final/browser.log",
+    "before_sha256": null,
+    "after_sha256": "7370a45b58c3a1b57e46eb3df93e19756224dd4aaa4ceb694613f29ef0972644"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long-final/foreign-target.log",
+    "before_sha256": null,
+    "after_sha256": "504668f5cf3660314c71c38e12734db593a34c027679800c3d94934458687884"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long-final/install.log",
+    "before_sha256": null,
+    "after_sha256": "ff1553248d5bf19b680c75a62e4853da1a06062b7a9ab7211237f24f0ca1060a"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long-final/restart-resume.png",
+    "before_sha256": null,
+    "after_sha256": "a59946a3f86cfc4aaf81eafba86e11c36abd36c488ce235d193afc763542608f"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long-final/screenshots/prepared-False.png",
+    "before_sha256": null,
+    "after_sha256": "01f7e49289264284a102f834f77778a35921f62e4f76aabc68c89e5f390f5b37"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long-final/screenshots/prepared-True.png",
+    "before_sha256": null,
+    "after_sha256": "a7a455e56fe3fc015c5a0f397e453e57d33b0d8c6a7ea01bf35c99a30cbfa68e"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long-final/setup-while-running.log",
+    "before_sha256": null,
+    "after_sha256": "2cd5c01b6738f2a95e709dd54d301d4e3f79b36d76fc82b92bdcc426d9bca152"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long-final/uninstall.log",
+    "before_sha256": null,
+    "after_sha256": "dfcf50b9b77e9a1faadf1c313de7225279fd2cf60eea9f30379023cb398af694"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long-verified/RESULT.json",
+    "before_sha256": null,
+    "after_sha256": "13e852a961f0caa649067efdb0d6aac92205949e0f41c165031abdeed7c70a86"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long-verified/browser.log",
+    "before_sha256": null,
+    "after_sha256": "41ac68971e93bba62fca0cf23c8efec0780e5fadcbfd9926aec112b50869d929"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long-verified/foreign-target.log",
+    "before_sha256": null,
+    "after_sha256": "1dceea6b3b645d5411503f228ed736b23e67f29fb56c3d32956b0491cdcc949b"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long-verified/install.log",
+    "before_sha256": null,
+    "after_sha256": "ec741e5edd5942aee6128919b7e2b62d361b7454a878ae13716369196de0a6e6"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long-verified/restart-resume.png",
+    "before_sha256": null,
+    "after_sha256": "a59946a3f86cfc4aaf81eafba86e11c36abd36c488ce235d193afc763542608f"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long-verified/screenshots/prepared-False.png",
+    "before_sha256": null,
+    "after_sha256": "c683b47fefb81bb05c034f18b4f321e44a2ee9b2039fac042f4ddfd8fe355aa6"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long-verified/setup-while-running.log",
+    "before_sha256": null,
+    "after_sha256": "a87010bd784e2638fd11a4ea0992cb0a76f522ba4eecd6591d8f3ad4eb56cf2e"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long-verified/uninstall.log",
+    "before_sha256": null,
+    "after_sha256": "8296afcfdabd9f1b36ff7dcb1f1c878e7f4c9dfbcd0898fde37624a29cce4b09"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long/RESULT.json",
+    "before_sha256": null,
+    "after_sha256": "506232bd3439e9be7cf028beb79873ea19a412ac1aabd7e7c6cda8851adb8c74"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long/browser.log",
+    "before_sha256": null,
+    "after_sha256": "a5160e3d11d63aaa5ffdaa455a46b1e67e7d412bfb97d752506ed4f1bd3cc5b8"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long/foreign-target.log",
+    "before_sha256": null,
+    "after_sha256": "72ecd32ae5e0236590d0382de7b935360e63f4b4f85e78c7a69143538e25c9aa"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long/install.log",
+    "before_sha256": null,
+    "after_sha256": "44c631cc5e6cd7664f1e0c68e966e6f805f9ef2b74ae8f1f82e58e04377afddc"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long/restart-resume.png",
+    "before_sha256": null,
+    "after_sha256": "a59946a3f86cfc4aaf81eafba86e11c36abd36c488ce235d193afc763542608f"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long/screenshots/prepared-False.png",
+    "before_sha256": null,
+    "after_sha256": "91fa9c16ce01dbc547785fffdf6abb44888c869e0598383f6b732efc5f6a510c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long/setup-while-running.log",
+    "before_sha256": null,
+    "after_sha256": "8cbe4d8426e8aaa88b5d318ddd6dad62a00af0aa6253dafd159414dff7c80013"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installed-long/uninstall.log",
+    "before_sha256": null,
+    "after_sha256": "13b1503aec734c4a1757ec43a11cb6ce2a2a374aae44933d3f6b88ba5104fa7c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installer-recovery/RESULT.json",
+    "before_sha256": null,
+    "after_sha256": "759b5cb9dbb012f7f75f8217a294dd059ab6bb74503b1910c92f7bfa2da4d549"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installer-recovery/interrupted.log",
+    "before_sha256": null,
+    "after_sha256": "1096edeb7f39c197e6187b4a4d7e7b6e52a49f57645f171723fd7ff1c2c50c8d"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installer-recovery/readonly-retry.log",
+    "before_sha256": null,
+    "after_sha256": "009fd7daedada45d8fe7efcd8042de71aedf9cac29aa1d647e8387d597a82dc9"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installer-recovery/readonly.log",
+    "before_sha256": null,
+    "after_sha256": "74b9cce4ce5a6a5e491eaeba33b1dbcb585d2c71ec5c9fa3bb73c9b03bb5a386"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installer-recovery/recovery.log",
+    "before_sha256": null,
+    "after_sha256": "8553b6ea28b0b2cb46e3879387b6410e34cfd412ff1126314816268c748e16a5"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/installer-recovery/uninstall.log",
+    "before_sha256": null,
+    "after_sha256": "0f0ff69ca2c0a6416e7b16ef266770a73b6cf6a015935ad6b960031ee78f3c69"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/public-recheck/RESULT.json",
+    "before_sha256": null,
+    "after_sha256": "7e0ef1c459601ea64519e5ee83b56fbfb05a9da4b8077d508034e0ec1f38639c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/MATRIX.json",
+    "before_sha256": null,
+    "after_sha256": "3858e87d564072d5614a216fa7fdc4e0eac33f10e6ae6e99015cde5b786fe79e"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_contract_hardening.json",
+    "before_sha256": null,
+    "after_sha256": "7ef9fec9ea0b22b1441db5724c41f02788639c53e7414c8135003c2f3205b10d"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_contract_hardening.log",
+    "before_sha256": null,
+    "after_sha256": "15b30bea6a93c3d3cae096be2417f260c30dd32d27744903555834dfd8a4288c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_contract_hardening.process.log",
+    "before_sha256": null,
+    "after_sha256": "577f1a5eb938494ad0bb6a20c565e7f5e6f1770faeec46cf645e4d0fa1dc5c49"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_engine.json",
+    "before_sha256": null,
+    "after_sha256": "8ac8344f3b98f513eb28ef77def5625f6fa83e1ca5001d319a31c765be267e9c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_engine.log",
+    "before_sha256": null,
+    "after_sha256": "451f6b27324e5fa1e6c8f63681ce548da65cc69212292f0c2f4f0787e4d719ba"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_engine.process.log",
+    "before_sha256": null,
+    "after_sha256": "f94c7f26b92537556390699909bb362258d19ee1c98dc629946d5497926e25c1"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_gate_evidence_contract.json",
+    "before_sha256": null,
+    "after_sha256": "c195019f6af0e16aa89304dbc246388c1d8bc5feb5b2261800473a9ef3fcf6ee"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_gate_evidence_contract.log",
+    "before_sha256": null,
+    "after_sha256": "d0dd15c3c66ab9a6d9b26584de3c01a94272d1ff3a0ea4b80eb9f1cd10cab1aa"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_gate_evidence_contract.process.log",
+    "before_sha256": null,
+    "after_sha256": "74ee3e11fc4972cf1f73cc34c30cacadf6b273ffc6bd59b15d97faf60433a8f8"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_051_10_migration_recovery.V051MigrationTests.json",
+    "before_sha256": null,
+    "after_sha256": "f54953d8852392ddf4d5527c14bc50a91d92b0402b99828b470a0a4d4d8b27e2"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_051_10_migration_recovery.V051MigrationTests.log",
+    "before_sha256": null,
+    "after_sha256": "3a254fdfb8752792cf4c034ab621b527f2ef141d61ea1120737b1ae2469d7a75"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_051_10_migration_recovery.V051MigrationTests.process.log",
+    "before_sha256": null,
+    "after_sha256": "3fbc870358ab308718dc7d88f969c2c5de735a2fdfad5c78443c840c17ac2595"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.json",
+    "before_sha256": null,
+    "after_sha256": "46f2534e8131410e569bb5be1fec9fdb3937d758b4e6f3eaa4ef232855a6b00e"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.log",
+    "before_sha256": null,
+    "after_sha256": "13daa55a63a10e93c3e90ef8df396fc7008e348ec9a9932520e0fb82d48fcd9c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_f06_maturity_lifecycle.PHF06BrownfieldTests.process.log",
+    "before_sha256": null,
+    "after_sha256": "a0e9d0072c533858795d888babfb7855725b8572ae09a8705ecab7355ba1ae6a"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_f06_maturity_lifecycle.PHF06MigrationTests.json",
+    "before_sha256": null,
+    "after_sha256": "c71b5a1f5f0ae42337b5407dd0e0dbc7644d174e2b4d9e1f545eb93e21f9b3c8"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_f06_maturity_lifecycle.PHF06MigrationTests.log",
+    "before_sha256": null,
+    "after_sha256": "80e9a15632a33798c7d95970cb9e711b6b0fd331fc706becebdd3d1e48672559"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_f06_maturity_lifecycle.PHF06MigrationTests.process.log",
+    "before_sha256": null,
+    "after_sha256": "13c6696a484b2090b4e044e107de3eb309bfc07b4d3b2563bae33bdceea9c7c9"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_01_contract.json",
+    "before_sha256": null,
+    "after_sha256": "30c7641628e5cb73c7d09ad2aac7664160c4265c9409a76505a1b781d4be97ae"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_01_contract.log",
+    "before_sha256": null,
+    "after_sha256": "30d85dbf6d740657dcd9c6d39469be280c478c17419413c0d1e4a332f3c1c2e2"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_01_contract.process.log",
+    "before_sha256": null,
+    "after_sha256": "0780620f0672d61c68b986f8c8539b2cb201293f2ea6e198b8ebc637c0bc6611"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_02_windows_core.json",
+    "before_sha256": null,
+    "after_sha256": "f085373419b468615092381bf8980c6c8f1717e8ff441b64aa98f69cec20338a"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_02_windows_core.log",
+    "before_sha256": null,
+    "after_sha256": "ecc6c0fc67102d93b0cde49509ea0e92d29d207c046412109e7047665dec086f"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_02_windows_core.process.log",
+    "before_sha256": null,
+    "after_sha256": "0b15daa7f80ec76c7be062b6e952b2dc3a5f030ea7296f16e2b233b1c7512c22"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_03_service.json",
+    "before_sha256": null,
+    "after_sha256": "45d5da30f37758a2ff3528f5e737bb17b7878ce82be8f572330c0cceda755f95"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_03_service.log",
+    "before_sha256": null,
+    "after_sha256": "beccc0283f296bef49bd09db2c6a535556174b362cd7e8064d98882370a39a10"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_03_service.process.log",
+    "before_sha256": null,
+    "after_sha256": "701c7972129c07d67caf7eb027585b286095744fa4b9c0eeb20d52a08f1148d3"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_05_import.json",
+    "before_sha256": null,
+    "after_sha256": "274dc8fa5ecf3fca488b1aeadba52c2c655936320cf2e48f2943d543c3e47ee7"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_05_import.log",
+    "before_sha256": null,
+    "after_sha256": "2b9c890533b1f87f5b65b996b531b7e66fd374f60187861dbcd8cc46c9e8b03a"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_05_import.process.log",
+    "before_sha256": null,
+    "after_sha256": "0c1c765a537c2bdc6d86f0d70ca15112f0d53febe307d6cc74c2c46aff40d80a"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_06_exchange.json",
+    "before_sha256": null,
+    "after_sha256": "36396f7bf8785fb54db24d7444ffe338009f1ec6d044510946fe380cf9b442d4"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_06_exchange.log",
+    "before_sha256": null,
+    "after_sha256": "fdb7b8ca63d9078272c854a1ccfc05d9c5a52913b28003024c3c5321776d3dbc"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_06_exchange.process.log",
+    "before_sha256": null,
+    "after_sha256": "8d77e63d14b26821851c4bd77069f2db3c5efebc1b6cc97c214675c80f7857a2"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_07_approvals.json",
+    "before_sha256": null,
+    "after_sha256": "cc978706142689751224cff9bc8efbcd6b81b1d6274ae5b19234ccaa2628ed5e"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_07_approvals.log",
+    "before_sha256": null,
+    "after_sha256": "c680b219466c74c4e79b2377cd0e0a7e1c11da6e632766ccd68c856855d21128"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_07_approvals.process.log",
+    "before_sha256": null,
+    "after_sha256": "3480d7672ba8bd5f57522dde5fd09f48bd57e9d891d62ed7793463b747964657"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_08_preparation.json",
+    "before_sha256": null,
+    "after_sha256": "a8fbcf29a84e68ca233b32d98a9d020f9b9d5437ee2651cc246cdf8aad87f490"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_08_preparation.log",
+    "before_sha256": null,
+    "after_sha256": "3955846e682b0ce534531b90e5cbb556809b5c5e6d28f3426b1ac762630ce369"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_08_preparation.process.log",
+    "before_sha256": null,
+    "after_sha256": "c31f61d4ec420fedc4e5c1b0d1701f36c3fddffbc7fea73135b8c942b74311c2"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_09_manual_evidence.json",
+    "before_sha256": null,
+    "after_sha256": "e0deeff3a638932a84ee7d0df9396cfaadd4bde2ed90305e057178ad0d6aee22"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_09_manual_evidence.log",
+    "before_sha256": null,
+    "after_sha256": "94e79205335d1d6f8e68cdb094db04282323244854019852d265f0591ece9d58"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_ph_lw_09_manual_evidence.process.log",
+    "before_sha256": null,
+    "after_sha256": "faa3e79b01e01eabff29f089bf2c08dfc5b3dd553a53efda703ea725f50567ef"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_stage_approval_preparation.json",
+    "before_sha256": null,
+    "after_sha256": "e70a5f3bbafe30f094a5d798c8de9a5ff529690ffc6cafc64e2f7e5ec8f57ab7"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_stage_approval_preparation.log",
+    "before_sha256": null,
+    "after_sha256": "bf34b8b7e9c7a8f07267a27a734aca7f64a8a7405b44d2edab6eb7795b722f68"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_stage_approval_preparation.process.log",
+    "before_sha256": null,
+    "after_sha256": "16db27d7140ba8f4a0db440e4c973e0f31cafa5ef559fceb22bd7079c41d3ee6"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_stage_gate_preparation_block_recovery.json",
+    "before_sha256": null,
+    "after_sha256": "12c2f06442b7a89bac6b8f549c33aa62e691e9d2222ce4d3a6a1448b6d179255"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_stage_gate_preparation_block_recovery.log",
+    "before_sha256": null,
+    "after_sha256": "64e790d93398f7b927349b4466e50b75e743649cc953a43fe548023151ee9f5b"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_stage_gate_preparation_block_recovery.process.log",
+    "before_sha256": null,
+    "after_sha256": "ceb77c359c86ca0a1f10db84b2bf1954431e74b90a8f3d78ac4d5a2903310cac"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_stage_transaction_recovery.json",
+    "before_sha256": null,
+    "after_sha256": "df4363b23dc110f9cb7249f95227cf5934e05b03fdf332cee51a81d0d84035d8"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_stage_transaction_recovery.log",
+    "before_sha256": null,
+    "after_sha256": "179849ac0a1480e019913c0621df80a3ce6034c65f7b31d1a341bea7c506067b"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_stage_transaction_recovery.process.log",
+    "before_sha256": null,
+    "after_sha256": "103b024944cb3505266db9db84d91ab4b46b9a85806c69173be21229b42099df"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_windows_manual_migration.json",
+    "before_sha256": null,
+    "after_sha256": "ca3688f0f8c282474b7b1e7b5d249ec68f193f8a685d13717fb4f013aab582f8"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_windows_manual_migration.log",
+    "before_sha256": null,
+    "after_sha256": "a97e11db62962b2d4209f5bf5ef4db9cbd4f54ed8f9d8751ece5a30e37e4adf2"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/regressions/test_windows_manual_migration.process.log",
+    "before_sha256": null,
+    "after_sha256": "a3d44998aea207597c058625b2a82fcab2829f6bf27eff40ccf84d52adce6b09"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/before.log",
+    "before_sha256": null,
+    "after_sha256": "5cbb1ce4e5ecd862d247e2b45b639b3fe30ec1bf764b5dec3fb53a668d643008"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/before.run.json",
+    "before_sha256": null,
+    "after_sha256": "edb3223b73925e2bd4a8d90be95db7f39b5f279c7794a6f633e47f97b39c5a30"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/build.log",
+    "before_sha256": null,
+    "after_sha256": "48dc69fc9139ea64168393292e4e46ddc3c7d5add7a957f7bf50cd23994f9e62"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/build.run.json",
+    "before_sha256": null,
+    "after_sha256": "a9ebceff1eccf9e5674ad1fc88a3aba27d6547ac4ce63f3031ecfc9a5f924be8"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/core-regressions.log",
+    "before_sha256": null,
+    "after_sha256": "aacc679dbe44a23880099fe5bd6346f1bf96ae09ff3c1014a29d0d5c5c5c3109"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/core-regressions.run.json",
+    "before_sha256": null,
+    "after_sha256": "839461743b6afde8373bd5d1c5e2344696e858b1bcada9de1b2dfa250310f783"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/diagnostic-2.log",
+    "before_sha256": null,
+    "after_sha256": "e241354e89a5e5ee3d353e64a06c3f02e977e5dbe3ef5ef2488ca87338e1e2ac"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/diagnostic-2.run.json",
+    "before_sha256": null,
+    "after_sha256": "21585a7dfa1f7c273c42076b7bf1fe628af3e9af8e134496d56ab2407594bb40"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/diagnostic-3.log",
+    "before_sha256": null,
+    "after_sha256": "07fd82206af48348fe6669907edf8ce96cda52f6cc988cd335e9e2dfe6043b57"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/diagnostic-3.run.json",
+    "before_sha256": null,
+    "after_sha256": "661f8064070630f3325e289c0e3bedaa0f083ca1352fccb8e34ad097ee59c7f0"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/diagnostic-4.log",
+    "before_sha256": null,
+    "after_sha256": "ece354519401c00ceadfb1a4f7026af5c22a90635fbaa717f7865c51e0b9759b"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/diagnostic-4.run.json",
+    "before_sha256": null,
+    "after_sha256": "c6400b753be6b9f0928c75bb8b6558faa423fb741baf87cfdce44523d1a27887"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/diagnostic-5.log",
+    "before_sha256": null,
+    "after_sha256": "96a3e655dc390ea3891f9a56733c77ad6b6ef4f99156ebf1845ea815b919d360"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/diagnostic-5.run.json",
+    "before_sha256": null,
+    "after_sha256": "5df16781e9e6d2e8de3377b888aafabd6466fd18e41e783153d157f6b9afc047"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/diagnostic-deep-2.log",
+    "before_sha256": null,
+    "after_sha256": "5daa6a8d7575de5bd909780ba213c8f201af4382663e51fb87a23ba07d07a320"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/diagnostic-deep-2.run.json",
+    "before_sha256": null,
+    "after_sha256": "5f896c58657a0438a9ab6725230ce83ec7aee7aee8fe60e89973a370bc2392a4"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/diagnostic-deep.log",
+    "before_sha256": null,
+    "after_sha256": "3427649736045a5bcb90ff74685c78f10bf1d30fb0acd9a5a175f5e85c1841e0"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/diagnostic-deep.run.json",
+    "before_sha256": null,
+    "after_sha256": "bfe3e7252d1dbf64778fedb840b2bdf9e88237ad9d62d9d98bf8d8028e1ec8ce"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/diagnostic.log",
+    "before_sha256": null,
+    "after_sha256": "f8f448ed2509ce76e8ca06b7aa69f419d074a6a2326d4845d90ae260cdf6b837"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/diagnostic.run.json",
+    "before_sha256": null,
+    "after_sha256": "5e02b13c83878cabd358484e8ea2dc6d1688df263fe052d1386fe2824cfec15f"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/first-jit-before.log",
+    "before_sha256": null,
+    "after_sha256": "3d4937d632a8c8f6f0f2ce479dbaf6760f23cd21e7cdd120dbb137aa08cb51cb"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/first-jit-before.run.json",
+    "before_sha256": null,
+    "after_sha256": "663e3bb16381e4b5c8f197b7e0967a7c9439e5a394f07c46005f2c8da2b2a516"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/fix-first.log",
+    "before_sha256": null,
+    "after_sha256": "d2ea2766637622c72d0e66eb08e30515e800f4b93d30f44e657dcd987de608ec"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/fix-first.run.json",
+    "before_sha256": null,
+    "after_sha256": "c55aa8ac2b35e0b7b88b38ad4624735cdad7859deb4c82cee9442f7cd68915a2"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/installed-browser.log",
+    "before_sha256": null,
+    "after_sha256": "0be83f7c5a10303214c869b98d90d41ac8e7efcfe394304601db22c434f852c7"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/installed-browser.run.json",
+    "before_sha256": null,
+    "after_sha256": "0f898f2e6c8513ce76f8166b6140d5b6f84e201ef3521c8f96ed94a1431930bb"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/installed-long-final.log",
+    "before_sha256": null,
+    "after_sha256": "fc75695ce76aa3b9237d7a90552a5cb200e197cd9fbcdebe5138777909c484e3"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/installed-long-final.run.json",
+    "before_sha256": null,
+    "after_sha256": "1b0fe4b804bec4c9c9adab43aeefb17fda61bc390fe3e738a6559c96cfb47977"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/installed-long-verified.log",
+    "before_sha256": null,
+    "after_sha256": "2850299cc11023f04ca4a248f2415a0df36dd9bfe7bd2da6cfd550fd34f2dd6f"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/installed-long-verified.run.json",
+    "before_sha256": null,
+    "after_sha256": "a12a79add131860aed1979f94713706c362ac8f29db398c048e472427bddf8b6"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/installed-long.log",
+    "before_sha256": null,
+    "after_sha256": "75616a972bec61ba029c882ec08fd93812c66632783e649cb110f95a46a256bf"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/installed-long.run.json",
+    "before_sha256": null,
+    "after_sha256": "54c515f6abe6fb365fdd5709843efb4b86666a2ee288aa567f05c262d2d1eeed"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/installed-nonbrowser.log",
+    "before_sha256": null,
+    "after_sha256": "486336b2e3b435fe694d6d4cb913fdcde8aaad4b6ab0e7c49dffcd1c6fe6455d"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/installed-nonbrowser.run.json",
+    "before_sha256": null,
+    "after_sha256": "fec2fa79ea754c5dca0ecd8df8fcee5d7204b13c3fd4fedd802d359d44d1b18b"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/installer-recovery.log",
+    "before_sha256": null,
+    "after_sha256": "13c5c179a7fe55025ae884e47997a23e76c4a5221975c42df9d2b8b85793c7ba"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/installer-recovery.run.json",
+    "before_sha256": null,
+    "after_sha256": "6a3f03c5900c846309d2a0775e08884be8278ef6c5a9064f3fee56171a94e3c4"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/long-appdata-zip-diagnostic-2.log",
+    "before_sha256": null,
+    "after_sha256": "553ff41938a6ca9b8d8286ff50615a61efcee34ac1fbeb9255f708f8ba82b4eb"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/long-appdata-zip-diagnostic-2.run.json",
+    "before_sha256": null,
+    "after_sha256": "884d3c7346f8f813ac8defa6fa11690811905174c37141f6b46ec96cd07ca395"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/long-appdata-zip-diagnostic.log",
+    "before_sha256": null,
+    "after_sha256": "66a5bdafa49e2148b62acc6eb0ee9cc32443aabc91460289b59bfc0c651587b3"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/long-appdata-zip-diagnostic.run.json",
+    "before_sha256": null,
+    "after_sha256": "d7c0b857db12a938aaa9de155af6f3877414c8d13909fb8ab034b929a4cdd394"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/public-recheck.log",
+    "before_sha256": null,
+    "after_sha256": "7e0ef1c459601ea64519e5ee83b56fbfb05a9da4b8077d508034e0ec1f38639c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/public-recheck.run.json",
+    "before_sha256": null,
+    "after_sha256": "fa6af4d0e7a04170670ddc394e0775d43d60aab9542b6c333a5f5a3d0e32dc91"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/source-long-path-current.log",
+    "before_sha256": null,
+    "after_sha256": "75158e3243ffc9e2cc3059f8f4917d847acc21d3669c4047a21d1f0b9ffa5cac"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/source-long-path-current.run.json",
+    "before_sha256": null,
+    "after_sha256": "49ccc2d3fb4bae7d0d71ad2b4bf8e884f107172211201e6896ccb71d366240e4"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/source-long-path.log",
+    "before_sha256": null,
+    "after_sha256": "19f44bf4b750770f7590552a87e3b87c1a82cf310b3c71f4db108fcd1f446841"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/source-long-path.run.json",
+    "before_sha256": null,
+    "after_sha256": "0d87f26ef536346b99cb8050d9d1b5a41d735a92f7040c0fc291bb99033a9411"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/wheel-build.log",
+    "before_sha256": null,
+    "after_sha256": "a892702f5951361a1c9d3babeb16b242d10657ac163f0e1b201d3beeb919694f"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/wheel-build.run.json",
+    "before_sha256": null,
+    "after_sha256": "2ad71bf1469a757138745bda21b575bc47b781d0ff617b7c5860b72400c6d7d8"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/wheel-setup.log",
+    "before_sha256": null,
+    "after_sha256": "affa0531435447f9e1f3764928367c33c55ceffec2015b68241495bf3ffc6f8c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/runs/wheel-setup.run.json",
+    "before_sha256": null,
+    "after_sha256": "06fc24fbd28bec327edc59cc39909677315036816e5e39fdc06ddffea5422950"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_TEST_REPORT.md",
+    "before_sha256": null,
+    "after_sha256": "3bbe1eb6b0b7e469a7ddf656fd0b5bd645ab2b207bbc0943c3e8bb4a0779ac79"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/README.md",
+    "before_sha256": "b2aa3f43b5cb28a6efad8490816792259cc820061e13a784c0570e825f71605e",
+    "after_sha256": "44c32f2ad1676cd8d5573ceeedf41fdbc18298205c4967d2cfe88237e8447ba0"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/build/lib/project_harness/compiler.py",
+    "before_sha256": "73c5bfbfb1668e99d35371d3c674bffdbb1ca0ed9b30e0430ba08c8cf557d9ae",
+    "after_sha256": "4a7912670dcf006cf363312642a6bd1de948e9a785fa21e51c7139a96fae5528"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/build/lib/project_harness/hashing.py",
+    "before_sha256": "237da0505646d070fbee407d372096cf4c0bac7397a87279a8c0d8bcf519409b",
+    "after_sha256": "fe4ac9b231c0a217d16cf77c605837ab2447499a529e0042bab68b327008e3cc"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/build/lib/project_harness/local_web_preparation.py",
+    "before_sha256": "216451738577553bf93d641ad429c1669ec6953c7425ec2d15445cbff3da28bb",
+    "after_sha256": "0e913328adb7b45ee81a902a2ac815653b4f26f9ffdeb6fd2cdd5e95fbb0a2f9"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/build/lib/project_harness/materialization.py",
+    "before_sha256": "428b0af172c6daeec39bd90ab346c31d2941603a75e074e99e854dd09dbc5abf",
+    "after_sha256": "312cf4945bbeeb671702ea956ae8f3b56a6c21b6d3977875e6a11ae664cd2807"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/build/lib/project_harness/platform_fs.py",
+    "before_sha256": "c24c5c185b1bb3d9209a0db60e7d579285595bfb9cd54de9753e3b64faa645de",
+    "after_sha256": "4f6b3a96cc803543619298d4085eab02e34eed744d1121d92ec1085bac898d9b"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/build/lib/project_harness/resources/local_web/metadata_v1.json",
+    "before_sha256": "1ad5140655553aa143804ad8390d2c86672dca87ccd66f8ca4d0231094b12f32",
+    "after_sha256": "f0e2b186d59ccdf80b797d08f218ae8b27261ba15aff61708ee03d74dfa23fee"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/build/lib/project_harness/serialization.py",
+    "before_sha256": "fd229507e4114d9eaa19552c096c74315dcbd21f5f9af48e5876425c150c8ba7",
+    "after_sha256": "7dba2b898567c3b2dee168abbbccb1abe919797bc50cf58216ecc7aa0e35b8c6"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/build/lib/project_harness/stages.py",
+    "before_sha256": "786905a7ccd1dfb710bf554a9e9e024c0c8c7ec10a6749da45c2f0d582c6fbdf",
+    "after_sha256": "bebbc9efdf5b635a532bfffcd2efc8ce8e133ca1d42e24efe7e1c1d882805bf6"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/build/lib/project_harness/validation.py",
+    "before_sha256": "5418cd7fbbff51729f99f55151125865e7287bac54983ccdba124406ce83d02c",
+    "after_sha256": "2dde523d51be4460022b3b5799f967d02eec6e369813f4374b0f975b90355f9c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/build/lib/project_harness/workspace.py",
+    "before_sha256": "508a273452fcc997e1f31daadd621ffd9599515febca1d2e3453bcbced5c952f",
+    "after_sha256": "99174e324d96cfd9931d7b2ca7b952efcbb5aecb8adc76265f7bb6c66d3cadf9"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/dist/project_harness_engine-0.5.1-py3-none-any.whl",
+    "before_sha256": "4e484ea88ccbf7875227c5970949244ede5d868735700a17629892e3382c98f2",
+    "after_sha256": "60a77d83e27de1e3e914ab7a21df1aa50d0348c07199765fb1ef33f9ffc15f40"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1/13_Local_Web_Manual_Companion/19_PH_LW_11_Windows_Installation.md",
+    "before_sha256": "63d6dcd7c7cf195d069dbc67d1cb46216a460f33a28b7db388af2b06a65ffd67",
+    "after_sha256": "8012c781c4c2165ecdadb213182d27837e9ad47ba56374b07ea627771aaaa341"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1/13_Local_Web_Manual_Companion/20_PH_LW_11_Long_Path_Preparation.md",
+    "before_sha256": null,
+    "after_sha256": "2dcecb4f69821b30f25fd2f8f8965ca834caff1e9f3becfc58b72da6f9f9e92b"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1/FILE_INDEX.md",
+    "before_sha256": "dafeb1db70e929e462f2e5bbc0f6018c839a2b952754f7b59c453c17c7aaf95d",
+    "after_sha256": "a788314f6e605401852a3cfa6655afffb03dd3ad14ea665105825edb8fbe416a"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1/MANIFEST.sha256",
+    "before_sha256": "adf0231771e1cdff9609ef48c5cb5abf796b295036b6ed4a02c3615cd7ad53b2",
+    "after_sha256": "fb7b86518e57ef3e0ba3f74418b4bf6906124db0536c0e7952b5505153f83f76"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1/Project_Harness_Architecture_v0.5.0_FULL.md",
+    "before_sha256": "b130bfcee7c44e52dc7c840d3be90a24adafd90aaa1c250900db08203829eac1",
+    "after_sha256": "1ccfc26bbec25a7be50db470b4bc80a00d9a66b07c1e888b14a4861ee0ee820c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1/README.md",
+    "before_sha256": "55bf68a45b0ed308b26b17b04e9b292785472553b0fc35c3b19f826455141701",
+    "after_sha256": "85bebef70bb5f3f3661b17c4e6792118094b274f2ffd5e1be06240a48946c93a"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/local_web/windows/long_path_acceptance.py",
+    "before_sha256": null,
+    "after_sha256": "35c34603d77d6721d751a66891a992cddfc53aa992fc95faa4ad8ef9771f1a6d"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness/compiler.py",
+    "before_sha256": "73c5bfbfb1668e99d35371d3c674bffdbb1ca0ed9b30e0430ba08c8cf557d9ae",
+    "after_sha256": "4a7912670dcf006cf363312642a6bd1de948e9a785fa21e51c7139a96fae5528"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness/hashing.py",
+    "before_sha256": "237da0505646d070fbee407d372096cf4c0bac7397a87279a8c0d8bcf519409b",
+    "after_sha256": "fe4ac9b231c0a217d16cf77c605837ab2447499a529e0042bab68b327008e3cc"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness/local_web_preparation.py",
+    "before_sha256": "216451738577553bf93d641ad429c1669ec6953c7425ec2d15445cbff3da28bb",
+    "after_sha256": "0e913328adb7b45ee81a902a2ac815653b4f26f9ffdeb6fd2cdd5e95fbb0a2f9"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness/materialization.py",
+    "before_sha256": "428b0af172c6daeec39bd90ab346c31d2941603a75e074e99e854dd09dbc5abf",
+    "after_sha256": "312cf4945bbeeb671702ea956ae8f3b56a6c21b6d3977875e6a11ae664cd2807"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness/platform_fs.py",
+    "before_sha256": "c24c5c185b1bb3d9209a0db60e7d579285595bfb9cd54de9753e3b64faa645de",
+    "after_sha256": "4f6b3a96cc803543619298d4085eab02e34eed744d1121d92ec1085bac898d9b"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/metadata_v1.json",
+    "before_sha256": "1ad5140655553aa143804ad8390d2c86672dca87ccd66f8ca4d0231094b12f32",
+    "after_sha256": "f0e2b186d59ccdf80b797d08f218ae8b27261ba15aff61708ee03d74dfa23fee"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness/serialization.py",
+    "before_sha256": "fd229507e4114d9eaa19552c096c74315dcbd21f5f9af48e5876425c150c8ba7",
+    "after_sha256": "7dba2b898567c3b2dee168abbbccb1abe919797bc50cf58216ecc7aa0e35b8c6"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness/stages.py",
+    "before_sha256": "786905a7ccd1dfb710bf554a9e9e024c0c8c7ec10a6749da45c2f0d582c6fbdf",
+    "after_sha256": "bebbc9efdf5b635a532bfffcd2efc8ce8e133ca1d42e24efe7e1c1d882805bf6"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness/validation.py",
+    "before_sha256": "5418cd7fbbff51729f99f55151125865e7287bac54983ccdba124406ce83d02c",
+    "after_sha256": "2dde523d51be4460022b3b5799f967d02eec6e369813f4374b0f975b90355f9c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness/workspace.py",
+    "before_sha256": "508a273452fcc997e1f31daadd621ffd9599515febca1d2e3453bcbced5c952f",
+    "after_sha256": "99174e324d96cfd9931d7b2ca7b952efcbb5aecb8adc76265f7bb6c66d3cadf9"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness_engine.egg-info/PKG-INFO",
+    "before_sha256": "384880919f41509be1fc0b951d54379a2a0f2c120a0866acd745c92bc31caec5",
+    "after_sha256": "b7d2b2e4d449666d2e4a74c629e11d6f03d71063856a4eb2d912d51d60dccd8c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness_engine.egg-info/SOURCES.txt",
+    "before_sha256": "1238bb249b71f44eb98a041a70262e209c387b3b3428d90a2d9688ec31d2c2a6",
+    "after_sha256": "35137d78a74fb1f6d2896b52f10a06ae04cc8856d04618549e19e418aed54708"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/tests/test_ph_lw_11_long_path.py",
+    "before_sha256": null,
+    "after_sha256": "aa4996b61076c07a9c9c8f183f031250fc281080bf88b3719d2bbb644526eacf"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/windows/BUILD_RESULT.json",
+    "before_sha256": "1e9f1d513e8a46a0cea49e9701dbb7d2f1b8cdc182874a4a65a4a212e485c507",
+    "after_sha256": "0e308cc7b665417027393ede69be57e571860f0228ae48d3d7e20bfb0342ad29"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/windows/Harness-Setup-win-x64.exe",
+    "before_sha256": "2a56ed25463e808f22e0831cfa0d37487c4eb9c44fd2c5e59a147b3aecc8fa8c",
+    "after_sha256": "43cc06e7e3d1eac23133e1d324c911fb943ae37c403ef36dd860d766e37c2741"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/windows/Harness/Harness.exe",
+    "before_sha256": "9757c1a2e3c2b12876aa2dfc094f90f7f5fda1f2dde110b5eb09b9dcc7a8c456",
+    "after_sha256": "31d5020831fc3a783228ef7d2a472088d239904c718738eb90053c27d9cdd9dc"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/windows/Harness/PACKAGE_FILES.json",
+    "before_sha256": "542ad172915c78448fe91a8ac37d671e01382bc97c5dc37bd68344f13a035ece",
+    "after_sha256": "4764867437d4702aab529566c432957d73c9c84c8bdf255d135e1f3d4f9e0f38"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/base_library.zip",
+    "before_sha256": "6898b23919066a7fb124add2b1424885a56865d5aa2e6784bbfe1e5caeec0446",
+    "after_sha256": "67ef2b555ef45aadcf1b642cfb7ff3ea7873a216b8b7dd832aead47a980176f9"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/documentation/13_Local_Web_Manual_Companion/19_PH_LW_11_Windows_Installation.md",
+    "before_sha256": "63d6dcd7c7cf195d069dbc67d1cb46216a460f33a28b7db388af2b06a65ffd67",
+    "after_sha256": "8012c781c4c2165ecdadb213182d27837e9ad47ba56374b07ea627771aaaa341"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/documentation/13_Local_Web_Manual_Companion/20_PH_LW_11_Long_Path_Preparation.md",
+    "before_sha256": null,
+    "after_sha256": "2dcecb4f69821b30f25fd2f8f8965ca834caff1e9f3becfc58b72da6f9f9e92b"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/documentation/FILE_INDEX.md",
+    "before_sha256": "dafeb1db70e929e462f2e5bbc0f6018c839a2b952754f7b59c453c17c7aaf95d",
+    "after_sha256": "a788314f6e605401852a3cfa6655afffb03dd3ad14ea665105825edb8fbe416a"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/documentation/MANIFEST.sha256",
+    "before_sha256": "adf0231771e1cdff9609ef48c5cb5abf796b295036b6ed4a02c3615cd7ad53b2",
+    "after_sha256": "fb7b86518e57ef3e0ba3f74418b4bf6906124db0536c0e7952b5505153f83f76"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/documentation/Project_Harness_Architecture_v0.5.0_FULL.md",
+    "before_sha256": "b130bfcee7c44e52dc7c840d3be90a24adafd90aaa1c250900db08203829eac1",
+    "after_sha256": "1ccfc26bbec25a7be50db470b4bc80a00d9a66b07c1e888b14a4861ee0ee820c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/documentation/README.md",
+    "before_sha256": "55bf68a45b0ed308b26b17b04e9b292785472553b0fc35c3b19f826455141701",
+    "after_sha256": "85bebef70bb5f3f3661b17c4e6792118094b274f2ffd5e1be06240a48946c93a"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/project_harness/compiler.py",
+    "before_sha256": "73c5bfbfb1668e99d35371d3c674bffdbb1ca0ed9b30e0430ba08c8cf557d9ae",
+    "after_sha256": "4a7912670dcf006cf363312642a6bd1de948e9a785fa21e51c7139a96fae5528"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/project_harness/hashing.py",
+    "before_sha256": "237da0505646d070fbee407d372096cf4c0bac7397a87279a8c0d8bcf519409b",
+    "after_sha256": "fe4ac9b231c0a217d16cf77c605837ab2447499a529e0042bab68b327008e3cc"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/project_harness/local_web_preparation.py",
+    "before_sha256": "216451738577553bf93d641ad429c1669ec6953c7425ec2d15445cbff3da28bb",
+    "after_sha256": "0e913328adb7b45ee81a902a2ac815653b4f26f9ffdeb6fd2cdd5e95fbb0a2f9"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/project_harness/materialization.py",
+    "before_sha256": "428b0af172c6daeec39bd90ab346c31d2941603a75e074e99e854dd09dbc5abf",
+    "after_sha256": "312cf4945bbeeb671702ea956ae8f3b56a6c21b6d3977875e6a11ae664cd2807"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/project_harness/platform_fs.py",
+    "before_sha256": "c24c5c185b1bb3d9209a0db60e7d579285595bfb9cd54de9753e3b64faa645de",
+    "after_sha256": "4f6b3a96cc803543619298d4085eab02e34eed744d1121d92ec1085bac898d9b"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/project_harness/resources/local_web/metadata_v1.json",
+    "before_sha256": "1ad5140655553aa143804ad8390d2c86672dca87ccd66f8ca4d0231094b12f32",
+    "after_sha256": "f0e2b186d59ccdf80b797d08f218ae8b27261ba15aff61708ee03d74dfa23fee"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/project_harness/serialization.py",
+    "before_sha256": "fd229507e4114d9eaa19552c096c74315dcbd21f5f9af48e5876425c150c8ba7",
+    "after_sha256": "7dba2b898567c3b2dee168abbbccb1abe919797bc50cf58216ecc7aa0e35b8c6"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/project_harness/stages.py",
+    "before_sha256": "786905a7ccd1dfb710bf554a9e9e024c0c8c7ec10a6749da45c2f0d582c6fbdf",
+    "after_sha256": "bebbc9efdf5b635a532bfffcd2efc8ce8e133ca1d42e24efe7e1c1d882805bf6"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/project_harness/validation.py",
+    "before_sha256": "5418cd7fbbff51729f99f55151125865e7287bac54983ccdba124406ce83d02c",
+    "after_sha256": "2dde523d51be4460022b3b5799f967d02eec6e369813f4374b0f975b90355f9c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/project_harness/workspace.py",
+    "before_sha256": "508a273452fcc997e1f31daadd621ffd9599515febca1d2e3453bcbced5c952f",
+    "after_sha256": "99174e324d96cfd9931d7b2ca7b952efcbb5aecb8adc76265f7bb6c66d3cadf9"
+  }
+]

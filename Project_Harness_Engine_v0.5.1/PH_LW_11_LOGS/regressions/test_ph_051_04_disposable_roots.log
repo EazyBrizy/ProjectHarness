@@ -1,0 +1,248 @@
+test_01_snapshot_equal_canonical_and_no_shared_inode (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_01_snapshot_equal_canonical_and_no_shared_inode) ... ERROR
+test_02_exact_projection_allowlist_readonly_and_binding_only_metadata (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_02_exact_projection_allowlist_readonly_and_binding_only_metadata) ... ERROR
+test_03_replay_idempotent_no_duplicate_roots_or_bindings (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_03_replay_idempotent_no_duplicate_roots_or_bindings) ... ERROR
+test_04_writable_copy_does_not_modify_canonical_product_or_control (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_04_writable_copy_does_not_modify_canonical_product_or_control) ... ERROR
+test_05_baseline_changed_external_edit_is_reported (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_05_baseline_changed_external_edit_is_reported) ... ERROR
+test_06_reject_noncurrent_run_and_escape_runtime_paths (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_06_reject_noncurrent_run_and_escape_runtime_paths) ... ok
+test_07_reject_parent_symlink_before_writing (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_07_reject_parent_symlink_before_writing) ... ERROR
+test_08_ignore_symlinks_even_if_external_secret (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_08_ignore_symlinks_even_if_external_secret) ... ERROR
+test_09_reject_special_file_and_no_binding_or_partial_root (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_09_reject_special_file_and_no_binding_or_partial_root) ... skipped 'Unix FIFO required'
+test_10_run_control_ref_or_text_digest_tampering_blocks (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_10_run_control_ref_or_text_digest_tampering_blocks) ... ok
+test_11_control_symlink_substitution_refused (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_11_control_symlink_substitution_refused) ... ERROR
+test_12_replay_reject_tampered_projection_and_result_dir (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_12_replay_reject_tampered_projection_and_result_dir) ... ERROR
+test_13_replay_reject_nonempty_output (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_13_replay_reject_nonempty_output) ... ERROR
+test_14_binding_never_exported_or_in_project_lock (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_14_binding_never_exported_or_in_project_lock) ... ERROR
+test_15_orphan_root_not_adopted_without_exact_binding (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_15_orphan_root_not_adopted_without_exact_binding) ... ERROR
+test_16_replay_rejects_forged_metadata_even_with_updated_file_hashes (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_16_replay_rejects_forged_metadata_even_with_updated_file_hashes) ... ERROR
+test_17_replay_rejects_control_source_revision_drift (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_17_replay_rejects_control_source_revision_drift) ... ERROR
+test_18_execution_policy_cannot_project_arbitrary_strings (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_18_execution_policy_cannot_project_arbitrary_strings) ... ok
+test_19_hardlink_to_outside_secrets_cannot_be_copied (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_19_hardlink_to_outside_secrets_cannot_be_copied) ... ERROR
+test_20_signed_phase_keeps_validate_project_pass_without_hidden_mutations (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_20_signed_phase_keeps_validate_project_pass_without_hidden_mutations) ... ERROR
+test_21_existing_unapproved_control_mutation_is_never_resealed (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_21_existing_unapproved_control_mutation_is_never_resealed) ... ok
+
+======================================================================
+ERROR: test_01_snapshot_equal_canonical_and_no_shared_inode (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_01_snapshot_equal_canonical_and_no_shared_inode)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 43, in test_01_snapshot_equal_canonical_and_no_shared_inode
+    result = self.build()
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 35, in build
+    return prepare_execution_root(self.root, self.runtime, run_ref=self.run["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05104-1xtm6lqu\\build\\handoff'
+
+======================================================================
+ERROR: test_02_exact_projection_allowlist_readonly_and_binding_only_metadata (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_02_exact_projection_allowlist_readonly_and_binding_only_metadata)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 57, in test_02_exact_projection_allowlist_readonly_and_binding_only_metadata
+    result = self.build()
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 35, in build
+    return prepare_execution_root(self.root, self.runtime, run_ref=self.run["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05104-cs68s61q\\build\\handoff'
+
+======================================================================
+ERROR: test_03_replay_idempotent_no_duplicate_roots_or_bindings (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_03_replay_idempotent_no_duplicate_roots_or_bindings)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 86, in test_03_replay_idempotent_no_duplicate_roots_or_bindings
+    original = self.build()
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 35, in build
+    return prepare_execution_root(self.root, self.runtime, run_ref=self.run["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05104-eqqt_fzr\\build\\handoff'
+
+======================================================================
+ERROR: test_04_writable_copy_does_not_modify_canonical_product_or_control (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_04_writable_copy_does_not_modify_canonical_product_or_control)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 96, in test_04_writable_copy_does_not_modify_canonical_product_or_control
+    r = self.build()
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 35, in build
+    return prepare_execution_root(self.root, self.runtime, run_ref=self.run["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05104-aubtosf_\\build\\handoff'
+
+======================================================================
+ERROR: test_05_baseline_changed_external_edit_is_reported (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_05_baseline_changed_external_edit_is_reported)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 111, in test_05_baseline_changed_external_edit_is_reported
+    self.build()
+    ~~~~~~~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 35, in build
+    return prepare_execution_root(self.root, self.runtime, run_ref=self.run["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05104-5xw5boqn\\build\\handoff'
+
+======================================================================
+ERROR: test_07_reject_parent_symlink_before_writing (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_07_reject_parent_symlink_before_writing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 131, in test_07_reject_parent_symlink_before_writing
+    (self.runtime / pid).symlink_to(self.root, target_is_directory=True)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 1213, in symlink_to
+    os.symlink(target, self, target_is_directory)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [WinError 1314] Клиент не обладает требуемыми правами: '<TEMP>\\ph05104-e_eq207e\\build\\handoff' -> '<TEMP>\\ph05104-e_eq207e\\external-runtime\\harness-demo-task-cli'
+
+======================================================================
+ERROR: test_08_ignore_symlinks_even_if_external_secret (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_08_ignore_symlinks_even_if_external_secret)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 141, in test_08_ignore_symlinks_even_if_external_secret
+    (self.root / "steal.txt").symlink_to(secret)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 1213, in symlink_to
+    os.symlink(target, self, target_is_directory)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [WinError 1314] Клиент не обладает требуемыми правами: '<TEMP>\\ph05104-1vmclozo\\private.txt' -> '<TEMP>\\ph05104-1vmclozo\\build\\handoff\\steal.txt'
+
+======================================================================
+ERROR: test_11_control_symlink_substitution_refused (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_11_control_symlink_substitution_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 174, in test_11_control_symlink_substitution_refused
+    target.symlink_to(other)
+    ~~~~~~~~~~~~~~~~~^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 1213, in symlink_to
+    os.symlink(target, self, target_is_directory)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [WinError 1314] Клиент не обладает требуемыми правами: '<TEMP>\\ph05104-u7ri3z6a\\outside.yaml' -> '<TEMP>\\ph05104-u7ri3z6a\\build\\handoff\\.harness\\context\\PACKETS_BY_RUN\\CPK-HARNESS-DEMO-TASK-CLI-001-A1.yaml'
+
+======================================================================
+ERROR: test_12_replay_reject_tampered_projection_and_result_dir (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_12_replay_reject_tampered_projection_and_result_dir)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 179, in test_12_replay_reject_tampered_projection_and_result_dir
+    result = self.build()
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 35, in build
+    return prepare_execution_root(self.root, self.runtime, run_ref=self.run["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05104-f2jndgex\\build\\handoff'
+
+======================================================================
+ERROR: test_13_replay_reject_nonempty_output (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_13_replay_reject_nonempty_output)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 190, in test_13_replay_reject_nonempty_output
+    result = self.build()
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 35, in build
+    return prepare_execution_root(self.root, self.runtime, run_ref=self.run["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05104-wtpcz8qa\\build\\handoff'
+
+======================================================================
+ERROR: test_14_binding_never_exported_or_in_project_lock (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_14_binding_never_exported_or_in_project_lock)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 196, in test_14_binding_never_exported_or_in_project_lock
+    result = self.build()
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 35, in build
+    return prepare_execution_root(self.root, self.runtime, run_ref=self.run["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05104-5uxwq7zj\\build\\handoff'
+
+======================================================================
+ERROR: test_15_orphan_root_not_adopted_without_exact_binding (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_15_orphan_root_not_adopted_without_exact_binding)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 210, in test_15_orphan_root_not_adopted_without_exact_binding
+    self.build()
+    ~~~~~~~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 35, in build
+    return prepare_execution_root(self.root, self.runtime, run_ref=self.run["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05104-45gsd0da\\build\\handoff'
+
+======================================================================
+ERROR: test_16_replay_rejects_forged_metadata_even_with_updated_file_hashes (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_16_replay_rejects_forged_metadata_even_with_updated_file_hashes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 215, in test_16_replay_rejects_forged_metadata_even_with_updated_file_hashes
+    r = self.build()
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 35, in build
+    return prepare_execution_root(self.root, self.runtime, run_ref=self.run["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05104-1wslmuyo\\build\\handoff'
+
+======================================================================
+ERROR: test_17_replay_rejects_control_source_revision_drift (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_17_replay_rejects_control_source_revision_drift)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 227, in test_17_replay_rejects_control_source_revision_drift
+    self.build()
+    ~~~~~~~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 35, in build
+    return prepare_execution_root(self.root, self.runtime, run_ref=self.run["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05104-pzrwaq3s\\build\\handoff'
+
+======================================================================
+ERROR: test_19_hardlink_to_outside_secrets_cannot_be_copied (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_19_hardlink_to_outside_secrets_cannot_be_copied)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 250, in test_19_hardlink_to_outside_secrets_cannot_be_copied
+    self.build()
+    ~~~~~~~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 35, in build
+    return prepare_execution_root(self.root, self.runtime, run_ref=self.run["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05104-9_z7rznr\\build\\handoff'
+
+======================================================================
+ERROR: test_20_signed_phase_keeps_validate_project_pass_without_hidden_mutations (tests.test_ph_051_04_disposable_roots.DisposableRootTests.test_20_signed_phase_keeps_validate_project_pass_without_hidden_mutations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 257, in test_20_signed_phase_keeps_validate_project_pass_without_hidden_mutations
+    first = self.build()
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_04_disposable_roots.py", line 35, in build
+    return prepare_execution_root(self.root, self.runtime, run_ref=self.run["run_ref"])
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05104-ow1jocci\\build\\handoff'
+
+----------------------------------------------------------------------
+Ran 21 tests in 185.361s
+
+FAILED (errors=16, skipped=1)

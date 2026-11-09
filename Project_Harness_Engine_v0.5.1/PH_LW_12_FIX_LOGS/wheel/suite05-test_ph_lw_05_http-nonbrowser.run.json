@@ -1,0 +1,35 @@
+{
+  "name": "suite05-test_ph_lw_05_http-nonbrowser",
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;import project_harness;assert Path(project_harness.__file__).resolve().is_relative_to(Path(sys.prefix).resolve());sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel\\suite05-test_ph_lw_05_http-nonbrowser.log",
+    "tests.test_ph_lw_05_http.SourceHttpSecurity.test_auth_upload_list_preview_and_replay",
+    "tests.test_ph_lw_05_http.SourceHttpSecurity.test_documentation_none_after_import_explicit_and_no_external_requests",
+    "tests.test_ph_lw_05_http.SourceHttpSecurity.test_duplicate_multipart_scalar_fields_are_rejected",
+    "tests.test_ph_lw_05_http.SourceHttpSecurity.test_malformed_upload_rejected_and_unknown_fields"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\Независимая папка wheel",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 1.874,
+  "environment_ref": "WHEEL_ENVIRONMENT.json",
+  "modules": [
+    "tests.test_ph_lw_05_http.SourceHttpSecurity.test_auth_upload_list_preview_and_replay",
+    "tests.test_ph_lw_05_http.SourceHttpSecurity.test_documentation_none_after_import_explicit_and_no_external_requests",
+    "tests.test_ph_lw_05_http.SourceHttpSecurity.test_duplicate_multipart_scalar_fields_are_rejected",
+    "tests.test_ph_lw_05_http.SourceHttpSecurity.test_malformed_upload_rejected_and_unknown_fields"
+  ],
+  "ran": 4,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "log": "suite05-test_ph_lw_05_http-nonbrowser.log",
+  "process_status": "PASS",
+  "log_sha256": "d20d1544637ba588d74cb99565aa7f763b33d8174be697374d840e1f2e6e8f9c",
+  "scope": "INSTALLED_WHEEL",
+  "runtime_freeze_sha256": "01ef2ddce6e42787b5937f937112f0b02ddefb05321eb348d59319a08bd941cf"
+}

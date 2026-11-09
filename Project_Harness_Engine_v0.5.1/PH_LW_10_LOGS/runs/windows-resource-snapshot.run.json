@@ -1,0 +1,16 @@
+{
+  "command": [
+    "powershell.exe",
+    "-NoProfile",
+    "-Command",
+    "Get-Date -Format o; Get-NetTCPConnection | Group-Object State | Select-Object Name,Count; Get-Process | Where-Object { $_.ProcessName -in @(\"python\",\"msedge\",\"node\") } | Select-Object ProcessName,Id,Handles,WorkingSet64,CPU; Get-CimInstance Win32_OperatingSystem | Select-Object TotalVisibleMemorySize,FreePhysicalMemory,TotalVirtualMemorySize,FreeVirtualMemory; Get-WinEvent -FilterHashtable @{LogName=\"System\";Id=4227,4231;StartTime=(Get-Date).AddHours(-2)} -MaxEvents 5 -ErrorAction SilentlyContinue | Select-Object TimeCreated,Id,ProviderName"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T13:07:40.028170+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 90,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 6.38,
+  "log_sha256": "afbff5caaebfc55fb0f8ac1de2dee5b5a896c468cc8c8227af9867dacfbd5e1f"
+}

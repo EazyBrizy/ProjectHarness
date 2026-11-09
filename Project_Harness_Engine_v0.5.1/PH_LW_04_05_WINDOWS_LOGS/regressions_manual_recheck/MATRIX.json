@@ -1,0 +1,71 @@
+[
+  {
+    "module": "tests.test_ph_f01_planner_regression",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_ph_f01_planner_regression",
+      "<WORKSPACE>\\_scratch\\regressions-manual-recheck\\test_ph_f01_planner_regression.log"
+    ],
+    "started_utc": "2026-11-06T23:46:09.735346+00:00",
+    "exit": 0,
+    "status": "PASS",
+    "modules": [
+      "tests.test_ph_f01_planner_regression"
+    ],
+    "ran": 6,
+    "failures": 0,
+    "errors": 0,
+    "skips": [],
+    "elapsed_seconds": 108.756,
+    "log": "test_ph_f01_planner_regression.log",
+    "log_sha256": "1e6c686c797e473c4433ac2aa05eb065371e0c0c235d11ebe86720f1aae93a7b"
+  },
+  {
+    "module": "tests.test_ph_f03_active_stage_planning",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_ph_f03_active_stage_planning",
+      "<WORKSPACE>\\_scratch\\regressions-manual-recheck\\test_ph_f03_active_stage_planning.log"
+    ],
+    "started_utc": "2026-11-06T23:46:09.735537+00:00",
+    "exit": 0,
+    "status": "PASS",
+    "modules": [
+      "tests.test_ph_f03_active_stage_planning"
+    ],
+    "ran": 8,
+    "failures": 0,
+    "errors": 0,
+    "skips": [],
+    "elapsed_seconds": 91.445,
+    "log": "test_ph_f03_active_stage_planning.log",
+    "log_sha256": "86f5af0ffedeed291a8f266a25a0342e0e64a4d70fb3e8480d1d3a985c6099a1"
+  },
+  {
+    "module": "tests.test_ph_f04_runtime_reachability",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_ph_f04_runtime_reachability",
+      "<WORKSPACE>\\_scratch\\regressions-manual-recheck\\test_ph_f04_runtime_reachability.log"
+    ],
+    "started_utc": "2026-11-06T23:46:09.735906+00:00",
+    "exit": 0,
+    "status": "PASS",
+    "modules": [
+      "tests.test_ph_f04_runtime_reachability"
+    ],
+    "ran": 10,
+    "failures": 0,
+    "errors": 0,
+    "skips": [],
+    "elapsed_seconds": 73.149,
+    "log": "test_ph_f04_runtime_reachability.log",
+    "log_sha256": "73c4c2054c04d010934ae86378cc579f87a3b254c4c0ab2426e8accc56a379d9"
+  }
+]

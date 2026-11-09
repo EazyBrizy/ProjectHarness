@@ -1,0 +1,19 @@
+{
+  "command": [
+    ".\\_scratch\\ph_lw_11\\build-env\\Scripts\\python.exe",
+    "-B",
+    "Project_Harness_Engine_v0.5.1/local_web/windows/build_windows.py",
+    "--output",
+    "_scratch/ph_lw_12/build-final",
+    "--iscc",
+    "_tools/InnoSetup674/ISCC.exe"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-08T08:56:19.346176+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 900,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 40.969,
+  "log_sha256": "7168eba93f54ef376fd484979b3a08e5767c19111484fb19f281cf8eda376cf2"
+}

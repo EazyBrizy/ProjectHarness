@@ -1,0 +1,23 @@
+test_foreign_origin_browser_form_fetch_and_frame_are_denied (tests.test_ph_lw_04_05_acceptance.BrowserImportAcceptance.test_foreign_origin_browser_form_fetch_and_frame_are_denied) ... ERROR
+test_real_bootstrap_elapsed_expiry_and_connection_limit (tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_real_bootstrap_elapsed_expiry_and_connection_limit) ... total open connections reached the connection limit, no longer accepting new connections
+ok
+test_native_windows_snapshot_parent_junction_rejected (tests.test_ph_lw_05_import.LocalSourceImporter.test_native_windows_snapshot_parent_junction_rejected) ... ok
+test_snapshot_hardlink_and_copy_time_tamper_fail_closed (tests.test_ph_lw_05_import.LocalSourceImporter.test_snapshot_hardlink_and_copy_time_tamper_fail_closed) ... ok
+
+======================================================================
+ERROR: test_foreign_origin_browser_form_fetch_and_frame_are_denied (tests.test_ph_lw_04_05_acceptance.BrowserImportAcceptance.test_foreign_origin_browser_form_fetch_and_frame_are_denied)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_04_05_acceptance.py", line 250, in test_foreign_origin_browser_form_fetch_and_frame_are_denied
+    with page.expect_response(lambda r: r.url == live.origin + '/api/intakes') as response:
+         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 82, in __exit__
+    self._event.value
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 56, in value
+    raise exception
+playwright._impl._errors.TimeoutError: Timeout 30000ms exceeded while waiting for event "response"
+
+----------------------------------------------------------------------
+Ran 4 tests in 237.087s
+
+FAILED (errors=1)

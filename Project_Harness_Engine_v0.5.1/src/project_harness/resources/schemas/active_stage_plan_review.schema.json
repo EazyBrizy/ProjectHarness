@@ -1,0 +1,672 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "SCHEMA-ACTIVE-STAGE-PLAN-REVIEW@1",
+  "title": "Exact-bound governed active-stage planning review",
+  "type": "object",
+  "required": [
+    "active_stage_plan_review"
+  ],
+  "properties": {
+    "active_stage_plan_review": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "schema_ref",
+        "record_kind",
+        "id",
+        "revision",
+        "route",
+        "binding",
+        "planning_basis",
+        "review",
+        "work_packages",
+        "candidate_work_digest",
+        "future_stage_work"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "schema_ref": {
+          "const": "SCHEMA-ACTIVE-STAGE-PLAN-REVIEW@1"
+        },
+        "record_kind": {
+          "const": "ACTIVE_STAGE_PLAN_REVIEW"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "const": 1
+        },
+        "route": {
+          "const": "PLAN_ACTIVE_STAGE"
+        },
+        "binding": {
+          "type": "object",
+          "required": [
+            "stage_state_revision",
+            "stage_state_digest",
+            "highest_accepted_level",
+            "active_stage",
+            "target_level",
+            "stage_plan_ref",
+            "stage_plan_digest",
+            "gate_ref",
+            "gate_digest",
+            "last_acceptance_ref",
+            "last_acceptance_digest",
+            "accepted_baseline_revision",
+            "product_baseline_revision",
+            "accepted_scope_ref",
+            "accepted_scope_digest",
+            "accepted_input_digest",
+            "maintenance_report_ref",
+            "maintenance_report_digest"
+          ],
+          "properties": {
+            "stage_state_revision": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "stage_state_digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "highest_accepted_level": {
+              "enum": [
+                "PROTOTYPE",
+                "ALPHA",
+                "BETA",
+                "MVP",
+                "RELEASE"
+              ]
+            },
+            "active_stage": {
+              "enum": [
+                "PROTOTYPE",
+                "ALPHA",
+                "BETA",
+                "MVP",
+                "RELEASE"
+              ]
+            },
+            "target_level": {
+              "enum": [
+                "PROTOTYPE",
+                "ALPHA",
+                "BETA",
+                "MVP",
+                "RELEASE"
+              ]
+            },
+            "stage_plan_ref": {
+              "type": "string",
+              "pattern": "^[A-Z][A-Z0-9]*-[A-Z0-9][A-Z0-9._:-]*@[1-9][0-9]*$"
+            },
+            "stage_plan_digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "gate_ref": {
+              "type": "string",
+              "pattern": "^[A-Z][A-Z0-9]*-[A-Z0-9][A-Z0-9._:-]*@[1-9][0-9]*$"
+            },
+            "gate_digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "last_acceptance_ref": {
+              "type": "string",
+              "pattern": "^[A-Z][A-Z0-9]*-[A-Z0-9][A-Z0-9._:-]*@[1-9][0-9]*$"
+            },
+            "last_acceptance_digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "accepted_baseline_revision": {
+              "type": "string",
+              "pattern": "^tree:sha256:[0-9a-f]{64}$"
+            },
+            "product_baseline_revision": {
+              "type": "string",
+              "pattern": "^tree:sha256:[0-9a-f]{64}$"
+            },
+            "accepted_scope_ref": {
+              "type": "string",
+              "pattern": "^[A-Z][A-Z0-9]*-[A-Z0-9][A-Z0-9._:-]*@[1-9][0-9]*$"
+            },
+            "accepted_scope_digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "accepted_input_digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "maintenance_report_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "maintenance_report_digest": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "planning_basis": {
+          "type": "object",
+          "required": [
+            "required_outcomes",
+            "criteria_refs",
+            "profile_control_refs",
+            "hard_constraint_refs",
+            "requirement_refs",
+            "constraint_refs",
+            "accepted_scope_in",
+            "accepted_scope_out",
+            "next_stage_gaps",
+            "known_limitations",
+            "permitted_use",
+            "product_files"
+          ],
+          "properties": {
+            "required_outcomes": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "criteria_refs": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "profile_control_refs": {
+              "type": "array",
+              "minItems": 0,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "hard_constraint_refs": {
+              "type": "array",
+              "minItems": 0,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "requirement_refs": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "pattern": "^[A-Z][A-Z0-9]*-[A-Z0-9][A-Z0-9._:-]*@[1-9][0-9]*$"
+              }
+            },
+            "constraint_refs": {
+              "type": "array",
+              "minItems": 0,
+              "items": {
+                "type": "string",
+                "pattern": "^[A-Z][A-Z0-9]*-[A-Z0-9][A-Z0-9._:-]*@[1-9][0-9]*$"
+              }
+            },
+            "accepted_scope_in": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "accepted_scope_out": {
+              "type": "array",
+              "minItems": 0,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "next_stage_gaps": {
+              "type": "array",
+              "minItems": 0,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "known_limitations": {
+              "type": "array",
+              "minItems": 0,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "permitted_use": {
+              "type": "object"
+            },
+            "product_files": {
+              "type": "array",
+              "minItems": 0,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "review": {
+          "type": "object",
+          "required": [
+            "material_change",
+            "scope_confirmed",
+            "decision"
+          ],
+          "properties": {
+            "material_change": {
+              "type": "boolean"
+            },
+            "scope_confirmed": {
+              "type": "boolean"
+            },
+            "decision": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "kind",
+                    "approved",
+                    "actor",
+                    "approved_at",
+                    "rationale"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "kind": {
+                      "const": "ACTIVE_STAGE_PLAN_REVIEW"
+                    },
+                    "approved": {
+                      "const": true
+                    },
+                    "actor": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "approved_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "rationale": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "work_packages": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "title",
+              "objective",
+              "implementation_stage",
+              "tasks"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "objective": {
+                "type": "string",
+                "minLength": 1
+              },
+              "implementation_stage": {
+                "enum": [
+                  "PROTOTYPE",
+                  "ALPHA",
+                  "BETA",
+                  "MVP",
+                  "RELEASE"
+                ]
+              },
+              "tasks": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "criterion_ref",
+                    "title",
+                    "type",
+                    "priority",
+                    "purpose",
+                    "expected_result",
+                    "implementation_stage",
+                    "future_stage_work",
+                    "depends_on_tasks",
+                    "requirement_refs",
+                    "constraint_refs",
+                    "scope",
+                    "route",
+                    "verification",
+                    "documentation",
+                    "acceptance_criteria",
+                    "rollback"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "criterion_ref": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "title": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "type": {
+                      "enum": [
+                        "IMPLEMENT",
+                        "VERIFY",
+                        "DOCUMENT",
+                        "TEST",
+                        "MIGRATE",
+                        "REFACTOR"
+                      ]
+                    },
+                    "priority": {
+                      "enum": [
+                        "NORMAL",
+                        "HIGH",
+                        "CRITICAL",
+                        "LOW"
+                      ]
+                    },
+                    "purpose": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "expected_result": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "implementation_stage": {
+                      "enum": [
+                        "PROTOTYPE",
+                        "ALPHA",
+                        "BETA",
+                        "MVP",
+                        "RELEASE"
+                      ]
+                    },
+                    "future_stage_work": {
+                      "const": "FORBIDDEN"
+                    },
+                    "depends_on_tasks": {
+                      "type": "array",
+                      "minItems": 0,
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "requirement_refs": {
+                      "type": "array",
+                      "minItems": 0,
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[A-Z][A-Z0-9]*-[A-Z0-9][A-Z0-9._:-]*@[1-9][0-9]*$"
+                      }
+                    },
+                    "constraint_refs": {
+                      "type": "array",
+                      "minItems": 0,
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[A-Z][A-Z0-9]*-[A-Z0-9][A-Z0-9._:-]*@[1-9][0-9]*$"
+                      }
+                    },
+                    "scope": {
+                      "type": "object",
+                      "required": [
+                        "read",
+                        "write",
+                        "forbidden"
+                      ],
+                      "properties": {
+                        "read": {
+                          "type": "array",
+                          "minItems": 0,
+                          "items": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "write": {
+                          "type": "array",
+                          "minItems": 0,
+                          "items": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "forbidden": {
+                          "type": "array",
+                          "minItems": 0,
+                          "items": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    "route": {
+                      "type": "object",
+                      "required": [
+                        "primary_skill_ref",
+                        "supporting_skill_refs",
+                        "required_capabilities"
+                      ],
+                      "properties": {
+                        "primary_skill_ref": {
+                          "type": "string",
+                          "pattern": "^[A-Z][A-Z0-9]*-[A-Z0-9][A-Z0-9._:-]*@[1-9][0-9]*$"
+                        },
+                        "supporting_skill_refs": {
+                          "type": "array",
+                          "minItems": 0,
+                          "items": {
+                            "type": "string",
+                            "pattern": "^[A-Z][A-Z0-9]*-[A-Z0-9][A-Z0-9._:-]*@[1-9][0-9]*$"
+                          }
+                        },
+                        "required_capabilities": {
+                          "type": "array",
+                          "minItems": 1,
+                          "items": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    "verification": {
+                      "type": "object",
+                      "required": [
+                        "commands",
+                        "expected_paths",
+                        "manual_checks",
+                        "timeout_seconds",
+                        "allow_manual"
+                      ],
+                      "properties": {
+                        "commands": {
+                          "type": "array",
+                          "minItems": 0,
+                          "items": {
+                            "type": "object",
+                            "required": [
+                              "argv",
+                              "cwd",
+                              "timeout_seconds"
+                            ],
+                            "properties": {
+                              "argv": {
+                                "type": "array",
+                                "minItems": 1,
+                                "items": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              },
+                              "cwd": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "timeout_seconds": {
+                                "type": "integer",
+                                "minimum": 1
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        },
+                        "expected_paths": {
+                          "type": "array",
+                          "minItems": 0,
+                          "items": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "manual_checks": {
+                          "type": "array",
+                          "minItems": 1,
+                          "items": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "timeout_seconds": {
+                          "type": "integer",
+                          "minimum": 1
+                        },
+                        "allow_manual": {
+                          "type": "boolean"
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    "documentation": {
+                      "type": "object",
+                      "required": [
+                        "source_refs",
+                        "impact",
+                        "required_updates"
+                      ],
+                      "properties": {
+                        "source_refs": {
+                          "type": "array",
+                          "minItems": 0,
+                          "items": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "impact": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "required_updates": {
+                          "type": "array",
+                          "minItems": 0,
+                          "items": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    "acceptance_criteria": {
+                      "type": "array",
+                      "minItems": 1,
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "rollback": {
+                      "type": "object",
+                      "required": [
+                        "strategy"
+                      ],
+                      "properties": {
+                        "strategy": {
+                          "const": "RESTORE_PRE_RUN_SNAPSHOT"
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "candidate_work_digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "future_stage_work": {
+          "const": "FORBIDDEN"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

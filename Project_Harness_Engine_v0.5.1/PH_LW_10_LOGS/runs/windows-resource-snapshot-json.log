@@ -1,0 +1,370 @@
+{
+    "Time":  "2026-11-07T16:08:33.7292992+03:00",
+    "Tcp":  [
+                {
+                    "Name":  "Listen",
+                    "Count":  42
+                },
+                {
+                    "Name":  "Bound",
+                    "Count":  201
+                },
+                {
+                    "Name":  "Established",
+                    "Count":  132
+                },
+                {
+                    "Name":  "TimeWait",
+                    "Count":  235
+                },
+                {
+                    "Name":  "FinWait1",
+                    "Count":  27
+                },
+                {
+                    "Name":  "FinWait2",
+                    "Count":  26
+                },
+                {
+                    "Name":  "CloseWait",
+                    "Count":  6
+                }
+            ],
+    "Processes":  [
+                      {
+                          "ProcessName":  "msedge",
+                          "Id":  3828,
+                          "Handles":  457,
+                          "WorkingSet64":  42192896,
+                          "CPU":  0.3125
+                      },
+                      {
+                          "ProcessName":  "msedge",
+                          "Id":  12076,
+                          "Handles":  308,
+                          "WorkingSet64":  97349632,
+                          "CPU":  0.328125
+                      },
+                      {
+                          "ProcessName":  "msedge",
+                          "Id":  22256,
+                          "Handles":  1623,
+                          "WorkingSet64":  161882112,
+                          "CPU":  1.703125
+                      },
+                      {
+                          "ProcessName":  "msedge",
+                          "Id":  26752,
+                          "Handles":  172,
+                          "WorkingSet64":  19501056,
+                          "CPU":  0
+                      },
+                      {
+                          "ProcessName":  "msedge",
+                          "Id":  31180,
+                          "Handles":  182,
+                          "WorkingSet64":  21250048,
+                          "CPU":  0.03125
+                      },
+                      {
+                          "ProcessName":  "msedge",
+                          "Id":  34308,
+                          "Handles":  227,
+                          "WorkingSet64":  33259520,
+                          "CPU":  0.0625
+                      },
+                      {
+                          "ProcessName":  "msedge",
+                          "Id":  42736,
+                          "Handles":  166,
+                          "WorkingSet64":  18833408,
+                          "CPU":  0.015625
+                      },
+                      {
+                          "ProcessName":  "msedge",
+                          "Id":  42908,
+                          "Handles":  182,
+                          "WorkingSet64":  10575872,
+                          "CPU":  0.015625
+                      },
+                      {
+                          "ProcessName":  "msedge",
+                          "Id":  49680,
+                          "Handles":  751,
+                          "WorkingSet64":  247980032,
+                          "CPU":  2.109375
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  4312,
+                          "Handles":  206,
+                          "WorkingSet64":  19435520,
+                          "CPU":  0.140625
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  6592,
+                          "Handles":  206,
+                          "WorkingSet64":  19300352,
+                          "CPU":  0.1875
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  10156,
+                          "Handles":  215,
+                          "WorkingSet64":  52428800,
+                          "CPU":  0.046875
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  10456,
+                          "Handles":  207,
+                          "WorkingSet64":  48209920,
+                          "CPU":  0.1875
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  10464,
+                          "Handles":  213,
+                          "WorkingSet64":  54452224,
+                          "CPU":  0.046875
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  18392,
+                          "Handles":  239,
+                          "WorkingSet64":  23580672,
+                          "CPU":  1.625
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  23664,
+                          "Handles":  217,
+                          "WorkingSet64":  56979456,
+                          "CPU":  0.125
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  24196,
+                          "Handles":  215,
+                          "WorkingSet64":  48336896,
+                          "CPU":  0.046875
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  27248,
+                          "Handles":  211,
+                          "WorkingSet64":  47542272,
+                          "CPU":  0.203125
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  27640,
+                          "Handles":  208,
+                          "WorkingSet64":  48156672,
+                          "CPU":  0.15625
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  27940,
+                          "Handles":  211,
+                          "WorkingSet64":  59355136,
+                          "CPU":  0.40625
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  29308,
+                          "Handles":  206,
+                          "WorkingSet64":  59338752,
+                          "CPU":  0.125
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  29480,
+                          "Handles":  220,
+                          "WorkingSet64":  47697920,
+                          "CPU":  0.171875
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  29612,
+                          "Handles":  212,
+                          "WorkingSet64":  47575040,
+                          "CPU":  0.25
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  30248,
+                          "Handles":  207,
+                          "WorkingSet64":  19316736,
+                          "CPU":  0.203125
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  34044,
+                          "Handles":  218,
+                          "WorkingSet64":  35913728,
+                          "CPU":  0.171875
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  34444,
+                          "Handles":  209,
+                          "WorkingSet64":  53665792,
+                          "CPU":  0.28125
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  39240,
+                          "Handles":  219,
+                          "WorkingSet64":  47706112,
+                          "CPU":  0.21875
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  39544,
+                          "Handles":  208,
+                          "WorkingSet64":  48566272,
+                          "CPU":  0.234375
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  42652,
+                          "Handles":  209,
+                          "WorkingSet64":  48238592,
+                          "CPU":  0.21875
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  42944,
+                          "Handles":  212,
+                          "WorkingSet64":  25792512,
+                          "CPU":  0.21875
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  43396,
+                          "Handles":  214,
+                          "WorkingSet64":  48328704,
+                          "CPU":  0.140625
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  43408,
+                          "Handles":  207,
+                          "WorkingSet64":  60047360,
+                          "CPU":  0.3125
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  43616,
+                          "Handles":  229,
+                          "WorkingSet64":  134021120,
+                          "CPU":  0.4375
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  44924,
+                          "Handles":  210,
+                          "WorkingSet64":  60219392,
+                          "CPU":  0.203125
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  45920,
+                          "Handles":  213,
+                          "WorkingSet64":  47529984,
+                          "CPU":  0.515625
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  49268,
+                          "Handles":  207,
+                          "WorkingSet64":  20226048,
+                          "CPU":  0.1875
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  49556,
+                          "Handles":  208,
+                          "WorkingSet64":  54169600,
+                          "CPU":  0.171875
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  49740,
+                          "Handles":  218,
+                          "WorkingSet64":  19263488,
+                          "CPU":  0.09375
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  49992,
+                          "Handles":  213,
+                          "WorkingSet64":  47529984,
+                          "CPU":  0.40625
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  53268,
+                          "Handles":  211,
+                          "WorkingSet64":  47546368,
+                          "CPU":  0.21875
+                      },
+                      {
+                          "ProcessName":  "node",
+                          "Id":  53556,
+                          "Handles":  218,
+                          "WorkingSet64":  18829312,
+                          "CPU":  0.203125
+                      },
+                      {
+                          "ProcessName":  "python",
+                          "Id":  436,
+                          "Handles":  88,
+                          "WorkingSet64":  4784128,
+                          "CPU":  0
+                      },
+                      {
+                          "ProcessName":  "python",
+                          "Id":  7060,
+                          "Handles":  55,
+                          "WorkingSet64":  4784128,
+                          "CPU":  0.015625
+                      },
+                      {
+                          "ProcessName":  "python",
+                          "Id":  24424,
+                          "Handles":  197,
+                          "WorkingSet64":  27230208,
+                          "CPU":  0.109375
+                      },
+                      {
+                          "ProcessName":  "python",
+                          "Id":  39032,
+                          "Handles":  197,
+                          "WorkingSet64":  27414528,
+                          "CPU":  0.125
+                      },
+                      {
+                          "ProcessName":  "python",
+                          "Id":  42712,
+                          "Handles":  240,
+                          "WorkingSet64":  69267456,
+                          "CPU":  4.640625
+                      },
+                      {
+                          "ProcessName":  "python",
+                          "Id":  53840,
+                          "Handles":  88,
+                          "WorkingSet64":  4784128,
+                          "CPU":  0
+                      }
+                  ],
+    "Memory":  {
+                   "TotalVisibleMemorySize":  33251192,
+                   "FreePhysicalMemory":  7808340,
+                   "TotalVirtualMemorySize":  67515512,
+                   "FreeVirtualMemory":  23935804
+               }
+}

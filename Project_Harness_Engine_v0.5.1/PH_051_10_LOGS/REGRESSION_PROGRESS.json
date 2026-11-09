@@ -1,0 +1,163 @@
+[
+  {
+    "shard": 1,
+    "modules": [
+      "test_ph_f06_maturity_lifecycle"
+    ],
+    "exit_code": 1,
+    "tests": 11,
+    "skipped": 0,
+    "seconds": 361.11,
+    "log": "REGRESSION_SHARD_01.log",
+    "result": "FAIL"
+  },
+  {
+    "shard": 2,
+    "modules": [
+      "test_ph_f08_release_acceptance"
+    ],
+    "exit_code": 1,
+    "tests": 2,
+    "skipped": 0,
+    "seconds": 159.3,
+    "log": "REGRESSION_SHARD_02.log",
+    "result": "FAIL"
+  },
+  {
+    "shard": 3,
+    "modules": [
+      "test_ph_f05_intake_acceptance"
+    ],
+    "exit_code": 0,
+    "tests": 4,
+    "skipped": 0,
+    "seconds": 15.27,
+    "log": "REGRESSION_SHARD_03.log",
+    "result": "PASS"
+  },
+  {
+    "shard": 4,
+    "modules": [
+      "test_engine"
+    ],
+    "exit_code": 0,
+    "tests": 14,
+    "skipped": 0,
+    "seconds": 87.51,
+    "log": "REGRESSION_SHARD_04.log",
+    "result": "PASS"
+  },
+  {
+    "shard": 5,
+    "modules": [
+      "test_contract_hardening",
+      "test_ph_051_06_result_channel",
+      "test_ph_f01_planner_regression"
+    ],
+    "exit_code": 1,
+    "tests": 50,
+    "skipped": 0,
+    "seconds": 372.16,
+    "log": "REGRESSION_SHARD_05.log",
+    "result": "FAIL"
+  },
+  {
+    "shard": 6,
+    "modules": [
+      "test_stage_transaction_recovery",
+      "test_maintenance_lifecycle",
+      "test_stage_approval_preparation",
+      "test_ph_f02_semantic_proof_contract"
+    ],
+    "exit_code": 0,
+    "tests": 34,
+    "skipped": 0,
+    "seconds": 468.26,
+    "log": "REGRESSION_SHARD_06.log",
+    "result": "PASS"
+  },
+  {
+    "shard": 7,
+    "modules": [
+      "test_assessment_freshness",
+      "test_ph_051_05_codex_adapter",
+      "test_ph_051_01_contract_baseline",
+      "test_ph_f01_gate_semantics_regression"
+    ],
+    "exit_code": 0,
+    "tests": 38,
+    "skipped": 1,
+    "seconds": 298.71,
+    "log": "REGRESSION_SHARD_07.log",
+    "result": "PASS"
+  },
+  {
+    "shard": 8,
+    "modules": [
+      "test_implementation_levels",
+      "test_ph_051_03_rootless_podman",
+      "test_ph_f04_runtime_reachability",
+      "test_ph_051_07_sandbox_verification"
+    ],
+    "exit_code": 0,
+    "tests": 47,
+    "skipped": 1,
+    "seconds": 350.17,
+    "log": "REGRESSION_SHARD_08.log",
+    "result": "PASS"
+  },
+  {
+    "shard": 9,
+    "modules": [
+      "test_ph_051_02_executor_protocol",
+      "test_gate_evidence_contract",
+      "test_ph_f03_active_stage_planning",
+      "test_canonical_target"
+    ],
+    "exit_code": 0,
+    "tests": 47,
+    "skipped": 0,
+    "seconds": 563.13,
+    "log": "REGRESSION_SHARD_09.log",
+    "result": "PASS"
+  },
+  {
+    "shard": 10,
+    "modules": [
+      "test_ph_051_08_atomic_apply",
+      "test_stage_gate_preparation_block_recovery",
+      "test_ph_051_04_disposable_roots",
+      "test_exact_assessment_ref"
+    ],
+    "exit_code": 0,
+    "tests": 56,
+    "skipped": 0,
+    "seconds": 443.76,
+    "log": "REGRESSION_SHARD_10.log",
+    "result": "PASS"
+  },
+  {
+    "shard": 11,
+    "modules": [
+      "test_ph_051_09_automatic_runtime"
+    ],
+    "exit_code": 0,
+    "tests": 15,
+    "skipped": 0,
+    "seconds": 125.23,
+    "log": "REGRESSION_SHARD_11.log",
+    "result": "PASS"
+  },
+  {
+    "shard": 12,
+    "modules": [
+      "test_ph_051_10_migration_recovery"
+    ],
+    "exit_code": 0,
+    "tests": 17,
+    "skipped": 0,
+    "seconds": 90.39,
+    "log": "REGRESSION_SHARD_12.log",
+    "result": "PASS"
+  }
+]

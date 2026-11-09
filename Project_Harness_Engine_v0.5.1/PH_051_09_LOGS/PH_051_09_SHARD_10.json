@@ -1,0 +1,14 @@
+{
+  "shard": 10,
+  "modules": [
+    "test_ph_051_08_atomic_apply",
+    "test_stage_gate_preparation_block_recovery",
+    "test_ph_051_04_disposable_roots",
+    "test_exact_assessment_ref"
+  ],
+  "exit_code": 0,
+  "tests": 56,
+  "seconds": 99.037,
+  "log": "PH_051_09_SHARD_10.log",
+  "result": "PASS"
+}

@@ -1,0 +1,484 @@
+test_15_kernel_owned_result_and_logs_are_immutable_and_fenced (tests.test_ph_051_06_result_channel.KernelPublicationTests.test_15_kernel_owned_result_and_logs_are_immutable_and_fenced) ... ERROR
+test_16_argv_contains_only_env_file_path_and_no_secret_echo (tests.test_ph_051_06_result_channel.MockedRunnerEnvTests.test_16_argv_contains_only_env_file_path_and_no_secret_echo) ... ERROR
+test_01_schema_exact_binding_and_unverified_art_record (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_01_schema_exact_binding_and_unverified_art_record) ... ERROR
+test_02_agent_claim_never_causes_optimistic_completion (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_02_agent_claim_never_causes_optimistic_completion) ... 
+  test_02_agent_claim_never_causes_optimistic_completion (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_02_agent_claim_never_causes_optimistic_completion) (status='BLOCKED') ... ERROR
+  test_02_agent_claim_never_causes_optimistic_completion (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_02_agent_claim_never_causes_optimistic_completion) (status='FAILED') ... ERROR
+  test_02_agent_claim_never_causes_optimistic_completion (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_02_agent_claim_never_causes_optimistic_completion) (status='COMPLETED') ... ERROR
+test_03_missing_invalid_utf8_duplicate_keys_and_nonfinite_numbers (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_03_missing_invalid_utf8_duplicate_keys_and_nonfinite_numbers) ... 
+  test_03_missing_invalid_utf8_duplicate_keys_and_nonfinite_numbers (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_03_missing_invalid_utf8_duplicate_keys_and_nonfinite_numbers) (raw=b'{"a":1,"a":2}') ... ERROR
+  test_03_missing_invalid_utf8_duplicate_keys_and_nonfinite_numbers (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_03_missing_invalid_utf8_duplicate_keys_and_nonfinite_numbers) (raw=b'{"run_ref":NaN}') ... ERROR
+test_04_wrong_run_task_unknown_fields_arrays_and_status (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_04_wrong_run_task_unknown_fields_arrays_and_status) ... 
+  test_04_wrong_run_task_unknown_fields_arrays_and_status (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_04_wrong_run_task_unknown_fields_arrays_and_status) (case={'schema_version': 1, 'task_ref': 'TSK-TEST-001@1', 'run_ref': 'RUN-FOREIGN-001', 'status': 'COMPLETED', 'summary': 'One bounded change', 'changes': {'added': ['implemented.txt'], 'modified': [], 'deleted': []}, 'commands': [], 'tests': [], 'evidence': [], 'blockers': []}) ... ERROR
+  test_04_wrong_run_task_unknown_fields_arrays_and_status (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_04_wrong_run_task_unknown_fields_arrays_and_status) (case={'schema_version': 1, 'task_ref': 'TSK-FOREIGN', 'run_ref': 'RUN-TEST-001', 'status': 'COMPLETED', 'summary': 'One bounded change', 'changes': {'added': ['implemented.txt'], 'modified': [], 'deleted': []}, 'commands': [], 'tests': [], 'evidence': [], 'blockers': []}) ... ERROR
+  test_04_wrong_run_task_unknown_fields_arrays_and_status (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_04_wrong_run_task_unknown_fields_arrays_and_status) (case={'schema_version': True, 'task_ref': 'TSK-TEST-001@1', 'run_ref': 'RUN-TEST-001', 'status': 'COMPLETED', 'summary': 'One bounded change', 'changes': {'added': ['implemented.txt'], 'modified': [], 'deleted': []}, 'commands': [], 'tests': [], 'evidence': [], 'blockers': []}) ... ERROR
+  test_04_wrong_run_task_unknown_fields_arrays_and_status (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_04_wrong_run_task_unknown_fields_arrays_and_status) (case={'schema_version': 1, 'task_ref': 'TSK-TEST-001@1', 'run_ref': 'RUN-TEST-001', 'status': 'COMPLETED', 'summary': 'One bounded change', 'changes': {'added': ['implemented.txt'], 'modified': [], 'deleted': []}, 'commands': [], 'tests': [], 'evidence': [], 'blockers': [], 'unexpected': 'EXECUTE'}) ... ERROR
+  test_04_wrong_run_task_unknown_fields_arrays_and_status (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_04_wrong_run_task_unknown_fields_arrays_and_status) (case={'schema_version': 1, 'task_ref': 'TSK-TEST-001@1', 'run_ref': 'RUN-TEST-001', 'status': 'COMPLETED', 'changes': {'added': ['implemented.txt'], 'modified': [], 'deleted': []}, 'commands': [], 'tests': [], 'evidence': [], 'blockers': []}) ... ERROR
+  test_04_wrong_run_task_unknown_fields_arrays_and_status (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_04_wrong_run_task_unknown_fields_arrays_and_status) (case={'schema_version': 1, 'task_ref': 'TSK-TEST-001@1', 'run_ref': 'RUN-TEST-001', 'status': 'COMPLETED', 'summary': 'One bounded change', 'changes': {'added': ['implemented.txt'], 'modified': [], 'deleted': []}, 'commands': {}, 'tests': [], 'evidence': [], 'blockers': []}) ... ERROR
+  test_04_wrong_run_task_unknown_fields_arrays_and_status (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_04_wrong_run_task_unknown_fields_arrays_and_status) (case={'schema_version': 1, 'task_ref': 'TSK-TEST-001@1', 'run_ref': 'RUN-TEST-001', 'status': 'COMPLETED', 'summary': 'One bounded change', 'changes': {'added': [], 'modified': [], 'deleted': [], 'whoops': []}, 'commands': [], 'tests': [], 'evidence': [], 'blockers': []}) ... ERROR
+  test_04_wrong_run_task_unknown_fields_arrays_and_status (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_04_wrong_run_task_unknown_fields_arrays_and_status) (case={'schema_version': 1, 'task_ref': 'TSK-TEST-001@1', 'run_ref': 'RUN-TEST-001', 'status': 'COMPLETED', 'summary': 'One bounded change', 'changes': {'added': [13], 'modified': [], 'deleted': []}, 'commands': [], 'tests': [], 'evidence': [], 'blockers': []}) ... ERROR
+  test_04_wrong_run_task_unknown_fields_arrays_and_status (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_04_wrong_run_task_unknown_fields_arrays_and_status) (case={'schema_version': 1, 'task_ref': 'TSK-TEST-001@1', 'run_ref': 'RUN-TEST-001', 'status': 'PASS', 'summary': 'One bounded change', 'changes': {'added': ['implemented.txt'], 'modified': [], 'deleted': []}, 'commands': [], 'tests': [], 'evidence': [], 'blockers': []}) ... ERROR
+test_05_symlink_hardlink_fifo_mode_and_ownership_fail_closed (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_05_symlink_hardlink_fifo_mode_and_ownership_fail_closed) ... ERROR
+test_06_parent_symlink_and_extra_outputs_are_rejected (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_06_parent_symlink_and_extra_outputs_are_rejected) ... ERROR
+test_07_oversize_result_and_bounded_log_flood_rejected (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_07_oversize_result_and_bounded_log_flood_rejected) ... ok
+test_08_secret_echo_in_stdout_stderr_result_escape_and_unicode (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_08_secret_echo_in_stdout_stderr_result_escape_and_unicode) ... ERROR
+test_09_typed_string_looking_like_shell_is_inert_json (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_09_typed_string_looking_like_shell_is_inert_json) ... ERROR
+test_10_environment_refs_only_no_host_env_dump (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_10_environment_refs_only_no_host_env_dump) ... ok
+test_11_read_only_changed_product_secret_scan_helper (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_11_read_only_changed_product_secret_scan_helper) ... ok
+
+======================================================================
+ERROR: test_15_kernel_owned_result_and_logs_are_immutable_and_fenced (tests.test_ph_051_06_result_channel.KernelPublicationTests.test_15_kernel_owned_result_and_logs_are_immutable_and_fenced)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 227, in test_15_kernel_owned_result_and_logs_are_immutable_and_fenced
+    preparation = adapter.prepare_current_run(self.runtime)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\codex_cli_local.py", line 331, in prepare_current_run
+    root = prepare_execution_root(self._bound["project_root"], Path(runtime_root), run_ref=run_ref)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\execution_roots.py", line 257, in prepare_execution_root
+    baseline = safe_disposable_baseline_revision(canonical)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\safety.py", line 249, in safe_disposable_baseline_revision
+    directory_fd = os.open(root, directory_flags)
+PermissionError: [Errno 13] Permission denied: '<TEMP>\\ph05105-jit-plkw8gtc\\build\\handoff'
+
+======================================================================
+ERROR: test_16_argv_contains_only_env_file_path_and_no_secret_echo (tests.test_ph_051_06_result_channel.MockedRunnerEnvTests.test_16_argv_contains_only_env_file_path_and_no_secret_echo)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 268, in test_16_argv_contains_only_env_file_path_and_no_secret_echo
+    with mock.patch.dict(os.environ,{"FAKE_CLI_SECRET":secret}),mock.patch("os.geteuid",return_value=1001), \
+                                                                ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1510, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\_tools\Python314\Lib\unittest\mock.py", line 1480, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'os' (frozen)> does not have the attribute 'geteuid'
+
+======================================================================
+ERROR: test_01_schema_exact_binding_and_unverified_art_record (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_01_schema_exact_binding_and_unverified_art_record)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 73, in test_01_schema_exact_binding_and_unverified_art_record
+    value, canonical = validate_exact_result_channel(self.folder, run_ref="RUN-TEST-001", task_ref="TSK-TEST-001@1")
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 273, in validate_exact_result_channel
+    raw = _read_exact_result(output_dir, owner_uid=os.geteuid() if owner_uid is None else owner_uid)
+                                                   ^^^^^^^^^^
+AttributeError: module 'os' has no attribute 'geteuid'. Did you mean: 'getpid'?
+
+======================================================================
+ERROR: test_02_agent_claim_never_causes_optimistic_completion (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_02_agent_claim_never_causes_optimistic_completion) (status='BLOCKED')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 94, in test_02_agent_claim_never_causes_optimistic_completion
+    r = normalized(self.folder)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 56, in normalized
+    return normalize_exact_execution_result(
+        process or sandbox_return(), folder, run_ref=run_ref, task_ref=task_ref,
+        adapter_profile_ref=ADP, sandbox_profile_ref=SBX,
+        execution_root_digest="sha256:" + "b" * 64,
+        project_root=root, secret_values=secrets)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 467, in normalize_exact_execution_result
+    result, canonical_agent_bytes = validate_exact_result_channel(
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        output_dir, run_ref=run_ref, task_ref=task_ref, secret_values=secrets)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 273, in validate_exact_result_channel
+    raw = _read_exact_result(output_dir, owner_uid=os.geteuid() if owner_uid is None else owner_uid)
+                                                   ^^^^^^^^^^
+AttributeError: module 'os' has no attribute 'geteuid'. Did you mean: 'getpid'?
+
+======================================================================
+ERROR: test_02_agent_claim_never_causes_optimistic_completion (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_02_agent_claim_never_causes_optimistic_completion) (status='FAILED')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 94, in test_02_agent_claim_never_causes_optimistic_completion
+    r = normalized(self.folder)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 56, in normalized
+    return normalize_exact_execution_result(
+        process or sandbox_return(), folder, run_ref=run_ref, task_ref=task_ref,
+        adapter_profile_ref=ADP, sandbox_profile_ref=SBX,
+        execution_root_digest="sha256:" + "b" * 64,
+        project_root=root, secret_values=secrets)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 467, in normalize_exact_execution_result
+    result, canonical_agent_bytes = validate_exact_result_channel(
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        output_dir, run_ref=run_ref, task_ref=task_ref, secret_values=secrets)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 273, in validate_exact_result_channel
+    raw = _read_exact_result(output_dir, owner_uid=os.geteuid() if owner_uid is None else owner_uid)
+                                                   ^^^^^^^^^^
+AttributeError: module 'os' has no attribute 'geteuid'. Did you mean: 'getpid'?
+
+======================================================================
+ERROR: test_02_agent_claim_never_causes_optimistic_completion (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_02_agent_claim_never_causes_optimistic_completion) (status='COMPLETED')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 94, in test_02_agent_claim_never_causes_optimistic_completion
+    r = normalized(self.folder)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 56, in normalized
+    return normalize_exact_execution_result(
+        process or sandbox_return(), folder, run_ref=run_ref, task_ref=task_ref,
+        adapter_profile_ref=ADP, sandbox_profile_ref=SBX,
+        execution_root_digest="sha256:" + "b" * 64,
+        project_root=root, secret_values=secrets)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 467, in normalize_exact_execution_result
+    result, canonical_agent_bytes = validate_exact_result_channel(
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        output_dir, run_ref=run_ref, task_ref=task_ref, secret_values=secrets)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 273, in validate_exact_result_channel
+    raw = _read_exact_result(output_dir, owner_uid=os.geteuid() if owner_uid is None else owner_uid)
+                                                   ^^^^^^^^^^
+AttributeError: module 'os' has no attribute 'geteuid'. Did you mean: 'getpid'?
+
+======================================================================
+ERROR: test_03_missing_invalid_utf8_duplicate_keys_and_nonfinite_numbers (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_03_missing_invalid_utf8_duplicate_keys_and_nonfinite_numbers) (raw=b'{"a":1,"a":2}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 107, in test_03_missing_invalid_utf8_duplicate_keys_and_nonfinite_numbers
+    self.assertEqual(normalized(self.folder)["reason_code"], "RESULT_INVALID")
+                     ~~~~~~~~~~^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 56, in normalized
+    return normalize_exact_execution_result(
+        process or sandbox_return(), folder, run_ref=run_ref, task_ref=task_ref,
+        adapter_profile_ref=ADP, sandbox_profile_ref=SBX,
+        execution_root_digest="sha256:" + "b" * 64,
+        project_root=root, secret_values=secrets)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 467, in normalize_exact_execution_result
+    result, canonical_agent_bytes = validate_exact_result_channel(
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        output_dir, run_ref=run_ref, task_ref=task_ref, secret_values=secrets)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 273, in validate_exact_result_channel
+    raw = _read_exact_result(output_dir, owner_uid=os.geteuid() if owner_uid is None else owner_uid)
+                                                   ^^^^^^^^^^
+AttributeError: module 'os' has no attribute 'geteuid'. Did you mean: 'getpid'?
+
+======================================================================
+ERROR: test_03_missing_invalid_utf8_duplicate_keys_and_nonfinite_numbers (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_03_missing_invalid_utf8_duplicate_keys_and_nonfinite_numbers) (raw=b'{"run_ref":NaN}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 107, in test_03_missing_invalid_utf8_duplicate_keys_and_nonfinite_numbers
+    self.assertEqual(normalized(self.folder)["reason_code"], "RESULT_INVALID")
+                     ~~~~~~~~~~^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 56, in normalized
+    return normalize_exact_execution_result(
+        process or sandbox_return(), folder, run_ref=run_ref, task_ref=task_ref,
+        adapter_profile_ref=ADP, sandbox_profile_ref=SBX,
+        execution_root_digest="sha256:" + "b" * 64,
+        project_root=root, secret_values=secrets)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 467, in normalize_exact_execution_result
+    result, canonical_agent_bytes = validate_exact_result_channel(
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        output_dir, run_ref=run_ref, task_ref=task_ref, secret_values=secrets)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 273, in validate_exact_result_channel
+    raw = _read_exact_result(output_dir, owner_uid=os.geteuid() if owner_uid is None else owner_uid)
+                                                   ^^^^^^^^^^
+AttributeError: module 'os' has no attribute 'geteuid'. Did you mean: 'getpid'?
+
+======================================================================
+ERROR: test_04_wrong_run_task_unknown_fields_arrays_and_status (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_04_wrong_run_task_unknown_fields_arrays_and_status) (case={'schema_version': 1, 'task_ref': 'TSK-TEST-001@1', 'run_ref': 'RUN-FOREIGN-001', 'status': 'COMPLETED', 'summary': 'One bounded change', 'changes': {'added': ['implemented.txt'], 'modified': [], 'deleted': []}, 'commands': [], 'tests': [], 'evidence': [], 'blockers': []})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 123, in test_04_wrong_run_task_unknown_fields_arrays_and_status
+    self.assertEqual(normalized(self.folder)["reason_code"], "RESULT_INVALID")
+                     ~~~~~~~~~~^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 56, in normalized
+    return normalize_exact_execution_result(
+        process or sandbox_return(), folder, run_ref=run_ref, task_ref=task_ref,
+        adapter_profile_ref=ADP, sandbox_profile_ref=SBX,
+        execution_root_digest="sha256:" + "b" * 64,
+        project_root=root, secret_values=secrets)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 467, in normalize_exact_execution_result
+    result, canonical_agent_bytes = validate_exact_result_channel(
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        output_dir, run_ref=run_ref, task_ref=task_ref, secret_values=secrets)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 273, in validate_exact_result_channel
+    raw = _read_exact_result(output_dir, owner_uid=os.geteuid() if owner_uid is None else owner_uid)
+                                                   ^^^^^^^^^^
+AttributeError: module 'os' has no attribute 'geteuid'. Did you mean: 'getpid'?
+
+======================================================================
+ERROR: test_04_wrong_run_task_unknown_fields_arrays_and_status (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_04_wrong_run_task_unknown_fields_arrays_and_status) (case={'schema_version': 1, 'task_ref': 'TSK-FOREIGN', 'run_ref': 'RUN-TEST-001', 'status': 'COMPLETED', 'summary': 'One bounded change', 'changes': {'added': ['implemented.txt'], 'modified': [], 'deleted': []}, 'commands': [], 'tests': [], 'evidence': [], 'blockers': []})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 123, in test_04_wrong_run_task_unknown_fields_arrays_and_status
+    self.assertEqual(normalized(self.folder)["reason_code"], "RESULT_INVALID")
+                     ~~~~~~~~~~^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 56, in normalized
+    return normalize_exact_execution_result(
+        process or sandbox_return(), folder, run_ref=run_ref, task_ref=task_ref,
+        adapter_profile_ref=ADP, sandbox_profile_ref=SBX,
+        execution_root_digest="sha256:" + "b" * 64,
+        project_root=root, secret_values=secrets)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 467, in normalize_exact_execution_result
+    result, canonical_agent_bytes = validate_exact_result_channel(
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        output_dir, run_ref=run_ref, task_ref=task_ref, secret_values=secrets)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 273, in validate_exact_result_channel
+    raw = _read_exact_result(output_dir, owner_uid=os.geteuid() if owner_uid is None else owner_uid)
+                                                   ^^^^^^^^^^
+AttributeError: module 'os' has no attribute 'geteuid'. Did you mean: 'getpid'?
+
+======================================================================
+ERROR: test_04_wrong_run_task_unknown_fields_arrays_and_status (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_04_wrong_run_task_unknown_fields_arrays_and_status) (case={'schema_version': True, 'task_ref': 'TSK-TEST-001@1', 'run_ref': 'RUN-TEST-001', 'status': 'COMPLETED', 'summary': 'One bounded change', 'changes': {'added': ['implemented.txt'], 'modified': [], 'deleted': []}, 'commands': [], 'tests': [], 'evidence': [], 'blockers': []})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 123, in test_04_wrong_run_task_unknown_fields_arrays_and_status
+    self.assertEqual(normalized(self.folder)["reason_code"], "RESULT_INVALID")
+                     ~~~~~~~~~~^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 56, in normalized
+    return normalize_exact_execution_result(
+        process or sandbox_return(), folder, run_ref=run_ref, task_ref=task_ref,
+        adapter_profile_ref=ADP, sandbox_profile_ref=SBX,
+        execution_root_digest="sha256:" + "b" * 64,
+        project_root=root, secret_values=secrets)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 467, in normalize_exact_execution_result
+    result, canonical_agent_bytes = validate_exact_result_channel(
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        output_dir, run_ref=run_ref, task_ref=task_ref, secret_values=secrets)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 273, in validate_exact_result_channel
+    raw = _read_exact_result(output_dir, owner_uid=os.geteuid() if owner_uid is None else owner_uid)
+                                                   ^^^^^^^^^^
+AttributeError: module 'os' has no attribute 'geteuid'. Did you mean: 'getpid'?
+
+======================================================================
+ERROR: test_04_wrong_run_task_unknown_fields_arrays_and_status (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_04_wrong_run_task_unknown_fields_arrays_and_status) (case={'schema_version': 1, 'task_ref': 'TSK-TEST-001@1', 'run_ref': 'RUN-TEST-001', 'status': 'COMPLETED', 'summary': 'One bounded change', 'changes': {'added': ['implemented.txt'], 'modified': [], 'deleted': []}, 'commands': [], 'tests': [], 'evidence': [], 'blockers': [], 'unexpected': 'EXECUTE'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 123, in test_04_wrong_run_task_unknown_fields_arrays_and_status
+    self.assertEqual(normalized(self.folder)["reason_code"], "RESULT_INVALID")
+                     ~~~~~~~~~~^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 56, in normalized
+    return normalize_exact_execution_result(
+        process or sandbox_return(), folder, run_ref=run_ref, task_ref=task_ref,
+        adapter_profile_ref=ADP, sandbox_profile_ref=SBX,
+        execution_root_digest="sha256:" + "b" * 64,
+        project_root=root, secret_values=secrets)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 467, in normalize_exact_execution_result
+    result, canonical_agent_bytes = validate_exact_result_channel(
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        output_dir, run_ref=run_ref, task_ref=task_ref, secret_values=secrets)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 273, in validate_exact_result_channel
+    raw = _read_exact_result(output_dir, owner_uid=os.geteuid() if owner_uid is None else owner_uid)
+                                                   ^^^^^^^^^^
+AttributeError: module 'os' has no attribute 'geteuid'. Did you mean: 'getpid'?
+
+======================================================================
+ERROR: test_04_wrong_run_task_unknown_fields_arrays_and_status (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_04_wrong_run_task_unknown_fields_arrays_and_status) (case={'schema_version': 1, 'task_ref': 'TSK-TEST-001@1', 'run_ref': 'RUN-TEST-001', 'status': 'COMPLETED', 'changes': {'added': ['implemented.txt'], 'modified': [], 'deleted': []}, 'commands': [], 'tests': [], 'evidence': [], 'blockers': []})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 123, in test_04_wrong_run_task_unknown_fields_arrays_and_status
+    self.assertEqual(normalized(self.folder)["reason_code"], "RESULT_INVALID")
+                     ~~~~~~~~~~^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 56, in normalized
+    return normalize_exact_execution_result(
+        process or sandbox_return(), folder, run_ref=run_ref, task_ref=task_ref,
+        adapter_profile_ref=ADP, sandbox_profile_ref=SBX,
+        execution_root_digest="sha256:" + "b" * 64,
+        project_root=root, secret_values=secrets)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 467, in normalize_exact_execution_result
+    result, canonical_agent_bytes = validate_exact_result_channel(
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        output_dir, run_ref=run_ref, task_ref=task_ref, secret_values=secrets)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 273, in validate_exact_result_channel
+    raw = _read_exact_result(output_dir, owner_uid=os.geteuid() if owner_uid is None else owner_uid)
+                                                   ^^^^^^^^^^
+AttributeError: module 'os' has no attribute 'geteuid'. Did you mean: 'getpid'?
+
+======================================================================
+ERROR: test_04_wrong_run_task_unknown_fields_arrays_and_status (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_04_wrong_run_task_unknown_fields_arrays_and_status) (case={'schema_version': 1, 'task_ref': 'TSK-TEST-001@1', 'run_ref': 'RUN-TEST-001', 'status': 'COMPLETED', 'summary': 'One bounded change', 'changes': {'added': ['implemented.txt'], 'modified': [], 'deleted': []}, 'commands': {}, 'tests': [], 'evidence': [], 'blockers': []})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 123, in test_04_wrong_run_task_unknown_fields_arrays_and_status
+    self.assertEqual(normalized(self.folder)["reason_code"], "RESULT_INVALID")
+                     ~~~~~~~~~~^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 56, in normalized
+    return normalize_exact_execution_result(
+        process or sandbox_return(), folder, run_ref=run_ref, task_ref=task_ref,
+        adapter_profile_ref=ADP, sandbox_profile_ref=SBX,
+        execution_root_digest="sha256:" + "b" * 64,
+        project_root=root, secret_values=secrets)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 467, in normalize_exact_execution_result
+    result, canonical_agent_bytes = validate_exact_result_channel(
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        output_dir, run_ref=run_ref, task_ref=task_ref, secret_values=secrets)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 273, in validate_exact_result_channel
+    raw = _read_exact_result(output_dir, owner_uid=os.geteuid() if owner_uid is None else owner_uid)
+                                                   ^^^^^^^^^^
+AttributeError: module 'os' has no attribute 'geteuid'. Did you mean: 'getpid'?
+
+======================================================================
+ERROR: test_04_wrong_run_task_unknown_fields_arrays_and_status (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_04_wrong_run_task_unknown_fields_arrays_and_status) (case={'schema_version': 1, 'task_ref': 'TSK-TEST-001@1', 'run_ref': 'RUN-TEST-001', 'status': 'COMPLETED', 'summary': 'One bounded change', 'changes': {'added': [], 'modified': [], 'deleted': [], 'whoops': []}, 'commands': [], 'tests': [], 'evidence': [], 'blockers': []})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 123, in test_04_wrong_run_task_unknown_fields_arrays_and_status
+    self.assertEqual(normalized(self.folder)["reason_code"], "RESULT_INVALID")
+                     ~~~~~~~~~~^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 56, in normalized
+    return normalize_exact_execution_result(
+        process or sandbox_return(), folder, run_ref=run_ref, task_ref=task_ref,
+        adapter_profile_ref=ADP, sandbox_profile_ref=SBX,
+        execution_root_digest="sha256:" + "b" * 64,
+        project_root=root, secret_values=secrets)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 467, in normalize_exact_execution_result
+    result, canonical_agent_bytes = validate_exact_result_channel(
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        output_dir, run_ref=run_ref, task_ref=task_ref, secret_values=secrets)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 273, in validate_exact_result_channel
+    raw = _read_exact_result(output_dir, owner_uid=os.geteuid() if owner_uid is None else owner_uid)
+                                                   ^^^^^^^^^^
+AttributeError: module 'os' has no attribute 'geteuid'. Did you mean: 'getpid'?
+
+======================================================================
+ERROR: test_04_wrong_run_task_unknown_fields_arrays_and_status (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_04_wrong_run_task_unknown_fields_arrays_and_status) (case={'schema_version': 1, 'task_ref': 'TSK-TEST-001@1', 'run_ref': 'RUN-TEST-001', 'status': 'COMPLETED', 'summary': 'One bounded change', 'changes': {'added': [13], 'modified': [], 'deleted': []}, 'commands': [], 'tests': [], 'evidence': [], 'blockers': []})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 123, in test_04_wrong_run_task_unknown_fields_arrays_and_status
+    self.assertEqual(normalized(self.folder)["reason_code"], "RESULT_INVALID")
+                     ~~~~~~~~~~^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 56, in normalized
+    return normalize_exact_execution_result(
+        process or sandbox_return(), folder, run_ref=run_ref, task_ref=task_ref,
+        adapter_profile_ref=ADP, sandbox_profile_ref=SBX,
+        execution_root_digest="sha256:" + "b" * 64,
+        project_root=root, secret_values=secrets)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 467, in normalize_exact_execution_result
+    result, canonical_agent_bytes = validate_exact_result_channel(
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        output_dir, run_ref=run_ref, task_ref=task_ref, secret_values=secrets)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 273, in validate_exact_result_channel
+    raw = _read_exact_result(output_dir, owner_uid=os.geteuid() if owner_uid is None else owner_uid)
+                                                   ^^^^^^^^^^
+AttributeError: module 'os' has no attribute 'geteuid'. Did you mean: 'getpid'?
+
+======================================================================
+ERROR: test_04_wrong_run_task_unknown_fields_arrays_and_status (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_04_wrong_run_task_unknown_fields_arrays_and_status) (case={'schema_version': 1, 'task_ref': 'TSK-TEST-001@1', 'run_ref': 'RUN-TEST-001', 'status': 'PASS', 'summary': 'One bounded change', 'changes': {'added': ['implemented.txt'], 'modified': [], 'deleted': []}, 'commands': [], 'tests': [], 'evidence': [], 'blockers': []})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 123, in test_04_wrong_run_task_unknown_fields_arrays_and_status
+    self.assertEqual(normalized(self.folder)["reason_code"], "RESULT_INVALID")
+                     ~~~~~~~~~~^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 56, in normalized
+    return normalize_exact_execution_result(
+        process or sandbox_return(), folder, run_ref=run_ref, task_ref=task_ref,
+        adapter_profile_ref=ADP, sandbox_profile_ref=SBX,
+        execution_root_digest="sha256:" + "b" * 64,
+        project_root=root, secret_values=secrets)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 467, in normalize_exact_execution_result
+    result, canonical_agent_bytes = validate_exact_result_channel(
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        output_dir, run_ref=run_ref, task_ref=task_ref, secret_values=secrets)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 273, in validate_exact_result_channel
+    raw = _read_exact_result(output_dir, owner_uid=os.geteuid() if owner_uid is None else owner_uid)
+                                                   ^^^^^^^^^^
+AttributeError: module 'os' has no attribute 'geteuid'. Did you mean: 'getpid'?
+
+======================================================================
+ERROR: test_05_symlink_hardlink_fifo_mode_and_ownership_fail_closed (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_05_symlink_hardlink_fifo_mode_and_ownership_fail_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 128, in test_05_symlink_hardlink_fifo_mode_and_ownership_fail_closed
+    self.assertEqual(normalized(self.folder)["reason_code"], "RESULT_INVALID")
+                     ~~~~~~~~~~^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 56, in normalized
+    return normalize_exact_execution_result(
+        process or sandbox_return(), folder, run_ref=run_ref, task_ref=task_ref,
+        adapter_profile_ref=ADP, sandbox_profile_ref=SBX,
+        execution_root_digest="sha256:" + "b" * 64,
+        project_root=root, secret_values=secrets)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 467, in normalize_exact_execution_result
+    result, canonical_agent_bytes = validate_exact_result_channel(
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        output_dir, run_ref=run_ref, task_ref=task_ref, secret_values=secrets)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 273, in validate_exact_result_channel
+    raw = _read_exact_result(output_dir, owner_uid=os.geteuid() if owner_uid is None else owner_uid)
+                                                   ^^^^^^^^^^
+AttributeError: module 'os' has no attribute 'geteuid'. Did you mean: 'getpid'?
+
+======================================================================
+ERROR: test_06_parent_symlink_and_extra_outputs_are_rejected (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_06_parent_symlink_and_extra_outputs_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 151, in test_06_parent_symlink_and_extra_outputs_are_rejected
+    self.assertEqual(normalized(self.folder)["reason_code"], "RESULT_INVALID")
+                     ~~~~~~~~~~^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 56, in normalized
+    return normalize_exact_execution_result(
+        process or sandbox_return(), folder, run_ref=run_ref, task_ref=task_ref,
+        adapter_profile_ref=ADP, sandbox_profile_ref=SBX,
+        execution_root_digest="sha256:" + "b" * 64,
+        project_root=root, secret_values=secrets)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 467, in normalize_exact_execution_result
+    result, canonical_agent_bytes = validate_exact_result_channel(
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        output_dir, run_ref=run_ref, task_ref=task_ref, secret_values=secrets)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 273, in validate_exact_result_channel
+    raw = _read_exact_result(output_dir, owner_uid=os.geteuid() if owner_uid is None else owner_uid)
+                                                   ^^^^^^^^^^
+AttributeError: module 'os' has no attribute 'geteuid'. Did you mean: 'getpid'?
+
+======================================================================
+ERROR: test_08_secret_echo_in_stdout_stderr_result_escape_and_unicode (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_08_secret_echo_in_stdout_stderr_result_escape_and_unicode)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 174, in test_08_secret_echo_in_stdout_stderr_result_escape_and_unicode
+    self.assertEqual(normalized(self.folder, secrets={"KEY":token})["reason_code"], "SECRET_LEAK_DETECTED")
+                     ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 56, in normalized
+    return normalize_exact_execution_result(
+        process or sandbox_return(), folder, run_ref=run_ref, task_ref=task_ref,
+        adapter_profile_ref=ADP, sandbox_profile_ref=SBX,
+        execution_root_digest="sha256:" + "b" * 64,
+        project_root=root, secret_values=secrets)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 467, in normalize_exact_execution_result
+    result, canonical_agent_bytes = validate_exact_result_channel(
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        output_dir, run_ref=run_ref, task_ref=task_ref, secret_values=secrets)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 273, in validate_exact_result_channel
+    raw = _read_exact_result(output_dir, owner_uid=os.geteuid() if owner_uid is None else owner_uid)
+                                                   ^^^^^^^^^^
+AttributeError: module 'os' has no attribute 'geteuid'. Did you mean: 'getpid'?
+
+======================================================================
+ERROR: test_09_typed_string_looking_like_shell_is_inert_json (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_09_typed_string_looking_like_shell_is_inert_json)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 185, in test_09_typed_string_looking_like_shell_is_inert_json
+    result=normalized(self.folder)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_051_06_result_channel.py", line 56, in normalized
+    return normalize_exact_execution_result(
+        process or sandbox_return(), folder, run_ref=run_ref, task_ref=task_ref,
+        adapter_profile_ref=ADP, sandbox_profile_ref=SBX,
+        execution_root_digest="sha256:" + "b" * 64,
+        project_root=root, secret_values=secrets)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 467, in normalize_exact_execution_result
+    result, canonical_agent_bytes = validate_exact_result_channel(
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        output_dir, run_ref=run_ref, task_ref=task_ref, secret_values=secrets)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\executors\result.py", line 273, in validate_exact_result_channel
+    raw = _read_exact_result(output_dir, owner_uid=os.geteuid() if owner_uid is None else owner_uid)
+                                                   ^^^^^^^^^^
+AttributeError: module 'os' has no attribute 'geteuid'. Did you mean: 'getpid'?
+
+----------------------------------------------------------------------
+Ran 13 tests in 9.035s
+
+FAILED (errors=21)

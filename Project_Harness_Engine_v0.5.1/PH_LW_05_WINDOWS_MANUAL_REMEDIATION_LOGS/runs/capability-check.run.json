@@ -1,0 +1,21 @@
+{
+  "command": [
+    "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_051_02_executor_protocol",
+    "tests.test_contract_hardening.ContractHardeningControlPlaneTests.test_agent_result_symlink_is_rejected",
+    "tests.test_contract_hardening.ContractHardeningControlPlaneTests.test_agent_result_hardlink_is_rejected",
+    "tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_05_symlink_profile_denied",
+    "tests.test_ph_051_05_codex_adapter.ExactActiveProfileTests.test_05b_hardlink_profile_denied"
+  ],
+  "cwd": "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+  "started_utc": "2026-11-07T00:08:57.840000+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 180,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 14.53,
+  "log_sha256": "b9ddad636acbaec4a5aa67ce17fa76ae912d1b954d5cadf85182cb9e9352581e"
+}

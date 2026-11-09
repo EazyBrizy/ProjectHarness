@@ -1,0 +1,48 @@
+[
+  {
+    "module": "tests.test_ph_051_10_migration_recovery.V051MigrationTests",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_ph_051_10_migration_recovery.V051MigrationTests",
+      "<WORKSPACE>\\_scratch\\manual-remediation\\migration-final\\test_ph_051_10_migration_recovery.V051MigrationTests.log"
+    ],
+    "started_utc": "2026-11-07T00:10:50.351794+00:00",
+    "exit": 0,
+    "status": "PASS",
+    "modules": [
+      "tests.test_ph_051_10_migration_recovery.V051MigrationTests"
+    ],
+    "ran": 5,
+    "failures": 0,
+    "errors": 0,
+    "skips": [],
+    "elapsed_seconds": 67.906,
+    "log": "test_ph_051_10_migration_recovery.V051MigrationTests.log",
+    "log_sha256": "1891c225556acc552c79c20ab565ffc1a9ce121d9fb0726db1006c47f5de51eb"
+  },
+  {
+    "module": "tests.test_windows_manual_migration",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_windows_manual_migration",
+      "<WORKSPACE>\\_scratch\\manual-remediation\\migration-final\\test_windows_manual_migration.log"
+    ],
+    "started_utc": "2026-11-07T00:10:50.351275+00:00",
+    "exit": 0,
+    "status": "PASS",
+    "modules": [
+      "tests.test_windows_manual_migration"
+    ],
+    "ran": 8,
+    "failures": 0,
+    "errors": 0,
+    "skips": [],
+    "elapsed_seconds": 129.973,
+    "log": "test_windows_manual_migration.log",
+    "log_sha256": "fa0dc777f334428703c8b45c962b92e748cde6957fcada45987c2d0330d3188b"
+  }
+]

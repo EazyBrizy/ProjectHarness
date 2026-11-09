@@ -1,0 +1,43 @@
+{
+  "name": "suite05-test_ph_lw_12_blockers-nonbrowser",
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;import project_harness;assert Path(project_harness.__file__).resolve().is_relative_to(Path(sys.prefix).resolve());sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel\\suite05-test_ph_lw_12_blockers-nonbrowser.log",
+    "tests.test_ph_lw_12_blockers.DeepAppDataTests.test_cleanup_denial_retains_original_error_and_requires_review",
+    "tests.test_ph_lw_12_blockers.DeepAppDataTests.test_deep_creation_cleanup_preserves_original_error_and_committed_root",
+    "tests.test_ph_lw_12_blockers.DeepAppDataTests.test_deep_intake_sources_replay_and_restart",
+    "tests.test_ph_lw_12_blockers.DeepAppDataTests.test_deep_publication_keeps_identity_and_refuses_existing_destination",
+    "tests.test_ph_lw_12_blockers.DeepAppDataTests.test_handoff_archive_long_output_keeps_exact_names_and_crc",
+    "tests.test_ph_lw_12_blockers.DeepAppDataTests.test_long_control_plane_scan_keeps_files_and_detects_tamper",
+    "tests.test_ph_lw_12_blockers.DeepAppDataTests.test_operation_snapshot_survives_worker_temp_file_rename",
+    "tests.test_ph_lw_12_blockers.DeepAppDataTests.test_preparation_poll_during_write_is_conflict_not_internal_error"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\Независимая папка wheel",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 2.301,
+  "environment_ref": "WHEEL_ENVIRONMENT.json",
+  "modules": [
+    "tests.test_ph_lw_12_blockers.DeepAppDataTests.test_cleanup_denial_retains_original_error_and_requires_review",
+    "tests.test_ph_lw_12_blockers.DeepAppDataTests.test_deep_creation_cleanup_preserves_original_error_and_committed_root",
+    "tests.test_ph_lw_12_blockers.DeepAppDataTests.test_deep_intake_sources_replay_and_restart",
+    "tests.test_ph_lw_12_blockers.DeepAppDataTests.test_deep_publication_keeps_identity_and_refuses_existing_destination",
+    "tests.test_ph_lw_12_blockers.DeepAppDataTests.test_handoff_archive_long_output_keeps_exact_names_and_crc",
+    "tests.test_ph_lw_12_blockers.DeepAppDataTests.test_long_control_plane_scan_keeps_files_and_detects_tamper",
+    "tests.test_ph_lw_12_blockers.DeepAppDataTests.test_operation_snapshot_survives_worker_temp_file_rename",
+    "tests.test_ph_lw_12_blockers.DeepAppDataTests.test_preparation_poll_during_write_is_conflict_not_internal_error"
+  ],
+  "ran": 8,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "log": "suite05-test_ph_lw_12_blockers-nonbrowser.log",
+  "process_status": "PASS",
+  "log_sha256": "07f6840295d92b2c38354136df95a39613972c6fe9859586282009314cb70cc6",
+  "scope": "INSTALLED_WHEEL",
+  "runtime_freeze_sha256": "01ef2ddce6e42787b5937f937112f0b02ddefb05321eb348d59319a08bd941cf"
+}

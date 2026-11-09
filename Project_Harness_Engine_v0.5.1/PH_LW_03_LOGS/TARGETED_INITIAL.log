@@ -1,0 +1,40 @@
+test_01_status_provisional_is_read_only_even_with_pending_input (tests.test_ph_lw_03_service.LocalWebServiceTests.test_01_status_provisional_is_read_only_even_with_pending_input) ... ok
+test_02_project_status_is_byte_identical_with_stage_refs (tests.test_ph_lw_03_service.LocalWebServiceTests.test_02_project_status_is_byte_identical_with_stage_refs) ... ok
+test_03_check_intake_WAITING_INPUT_is_not_internal_error_and_replay (tests.test_ph_lw_03_service.LocalWebServiceTests.test_03_check_intake_WAITING_INPUT_is_not_internal_error_and_replay) ... ok
+test_04_update_draft_invalidates_existing_approvals_atomically (tests.test_ph_lw_03_service.LocalWebServiceTests.test_04_update_draft_invalidates_existing_approvals_atomically) ... ok
+test_05_unknown_field_sensitive_execution_and_unregistered_path_rejected_prewrite (tests.test_ph_lw_03_service.LocalWebServiceTests.test_05_unknown_field_sensitive_execution_and_unregistered_path_rejected_prewrite) ... ok
+test_06_stale_fingerprint_after_cli_mutation_rejected_before_draft (tests.test_ph_lw_03_service.LocalWebServiceTests.test_06_stale_fingerprint_after_cli_mutation_rejected_before_draft) ... FAIL
+test_07_duplicate_next_two_service_instances_same_key_no_second_run (tests.test_ph_lw_03_service.LocalWebServiceTests.test_07_duplicate_next_two_service_instances_same_key_no_second_run) ... ok
+test_08_real_second_process_and_cli_cannot_bypass_lock (tests.test_ph_lw_03_service.LocalWebServiceTests.test_08_real_second_process_and_cli_cannot_bypass_lock) ... FAIL
+test_09_new_operation_does_not_run_from_stale_snapshot_after_next (tests.test_ph_lw_03_service.LocalWebServiceTests.test_09_new_operation_does_not_run_from_stale_snapshot_after_next) ... ok
+test_10_crash_after_atomic_draft_write_before_ui_result_reconciles (tests.test_ph_lw_03_service.LocalWebServiceTests.test_10_crash_after_atomic_draft_write_before_ui_result_reconciles) ... ok
+test_11_prepare_is_real_core_zip_in_app_owned_folder_duplicate_no_overwrite (tests.test_ph_lw_03_service.LocalWebServiceTests.test_11_prepare_is_real_core_zip_in_app_owned_folder_duplicate_no_overwrite) ... ok
+test_12_crash_after_handoff_publish_recovers_from_valid_exact_artifact (tests.test_ph_lw_03_service.LocalWebServiceTests.test_12_crash_after_handoff_publish_recovers_from_valid_exact_artifact) ... ok
+test_13_queued_durable_request_on_reconnect_not_replayed (tests.test_ph_lw_03_service.LocalWebServiceTests.test_13_queued_durable_request_on_reconnect_not_replayed) ... ok
+test_14_real_windows_two_process_ntfs_security (tests.test_ph_lw_03_service.LocalWebServiceTests.test_14_real_windows_two_process_ntfs_security) ... skipped 'Real Windows 11 x64/NTFS process + CLI test is mandatory on Windows stand'
+
+======================================================================
+FAIL: test_06_stale_fingerprint_after_cli_mutation_rejected_before_draft (tests.test_ph_lw_03_service.LocalWebServiceTests.test_06_stale_fingerprint_after_cli_mutation_rejected_before_draft)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/phlw03_work/engine/Project_Harness_Engine_v0.5.1/tests/test_ph_lw_03_service.py", line 144, in test_06_stale_fingerprint_after_cli_mutation_rejected_before_draft
+    self.assertEqual(last['state'], 'FAILED')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'SUCCEEDED' != 'FAILED'
+- SUCCEEDED
++ FAILED
+
+
+======================================================================
+FAIL: test_08_real_second_process_and_cli_cannot_bypass_lock (tests.test_ph_lw_03_service.LocalWebServiceTests.test_08_real_second_process_and_cli_cannot_bypass_lock)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/phlw03_work/engine/Project_Harness_Engine_v0.5.1/tests/test_ph_lw_03_service.py", line 175, in test_08_real_second_process_and_cli_cannot_bypass_lock
+    with self.assertRaisesRegex(ValidationFailure, 'OPERATION_CONFLICT'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValidationFailure not raised
+
+----------------------------------------------------------------------
+Ran 14 tests in 7.336s
+
+FAILED (failures=2, skipped=1)

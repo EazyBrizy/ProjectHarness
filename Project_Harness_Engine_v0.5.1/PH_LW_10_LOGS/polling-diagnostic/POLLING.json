@@ -1,0 +1,32 @@
+[
+  {
+    "status": 409,
+    "path": "/api/projects/LWP-C1A398EBF1513E3FE8E8",
+    "body": {
+      "error": {
+        "code": "OPERATION_CONFLICT",
+        "message_ru": "С этим проектом уже работает другая операция.",
+        "next_action_ru": "Получите статус существующей операции и повторите позже."
+      },
+      "status": "FAILED"
+    }
+  },
+  {
+    "status": 409,
+    "path": "/api/projects/LWP-C1A398EBF1513E3FE8E8",
+    "body": {
+      "error": {
+        "code": "OPERATION_CONFLICT",
+        "message_ru": "С этим проектом уже работает другая операция.",
+        "next_action_ru": "Получите статус существующей операции и повторите позже."
+      },
+      "status": "FAILED"
+    }
+  },
+  {
+    "ui": {
+      "notice": "Чтение canonical статуса…",
+      "operation": "{\n  \"action\": \"migrate-project\",\n  \"error\": null,\n  \"finished_at\": \"2026-11-07T13:24:21Z\",\n  \"operation_id\": \"LWO-E2C7F98E16ADB3F6A10DA328BF203E64\",\n  \"phase\": \"DONE\",\n  \"result\": {\n    \"action\": \"migrate-project\",\n    \"core_status\": \"NO_ACTION\",\n    \"lifecycle\": {\n      \"migration_id\": \"MIG-ENGINE-0.5.0-TO-0.5.1\",\n      \"project\": \"C:\\\\Users\\\\gvenv\\\\AppData\\\\Local\\\\Temp\\\\LW10 Edge Кириллица qvwty4wu\\\\legacy\\\\handoff\",\n      \"recovered\": null,\n      \"status\": \"NO_ACTION\",\n      \"validation_status\": \"PASS\"\n    },\n    \"refs\": {\n      \"status\": \"NO_ACTION\"\n    }\n  },\n  \"state\": \"SUCCEEDED\",\n  \"updated_at\": \"2026-11-07T13:24:21Z\"\n}"
+    }
+  }
+]

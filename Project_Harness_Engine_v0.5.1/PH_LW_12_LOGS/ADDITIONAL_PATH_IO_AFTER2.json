@@ -1,0 +1,13 @@
+{
+  "status": "FAIL",
+  "app_data_length": 215,
+  "created": {
+    "project_id": "LWP-8B4B30E11137E7A4D90B",
+    "source_revision": 0,
+    "replayed": false,
+    "status": "AWAITING_DOCUMENTS"
+  },
+  "error": "VALIDATION_FAILED: Не найден черновик PROJECT_INPUT.yaml",
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 9, in <module>\n  File \"<WORKSPACE>\\Project_Harness_Engine_v0.5.1\\src\\project_harness\\local_web_service.py\", line 324, in get_status\n    refs = {'session_ref': stored.get('session_ref'), 'input_digest': draft_input_digest(root),\n                                                                      ~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"<WORKSPACE>\\Project_Harness_Engine_v0.5.1\\src\\project_harness\\local_web_drafts.py\", line 43, in draft_input_digest\n    raise ValidationFailure('Не найден черновик PROJECT_INPUT.yaml', 'Зарегистрируйте intake workspace')\nproject_harness.errors.ValidationFailure: VALIDATION_FAILED: Не найден черновик PROJECT_INPUT.yaml\n",
+  "exception_type": "ValidationFailure"
+}

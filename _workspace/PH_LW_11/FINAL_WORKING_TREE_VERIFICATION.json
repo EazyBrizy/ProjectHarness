@@ -1,0 +1,212 @@
+{
+  "status": "PASS",
+  "verified_utc": "2026-11-08T00:50:13.601251+00:00",
+  "scope": "Artifact integrity only; PH-LW-11 acceptance NO-GO",
+  "trees": {
+    "Project_Harness_Engine_v0.5.1": {
+      "status": "PASS",
+      "files": 3630,
+      "manifest_sha256": "4ab86e19de8df70901f05a78cc245bd57e057b5418db1e2e7be37b126481d115"
+    },
+    "Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 152,
+      "manifest_sha256": "adf0231771e1cdff9609ef48c5cb5abf796b295036b6ed4a02c3615cd7ad53b2"
+    },
+    "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1": {
+      "status": "PASS",
+      "files": 152,
+      "manifest_sha256": "adf0231771e1cdff9609ef48c5cb5abf796b295036b6ed4a02c3615cd7ad53b2"
+    }
+  },
+  "wheel_sha256": "4e484ea88ccbf7875227c5970949244ede5d868735700a17629892e3382c98f2",
+  "installer_sha256": "2a56ed25463e808f22e0831cfa0d37487c4eb9c44fd2c5e59a147b3aecc8fa8c",
+  "frozen_files": 449,
+  "engine_build_digest": "sha256:6c39f9441c520713f7161d51a88403ea04e30068cb1373f531771cfe8b325b97",
+  "immutable_files_verified": 2659,
+  "historical_engine_evidence_preserved": 2280,
+  "archives_preserved": 4,
+  "zip_created": false,
+  "input_baseline_sha256": "1e4e268f847b2e027db43a6cff7e7bf23fb1f031a01f681ec46b78f602aee9ef",
+  "input_file_hashes_sha256": "372ee4b5415103d4d03ab2e582b6bfb8a0a9a11bd66eeb32ee21f97511186759",
+  "changed_file_hashes_sha256": "7fb56a142db3af2d1d76e8b5213047e278290b2971ca29e052544739100e6e5d",
+  "evidence_files_verified": 356,
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\tools\\check_workspace.py"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+      "started_utc": "2026-11-08T00:50:07.523360+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "log": "workspace.log",
+      "log_sha256": "0d3c36a5af3ee641579ed53c45156e3155ecbf0dc843994a00ceb2cb79cf77da"
+    },
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1\\project-harness.py",
+        "doctor"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1",
+      "started_utc": "2026-11-08T00:50:07.972731+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "log": "doctor.log",
+      "log_sha256": "aaa7702940b2e0fc7a25e3901dfe8138d4b1a0c1f1d10002e81638e7d4fae543"
+    },
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Documentation_v0.5.1\\tools\\validate_documentation.py",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Documentation_v0.5.1",
+        "--json",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_workspace\\PH_LW_11\\DOC_VALIDATION.json"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+      "started_utc": "2026-11-08T00:50:10.349177+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "log": "docs.log",
+      "log_sha256": "0bcec024323704ad781be153e2608c47e808bead268620baba6acbc07afc6022"
+    },
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1\\windows\\Harness\\Harness.exe",
+        "--doctor"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+      "started_utc": "2026-11-08T00:50:11.533162+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "log": "frozen-doctor.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1\\windows\\Harness\\Harness.exe",
+        "--check-package"
+      ],
+      "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+      "started_utc": "2026-11-08T00:50:12.284843+00:00",
+      "exit": 0,
+      "status": "PASS",
+      "log": "frozen-integrity.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "native_acceptance": {
+    "status": "NO-GO",
+    "implementation": "BUILT; composite regression matrix complete with inherited FAIL/SKIP; mandatory acceptance gaps remain",
+    "native_test_methods": 107,
+    "native_aggregate": "ABORTED, not PASS",
+    "new_desktop_tests": 18,
+    "desktop_source": "18 PASS",
+    "desktop_upload_race": "PASS before/after fix evidence",
+    "desktop_manual_login": "PASS source and installed wheel after transient Edge teardown issue; original TIMEOUT retained",
+    "installed_wheel_test_methods": 93,
+    "installed_exe": {
+      "ran": 4,
+      "errors": 0,
+      "failures": 0,
+      "skips": 0
+    },
+    "installed_wheel_final_recheck_methods": 31,
+    "installed_wheel_scope": "Composite across recorded builds; final app.js/metadata delta rechecked in final wheel desktop, PH01, PH04 browser and PH07 browser tests",
+    "installer_recovery": {
+      "status": "PASS",
+      "scenarios": [
+        {
+          "scenario": "actual_setup_process_tree_interruption_during_copy",
+          "status": "PASS",
+          "pid": 12048,
+          "exit": 1
+        },
+        {
+          "scenario": "actual_setup_recovery",
+          "status": "PASS",
+          "exit": 0
+        },
+        {
+          "scenario": "actual_readonly_pointer",
+          "status": "PASS",
+          "exit": 7
+        },
+        {
+          "scenario": "actual_readonly_retry",
+          "status": "PASS",
+          "exit": 0
+        }
+      ],
+      "physical_power_loss": "NOT RUN",
+      "real_disk_full": "NOT RUN; separate injection does not substitute"
+    },
+    "mandatory_not_run": [
+      "Clean Windows machine without developer runtimes installed",
+      "Actual Windows account with Unicode username",
+      "Physical offline preparation",
+      "Real volume/quota disk-full (only injected ENOSPC available)"
+    ],
+    "manual_blockers": [
+      "Long profile path with LongPathsEnabled=0: preparation staging copy PREPARATION_IO_BLOCKED; reproduced through public source API"
+    ],
+    "local_web_manual": "NO-GO; PH-LW-12 not started",
+    "automatic_executor": "NO-GO; not enabled",
+    "v0.5.1": "NO-GO / NOT RELEASED",
+    "zip_created": false
+  },
+  "workspace_files": {
+    "AGENTS.md": "afc9a144b0c6c4b6fa331039776b8ade9aaa03912c2aa0e05926ac5305e8dc21",
+    "README.md": "6df757802c8fae6f8fa7b8d615a21b12a71c09a772fb1841cc0a5977ed25789c",
+    "_workspace/CURRENT_TASK.md": "c5f7a699053266c5cd09fd4e3ecc06400939632ab52ed4d58f9fa8f513d85338",
+    "_workspace/PROJECT_MAP.md": "85a043ce184f65be47225562a4fdfbfa715d4b3e3a057c41519f2e1e1ba2808d",
+    "_workspace/RUNBOOK.md": "a62a08d12d0fca14ac6443e553a24321fcc22b9ea03d4402cc1c55496e6bc2f7",
+    "tools/begin_ph_lw_09_manual_evidence.py": "7c821326606e604c0fc1c6422164f7f9d29064e25de2e32a76bf057ba9d3e3c6",
+    "tools/begin_ph_lw_10.py": "17c538f482489c5bf905de0802947139ac141db51bb050a40a9452a542298a07",
+    "tools/begin_ph_lw_11.py": "2e74170f64904eae5ad53892b758888609ac6030e481c8089fd858ebeea629be",
+    "tools/check_workspace.py": "4c78d67665f5fa0c524474cd3f5e1fa88b568aa3b926e375c2ce0d8cc1202fc4",
+    "tools/diagnose_ph_lw_10_approval.py": "e0ff3b5e297c3cd5f6f3dc2da4349fc36233feb9a857e31a3566063b692f95e2",
+    "tools/diagnose_ph_lw_10_polling.py": "8eda19981fe30b2558cf3ec7c4661e6aad6a3d4ebcc89667ecb9cdc5af96b5a4",
+    "tools/diagnose_ph_lw_11_long_path.py": "e0ba1c9980ad44a5923c09cf26b570e60102c2dce10bb41a50e445b8cab7a6bd",
+    "tools/finalize_ph_lw_09_manual_evidence.py": "29cdefcb78fbb74d116edb2366165bd3bbc101b620487f2fa83b3d7c033f3ad0",
+    "tools/finalize_ph_lw_10.py": "e59357eeeff552810d213db75d34e040e6111304eea03ce02e5a59ef403c79de",
+    "tools/finalize_ph_lw_11.py": "abc05421823a7c242eb2b070979d1d60118bd8283dc80ac18fb94973d936afc0",
+    "tools/freeze_ph_lw_09_manual_evidence.py": "ba517cb456679beb76a5e5e74cf5e9089ff7b7ef1e3b0c770a7e6c57241a27c6",
+    "tools/freeze_ph_lw_10.py": "74cd2c2d4728ee175d9455564ee4865b926a49394e0fbdda56058732abb2ef0e",
+    "tools/freeze_ph_lw_11.py": "d9453647cc0fc5c741de0956bdae18195c80d65d330aa17714d6c4fa8929c36a",
+    "tools/prepare_ph_lw_10_docs.py": "b55aea100d6d923ebb41902fce8fb47f1e9d1690bdf5e4800068959e8811466f",
+    "tools/report_ph_lw_11.py": "cb629f693bffc6dcecb79ed8b14f408fcd15a8cb0e8b96e619d22021ad4147ca",
+    "tools/set_ph_lw_10_metadata.py": "2a80a512541c9b0c793a0f0efca11a9e219aeec5c2b7fcdcd9eb51ac721cddf7",
+    "tools/setup_ph_lw_09_manual_evidence_wheel.py": "c9c53940e0c5c7fbd0d0c7d6e76201948074723abf8cf550bed1840f45e15f17",
+    "tools/setup_ph_lw_10_wheel.py": "f050cfb18ad5c84256954014ad331cb1cbb4361191beb4a6c379c163589d6c35",
+    "tools/setup_ph_lw_11_wheel.py": "c4956b7f83da79b33c3706849eb7071e8b67e4ddecf4ea6ea7e8cb03ef5d448b",
+    "tools/sync_working_tree.py": "9b211015aeaabb5532fa5d8b5cd6661fc1f488291c0c1bd5ed6de095a6237ea6",
+    "tools/update_ph_lw_10_checkpoint.py": "7b35c35da364f601aa01f1d5962490739c10a52a9b2d138d0040854ec34586bb",
+    "tools/verify_installed.py": "ce5cbaefe33ff15aee6510bcc78819929f6d8da0da117698f3d7a534fee9296d",
+    "tools/verify_ph_lw_09_manual_evidence.py": "aca8cfc304e8bed3f0d478790a1c6f62eed9738a08142161a36d4807d86527ef",
+    "tools/verify_ph_lw_10.py": "0a760eddd7fe1aa72651198c0b1caa0c7fb19f292bc6263ba7e624614fb6506c",
+    "tools/verify_ph_lw_11.py": "3f1ae024e439b44702e49415a5772cf2bf50981d3a2a9bcb960416e56277d606"
+  },
+  "verdicts": {
+    "PH-LW-04": "Prior accepted scope preserved; current completed/partial regressions in method matrix",
+    "PH-LW-05": "Prior accepted scope preserved; current completed/partial regressions in method matrix",
+    "PH-LW-06": "Prior accepted scope preserved; current completed/partial regressions in method matrix",
+    "PH-LW-07": "Prior accepted scope preserved; current completed/partial regressions in method matrix",
+    "PH-LW-08": "Prior accepted scope preserved; current completed/partial regressions in method matrix",
+    "PH-LW-09": "Prior accepted scope preserved; current completed/partial regressions in method matrix",
+    "PH-LW-10": "Prior accepted scope preserved; current completed/partial regressions in method matrix",
+    "PH-LW-11": "NO-GO",
+    "LOCAL_WEB_MANUAL": "NO-GO",
+    "AUTOMATIC_EXECUTOR": "NO-GO",
+    "v0.5.1": "NO-GO / NOT RELEASED"
+  },
+  "mandatory_not_run": [
+    "Clean Windows machine without developer runtimes installed",
+    "Actual Windows account with Unicode username",
+    "Physical offline preparation",
+    "Real volume/quota disk-full (only injected ENOSPC available)"
+  ],
+  "next_step": "New user task to close PH-LW-11 blockers; PH-LW-12 not started"
+}

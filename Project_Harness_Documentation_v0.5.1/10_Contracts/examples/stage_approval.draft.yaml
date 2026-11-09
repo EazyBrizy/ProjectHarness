@@ -1,0 +1,399 @@
+{
+  "stage_approval": {
+    "schema_version": 1,
+    "schema_ref": "SCHEMA-STAGE-APPROVAL@1",
+    "record_kind": "STAGE_APPROVAL",
+    "record_state": "DRAFT",
+    "id": null,
+    "approved": false,
+    "actor": null,
+    "approved_at": null,
+    "level": "PROTOTYPE",
+    "target_level": "PROTOTYPE",
+    "acceptance_method": "EXECUTED_STAGE_WORK",
+    "stage_plan_ref": "STG-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@2",
+    "stage_plan_path": ".harness/stages/PLANS/STG-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@2.yaml",
+    "stage_plan_revision": 2,
+    "stage_plan_digest": "sha256:93b26876f19b40a77edabb9b34be84c246f59e549988f0756791373f1022d3e5",
+    "prepared_from_stage_plan_status": "VERIFYING",
+    "gate_ref": "GATE-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@2",
+    "gate_path": ".harness/stages/GATES/GATE-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@2.yaml",
+    "gate_revision": 2,
+    "gate_digest": "sha256:ac6cc784325584171e0629ebcbe1c0571cdd49b11672f783dc8483ee2754b2f2",
+    "prepared_from_gate_status": "VERIFYING",
+    "gate_base_revision": "PJD-HARNESS-DEMO-TASK-CLI-001@1",
+    "baseline_revision": "tree:sha256:16362879a02e431be207f2aae20295659dc0986bc96858f6b798f5721273bf36",
+    "last_acceptance_ref": null,
+    "last_acceptance_path": null,
+    "last_accepted_baseline_revision": null,
+    "assessment_ref": null,
+    "assessment_digest": null,
+    "required_outcomes": [
+      {
+        "outcome_ref": "working_primary_flow",
+        "mandatory": true,
+        "applicability": "ALWAYS"
+      },
+      {
+        "outcome_ref": "documented_local_start",
+        "mandatory": true,
+        "applicability": "ALWAYS"
+      },
+      {
+        "outcome_ref": "prototype_permitted_use_boundary",
+        "mandatory": true,
+        "applicability": "ALWAYS"
+      }
+    ],
+    "outcome_results": [
+      {
+        "outcome_ref": "working_primary_flow",
+        "status": "UNKNOWN",
+        "evidence_refs": [],
+        "rationale": null,
+        "validator": null
+      },
+      {
+        "outcome_ref": "documented_local_start",
+        "status": "UNKNOWN",
+        "evidence_refs": [],
+        "rationale": null,
+        "validator": null
+      },
+      {
+        "outcome_ref": "prototype_permitted_use_boundary",
+        "status": "UNKNOWN",
+        "evidence_refs": [],
+        "rationale": null,
+        "validator": null
+      }
+    ],
+    "level_criteria": [
+      {
+        "criterion_ref": "PROTOTYPE_CORE_FLOW",
+        "dimension": "FUNCTIONALITY",
+        "description": "Один законченный end-to-end core flow работает в заявленной области использования.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "TEST_REPORT",
+          "MANUAL_VERIFICATION"
+        ],
+        "execution_evidence_required": true
+      },
+      {
+        "criterion_ref": "PROTOTYPE_SIMPLE_ARCHITECTURE",
+        "dimension": "ARCHITECTURE_MAINTAINABILITY",
+        "description": "Реализация использует простую подходящую архитектурную границу без преждевременного усложнения.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "ARCHITECTURE_RECORD",
+          "REPOSITORY_ARTIFACT"
+        ],
+        "execution_evidence_required": false
+      },
+      {
+        "criterion_ref": "PROTOTYPE_LOCAL_START",
+        "dimension": "DEPLOYMENT_OPERABILITY",
+        "description": "Существует понятный и воспроизводимый способ локального запуска из принятой baseline.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "START_INSTRUCTIONS",
+          "CONFIGURATION"
+        ],
+        "execution_evidence_required": false
+      },
+      {
+        "criterion_ref": "PROTOTYPE_SMOKE_CHECK",
+        "dimension": "TESTING_VERIFICATION",
+        "description": "Основной сценарий имеет smoke-проверку.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "TEST_REPORT",
+          "MANUAL_VERIFICATION"
+        ],
+        "execution_evidence_required": true
+      },
+      {
+        "criterion_ref": "PROTOTYPE_LIMITATIONS",
+        "dimension": "DOCUMENTATION_SUPPORT",
+        "description": "Известные ограничения и следующий backlog явно документированы.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "LIMITATIONS_RECORD"
+        ],
+        "execution_evidence_required": false
+      },
+      {
+        "criterion_ref": "PROTOTYPE_PERMITTED_USE",
+        "dimension": "SECURITY_PRIVACY",
+        "description": "Зафиксирована допустимая область использования, включая environment и data boundary.",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "required_evidence_kinds": [
+          "PERMITTED_USE_RECORD"
+        ],
+        "execution_evidence_required": false
+      }
+    ],
+    "criteria_results": [
+      {
+        "criterion_ref": "PROTOTYPE_CORE_FLOW",
+        "status": "UNKNOWN",
+        "evidence_refs": [],
+        "rationale": null,
+        "validator": null
+      },
+      {
+        "criterion_ref": "PROTOTYPE_SIMPLE_ARCHITECTURE",
+        "status": "UNKNOWN",
+        "evidence_refs": [],
+        "rationale": null,
+        "validator": null
+      },
+      {
+        "criterion_ref": "PROTOTYPE_LOCAL_START",
+        "status": "UNKNOWN",
+        "evidence_refs": [],
+        "rationale": null,
+        "validator": null
+      },
+      {
+        "criterion_ref": "PROTOTYPE_SMOKE_CHECK",
+        "status": "UNKNOWN",
+        "evidence_refs": [],
+        "rationale": null,
+        "validator": null
+      },
+      {
+        "criterion_ref": "PROTOTYPE_LIMITATIONS",
+        "status": "UNKNOWN",
+        "evidence_refs": [],
+        "rationale": null,
+        "validator": null
+      },
+      {
+        "criterion_ref": "PROTOTYPE_PERMITTED_USE",
+        "status": "UNKNOWN",
+        "evidence_refs": [],
+        "rationale": null,
+        "validator": null
+      }
+    ],
+    "hard_constraints": [
+      {
+        "constraint_ref": "HARD_CONSTRAINT_001",
+        "statement": "Use only the Python standard library",
+        "source_ref": null,
+        "mandatory": true,
+        "required_evidence_kinds": [
+          "EXTERNAL_EVIDENCE"
+        ]
+      },
+      {
+        "constraint_ref": "HARD_CONSTRAINT_002",
+        "statement": "Work without internet",
+        "source_ref": null,
+        "mandatory": true,
+        "required_evidence_kinds": [
+          "EXTERNAL_EVIDENCE"
+        ]
+      }
+    ],
+    "hard_constraint_results": [
+      {
+        "constraint_ref": "HARD_CONSTRAINT_001",
+        "status": "UNKNOWN",
+        "evidence_refs": [],
+        "rationale": null,
+        "validator": null
+      },
+      {
+        "constraint_ref": "HARD_CONSTRAINT_002",
+        "status": "UNKNOWN",
+        "evidence_refs": [],
+        "rationale": null,
+        "validator": null
+      }
+    ],
+    "profile_controls": [
+      {
+        "control_ref": "PRF-CLI-TOOL@1",
+        "mandatory": true,
+        "applicability": "ALWAYS",
+        "source": "stage_gate.profile_control_refs"
+      }
+    ],
+    "profile_control_results": [
+      {
+        "control_ref": "PRF-CLI-TOOL@1",
+        "status": "UNKNOWN",
+        "evidence_refs": [],
+        "rationale": null,
+        "validator": null
+      }
+    ],
+    "required_work_packages": [
+      {
+        "requested_ref": "WP-HARNESS-DEMO-TASK-CLI-001@1",
+        "current_ref": "WP-HARNESS-DEMO-TASK-CLI-001@3",
+        "path": ".harness/work-packages/WP-HARNESS-DEMO-TASK-CLI-001@3.yaml",
+        "status": "COMPLETED"
+      }
+    ],
+    "critical_blockers": [],
+    "permitted_use": {
+      "status": "UNCONFIRMED",
+      "users": [
+        "DEVELOPER"
+      ],
+      "environments": [
+        "LOCAL"
+      ],
+      "data_classes": [
+        "PUBLIC"
+      ],
+      "data_constraints": [
+        "SYNTHETIC_ONLY"
+      ]
+    },
+    "evidence_candidates": [],
+    "unresolved_gaps": [
+      {
+        "gap_kind": "OUTCOME",
+        "subject_ref": "working_primary_flow",
+        "status": "UNKNOWN",
+        "required_evidence_kinds": [],
+        "candidate_refs": [],
+        "message": "Formal result is UNKNOWN and no compatible current-baseline evidence candidate was found."
+      },
+      {
+        "gap_kind": "OUTCOME",
+        "subject_ref": "documented_local_start",
+        "status": "UNKNOWN",
+        "required_evidence_kinds": [],
+        "candidate_refs": [],
+        "message": "Formal result is UNKNOWN and no compatible current-baseline evidence candidate was found."
+      },
+      {
+        "gap_kind": "OUTCOME",
+        "subject_ref": "prototype_permitted_use_boundary",
+        "status": "UNKNOWN",
+        "required_evidence_kinds": [],
+        "candidate_refs": [],
+        "message": "Formal result is UNKNOWN and no compatible current-baseline evidence candidate was found."
+      },
+      {
+        "gap_kind": "LEVEL_CRITERION",
+        "subject_ref": "PROTOTYPE_CORE_FLOW",
+        "status": "UNKNOWN",
+        "required_evidence_kinds": [
+          "TEST_REPORT",
+          "MANUAL_VERIFICATION"
+        ],
+        "candidate_refs": [],
+        "message": "Formal result is UNKNOWN and no compatible current-baseline evidence candidate was found."
+      },
+      {
+        "gap_kind": "LEVEL_CRITERION",
+        "subject_ref": "PROTOTYPE_SIMPLE_ARCHITECTURE",
+        "status": "UNKNOWN",
+        "required_evidence_kinds": [
+          "ARCHITECTURE_RECORD",
+          "REPOSITORY_ARTIFACT"
+        ],
+        "candidate_refs": [],
+        "message": "Formal result is UNKNOWN and no compatible current-baseline evidence candidate was found."
+      },
+      {
+        "gap_kind": "LEVEL_CRITERION",
+        "subject_ref": "PROTOTYPE_LOCAL_START",
+        "status": "UNKNOWN",
+        "required_evidence_kinds": [
+          "START_INSTRUCTIONS",
+          "CONFIGURATION"
+        ],
+        "candidate_refs": [],
+        "message": "Formal result is UNKNOWN and no compatible current-baseline evidence candidate was found."
+      },
+      {
+        "gap_kind": "LEVEL_CRITERION",
+        "subject_ref": "PROTOTYPE_SMOKE_CHECK",
+        "status": "UNKNOWN",
+        "required_evidence_kinds": [
+          "TEST_REPORT",
+          "MANUAL_VERIFICATION"
+        ],
+        "candidate_refs": [],
+        "message": "Formal result is UNKNOWN and no compatible current-baseline evidence candidate was found."
+      },
+      {
+        "gap_kind": "LEVEL_CRITERION",
+        "subject_ref": "PROTOTYPE_LIMITATIONS",
+        "status": "UNKNOWN",
+        "required_evidence_kinds": [
+          "LIMITATIONS_RECORD"
+        ],
+        "candidate_refs": [],
+        "message": "Formal result is UNKNOWN and no compatible current-baseline evidence candidate was found."
+      },
+      {
+        "gap_kind": "LEVEL_CRITERION",
+        "subject_ref": "PROTOTYPE_PERMITTED_USE",
+        "status": "UNKNOWN",
+        "required_evidence_kinds": [
+          "PERMITTED_USE_RECORD"
+        ],
+        "candidate_refs": [],
+        "message": "Formal result is UNKNOWN and no compatible current-baseline evidence candidate was found."
+      },
+      {
+        "gap_kind": "HARD_CONSTRAINT",
+        "subject_ref": "HARD_CONSTRAINT_001",
+        "status": "UNKNOWN",
+        "required_evidence_kinds": [
+          "EXTERNAL_EVIDENCE"
+        ],
+        "candidate_refs": [],
+        "message": "Formal result is UNKNOWN and no compatible current-baseline evidence candidate was found."
+      },
+      {
+        "gap_kind": "HARD_CONSTRAINT",
+        "subject_ref": "HARD_CONSTRAINT_002",
+        "status": "UNKNOWN",
+        "required_evidence_kinds": [
+          "EXTERNAL_EVIDENCE"
+        ],
+        "candidate_refs": [],
+        "message": "Formal result is UNKNOWN and no compatible current-baseline evidence candidate was found."
+      },
+      {
+        "gap_kind": "PROFILE_CONTROL",
+        "subject_ref": "PRF-CLI-TOOL@1",
+        "status": "UNKNOWN",
+        "required_evidence_kinds": [],
+        "candidate_refs": [],
+        "message": "Formal result is UNKNOWN and no compatible current-baseline evidence candidate was found."
+      },
+      {
+        "gap_kind": "PERMITTED_USE",
+        "subject_ref": "PERMITTED_USE",
+        "status": "UNCONFIRMED",
+        "required_evidence_kinds": [
+          "PERMITTED_USE_RECORD"
+        ],
+        "candidate_refs": [],
+        "message": "Permitted-use boundary requires explicit formal confirmation."
+      }
+    ],
+    "evidence_refs": [],
+    "known_limitations": [],
+    "next_stage_gaps": [],
+    "notes": null,
+    "preparation_fingerprint": "sha256:0fa6b12385c266f24735b930aa870a506e72348fab57faef3f0ce65b3744ae8d"
+  }
+}

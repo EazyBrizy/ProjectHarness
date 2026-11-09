@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "engine_source_preflight": {
+    "zip": "Project_Harness_Engine_v0.5.0.zip",
+    "file_count": 371,
+    "manifest_entries": 369,
+    "size_bytes": 3660697,
+    "sha256": "9ce8b07fe70ef6092288c3fc332bc32900ec03a4f6483c5a6429e0c917a11235",
+    "status": "PASS"
+  },
+  "docs_final": {
+    "zip": "Project_Harness_Documentation_v0.5.0.zip",
+    "file_count": 117,
+    "manifest_entries": 116,
+    "size_bytes": 788865,
+    "sha256": "4f02f68f7d0a50ac17f0bb118a2c45e3bb2e240d01dfc74f1b6b57eab66cb9aa",
+    "status": "PASS"
+  },
+  "note": "preflight ZIP checked before final release report insertion; final ZIP revalidated separately."
+}

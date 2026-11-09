@@ -1,0 +1,36 @@
+test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss (tests.test_ph_lw_07_http.ApprovalBrowserTests.test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss) ... ERROR
+test_all_routes_exact_origin_session_csrf_methods_no_writes (tests.test_ph_lw_07_http.ApprovalHttpTests.test_all_routes_exact_origin_session_csrf_methods_no_writes) ... ok
+test_forged_fields_duplicate_keys_invalid_types_and_stale_digest_rejected (tests.test_ph_lw_07_http.ApprovalHttpTests.test_forged_fields_duplicate_keys_invalid_types_and_stale_digest_rejected) ... ok
+test_four_posts_replay_reload_ready_and_prepare_honestly_pending (tests.test_ph_lw_07_http.ApprovalHttpTests.test_four_posts_replay_reload_ready_and_prepare_honestly_pending) ... ok
+test_gpt_actor_timestamp_forgery_cannot_become_local_consent (tests.test_ph_lw_07_http.ApprovalHttpTests.test_gpt_actor_timestamp_forgery_cannot_become_local_consent) ... ok
+
+======================================================================
+ERROR: test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss (tests.test_ph_lw_07_http.ApprovalBrowserTests.test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\operation_guard.py", line 72, in project_operation_guard
+    msvcrt.locking(fd, msvcrt.LK_NBLCK, 1)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_07_http.py", line 171, in test_edge_four_five_separate_forms_stale_tabs_reload_receipts_and_xss
+    self.assertEqual(live.service.get_approval_review(pid)['receipts'][-1]['comment'],'Проверьте версии')
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_service.py", line 402, in get_approval_review
+    return review(self, project_id)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_approvals.py", line 147, in review
+    with project_operation_guard(root):
+         ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\operation_guard.py", line 74, in project_operation_guard
+    raise ValidationFailure('OPERATION_CONFLICT: operation already running for project', key) from exc
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: OPERATION_CONFLICT: operation already running for project
+
+----------------------------------------------------------------------
+Ran 5 tests in 12.702s
+
+FAILED (errors=1)

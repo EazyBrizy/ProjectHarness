@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "method": "Direct visual inspection of final frozen EXE headless Edge screenshots",
+  "limits": "Synthetic fixtures; screenshots supplement exact DOM/core assertions, not universal DLP.",
+  "screenshots": [
+    {
+      "file": "_scratch/ph_lw_12_fix/final05-installed-deep/screenshots/prepared-False.png",
+      "sha256": "e19496335effbcd42a5362764b9c3e62c82ebe6dff567ee1fd67825829578a39",
+      "observation": "MD intake: ordinary deep Unicode path, selectable JIT, handoff controls visible."
+    },
+    {
+      "file": "_scratch/ph_lw_12_fix/final05-installed-deep/screenshots/prepared-True.png",
+      "sha256": "4ba13a275a1be9f7e16a0738b3c6f5b5ee2e6d9bcd173e33b23ad8bff3664e36",
+      "observation": "ZIP intake: deep Unicode path, correct reserved Task/Run, handoff controls visible."
+    },
+    {
+      "file": "_scratch/ph_lw_12_fix/final05-installed-extended/screenshots/10/mvp-to-release.png",
+      "sha256": "6534e7f06765407afff76c3ed49c5d5e6211fb1b8df22c93d0bd1c5880a30b04",
+      "observation": "Stage panel STAGE_PLANNING_REQUIRED; target/active RELEASE; main status and selected card ACTIVE; highest accepted MVP."
+    },
+    {
+      "file": "_scratch/ph_lw_12_fix/final05-installed-deep-full/installed-task-pass.png",
+      "sha256": "f4b7057f2fd2243a44811856869f1546c3ad81f077b49489bb2bd382cd9b1524",
+      "observation": "Deep full manual flow: received COMPLETED result, separate manual evidence, independent verification PASS, completion button and current refs visible."
+    }
+  ],
+  "visible_browser_windows_opened": false,
+  "fixture_credentials": "Only synthetic Task/Run/project refs; no live bootstrap/session/CSRF tokens displayed."
+}

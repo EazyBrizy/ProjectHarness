@@ -1,0 +1,22 @@
+{
+  "command": [
+    "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "-B",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1\\local_web\\windows\\zip_path_acceptance.py",
+    "--installer",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1\\windows\\Harness-Setup-win-x64.exe",
+    "--output",
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\installed-basic-supported",
+    "--runtime-root",
+    "<WORKSPACE>\\_scratch\\PH12Профиль-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "--app-data-root",
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\installed-basic-supported\\LocalAppData"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-08T09:45:55.543563+00:00",
+  "freeze_sha256": "71d1bdd414c72410b4d17f833b1e9c75d11c3b5286fa1b65214ef7b3b7e53f00",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 176.281,
+  "log_sha256": "dabb46ee569f9139ebeb52cf0dca6d5fc3904e228c9c333dffcbdab41154f5fb"
+}

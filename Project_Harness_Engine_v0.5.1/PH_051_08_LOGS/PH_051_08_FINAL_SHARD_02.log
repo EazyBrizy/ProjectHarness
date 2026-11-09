@@ -1,0 +1,7 @@
+COMMAND: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. /opt/pyvenv/bin/python -m unittest -q tests.test_ph_f08_release_acceptance
+MODULES: test_ph_f08_release_acceptance
+
+----------------------------------------------------------------------
+Ran 2 tests in 102.250s
+
+OK

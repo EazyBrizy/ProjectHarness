@@ -1,0 +1,12 @@
+{
+  "command": [
+    "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+    "-B",
+    "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\tools\\ph_lw_12_fix_integrity.py"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "exit": 0,
+  "status": "PASS",
+  "log": "integrity-final.log",
+  "log_sha256": "4ee1e4e1d2c514852ec02da63929ecb8baa082c8451c2777e13d83bec3255daa"
+}

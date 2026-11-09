@@ -1,0 +1,1132 @@
+[
+  {
+    "file": "Project_Harness_Documentation_v0.5.1/13_Local_Web_Manual_Companion/16_PH_LW_09_Task_Run_Manual_Console.md",
+    "before_sha256": "48c352b5bc88248d53b1edd5ee810bae23e64efe58e532f0e7b5a34f3ecfb64d",
+    "after_sha256": "0bb10ee4c28bd167099ad99527108aa05c8ca91901db80ad988a9138ea703a18"
+  },
+  {
+    "file": "Project_Harness_Documentation_v0.5.1/13_Local_Web_Manual_Companion/17_PH_LW_09_Task_Manual_Evidence.md",
+    "before_sha256": null,
+    "after_sha256": "a23405a5726c2f3ddcba0370c5995e482c73b7e26a9ca8b7bca6a5ab6cfdf14c"
+  },
+  {
+    "file": "Project_Harness_Documentation_v0.5.1/FILE_INDEX.md",
+    "before_sha256": "02d04fad03b657f0f8f7a592b487dd810c7b3fcd86204ca5871d5fa04ad66b4d",
+    "after_sha256": "f725b3ffc74b2fec48f23f0abeb6c5a54b9de36d6548326e48b179bf3363183e"
+  },
+  {
+    "file": "Project_Harness_Documentation_v0.5.1/MANIFEST.sha256",
+    "before_sha256": "b9a6679877aa1bdd5f39fd810b61a8454acf04bfd3379949c1614dd2320b894b",
+    "after_sha256": "73ad285065b83f3d6898435725c7075c14ac5369bc79ba4dc68313278e23e4b5"
+  },
+  {
+    "file": "Project_Harness_Documentation_v0.5.1/Project_Harness_Architecture_v0.5.0_FULL.md",
+    "before_sha256": "a1896accbba325cd045d0f3595250567c0e02f06c8a3f62437e67640626e2b5c",
+    "after_sha256": "4135efedccfece91c9d5c4be8a81d9fd152541d59d41d50a38130a93ed874e59"
+  },
+  {
+    "file": "Project_Harness_Documentation_v0.5.1/README.md",
+    "before_sha256": "8ce7b3e78bb2751e161b7876544dce7fbaf9047876ae4495c155449256cb2261",
+    "after_sha256": "4832758ce69b1b103f467aa050f041d302415ee15573bcc5fb3aa55d31855cf1"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/MANIFEST.sha256",
+    "before_sha256": "a68ca9f744554c7afaa1fdce32104f37222d8f1f55653d3546adc8f7d958e7a2",
+    "after_sha256": "7c2e2fff193d2ca00f1b51ffc8e102cedd1737d12722d83f4f1cd1b33ce32e7e"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/BUILD_PROVENANCE.json",
+    "before_sha256": null,
+    "after_sha256": "a0805ed6c8f4372387d9355bc66a2403b87e2db29696b15cd312086ba6bcf56a"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/DOC_VALIDATION_FIXED.json",
+    "before_sha256": null,
+    "after_sha256": "dcbe3c8d5647299563eb640c9b8677410f113e49b465aab58fb1ca1e06c49ef8"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/DOC_VALIDATION_PREFLIGHT.json",
+    "before_sha256": null,
+    "after_sha256": "998c6882d04f697765cece600681656f09af11a1f9ed850bcf2cefeb9accbaf4"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/EVIDENCE_INDEX.json",
+    "before_sha256": null,
+    "after_sha256": "c96481754a150f438288f2aa3a53d8c5d2dfc3f7f9f35090cc1da574a8b4831c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/FINAL_BUILD_FREEZE.json",
+    "before_sha256": null,
+    "after_sha256": "108ddaaea043bc86e6490028675eb8405e7568affc0c30d3f7e9b9dd8f57ba55"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/NATIVE_SCOPE_VERDICT.json",
+    "before_sha256": null,
+    "after_sha256": "af790d6246b4c7d1881b1547802fc51284311449f264d7de6f7e10cc8df35759"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/PREVIOUS_BASELINE_COMPARISON.json",
+    "before_sha256": null,
+    "after_sha256": "b10b304814d410607cb1de7f773fb0749255312d1becf19782fb038fd129b920"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/README.md",
+    "before_sha256": null,
+    "after_sha256": "821ca1d65c4079480c9eaa606b885031672ef8999889cdf2ab9cbc702a4f1862"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/REGRESSION_MATRIX_CURRENT.json",
+    "before_sha256": null,
+    "after_sha256": "1b0d1d18b16897a5fff0ea06b908a47e1bbffa67be0eae7132807024bbbe474e"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/SOURCE_ENVIRONMENT.json",
+    "before_sha256": null,
+    "after_sha256": "b9db46dab03ea54464803befe424f7ecc514554736cfe09b7525b1470302e19f"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/TEST_INVENTORY_INITIAL_FREEZE.json",
+    "before_sha256": null,
+    "after_sha256": "05f0466895f6f056337df0fb2052a29d19521922a5b6b80c3cc7aa03ce824b2c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/WHEEL_ENVIRONMENT.json",
+    "before_sha256": null,
+    "after_sha256": "aa8f0c41a2936114ef9d5800c52920dd9ea6f9a17e752857d35a5b432d07703a"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/WHEEL_REFRESH.log",
+    "before_sha256": null,
+    "after_sha256": "49159ff83c8b54b5039d647dd6bd48570db30c81c7571467cc8513a34ffc5bb7"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/WHEEL_REFRESH_RECORD.json",
+    "before_sha256": null,
+    "after_sha256": "aa3e89098a11d3f8d2abdb8ad4e4511bec1cffbad3b777f8f04836e80f018146"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-contract-recheck/MATRIX.json",
+    "before_sha256": null,
+    "after_sha256": "26d2b76e7fe082a5c7d87f0a878bf7ef9c4ecbaca0a3cea36e18b4d7b92be990"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-contract-recheck/test_ph_lw_01_contract.json",
+    "before_sha256": null,
+    "after_sha256": "73f23370eb3d6c491eb41d2acc7dc0e5389740c18cb4433ae7c54ea30908919d"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-contract-recheck/test_ph_lw_01_contract.log",
+    "before_sha256": null,
+    "after_sha256": "85b3484498deb8ac702ed39efd529add36aaf49eeca0a8062cfcacd2901dd715"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-contract-recheck/test_ph_lw_01_contract.process.log",
+    "before_sha256": null,
+    "after_sha256": "482b533c7c306ef008ce78cc53bb6a814bac442d71b2af0b70e8f53ecee13650"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/MATRIX.json",
+    "before_sha256": null,
+    "after_sha256": "810b886e70e898471712c757d438e70fbf8efe6c95cb7242855db8cd5cd9e38f"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_assessment_freshness.json",
+    "before_sha256": null,
+    "after_sha256": "646c21d3212a8be7e4acce87dfc81e90fc007a352a92153cc56c356da5ab2ba6"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_assessment_freshness.log",
+    "before_sha256": null,
+    "after_sha256": "531e2c432ba83fdd597c8c4201ad0e7c3e3d23baf0b7250038ddf3cdff260315"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_assessment_freshness.process.log",
+    "before_sha256": null,
+    "after_sha256": "629751440178c058bd5293a9a96998a4308e58137429a2799bc70b305a26ea8d"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_canonical_target.json",
+    "before_sha256": null,
+    "after_sha256": "5cb947fa36a63fe588ff2f48ba28dbaf260b72621d9dfa41771319b6227dae0c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_canonical_target.log",
+    "before_sha256": null,
+    "after_sha256": "13a203e76c6f169587369a9e0b872e2bd1e2588a6885d812263878eeec4981ef"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_canonical_target.process.log",
+    "before_sha256": null,
+    "after_sha256": "33973442ef86526b4ec6d9af2c869f51df788f65ffe52056117dc0e08502fa32"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_contract_hardening.json",
+    "before_sha256": null,
+    "after_sha256": "3e3a17793dba70a474309f8d882fa229097f38c66b5e30776e06d24226be50e9"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_contract_hardening.log",
+    "before_sha256": null,
+    "after_sha256": "14dc2fdaf2928952b765df83a10e70080bd90a024800aef6251ac6143f1c334b"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_contract_hardening.process.log",
+    "before_sha256": null,
+    "after_sha256": "a1bd11582f6f4fefed6f2a8d1a424ecaea23184c564c8f02e43c1d25f71a8cac"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_engine.json",
+    "before_sha256": null,
+    "after_sha256": "8d5ac834b47cf190c2c22891f1fb2185ff2a436eef486496750e6397aa42fc33"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_engine.log",
+    "before_sha256": null,
+    "after_sha256": "48da03dbb3228f27a5cbdbc5e7f4150c3887cf66ca376d219b8716e29324fb0b"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_engine.process.log",
+    "before_sha256": null,
+    "after_sha256": "3fc68cb43f306646c1825e5dbd1bbcdafa8c8bd3363511b4dc8b64c4d4f43233"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_exact_assessment_ref.json",
+    "before_sha256": null,
+    "after_sha256": "dfbc1ecbba41ed6466703eccbc2bb9ec665aabb38f004727257592206dccc073"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_exact_assessment_ref.log",
+    "before_sha256": null,
+    "after_sha256": "dd245a2d03e31cb27260259fa196c13f38abd6dc8233eba164bc7dc2d7cd7423"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_exact_assessment_ref.process.log",
+    "before_sha256": null,
+    "after_sha256": "f0c5ae95bfd31ce28a402e688748a0255ada92af4d34c73ebb5bd27635a86249"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_gate_evidence_contract.json",
+    "before_sha256": null,
+    "after_sha256": "b7f0c5b3245d21d8ec4471e7189f519d52317abaaf8533a8f7a2f26ae8c4479e"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_gate_evidence_contract.log",
+    "before_sha256": null,
+    "after_sha256": "7d9482d277f28688979f4fd03cb58b73e1374ff6b29fb886d8e3001a37beef4e"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_gate_evidence_contract.process.log",
+    "before_sha256": null,
+    "after_sha256": "e900ac339b3e907860f482c516cf1249abd77d32fd964c3e79d5f0bfe4479f4a"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_implementation_levels.json",
+    "before_sha256": null,
+    "after_sha256": "3e734ecf0782920b7f4172fd77441d3bc6f05785910ccc5b4f3f9e9469dff53a"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_implementation_levels.log",
+    "before_sha256": null,
+    "after_sha256": "fa032b392f7c96e95c2caf498d98586d649c96b9184748c524ccc27e2b9ead31"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_implementation_levels.process.log",
+    "before_sha256": null,
+    "after_sha256": "2854ad5f275ebe0053c5c6d3c1b367b3a55211f63dd94f53c0fb8a9fb3ef0605"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_maintenance_lifecycle.json",
+    "before_sha256": null,
+    "after_sha256": "7a64527b774b3eeea934c73433d250a3b9c2c6b5f77a2c692066b56d4ed71fbf"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_maintenance_lifecycle.log",
+    "before_sha256": null,
+    "after_sha256": "45ca2403ce8d256d17ea7eec5e934d0f0408dce16455a8c05b590d28a931bc30"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_maintenance_lifecycle.process.log",
+    "before_sha256": null,
+    "after_sha256": "4d2cfdcbdf839ae179bed1b3e69d83c9d35255f6202a180ff739d48e011e47a5"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_01_contract_baseline.json",
+    "before_sha256": null,
+    "after_sha256": "6e41ef4c1e18aff77dd7d888da9d37fb004864d83ee7ab1c6553497611641d80"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_01_contract_baseline.log",
+    "before_sha256": null,
+    "after_sha256": "1ec8a3c2a8e0fa3ca18e511ac1b8cc78a3b51eec0550e1568efd73b6a6aabd31"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_01_contract_baseline.process.log",
+    "before_sha256": null,
+    "after_sha256": "10858b1374a46fb1da8664d4e1fee648424cbb7ce937aa2f804f68ddf8c8498e"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_02_executor_protocol.json",
+    "before_sha256": null,
+    "after_sha256": "89db2721e68e77b0912e7ed9f845fcd542dfcfe12b857a7a431fb4ee19cdd7f8"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_02_executor_protocol.log",
+    "before_sha256": null,
+    "after_sha256": "18d151a8ab51935442e050129015d771792f716c12788962ad1da0042f2a1cd5"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_02_executor_protocol.process.log",
+    "before_sha256": null,
+    "after_sha256": "ad52fb25be084f55e4180adf055fa19bb4e13fe2b970b5173cfee684542004cf"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_03_rootless_podman.json",
+    "before_sha256": null,
+    "after_sha256": "2a944a90658e555bdffdd9538e034ceceff305a6bfc59a41b3a164aa90805de8"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_03_rootless_podman.log",
+    "before_sha256": null,
+    "after_sha256": "c2792ae1c6a264cfbcba8ccd8a7a9943c89d492a16ad091e32a1f30a1129210d"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_03_rootless_podman.process.log",
+    "before_sha256": null,
+    "after_sha256": "cb140cb4e3b930eba923a944030dc5bc2df04e6032abd1f5f4d0a0a372b838ee"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_04_disposable_roots.json",
+    "before_sha256": null,
+    "after_sha256": "f6abf79b891ed94145cfcb11be5c07bfe2ca81cbc01a3b7af49addb55d5c6cb3"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_04_disposable_roots.log",
+    "before_sha256": null,
+    "after_sha256": "ca296bb50610fb60b89c15eb15c4c9d7aa071be9e74fb6c70fdbd5ca9efa49fa"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_04_disposable_roots.process.log",
+    "before_sha256": null,
+    "after_sha256": "2f8a951df8bf03ebc0d06eff1ffd6f7db9afbd88f8a40cb9f09f78e60bab491c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_05_codex_adapter.json",
+    "before_sha256": null,
+    "after_sha256": "045d7e225fc53c9b020883164a9788574c609d746ba7d4ea8f020251697eb999"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_05_codex_adapter.log",
+    "before_sha256": null,
+    "after_sha256": "951155787f6139f3dc033c6a261ddb09dddd6d7606bf2c71d1c4a98f08730f09"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_05_codex_adapter.process.log",
+    "before_sha256": null,
+    "after_sha256": "e788037ac4afb2b8fbc41bc44c1cf66fda197c45042d56312868b17da3a5645f"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_06_result_channel.json",
+    "before_sha256": null,
+    "after_sha256": "c519837f06ebd416f5eea9ab3aa6f89337a1ad1f7b5e37dab36320c047bed5ed"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_06_result_channel.log",
+    "before_sha256": null,
+    "after_sha256": "218b880cbd8d2c6eaf409dd069c508eda0bb4079cf99636cbe37a89719d31565"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_06_result_channel.process.log",
+    "before_sha256": null,
+    "after_sha256": "de1b1e8fc8d13ff61f3264964acb373cc5ff4d017324cb9fc6eab0aa0ff48ca1"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_07_sandbox_verification.json",
+    "before_sha256": null,
+    "after_sha256": "f42aa1ca8023a636200822ae18fade599252fa145c526d1f9071e49a93b052f1"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_07_sandbox_verification.log",
+    "before_sha256": null,
+    "after_sha256": "392e6894bc71ef3166cb742ed3b1bb528367f1e916849e3cd7095c5c26689ba7"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_07_sandbox_verification.process.log",
+    "before_sha256": null,
+    "after_sha256": "77795fd77e3df9d4849f8657da4d0ffe578c549a5a9437d4ef31a2d9ab1be0b2"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_08_atomic_apply.json",
+    "before_sha256": null,
+    "after_sha256": "cb1c86b5199f70f5ea488bec99d0c8ae4a51491cbe7f7b74c96e1770d5c7c4d8"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_08_atomic_apply.log",
+    "before_sha256": null,
+    "after_sha256": "95a3f591b79c76b159a95fddb8925420b88c55ee7ec1cffac073c132fff97c1e"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_08_atomic_apply.process.log",
+    "before_sha256": null,
+    "after_sha256": "8ee48c3b2346f7063f469dcdce9a12a59507516d266dc145044964ed50148297"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_09_automatic_runtime.json",
+    "before_sha256": null,
+    "after_sha256": "ce6a1312cc6ff8fff3fbcdccab589076226cd165671c64b393ce2b3d8c03281f"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_09_automatic_runtime.log",
+    "before_sha256": null,
+    "after_sha256": "29b7cb9c508320d6303d87947c3f84b9e5f47c508c4b10d592b185e31f618812"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_09_automatic_runtime.process.log",
+    "before_sha256": null,
+    "after_sha256": "248aab1a6e7ffe563fe830209c374fb6dc6402c4e3fcaa2d5d2e1dc4330cb5be"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_10_migration_recovery.json",
+    "before_sha256": null,
+    "after_sha256": "996c4a77a83c1070dc7ac87aecbeb7addf7340e6678568e4431650738c5b7cc9"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_10_migration_recovery.log",
+    "before_sha256": null,
+    "after_sha256": "1e2120ae0cb49fae233f8dbbd0b21bc2c0ce8d1f5e8967459736f5da17ae675e"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_10_migration_recovery.process.log",
+    "before_sha256": null,
+    "after_sha256": "953e561592d5a60a9ffdf82276f12e5c1d0d8f1714f4c445a85f12b943e211b0"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_11_operator_docs.json",
+    "before_sha256": null,
+    "after_sha256": "4108fe298b74a32a5640d9ce4172edc341acd553bc59d731a54d7aa0fbe39f21"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_11_operator_docs.log",
+    "before_sha256": null,
+    "after_sha256": "9e33eb98695c4f8a3b7000bd0645391213e62f4a91cf90a3dd7c1273720386d8"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_051_11_operator_docs.process.log",
+    "before_sha256": null,
+    "after_sha256": "fd982212d7036543f711f492f36caf55d85ee35dd67a740f7b0bb4b3e322e4ae"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f01_gate_semantics_regression.json",
+    "before_sha256": null,
+    "after_sha256": "25f5a68067907d1551b7a561941b1d94eb0868730cd4e78ec3cdd614669b173d"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f01_gate_semantics_regression.log",
+    "before_sha256": null,
+    "after_sha256": "30155aebd2284c11b1975c6e3b914c0e9cc2025afccd0d2da041f418b559ff51"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f01_gate_semantics_regression.process.log",
+    "before_sha256": null,
+    "after_sha256": "3b2583e34c1e6600cabf5c9fb5b2318f2554014e247bd7d5ba1d47f3e66a8856"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f01_planner_regression.json",
+    "before_sha256": null,
+    "after_sha256": "2683e0bdd269443d39140dbcebbb432212aff114625790c8995b3b950f609758"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f01_planner_regression.log",
+    "before_sha256": null,
+    "after_sha256": "dfdb779d5d701f9a35e411945e0ecb8e2acd5a322072c21d19bf88a57edc85f2"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f01_planner_regression.process.log",
+    "before_sha256": null,
+    "after_sha256": "ec4084a552613eb2df0753f2ca0e555fc666ff1e9c13c88e26756f41edd636ac"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f02_semantic_proof_contract.json",
+    "before_sha256": null,
+    "after_sha256": "b8c2cd41c8ac6b91f65b36b7691fa1fd0b081d20a5e56e2887b3c755d6de85d2"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f02_semantic_proof_contract.log",
+    "before_sha256": null,
+    "after_sha256": "0d106e5292ccd8d870ff04676459ac59ce893e24d424c1f55606c9ce0cca54ed"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f02_semantic_proof_contract.process.log",
+    "before_sha256": null,
+    "after_sha256": "4d29faef20c3f56aa5935c727a0b4404db22680feda0d65887d909b81f02b0d2"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f03_active_stage_planning.json",
+    "before_sha256": null,
+    "after_sha256": "551c9d2b7469a9737a77fc90b6615e0c423cebe6aca7a049f708ca4131dc6aeb"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f03_active_stage_planning.log",
+    "before_sha256": null,
+    "after_sha256": "9a0cda40e04f15a28a6e3b97aa0aa91fed7c1ee0298418cbd81ad153bd8f8577"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f03_active_stage_planning.process.log",
+    "before_sha256": null,
+    "after_sha256": "17d6264b44030327f2f17bb5cf4b5c69e0ceed2f400d20ba7bf645375e8526d2"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f04_runtime_reachability.json",
+    "before_sha256": null,
+    "after_sha256": "c19e4764adc060c72ab4b852f52ccbfb008e996b334419fc76bd7e9a765cd14e"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f04_runtime_reachability.log",
+    "before_sha256": null,
+    "after_sha256": "0f6f0703490817382284d328ec3743be23f3dbd43798524381ae9c51df0c3f76"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f04_runtime_reachability.process.log",
+    "before_sha256": null,
+    "after_sha256": "556da49392036dd5e695a3684846865677a333fffb93fd35e7d74911253b3109"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f05_intake_acceptance.json",
+    "before_sha256": null,
+    "after_sha256": "f61e07318e831fdfdb1d4ff3259de46bc4e42b55dc4e03126092f92e68d4938a"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f05_intake_acceptance.log",
+    "before_sha256": null,
+    "after_sha256": "430fa7167e6f9263cf5a791eb699ae5216670d0b4018f9847ee368673913eec8"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f05_intake_acceptance.process.log",
+    "before_sha256": null,
+    "after_sha256": "84841d125e1bf503b3c0fe72a771999032fa69b2f528902cd6fff01012c47cfe"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f06_maturity_lifecycle.json",
+    "before_sha256": null,
+    "after_sha256": "a221abae6227a5f466ce229dbcf8d0c2610513ec6d83d79d4e08de6d27a16247"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f06_maturity_lifecycle.log",
+    "before_sha256": null,
+    "after_sha256": "eafc8fa517287ec66baeb225b854bad0112d6b7d8ece630b11943f6f4389f15c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f06_maturity_lifecycle.process.log",
+    "before_sha256": null,
+    "after_sha256": "4889331634a10cb1cf538c21608623f6d86ad739fee800ac101513e642be1aed"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f08_release_acceptance.json",
+    "before_sha256": null,
+    "after_sha256": "9977fabb0ba4592c6d307220665e9b592e961e58bdfd64b9c7cd183aa9ec3deb"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f08_release_acceptance.log",
+    "before_sha256": null,
+    "after_sha256": "b22677bb603a07e444dc1e88bab9908bf2ca9343436dd6e3e982c79877b59f6b"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_f08_release_acceptance.process.log",
+    "before_sha256": null,
+    "after_sha256": "a3dc415d737ecb70b53d5370aae3509818ff05e577e488f0a0a419f5867a05cf"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_lw_01_contract.json",
+    "before_sha256": null,
+    "after_sha256": "ec13151def842890505e56dfc87f70b74da74fc87195bc6107bbf255b2986e06"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_lw_01_contract.log",
+    "before_sha256": null,
+    "after_sha256": "3bc76da3bbfbd368130530e39f16968eb46e2cc8843fcff59e00080b2ab20b42"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_lw_01_contract.process.log",
+    "before_sha256": null,
+    "after_sha256": "77cf09c15296f511722cdacb7b5d85abe7bdc83e21d22caf8932a09522c16cec"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_lw_02_windows_core.json",
+    "before_sha256": null,
+    "after_sha256": "8b9c0ba5e2fab834aed1bad5864fa08f0a3d73ce4f41e30f0bbaf3c44338aa54"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_lw_02_windows_core.log",
+    "before_sha256": null,
+    "after_sha256": "db8ea68d9b84ed7e897298101b9c27af3530018abd8b8c801778d49e6b19d2d8"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_lw_02_windows_core.process.log",
+    "before_sha256": null,
+    "after_sha256": "ea07da0d2d976048d7df363d6a4a8fda2c0e1843c0b7083599d03bea02676db7"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_lw_03_service.json",
+    "before_sha256": null,
+    "after_sha256": "d44c1317d5bf92857e2eb37b2df22f9a368f94278842cfb8b63780ac94fc7449"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_lw_03_service.log",
+    "before_sha256": null,
+    "after_sha256": "cc4a41147a2cc9e82d6c6c4b940c25dd2d56306ef60328c08fcf19b9e7af3af7"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_ph_lw_03_service.process.log",
+    "before_sha256": null,
+    "after_sha256": "12447947ef002bb5331e247683eae57b35655abb20d243cf6e40f6b10493958d"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_stage_approval_preparation.json",
+    "before_sha256": null,
+    "after_sha256": "7111c1ecd782321daf1f4c5df797c8e94509f46240d1929dbb173e9ca14f0acd"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_stage_approval_preparation.log",
+    "before_sha256": null,
+    "after_sha256": "f00ddddc8316028de489dac217580d45fab6c4c733c079e8de16c87b907d5b88"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_stage_approval_preparation.process.log",
+    "before_sha256": null,
+    "after_sha256": "9275b4938b01dcc8df20e43dfe0bca420c7b2332acc45db2b674035f22f43ded"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_stage_gate_preparation_block_recovery.json",
+    "before_sha256": null,
+    "after_sha256": "dc45ad8de9dca6a7f34cc569caa0bad31c41d1c05e780ce075ea7918530bb38b"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_stage_gate_preparation_block_recovery.log",
+    "before_sha256": null,
+    "after_sha256": "d91431f6cacc691ad64a0b6f45d05656005d425756749a98de7c26c24c0cc7b8"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_stage_gate_preparation_block_recovery.process.log",
+    "before_sha256": null,
+    "after_sha256": "98eb9d981ea9488c7da077d5830a9e7ab9871a4a043fff71972951abfa4b21f2"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_stage_transaction_recovery.json",
+    "before_sha256": null,
+    "after_sha256": "1d9d31bbafc973eb81b400a41241b78cbc9e2f5d526b80fd2cbf4e25ec82d21d"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_stage_transaction_recovery.log",
+    "before_sha256": null,
+    "after_sha256": "2f2a3d0d47323c399105f3cd723bc7ac0e243771e29509481675e91eaa79c4e9"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_stage_transaction_recovery.process.log",
+    "before_sha256": null,
+    "after_sha256": "6876e77a9f7d37964321175459c8fe6393e40fe17604ecc4fb76f8f337dd193e"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_windows_manual_migration.json",
+    "before_sha256": null,
+    "after_sha256": "764cb957e67aebd2fe5ff0a13b8d75be24888d827f983946c7e07e2d9c04ffbc"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_windows_manual_migration.log",
+    "before_sha256": null,
+    "after_sha256": "0b4af27e15863b54850ee1ef0e9e6d4052d068c84a7f361bb6499b49774bcd4d"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-final/test_windows_manual_migration.process.log",
+    "before_sha256": null,
+    "after_sha256": "1d9730b74a77767920728e06933f6a0f64f32ee2ca97f5afce4ca77c83990805"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-manual-recheck/MATRIX.json",
+    "before_sha256": null,
+    "after_sha256": "a31655e257930512f4b33a7e3130d2be1556ffad2c71cdf3620d8b9e0424a4b9"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-manual-recheck/test_ph_f06_maturity_lifecycle.json",
+    "before_sha256": null,
+    "after_sha256": "a453380a5ad5fc9bddb419f3e71fa967be9c44a7d9cf29578c4d94ea64f4314c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-manual-recheck/test_ph_f06_maturity_lifecycle.log",
+    "before_sha256": null,
+    "after_sha256": "dbad71afa9962840c4ae79a1154c5c6a983356f0ca0df1efcf79736fb0b99434"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/core-manual-recheck/test_ph_f06_maturity_lifecycle.process.log",
+    "before_sha256": null,
+    "after_sha256": "64e1ad7e26ccb3e812d3c12edd40f0d337bfd9c4ebde2c5989c6a352cb235452"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/native-final/DOC_VALIDATION.json",
+    "before_sha256": null,
+    "after_sha256": "a208b9ebf5eab0bee1e6d1344e7f259f544ee3a9d8c49f3aeca1cbf3bcc8a6c7"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/native-final/PH_LW_09_WINDOWS_TEST_REPORT.json",
+    "before_sha256": null,
+    "after_sha256": "40c43aaa59a71c7097cadf27e0e45064ffd9db0b0c09b9e255dd9ebda3b6bd96"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/native-final/doctor.log",
+    "before_sha256": null,
+    "after_sha256": "6a7449120787a8a0d56f7436664bff35f9d5a47f4cf337ea7ead338ef212dd8c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/native-final/documentation.log",
+    "before_sha256": null,
+    "after_sha256": "bd2cfc1d8a4786a01792351ef6bb9af2a39fa9484134bf392302db8919d0548f"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/native-final/stage_tests.json",
+    "before_sha256": null,
+    "after_sha256": "13c07df519a08035f79901964669e43e1b99b7bb52a83dcb2e776418d4372789"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/native-final/stage_tests.log",
+    "before_sha256": null,
+    "after_sha256": "10d42093fb6d9b1fe7728a037fc632d003d47b9d2d550c7834789308ce3b6b0b"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/browser-http-smoke.log",
+    "before_sha256": null,
+    "after_sha256": "26311d227a2117421ca511d17c3a9986077369f6f0a76f7c6dc56b2edab6ec5f"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/browser-http-smoke.run.json",
+    "before_sha256": null,
+    "after_sha256": "70bf02a311b10d22742800bf1fd0ed558791035836fa2b294c20de5df25610bd"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/build-final.log",
+    "before_sha256": null,
+    "after_sha256": "12507a3c824609f0a00d7234ea5efd3421a05a14b8613f22f96d0e4e9384b84f"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/build-final.run.json",
+    "before_sha256": null,
+    "after_sha256": "05cacf611240492acb585a845de9d81d836f6e0e74c93aec389269d058c78b88"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/build.log",
+    "before_sha256": null,
+    "after_sha256": "d560d576c53f336eb724cf7b28e99a2a0f69a5422e0efad28d5466b8001221e4"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/build.run.json",
+    "before_sha256": null,
+    "after_sha256": "e80937390f64a38a38d2d70eb76730b4b8ddcbc071b9fe05b2e09e4d62318fb6"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/contract-recheck.log",
+    "before_sha256": null,
+    "after_sha256": "b539f9245d5758d244bfa47696b54b1fc8a1a78795abfaa1edd06e2baa0d2e69"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/contract-recheck.run.json",
+    "before_sha256": null,
+    "after_sha256": "ebecb21978cc28ef005cd527d2e86da3025511060e873806b341045a69d38240"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/core-final.log",
+    "before_sha256": null,
+    "after_sha256": "aeb935f171cb1af117733664c3b1858a7509bdf319187892c0364c1178d61f33"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/core-final.run.json",
+    "before_sha256": null,
+    "after_sha256": "d37ff0036695f1984f69372b890a99b986c98faae664ab509727d21cd26360e9"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/docs-fixed.log",
+    "before_sha256": null,
+    "after_sha256": "ba2d0367793b167d14f0a71b8a11b7e6cc58763e10e2f0cabcd97b4b6ebe38d6"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/docs-fixed.run.json",
+    "before_sha256": null,
+    "after_sha256": "b7711c98b1c3af078e62e9343bc8fb6eb0fcfc63cb2dbd1fc2d3b1bf1207bbc0"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/docs-pointer-sync.log",
+    "before_sha256": null,
+    "after_sha256": "71217e59edd9abee929522c01ced9870f2182bbb9837fc5441ff291462f659a3"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/docs-pointer-sync.run.json",
+    "before_sha256": null,
+    "after_sha256": "8a16749db565000a8807a6257ae0562d2f9bb967a3a4067230e74085e9629657"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/docs-preflight.log",
+    "before_sha256": null,
+    "after_sha256": "d3699b7af3bb70f489be90f8f6b725b147d7462d9677c8bbbe086e1fca9eb786"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/docs-preflight.run.json",
+    "before_sha256": null,
+    "after_sha256": "8e70612f1848a2d618546976b318eaf35ecc91e90ef0c750a7e75e0b2079763d"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/docs-sync-fixed.log",
+    "before_sha256": null,
+    "after_sha256": "dcf967b5e0f0616a65f09a0049db8ea818c878a41da61f0f94ef7679c03b15d9"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/docs-sync-fixed.run.json",
+    "before_sha256": null,
+    "after_sha256": "8dfd010633b10a7090b8afb96a17e20e7adfd295a891ef48dc528d5eee1f2391"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/doctor-after-inventory.log",
+    "before_sha256": null,
+    "after_sha256": "16239d63156d830f2cf61eef5e7c444881d6f92f38b6309d1ab7862e033471ed"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/doctor-after-inventory.run.json",
+    "before_sha256": null,
+    "after_sha256": "84e016d838f79078d48e31bb205b7bf38da403523fe7b6b985f35ee30ca6657d"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/edge-failure-diagnostic.log",
+    "before_sha256": null,
+    "after_sha256": "e206a209cc1c35a6d0381a912836bb410f03177e97fb7b70ec9a6fdf52889818"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/edge-failure-diagnostic.run.json",
+    "before_sha256": null,
+    "after_sha256": "a4557ba715c121f6cfe1c59627a138b4219b6f8d4c671b1bf0ac06f40662a0b6"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/http-errors-final.log",
+    "before_sha256": null,
+    "after_sha256": "372ba53abb9fd71a7d19e71d0fb25da6acdbf67f730ab0a9237036ffd21c5e17"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/http-errors-final.run.json",
+    "before_sha256": null,
+    "after_sha256": "33c4e4e85d3b29b91d132e423a431ac5a76dd5cca1440ef4de843335e05d62c0"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/http-final-smoke.log",
+    "before_sha256": null,
+    "after_sha256": "c5d035eea14f2d376dfa02a82735f9f75fa9d19b5ee477ee59f2ddabf4472e92"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/http-final-smoke.run.json",
+    "before_sha256": null,
+    "after_sha256": "39032785cbb40a4cb7e05faee9bc7a53736c024b4b930818ff7cf845f7d35647"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/http-fixed.log",
+    "before_sha256": null,
+    "after_sha256": "0da5f2b76ebf694fe102257bcf020838ac50bd7485e265874c80834304aecdc6"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/http-fixed.run.json",
+    "before_sha256": null,
+    "after_sha256": "059a4de50e86ed3e4968164a3eb6cd78d44cf27869d069bc8f42f28a55302962"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/installed-final.log",
+    "before_sha256": null,
+    "after_sha256": "6e95e52ef9a6ca6617ade4f42e552d3093efc74ae77d2cee7d6a9dab152953a2"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/installed-final.run.json",
+    "before_sha256": null,
+    "after_sha256": "8e167aa4b1cdf966e50ade7cb4f162f6f1f04199ec1622754815bd8217a2871b"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/installed-import-recheck.log",
+    "before_sha256": null,
+    "after_sha256": "fb18b0b99f5577021097cc20d807a9f94dd5ce4305030fe5771b314f5717571a"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/installed-import-recheck.run.json",
+    "before_sha256": null,
+    "after_sha256": "1aa343e8ee268431e0ba24780bd88baf14267bd5ed19f9846a1a04f8cfa04089"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/intake-initial.log",
+    "before_sha256": null,
+    "after_sha256": "8113442fdd10bb246f75fbf83441288c25ed460472e3af2986748019e4c28247"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/intake-initial.run.json",
+    "before_sha256": null,
+    "after_sha256": "82fb38403cf6cf649a6b2fc76c2cc491b831c6ce46a564e63a9178d3d8df19aa"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/manifest-sync-inventory.log",
+    "before_sha256": null,
+    "after_sha256": "ec2dc5cbbefb3349c88aaf658412e0ca966158c7503f5af705675b4b9d30d1a3"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/manifest-sync-inventory.run.json",
+    "before_sha256": null,
+    "after_sha256": "82f58107d811ec12626de43b3539c3ef8449966b25e229897811b9ac836bacaa"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/native-final.log",
+    "before_sha256": null,
+    "after_sha256": "29763d2e451da9568806ce84ab93a5d0d028f5de586f66aa4f626c6842681bf6"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/native-final.run.json",
+    "before_sha256": null,
+    "after_sha256": "b91999b090753d6b8a4e0223936efb8a65804d1c5c960fe8637ad2d9fcc0796c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/negative-smoke.log",
+    "before_sha256": null,
+    "after_sha256": "7715e9023661f53b39e2cfae046a99bfefb536374ef26588834d2f3bf1c9f736"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/negative-smoke.run.json",
+    "before_sha256": null,
+    "after_sha256": "e6324b40bf71f12f1811925e95b88dbd4403237747794421dd0cc743338cc962"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/ph-f06-initial.log",
+    "before_sha256": null,
+    "after_sha256": "6da71d8f29732a566ad761abaf8addd96d6d6119020714f29a0ac92648b30320"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/ph-f06-initial.run.json",
+    "before_sha256": null,
+    "after_sha256": "359bfbe7b65929fba620dc0cffe800306f47117407e28b738ea6e100c16fed12"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/ph-f06-isolated.log",
+    "before_sha256": null,
+    "after_sha256": "df42d4c445361ee543c1a2d71b743a528b908519dea2655a6fe641ee8c1d03b0"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/ph-f06-isolated.run.json",
+    "before_sha256": null,
+    "after_sha256": "f7f6f0f48ba10188542afbd332ade3b4b26fe49c44684f83bb31a50ffee24db3"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/wheel-setup.log",
+    "before_sha256": null,
+    "after_sha256": "0a956fcd19949a04aa9d9349533c7522f5f8973bfa981e713cf261877d4e6ae6"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/runs/wheel-setup.run.json",
+    "before_sha256": null,
+    "after_sha256": "830e7445457918ee7829c7183b8009ff7540b2634306e622b286f595651fb355"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/screenshots-native/next-task.png",
+    "before_sha256": null,
+    "after_sha256": "9c6aa931ed5f01c788af5a7cc5deb83e8bf572f3eb92166e726a07ddb355c14b"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/screenshots-native/task-verified.png",
+    "before_sha256": null,
+    "after_sha256": "10d48fb0fe63a00068636459d9a4cd5ed04ef7cfbf3429a7043e2b3bcab20e28"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/screenshots-smoke/next-task.png",
+    "before_sha256": null,
+    "after_sha256": "e23b1bd566d97c0374eade48be3f473649a1c695792ae69b4db716d40cd11486"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/screenshots-smoke/task-verified.png",
+    "before_sha256": null,
+    "after_sha256": "14ecd6ba83e48aba06cb44051a4fa8315e2d6d055dfa5279187d5b8711bbdee0"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/screenshots-wheel/next-task.png",
+    "before_sha256": null,
+    "after_sha256": "553f2157cb35f0e5bbd6a30fca7f8fbe3114884570c59771f38afcc460241bba"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_LOGS/screenshots-wheel/task-verified.png",
+    "before_sha256": null,
+    "after_sha256": "e61e9661a51d685a98cd018c05de416ef57eae4cf101b49da07aae6fe5ec1ff5"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_09_MANUAL_EVIDENCE_TEST_REPORT.md",
+    "before_sha256": null,
+    "after_sha256": "d222faf63765afd9a91bf6325a8f706ea2ff4691ca991fda73c9cdd74d70e05f"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/README.md",
+    "before_sha256": "4ba1caea5d55b768dbbc50cff842fdcea55b8a6e52e8ecb0cf98a9bf6d254605",
+    "after_sha256": "471c97f4868d3e1170b4e00df94c67bf875b46e190feeac5905e4e6a91c6ea78"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/build/lib/project_harness/cli.py",
+    "before_sha256": "e853f6c25f959fa448f15db0c4c9b52f43f5d15726deacc89cd52b1a7624d714",
+    "after_sha256": "8ea532aa6ec6bb300539ed8ff3790b0553037660c537595c77cc147087b71769"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/build/lib/project_harness/local_web_http.py",
+    "before_sha256": "57f1e3174350fd881a1a407838ce39e7acf41af4f1e5ad689b9b2fcc3959fb97",
+    "after_sha256": "d0d7afb4275363696988089167302ff7a6fb8d3c8f8b65a751972a5cee4494b1"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/build/lib/project_harness/local_web_service.py",
+    "before_sha256": "40cb3f81580bf3c38936d5e9550d35ace21d52625eb07493f77b2e7aa3f9fec5",
+    "after_sha256": "a18df699bad9c11bbac0fd87d7a0127b02dfa97ea5a9188bab1b4c9666b39607"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/build/lib/project_harness/local_web_tasks.py",
+    "before_sha256": "24f2a81203c56fcc6298454eaef66bb13922a34e81e837d0d1b9932177ad5a90",
+    "after_sha256": "0f8701ec421f0ce46b0b9f1da73a45fb1132e79663fbb7b021764486d11bfcf5"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/build/lib/project_harness/manual_tasks.py",
+    "before_sha256": "e281cac5e8d319e43aec9bf32ac3b84e82bf3494df432de0527ab21d418df41a",
+    "after_sha256": "a8ada5747314e9f916f673a00a725664a5d2fb845f9b5a0b1224fc64b2baf05f"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/build/lib/project_harness/resources/local_web/assets/index.html",
+    "before_sha256": "032e6dbe5e00ffc1a4b1fa1b277a1be4f8bb16ecc85128815e1aa35100fff9c0",
+    "after_sha256": "324dba4a9f9bc727895c29a82f774fdf1e119addd631457422cb41d506911f0e"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/build/lib/project_harness/resources/local_web/assets/tasks.js",
+    "before_sha256": "24bde8570ccefda3539e0c80bfa3fdef98c0c934982baefd9e4705d6a3de70c3",
+    "after_sha256": "8795db52d68f4a134be50e272a88c4c682497f4234ab9897c6231613fd5dc86d"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/build/lib/project_harness/resources/local_web/metadata_v1.json",
+    "before_sha256": "ced6c126aa868effce4d949ab90faadbd7b2f5409100699fb90370e5a9a6ac60",
+    "after_sha256": "c58c4318545b19de2fcf9f4bea3f678846e79e4ceb833e27d220e8babeed313e"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/build/lib/project_harness/runtime.py",
+    "before_sha256": "b64c7a7041b863b2c62736af1749aeb731c0c3822f15c191ae8cf1f6d682b2a1",
+    "after_sha256": "37277d30e311bbe8f63c632c762b19dd667805b07ae95af73f5c9f4c6362b9be"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/build/lib/project_harness/task_manual_evidence.py",
+    "before_sha256": null,
+    "after_sha256": "c52ef0743a558b3c6f5466a51668625fc43f3eb0983dc1c072c2516116763348"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/dist/project_harness_engine-0.5.1-py3-none-any.whl",
+    "before_sha256": "877c465bbcb9a4187d4cf49f1e49eabf655ed2b9f21ff0aaf4b05ad2852d685e",
+    "after_sha256": "55402b3e747196789ebdd2dea75534e12a8a49cf10c820de8094901734903489"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1/13_Local_Web_Manual_Companion/16_PH_LW_09_Task_Run_Manual_Console.md",
+    "before_sha256": "48c352b5bc88248d53b1edd5ee810bae23e64efe58e532f0e7b5a34f3ecfb64d",
+    "after_sha256": "0bb10ee4c28bd167099ad99527108aa05c8ca91901db80ad988a9138ea703a18"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1/13_Local_Web_Manual_Companion/17_PH_LW_09_Task_Manual_Evidence.md",
+    "before_sha256": null,
+    "after_sha256": "a23405a5726c2f3ddcba0370c5995e482c73b7e26a9ca8b7bca6a5ab6cfdf14c"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1/FILE_INDEX.md",
+    "before_sha256": "02d04fad03b657f0f8f7a592b487dd810c7b3fcd86204ca5871d5fa04ad66b4d",
+    "after_sha256": "f725b3ffc74b2fec48f23f0abeb6c5a54b9de36d6548326e48b179bf3363183e"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1/MANIFEST.sha256",
+    "before_sha256": "b9a6679877aa1bdd5f39fd810b61a8454acf04bfd3379949c1614dd2320b894b",
+    "after_sha256": "73ad285065b83f3d6898435725c7075c14ac5369bc79ba4dc68313278e23e4b5"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1/Project_Harness_Architecture_v0.5.0_FULL.md",
+    "before_sha256": "a1896accbba325cd045d0f3595250567c0e02f06c8a3f62437e67640626e2b5c",
+    "after_sha256": "4135efedccfece91c9d5c4be8a81d9fd152541d59d41d50a38130a93ed874e59"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1/README.md",
+    "before_sha256": "8ce7b3e78bb2751e161b7876544dce7fbaf9047876ae4495c155449256cb2261",
+    "after_sha256": "4832758ce69b1b103f467aa050f041d302415ee15573bcc5fb3aa55d31855cf1"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/local_web/run_windows_acceptance.py",
+    "before_sha256": "bcbeddcb3efeab2173105118df541d59ae51fdc446c7c2fc6304ec983c73f882",
+    "after_sha256": "2e67b8e024f6f5edfcaf6b1b94d496645c670c8020e3ba5f52ae5e447a8a8d9d"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness/cli.py",
+    "before_sha256": "e853f6c25f959fa448f15db0c4c9b52f43f5d15726deacc89cd52b1a7624d714",
+    "after_sha256": "8ea532aa6ec6bb300539ed8ff3790b0553037660c537595c77cc147087b71769"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness/local_web_http.py",
+    "before_sha256": "57f1e3174350fd881a1a407838ce39e7acf41af4f1e5ad689b9b2fcc3959fb97",
+    "after_sha256": "d0d7afb4275363696988089167302ff7a6fb8d3c8f8b65a751972a5cee4494b1"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness/local_web_service.py",
+    "before_sha256": "40cb3f81580bf3c38936d5e9550d35ace21d52625eb07493f77b2e7aa3f9fec5",
+    "after_sha256": "a18df699bad9c11bbac0fd87d7a0127b02dfa97ea5a9188bab1b4c9666b39607"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness/local_web_tasks.py",
+    "before_sha256": "24f2a81203c56fcc6298454eaef66bb13922a34e81e837d0d1b9932177ad5a90",
+    "after_sha256": "0f8701ec421f0ce46b0b9f1da73a45fb1132e79663fbb7b021764486d11bfcf5"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness/manual_tasks.py",
+    "before_sha256": "e281cac5e8d319e43aec9bf32ac3b84e82bf3494df432de0527ab21d418df41a",
+    "after_sha256": "a8ada5747314e9f916f673a00a725664a5d2fb845f9b5a0b1224fc64b2baf05f"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/assets/index.html",
+    "before_sha256": "032e6dbe5e00ffc1a4b1fa1b277a1be4f8bb16ecc85128815e1aa35100fff9c0",
+    "after_sha256": "324dba4a9f9bc727895c29a82f774fdf1e119addd631457422cb41d506911f0e"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/assets/tasks.js",
+    "before_sha256": "24bde8570ccefda3539e0c80bfa3fdef98c0c934982baefd9e4705d6a3de70c3",
+    "after_sha256": "8795db52d68f4a134be50e272a88c4c682497f4234ab9897c6231613fd5dc86d"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/metadata_v1.json",
+    "before_sha256": "ced6c126aa868effce4d949ab90faadbd7b2f5409100699fb90370e5a9a6ac60",
+    "after_sha256": "c58c4318545b19de2fcf9f4bea3f678846e79e4ceb833e27d220e8babeed313e"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness/runtime.py",
+    "before_sha256": "b64c7a7041b863b2c62736af1749aeb731c0c3822f15c191ae8cf1f6d682b2a1",
+    "after_sha256": "37277d30e311bbe8f63c632c762b19dd667805b07ae95af73f5c9f4c6362b9be"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness/task_manual_evidence.py",
+    "before_sha256": null,
+    "after_sha256": "c52ef0743a558b3c6f5466a51668625fc43f3eb0983dc1c072c2516116763348"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness_engine.egg-info/PKG-INFO",
+    "before_sha256": "9f1ebe4906774734efec9dc4378c2ae02f528404dd29162f7ad511be111fcf74",
+    "after_sha256": "294383fd55d988bebff170b1f7d759d06ec4e5ec4f675dacecd4c3d4d13a0441"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/src/project_harness_engine.egg-info/SOURCES.txt",
+    "before_sha256": "a11a74709f461a8922299b9fd4ee1dbf8a007ac31890b7b4d413b2e438399659",
+    "after_sha256": "3c586972ec41c6c503cb90325b647f28188260e1c78b37e07ce2669fb8cbacc0"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/tests/ph_f06_fixtures.py",
+    "before_sha256": "63fb3da6207d644df6bcb96dd1d059b1322d828734ac903f0526d83d54168d37",
+    "after_sha256": "237c3272d982f87f7a49f383259c7e5ebe9062a80d00f98c35c263bbaaf64786"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/tests/test_ph_lw_01_contract.py",
+    "before_sha256": "c8044867f469163ef085f094543861186a59aa5d603f3ffc8291a7477f332dfd",
+    "after_sha256": "3f18dd82d0452dc7c6c02477f6671ec771836eddb4d15a4c34f672402319ef53"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/tests/test_ph_lw_09_http.py",
+    "before_sha256": "6d691243369d80716013ccdbaf7d2325b4daa1e9bbc5fde083cefc29734a407d",
+    "after_sha256": "b726114177baee20b9e30daf16ec86a2d624d580a3c230bf8ff8431914b05737"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/tests/test_ph_lw_09_manual_evidence.py",
+    "before_sha256": null,
+    "after_sha256": "24d40ff8758a88ca7cc1c1fbe674a2c453c85e275602ed5c49823a9be0959218"
+  }
+]

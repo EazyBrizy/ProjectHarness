@@ -1,0 +1,31 @@
+{
+  "name": "test_ph_f01_gate_semantics_regression-nonbrowser",
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;import project_harness;assert Path(project_harness.__file__).resolve().is_relative_to(Path(sys.prefix).resolve());sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel\\test_ph_f01_gate_semantics_regression-nonbrowser.log",
+    "tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_01_preparation_fixture_has_all_four_mandatory_proof_kinds",
+    "tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds",
+    "tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_keeps_gate_unclosed_without_subject_proofs"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_12\\Независимая папка wheel",
+  "exit": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 0.188,
+  "environment_ref": "WHEEL_ENVIRONMENT.json",
+  "modules": [
+    "tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_01_preparation_fixture_has_all_four_mandatory_proof_kinds",
+    "tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds",
+    "tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_keeps_gate_unclosed_without_subject_proofs"
+  ],
+  "ran": 0,
+  "failures": 0,
+  "errors": 1,
+  "skips": [],
+  "log": "test_ph_f01_gate_semantics_regression-nonbrowser.log",
+  "process_status": "FAIL",
+  "log_sha256": "624be1eb05a8155b5a22d6adc4c4c4f04dae7edb4945b2b00005532fb8e75aa6"
+}

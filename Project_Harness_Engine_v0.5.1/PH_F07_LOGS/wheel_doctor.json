@@ -1,0 +1,54 @@
+{
+  "version": "0.5.0",
+  "schema_version": 6,
+  "status": "PASS",
+  "root": "/mnt/data/phf07_work/operator-smoke/wheel/.venv/lib/python3.13/site-packages/project_harness/resources",
+  "checks": [
+    {
+      "name": "Canonical registries",
+      "status": "PASS",
+      "details": {
+        "id_prefixes": 2,
+        "project_profiles": 1,
+        "statuses": 5,
+        "request_routing": 2,
+        "capabilities": 1,
+        "contracts": 5,
+        "implementation_levels": 1
+      }
+    },
+    {
+      "name": "Bundled schemas",
+      "status": "PASS",
+      "details": {
+        "count": 12,
+        "errors": []
+      }
+    },
+    {
+      "name": "Seed ACTIVE skills",
+      "status": "PASS",
+      "details": {
+        "count": 3,
+        "errors": []
+      }
+    },
+    {
+      "name": "Entry points and browser preparation template",
+      "status": "PASS",
+      "details": {
+        "missing": [],
+        "layout": "installed"
+      }
+    },
+    {
+      "name": "Source and embedded resources",
+      "status": "PASS",
+      "details": {
+        "layout": "installed",
+        "checked": 0,
+        "errors": []
+      }
+    }
+  ]
+}

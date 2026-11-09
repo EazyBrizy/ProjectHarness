@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "scope": "Pre-publication exact accepted FIX5 source/docs/artifacts/manifests and original navigation hashes",
+  "repository": "https://github.com/EazyBrizy/ProjectHarness.git",
+  "branch": "main",
+  "build_id": "PH-LW-12-FIX5-20261108",
+  "source_digest": "sha256:0789035971ad3488b37a3d1cc480a9c7c63effcc3c67c540630e452b77f936ae",
+  "wheel_sha256": "22ce3cdca5fe875430d4780f163975ba896c3348fa2f30b5a88199064bec54a1",
+  "installer_sha256": "a4c7432852aadf93fd19fa4646ef8306854369be8ff8fd941ce6d1d268cc5964",
+  "navigation_before_sha256": "9b7380c1179edaf9c8ba29452b9940e081cc2bc0b140f4218662a52a7e16f456",
+  "navigation_after_sha256": "2827130ff424cc946acd2026e02d5387c2a4683b2b61cb6ba8c85127c62be20c",
+  "preserved_navigation": "CURRENT_TASK.before.md",
+  "runtime_docs_artifacts_changed": false,
+  "ignored_inputs_preserved_locally": true,
+  "zip_created": false,
+  "automatic_executor_enabled": false,
+  "credential_scan": {
+    "status": "PASS with reviewed negative fixture",
+    "text_files": 5805,
+    "binary_files": 343,
+    "reviewed_match": "test_ph_lw_06_exchange.py:246 synthetic-not-a-key; no private-key body"
+  }
+}

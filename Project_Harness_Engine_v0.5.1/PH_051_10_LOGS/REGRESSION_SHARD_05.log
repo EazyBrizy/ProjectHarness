@@ -1,0 +1,19 @@
+COMMAND: python -m unittest -q tests.test_contract_hardening tests.test_ph_051_06_result_channel tests.test_ph_f01_planner_regression
+======================================================================
+FAIL: test_16_argv_contains_only_env_file_path_and_no_secret_echo (tests.test_ph_051_06_result_channel.MockedRunnerEnvTests.test_16_argv_contains_only_env_file_path_and_no_secret_echo)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ph05110_work/build/engine/tests/test_ph_051_06_result_channel.py", line 273, in test_16_argv_contains_only_env_file_path_and_no_secret_echo
+    self.assertEqual(r["reason_code"],"SECRET_LEAK_DETECTED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'SANDBOX_UNAVAILABLE' != 'SECRET_LEAK_DETECTED'
+- SANDBOX_UNAVAILABLE
++ SECRET_LEAK_DETECTED
+
+
+----------------------------------------------------------------------
+Ran 50 tests in 365.775s
+
+FAILED (failures=1)
+
+EXIT_CODE=1

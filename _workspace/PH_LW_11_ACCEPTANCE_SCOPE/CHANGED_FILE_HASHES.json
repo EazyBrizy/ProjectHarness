@@ -1,0 +1,37 @@
+[
+  {
+    "file": "Project_Harness_Engine_v0.5.1/MANIFEST.sha256",
+    "before_sha256": "7bc4aabf97bba1c229bef95a0a97d03197cd64e701d2dd53a90f7754f1faf071",
+    "after_sha256": "21e5b511814ad3b4471fd7d2fcd06ab8f4df86fca8558ed7d166ea6a21e2594e"
+  },
+  {
+    "file": "Project_Harness_Engine_v0.5.1/PH_LW_11_ACCEPTANCE_SCOPE_DECISION.md",
+    "before_sha256": null,
+    "after_sha256": "1e100445d68221f0134842ee23741072f0b014e0534bd5ca8cdcf44ca562c221"
+  },
+  {
+    "file": "README.md",
+    "before_sha256": "9b7d4c9060a2d3c29f069568b081ac92edc27880bd483fd10b6bf161cf12b5ff",
+    "after_sha256": "382d093ea776326ba5f8611d4bfd5c66ff957ca5c3ae3839a2a88606bafdd6dd"
+  },
+  {
+    "file": "_workspace/CURRENT_TASK.md",
+    "before_sha256": "cad0c3c3443821294571e199142df05852c7d474ac2ee1b0a1e15aca8dd4ce61",
+    "after_sha256": "d231ce99b8409538e2f1c1eb92532f10219bfdd96b26a8e8ee2e1ca1720624e6"
+  },
+  {
+    "file": "_workspace/PROJECT_MAP.md",
+    "before_sha256": "93798f9f9338c235c75fdbbd770e76089ab499941bfcd1da3eb5be11c7411e3c",
+    "after_sha256": "13e4b5f495fed771ab0c739ac7eb5c7758dec7d04a4ca84f796fbf9794531a41"
+  },
+  {
+    "file": "_workspace/RUNBOOK.md",
+    "before_sha256": "2871e3d2b8219bf2ef3f9980549c34bff011ef23af928ab260a2b0a3a1ca7718",
+    "after_sha256": "840c3a91b0075cbcbb2f17d63bfaceefd4e7d6a2b95f4a31408f207eeb2e69e2"
+  },
+  {
+    "file": "_workspace/WORKSPACE_VALIDATION.json",
+    "before_sha256": "34fbdbe57592d1c8e5f36920a5c1fecac6d6fb2621fc690d8b8a3f93ebe839f0",
+    "after_sha256": "e740978a697131353b3c0bade4b80e84f36984084ac733f17c68eb7eafd0dee4"
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "engine": {
+    "source_archive": "Project_Harness_Engine_v0.5.1_PH_051_11.zip",
+    "sha256": "44b75136131d917403b99299077e829c025783a6bb94c2b539fbe0b913449dbd",
+    "zip_entries": 748,
+    "zip_crc_error": null,
+    "manifest_path": "Project_Harness_Engine_v0.5.1/MANIFEST.sha256",
+    "manifest_expected": 747,
+    "manifest_mismatches": [],
+    "manifest_unlisted": []
+  },
+  "docs": {
+    "source_archive": "Project_Harness_Documentation_v0.5.1_PH_051_11.zip",
+    "sha256": "17ab78d0412c713fabf957bd54e7cc65d0b8dc77d358fe0d7f9f2635bca172fd",
+    "zip_entries": 133,
+    "zip_crc_error": null,
+    "manifest_path": "Project_Harness_Documentation_v0.5.1/MANIFEST.sha256",
+    "manifest_expected": 132,
+    "manifest_mismatches": [],
+    "manifest_unlisted": []
+  },
+  "specs": {
+    "source_archive": "Project_Harness_Implementation_Specifications_v0.4.1_to_v1.0.zip",
+    "sha256": "56bca615b7da5a0f48d0479c2de24ccd151fcefbf453fdfea89eab0d2675219e",
+    "zip_entries": 12,
+    "zip_crc_error": null,
+    "manifest_path": "Project_Harness_Implementation_Specifications_v0.4.1_to_v1.0/MANIFEST.sha256",
+    "manifest_expected": 10,
+    "manifest_mismatches": [],
+    "manifest_unlisted": []
+  },
+  "prompts": {
+    "source_archive": "Project_Harness_Windows_Local_Web_Implementation_Prompts_RU_r2.zip",
+    "sha256": "4d85691a5bc89a9ef3a449097898d8b727a041e70c0b13ec9ba45535bcce2829",
+    "zip_entries": 21,
+    "zip_crc_error": null,
+    "manifest_path": "Harness_Local_Web_Prompts_RU_r2/MANIFEST.sha256",
+    "manifest_expected": 20,
+    "manifest_mismatches": [],
+    "manifest_unlisted": []
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "tests": 305,
+  "all_pass": true,
+  "results": [
+    {
+      "shard": 1,
+      "modules": [
+        "test_ph_f06_maturity_lifecycle"
+      ],
+      "count": 13,
+      "exit_code": 0,
+      "seconds": 324.27,
+      "log": "PH_051_08_FINAL_SHARD_01.log"
+    },
+    {
+      "shard": 2,
+      "modules": [
+        "test_ph_f08_release_acceptance"
+      ],
+      "count": 2,
+      "exit_code": 0,
+      "seconds": 105.33,
+      "log": "PH_051_08_FINAL_SHARD_02.log"
+    },
+    {
+      "shard": 3,
+      "modules": [
+        "test_ph_f05_intake_acceptance"
+      ],
+      "count": 4,
+      "exit_code": 0,
+      "seconds": 12.26,
+      "log": "PH_051_08_FINAL_SHARD_03.log"
+    },
+    {
+      "shard": 4,
+      "modules": [
+        "test_engine"
+      ],
+      "count": 14,
+      "exit_code": 0,
+      "seconds": 58.43,
+      "log": "PH_051_08_FINAL_SHARD_04.log"
+    },
+    {
+      "shard": 5,
+      "modules": [
+        "test_contract_hardening",
+        "test_ph_051_06_result_channel",
+        "test_ph_f01_planner_regression"
+      ],
+      "count": 50,
+      "exit_code": 0,
+      "seconds": 166.08,
+      "log": "PH_051_08_FINAL_SHARD_05.log"
+    },
+    {
+      "shard": 6,
+      "modules": [
+        "test_stage_transaction_recovery",
+        "test_maintenance_lifecycle",
+        "test_stage_approval_preparation",
+        "test_ph_f02_semantic_proof_contract"
+      ],
+      "count": 34,
+      "exit_code": 0,
+      "seconds": 197.04,
+      "log": "PH_051_08_FINAL_SHARD_06.log"
+    },
+    {
+      "shard": 7,
+      "modules": [
+        "test_assessment_freshness",
+        "test_ph_051_05_codex_adapter",
+        "test_ph_051_01_contract_baseline",
+        "test_ph_f01_gate_semantics_regression"
+      ],
+      "count": 38,
+      "exit_code": 0,
+      "seconds": 133.81,
+      "log": "PH_051_08_FINAL_SHARD_07.log"
+    },
+    {
+      "shard": 8,
+      "modules": [
+        "test_implementation_levels",
+        "test_ph_051_03_rootless_podman",
+        "test_ph_f04_runtime_reachability",
+        "test_ph_051_07_sandbox_verification"
+      ],
+      "count": 47,
+      "exit_code": 0,
+      "seconds": 153.89,
+      "log": "PH_051_08_FINAL_SHARD_08.log"
+    },
+    {
+      "shard": 9,
+      "modules": [
+        "test_ph_051_02_executor_protocol",
+        "test_gate_evidence_contract",
+        "test_ph_f03_active_stage_planning",
+        "test_canonical_target"
+      ],
+      "count": 47,
+      "exit_code": 0,
+      "seconds": 235.83,
+      "log": "PH_051_08_FINAL_SHARD_09.log"
+    },
+    {
+      "shard": 10,
+      "modules": [
+        "test_ph_051_08_atomic_apply",
+        "test_stage_gate_preparation_block_recovery",
+        "test_ph_051_04_disposable_roots",
+        "test_exact_assessment_ref"
+      ],
+      "count": 56,
+      "exit_code": 0,
+      "seconds": 196.06,
+      "log": "PH_051_08_FINAL_SHARD_10.log"
+    }
+  ]
+}

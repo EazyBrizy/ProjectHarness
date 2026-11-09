@@ -1,0 +1,14 @@
+{
+  "command": [".venv/Scripts/python.exe", "-B", "tools/ph_lw_12_fix_doc_rebuild.py"],
+  "platform": "Windows 11 x64",
+  "exit": 1,
+  "status": "FAIL",
+  "phase": "Post-build wrapper assertion; build and documentation validator already PASS",
+  "actual_log_excerpt": "AssertionError: ['13_Local_Web_Manual_Companion/23_PH_LW_12_Blocker_Fixes.md', 'FILE_INDEX.md', 'MANIFEST.sha256']",
+  "cause": "Helper expected a full aggregate change, but that aggregate excludes Local Web addenda and correctly remained unchanged.",
+  "build_run": "_scratch/ph_lw_12_fix/build-04.run.json",
+  "build_status": "PASS",
+  "documentation_validator_status": "PASS before build",
+  "resolution": "Exact three-file equivalence checker run separately: PASS. Assertion corrected in wrapper for review. No source, wheel, tests or additional docs changes.",
+  "proof": "RUNTIME_EQUIVALENCE.json"
+}

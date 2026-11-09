@@ -1,0 +1,21 @@
+test_long_preparation_publication_validation_and_first_jit (tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_long_preparation_publication_validation_and_first_jit) ... FAIL
+
+======================================================================
+FAIL: test_long_preparation_publication_validation_and_first_jit (tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_long_preparation_publication_validation_and_first_jit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_11_long_path.py", line 27, in test_long_preparation_publication_validation_and_first_jit
+    self.approved();target=self.target();op=self.run_preparation(target)
+                                            ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 53, in run_preparation
+    self.assertEqual(result['state'],'SUCCEEDED',result)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'BLOCKED' != 'SUCCEEDED'
+- BLOCKED
++ SUCCEEDED
+ : {'operation_id': 'LWO-102D3E16B062FE7861D3EA5C87EF85FC', 'project_id': 'LWP-A35258EB311F0552A285', 'action': 'publish-project', 'request_digest': 'sha256:93ac982bfb8ba988cdb74900c6a778f8e9606484902311fa16df11587323c07b', 'expected_fingerprint': 'sha256:78d059fa78e6d7bf6c07b24c93cd59b2c88df5105a0e59acd76ec481ba75db07', 'created_at': '2026-11-08T01:20:55Z', 'updated_at': '2026-11-08T01:21:03Z', 'started_at': '2026-11-08T01:20:55Z', 'finished_at': '2026-11-08T01:21:03Z', 'state': 'BLOCKED', 'phase': 'RECONCILIATION_REQUIRED', 'core_before': 'sha256:78d059fa78e6d7bf6c07b24c93cd59b2c88df5105a0e59acd76ec481ba75db07', 'core_after': None, 'before_active_run_ref': None, 'expected_draft_after': None, 'result': None, 'error': {'code': 'PREPARATION_IO_BLOCKED', 'message_ru': 'Размещение прервано из-за доступа к файлам или занятого handle.', 'next_action_ru': 'Освободите файл или место на диске и выполните явную сверку подготовки.'}, 'receipt': {'kind': 'LOCAL_WEB_OPERATION_RECEIPT', 'receipt_version': 1, 'operation_id': 'LWO-102D3E16B062FE7861D3EA5C87EF85FC', 'project_ref': 'LWP-A35258EB311F0552A285', 'action_id': 'LW-C04', 'idempotency_key': 'preparation-test-000001', 'request_sha256': 'sha256:93ac982bfb8ba988cdb74900c6a778f8e9606484902311fa16df11587323c07b', 'expected_core_fingerprint': 'sha256:78d059fa78e6d7bf6c07b24c93cd59b2c88df5105a0e59acd76ec481ba75db07', 'core_outcome': 'UNKNOWN_RECONCILE', 'created_at': '2026-11-08T01:20:55Z'}, 'record_digest': 'sha256:d8edf608530a54f33d56d82e4ebde463ff7e388b8dff7ebbb048ae411ec3a9ef'}
+
+----------------------------------------------------------------------
+Ran 1 test in 9.309s
+
+FAILED (failures=1)

@@ -1,0 +1,16 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import faulthandler,unittest; faulthandler.dump_traceback_later(20,repeat=True); unittest.main(module=None,argv=['unittest','-v','tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_after_catalog'])"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T03:41:41.274886+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 180,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 35.658,
+  "log_sha256": "b494675a442a3bca68f17a0aef1fe2e061f8b765d576211e1ef48ac68c11c8f4"
+}

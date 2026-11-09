@@ -1,0 +1,20 @@
+{
+  "before_installer_sha256": "b24c93efdd32be6f5bed70ebeb88d31502d1bf48cec63b93f473a8cdd74c556c",
+  "after_installer_sha256": "2a56ed25463e808f22e0831cfa0d37487c4eb9c44fd2c5e59a147b3aecc8fa8c",
+  "source_and_wheel_unchanged": true,
+  "frozen_runtime_bytes_identical": false,
+  "changed_frozen_files": [
+    "Harness.exe",
+    "_internal/base_library.zip",
+    "_internal/documentation/13_Local_Web_Manual_Companion/19_PH_LW_11_Windows_Installation.md",
+    "_internal/documentation/FILE_INDEX.md",
+    "_internal/documentation/MANIFEST.sha256",
+    "_internal/documentation/Project_Harness_Architecture_v0.5.0_FULL.md",
+    "_internal/documentation/README.md"
+  ],
+  "generated_container_differences": [
+    "Harness.exe",
+    "_internal/base_library.zip"
+  ],
+  "fix": "Documentation metadata header and README status wording; validator unchanged, 0 errors. Final installer rebuilt and native acceptance repeated."
+}

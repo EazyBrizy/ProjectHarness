@@ -1,0 +1,10 @@
+{
+  "kind": "ADDITIONAL_PATH_STRESS_AFTER_IO_FIX",
+  "app_data_length": 214,
+  "not_a_pass": true,
+  "status": "FAIL",
+  "exception_type": "FileNotFoundError",
+  "winerror": 3,
+  "error": "[WinError 3] Системе не удается найти указанный путь: 'C:\\\\Users\\\\gvenv\\\\Desktop\\\\ProjectHarness\\\\_scratch\\\\ph_lw_12\\\\fixed-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\\\app-data-profile\\\\ProjectHarness-workspaces\\\\session-23B4EF73E9BC5B445D0C3D40\\\\intake'",
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 9, in <module>\n  File \"C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1\\src\\project_harness\\local_web_service.py\", line 483, in create_provisional_intake\n    return create_intake(self, project_name=project_name, idempotency_key=idempotency_key,\n                         no_documentation=no_documentation)\n  File \"C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1\\src\\project_harness\\local_web_sources_service.py\", line 105, in create_intake\n    project_id = service.register_existing(root, kind='workspace')\n  File \"C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1\\src\\project_harness\\local_web_service.py\", line 201, in register_existing\n    canonical = raw.resolve(strict=True)\n  File \"C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_tools\\Python314\\Lib\\pathlib\\__init__.py\", line 938, in resolve\n    return self.with_segments(os.path.realpath(self, strict=strict))\n                              ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen ntpath>\", line 709, in realpath\nFileNotFoundError: [WinError 3] Системе не удается найти указанный путь: 'C:\\\\Users\\\\gvenv\\\\Desktop\\\\ProjectHarness\\\\_scratch\\\\ph_lw_12\\\\fixed-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\\\app-data-profile\\\\ProjectHarness-workspaces\\\\session-23B4EF73E9BC5B445D0C3D40\\\\intake'\n"
+}

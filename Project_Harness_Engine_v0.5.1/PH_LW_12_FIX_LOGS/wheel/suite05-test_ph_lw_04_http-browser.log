@@ -1,0 +1,8 @@
+test_browser_bootstrap_fragment_removed_no_external_requests_xss_inert (tests.test_ph_lw_04_http.LocalBrowserTests.test_browser_bootstrap_fragment_removed_no_external_requests_xss_inert) ... ok
+test_not_bound_to_nonloopback_lan_if_available (tests.test_ph_lw_04_http.LocalBrowserTests.test_not_bound_to_nonloopback_lan_if_available) ... ok
+test_real_tcp_host_csrf_no_session_replay_body_limit (tests.test_ph_lw_04_http.LocalBrowserTests.test_real_tcp_host_csrf_no_session_replay_body_limit) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 4.508s
+
+OK

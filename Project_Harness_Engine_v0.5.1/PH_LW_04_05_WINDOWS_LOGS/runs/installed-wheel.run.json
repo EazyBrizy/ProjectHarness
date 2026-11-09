@@ -1,0 +1,16 @@
+{
+  "command": [
+    "<WORKSPACE>\\_scratch\\wheel-env\\Scripts\\python.exe",
+    "<WORKSPACE>\\tools\\verify_installed.py",
+    "--engine",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\Отдельный запуск wheel",
+  "started_utc": "2026-11-06T23:48:56.621299+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 600,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 180.724,
+  "log_sha256": "07654365b19e5205507262d08e2db1d23e47de01c4a22b2499beb2b963da409a"
+}

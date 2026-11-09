@@ -1,0 +1,10 @@
+PH-051-05 runtime test host facts
+UTC=2026-10-26T01:05:06Z
+Linux 6.18.55 x86_64
+Python 3.13.5
+uid=0
+gid=0
+podman=NOT_INSTALLED
+codex=NOT_INSTALLED
+PH_TEST_PODMAN_IMAGE=NOT_CONFIGURED
+Running sandboxed Codex real integration: NOT RUN

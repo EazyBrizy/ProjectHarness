@@ -1,0 +1,22 @@
+{
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_09_manual_evidence\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "<WORKSPACE>\\tools\\verify_installed.py",
+    "--engine",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "--manual-migration",
+    "--ph-lw-06",
+    "--ph-lw-07",
+    "--ph-lw-08",
+    "--ph-lw-09"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_09_manual_evidence\\Независимая папка wheel",
+  "started_utc": "2026-11-07T10:24:43.799499+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 3600,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 1901.202,
+  "log_sha256": "712657fffda48704fd97a6aecf6192527c90d53183b9877399545f58f02c7610"
+}

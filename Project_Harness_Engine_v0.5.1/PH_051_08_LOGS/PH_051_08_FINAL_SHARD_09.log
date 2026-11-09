@@ -1,0 +1,7 @@
+COMMAND: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. /opt/pyvenv/bin/python -m unittest -q tests.test_ph_051_02_executor_protocol tests.test_gate_evidence_contract tests.test_ph_f03_active_stage_planning tests.test_canonical_target
+MODULES: test_ph_051_02_executor_protocol, test_gate_evidence_contract, test_ph_f03_active_stage_planning, test_canonical_target
+
+----------------------------------------------------------------------
+Ran 47 tests in 232.613s
+
+OK

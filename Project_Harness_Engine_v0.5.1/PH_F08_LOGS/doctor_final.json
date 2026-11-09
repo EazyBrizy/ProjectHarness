@@ -1,0 +1,67 @@
+{
+  "version": "0.5.0",
+  "schema_version": 6,
+  "status": "PASS",
+  "root": "/mnt/data/phf08_work/Project_Harness_Engine_v0.5.0",
+  "checks": [
+    {
+      "name": "Canonical registries",
+      "status": "PASS",
+      "details": {
+        "id_prefixes": 2,
+        "project_profiles": 1,
+        "statuses": 5,
+        "request_routing": 2,
+        "capabilities": 1,
+        "contracts": 5,
+        "implementation_levels": 1
+      }
+    },
+    {
+      "name": "Bundled schemas",
+      "status": "PASS",
+      "details": {
+        "count": 12,
+        "errors": []
+      }
+    },
+    {
+      "name": "Seed ACTIVE skills",
+      "status": "PASS",
+      "details": {
+        "count": 3,
+        "errors": []
+      }
+    },
+    {
+      "name": "Entry points and browser preparation template",
+      "status": "PASS",
+      "details": {
+        "missing": [],
+        "layout": "source"
+      }
+    },
+    {
+      "name": "Source and embedded resources",
+      "status": "PASS",
+      "details": {
+        "layout": "source",
+        "checked": 28,
+        "errors": []
+      }
+    },
+    {
+      "name": "Distribution manifest",
+      "status": "PASS",
+      "details": {
+        "entries": 368,
+        "missing": [],
+        "extra": [],
+        "mismatched": [],
+        "excluded_runtime_records": [
+          ".harness/runtime/OPERATION_JOURNAL/*"
+        ]
+      }
+    }
+  ]
+}

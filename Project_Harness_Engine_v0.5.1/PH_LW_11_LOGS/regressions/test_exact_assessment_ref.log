@@ -1,0 +1,10 @@
+test_01_prefix_collision_at_1_and_at_10_is_rejected_without_mutation (tests.test_exact_assessment_ref.ExactAssessmentRefTests.test_01_prefix_collision_at_1_and_at_10_is_rejected_without_mutation) ... ok
+test_02_exact_revision_and_digest_pass_and_report_preserves_validated_ref (tests.test_exact_assessment_ref.ExactAssessmentRefTests.test_02_exact_revision_and_digest_pass_and_report_preserves_validated_ref) ... ok
+test_03_unversioned_and_wildcard_like_refs_are_rejected_without_mutation (tests.test_exact_assessment_ref.ExactAssessmentRefTests.test_03_unversioned_and_wildcard_like_refs_are_rejected_without_mutation) ... ok
+test_04_wrong_envelope_internal_id_and_internal_revision_are_rejected (tests.test_exact_assessment_ref.ExactAssessmentRefTests.test_04_wrong_envelope_internal_id_and_internal_revision_are_rejected) ... ok
+test_05_wrong_or_noncanonical_digest_is_rejected_without_mutation (tests.test_exact_assessment_ref.ExactAssessmentRefTests.test_05_wrong_or_noncanonical_digest_is_rejected_without_mutation) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 98.536s
+
+OK

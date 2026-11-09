@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "checks": {
+    "documentation_mirror": {
+      "files": 147,
+      "mismatches": []
+    },
+    "schemas_mirror": {
+      "files": 17,
+      "mismatches": []
+    },
+    "registries_mirror": {
+      "files": 7,
+      "mismatches": []
+    },
+    "templates_mirror": {
+      "files": 2,
+      "mismatches": []
+    },
+    "skills_mirror": {
+      "files": 3,
+      "mismatches": []
+    },
+    "workspace_links": 80,
+    "build_mirror": {
+      "files": 94,
+      "mismatches": []
+    },
+    "wheel_source_mirror": {
+      "files": 94,
+      "mismatches": []
+    }
+  },
+  "errors": []
+}

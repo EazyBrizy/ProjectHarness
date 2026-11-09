@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "captured_utc": "2026-11-08T08:28:32.523445+00:00",
+  "previous_attestation": "_workspace\\PH_LW_11_ZIP_PATH\\FINAL_WORKING_TREE_VERIFICATION.json",
+  "previous_attestation_sha256": "d007b96c2ec708fdb351955a9ec2ae1a6a9d2d92bafe763819778e0c68b14a44",
+  "wheel_sha256": "9bb3e87fdf2b297e7292fd5d2216fc1a61c9dbe49e2e4cf018f5eb5f2aa19bc2",
+  "installer_sha256": "0550a5582182ab95aa8b5376b878cdb3210b126a53b6fd6f90746417d50abb94",
+  "engine_build_digest": "sha256:5f0d5ac595d8a052bfa456140f2d42c5d571c53ab38aff3c8831d4ebbe309bbf",
+  "allowed_existing_changes": [
+    "Project_Harness_Engine_v0.5.1/MANIFEST.sha256",
+    "README.md",
+    "_workspace/CURRENT_TASK.md",
+    "_workspace/PROJECT_MAP.md",
+    "_workspace/RUNBOOK.md",
+    "_workspace/WORKSPACE_VALIDATION.json"
+  ],
+  "allowed_new_files": [
+    "Project_Harness_Engine_v0.5.1/PH_LW_11_ACCEPTANCE_SCOPE_DECISION.md",
+    "_workspace/PH_LW_11_ACCEPTANCE_SCOPE/*"
+  ],
+  "purpose": "Explicitly accepted limitations; no code, test, runtime package or historical evidence changes"
+}

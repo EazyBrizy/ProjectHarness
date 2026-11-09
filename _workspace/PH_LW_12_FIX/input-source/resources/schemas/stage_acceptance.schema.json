@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "SCHEMA-STAGE-ACCEPTANCE@1",
+  "title": "Stage Acceptance Report",
+  "type": "object",
+  "required": [
+    "stage_acceptance"
+  ],
+  "properties": {
+    "stage_acceptance": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "SCHEMA-STAGE-ACCEPTANCE-BODY@1",
+      "title": "Stage Acceptance Body",
+      "type": "object",
+      "required": [
+        "id",
+        "revision",
+        "level",
+        "status",
+        "acceptance_method",
+        "baseline_revision",
+        "accepted_at",
+        "decision_ref",
+        "evidence_refs",
+        "evidence_bindings",
+        "permitted_use",
+        "known_limitations",
+        "next_stage_gaps"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^VAL-"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "level": {
+          "enum": [
+            "PROTOTYPE",
+            "ALPHA",
+            "BETA",
+            "MVP",
+            "RELEASE"
+          ]
+        },
+        "status": {
+          "const": "PASS"
+        },
+        "acceptance_method": {
+          "enum": [
+            "EXECUTED_STAGE_WORK",
+            "SATISFIED_BY_BASELINE"
+          ]
+        },
+        "baseline_revision": {
+          "type": "string",
+          "pattern": "^tree:sha256:"
+        },
+        "accepted_at": {
+          "type": "string",
+          "minLength": 1
+        },
+        "accepted_by": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "decision_ref": {
+          "type": "string",
+          "pattern": "^DEC-"
+        },
+        "stage_plan_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "gate_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "assessment_ref": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^VAL-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?@[1-9][0-9]*$"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "permitted_use": {
+          "type": "object"
+        },
+        "known_limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "next_stage_gaps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidence_bindings": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "required": [
+              "ref",
+              "path",
+              "sha256"
+            ],
+            "properties": {
+              "ref": {
+                "type": "string",
+                "pattern": "^EVD-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?$"
+              },
+              "path": {
+                "type": "string",
+                "pattern": "^\\.harness/evidence/EVD-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?\\.yaml$"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "acceptance_method": {
+                "const": "SATISFIED_BY_BASELINE"
+              }
+            },
+            "required": [
+              "acceptance_method"
+            ]
+          },
+          "then": {
+            "required": [
+              "assessment_ref"
+            ],
+            "properties": {
+              "assessment_ref": {
+                "type": "string",
+                "pattern": "^VAL-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?@[1-9][0-9]*$"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

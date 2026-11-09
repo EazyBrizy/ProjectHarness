@@ -1,0 +1,26 @@
+{
+  "modules": [
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_01_controlled_failure_at_every_apply_point_restores_full_old_state",
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_02_abrupt_crash_after_every_apply_point_recovers_only_old_or_new",
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_03_prepared_journal_write_failure_changes_no_canonical_state",
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_04_durable_prepared_crash_before_replacements_is_recovered_idempotently",
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_05_per_entry_state_write_failure_rolls_back_verified_old_state",
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_06_one_shot_final_committed_marker_failure_returns_committed_success",
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_07_persistent_commit_marker_failure_reports_error_only_after_full_rollback",
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_08_crash_with_all_replacements_and_no_commit_marker_recovers_commit",
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_09_committed_replay_is_idempotent_and_does_not_create_second_transition",
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_10_rolled_back_transaction_id_requires_new_approval",
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_11_corrupt_backup_blocks_recovery_validation_and_new_mutation",
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_12_level_up_apply_failure_restores_exact_pre_level_up_state",
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_13_level_up_missing_commit_marker_recovers_and_replays_idempotently",
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_14_render_failure_is_a_recoverable_warning_after_commit",
+    "tests.test_stage_transaction_recovery.StageTransactionRecoveryTests.test_15_validate_project_rejects_mixed_committed_canonical_state"
+  ],
+  "ran": 15,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "elapsed_seconds": 112.338,
+  "log": "suite05-test_stage_transaction_recovery-nonbrowser.log",
+  "status": "PASS"
+}

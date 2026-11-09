@@ -1,0 +1,210 @@
+test_ui_upload_preview_duplicate_replace_and_no_documentation (tests.test_ph_lw_04_05_acceptance.BrowserImportAcceptance.test_ui_upload_preview_duplicate_replace_and_no_documentation) ... BROWSER_LINE 293 2029149.07
+BROWSER_LINE 294 2029149.16
+BROWSER_LINE 295 2029149.16
+BROWSER_LINE 296 2029149.49
+BROWSER_LINE 297 2029149.49
+BROWSER_LINE 298 2029149.76
+BROWSER_LINE 299 2029149.98
+BROWSER_LINE 300 2029149.98
+BROWSER_LINE 301 2029150.12
+BROWSER_LINE 302 2029150.12
+BROWSER_LINE 303 2029150.12
+BROWSER_LINE 304 2029150.12
+BROWSER_LINE 305 2029150.12
+Task queue depth is 1
+BROWSER_LINE 306 2029150.2
+BROWSER_LINE 307 2029150.23
+BROWSER_LINE 308 2029150.23
+BROWSER_LINE 309 2029150.33
+BROWSER_LINE 310 2029150.34
+BROWSER_LINE 311 2029150.37
+BROWSER_LINE 312 2029150.68
+BROWSER_LINE 313 2029150.69
+BROWSER_LINE 314 2029150.69
+BROWSER_LINE 313 2029150.69
+BROWSER_LINE 315 2029150.69
+BROWSER_LINE 316 2029150.69
+BROWSER_LINE 317 2029150.69
+BROWSER_LINE 319 2029150.69
+BROWSER_LINE 320 2029150.7
+BROWSER_LINE 321 2029150.71
+BROWSER_LINE 322 2029150.71
+BROWSER_LINE 323 2029150.74
+BROWSER_LINE 324 2029151.05
+BROWSER_LINE 325 2029151.14
+BROWSER_LINE 326 2029151.15
+BROWSER_LINE 327 2029151.17
+BROWSER_LINE 328 2029151.17
+BROWSER_LINE 329 2029151.18
+BROWSER_LINE 316 2029151.18
+BROWSER_LINE 317 2029151.18
+BROWSER_LINE 319 2029151.18
+BROWSER_LINE 320 2029151.19
+BROWSER_LINE 321 2029151.19
+BROWSER_LINE 322 2029151.2
+BROWSER_LINE 323 2029151.23
+BROWSER_LINE 324 2029158.32
+BROWSER_LINE 325 2029158.34
+BROWSER_LINE 326 2029158.51
+BROWSER_LINE 327 2029158.68
+BROWSER_LINE 328 2029158.69
+BROWSER_LINE 329 2029158.7
+BROWSER_LINE 316 2029158.71
+BROWSER_LINE 317 2029158.71
+BROWSER_LINE 318 2029158.71
+BROWSER_LINE 319 2029158.71
+BROWSER_LINE 320 2029158.76
+BROWSER_LINE 321 2029158.8
+BROWSER_LINE 322 2029158.81
+BROWSER_LINE 323 2029158.96
+BROWSER_LINE 324 2029160.36
+BROWSER_LINE 325 2029160.37
+BROWSER_LINE 326 2029160.39
+BROWSER_LINE 327 2029167.88
+BROWSER_LINE 328 2029167.9
+BROWSER_LINE 329 2029167.92
+BROWSER_LINE 316 2029167.93
+BROWSER_LINE 330 2029167.93
+BROWSER_LINE 331 2029167.95
+BROWSER_LINE 332 2029168.06
+BROWSER_LINE 333 2029169.98
+BROWSER_LINE 334 2029170.08
+Task queue depth is 1
+BROWSER_LINE 335 2029171.4
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 336 2029171.44
+BROWSER_LINE 337 2029171.44
+BROWSER_LINE 339 2029171.44
+Timeout (0:00:45)!
+Thread 0x0000bd1c [Thread-1 (run)] (most recent call first):
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\wasyncore.py", line 167 in poll
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\wasyncore.py", line 240 in loop
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\server.py", line 325 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x000097c4 [waitress-3] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x000084bc [waitress-2] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x0000c9ac [waitress-1] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x00006338 [waitress-0] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x000063fc (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\windows_events.py", line 778 in _poll
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\windows_events.py", line 446 in select
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\base_events.py", line 2026 in _run_once
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\base_events.py", line 678 in run_forever
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\base_events.py", line 707 in run_until_complete
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\sync_api\_context_manager.py", line 60 in greenlet_main
+Timeout (0:00:45)!
+Thread 0x0000bd1c [Thread-1 (run)] (most recent call first):
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\wasyncore.py", line 167 in poll
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\wasyncore.py", line 240 in loop
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\server.py", line 325 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x000097c4 [waitress-3] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x000084bc [waitress-2] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x0000c9ac [waitress-1] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x00006338 [waitress-0] (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 369 in wait
+  File "<WORKSPACE>\.venv\Lib\site-packages\waitress\task.py", line 71 in handler_thread
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1025 in run
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1083 in _bootstrap_inner
+  File "<WORKSPACE>\_tools\Python314\Lib\threading.py", line 1045 in _bootstrap
+
+Thread 0x000063fc (most recent call first):
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\windows_events.py", line 778 in _poll
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\windows_events.py", line 446 in select
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\base_events.py", line 2026 in _run_once
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\base_events.py", line 678 in run_forever
+  File "<WORKSPACE>\_tools\Python314\Lib\asyncio\base_events.py", line 707 in run_until_complete
+  File "<WORKSPACE>\.venv\Lib\site-packages\playwright\sync_api\_context_manager.py", line 60 in greenlet_main
+BROWSER_LINE 297 2029238.91
+BROWSER_LINE 341 2029238.95
+BROWSER_LINE 294 2029238.95
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 89.933s
+
+OK

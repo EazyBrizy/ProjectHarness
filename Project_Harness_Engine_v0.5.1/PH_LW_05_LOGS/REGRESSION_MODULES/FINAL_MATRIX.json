@@ -1,0 +1,299 @@
+{
+  "totals": {
+    "PASS": 36,
+    "FAIL": 0,
+    "TIMEOUT": 0,
+    "tests_ran": 412,
+    "skips_reported": 18
+  },
+  "modules": [
+    {
+      "module": "test_assessment_freshness",
+      "status": "PASS",
+      "tests_ran": 10,
+      "skipped": 0,
+      "effective_log": "test_assessment_freshness.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_canonical_target",
+      "status": "PASS",
+      "tests_ran": 5,
+      "skipped": 0,
+      "effective_log": "test_canonical_target.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_contract_hardening",
+      "status": "PASS",
+      "tests_ran": 31,
+      "skipped": 0,
+      "effective_log": "test_contract_hardening.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_engine",
+      "status": "PASS",
+      "tests_ran": 14,
+      "skipped": 0,
+      "effective_log": "test_engine.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_exact_assessment_ref",
+      "status": "PASS",
+      "tests_ran": 5,
+      "skipped": 0,
+      "effective_log": "test_exact_assessment_ref.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_gate_evidence_contract",
+      "status": "PASS",
+      "tests_ran": 10,
+      "skipped": 0,
+      "effective_log": "test_gate_evidence_contract_RECHECK.log",
+      "initial_status": "TIMEOUT"
+    },
+    {
+      "module": "test_implementation_levels",
+      "status": "PASS",
+      "tests_ran": 8,
+      "skipped": 0,
+      "effective_log": "test_implementation_levels.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_maintenance_lifecycle",
+      "status": "PASS",
+      "tests_ran": 7,
+      "skipped": 0,
+      "effective_log": "test_maintenance_lifecycle.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_ph_051_01_contract_baseline",
+      "status": "PASS",
+      "tests_ran": 10,
+      "skipped": 0,
+      "effective_log": "test_ph_051_01_contract_baseline.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_ph_051_02_executor_protocol",
+      "status": "PASS",
+      "tests_ran": 24,
+      "skipped": 0,
+      "effective_log": "test_ph_051_02_executor_protocol.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_ph_051_03_rootless_podman",
+      "status": "PASS",
+      "tests_ran": 20,
+      "skipped": 1,
+      "effective_log": "test_ph_051_03_rootless_podman.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_ph_051_04_disposable_roots",
+      "status": "PASS",
+      "tests_ran": 21,
+      "skipped": 0,
+      "effective_log": "test_ph_051_04_disposable_roots.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_ph_051_05_codex_adapter",
+      "status": "PASS",
+      "tests_ran": 15,
+      "skipped": 1,
+      "effective_log": "test_ph_051_05_codex_adapter.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_ph_051_06_result_channel",
+      "status": "PASS",
+      "tests_ran": 13,
+      "skipped": 0,
+      "effective_log": "test_ph_051_06_result_channel.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_ph_051_07_sandbox_verification",
+      "status": "PASS",
+      "tests_ran": 9,
+      "skipped": 0,
+      "effective_log": "test_ph_051_07_sandbox_verification.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_ph_051_08_atomic_apply",
+      "status": "PASS",
+      "tests_ran": 25,
+      "skipped": 0,
+      "effective_log": "test_ph_051_08_atomic_apply.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_ph_051_09_automatic_runtime",
+      "status": "PASS",
+      "tests_ran": 15,
+      "skipped": 0,
+      "effective_log": "test_ph_051_09_automatic_runtime.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_ph_051_10_migration_recovery",
+      "status": "PASS",
+      "tests_ran": 17,
+      "skipped": 0,
+      "effective_log": "test_ph_051_10_migration_recovery.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_ph_051_11_operator_docs",
+      "status": "PASS",
+      "tests_ran": 5,
+      "skipped": 0,
+      "effective_log": "test_ph_051_11_operator_docs.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_ph_f01_gate_semantics_regression",
+      "status": "PASS",
+      "tests_ran": 3,
+      "skipped": 0,
+      "effective_log": "test_ph_f01_gate_semantics_regression.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_ph_f01_planner_regression",
+      "status": "PASS",
+      "tests_ran": 6,
+      "skipped": 0,
+      "effective_log": "test_ph_f01_planner_regression_RECHECK.log",
+      "initial_status": "FAIL"
+    },
+    {
+      "module": "test_ph_f02_semantic_proof_contract",
+      "status": "PASS",
+      "tests_ran": 5,
+      "skipped": 0,
+      "effective_log": "test_ph_f02_semantic_proof_contract.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_ph_f03_active_stage_planning",
+      "status": "PASS",
+      "tests_ran": 8,
+      "skipped": 0,
+      "effective_log": "test_ph_f03_active_stage_planning_RECHECK.log",
+      "initial_status": "FAIL"
+    },
+    {
+      "module": "test_ph_f04_runtime_reachability",
+      "status": "PASS",
+      "tests_ran": 10,
+      "skipped": 0,
+      "effective_log": "test_ph_f04_runtime_reachability_RECHECK.log",
+      "initial_status": "FAIL"
+    },
+    {
+      "module": "test_ph_f05_intake_acceptance",
+      "status": "PASS",
+      "tests_ran": 4,
+      "skipped": 0,
+      "effective_log": "test_ph_f05_intake_acceptance.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_ph_f06_maturity_lifecycle",
+      "status": "PASS",
+      "tests_ran": 13,
+      "skipped": 0,
+      "effective_log": "test_ph_f06_maturity_lifecycle_RECHECK.log",
+      "initial_status": "TIMEOUT"
+    },
+    {
+      "module": "test_ph_f08_release_acceptance",
+      "status": "PASS",
+      "tests_ran": 2,
+      "skipped": 0,
+      "effective_log": "test_ph_f08_release_acceptance.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_ph_lw_01_contract",
+      "status": "PASS",
+      "tests_ran": 9,
+      "skipped": 0,
+      "effective_log": "test_ph_lw_01_contract.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_ph_lw_02_windows_core",
+      "status": "PASS",
+      "tests_ran": 14,
+      "skipped": 2,
+      "effective_log": "test_ph_lw_02_windows_core.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_ph_lw_03_service",
+      "status": "PASS",
+      "tests_ran": 15,
+      "skipped": 1,
+      "effective_log": "test_ph_lw_03_service.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_ph_lw_04_http",
+      "status": "PASS",
+      "tests_ran": 15,
+      "skipped": 10,
+      "effective_log": "test_ph_lw_04_http.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_ph_lw_05_http",
+      "status": "PASS",
+      "tests_ran": 3,
+      "skipped": 3,
+      "effective_log": "test_ph_lw_05_http.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_ph_lw_05_import",
+      "status": "PASS",
+      "tests_ran": 14,
+      "skipped": 0,
+      "effective_log": "test_ph_lw_05_import.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_stage_approval_preparation",
+      "status": "PASS",
+      "tests_ran": 7,
+      "skipped": 0,
+      "effective_log": "test_stage_approval_preparation.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_stage_gate_preparation_block_recovery",
+      "status": "PASS",
+      "tests_ran": 5,
+      "skipped": 0,
+      "effective_log": "test_stage_gate_preparation_block_recovery.log",
+      "initial_status": "PASS"
+    },
+    {
+      "module": "test_stage_transaction_recovery",
+      "status": "PASS",
+      "tests_ran": 15,
+      "skipped": 0,
+      "effective_log": "test_stage_transaction_recovery.log",
+      "initial_status": "PASS"
+    }
+  ]
+}

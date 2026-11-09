@@ -1,0 +1,47 @@
+test_alpha_apply_exact_revision_indexes_first_jit_and_replay (tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_alpha_apply_exact_revision_indexes_first_jit_and_replay) ... ok
+test_edited_record_needs_review_and_material_change_is_blocked (tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_edited_record_needs_review_and_material_change_is_blocked) ... ok
+test_level_up_mvp_release_first_ready_jit (tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_level_up_mvp_release_first_ready_jit) ... ok
+test_no_write_to_control_plane_or_unaccepted_requirements (tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_no_write_to_control_plane_or_unaccepted_requirements) ... ok
+test_read_only_draft_schema_and_public_cli (tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_read_only_draft_schema_and_public_cli) ... ERROR
+test_stale_product_baseline_fails_before_mutation (tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_stale_product_baseline_fails_before_mutation) ... ok
+test_tampered_binding_and_future_work_rejected (tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_tampered_binding_and_future_work_rejected) ... ok
+test_transaction_recovery_restores_pre_plan_boundary (tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_transaction_recovery_restores_pre_plan_boundary) ... ok
+
+======================================================================
+ERROR: test_read_only_draft_schema_and_public_cli (tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_read_only_draft_schema_and_public_cli)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/phlw03_work/engine/Project_Harness_Engine_v0.5.1/tests/test_ph_f03_active_stage_planning.py", line 71, in test_read_only_draft_schema_and_public_cli
+    cli_result = subprocess.run([str(distribution_root() / "bin/project-harness"), "prepare-active-stage-plan",
+                                "--project", str(root), "--output", str(path)], capture_output=True, text=True)
+  File "/usr/lib/python3.13/subprocess.py", line 554, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1857, in _execute_child
+    self._posix_spawn(args, executable, env, restore_signals, close_fds,
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                      p2cread, p2cwrite,
+                      ^^^^^^^^^^^^^^^^^^
+                      c2pread, c2pwrite,
+                      ^^^^^^^^^^^^^^^^^^
+                      errread, errwrite)
+                      ^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 1801, in _posix_spawn
+    self.pid = os.posix_spawn(executable, args, env, **kwargs)
+               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '/mnt/data/phlw03_work/engine/Project_Harness_Engine_v0.5.1/bin/project-harness'
+
+----------------------------------------------------------------------
+Ran 8 tests in 30.336s
+
+FAILED (errors=1)

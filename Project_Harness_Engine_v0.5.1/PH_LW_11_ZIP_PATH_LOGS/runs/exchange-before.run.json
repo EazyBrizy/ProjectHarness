@@ -1,0 +1,18 @@
+{
+  "command": [
+    "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_ph_lw_11_zip_path.LongAppDataZipTests.test_imported_long_zip_document_manual_exchange_roundtrip"
+  ],
+  "cwd": "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+  "started_utc": "2026-11-08T05:22:11.601580+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 180,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 1.219,
+  "log_sha256": "cc80f4065647e0f9ddafe6c5a607ec4234771d0fb1a333186b6862ca86f2b512"
+}

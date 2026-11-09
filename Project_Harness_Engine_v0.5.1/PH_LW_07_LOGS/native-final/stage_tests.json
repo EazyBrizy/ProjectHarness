@@ -1,0 +1,19 @@
+{
+  "modules": [
+    "tests.test_ph_lw_04_http",
+    "tests.test_ph_lw_05_import",
+    "tests.test_ph_lw_05_http",
+    "tests.test_ph_lw_04_05_acceptance",
+    "tests.test_ph_lw_06_exchange",
+    "tests.test_ph_lw_06_http",
+    "tests.test_ph_lw_07_approvals",
+    "tests.test_ph_lw_07_http"
+  ],
+  "ran": 86,
+  "failures": 0,
+  "errors": 1,
+  "skips": [],
+  "elapsed_seconds": 431.186,
+  "log": "stage_tests.log",
+  "status": "FAIL"
+}

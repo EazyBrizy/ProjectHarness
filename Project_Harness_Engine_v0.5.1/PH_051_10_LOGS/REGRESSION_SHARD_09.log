@@ -1,0 +1,7 @@
+COMMAND: python -m unittest -q tests.test_ph_051_02_executor_protocol tests.test_gate_evidence_contract tests.test_ph_f03_active_stage_planning tests.test_canonical_target
+----------------------------------------------------------------------
+Ran 47 tests in 560.012s
+
+OK
+
+EXIT_CODE=0

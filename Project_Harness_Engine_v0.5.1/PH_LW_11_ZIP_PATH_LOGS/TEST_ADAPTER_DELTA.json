@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "changed_test_files": [
+    "local_web/windows/zip_path_acceptance.py"
+  ],
+  "product_artifact_inputs_unchanged": true,
+  "scope": "Correct exact expected exit for second --no-browser launch to existing rejection contract 1. GUI browser-launch test NOT RUN per user restriction; other assertions/deadlines unchanged."
+}

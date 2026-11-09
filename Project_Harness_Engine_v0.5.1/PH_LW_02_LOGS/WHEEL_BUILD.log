@@ -1,0 +1,10 @@
+WARNING: The directory '/home/oai/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Processing /mnt/data/_ph_lw02_work/Project_Harness_Engine_v0.5.1
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: project-harness-engine
+  Building wheel for project-harness-engine (pyproject.toml): started
+  Building wheel for project-harness-engine (pyproject.toml): finished with status 'done'
+  Created wheel for project-harness-engine: filename=project_harness_engine-0.5.1-py3-none-any.whl size=774253 sha256=aa9b299f17046ad1f9c68c78479b65ad41d47aff6309c9ca918189c904834d79
+  Stored in directory: /tmp/pip-ephem-wheel-cache-8izy62ic/wheels/8a/20/d0/dfe07b9d27bf5fba52ff224487b90c94c494c4c455ebcb344c
+Successfully built project-harness-engine

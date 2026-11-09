@@ -1,0 +1,16 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "-c",
+    "from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite(['tests.test_ph_lw_07_http'],Path('_scratch/ph_lw_10/approval-recheck/tests.log'),reject_skips=True); raise SystemExit(0 if r['status']=='PASS' else 1)"
+  ],
+  "cwd": "<WORKSPACE>",
+  "started_utc": "2026-11-07T13:06:53.805494+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 180,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 17.542,
+  "log_sha256": "b425b5dc64b02f0428b3554d342d0e9ebf006482d71fc6f8159c87352fad5f9b"
+}

@@ -1,0 +1,9 @@
+test_approval_counts_question_order_and_transitions (tests.test_ph_f05_intake_acceptance.PHF05IntakeAcceptance.test_approval_counts_question_order_and_transitions) ... ok
+test_force_never_deletes_sources_or_initial_input (tests.test_ph_f05_intake_acceptance.PHF05IntakeAcceptance.test_force_never_deletes_sources_or_initial_input) ... ok
+test_minimal_and_documented_greenfield_handoff (tests.test_ph_f05_intake_acceptance.PHF05IntakeAcceptance.test_minimal_and_documented_greenfield_handoff) ... ok
+test_recheck_changed_answers_and_repeated_start (tests.test_ph_f05_intake_acceptance.PHF05IntakeAcceptance.test_recheck_changed_answers_and_repeated_start) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.347s
+
+OK

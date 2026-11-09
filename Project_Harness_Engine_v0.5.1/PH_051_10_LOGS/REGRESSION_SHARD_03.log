@@ -1,0 +1,7 @@
+COMMAND: python -m unittest -q tests.test_ph_f05_intake_acceptance
+----------------------------------------------------------------------
+Ran 4 tests in 10.551s
+
+OK
+
+EXIT_CODE=0

@@ -1,0 +1,41 @@
+{
+  "name": "test_stage_approval_preparation-nonbrowser",
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;import project_harness;assert Path(project_harness.__file__).resolve().is_relative_to(Path(sys.prefix).resolve());sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\wheel\\test_stage_approval_preparation-nonbrowser.log",
+    "tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_deterministic_force_and_safe_no_overwrite",
+    "tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_filled_generated_record_is_accepted",
+    "tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_generated_draft_has_exact_contract_and_unknown_results",
+    "tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_preparation_only_writes_requested_operator_file_and_never_approves",
+    "tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_product_or_gate_change_updates_new_draft_and_rejects_old_record",
+    "tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_public_api_and_cli_write_the_required_output_file",
+    "tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_stage_status_exposes_exact_gate_counts_baseline_and_route"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\Независимая папка wheel",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 27.187,
+  "environment_ref": "WHEEL_ENVIRONMENT.json",
+  "modules": [
+    "tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_deterministic_force_and_safe_no_overwrite",
+    "tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_filled_generated_record_is_accepted",
+    "tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_generated_draft_has_exact_contract_and_unknown_results",
+    "tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_preparation_only_writes_requested_operator_file_and_never_approves",
+    "tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_product_or_gate_change_updates_new_draft_and_rejects_old_record",
+    "tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_public_api_and_cli_write_the_required_output_file",
+    "tests.test_stage_approval_preparation.StageApprovalPreparationTests.test_stage_status_exposes_exact_gate_counts_baseline_and_route"
+  ],
+  "ran": 7,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "log": "test_stage_approval_preparation-nonbrowser.log",
+  "process_status": "PASS",
+  "log_sha256": "3062b1ec681ac5b98c3db01c4dd263b0e309004ab6a21cb52d475730dfa52acf",
+  "scope": "INSTALLED_WHEEL",
+  "runtime_freeze_sha256": "a0c9775c327500b45df478b466746c3a6aec792b67695fcfd43437255fe0b997"
+}

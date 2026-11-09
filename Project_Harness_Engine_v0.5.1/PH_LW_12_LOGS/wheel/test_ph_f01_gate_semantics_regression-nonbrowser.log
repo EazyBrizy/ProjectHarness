@@ -1,0 +1,27 @@
+setUpClass (tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests) ... ERROR
+
+======================================================================
+ERROR: setUpClass (tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_f01_gate_semantics_regression.py", line 36, in setUpClass
+    cls.template = build_greenfield_mvp(cls.base / "ordinary-tasks")
+                   ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\ph_f01_fixtures.py", line 34, in build_greenfield_mvp
+    _, _, root = prepare_demo(base, data=input_document("greenfield_mvp_project_input.json"))
+                                         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\ph_f01_fixtures.py", line 29, in input_document
+    return json.loads((FIXTURES / name).read_text(encoding="utf-8"))
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\_tools\Python314\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '<WORKSPACE>\\_scratch\\ph_lw_12\\wheel-venv\\Lib\\site-packages\\project_harness\\resources\\tests\\fixtures\\ph_f01\\greenfield_mvp_project_input.json'
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.004s
+
+FAILED (errors=1)

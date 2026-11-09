@@ -1,0 +1,168 @@
+[
+  {
+    "module": "tests.test_ph_lw_01_contract",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_ph_lw_01_contract",
+      "<WORKSPACE>\\_scratch\\ph_lw_06\\baseline\\test_ph_lw_01_contract.log"
+    ],
+    "started_utc": "2026-11-07T01:33:11.414505+00:00",
+    "exit": 0,
+    "status": "PASS",
+    "modules": [
+      "tests.test_ph_lw_01_contract"
+    ],
+    "ran": 9,
+    "failures": 0,
+    "errors": 0,
+    "skips": [],
+    "elapsed_seconds": 0.558,
+    "log": "test_ph_lw_01_contract.log",
+    "log_sha256": "b87b8319b2f2a5279067bd55a0ee9362d9db07f7c5d1fe0708c3ef4ff42496cd"
+  },
+  {
+    "module": "tests.test_ph_lw_02_windows_core",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_ph_lw_02_windows_core",
+      "<WORKSPACE>\\_scratch\\ph_lw_06\\baseline\\test_ph_lw_02_windows_core.log"
+    ],
+    "started_utc": "2026-11-07T01:33:11.414650+00:00",
+    "exit": 0,
+    "status": "PASS_WITH_SKIPS",
+    "modules": [
+      "tests.test_ph_lw_02_windows_core"
+    ],
+    "ran": 14,
+    "failures": 0,
+    "errors": 0,
+    "skips": [
+      {
+        "test": "tests.test_ph_lw_02_windows_core.WindowsCoreBoundaryTests.test_05_colliding_tree_rejected_without_rewriting_case",
+        "reason": "NTFS casefold aliases require a case-sensitive directory; ZIP test is cross-platform"
+      }
+    ],
+    "elapsed_seconds": 13.09,
+    "log": "test_ph_lw_02_windows_core.log",
+    "log_sha256": "7d0b99669629f16bbf7d89f31ad3481bd7cc4e3ebbbbb56ec3a3c6d9ba919a69"
+  },
+  {
+    "module": "tests.test_ph_lw_03_service",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_ph_lw_03_service",
+      "<WORKSPACE>\\_scratch\\ph_lw_06\\baseline\\test_ph_lw_03_service.log"
+    ],
+    "started_utc": "2026-11-07T01:33:11.414852+00:00",
+    "exit": 0,
+    "status": "PASS",
+    "modules": [
+      "tests.test_ph_lw_03_service"
+    ],
+    "ran": 15,
+    "failures": 0,
+    "errors": 0,
+    "skips": [],
+    "elapsed_seconds": 68.178,
+    "log": "test_ph_lw_03_service.log",
+    "log_sha256": "1614e8dbef842e637a0efcdf50e4c2e057b88ebcc83b4b260bdf342ddefec025"
+  },
+  {
+    "module": "tests.test_ph_lw_04_http",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_ph_lw_04_http",
+      "<WORKSPACE>\\_scratch\\ph_lw_06\\baseline\\test_ph_lw_04_http.log"
+    ],
+    "started_utc": "2026-11-07T01:33:11.983618+00:00",
+    "exit": 0,
+    "status": "PASS",
+    "modules": [
+      "tests.test_ph_lw_04_http"
+    ],
+    "ran": 17,
+    "failures": 0,
+    "errors": 0,
+    "skips": [],
+    "elapsed_seconds": 22.102,
+    "log": "test_ph_lw_04_http.log",
+    "log_sha256": "c279aab15ffa02397368994c2ac1064b288563f88f530bec019111d471a40586"
+  },
+  {
+    "module": "tests.test_ph_lw_05_http",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_ph_lw_05_http",
+      "<WORKSPACE>\\_scratch\\ph_lw_06\\baseline\\test_ph_lw_05_http.log"
+    ],
+    "started_utc": "2026-11-07T01:33:33.438995+00:00",
+    "exit": 0,
+    "status": "PASS",
+    "modules": [
+      "tests.test_ph_lw_05_http"
+    ],
+    "ran": 4,
+    "failures": 0,
+    "errors": 0,
+    "skips": [],
+    "elapsed_seconds": 2.413,
+    "log": "test_ph_lw_05_http.log",
+    "log_sha256": "cd1d44035a9d500749762a7562ea8efb9de0647c06004b46605a66479ec7c62f"
+  },
+  {
+    "module": "tests.test_ph_lw_05_import",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_ph_lw_05_import",
+      "<WORKSPACE>\\_scratch\\ph_lw_06\\baseline\\test_ph_lw_05_import.log"
+    ],
+    "started_utc": "2026-11-07T01:33:24.515772+00:00",
+    "exit": 0,
+    "status": "PASS",
+    "modules": [
+      "tests.test_ph_lw_05_import"
+    ],
+    "ran": 17,
+    "failures": 0,
+    "errors": 0,
+    "skips": [],
+    "elapsed_seconds": 8.91,
+    "log": "test_ph_lw_05_import.log",
+    "log_sha256": "47a7e5ef157c8a11530cce11172362ef7eed9e323a54e22cdb78535f989fe2a1"
+  },
+  {
+    "module": "tests.test_windows_manual_migration",
+    "command": [
+      "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+      "-c",
+      "import sys; from pathlib import Path; from local_web.run_windows_acceptance import run_suite; r=run_suite([sys.argv[1]],Path(sys.argv[2]),reject_skips=False); raise SystemExit(0 if r[\"status\"]==\"PASS\" else 1)",
+      "tests.test_windows_manual_migration",
+      "<WORKSPACE>\\_scratch\\ph_lw_06\\baseline\\test_windows_manual_migration.log"
+    ],
+    "started_utc": "2026-11-07T01:33:34.116859+00:00",
+    "exit": 0,
+    "status": "PASS",
+    "modules": [
+      "tests.test_windows_manual_migration"
+    ],
+    "ran": 10,
+    "failures": 0,
+    "errors": 0,
+    "skips": [],
+    "elapsed_seconds": 128.079,
+    "log": "test_windows_manual_migration.log",
+    "log_sha256": "ff0fe5e658164d8adf77d0a9d0b27efe52faf33e151fbd9096bc17219ca1835d"
+  }
+]

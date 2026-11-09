@@ -1,0 +1,9 @@
+test_http_operation_replay_after_restart_and_new_stale_request (tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_http_operation_replay_after_restart_and_new_stale_request) ... ok
+test_production_wsgi_declared_and_chunked_body_header_and_idle_limits (tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_production_wsgi_declared_and_chunked_body_header_and_idle_limits) ... ok
+test_real_bootstrap_elapsed_expiry_and_connection_limit (tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_real_bootstrap_elapsed_expiry_and_connection_limit) ... ok
+test_real_upload_malicious_archives_auth_and_read_only_preview (tests.test_ph_lw_04_05_acceptance.ProductionHttpAcceptance.test_real_upload_malicious_archives_auth_and_read_only_preview) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 123.206s
+
+OK

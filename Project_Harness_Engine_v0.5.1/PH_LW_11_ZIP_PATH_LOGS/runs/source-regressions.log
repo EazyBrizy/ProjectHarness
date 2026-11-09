@@ -1,0 +1,7 @@
+tests.test_engine: PASS, ran=14, skips=0, 252.082s
+tests.test_contract_hardening: PASS_WITH_SKIPS, ran=31, skips=1, 340.163s
+tests.test_ph_051_10_migration_recovery.V051MigrationTests: PASS, ran=5, skips=0, 109.045s
+tests.test_gate_evidence_contract: PASS, ran=10, skips=0, 253.159s
+tests.test_ph_f06_maturity_lifecycle.PHF06MigrationTests: PASS, ran=1, skips=0, 5.227s
+tests.test_ph_lw_01_contract: PASS, ran=9, skips=0, 0.462s
+tests.test_ph_lw_02_windows_core: PASS_WITH_SKIPS, ran=14, skips=1, 17.539s

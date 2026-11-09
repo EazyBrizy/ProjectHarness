@@ -1,0 +1,213 @@
+test_recover_after_catalog (tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_after_catalog) ... ERROR
+test_recover_after_compile (tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_after_compile) ... ERROR
+test_recover_after_result (tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_after_result) ... ERROR
+test_recover_after_validation (tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_after_validation) ... ERROR
+test_recover_before_catalog (tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_before_catalog) ... ERROR
+test_recover_before_compile (tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_before_compile) ... ERROR
+test_recover_before_rename (tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_before_rename) ... ERROR
+test_recover_before_validation (tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_before_validation) ... ERROR
+test_existing_destination_sentinel_and_empty_folder_are_unchanged (tests.test_ph_lw_08_preparation.PreparationTests.test_existing_destination_sentinel_and_empty_folder_are_unchanged) ... ok
+test_faults_recover_without_duplicate_compile_or_first_run (tests.test_ph_lw_08_preparation.PreparationTests.test_faults_recover_without_duplicate_compile_or_first_run) ... FAIL
+test_invalid_names_paths_and_unknown_targets_reject (tests.test_ph_lw_08_preparation.PreparationTests.test_invalid_names_paths_and_unknown_targets_reject) ... ok
+test_missing_approval_readonly_get_and_no_target (tests.test_ph_lw_08_preparation.PreparationTests.test_missing_approval_readonly_get_and_no_target) ... ok
+test_mutable_validation_does_not_require_initial_manifest_after_product_edit (tests.test_ph_lw_08_preparation.PreparationTests.test_mutable_validation_does_not_require_initial_manifest_after_product_edit) ... FAIL
+test_registered_open_folder_and_artifact_tamper (tests.test_ph_lw_08_preparation.PreparationTests.test_registered_open_folder_and_artifact_tamper) ... FAIL
+test_single_md_and_zip_real_directory_validation_one_first_jit (tests.test_ph_lw_08_preparation.PreparationTests.test_single_md_and_zip_real_directory_validation_one_first_jit) ... FAIL
+test_stale_sources_and_build_fail_before_compile (tests.test_ph_lw_08_preparation.PreparationTests.test_stale_sources_and_build_fail_before_compile) ... ok
+test_target_collision_after_confirmation_before_worker_preserves_user_files (tests.test_ph_lw_08_preparation.PreparationTests.test_target_collision_after_confirmation_before_worker_preserves_user_files) ... ok
+test_zip_with_unicode_subdirectories (tests.test_ph_lw_08_preparation.PreparationTests.test_zip_with_unicode_subdirectories) ... ERROR
+
+======================================================================
+ERROR: test_recover_after_catalog (tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_after_catalog)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 171, in test
+    result=recover_preparation(self.service,self.pid,confirm=True)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 274, in recover_preparation
+    result = _continue(service, record)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 226, in _continue
+    record['initial'] = inspect_initial_handoff(directory, archive)
+                        ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\materialization.py", line 60, in inspect_initial_handoff
+    raise ValidationFailure('FIRST_JIT_MISMATCH')
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: FIRST_JIT_MISMATCH
+
+======================================================================
+ERROR: test_recover_after_compile (tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_after_compile)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 171, in test
+    result=recover_preparation(self.service,self.pid,confirm=True)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 274, in recover_preparation
+    result = _continue(service, record)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 226, in _continue
+    record['initial'] = inspect_initial_handoff(directory, archive)
+                        ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\materialization.py", line 60, in inspect_initial_handoff
+    raise ValidationFailure('FIRST_JIT_MISMATCH')
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: FIRST_JIT_MISMATCH
+
+======================================================================
+ERROR: test_recover_after_result (tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_after_result)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 171, in test
+    result=recover_preparation(self.service,self.pid,confirm=True)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 274, in recover_preparation
+    result = _continue(service, record)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 226, in _continue
+    record['initial'] = inspect_initial_handoff(directory, archive)
+                        ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\materialization.py", line 60, in inspect_initial_handoff
+    raise ValidationFailure('FIRST_JIT_MISMATCH')
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: FIRST_JIT_MISMATCH
+
+======================================================================
+ERROR: test_recover_after_validation (tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_after_validation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 171, in test
+    result=recover_preparation(self.service,self.pid,confirm=True)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 274, in recover_preparation
+    result = _continue(service, record)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 226, in _continue
+    record['initial'] = inspect_initial_handoff(directory, archive)
+                        ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\materialization.py", line 60, in inspect_initial_handoff
+    raise ValidationFailure('FIRST_JIT_MISMATCH')
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: FIRST_JIT_MISMATCH
+
+======================================================================
+ERROR: test_recover_before_catalog (tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_before_catalog)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 171, in test
+    result=recover_preparation(self.service,self.pid,confirm=True)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 274, in recover_preparation
+    with project_operation_guard(root):
+                 ^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 226, in _continue
+    record['initial'] = inspect_initial_handoff(directory, archive)
+                        ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\materialization.py", line 60, in inspect_initial_handoff
+    ('zip', validate_handoff(archive)),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: FIRST_JIT_MISMATCH
+
+======================================================================
+ERROR: test_recover_before_compile (tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_before_compile)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 171, in test
+    result=recover_preparation(self.service,self.pid,confirm=True)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 274, in recover_preparation
+    with project_operation_guard(root):
+                 ^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 226, in _continue
+    record['initial'] = inspect_initial_handoff(directory, archive)
+                        ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\materialization.py", line 60, in inspect_initial_handoff
+    ('zip', validate_handoff(archive)),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: FIRST_JIT_MISMATCH
+
+======================================================================
+ERROR: test_recover_before_rename (tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_before_rename)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 171, in test
+    result=recover_preparation(self.service,self.pid,confirm=True)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 274, in recover_preparation
+    with project_operation_guard(root):
+                 ^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 226, in _continue
+    record['initial'] = inspect_initial_handoff(directory, archive)
+                        ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\materialization.py", line 60, in inspect_initial_handoff
+    ('zip', validate_handoff(archive)),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: FIRST_JIT_MISMATCH
+
+======================================================================
+ERROR: test_recover_before_validation (tests.test_ph_lw_08_preparation.PreparationFaultTests.test_recover_before_validation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 171, in test
+    result=recover_preparation(self.service,self.pid,confirm=True)
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 274, in recover_preparation
+    with project_operation_guard(root):
+                 ^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 226, in _continue
+    record['initial'] = inspect_initial_handoff(directory, archive)
+                        ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\materialization.py", line 60, in inspect_initial_handoff
+    ('zip', validate_handoff(archive)),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: FIRST_JIT_MISMATCH
+
+======================================================================
+ERROR: test_zip_with_unicode_subdirectories (tests.test_ph_lw_08_preparation.PreparationTests.test_zip_with_unicode_subdirectories)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 80, in test_zip_with_unicode_subdirectories
+    with zipfile.ZipFile(BytesIO(self.service.read_handoff_artifact(self.pid,result['operation_id']))) as zf:
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_05_import.py", line 31, in archive
+    for name, contents in entries:
+        ^^^^^^^^^^^^^^
+ValueError: too many values to unpack (expected 2)
+
+======================================================================
+FAIL: test_faults_recover_without_duplicate_compile_or_first_run (tests.test_ph_lw_08_preparation.PreparationTests.test_faults_recover_without_duplicate_compile_or_first_run)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 138, in test_faults_recover_without_duplicate_compile_or_first_run
+    self.assertTrue(dest.exists());before=byte_snapshot(dest)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_mutable_validation_does_not_require_initial_manifest_after_product_edit (tests.test_ph_lw_08_preparation.PreparationTests.test_mutable_validation_does_not_require_initial_manifest_after_product_edit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 147, in test_mutable_validation_does_not_require_initial_manifest_after_product_edit
+    self.approved();op=self.run_preparation();dest=Path(op['result']['destination'])
+                       ~~~~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 49, in run_preparation
+    self.assertEqual(result['state'],'SUCCEEDED',result)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'BLOCKED' != 'SUCCEEDED'
+- BLOCKED
++ SUCCEEDED
+ : {'operation_id': 'LWO-63FFD42D0CFAB5A6797741DB13FCEF11', 'project_id': 'LWP-07C7E001ACBBE40CC014', 'action': 'publish-project', 'request_digest': 'sha256:68622f7f583dd22b4860c2765f4872adc5e19b5d2ffdd0e99c053c4456c9b0e3', 'expected_fingerprint': 'sha256:c785a0241114b6605013cb56cc0ac0bcb6bdac7f7b2592b45d049fb457639028', 'created_at': '2026-11-07T03:45:11Z', 'updated_at': '2026-11-07T03:45:33Z', 'started_at': '2026-11-07T03:45:11Z', 'finished_at': '2026-11-07T03:45:33Z', 'state': 'BLOCKED', 'phase': 'RECONCILIATION_REQUIRED', 'core_before': 'sha256:c785a0241114b6605013cb56cc0ac0bcb6bdac7f7b2592b45d049fb457639028', 'core_after': None, 'before_active_run_ref': None, 'expected_draft_after': None, 'result': None, 'error': {'code': 'VALIDATION_FAILED', 'message_ru': 'Запрос или состояние проекта не прошли проверку.', 'next_action_ru': 'Проверьте данные и текущий статус, затем создайте новое действие.'}, 'receipt': {'kind': 'LOCAL_WEB_OPERATION_RECEIPT', 'receipt_version': 1, 'operation_id': 'LWO-63FFD42D0CFAB5A6797741DB13FCEF11', 'project_ref': 'LWP-07C7E001ACBBE40CC014', 'action_id': 'LW-C04', 'idempotency_key': 'preparation-test-000001', 'request_sha256': 'sha256:68622f7f583dd22b4860c2765f4872adc5e19b5d2ffdd0e99c053c4456c9b0e3', 'expected_core_fingerprint': 'sha256:c785a0241114b6605013cb56cc0ac0bcb6bdac7f7b2592b45d049fb457639028', 'core_outcome': 'UNKNOWN_RECONCILE', 'created_at': '2026-11-07T03:45:11Z'}, 'record_digest': 'sha256:37c2ca24274219c8b24c561d58c27470f9aee0b3602f69efd9d43c189cf2c036'}
+
+======================================================================
+FAIL: test_registered_open_folder_and_artifact_tamper (tests.test_ph_lw_08_preparation.PreparationTests.test_registered_open_folder_and_artifact_tamper)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 156, in test_registered_open_folder_and_artifact_tamper
+    self.approved();op=self.run_preparation()
+                       ~~~~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 49, in run_preparation
+    self.assertEqual(result['state'],'SUCCEEDED',result)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'BLOCKED' != 'SUCCEEDED'
+- BLOCKED
++ SUCCEEDED
+ : {'operation_id': 'LWO-4BB09A2FBF1083A4DC767D0E04CA0AF3', 'project_id': 'LWP-B8DE2C32CC84D65E06A2', 'action': 'publish-project', 'request_digest': 'sha256:d9dd03aba607f289c777d101a5ec711d12a8c1f7a339e0ec8c66676a2fee567b', 'expected_fingerprint': 'sha256:a6f483a220406257d688cbb451aadba814fce7a44e61115aefc517c1cefe727e', 'created_at': '2026-11-07T03:45:37Z', 'updated_at': '2026-11-07T03:45:58Z', 'started_at': '2026-11-07T03:45:38Z', 'finished_at': '2026-11-07T03:45:58Z', 'state': 'BLOCKED', 'phase': 'RECONCILIATION_REQUIRED', 'core_before': 'sha256:a6f483a220406257d688cbb451aadba814fce7a44e61115aefc517c1cefe727e', 'core_after': None, 'before_active_run_ref': None, 'expected_draft_after': None, 'result': None, 'error': {'code': 'VALIDATION_FAILED', 'message_ru': 'Запрос или состояние проекта не прошли проверку.', 'next_action_ru': 'Проверьте данные и текущий статус, затем создайте новое действие.'}, 'receipt': {'kind': 'LOCAL_WEB_OPERATION_RECEIPT', 'receipt_version': 1, 'operation_id': 'LWO-4BB09A2FBF1083A4DC767D0E04CA0AF3', 'project_ref': 'LWP-B8DE2C32CC84D65E06A2', 'action_id': 'LW-C04', 'idempotency_key': 'preparation-test-000001', 'request_sha256': 'sha256:d9dd03aba607f289c777d101a5ec711d12a8c1f7a339e0ec8c66676a2fee567b', 'expected_core_fingerprint': 'sha256:a6f483a220406257d688cbb451aadba814fce7a44e61115aefc517c1cefe727e', 'core_outcome': 'UNKNOWN_RECONCILE', 'created_at': '2026-11-07T03:45:37Z'}, 'record_digest': 'sha256:5bb25145ce4fd331ed3b629b2dfba51000d99deb0bac0c22bd095297d999a8c6'}
+
+======================================================================
+FAIL: test_single_md_and_zip_real_directory_validation_one_first_jit (tests.test_ph_lw_08_preparation.PreparationTests.test_single_md_and_zip_real_directory_validation_one_first_jit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 56, in test_single_md_and_zip_real_directory_validation_one_first_jit
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 49, in run_preparation
+AssertionError: 'BLOCKED' != 'SUCCEEDED'
+- BLOCKED
++ SUCCEEDED
+ : {'operation_id': 'LWO-5F9F3B4336CF077AC28B4DEDBEF912CF', 'project_id': 'LWP-5154FAFF7636A8D11FE2', 'action': 'publish-project', 'request_digest': 'sha256:fe1396e1a355cc308e5187f4f1abc62ca16d352445b9d156bdb22c565396b2c1', 'expected_fingerprint': 'sha256:d3f8042d328e698193286a4b70731aedd1a853fb5b503162cbb2eaceb2858256', 'created_at': '2026-11-07T03:46:03Z', 'updated_at': '2026-11-07T03:46:25Z', 'started_at': '2026-11-07T03:46:03Z', 'finished_at': '2026-11-07T03:46:25Z', 'state': 'BLOCKED', 'phase': 'RECONCILIATION_REQUIRED', 'core_before': 'sha256:d3f8042d328e698193286a4b70731aedd1a853fb5b503162cbb2eaceb2858256', 'core_after': None, 'before_active_run_ref': None, 'expected_draft_after': None, 'result': None, 'error': {'code': 'VALIDATION_FAILED', 'message_ru': 'Запрос или состояние проекта не прошли проверку.', 'next_action_ru': 'Проверьте данные и текущий статус, затем создайте новое действие.'}, 'receipt': {'kind': 'LOCAL_WEB_OPERATION_RECEIPT', 'receipt_version': 1, 'operation_id': 'LWO-5F9F3B4336CF077AC28B4DEDBEF912CF', 'project_ref': 'LWP-5154FAFF7636A8D11FE2', 'action_id': 'LW-C04', 'idempotency_key': 'preparation-test-000001', 'request_sha256': 'sha256:fe1396e1a355cc308e5187f4f1abc62ca16d352445b9d156bdb22c565396b2c1', 'expected_core_fingerprint': 'sha256:d3f8042d328e698193286a4b70731aedd1a853fb5b503162cbb2eaceb2858256', 'core_outcome': 'UNKNOWN_RECONCILE', 'created_at': '2026-11-07T03:46:03Z'}, 'record_digest': 'sha256:805087fffe0dba0dbacdd0290a1a589488960296796cc95ef7d17615ed508293'}
+
+----------------------------------------------------------------------
+Ran 18 tests in 372.576s
+
+FAILED (failures=4, errors=9)

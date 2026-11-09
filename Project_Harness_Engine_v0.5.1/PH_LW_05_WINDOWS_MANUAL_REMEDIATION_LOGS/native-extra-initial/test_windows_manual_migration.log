@@ -1,0 +1,31 @@
+test_cli_migration_replay_and_manual_verified_completion (tests.test_windows_manual_migration.ManualMigrationTests.test_cli_migration_replay_and_manual_verified_completion) ... ok
+test_readonly_source_refusal_preserves_original_and_cleans_owned_stage (tests.test_windows_manual_migration.ManualMigrationTests.test_readonly_source_refusal_preserves_original_and_cleans_owned_stage) ... FAIL
+test_real_process_exit_at_both_swap_boundaries_recovers_via_public_api (tests.test_windows_manual_migration.ManualMigrationTests.test_real_process_exit_at_both_swap_boundaries_recovers_via_public_api) ... ok
+test_second_rename_failure_rolls_back_and_retry_preserves_history (tests.test_windows_manual_migration.ManualMigrationTests.test_second_rename_failure_rolls_back_and_retry_preserves_history) ... ok
+test_staged_flush_failure_preserves_every_canonical_byte_and_no_journal (tests.test_windows_manual_migration.ManualMigrationTests.test_staged_flush_failure_preserves_every_canonical_byte_and_no_journal) ... ok
+test_windows_automatic_requests_never_dispatch_or_mutate_manual_project (tests.test_windows_manual_migration.ManualMigrationTests.test_windows_automatic_requests_never_dispatch_or_mutate_manual_project) ... ok
+test_windows_open_handle_denial_is_read_only_and_retryable (tests.test_windows_manual_migration.ManualMigrationTests.test_windows_open_handle_denial_is_read_only_and_retryable) ... ok
+
+======================================================================
+FAIL: test_readonly_source_refusal_preserves_original_and_cleans_owned_stage (tests.test_windows_manual_migration.ManualMigrationTests.test_readonly_source_refusal_preserves_original_and_cleans_owned_stage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_windows_manual_migration.py", line 134, in test_readonly_source_refusal_preserves_original_and_cleans_owned_stage
+    self.assert_no_storage()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_windows_manual_migration.py", line 41, in assert_no_storage
+    self.assertEqual(list(self.root.parent.glob(f'.{self.root.name}.ph05110-*')), [])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [WindowsPath('<USERPROFILE>/AppData/Local[105 chars]ba')] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+WindowsPath('<TEMP>/manual-migration-9mxodei4/Проект с пробелами/.handoff.ph05110-staged-114f81efaf71473988a916e7468390ba')
+
+- [WindowsPath('<TEMP>/manual-migration-9mxodei4/Проект с пробелами/.handoff.ph05110-staged-114f81efaf71473988a916e7468390ba')]
++ []
+
+----------------------------------------------------------------------
+Ran 7 tests in 134.112s
+
+FAILED (failures=1)

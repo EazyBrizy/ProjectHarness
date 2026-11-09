@@ -1,0 +1,1001 @@
+[
+  {
+    "argv": [
+      "/mnt/data/ph_f06_wheel_env/bin/project-harness",
+      "demo",
+      "--output-dir",
+      "/mnt/data/ph_f06_process_smoke/demo",
+      "--keep-directory"
+    ],
+    "exit_code": 0,
+    "result": {
+      "status": "READY_FOR_CODEX",
+      "project_ref": "harness-demo-task-cli",
+      "handoff_archive": "/mnt/data/ph_f06_process_smoke/demo/harness-demo-codex-handoff.zip",
+      "sha256": "sha256:62338637bc45f6f23382c2f6e9fc22ef15173690c52774141ffc2b2fd7f8fa16",
+      "first_task_ref": "TSK-HARNESS-DEMO-TASK-CLI-001@1",
+      "first_run_ref": "RUN-HARNESS-DEMO-TASK-CLI-001-A1",
+      "validation": {
+        "status": "PASS",
+        "root": "/tmp/project-harness-handoff-48_m2loc/harness-demo-task-cli_Codex_Handoff_v1",
+        "compatibility_mode": null,
+        "legacy_status_mappings": [],
+        "checks": [
+          {
+            "name": "Required handoff artifacts",
+            "status": "PASS",
+            "details": {
+              "missing": []
+            }
+          },
+          {
+            "name": "No symlinks",
+            "status": "PASS",
+            "details": {
+              "symlinks": []
+            }
+          },
+          {
+            "name": "Machine-readable files parse",
+            "status": "PASS",
+            "details": {
+              "parsed": 146,
+              "errors": []
+            }
+          },
+          {
+            "name": "Engine/schema lock",
+            "status": "PASS",
+            "details": {
+              "engine": "0.5.0",
+              "schema": 6,
+              "mode": "CURRENT",
+              "expected_current": {
+                "engine": "0.5.0",
+                "schema": 6
+              }
+            }
+          },
+          {
+            "name": "Required implementation-stage artifacts",
+            "status": "PASS",
+            "details": {
+              "missing": []
+            }
+          },
+          {
+            "name": "Exact registry versions",
+            "status": "PASS",
+            "details": {
+              "errors": [],
+              "compatibility_mode": false
+            }
+          },
+          {
+            "name": "Exact registry digests",
+            "status": "PASS",
+            "details": {
+              "errors": []
+            }
+          },
+          {
+            "name": "Registry-driven entity statuses",
+            "status": "PASS",
+            "details": {
+              "errors": [],
+              "legacy_status_mappings": []
+            }
+          },
+          {
+            "name": "Decision contract and Brownfield approval",
+            "status": "PASS",
+            "details": {
+              "decisions": 1,
+              "brownfield_baselines": 0,
+              "legacy_contract_gap": false,
+              "legacy_brownfield_approval_gap": false,
+              "legacy_brownfield_revisions": [],
+              "errors": []
+            }
+          },
+          {
+            "name": "Implementation Stage contracts and invariants",
+            "status": "PASS",
+            "details": {
+              "target_level": "MVP",
+              "active_stage": "PROTOTYPE",
+              "highest_accepted_level": "NONE",
+              "artifact_counts": {
+                "plans": 4,
+                "gates": 4,
+                "acceptances": 0,
+                "assessments": 0,
+                "evidence_normalized": 0,
+                "evidence_legacy": 0
+              },
+              "cross_references": {
+                "status": "PASS",
+                "active_stage": "PROTOTYPE",
+                "target_level": "MVP",
+                "errors": []
+              },
+              "errors": []
+            }
+          },
+          {
+            "name": "Task index and causal DAG",
+            "status": "PASS",
+            "details": {
+              "tasks": 2,
+              "errors": []
+            }
+          },
+          {
+            "name": "Current task and runtime state",
+            "status": "PASS",
+            "details": {
+              "project_status": "ACTIVE",
+              "current_task": "TSK-HARNESS-DEMO-TASK-CLI-001",
+              "run": "RUN-HARNESS-DEMO-TASK-CLI-001-A1",
+              "errors": []
+            }
+          },
+          {
+            "name": "Protected control-plane phase boundary",
+            "status": "PASS",
+            "details": {
+              "status": "PASS",
+              "changed": [],
+              "deleted": [],
+              "unexpected": [],
+              "unsafe": [],
+              "phase": "HANDOFF_SEALED",
+              "boundary_digest": "sha256:a35541d0c557d58e3ece6b1f9f67a94e31883f0a5395b6f4a4dcdb93d4b3cc0d",
+              "agent_result": {
+                "status": "ABSENT",
+                "path": ".harness/runtime/AGENT_RESULTS/RUN-HARNESS-DEMO-TASK-CLI-001-A1.json"
+              }
+            }
+          },
+          {
+            "name": "JIT prompt bundles",
+            "status": "PASS",
+            "details": {
+              "count": 1,
+              "refs": [
+                "CPB-HARNESS-DEMO-TASK-CLI-001-A1"
+              ],
+              "errors": []
+            }
+          },
+          {
+            "name": "Project skill resolution index",
+            "status": "PASS",
+            "details": {
+              "errors": []
+            }
+          },
+          {
+            "name": "Provider accounting remains excluded",
+            "status": "PASS",
+            "details": {
+              "hits": []
+            }
+          },
+          {
+            "name": "Handoff manifest",
+            "status": "PASS",
+            "details": {
+              "entries": 192,
+              "missing": [],
+              "extra": [],
+              "mismatched": [],
+              "excluded_runtime_records": [
+                ".harness/runtime/OPERATION_JOURNAL/*"
+              ]
+            }
+          }
+        ],
+        "errors": []
+      },
+      "directory_output": "/mnt/data/ph_f06_process_smoke/demo/harness-demo-codex-handoff"
+    }
+  },
+  {
+    "argv": [
+      "/mnt/data/ph_f06_wheel_env/bin/project-harness",
+      "validate-handoff",
+      "--project",
+      "/mnt/data/ph_f06_process_smoke/demo/harness-demo-codex-handoff"
+    ],
+    "exit_code": 0,
+    "result": {
+      "status": "PASS",
+      "root": "/mnt/data/ph_f06_process_smoke/demo/harness-demo-codex-handoff",
+      "compatibility_mode": null,
+      "legacy_status_mappings": [],
+      "checks": [
+        {
+          "name": "Required handoff artifacts",
+          "status": "PASS",
+          "details": {
+            "missing": []
+          }
+        },
+        {
+          "name": "No symlinks",
+          "status": "PASS",
+          "details": {
+            "symlinks": []
+          }
+        },
+        {
+          "name": "Machine-readable files parse",
+          "status": "PASS",
+          "details": {
+            "parsed": 146,
+            "errors": []
+          }
+        },
+        {
+          "name": "Engine/schema lock",
+          "status": "PASS",
+          "details": {
+            "engine": "0.5.0",
+            "schema": 6,
+            "mode": "CURRENT",
+            "expected_current": {
+              "engine": "0.5.0",
+              "schema": 6
+            }
+          }
+        },
+        {
+          "name": "Required implementation-stage artifacts",
+          "status": "PASS",
+          "details": {
+            "missing": []
+          }
+        },
+        {
+          "name": "Exact registry versions",
+          "status": "PASS",
+          "details": {
+            "errors": [],
+            "compatibility_mode": false
+          }
+        },
+        {
+          "name": "Exact registry digests",
+          "status": "PASS",
+          "details": {
+            "errors": []
+          }
+        },
+        {
+          "name": "Registry-driven entity statuses",
+          "status": "PASS",
+          "details": {
+            "errors": [],
+            "legacy_status_mappings": []
+          }
+        },
+        {
+          "name": "Decision contract and Brownfield approval",
+          "status": "PASS",
+          "details": {
+            "decisions": 1,
+            "brownfield_baselines": 0,
+            "legacy_contract_gap": false,
+            "legacy_brownfield_approval_gap": false,
+            "legacy_brownfield_revisions": [],
+            "errors": []
+          }
+        },
+        {
+          "name": "Implementation Stage contracts and invariants",
+          "status": "PASS",
+          "details": {
+            "target_level": "MVP",
+            "active_stage": "PROTOTYPE",
+            "highest_accepted_level": "NONE",
+            "artifact_counts": {
+              "plans": 4,
+              "gates": 4,
+              "acceptances": 0,
+              "assessments": 0,
+              "evidence_normalized": 0,
+              "evidence_legacy": 0
+            },
+            "cross_references": {
+              "status": "PASS",
+              "active_stage": "PROTOTYPE",
+              "target_level": "MVP",
+              "errors": []
+            },
+            "errors": []
+          }
+        },
+        {
+          "name": "Task index and causal DAG",
+          "status": "PASS",
+          "details": {
+            "tasks": 2,
+            "errors": []
+          }
+        },
+        {
+          "name": "Current task and runtime state",
+          "status": "PASS",
+          "details": {
+            "project_status": "ACTIVE",
+            "current_task": "TSK-HARNESS-DEMO-TASK-CLI-001",
+            "run": "RUN-HARNESS-DEMO-TASK-CLI-001-A1",
+            "errors": []
+          }
+        },
+        {
+          "name": "Protected control-plane phase boundary",
+          "status": "PASS",
+          "details": {
+            "status": "PASS",
+            "changed": [],
+            "deleted": [],
+            "unexpected": [],
+            "unsafe": [],
+            "phase": "HANDOFF_SEALED",
+            "boundary_digest": "sha256:a35541d0c557d58e3ece6b1f9f67a94e31883f0a5395b6f4a4dcdb93d4b3cc0d",
+            "agent_result": {
+              "status": "ABSENT",
+              "path": ".harness/runtime/AGENT_RESULTS/RUN-HARNESS-DEMO-TASK-CLI-001-A1.json"
+            }
+          }
+        },
+        {
+          "name": "JIT prompt bundles",
+          "status": "PASS",
+          "details": {
+            "count": 1,
+            "refs": [
+              "CPB-HARNESS-DEMO-TASK-CLI-001-A1"
+            ],
+            "errors": []
+          }
+        },
+        {
+          "name": "Project skill resolution index",
+          "status": "PASS",
+          "details": {
+            "errors": []
+          }
+        },
+        {
+          "name": "Provider accounting remains excluded",
+          "status": "PASS",
+          "details": {
+            "hits": []
+          }
+        },
+        {
+          "name": "Handoff manifest",
+          "status": "PASS",
+          "details": {
+            "entries": 192,
+            "missing": [],
+            "extra": [],
+            "mismatched": [],
+            "excluded_runtime_records": [
+              ".harness/runtime/OPERATION_JOURNAL/*"
+            ]
+          }
+        }
+      ],
+      "errors": []
+    }
+  },
+  {
+    "argv": [
+      "/mnt/data/ph_f06_wheel_env/bin/python",
+      "/mnt/data/ph_f06_process_smoke/demo/harness-demo-codex-handoff/.harness/engine/project-harness.py",
+      "next",
+      "--project",
+      "/mnt/data/ph_f06_process_smoke/demo/harness-demo-codex-handoff"
+    ],
+    "exit_code": 0,
+    "result": {
+      "status": "READY_FOR_CODEX",
+      "task_ref": "TSK-HARNESS-DEMO-TASK-CLI-001@1",
+      "run_ref": "RUN-HARNESS-DEMO-TASK-CLI-001-A1",
+      "prompt_bundle_path": ".harness/prompts/BUNDLES_BY_RUN/CPB-HARNESS-DEMO-TASK-CLI-001-A1.yaml",
+      "prompt_markdown_path": ".harness/prompts/BUNDLES_BY_RUN/CPB-HARNESS-DEMO-TASK-CLI-001-A1.md",
+      "implementation_stage": "PROTOTYPE",
+      "target_implementation_level": "MVP",
+      "idempotent": true,
+      "next_operator_route": {
+        "route": "VERIFY_CURRENT_TASK",
+        "command": "project-harness verify --project <root> --allow-command-execution",
+        "reason": "Execute the current JIT with external Codex, then run independent verification.",
+        "external_prerequisite": "External agent implementation"
+      },
+      "next_command": "project-harness verify --project <root> --allow-command-execution"
+    }
+  },
+  {
+    "argv": [
+      "/mnt/data/ph_f06_wheel_env/bin/python",
+      "/mnt/data/ph_f06_process_smoke/demo/harness-demo-codex-handoff/.harness/engine/project-harness.py",
+      "assess-maturity",
+      "--workspace",
+      "/mnt/data/ph_f06_process_smoke/demo/harness-demo-codex-handoff"
+    ],
+    "exit_code": 0,
+    "result": {
+      "status": "COMPLETED",
+      "assessment_ref": "VAL-HARNESS-DEMO-TASK-CLI-MATURITY-001@1",
+      "assessment_path": "/mnt/data/ph_f06_process_smoke/demo/harness-demo-codex-handoff/.harness/stages/ASSESSMENTS/VAL-HARNESS-DEMO-TASK-CLI-MATURITY-001@1.yaml",
+      "assessment_digest": "sha256:55c6bc7477e0323a7fcbd639a3b362665cb4a7032398c07a289a7ea992ec5050",
+      "claimed_current_level": "NONE",
+      "observed_candidate_level": "PROTOTYPE",
+      "highest_satisfied_candidate_level": "NONE",
+      "previous_highest_accepted_level": "NONE",
+      "proposed_active_stage": "PROTOTYPE",
+      "target_level": "MVP",
+      "confidence": "MEDIUM",
+      "blocking_gaps": [
+        "PROTOTYPE_CORE_FLOW: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "PROTOTYPE_SMOKE_CHECK: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "PROTOTYPE_LIMITATIONS: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+        "PROTOTYPE_PERMITTED_USE: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+        "ALPHA_CORE_SCENARIOS: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "ALPHA_CORE_INTEGRATIONS: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "ALPHA_ERRORS_AND_LOGS: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "ALPHA_AUTOMATED_CRITICAL_TESTS: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "ALPHA_INTEGRATION_TEST: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "ALPHA_REPRODUCIBLE_DEV_ENV: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "BETA_TARGET_SCOPE: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "BETA_ERROR_AND_EDGE_CASES: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "BETA_STABLE_EXTERNAL_CONTRACTS: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+        "BETA_VERSIONED_MIGRATIONS: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "BETA_REGRESSION_AND_E2E: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "BETA_PERFORMANCE_BASELINE: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "BETA_AUTH_AND_PERMISSIONS: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "BETA_SAFE_STAGING: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "BETA_BASIC_MONITORING: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "BETA_BACKUP_RESTORE: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "BETA_ROLLBACK: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "BETA_KNOWN_ISSUES: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+        "MVP_BUSINESS_VALUE_SCOPE: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "MVP_PRODUCTION_PERSISTENCE: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "MVP_SECURITY_CONTROLS: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "MVP_REPRODUCIBLE_DEPLOYMENT: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "MVP_MONITORING_ALERTS: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "MVP_RECOVERY_ROUTE: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "MVP_SUPPORT_PROCEDURE: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+        "MVP_OPERATIONAL_OWNER: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+        "MVP_RELEASE_REGRESSION: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "MVP_STABLE_PUBLIC_CONTRACTS: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+        "MVP_DATA_LIFECYCLE: UNKNOWN — Applicability WHEN_PRODUCT_HANDLES_PERSISTED_DATA requires explicit project evidence or justified NOT_APPLICABLE.",
+        "MVP_OPERATING_BOUNDARY: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+        "RELEASE_COMMITMENTS: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "RELEASE_CAPACITY_RELIABILITY: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "RELEASE_COMPATIBILITY_POLICY: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+        "RELEASE_FULL_REGRESSION: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "RELEASE_SECURITY_REVIEW: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "RELEASE_RECOVERY_DR: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "RELEASE_REPRODUCIBLE_PUBLISH: UNKNOWN — Execution evidence is required, and v0.5.0 maturity assessment does not run commands automatically.",
+        "RELEASE_RUNBOOKS: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+        "RELEASE_NOTES: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+        "RELEASE_OWNERSHIP_ESCALATION: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+        "RELEASE_UPGRADE_POLICY: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence.",
+        "RELEASE_APPROVALS_AND_DEFECTS: UNKNOWN — Required evidence was not found in the read-only inventory or supplied evidence."
+      ],
+      "recommended_route": "COMPLETE_CURRENT_STAGE",
+      "automatic_command_execution": false,
+      "warnings": []
+    }
+  },
+  {
+    "argv": [
+      "/mnt/data/ph_f06_wheel_env/bin/python",
+      "/mnt/data/ph_f06_process_smoke/demo/harness-demo-codex-handoff/.harness/engine/project-harness.py",
+      "verify",
+      "--project",
+      "/mnt/data/ph_f06_process_smoke/demo/harness-demo-codex-handoff",
+      "--allow-command-execution"
+    ],
+    "exit_code": 0,
+    "result": {
+      "status": "PASS",
+      "report_ref": "VAL-HARNESS-DEMO-TASK-CLI-001-A1",
+      "report_path": ".harness/reports/VAL-HARNESS-DEMO-TASK-CLI-001-A1.yaml",
+      "gates": {
+        "control_plane": "PASS",
+        "scope": "PASS",
+        "commands": "PASS",
+        "expected_paths": "PASS",
+        "manual_checks": "PASS"
+      },
+      "control_plane": {
+        "status": "PASS",
+        "changed": [],
+        "deleted": [],
+        "unexpected": [],
+        "unsafe": [],
+        "phase": "READ_ONLY_ASSESSMENT",
+        "boundary_digest": "sha256:2f619ae660298e34c56ad3d84c9b15d1d15b7c47968d161943a80ac2fd3a8828",
+        "agent_result": {
+          "status": "ABSENT",
+          "path": ".harness/runtime/AGENT_RESULTS/RUN-HARNESS-DEMO-TASK-CLI-001-A1.json"
+        }
+      },
+      "phase_boundary_digest": "sha256:c0f7baa8ac1b21d79c3a59ab8215d4d28b29b2dd0b21ecb26c7ea73e304afdca",
+      "diff": {
+        "added": [
+          "task_cli.py",
+          "tests/test_task_cli.py"
+        ],
+        "modified": [
+          "README.md"
+        ],
+        "deleted": []
+      },
+      "commands": [
+        {
+          "argv": [
+            "python",
+            "-m",
+            "py_compile",
+            "task_cli.py"
+          ],
+          "cwd": ".",
+          "started_at": "2026-10-24T11:09:39Z",
+          "completed_at": "2026-10-24T11:09:40Z",
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "status": "PASS"
+        },
+        {
+          "argv": [
+            "python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-v"
+          ],
+          "cwd": ".",
+          "started_at": "2026-10-24T11:09:40Z",
+          "completed_at": "2026-10-24T11:09:41Z",
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "test_add_and_list (test_task_cli.TaskCliTests.test_add_and_list) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.002s\n\nOK\n",
+          "status": "PASS"
+        }
+      ],
+      "missing_expected_paths": []
+    }
+  },
+  {
+    "argv": [
+      "/mnt/data/ph_f06_wheel_env/bin/python",
+      "/mnt/data/ph_f06_process_smoke/demo/harness-demo-codex-handoff/.harness/engine/project-harness.py",
+      "complete",
+      "--project",
+      "/mnt/data/ph_f06_process_smoke/demo/harness-demo-codex-handoff",
+      "--result",
+      "/mnt/data/ph_f06_process_smoke/demo/harness-demo-codex-handoff/.harness/runtime/AGENT_RESULTS/RUN-HARNESS-DEMO-TASK-CLI-001-A1.json"
+    ],
+    "exit_code": 0,
+    "result": {
+      "status": "COMPLETED",
+      "task_ref": "TSK-HARNESS-DEMO-TASK-CLI-001@2",
+      "run_ref": "RUN-HARNESS-DEMO-TASK-CLI-001-A1",
+      "run_status": "SUCCEEDED",
+      "task_status": "DONE",
+      "task_report_ref": "TRP-HARNESS-DEMO-TASK-CLI-001-A1",
+      "project_status": "ACTIVE",
+      "implementation_stage": "PROTOTYPE",
+      "next_route": "COMPILE_NEXT_READY_TASK",
+      "phase_boundary_digest": "sha256:b089f2d6333d690a233c20078aa8030842d2228b34ed910428e8ba588c341a30",
+      "next": {
+        "status": "READY_FOR_CODEX",
+        "task_ref": "TSK-HARNESS-DEMO-TASK-CLI-002@2",
+        "run_ref": "RUN-HARNESS-DEMO-TASK-CLI-002-A1",
+        "implementation_stage": "PROTOTYPE",
+        "target_implementation_level": "MVP",
+        "prompt_bundle_path": ".harness/prompts/BUNDLES_BY_RUN/CPB-HARNESS-DEMO-TASK-CLI-002-A1.yaml",
+        "prompt_markdown_path": ".harness/prompts/BUNDLES_BY_RUN/CPB-HARNESS-DEMO-TASK-CLI-002-A1.md",
+        "idempotent": false
+      }
+    }
+  },
+  {
+    "argv": [
+      "/mnt/data/ph_f06_wheel_env/bin/python",
+      "/mnt/data/ph_f06_process_smoke/demo/harness-demo-codex-handoff/.harness/engine/project-harness.py",
+      "stage-status",
+      "--project",
+      "/mnt/data/ph_f06_process_smoke/demo/harness-demo-codex-handoff"
+    ],
+    "exit_code": 0,
+    "result": {
+      "status": "ACTIVE",
+      "runtime_phase": "READY_FOR_CODEX",
+      "maintenance_route": null,
+      "target_level": "MVP",
+      "claimed_current_level": "NONE",
+      "observed_candidate_level": "PROTOTYPE",
+      "highest_accepted_level": "NONE",
+      "active_stage": "PROTOTYPE",
+      "permitted_use": {
+        "status": "UNCONFIRMED",
+        "users": [
+          "DEVELOPER"
+        ],
+        "environments": [
+          "LOCAL"
+        ],
+        "data_classes": [
+          "PUBLIC"
+        ],
+        "data_constraints": [
+          "SYNTHETIC_ONLY"
+        ]
+      },
+      "next_route": "EXECUTE_CURRENT_TASK_WITH_CODEX",
+      "next_operator_route": {
+        "route": "VERIFY_CURRENT_TASK",
+        "command": "project-harness verify --project <root> --allow-command-execution",
+        "reason": "Execute the current JIT with external Codex, then run independent verification.",
+        "external_prerequisite": "External agent implementation"
+      },
+      "stage_plan_ref": "STG-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1",
+      "stage_plan_path": ".harness/stages/PLANS/STG-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1.yaml",
+      "stage_plan_revision": 1,
+      "stage_plan_status": "ACTIVE",
+      "gate_ref": "GATE-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1",
+      "gate_path": ".harness/stages/GATES/GATE-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1.yaml",
+      "gate_revision": 1,
+      "gate_digest": "sha256:695f591981921dafc8415453604d8845af769d2ed9472daab1ddce853f8e7014",
+      "gate_status": "ACTIVE",
+      "baseline_revision": "tree:sha256:829b369634f3584a788844c642367f6a2fd0caa385cbc167c8e01141b4ef4a0e",
+      "baseline_digest": "tree:sha256:829b369634f3584a788844c642367f6a2fd0caa385cbc167c8e01141b4ef4a0e",
+      "gate_counts": {
+        "required_outcomes": {
+          "total": 3,
+          "by_status": {
+            "UNKNOWN": 3
+          }
+        },
+        "level_criteria": {
+          "total": 6,
+          "by_status": {
+            "UNKNOWN": 6
+          }
+        },
+        "hard_constraints": {
+          "total": 2,
+          "by_status": {
+            "UNKNOWN": 2
+          }
+        },
+        "profile_controls": {
+          "total": 1,
+          "by_status": {
+            "UNKNOWN": 1
+          }
+        },
+        "required_work_packages": {
+          "total": 1,
+          "by_status": {
+            "IN_PROGRESS": 1
+          }
+        },
+        "critical_blockers": {
+          "total": 0,
+          "by_status": {}
+        }
+      },
+      "required_work_packages": [
+        {
+          "requested_ref": "WP-HARNESS-DEMO-TASK-CLI-001@1",
+          "current_ref": "WP-HARNESS-DEMO-TASK-CLI-001@2",
+          "path": ".harness/work-packages/WP-HARNESS-DEMO-TASK-CLI-001@2.yaml",
+          "status": "IN_PROGRESS"
+        }
+      ],
+      "critical_blockers": [],
+      "stages": [
+        {
+          "level": "PROTOTYPE",
+          "status": "ACTIVE",
+          "stage_plan_ref": "STG-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1",
+          "stage_plan_path": ".harness/stages/PLANS/STG-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1.yaml",
+          "detailed_work_package_count": 1,
+          "review_required": false
+        },
+        {
+          "level": "ALPHA",
+          "status": "PLANNED",
+          "stage_plan_ref": "STG-HARNESS-DEMO-TASK-CLI-ALPHA-001@1",
+          "stage_plan_path": ".harness/stages/PLANS/STG-HARNESS-DEMO-TASK-CLI-ALPHA-001@1.yaml",
+          "detailed_work_package_count": 0,
+          "review_required": true
+        },
+        {
+          "level": "BETA",
+          "status": "PLANNED",
+          "stage_plan_ref": "STG-HARNESS-DEMO-TASK-CLI-BETA-001@1",
+          "stage_plan_path": ".harness/stages/PLANS/STG-HARNESS-DEMO-TASK-CLI-BETA-001@1.yaml",
+          "detailed_work_package_count": 0,
+          "review_required": true
+        },
+        {
+          "level": "MVP",
+          "status": "PLANNED",
+          "stage_plan_ref": "STG-HARNESS-DEMO-TASK-CLI-MVP-001@1",
+          "stage_plan_path": ".harness/stages/PLANS/STG-HARNESS-DEMO-TASK-CLI-MVP-001@1.yaml",
+          "detailed_work_package_count": 0,
+          "review_required": true
+        }
+      ],
+      "validation": {
+        "status": "PASS",
+        "active_stage": "PROTOTYPE",
+        "target_level": "MVP",
+        "errors": []
+      }
+    }
+  },
+  {
+    "argv": [
+      "/mnt/data/ph_f06_wheel_env/bin/project-harness",
+      "validate-project",
+      "--project",
+      "/mnt/data/ph_f06_process_smoke/demo/harness-demo-codex-handoff"
+    ],
+    "exit_code": 0,
+    "result": {
+      "status": "PASS",
+      "root": "/mnt/data/ph_f06_process_smoke/demo/harness-demo-codex-handoff",
+      "compatibility_mode": null,
+      "legacy_status_mappings": [],
+      "checks": [
+        {
+          "name": "Required handoff artifacts",
+          "status": "PASS",
+          "details": {
+            "missing": []
+          }
+        },
+        {
+          "name": "No symlinks",
+          "status": "PASS",
+          "details": {
+            "symlinks": []
+          }
+        },
+        {
+          "name": "Machine-readable files parse",
+          "status": "PASS",
+          "details": {
+            "parsed": 161,
+            "errors": []
+          }
+        },
+        {
+          "name": "Engine/schema lock",
+          "status": "PASS",
+          "details": {
+            "engine": "0.5.0",
+            "schema": 6,
+            "mode": "CURRENT",
+            "expected_current": {
+              "engine": "0.5.0",
+              "schema": 6
+            }
+          }
+        },
+        {
+          "name": "Required implementation-stage artifacts",
+          "status": "PASS",
+          "details": {
+            "missing": []
+          }
+        },
+        {
+          "name": "Exact registry versions",
+          "status": "PASS",
+          "details": {
+            "errors": [],
+            "compatibility_mode": false
+          }
+        },
+        {
+          "name": "Exact registry digests",
+          "status": "PASS",
+          "details": {
+            "errors": []
+          }
+        },
+        {
+          "name": "Registry-driven entity statuses",
+          "status": "PASS",
+          "details": {
+            "errors": [],
+            "legacy_status_mappings": []
+          }
+        },
+        {
+          "name": "Decision contract and Brownfield approval",
+          "status": "PASS",
+          "details": {
+            "decisions": 1,
+            "brownfield_baselines": 0,
+            "legacy_contract_gap": false,
+            "legacy_brownfield_approval_gap": false,
+            "legacy_brownfield_revisions": [],
+            "errors": []
+          }
+        },
+        {
+          "name": "Implementation Stage contracts and invariants",
+          "status": "PASS",
+          "details": {
+            "target_level": "MVP",
+            "active_stage": "PROTOTYPE",
+            "highest_accepted_level": "NONE",
+            "artifact_counts": {
+              "plans": 4,
+              "gates": 4,
+              "acceptances": 0,
+              "assessments": 1,
+              "evidence_normalized": 1,
+              "evidence_legacy": 0
+            },
+            "cross_references": {
+              "status": "PASS",
+              "active_stage": "PROTOTYPE",
+              "target_level": "MVP",
+              "errors": []
+            },
+            "errors": []
+          }
+        },
+        {
+          "name": "Task index and causal DAG",
+          "status": "PASS",
+          "details": {
+            "tasks": 2,
+            "errors": []
+          }
+        },
+        {
+          "name": "Current task and runtime state",
+          "status": "PASS",
+          "details": {
+            "project_status": "ACTIVE",
+            "current_task": "TSK-HARNESS-DEMO-TASK-CLI-002",
+            "run": "RUN-HARNESS-DEMO-TASK-CLI-002-A1",
+            "errors": []
+          }
+        },
+        {
+          "name": "Protected control-plane phase boundary",
+          "status": "PASS",
+          "details": {
+            "status": "PASS",
+            "changed": [],
+            "deleted": [],
+            "unexpected": [],
+            "unsafe": [],
+            "phase": "RUN_RESERVED",
+            "boundary_digest": "sha256:e695b87ad2b22f886b8b97072fe2f8ff7a8798af0cde99f431bfc6d0c5c64081",
+            "agent_result": {
+              "status": "ABSENT",
+              "path": ".harness/runtime/AGENT_RESULTS/RUN-HARNESS-DEMO-TASK-CLI-002-A1.json"
+            }
+          }
+        },
+        {
+          "name": "JIT prompt bundles",
+          "status": "PASS",
+          "details": {
+            "count": 2,
+            "refs": [
+              "CPB-HARNESS-DEMO-TASK-CLI-002-A1",
+              "CPB-HARNESS-DEMO-TASK-CLI-001-A1"
+            ],
+            "errors": []
+          }
+        },
+        {
+          "name": "Project skill resolution index",
+          "status": "PASS",
+          "details": {
+            "errors": []
+          }
+        },
+        {
+          "name": "Provider accounting remains excluded",
+          "status": "PASS",
+          "details": {
+            "hits": []
+          }
+        },
+        {
+          "name": "Stage transaction journals and crash recovery",
+          "status": "PASS",
+          "details": {
+            "recovery": {
+              "status": "PASS",
+              "recovered": [],
+              "transactions": 0
+            },
+            "validation": {
+              "status": "PASS",
+              "transactions": 0,
+              "committed": 0,
+              "rolled_back": 0,
+              "latest_completed_transition": null,
+              "errors": []
+            }
+          }
+        },
+        {
+          "name": "Persisted runtime continuation and Stage boundary reachability",
+          "status": "PASS",
+          "details": {
+            "status": "PASS",
+            "project_status": "ACTIVE",
+            "next_route": "EXECUTE_CURRENT_TASK_WITH_CODEX",
+            "active_stage": "PROTOTYPE",
+            "execution_stage": "PROTOTYPE",
+            "stage_plan_ref": "STG-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1",
+            "gate_ref": "GATE-HARNESS-DEMO-TASK-CLI-PROTOTYPE-001@1",
+            "stage_plan_status": "ACTIVE",
+            "gate_status": "ACTIVE",
+            "current_task_ref": "TSK-HARNESS-DEMO-TASK-CLI-002",
+            "continuation": {
+              "route": "VERIFY_CURRENT_TASK",
+              "command": "project-harness verify --project <root> --allow-command-execution",
+              "reason": "Execute the current JIT with external Codex, then run independent verification.",
+              "external_prerequisite": "External agent implementation"
+            },
+            "maintenance_route": null,
+            "errors": []
+          }
+        },
+        {
+          "name": "Governed same-level maintenance artifacts",
+          "status": "PASS",
+          "details": {
+            "status": "PASS",
+            "plans": 0,
+            "open_work_packages": [],
+            "active_plan_ref": null,
+            "errors": []
+          }
+        }
+      ],
+      "errors": [],
+      "stage_transaction_recovery": {
+        "recovery": {
+          "status": "PASS",
+          "recovered": [],
+          "transactions": 0
+        },
+        "validation": {
+          "status": "PASS",
+          "transactions": 0,
+          "committed": 0,
+          "rolled_back": 0,
+          "latest_completed_transition": null,
+          "errors": []
+        }
+      }
+    }
+  }
+]

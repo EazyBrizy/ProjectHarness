@@ -1,0 +1,24 @@
+{
+  "status": "FAIL",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]",
+  "non_admin": true,
+  "build_id": "PH-LW-12-20261108",
+  "installer_sha256": "454d3db52f3c880a3ff1b1243059cf5818961c9f8fc22adca4eb9949a7dac630",
+  "driver_package": "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel-venv\\Lib\\site-packages\\project_harness\\__init__.py",
+  "tests": {
+    "ran": 1,
+    "failures": 1,
+    "errors": 0,
+    "skips": 0
+  },
+  "advanced_fixture_boundary": "Public-kernel initial fixtures and catalog registration; all tested browser segment mutations through UI. Migration downgrade is an explicit legacy-state fixture, not acceptance mutation.",
+  "advanced_fixture_cache": "<WORKSPACE>\\_scratch\\ph_lw_12\\advanced-fixtures",
+  "product_sdk": "Existing Task command fixtures explicitly use developer interpreter as product SDK; separate no-doc full flow uses manual checks without product SDK.",
+  "clean_machine": "NOT RUN; accepted limitation",
+  "physical_offline": "NOT RUN; accepted limitation",
+  "actual_unicode_username": "NOT RUN; accepted limitation",
+  "real_disk_full": "NOT RUN; accepted limitation",
+  "uninstall_exit": 0,
+  "zip_created": false
+}

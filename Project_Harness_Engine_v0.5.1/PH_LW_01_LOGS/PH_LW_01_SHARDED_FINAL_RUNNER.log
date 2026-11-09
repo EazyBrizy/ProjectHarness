@@ -1,0 +1,39 @@
+PH-LW-01 run modules 31 python 3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0] platform Linux-6.18.57-x86_64-with-glibc2.41
+tests.test_canonical_target PASS 5 skip 0 elapsed 36.3s
+tests.test_engine PASS 14 skip 0 elapsed 69.8s
+tests.test_exact_assessment_ref PASS 5 skip 0 elapsed 86.9s
+tests.test_ph_051_01_contract_baseline PASS 10 skip 0 elapsed 98.7s
+tests.test_ph_051_02_executor_protocol PASS 24 skip 0 elapsed 104.3s
+tests.test_ph_051_03_rootless_podman PASS 20 skip 1 elapsed 107.8s
+tests.test_contract_hardening PASS 31 skip 0 elapsed 123.1s
+tests.test_ph_051_05_codex_adapter PASS 15 skip 1 elapsed 143.0s
+tests.test_assessment_freshness PASS 10 skip 0 elapsed 144.6s
+tests.test_ph_051_07_sandbox_verification PASS 9 skip 0 elapsed 148.6s
+tests.test_ph_051_06_result_channel PASS 13 skip 0 elapsed 151.1s
+tests.test_ph_051_04_disposable_roots PASS 21 skip 0 elapsed 186.8s
+tests.test_implementation_levels PASS 8 skip 0 elapsed 207.0s
+tests.test_ph_051_11_operator_docs PASS 5 skip 0 elapsed 220.9s
+tests.test_ph_051_09_automatic_runtime PASS 15 skip 0 elapsed 243.8s
+tests.test_ph_f01_gate_semantics_regression PASS 3 skip 0 elapsed 255.1s
+tests.test_ph_051_10_migration_recovery PASS 17 skip 0 elapsed 264.1s
+tests.test_ph_f02_semantic_proof_contract PASS 5 skip 0 elapsed 265.1s
+tests.test_ph_051_08_atomic_apply PASS 25 skip 0 elapsed 268.2s
+tests.test_ph_f05_intake_acceptance PASS 4 skip 0 elapsed 276.1s
+tests.test_maintenance_lifecycle PASS 7 skip 0 elapsed 309.1s
+tests.test_ph_f04_runtime_reachability PASS 10 skip 0 elapsed 335.6s
+tests.test_ph_lw_01_contract PASS 9 skip 0 elapsed 339.5s
+tests.test_ph_f03_active_stage_planning PASS 8 skip 0 elapsed 348.6s
+tests.test_gate_evidence_contract PASS 10 skip 0 elapsed 358.7s
+tests.test_stage_approval_preparation PASS 7 skip 0 elapsed 380.1s
+tests.test_ph_f01_planner_regression PASS 6 skip 0 elapsed 386.7s
+tests.test_stage_gate_preparation_block_recovery PASS 5 skip 0 elapsed 411.7s
+tests.test_stage_transaction_recovery PASS 15 skip 0 elapsed 414.0s
+tests.test_ph_f08_release_acceptance PASS 2 skip 0 elapsed 415.1s
+tests.test_ph_f06_maturity_lifecycle PASS 13 skip 0 elapsed 666.5s
+SUMMARY {
+  "module_count": 31,
+  "total_test_cases": 351,
+  "total_skipped": 2,
+  "all_pass": true,
+  "elapsed_seconds": 666.54
+}

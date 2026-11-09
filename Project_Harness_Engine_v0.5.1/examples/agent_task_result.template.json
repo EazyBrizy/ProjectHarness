@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "task_ref": "TSK-PROJECT-001@1",
+  "run_ref": "RUN-PROJECT-001-A1",
+  "status": "COMPLETED",
+  "summary": "Implemented only the current bounded task.",
+  "changes": {
+    "added": [],
+    "modified": [],
+    "deleted": []
+  },
+  "commands": [],
+  "tests": [],
+  "evidence": [],
+  "blockers": [],
+  "notes": [],
+  "stage_scope_violations": []
+}

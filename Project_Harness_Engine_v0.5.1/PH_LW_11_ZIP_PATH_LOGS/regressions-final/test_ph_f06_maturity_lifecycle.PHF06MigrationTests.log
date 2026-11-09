@@ -1,0 +1,6 @@
+test_09_migration_restart_preserves_historical_completed_runs (tests.test_ph_f06_maturity_lifecycle.PHF06MigrationTests.test_09_migration_restart_preserves_historical_completed_runs) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 5.996s
+
+OK

@@ -1,0 +1,43 @@
+{
+  "name": "suite05-test_ph_f03_active_stage_planning-nonbrowser",
+  "command": [
+    "<WORKSPACE>\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import sys,unittest,json;from pathlib import Path;sys.path.insert(0,sys.argv[1]);from local_web.run_windows_acceptance import run_suite;r=run_suite(sys.argv[3:],Path(sys.argv[2]),reject_skips=False);raise SystemExit(r[\"status\"]!=\"PASS\")",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "<WORKSPACE>\\_scratch\\ph_lw_12_fix\\source\\suite05-test_ph_f03_active_stage_planning-nonbrowser.log",
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_alpha_apply_exact_revision_indexes_first_jit_and_replay",
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_edited_record_needs_review_and_material_change_is_blocked",
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_level_up_mvp_release_first_ready_jit",
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_no_write_to_control_plane_or_unaccepted_requirements",
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_read_only_draft_schema_and_public_cli",
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_stale_product_baseline_fails_before_mutation",
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_tampered_binding_and_future_work_rejected",
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_transaction_recovery_restores_pre_plan_boundary"
+  ],
+  "cwd": "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 95.648,
+  "environment_ref": "INPUT_BASELINE.json",
+  "modules": [
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_alpha_apply_exact_revision_indexes_first_jit_and_replay",
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_edited_record_needs_review_and_material_change_is_blocked",
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_level_up_mvp_release_first_ready_jit",
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_no_write_to_control_plane_or_unaccepted_requirements",
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_read_only_draft_schema_and_public_cli",
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_stale_product_baseline_fails_before_mutation",
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_tampered_binding_and_future_work_rejected",
+    "tests.test_ph_f03_active_stage_planning.PHF03ActiveStagePlannerTests.test_transaction_recovery_restores_pre_plan_boundary"
+  ],
+  "ran": 8,
+  "failures": 0,
+  "errors": 0,
+  "skips": [],
+  "log": "suite05-test_ph_f03_active_stage_planning-nonbrowser.log",
+  "process_status": "PASS",
+  "log_sha256": "64333038224e59cbeda7f3a6881b1aa4dae6c55aca58d2ccddf238baea6d9933",
+  "scope": "SOURCE_LAYOUT_ONLY",
+  "runtime_freeze_sha256": "01ef2ddce6e42787b5937f937112f0b02ddefb05321eb348d59319a08bd941cf"
+}

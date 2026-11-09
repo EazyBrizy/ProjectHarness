@@ -1,0 +1,10 @@
+test_dpapi_and_native_mutex_subprocess (tests.test_ph_lw_11_desktop.NativeLauncherTests.test_dpapi_and_native_mutex_subprocess) ... ok
+test_edge_manual_code_login_without_fragment_or_external_requests (tests.test_ph_lw_11_desktop.NativeLauncherTests.test_edge_manual_code_login_without_fragment_or_external_requests) ... ok
+test_fresh_authenticated_handshake_and_spoof_listener (tests.test_ph_lw_11_desktop.NativeLauncherTests.test_fresh_authenticated_handshake_and_spoof_listener) ... ok
+test_launcher_resume_and_new_cookie_tab_keep_independent_navigation (tests.test_ph_lw_11_desktop.NativeLauncherTests.test_launcher_resume_and_new_cookie_tab_keep_independent_navigation) ... ok
+test_upload_success_waits_for_refresh_before_interview_can_start (tests.test_ph_lw_11_desktop.NativeLauncherTests.test_upload_success_waits_for_refresh_before_interview_can_start) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 8.868s
+
+OK

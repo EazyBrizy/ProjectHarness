@@ -1,0 +1,12 @@
+[
+  {
+    "ProcessId": 45008,
+    "CommandLine": "\"C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe\" -B tools/ph_lw_12_fix_poll_race.py",
+    "Reason": "Diagnostic poll budget ended without stopping its producer; no acceptance credited. Deterministic barrier reproduction supersedes this stress helper."
+  },
+  {
+    "ProcessId": 15264,
+    "CommandLine": "\"C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe\" -B tools/ph_lw_12_fix_poll_race.py",
+    "Reason": "Diagnostic poll budget ended without stopping its producer; no acceptance credited. Deterministic barrier reproduction supersedes this stress helper."
+  }
+]

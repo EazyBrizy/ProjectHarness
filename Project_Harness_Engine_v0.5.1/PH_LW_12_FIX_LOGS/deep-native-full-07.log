@@ -1,0 +1,27 @@
+test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete (lw12_final_driver.InstalledFullFlowTests.test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete) ... {"native_deep_app_data_length": 242}
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+ERROR
+
+======================================================================
+ERROR: test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete (lw12_final_driver.InstalledFullFlowTests.test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\local_web\windows\final_acceptance.py", line 172, in test_no_documents_gpt_approvals_publish_manual_evidence_verify_complete
+    implement_first_task(_native_io_path(root)) # external fixture agent; product plane only
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\tools\ph_lw_12_fix_native_flow.py", line 26, in <lambda>
+    module.implement_first_task=lambda root:original_agent(_native_io_path(root))
+                                                           ~~~~~~~~~~~~~~~^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\platform_fs.py", line 82, in _native_io_path
+    assert_windows_root_form(Path(os.path.abspath(path)))
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\platform_fs.py", line 66, in assert_windows_root_form
+    raise SafetyViolation("WINDOWS_UNSUPPORTED_ROOT: use a local absolute drive path, not UNC/device/drive-relative", raw)
+project_harness.errors.SafetyViolation: SAFETY_VIOLATION: WINDOWS_UNSUPPORTED_ROOT: use a local absolute drive path, not UNC/device/drive-relative
+
+----------------------------------------------------------------------
+Ran 1 test in 25.446s
+
+FAILED (errors=1)

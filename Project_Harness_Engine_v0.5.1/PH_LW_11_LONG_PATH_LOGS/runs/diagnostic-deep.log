@@ -1,0 +1,32 @@
+test_long_preparation_publication_validation_and_first_jit (tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_long_preparation_publication_validation_and_first_jit) ... Traceback (most recent call last):
+  File "<WORKSPACE>\_scratch\ph_lw_11_long_path\diagnose_deep.py", line 7, in observe
+    try:return original(*args,**kwargs)
+               ~~~~~~~~^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_preparation.py", line 268, in _continue
+    record['initial'] = inspect_initial_handoff(directory, archive)
+                        ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\src\project_harness\materialization.py", line 63, in inspect_initial_handoff
+    raise ValidationFailure('INITIAL_VALIDATION_FAILED: ' + name, result)
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: INITIAL_VALIDATION_FAILED: directory
+DETAILS [{'name': 'Registry-driven entity statuses', 'status': 'FAIL', 'details': {'errors': ['VALIDATION_FAILED: Current target source is missing'], 'legacy_status_mappings': []}}, {'name': 'Decision contract and Brownfield approval', 'status': 'FAIL', 'details': {'errors': ['VALIDATION_FAILED: Current target source is missing']}}, {'name': 'Implementation Stage contracts and invariants', 'status': 'FAIL', 'details': {'errors': ['VALIDATION_FAILED: Current target source is missing']}}, {'name': 'JIT prompt bundles', 'status': 'FAIL', 'details': {'count': 0, 'refs': [], 'errors': ['initial/current stage must contain exactly one stage-aware compiled bundle, found 0']}}]
+FAIL
+
+======================================================================
+FAIL: test_long_preparation_publication_validation_and_first_jit (tests.test_ph_lw_11_long_path.LongPathPreparationTests.test_long_preparation_publication_validation_and_first_jit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_11_long_path.py", line 29, in test_long_preparation_publication_validation_and_first_jit
+    self.approved();target=self.target();op=self.run_preparation(target)
+                                            ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "<WORKSPACE>\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_08_preparation.py", line 53, in run_preparation
+    self.assertEqual(result['state'],'SUCCEEDED',result)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'BLOCKED' != 'SUCCEEDED'
+- BLOCKED
++ SUCCEEDED
+ : {'operation_id': 'LWO-C4C44B5346276771BA8E0DED71B89772', 'project_id': 'LWP-BD609B006D671CC5C053', 'action': 'publish-project', 'request_digest': 'sha256:139818e1a3604e2a1e5878b5700468ed68facc197bce1f9688f66be9f145f544', 'expected_fingerprint': 'sha256:41bf5d41e2a5216aa19d1c01f9755d16bdb6ac214e47c0113c9271abd05eb405', 'created_at': '2026-11-08T01:28:24Z', 'updated_at': '2026-11-08T01:29:10Z', 'started_at': '2026-11-08T01:28:24Z', 'finished_at': '2026-11-08T01:29:10Z', 'state': 'BLOCKED', 'phase': 'RECONCILIATION_REQUIRED', 'core_before': 'sha256:41bf5d41e2a5216aa19d1c01f9755d16bdb6ac214e47c0113c9271abd05eb405', 'core_after': None, 'before_active_run_ref': None, 'expected_draft_after': None, 'result': None, 'error': {'code': 'VALIDATION_FAILED', 'message_ru': 'Запрос или состояние проекта не прошли проверку.', 'next_action_ru': 'Проверьте данные и текущий статус, затем создайте новое действие.'}, 'receipt': {'kind': 'LOCAL_WEB_OPERATION_RECEIPT', 'receipt_version': 1, 'operation_id': 'LWO-C4C44B5346276771BA8E0DED71B89772', 'project_ref': 'LWP-BD609B006D671CC5C053', 'action_id': 'LW-C04', 'idempotency_key': 'preparation-test-000001', 'request_sha256': 'sha256:139818e1a3604e2a1e5878b5700468ed68facc197bce1f9688f66be9f145f544', 'expected_core_fingerprint': 'sha256:41bf5d41e2a5216aa19d1c01f9755d16bdb6ac214e47c0113c9271abd05eb405', 'core_outcome': 'UNKNOWN_RECONCILE', 'created_at': '2026-11-08T01:28:24Z'}, 'record_digest': 'sha256:469ded613b2085e3e9f4403a43d54d41f5949a22c629305759991326c8a6ee37'}
+
+----------------------------------------------------------------------
+Ran 1 test in 52.041s
+
+FAILED (failures=1)

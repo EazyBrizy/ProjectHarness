@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-08",
+  "authority": "Explicit user instruction in this chat",
+  "confirmation": [
+    "Да, НЕ являются блокерами",
+    "Windows с кириллицей тоже не должна блокировать!"
+  ],
+  "scope": "Current PH-LW-11 acceptance only; runtime requirements/core contracts unchanged",
+  "checks": [
+    {
+      "id": "clean_machine_windows",
+      "description": "Чистая Windows без инструментов разработчика",
+      "result": "NOT RUN",
+      "disposition": "ACCEPTED_LIMITATION",
+      "blocks_ph_lw_11": false,
+      "mandatory_future_run": false,
+      "reason": "Среда недоступна; отдельную чистую Windows не требовать"
+    },
+    {
+      "id": "physical_offline",
+      "description": "Физически отключённый интернет",
+      "result": "NOT RUN",
+      "disposition": "ACCEPTED_LIMITATION",
+      "blocks_ph_lw_11": false,
+      "mandatory_future_run": false,
+      "reason": "Пользователь отменил обязательный прогон"
+    },
+    {
+      "id": "real_disk_full",
+      "description": "Реально заполненный диск/том",
+      "result": "NOT RUN",
+      "disposition": "ACCEPTED_LIMITATION",
+      "blocks_ph_lw_11": false,
+      "mandatory_future_run": false,
+      "reason": "Пользователь отменил обязательный прогон"
+    },
+    {
+      "id": "actual_unicode_windows_username",
+      "description": "Настоящая учётная запись Windows с кириллицей",
+      "result": "NOT RUN",
+      "disposition": "ACCEPTED_LIMITATION",
+      "blocks_ph_lw_11": false,
+      "mandatory_future_run": false,
+      "reason": "Отдельно подтверждено пользователем: тоже не блокирует"
+    }
+  ],
+  "effective_verdicts": {
+    "PH-LW-11": "GO",
+    "qualifier": "С принятыми пользователем ограничениями",
+    "LOCAL_WEB_MANUAL": "NO-GO; PH-LW-12 not started",
+    "AUTOMATIC_EXECUTOR": "NO-GO; disabled",
+    "v0.5.1": "NO-GO / NOT RELEASED"
+  },
+  "runtime_tests_rerun": false,
+  "zip_created": false,
+  "basis": "Previously verified long-path fix, 240 source PASS/2 SKIP, installed wheel 49+33 PASS, EXE 4 PASS, installer recovery 4 PASS; not rerun for this documentary update"
+}

@@ -1,0 +1,25 @@
+{
+  "status": "PASS visual review with explicit observed issue",
+  "method": "view_image of actual synthetic headless Edge screenshots; no editing",
+  "images": [
+    {
+      "file": "_scratch/ph_lw_12/installed-basic-supported/screenshots/prepared-False.png",
+      "sha256": "6889fe0c89426d5d6c7ac8c5e15a9fb163525833e7d35544fbf23efedeb3c4e0"
+    },
+    {
+      "file": "_scratch/ph_lw_12/installed-no-doc-final/installed-task-pass.png",
+      "sha256": "5da291b82f029bf1d0814178f403ae0e38923e2d9e2caa18c8930347a1b251fb"
+    },
+    {
+      "file": "_scratch/ph_lw_12/installed-extended-focus3/screenshots/10/mvp-to-release.png",
+      "sha256": "d4da22b147fa1db9c638692366d1ba5cd25db29057a984125b98c80f7648859d"
+    }
+  ],
+  "observations": [
+    "Prepared baseline: real path/JIT fields; readable Russian navigation",
+    "No-doc Task: result, manual evidence, independent PASS and enabled explicit complete visible",
+    "MVP to RELEASE: primary panel correct; stale project-list status observed and left OPEN"
+  ],
+  "private_user_documents": false,
+  "raw_credentials_visible": false
+}

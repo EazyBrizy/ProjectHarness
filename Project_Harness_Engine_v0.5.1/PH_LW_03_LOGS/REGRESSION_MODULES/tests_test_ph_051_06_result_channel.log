@@ -1,0 +1,18 @@
+test_15_kernel_owned_result_and_logs_are_immutable_and_fenced (tests.test_ph_051_06_result_channel.KernelPublicationTests.test_15_kernel_owned_result_and_logs_are_immutable_and_fenced) ... ok
+test_16_argv_contains_only_env_file_path_and_no_secret_echo (tests.test_ph_051_06_result_channel.MockedRunnerEnvTests.test_16_argv_contains_only_env_file_path_and_no_secret_echo) ... ok
+test_01_schema_exact_binding_and_unverified_art_record (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_01_schema_exact_binding_and_unverified_art_record) ... ok
+test_02_agent_claim_never_causes_optimistic_completion (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_02_agent_claim_never_causes_optimistic_completion) ... ok
+test_03_missing_invalid_utf8_duplicate_keys_and_nonfinite_numbers (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_03_missing_invalid_utf8_duplicate_keys_and_nonfinite_numbers) ... ok
+test_04_wrong_run_task_unknown_fields_arrays_and_status (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_04_wrong_run_task_unknown_fields_arrays_and_status) ... ok
+test_05_symlink_hardlink_fifo_mode_and_ownership_fail_closed (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_05_symlink_hardlink_fifo_mode_and_ownership_fail_closed) ... ok
+test_06_parent_symlink_and_extra_outputs_are_rejected (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_06_parent_symlink_and_extra_outputs_are_rejected) ... ok
+test_07_oversize_result_and_bounded_log_flood_rejected (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_07_oversize_result_and_bounded_log_flood_rejected) ... ok
+test_08_secret_echo_in_stdout_stderr_result_escape_and_unicode (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_08_secret_echo_in_stdout_stderr_result_escape_and_unicode) ... ok
+test_09_typed_string_looking_like_shell_is_inert_json (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_09_typed_string_looking_like_shell_is_inert_json) ... ok
+test_10_environment_refs_only_no_host_env_dump (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_10_environment_refs_only_no_host_env_dump) ... ok
+test_11_read_only_changed_product_secret_scan_helper (tests.test_ph_051_06_result_channel.ResultChannelUnitTests.test_11_read_only_changed_product_secret_scan_helper) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 2.408s
+
+OK

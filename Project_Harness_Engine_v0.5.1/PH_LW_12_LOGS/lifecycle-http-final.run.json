@@ -1,0 +1,18 @@
+{
+  "command": [
+    "<WORKSPACE>\\_scratch\\ph_lw_12\\wheel-venv\\Scripts\\python.exe",
+    "-B",
+    "<WORKSPACE>\\tools\\ph_lw_12_legacy_driver.py",
+    "--engine",
+    "<WORKSPACE>\\Project_Harness_Engine_v0.5.1",
+    "--case",
+    "tests.test_ph_lw_10_http.LifecycleHttpTests"
+  ],
+  "cwd": "<WORKSPACE>\\_scratch\\ph_lw_12\\Независимая папка wheel",
+  "started_utc": "2026-11-08T10:09:14.270681+00:00",
+  "freeze_sha256": "71d1bdd414c72410b4d17f833b1e9c75d11c3b5286fa1b65214ef7b3b7e53f00",
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 13.715,
+  "log_sha256": "a5b2aa6e5818633fb86665bd89eb716b43320650767a3913ee4128327c02188f"
+}
