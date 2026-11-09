@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "repository_check_command": [
+    "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_tools\\Python314\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\repo_audit_20261109\\checkout\\tools\\check_repository.py",
+    "--json",
+    "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\repo_audit_20261109\\REPOSITORY_AFTER.json"
+  ],
+  "repository_check_exit": 0,
+  "frozen_package_command": [
+    "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\repo_audit_20261109\\checkout\\Project_Harness_Engine_v0.5.1\\windows\\Harness\\Harness.exe",
+    "--check-package"
+  ],
+  "frozen_package_exit": 0,
+  "frozen_elapsed_seconds": 0.72,
+  "restored_patch_paths": 26,
+  "source": "PASS",
+  "frozen_files": 454,
+  "required_versioned_manifest_entries": 5418,
+  "local_generated_entries_not_required": 117,
+  "standard_library_only": true,
+  "clone_ignored_directories_present": {
+    "_inputs": false,
+    "_deliverables": false,
+    "_scratch": false,
+    "_tools": false,
+    ".venv": false
+  }
+}

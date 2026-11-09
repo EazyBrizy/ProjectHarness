@@ -1,0 +1,161 @@
+{
+  "status": "FAIL",
+  "root": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\repo_audit_20261109\\checkout",
+  "build_id": "PH-LW-12-FIX5-20261108",
+  "scope": "Versioned Git payload, source/docs/artifact hashes and complete frozen package; not a new runtime acceptance.",
+  "git_index_files": 6154,
+  "checks": {
+    "source": {
+      "status": "PASS",
+      "required": 111,
+      "missing": [],
+      "changed": [],
+      "not_in_git": [],
+      "unexpected": []
+    },
+    "documentation": {
+      "status": "PASS",
+      "required": 157,
+      "missing": [],
+      "changed": [],
+      "not_in_git": [],
+      "unexpected": []
+    },
+    "embedded_documentation": {
+      "status": "PASS",
+      "required": 157,
+      "missing": [],
+      "changed": [],
+      "not_in_git": [],
+      "unexpected": []
+    },
+    "artifacts": {
+      "status": "PASS",
+      "required": 3,
+      "missing": [],
+      "changed": [],
+      "not_in_git": [],
+      "unexpected": []
+    },
+    "frozen_bundle": {
+      "status": "FAIL",
+      "required": 454,
+      "missing": [
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_asyncio.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_bz2.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_ctypes.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_decimal.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_hashlib.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_lzma.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_multiprocessing.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_overlapped.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_queue.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_socket.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_ssl.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_uuid.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_wmi.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_zstd.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/markupsafe/_speedups.cp314-win_amd64.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/pyexpat.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/select.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/unicodedata.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/yaml/_yaml.cp314-win_amd64.pyd"
+      ],
+      "changed": [],
+      "not_in_git": [
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_asyncio.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_bz2.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_ctypes.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_decimal.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_hashlib.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_lzma.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_multiprocessing.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_overlapped.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_queue.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_socket.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_ssl.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_uuid.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_wmi.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_zstd.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/markupsafe/_speedups.cp314-win_amd64.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/pyexpat.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/select.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/unicodedata.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/yaml/_yaml.cp314-win_amd64.pyd"
+      ],
+      "unexpected": []
+    },
+    "acceptance_manifest_anchor": {
+      "status": "PASS",
+      "required": 1,
+      "missing": [],
+      "changed": [],
+      "not_in_git": [],
+      "unexpected": []
+    },
+    "versioned_acceptance_payload": {
+      "status": "FAIL",
+      "required": 5418,
+      "missing": [
+        "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/build/BUILD_RESULT.json",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_asyncio.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_bz2.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_ctypes.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_decimal.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_hashlib.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_lzma.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_multiprocessing.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_overlapped.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_queue.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_socket.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_ssl.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_uuid.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_wmi.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_zstd.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/markupsafe/_speedups.cp314-win_amd64.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/pyexpat.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/select.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/unicodedata.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/yaml/_yaml.cp314-win_amd64.pyd"
+      ],
+      "changed": [],
+      "not_in_git": [
+        "Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/build/BUILD_RESULT.json",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_asyncio.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_bz2.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_ctypes.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_decimal.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_hashlib.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_lzma.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_multiprocessing.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_overlapped.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_queue.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_socket.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_ssl.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_uuid.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_wmi.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/_zstd.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/markupsafe/_speedups.cp314-win_amd64.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/pyexpat.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/select.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/unicodedata.pyd",
+        "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/yaml/_yaml.cp314-win_amd64.pyd"
+      ],
+      "unexpected": []
+    }
+  },
+  "failed_checks": [
+    "frozen_bundle",
+    "versioned_acceptance_payload"
+  ],
+  "local_generated_entries_not_required": 117,
+  "local_directories_not_required": [
+    "_inputs",
+    "_deliverables",
+    "_scratch",
+    "_tools",
+    ".venv"
+  ],
+  "runtime_tests": "NOT RUN; existing acceptance unchanged",
+  "automatic_executor_enabled": false
+}

@@ -1,0 +1,54 @@
+{
+  "platform": "Windows",
+  "interpreter": "existing external CPython 3.14.10 with pinned deps; no access to original workspace data through clone ROOT",
+  "rows": [
+    {
+      "name": "workspace_check",
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\repo_audit_20261109\\checkout\\tools\\check_workspace.py"
+      ],
+      "exit": 1,
+      "elapsed_seconds": 0.304,
+      "log": "workspace_check.log"
+    },
+    {
+      "name": "acceptance_integrity",
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\repo_audit_20261109\\checkout\\tools\\ph_lw_12_fix_integrity.py"
+      ],
+      "exit": 1,
+      "elapsed_seconds": 0.405,
+      "log": "acceptance_integrity.log"
+    },
+    {
+      "name": "documentation",
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\repo_audit_20261109\\checkout\\Project_Harness_Documentation_v0.5.1\\tools\\validate_documentation.py",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\repo_audit_20261109\\checkout\\Project_Harness_Documentation_v0.5.1",
+        "--json",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\repo_audit_20261109\\DOC_VALIDATION.json"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 1.467,
+      "log": "documentation.log"
+    },
+    {
+      "name": "source_version",
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\repo_audit_20261109\\checkout\\Project_Harness_Engine_v0.5.1\\project-harness.py",
+        "--version"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 0.43,
+      "log": "source_version.log"
+    }
+  ]
+}

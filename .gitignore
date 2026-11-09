@@ -34,3 +34,11 @@
 !/Project_Harness_Engine_v0.5.1/dist/
 /Project_Harness_Engine_v0.5.1/dist/*
 !/Project_Harness_Engine_v0.5.1/dist/project_harness_engine-0.5.1-py3-none-any.whl
+
+# Accepted frozen runtime extensions are required payload, not Python caches.
+!/Project_Harness_Engine_v0.5.1/windows/Harness/**/*.pyd
+
+# This is published build evidence, not the generated Engine/build directory.
+!/Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/build/
+/Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/build/*
+!/Project_Harness_Engine_v0.5.1/PH_LW_11_LONG_PATH_LOGS/build/BUILD_RESULT.json

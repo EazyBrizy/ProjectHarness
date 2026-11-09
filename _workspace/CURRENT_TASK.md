@@ -1,5 +1,7 @@
 # Текущая работа
 
+2026-11-09. Проверка переноса Git: добавлены обязательные `.pyd` frozen payload и пропущенный build evidence; для чистого checkout использовать [REPOSITORY_RUNBOOK](REPOSITORY_RUNBOOK.md) и `python -B tools/check_repository.py`. Runtime source, docs, wheel/installer FIX5 и их приёмочные hashes не меняются. [Результаты аудита](GIT_REPOSITORY_AUDIT_2026-11-09/REPORT.md).
+
 2026-11-09. Подключён Git repository [EazyBrizy/ProjectHarness](https://github.com/EazyBrizy/ProjectHarness), целевая ветка `main`. [Область публикации и проверенные hashes](GIT_PUBLICATION_2026-11-09/PUBLISH_SCOPE.md). Git metadata и эта навигационная запись не меняют принятую базу FIX5 и её verdicts.
 
 2026-11-08. **PH-LW-12: GO с ранее принятыми ограничениями; три blockers CLOSED. LOCAL_WEB_MANUAL: GO.** `AUTOMATIC_EXECUTOR: прежний NO-GO; выключен`. Полная v0.5.1 — `NO-GO / NOT RELEASED`. Только Windows. Engine/Documentation ZIP не создавались.

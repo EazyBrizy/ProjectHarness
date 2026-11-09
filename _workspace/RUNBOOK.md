@@ -12,6 +12,8 @@ PH-LW-10: native Windows runner `Project_Harness_Engine_v0.5.1/local_web/ci_ph_l
 
 # Рабочие команды
 
+Для чистого Git checkout на другом компьютере: [REPOSITORY_RUNBOOK.md](REPOSITORY_RUNBOOK.md), затем `python -B tools/check_repository.py`. Следующие workspace commands проверяют также локальные inputs, generated build и прежние raw runs; Git preflight их не требует.
+
 Выполнять из корня общего workspace. PowerShell; env задаются только для текущего процесса. Не менять системную execution policy или защиту ОС.
 
 Все рабочие файлы проекта хранить в распакованных каталогах workspace, включая отчёты и evidence. **Engine/Documentation ZIP не собираются после каждого этапа или правки. Архивы создаются только по явному запросу пользователя для передачи в ChatGPT на анализ, когда это требуется.** Указание пользователя от 2026-11-07 заменяет прежнюю обязательную упаковку в сохранённых планах/prompts; исторические архивы и inputs сохраняются. Наличие старого ZIP не означает, что он соответствует текущим рабочим файлам.
