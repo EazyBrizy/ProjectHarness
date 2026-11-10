@@ -144,13 +144,13 @@ class ManualEvidenceHttpTests(unittest.TestCase):
             live=LiveServer(directory)
             try:
                 _,_,root=prepare_demo(Path(directory)/'fixture',data=support.fixture_input(manual=True))
-                pid=live.service.register_existing(root,kind='project');live.login();implement_first_task(root)
+                pid=live.service.register_existing(root,kind='project');live.ready();implement_first_task(root)
                 document=review_document(root);base='/api/projects/'+pid
                 request={'action':'manual-evidence','payload':{'document':document,'confirmed':True},
                     'expected_fingerprint':live.service.get_status(pid)['fingerprint'],'idempotency_key':'manual-review-http-exact-key'}
                 before=byte_snapshot(root)
-                self.assertEqual(live.request('POST',base+'/operations',value=request,authenticated=False)[0],401)
-                for headers in ({'Origin':'null'},{'X-CSRF-Token':'forged'},{'Host':'localhost:'+str(live.port)}):
+                self.assertEqual(live.request('POST',base+'/operations',value=request,headers={'Origin':'http://foreign.invalid'})[0],403)
+                for headers in ({'Origin':'null'},{'Host':'localhost:'+str(live.port)}):
                     self.assertEqual(live.request('POST',base+'/operations',value=request,headers=headers)[0],403)
                 forged=deepcopy(request);forged['payload']['actor']='Agent claims operator'
                 self.assertEqual(live.request('POST',base+'/operations',value=forged)[0],400)

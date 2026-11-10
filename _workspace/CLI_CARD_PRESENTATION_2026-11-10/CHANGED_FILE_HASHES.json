@@ -1,0 +1,18 @@
+{
+  "resources/local_web/assets/app.css": {
+    "before": "a1fe997f5ef802f29632bfb801371117e300c1a53e8b4183db3bd26857724b59",
+    "after": "205c4ef577e8e8cd02f450f390c3d6250dd323e09f3a4f843c110ada0cb01076"
+  },
+  "resources/local_web/assets/index.html": {
+    "before": "25d077776190956b7a0a6ae31f1c4c55fa719eb705891e4f5f0ebae0dafbe61a",
+    "after": "b84e411524620fb78f83f4c3ced8a000bb7fc33060291c5013280ac4b0a6e7f2"
+  },
+  "resources/local_web/assets/interview.js": {
+    "before": "5824983ee11d0e925bee5a0afdd49934a5e7797084d4ba1dd24460763b23fa4f",
+    "after": "7e06f009538981367009eeba28e751cde6fb1266d7e984ec86fccdb62ac3793f"
+  },
+  "resources/local_web/metadata_v1.json": {
+    "before": "132e16fd93ae6dde1b9eac52cdcd4234c50b4ec0ef00ecdfe8b6ccb5cb887522",
+    "after": "eecb4553934f90e9cd23067191b79efd4cb492e8bb18aad8f988abf3f34dd96c"
+  }
+}

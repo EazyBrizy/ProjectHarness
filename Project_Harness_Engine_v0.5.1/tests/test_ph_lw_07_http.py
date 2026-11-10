@@ -41,7 +41,7 @@ def request_for(view, subject=None, key=None):
 class ApprovalHttpTests(unittest.TestCase):
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory(prefix='ph-lw07-http-'); self.addCleanup(self.temp.cleanup)
-        self.live=LiveServer(self.temp.name); self.addCleanup(lambda:self.live.close()); self.live.login()
+        self.live=LiveServer(self.temp.name); self.addCleanup(lambda:self.live.close()); self.live.ready()
         self.pid,self.root=filled_intake(self.live.service)
         self.base=f'/api/projects/{self.pid}'
 
@@ -55,13 +55,13 @@ class ApprovalHttpTests(unittest.TestCase):
 
     def test_all_routes_exact_origin_session_csrf_methods_no_writes(self):
         before=byte_snapshot(Path(self.temp.name))
-        self.assertEqual(self.live.request('GET',self.base+'/approvals',authenticated=False)[0],401)
+        self.assertEqual(self.live.request('GET',self.base+'/approvals',headers={'Origin':'http://foreign.invalid'})[0],403)
         self.review()
         for route in ('/approvals/actor','/approvals/decisions','/approvals/recover'):
             for headers in ({'Origin':'null'},{'Origin':self.live.origin+'/'},{'Origin':'http://127.0.0.1:1'},
-                {'Host':'localhost:'+str(self.live.port)},{'Host':'127.0.0.1:1'},{'X-CSRF-Token':'wrong'}):
+                {'Host':'localhost:'+str(self.live.port)},{'Host':'127.0.0.1:1'}):
                 self.assertEqual(self.live.request('POST',self.base+route,value={},headers=headers)[0],403)
-            self.assertEqual(self.live.request('POST',self.base+route,value={},authenticated=False)[0],401)
+            self.assertEqual(self.live.request('POST',self.base+route,value={},headers={'Origin':'http://foreign.invalid'})[0],403)
             self.assertEqual(self.live.request('GET',self.base+route)[0],405)
         self.assertEqual(before,byte_snapshot(Path(self.temp.name)))
 
@@ -128,8 +128,8 @@ class ApprovalBrowserTests(unittest.TestCase):
                         page=context.new_page(); page.set_default_timeout(15000)
                         urls,errors=[],[]
                         context.on('request',lambda r:urls.append(r.url)); page.on('pageerror',lambda e:errors.append(str(e)))
-                        page.goto(live.origin+'/#bootstrap='+live.auth.issue_bootstrap())
-                        expect(page.locator('#session-state')).to_have_text('Сессия активна')
+                        page.goto(live.origin + '/')
+                        expect(page.locator('#connection-state')).to_have_text('Сервер готов')
                         page.locator('.project-button').filter(has_text=pid).click()
                         expect(page.locator('#project-kind')).to_have_text('Черновик')
                         page.locator('[data-screen="approvals"]').click()
@@ -144,19 +144,18 @@ class ApprovalBrowserTests(unittest.TestCase):
                         expect(second.locator('#approval-subjects section')).to_have_count(4)
                         self.assertEqual(page.locator('#approval-subjects img').count(),0)
                         self.assertIsNone(page.evaluate('window.injected'))
-                        page.locator('#approve-project_definition').click()
-                        expect(page.locator('#notice')).to_contain_text('Подтвердите')
+                        self.assertEqual(page.locator('#approval-subjects input[type=checkbox]').count(),0)
                         for index,subject in enumerate(approvals_for_mode('GREENFIELD')):
-                            page.locator('#confirm-'+subject).check()
+                            
                             page.locator('#approve-'+subject).click()
                             expect(page.locator('#approvals-status')).to_contain_text(f'{index+1} из 4')
                             if index==0:
-                                second.locator('#confirm-project_definition').check()
+                                self.assertEqual(second.locator('#confirm-project_definition').count(),0)
                                 second.locator('#approve-project_definition').click()
                                 expect(second.locator('#notice')).to_contain_text('изменились')
                                 self.assertEqual(len(live.service.get_approval_review(pid)['receipts']),1)
                                 second.close()
-                        expect(page.locator('#approvals-next')).to_contain_text('Проект пока не создан')
+                        expect(page.locator('#approvals-next')).to_contain_text('Передача оформлена')
                         self.assertEqual(check_intake(root)['status'],'READY_FOR_HANDOFF')
                         before=byte_snapshot(Path(directory)); page.reload(wait_until='networkidle')
                         expect(page.locator('#approvals-status')).to_contain_text('4 из 4')
@@ -191,7 +190,7 @@ class ApprovalBrowserTests(unittest.TestCase):
                             expect(page.locator('#approval-actor-display')).to_contain_text('Оператор Edge')
                             for index,subject in enumerate(approvals_for_mode(mode)):
                                 if subject=='brownfield_baseline': expect(page.locator('#approve-architecture_baseline')).to_be_disabled()
-                                page.locator('#confirm-'+subject).check(); page.locator('#approve-'+subject).click()
+                                page.locator('#approve-'+subject).click()
                                 expect(page.locator('#approvals-status')).to_contain_text(f'{index+1} из 5')
                             self.assertEqual(check_intake(work)['status'],'READY_FOR_HANDOFF')
                             if screenshot_dir: page.screenshot(path=str(dest/('approvals-'+mode.lower()+'.png')),full_page=True)

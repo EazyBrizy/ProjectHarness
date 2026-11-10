@@ -1,0 +1,146 @@
+{
+  "src/project_harness/cli.py": {
+    "before": "8ea532aa6ec6bb300539ed8ff3790b0553037660c537595c77cc147087b71769",
+    "after": "14c16a2b4cfbb979b85af81ac11cf211447efe31a5ca94726ea2121e4ec55bc3"
+  },
+  "src/project_harness/local_web_http.py": {
+    "before": "1af3cbf168dd60b0745843357a1cd0eaeb9c8991a0a610d91001cf6b37d2bcf2",
+    "after": "1b13d4369bb0b100e3e90dd5324ce3243ff716812270b9e7a076e24f19e65b77"
+  },
+  "src/project_harness/local_web_instance.py": {
+    "before": "e9863d4d495d0e1a539cb2b3ffac3fc23106afbf90ddf9596a7931e08ca48291",
+    "after": "2fe9d6891240b588f739d4f338e2a02ee7d850851fdf2c278d8425f848517b7e"
+  },
+  "src/project_harness/local_web_launcher.py": {
+    "before": "55500d0699634ff1a412b68a0147ce343e927b438cf7c8c83eb89d0d92c11369",
+    "after": "e415a3e8d1b78e6d1d878e8424aa3288878bc8c39ef3b8bc0a61b6e4a34abe91"
+  },
+  "src/project_harness/resources/local_web/assets/app.js": {
+    "before": "e57031b6f588e4a0d8401ff39bdee90cffa556794f282264a62ddcc2aeff2d25",
+    "after": "0f6f0594a55d6ddac17e08d7c2e41b1c609b7a55cba3803ee37510ad33ce43df"
+  },
+  "src/project_harness/resources/local_web/assets/approvals.js": {
+    "before": "dc2ab92a423f8a1611d3780a775f78a37ef6835ca48028afbabac162309bff0e",
+    "after": "2b694cf558e6c5d363c2a6f72e2d75f9c45cc04663aa806ed2538d94319e9729"
+  },
+  "src/project_harness/resources/local_web/assets/index.html": {
+    "before": "b454b7f30a86c18741774e8ce5c13361c5e7b9d5cc9bb9b685f22ff1acbd1ae2",
+    "after": "78d89f3527351cdb1b7d1295f91f429fd5fcd6e3c99cbe2588d5dc1001684bc5"
+  },
+  "src/project_harness/resources/local_web/assets/interview.js": {
+    "before": "c076ba63f96d19963bb4f06af79cac41751ba52763c7518bb1cf13a6f671b72a",
+    "after": "49df75e2520f7688db4035804b1bebe50bce0fcc64c8fb588ceae116e6a3333a"
+  },
+  "src/project_harness/resources/local_web/assets/lifecycle.js": {
+    "before": "d4ff9a41f0bb8d3071721dd3ff3cd6ae2f7ee593e7f790b4b79ddd6df606cf2c",
+    "after": "baac8cafab4baae33ffe91d622ea80820a498bd8707bef8cbfa19aea29e56a76"
+  },
+  "src/project_harness/resources/local_web/assets/preparation.js": {
+    "before": "43dc9e387a3b7b8d78fa3814f046c5e351b284b907c49ba2fe2fe037c372232a",
+    "after": "22996b53f9c76b89e32aa1e0043e3fd0f14516143b9eb8ea117ba055cdceab43"
+  },
+  "src/project_harness/resources/local_web/assets/tasks.js": {
+    "before": "d4f0a2b3181ef433e71dc7ebb4938f011c3879527644ab5784ebafda569eccaa",
+    "after": "5da7bd849c799c41081e0ce33e3a46d4771720990c046df2983f9a1fd8026a57"
+  },
+  "src/project_harness/resources/local_web/metadata_v1.json": {
+    "before": "ae22f314c87071f914d44af0abdd468117edbb2391bac0187803acdac87c3731",
+    "after": "0a011ba6911b0273e99ea60b50f7b8bb3ce734b2650382b5b990d3eaf8a2c95c"
+  },
+  "src/project_harness/windows_package.py": {
+    "before": "5a91431f0419f0e6ec8879bdf67f0a8a1621ece4de225cd58a534edfa034955b",
+    "after": "a24057f3853e15c98a0b3530b6715cff030e4bd3c3d19cf3ca22995fbc7987a4"
+  },
+  "tests/test_document_upload_feedback.py": {
+    "before": "5d28e1955b89e21dcf49fb8efbb7b65ec59a285a1297a3b9ea228b91e73e7336",
+    "after": "0591f8ec206948a4cd7872a424ef41913367c43f104e15b832d6bc2b9dfd3a60"
+  },
+  "tests/test_local_web_no_login.py": {
+    "before": null,
+    "after": "a55e85d55439080cb6a5211429ed2306da5dbcf314db8b95fcec222b2ee463b3"
+  },
+  "tests/test_ph_lw_04_05_acceptance.py": {
+    "before": "be8fbabea3cc46f5471272767d64100374cd5f1a4222a32ee88463543e07a67f",
+    "after": "834ded123b9ad1d3e9294d4b2c319188b5c520ee94a4158f2cdcdb1d653af7d7"
+  },
+  "tests/test_ph_lw_04_http.py": {
+    "before": "ab31299bb83857f4b55ba995d7417026113852bdbb591ac7cc1cb497ef5be4c2",
+    "after": "9278e7f5996b73e37e7d04de6d02f8b054a2dba4f903e55766e5f2544f8758b3"
+  },
+  "tests/test_ph_lw_05_http.py": {
+    "before": "91973f0f71858ddebb07d66870d1957e981d4596d7ddb2806767be23d55f9fc9",
+    "after": "a06605985e854db4543d39bd8082580e2344075cc6d258e24927cdcc47769a8b"
+  },
+  "tests/test_ph_lw_06_http.py": {
+    "before": "a5a5600e5cbc535610d74658048d08b7ce335ef143d24811bafd64de301d9915",
+    "after": "a0831c8f80a58568cff4aae6545e5978a317374d7293d809cb27d478758a07a9"
+  },
+  "tests/test_ph_lw_07_http.py": {
+    "before": "a4573bda22918fde0e2f8e079f6325e3c4ecc0c3e40606018909559d7e1b668c",
+    "after": "6cc69f1dcdc951b9fedbe7b813fe57fd52c49d7faf7d936dc8aadd91dca6c9a2"
+  },
+  "tests/test_ph_lw_08_http.py": {
+    "before": "5086e3d4574c37bfa49d640da3f0bab885dbe9ce91f2ce62fc735e7be9a9db98",
+    "after": "08551d11fae7fc479c2bfa44a4b2108ce46772d2d68bb266aaaf1ec81571c156"
+  },
+  "tests/test_ph_lw_09_http.py": {
+    "before": "b726114177baee20b9e30daf16ec86a2d624d580a3c230bf8ff8431914b05737",
+    "after": "5aa08390a7f604c4c63c95569a0a67ae2a85263eb57e5730117e79af98819a8a"
+  },
+  "tests/test_ph_lw_09_manual_evidence.py": {
+    "before": "24d40ff8758a88ca7cc1c1fbe674a2c453c85e275602ed5c49823a9be0959218",
+    "after": "6421f039d91fa8d5c8919758ac528af63d9a5d4f5c4b70be37c4db4eba6300dd"
+  },
+  "tests/test_ph_lw_10_http.py": {
+    "before": "073890bb2e6c14594fc4bb605efdf6e06b37faa1cf54fa0c3bfb4114b0a73c88",
+    "after": "e51aaeaa393c2656e932cb01d7cf9a425c0bbf842bf3f9979f685c86af957b69"
+  },
+  "tests/test_ph_lw_11_desktop.py": {
+    "before": "9ed5d245243008891ad052b9c6f3baf10f829aaa1d53b121dcc29e7fab6c9bb4",
+    "after": "b873928f822c74271c3648f4508bfe27dd653ff0a63d36d73176e17f56b97447"
+  },
+  "tests/test_ph_lw_12_acceptance.py": {
+    "before": "5409b3c62bc543dcdc476923f92d28eca324036199b7db6c7fa55c5fa855c495",
+    "after": "dc8f5005251b1e5483b64092a8716f4fabcfe66404cd213e111d0bc4cc549932"
+  },
+  "tests/test_ph_lw_12_blockers.py": {
+    "before": "010d47ee9aa816e164a47cd52b861e27ff64524c09bd515f092da59455bf49dc",
+    "after": "f6518ed74c1cec05b431cbefebe9f3d5308cc154a6052326c77f2bde8af8990f"
+  },
+  "local_web/windows/acceptance.py": {
+    "before": "6048a4bc08b18686b1275f3efcfe0827d0e110f3cb2936bb43c9bc5afa01c83c",
+    "after": "dd0afbbe4eeddd749b2f4f61d0f2bbaccfeab559d0085db0b9692669ee3b8457"
+  },
+  "local_web/windows/document_upload_feedback_acceptance.py": {
+    "before": "fa311f546f77d5008a306692998ab31a0b6cb8f1822091893e22dbad0c067c78",
+    "after": "e5fd854952a59d096c6883ff52a92d2a5817431086caa7e4dea1edd984f925f1"
+  },
+  "local_web/windows/final_acceptance.py": {
+    "before": "d76545fc60bd3ca926d69eb65ba4c6b78b5decc0c1d73b3bd1f44185fd571996",
+    "after": "91ba776888c4debd9bae303d92621dc3ff5ab0ba9bd087f84dfefa88c7a17b08"
+  },
+  "local_web/windows/installer_fault_acceptance.py": {
+    "before": "e138946e67d633a666e9ac958f24b3988e3e51eda95d03de56ba61d0f0e960a9",
+    "after": "bf91f8f366726aa268cb1458a5e8699d00c646a6db86b990c90d7b880beefe07"
+  },
+  "local_web/windows/long_path_acceptance.py": {
+    "before": "35c34603d77d6721d751a66891a992cddfc53aa992fc95faa4ad8ef9771f1a6d",
+    "after": "91a4143b28415271c9d7c1f95b68f25a485eaf9cce0a0813457482d0676267fc"
+  },
+  "AGENTS.md": {
+    "before": "ec4f9d7b9799e103a3ecf53eed46a1244f2330b706a489c0167066ac7e04076b",
+    "after": "eb52e61dac14b84c8410a033b6d54cf075616a587696010a3136353878105fcb"
+  },
+  "_workspace/CURRENT_TASK.md": {
+    "before": "46184e8fbca4d43a865bd904ca3dd6c9a14b283260b5cce762bd08fa7ee45f96",
+    "after": "c8e974d667f823e50359c208f9fa17bfebd9afbdd65dae380120aded907ca9ba"
+  },
+  "_workspace/RUNBOOK.md": {
+    "before": "252b7fc2c86f389fb3ddd56c2a347a6b7402031a36aa7211544d141810685281",
+    "after": "d577079185218742256f0c4f6925410301f16626af88ead4a8a1fc71901928d7"
+  },
+  "tools/verify_installed.py": {
+    "before": "ce5cbaefe33ff15aee6510bcc78819929f6d8da0da117698f3d7a534fee9296d",
+    "after": "af22612b32fb9ee8427af1d8afedf4849a94f76f13a9507e5c8035bd8e5b8ec6"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "source_build_wheel_frozen": "PASS",
+  "full_frozen_payload_including_pyd": "PASS",
+  "documentation_mirrors": "PASS",
+  "manifests": "PASS",
+  "only_allowed_runtime_changes": [
+    "resources/local_web/assets/app.css",
+    "resources/local_web/assets/index.html",
+    "resources/local_web/metadata_v1.json"
+  ],
+  "historical_documentation_preserved": true,
+  "unrelated_original_tests_preserved": true,
+  "build_id": "ANALYSIS-OPTIONS-ROW-20261110",
+  "engine_manifest_sha256": "6d1db77aa123b0a82b91771850fc688c9344b59b8c6a6b98191b28657688925f",
+  "docs_manifest_sha256": "a22cbd3275f7d55a9ff0febc9e434ae0c88b05abff58340509aea7c7e5aecc0e",
+  "zip_created": false
+}

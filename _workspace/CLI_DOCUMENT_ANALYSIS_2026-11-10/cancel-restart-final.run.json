@@ -1,0 +1,19 @@
+{
+  "command": [
+    "C:/Users/gvenv/Desktop/ProjectHarness/.venv/Scripts/python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_cli_document_analysis.CliAnalysisTests.test_cancel_busy_stale_result_and_invalid_reply_never_apply_draft",
+    "tests.test_cli_document_analysis.CliAnalysisTests.test_restart_projection_is_read_only_and_never_restarts_cli"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1",
+  "started_utc": "2026-11-10T12:04:08.085577+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 60,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 4.2,
+  "log_sha256": "5e5ca19046514cbc7f36b4ced460493c732014034f8caa0b96623c68ce47e9a4"
+}

@@ -1,0 +1,5 @@
+{
+  "source-local-web": "FAIL/INTERRUPTED: pilot was deliberately stopped before completion; obsolete wrong-CSRF negative rows corrected during run; exact final bytes not claimed",
+  "exchange-transport-diagnostic": "FAIL400 vs403 on obsolete wrong-CSRF row, removed per explicit contract change; Host/Origin/schema/replay negatives retained",
+  "initial-http-ui": "37 PASS preliminary before final help metadata changes; final wheel/EXE results are separate"
+}

@@ -1,0 +1,4 @@
+ M _workspace/CURRENT_TASK.md
+?? _workspace/DOCUMENT_UPLOAD_FEEDBACK_2026-11-09/
+?? _workspace/OPENDESIGN_LOCAL_WEB_DESIGN_PROMPT_RU.txt
+?? tools/document_upload_feedback_checkpoint.py

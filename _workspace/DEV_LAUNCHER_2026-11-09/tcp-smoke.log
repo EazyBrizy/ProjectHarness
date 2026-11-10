@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_workspace\DEV_LAUNCHER_2026-11-09\smoke.py", line 44, in <module>
+    assert child.poll() is None,'Source launcher exited'
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: Source launcher exited

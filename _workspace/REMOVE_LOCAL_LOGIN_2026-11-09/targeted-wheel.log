@@ -1,0 +1,13 @@
+{"interpreter": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\wheel-venv\\Scripts\\python.exe", "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]", "package": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\wheel-venv\\Lib\\site-packages\\project_harness", "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\Независимая папка wheel", "source_import": false, "dependencies": {"Flask": "3.1.3", "Waitress": "3.0.2", "playwright": "1.64.1"}}
+test_local_login_implementation_removed (tests.test_ph_lw_04_http.LocalHttpDependencyIndependent.test_local_login_implementation_removed) ... ok
+test_direct_reads_without_login_and_removed_login_routes (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_direct_reads_without_login_and_removed_login_routes) ... ok
+test_no_login_mutation_exact_json_and_transport_headers (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_no_login_mutation_exact_json_and_transport_headers) ... ok
+test_exact_host_origin_null_port_and_proxy_rejected (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_exact_host_origin_null_port_and_proxy_rejected) ... ok
+test_stop_without_login_preserves_origin_and_field_validation (tests.test_ph_lw_11_desktop.DesktopContractTests.test_stop_without_login_preserves_origin_and_field_validation) ... ok
+test_native_mutex_subprocess (tests.test_ph_lw_11_desktop.NativeLauncherTests.test_native_mutex_subprocess) ... ok
+test_plain_instance_record_discovery_cleanup_and_invalid_records (tests.test_ph_lw_11_desktop.NativeLauncherTests.test_plain_instance_record_discovery_cleanup_and_invalid_records) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.468s
+
+OK

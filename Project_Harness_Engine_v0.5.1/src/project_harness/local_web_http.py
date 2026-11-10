@@ -1,4 +1,4 @@
-"""PH-LW-04: same-origin authenticated Local Web shell (manual only).
+"""PH-LW-04: same-origin Local Web shell without local login (manual only).
 
 Flask is imported only by the UI launcher; console/core use no web dependency.
 The only listener is the pre-bound IPv4 loopback socket owned by Waitress.
@@ -7,16 +7,10 @@ shell invocation, provider integration or automatic Codex execution.
 """
 from __future__ import annotations
 
-from dataclasses import dataclass
-from hashlib import sha256
-from hmac import compare_digest
 from importlib import resources
 from io import BytesIO
 import json
-import secrets
-from threading import Lock
-import time
-from typing import Any, Callable
+from typing import Any
 
 from .errors import HarnessError, ValidationFailure
 from .local_web_service import LocalWebService, OperationRequest
@@ -26,11 +20,7 @@ from .local_web_service import LocalWebService, OperationRequest
 # receives a buffered body. JSON requests have a narrower application limit.
 WSGI_BODY_LIMIT = 64 * 1024 * 1024
 JSON_BODY_LIMIT = 512 * 1024
-BOOTSTRAP_BODY_LIMIT = 4096
-BOOTSTRAP_TTL_SECONDS = 90
-SESSION_TTL_SECONDS = 8 * 60 * 60
-SESSION_IDLE_SECONDS = 30 * 60
-SESSION_COOKIE = 'harness_local_session'
+SMALL_JSON_BODY_LIMIT = 4096
 
 CSP = "; ".join((
     "default-src 'none'",
@@ -46,80 +36,6 @@ CSP = "; ".join((
     "form-action 'self'",
     "worker-src 'none'",
 ))
-
-
-@dataclass
-class _Session:
-    csrf: str
-    created: float
-    last_used: float
-
-
-class LocalWebAuth:
-    """Process-local, fail-closed auth. No token, session or CSRF disk writes.
-
-    A single random 256-bit bootstrap secret is issued only by the trusted
-    launcher, sent in a URL fragment (never an HTTP query), and consumed by an
-    exact-origin POST. Sessions are server-side with HttpOnly host-only cookies.
-    """
-
-    def __init__(self, *, clock: Callable[[], float] = time.monotonic) -> None:
-        self._clock = clock
-        self._lock = Lock()
-        self._bootstrap_digest: bytes | None = None
-        self._bootstrap_until = 0.0
-        self._sessions: dict[str, _Session] = {}
-
-    def issue_bootstrap(self) -> str:
-        token = secrets.token_urlsafe(32)
-        with self._lock:
-            # Reissuance invalidates any not-yet-consumed earlier launcher token.
-            self._bootstrap_digest = sha256(token.encode('ascii')).digest()
-            self._bootstrap_until = self._clock() + BOOTSTRAP_TTL_SECONDS
-        return token
-
-    def exchange(self, token: object) -> tuple[str, str]:
-        if not isinstance(token, str) or not 40 <= len(token) <= 128 or not token.isascii():
-            raise WebError(401, 'BOOTSTRAP_INVALID', 'Одноразовый код входа недействителен.')
-        candidate = sha256(token.encode('ascii')).digest()
-        with self._lock:
-            now = self._clock()
-            if (self._bootstrap_digest is None or now >= self._bootstrap_until
-                    or not compare_digest(candidate, self._bootstrap_digest)):
-                raise WebError(401, 'BOOTSTRAP_INVALID', 'Одноразовый код истёк или уже использован.')
-            self._bootstrap_digest = None  # consume under one lock; replay always fails
-            self._bootstrap_until = 0.0
-            session_id = secrets.token_urlsafe(32)
-            csrf = secrets.token_urlsafe(32)
-            self._sessions[sha256(session_id.encode('ascii')).hexdigest()] = _Session(csrf, now, now)
-            self._prune(now)
-        return session_id, csrf
-
-    def _prune(self, now: float) -> None:
-        for key, value in list(self._sessions.items()):
-            if (now - value.created >= SESSION_TTL_SECONDS or
-                    now - value.last_used >= SESSION_IDLE_SECONDS):
-                del self._sessions[key]
-
-    def authorize(self, cookie: object, csrf: object = None, *, mutation: bool = False) -> _Session:
-        if not isinstance(cookie, str) or not 40 <= len(cookie) <= 128 or not cookie.isascii():
-            raise WebError(401, 'AUTH_REQUIRED', 'Требуется действующая локальная сессия.')
-        digest = sha256(cookie.encode('ascii')).hexdigest()
-        with self._lock:
-            now = self._clock()
-            self._prune(now)
-            session = self._sessions.get(digest)
-            if session is None:
-                raise WebError(401, 'AUTH_REQUIRED', 'Сессия отсутствует или истекла.')
-            if mutation and (not isinstance(csrf, str) or not csrf.isascii()
-                             or not compare_digest(csrf, session.csrf)):
-                raise WebError(403, 'CSRF_REJECTED', 'Не подтверждён CSRF-токен этой сессии.')
-            session.last_used = now
-            return session
-
-    def revoke(self, cookie: str) -> None:
-        with self._lock:
-            self._sessions.pop(sha256(cookie.encode('utf-8')).hexdigest(), None)
 
 
 class WebError(Exception):
@@ -143,26 +59,22 @@ def _reject_constant(_value: str) -> None:
     raise ValueError('non-finite JSON value')
 
 
-def create_app(service: LocalWebService, *, port: int,
-               auth: LocalWebAuth | None = None):
+def create_app(service: LocalWebService, *, port: int):
     """Create Flask WSGI app with an exact 127.0.0.1:<bound-port> origin.
 
     Callable from an installed wheel independent of source working directory.
-    Bootstrap access belongs exclusively to the caller, not to any HTTP route.
+    The local interface opens directly; no accounts, sessions or login tokens.
     """
-    from flask import Flask, Response, g, jsonify, make_response, request, send_file
+    from flask import Flask, Response, g, jsonify, request, send_file
     from werkzeug.exceptions import HTTPException
 
     if not isinstance(port, int) or not 1 <= port <= 65535:
         raise ValueError('Waitress must bind an actual loopback port before Flask initialization')
     origin = f'http://127.0.0.1:{port}'
     host = f'127.0.0.1:{port}'
-    auth = auth if auth is not None else LocalWebAuth()
     app = Flask(__name__, static_folder=None)
     app.config.update(DEBUG=False, TESTING=False, PROPAGATE_EXCEPTIONS=False,
-                      MAX_CONTENT_LENGTH=WSGI_BODY_LIMIT, MAX_FORM_MEMORY_SIZE=JSON_BODY_LIMIT,
-                      SESSION_COOKIE_NAME=SESSION_COOKIE)
-    app.extensions['harness_local_auth'] = auth
+                      MAX_CONTENT_LENGTH=WSGI_BODY_LIMIT, MAX_FORM_MEMORY_SIZE=JSON_BODY_LIMIT)
     from .local_web_desktop import DesktopLifecycle, read_resume, save_resume
     desktop = getattr(service, 'desktop_lifecycle', None)
     if desktop is None:
@@ -173,7 +85,7 @@ def create_app(service: LocalWebService, *, port: int,
         raise WebError(http_status, code, message)
 
     @app.before_request
-    def exact_origin_and_session():
+    def exact_loopback_origin():
         # Compare the *raw* Host, including port. Never rely on DNS, localhost
         # alias resolution or proxy-derived host metadata.
         if request.environ.get('HTTP_HOST') != host or request.scheme != 'http':
@@ -189,22 +101,12 @@ def create_app(service: LocalWebService, *, port: int,
         if request.method == 'POST' and given_origin != origin:
             fail(403, 'ORIGIN_REQUIRED', 'Требуется точный Origin, включая порт.')
         if request.query_string:
-            fail(400, 'QUERY_FORBIDDEN', 'Данные в URL query запрещены; не передавайте туда коды входа или пути.')
+            fail(400, 'QUERY_FORBIDDEN', 'Данные в URL query запрещены; используйте предусмотренные формы запросов.')
         if request.headers.get('Content-Encoding') not in (None, 'identity'):
             fail(415, 'ENCODING_REJECTED', 'Сжатые HTTP bodies не принимаются.')
         fetch_site = request.headers.get('Sec-Fetch-Site')
         if fetch_site is not None and fetch_site not in ('same-origin', 'none'):
             fail(403, 'CROSS_SITE_REJECTED', 'Межсайтовый запрос запрещён.')
-        if request.path == '/health' or request.path.startswith('/assets/') or request.path == '/':
-            return
-        if request.path in ('/api/session/bootstrap', '/api/session') and request.method == 'POST':
-            # /api/session POST is not a supported route; method rejected by 405.
-            return
-        if request.path == '/api/session' and request.method == 'GET':
-            return
-        if request.path.startswith('/api/'):
-            g.local_session = auth.authorize(request.cookies.get(SESSION_COOKIE),
-                          request.headers.get('X-CSRF-Token'), mutation=request.method == 'POST')
         if request.method == 'POST' and request.path != '/api/desktop/stop':
             if not desktop.enter():
                 fail(409, 'SERVER_STOPPING', 'Harness завершает работу. Новые изменения запрещены.')
@@ -233,7 +135,7 @@ def create_app(service: LocalWebService, *, port: int,
     @app.errorhandler(WebError)
     def web_error(exc: WebError):
         return jsonify({'status': 'FAILED', 'error': {'code': exc.code,
-             'message_ru': exc.message, 'next_action_ru': 'Проверьте сессию, данные и актуальный статус.'}}), exc.http_status
+             'message_ru': exc.message, 'next_action_ru': 'Проверьте данные и актуальный статус.'}}), exc.http_status
 
     @app.errorhandler(HTTPException)
     def http_error(exc: HTTPException):
@@ -243,6 +145,9 @@ def create_app(service: LocalWebService, *, port: int,
 
     @app.errorhandler(Exception)
     def internal_error(exc: Exception):
+        from .local_web_cli import CliError
+        if isinstance(exc, CliError):
+            return jsonify({'status': 'FAILED', 'error': exc.public()}), exc.http_status
         from .local_web_exchange_contract import ExchangeError
         if isinstance(exc, ExchangeError):
             conflict = any(word in exc.exchange_code for word in ('STALE', 'CONFLICT', 'RECOVERY', 'CANCEL', 'PENDING', 'MISMATCH'))
@@ -286,13 +191,13 @@ def create_app(service: LocalWebService, *, port: int,
 
     @app.post('/api/ui/resume')
     def desktop_select():
-        body = json_object(limit=BOOTSTRAP_BODY_LIMIT,
+        body = json_object(limit=SMALL_JSON_BODY_LIMIT,
                            fields=frozenset({'project_id', 'screen', 'expected_revision'}))
         return jsonify(save_resume(service, **body))
 
     @app.post('/api/desktop/stop')
     def desktop_stop():
-        json_object(limit=BOOTSTRAP_BODY_LIMIT, fields=frozenset())
+        json_object(limit=SMALL_JSON_BODY_LIMIT, fields=frozenset())
         return jsonify(desktop.stop())
 
     @app.get('/')
@@ -314,33 +219,6 @@ def create_app(service: LocalWebService, *, port: int,
             fail(404, 'ASSET_UNKNOWN', 'Локальный asset не найден.')
         contents = resources.files('project_harness').joinpath('resources/local_web/assets', name).read_bytes()
         return Response(contents, content_type=types[name])
-
-    @app.post('/api/session/bootstrap')
-    def start_session():
-        body = json_object(limit=BOOTSTRAP_BODY_LIMIT, fields=frozenset({'token'}))
-        session_id, csrf = auth.exchange(body['token'])
-        response = make_response(jsonify({'authenticated': True, 'csrf': csrf}))
-        # Secure cookies over plain HTTP to 127.0.0.1 are not interoperable
-        # across target browsers. Strict Origin + Host + CSRF protect this
-        # *loopback-only* cookie; there is no remote/TLS deployment mode.
-        response.set_cookie(SESSION_COOKIE, session_id, max_age=SESSION_TTL_SECONDS,
-                            path='/', httponly=True, samesite='Strict', secure=False)
-        return response
-
-    @app.get('/api/session')
-    def read_session():
-        try:
-            session = auth.authorize(request.cookies.get(SESSION_COOKIE))
-        except WebError:
-            return jsonify({'authenticated': False})
-        return jsonify({'authenticated': True, 'csrf': session.csrf})
-
-    @app.post('/api/session/logout')
-    def logout():
-        auth.revoke(request.cookies.get(SESSION_COOKIE, ''))
-        response = make_response(jsonify({'status': 'LOGGED_OUT'}))
-        response.delete_cookie(SESSION_COOKIE, path='/')
-        return response
 
     # PH-LW-05: explicit project-owned source import; no path-bearing JSON.
     @app.post('/api/intakes')
@@ -414,6 +292,34 @@ def create_app(service: LocalWebService, *, port: int,
     def read_interview(project_id: str):
         return jsonify(service.get_interview(project_id))
 
+    @app.get('/api/cli')
+    def cli_status():
+        return jsonify(service.get_cli_connection())
+
+    @app.post('/api/cli/connect')
+    def cli_connect():
+        json_object(limit=1024, fields=frozenset())
+        return jsonify(service.connect_cli())
+
+    @app.post('/api/projects/<project_id>/analysis/package')
+    def analysis_package(project_id: str):
+        value = json_object(limit=4096, fields=frozenset({'expected_fingerprint', 'idempotency_key'}))
+        return jsonify(service.create_analysis_export(project_id, **value)), 201
+
+    @app.get('/api/projects/<project_id>/cli/analysis')
+    def cli_analysis_status(project_id: str):
+        return jsonify(service.get_cli_analysis(project_id))
+
+    @app.post('/api/projects/<project_id>/cli/analysis')
+    def cli_analysis_start(project_id: str):
+        value = json_object(limit=4096, fields=frozenset({'expected_fingerprint', 'idempotency_key'}))
+        return jsonify(service.start_cli_analysis(project_id, **value)), 202
+
+    @app.post('/api/projects/<project_id>/cli/analysis/<job_id>/cancel')
+    def cli_analysis_cancel(project_id: str, job_id: str):
+        json_object(limit=1024, fields=frozenset())
+        return jsonify(service.cancel_cli_analysis(project_id, job_id))
+
     @app.get('/api/projects/<project_id>/gpt/export-review')
     def gpt_export_review(project_id: str):
         return jsonify(service.get_export_review(project_id))
@@ -424,6 +330,12 @@ def create_app(service: LocalWebService, *, port: int,
             'expected_fingerprint', 'review_digest', 'classifications', 'draft_classification',
             'consent', 'idempotency_key'}))
         return jsonify(service.create_gpt_export(project_id, **value))
+
+    @app.get('/api/projects/<project_id>/gpt/exports/<exchange_id>/archive.zip')
+    def gpt_archive(project_id: str, exchange_id: str):
+        data = service.read_gpt_export_archive(project_id, exchange_id)
+        return send_file(BytesIO(data), mimetype='application/zip', as_attachment=True,
+                         download_name='harness-analysis.zip', max_age=0, conditional=False)
 
     @app.get('/api/projects/<project_id>/gpt/exports/<exchange_id>/<name>')
     def gpt_download(project_id: str, exchange_id: str, name: str):

@@ -1,0 +1,166 @@
+--- before/app.js
++++ after/app.js
+@@ -333,19 +333,41 @@
+ const chosenDocuments = { files: [] };
+ let sourceRequest = null;
+ let sourceFeedback = null;
++function clearDocumentValidation() {
++  $('document-validation').classList.add('hidden');
++  $('document-validation').textContent = '';
++  for (const field of $('documents-panel').querySelectorAll('[aria-invalid]')) field.removeAttribute('aria-invalid');
++}
++function documentError(message, fieldId) {
++  text('document-validation', message);
++  $('document-validation').classList.remove('hidden');
++  showNotice(message, 'error');
++  const field = $(fieldId);
++  if (['INPUT','SELECT','TEXTAREA'].includes(field.tagName)) field.setAttribute('aria-invalid', 'true');
++  field.focus();
++  $('document-validation').scrollIntoView({block:'nearest'});
++  return null;
++}
++function requireDocumentWorkspace() {
++  if (!state.csrf) return documentError('Локальная сессия завершена. Войдите снова через ярлык Harness.', 'new-project-name');
++  if (!state.activeProject || !state.view) {
++    if (!$('new-project-name').value.trim()) return documentError('Введите название проекта и нажмите «Создать проект для документов». Затем можно импортировать ZIP или MD.', 'new-project-name');
++    return documentError('Проект ещё не создан. Нажмите «Создать проект для документов», затем повторите действие.', 'create-intake');
++  }
++  if (state.view.kind !== 'workspace') return documentError('Источники опубликованного проекта здесь не заменяются. Создайте новый проект для документов или выберите существующий черновик во вкладке «Проекты».', 'new-project-name');
++  if (state.sourceSnapshot?.project_id !== state.activeProject) return documentError('Состояние документов ещё не прочитано. Нажмите «Обновить состояние» и повторите действие.', 'refresh');
++  return state.sourceSnapshot;
++}
++$('new-project-name').addEventListener('input', clearDocumentValidation);
+ function renderSourceFlow() {
+   const workspace = state.view?.kind === 'workspace';
+   const snapshot = workspace && state.sourceSnapshot?.project_id === state.activeProject ? state.sourceSnapshot : null;
+-  const ready = Boolean(state.csrf && snapshot && !state.requestBusy);
+   const selected = chosenDocuments.files.length;
+-  const completed = snapshot && (snapshot.documents.length > 0 || snapshot.documentation_choice === 'NONE');
+-  $('upload-sources').disabled = !ready || !selected;
+-  $('confirm-no-docs').disabled = !ready;
++  for (const id of ['create-intake','create-no-docs','upload-sources','confirm-no-docs','documents-next']) $(id).disabled = state.requestBusy;
+   $('source-files').disabled = state.requestBusy;
+   $('source-import-mode').disabled = state.requestBusy;
+   $('clear-source-files').disabled = state.requestBusy;
+   $('clear-source-files').classList.toggle('hidden', !selected);
+-  $('documents-next').disabled = !ready || !completed || Boolean(selected);
+   const project = state.projects.find(entry => entry.project_id === state.activeProject);
+   text('upload-project', workspace ? `Документы для проекта: ${project?.display_name || project?.project_name || state.activeProject}` : 'Проект для загрузки ещё не выбран.');
+   let title, detail, category = '';
+@@ -386,6 +408,7 @@
+   renderSourceFlow();
+ }
+ function setSelected(files) {
++  clearDocumentValidation();
+   chosenDocuments.files = Array.from(files).slice(0, 100);
+   sourceFeedback = null;
+   text('upload-result', '');
+@@ -410,7 +433,7 @@
+   renderSourceFlow();
+   if (!state.activeProject || !state.view || state.view.kind !== 'workspace') {
+     text('source-summary', 'Выберите подготовительную рабочую область. Для Project Instance источники не заменяются.');
+-    $('confirm-no-docs').disabled = true; $('upload-sources').disabled = true; return;
++    return;
+   }
+   try {
+     const response = await api(`/api/projects/${encodeURIComponent(projectId)}/sources`);
+@@ -443,7 +466,12 @@
+   }
+ }
+ $('documents-next').addEventListener('click', () => {
+-  if ($('documents-next').disabled) return;
++  if (state.requestBusy) return;
++  clearDocumentValidation();
++  const snapshot = requireDocumentWorkspace();
++  if (!snapshot) return;
++  if (chosenDocuments.files.length) return documentError('Выбранные файлы ещё не импортированы. Нажмите «Импортировать файлы» и дождитесь результата.', 'upload-sources');
++  if (!snapshot.documents.length && snapshot.documentation_choice !== 'NONE') return documentError('Сначала загрузите документацию: выберите ZIP или MD и нажмите «Импортировать файлы». Если документов нет, нажмите «Документации нет».', 'source-files');
+   selectScreen('interview'); rememberSelection();
+ });
+ async function showPreview(docRef) {
+@@ -456,11 +484,13 @@
+ }
+ async function createWorkspace(noDocumentation) {
+   if (state.requestBusy) return;
++  clearDocumentValidation();
+   const name = $('new-project-name').value.trim();
+-  if (!name) { showNotice('Введите название Greenfield проекта.', 'error'); return; }
++  if (!name) return documentError('Введите название проекта.', 'new-project-name');
+   if (!window.confirm(noDocumentation ? 'Подтвердить, что документации нет, и перейти к опросу?' :
+         'Создать новую рабочую область intake для документов?')) return;
+   state.requestBusy = true;
++  renderSourceFlow();
+   try {
+     const result = await api('/api/intakes', {method:'POST', body:{project_name:name,
+       no_documentation:noDocumentation, idempotency_key:newIdempotencyKey()}});
+@@ -475,8 +505,12 @@
+ $('create-intake').addEventListener('click', () => createWorkspace(false));
+ $('create-no-docs').addEventListener('click', () => createWorkspace(true));
+ $('confirm-no-docs').addEventListener('click', async () => {
+-  if (!state.view || state.requestBusy || !state.sourceSnapshot || !window.confirm('Заменить источники осознанным ответом «Документации нет»? Согласования станут недействительными.')) return;
++  if (state.requestBusy) return;
++  clearDocumentValidation();
++  if (!requireDocumentWorkspace()) return;
++  if (!window.confirm('Заменить источники осознанным ответом «Документации нет»? Согласования станут недействительными.')) return;
+   state.requestBusy = true;
++  renderSourceFlow();
+   try {
+     const response = await api(`/api/projects/${encodeURIComponent(state.activeProject)}/sources/no-documentation`,
+       {method:'POST', body:{expected_fingerprint:state.view.fingerprint, expected_source_revision:state.sourceSnapshot.source_revision}});
+@@ -487,7 +521,10 @@
+   finally { finishSourceRequest(); }
+ });
+ $('upload-sources').addEventListener('click', () => {
+-  if (!state.view || state.view.kind !== 'workspace' || !state.sourceSnapshot || state.requestBusy || !chosenDocuments.files.length) return;
++  if (state.requestBusy) return;
++  clearDocumentValidation();
++  if (!requireDocumentWorkspace()) return;
++  if (!chosenDocuments.files.length) return documentError('Выберите ZIP с документацией или один/несколько файлов MD, затем нажмите «Импортировать файлы».', 'source-files');
+   if (!window.confirm('Загрузить файлы как недоверенные источники? Новая ревизия отменит прежние approvals.')) return;
+   const form = new FormData();
+   form.set('mode', $('source-import-mode').value);
+--- before/index.html
++++ after/index.html
+@@ -165,12 +165,13 @@
+       <section id="documents-panel" class="panel hidden" aria-labelledby="documents-title">
+         <h2 id="documents-title">Документы и источники</h2>
+         <p class="muted">Только локальные MD (UTF-8) и ZIP с MD. Импорт не анализирует документы и не отправляет их в интернет.</p>
++        <p id="document-validation" class="notice error hidden" role="alert" tabindex="-1"></p>
+         <div class="document-grid">
+           <div>
+             <h3>1. Создайте или выберите проект</h3>
+             <p class="small muted">Для нового проекта введите название и нажмите «Создать проект для документов». Если проект уже есть, выберите его во вкладке «Проекты».</p>
+             <label for="new-project-name">Название проекта</label>
+-            <input id="new-project-name" type="text" maxlength="120" autocomplete="off" placeholder="Название проекта">
++            <input id="new-project-name" type="text" maxlength="120" autocomplete="off" placeholder="Название проекта" aria-describedby="document-validation">
+             <div class="button-cluster">
+               <button id="create-intake" type="button" class="outline">Создать проект для документов</button>
+               <button id="create-no-docs" type="button" class="outline">Документации нет</button>
+@@ -184,15 +185,15 @@
+             <p id="upload-project" class="small muted">Проект для загрузки ещё не выбран.</p>
+             <div id="upload-zone" class="upload-zone" role="group" aria-label="Загрузка Markdown и ZIP">
+               <label for="source-files">Выберите MD/ZIP или перетащите файлы сюда</label>
+-              <input id="source-files" type="file" accept=".md,.zip" multiple>
++              <input id="source-files" type="file" accept=".md,.zip" multiple aria-describedby="document-validation">
+               <p id="upload-selected" class="small muted">Файлы не выбраны</p>
+             </div>
+             <label for="source-import-mode">Способ изменения источников</label>
+             <select id="source-import-mode"><option value="append">Добавить</option><option value="replace">Заменить весь набор</option></select>
+             <div class="button-cluster">
+-              <button id="upload-sources" class="document-primary" type="button" disabled aria-describedby="upload-step-detail">Импортировать файлы</button>
++              <button id="upload-sources" class="document-primary" type="button" aria-describedby="upload-step-detail">Импортировать файлы</button>
+               <button id="clear-source-files" class="quiet hidden" type="button">Снять выбор файлов</button>
+-              <button id="confirm-no-docs" class="quiet" type="button" disabled>Документации нет</button>
++              <button id="confirm-no-docs" class="quiet" type="button">Документации нет</button>
+             </div>
+             <div id="upload-step" class="upload-step" role="status" aria-live="polite" aria-atomic="true">
+               <strong id="upload-step-title">Сначала создайте или выберите проект</strong>
+@@ -201,7 +202,7 @@
+             <progress id="upload-progress" class="hidden" max="100" value="0" aria-label="Прогресс передачи файлов"></progress>
+             <p id="upload-result" role="status" aria-live="polite" class="small"></p>
+             <h3>3. Продолжите подготовку проекта</h3>
+-            <button id="documents-next" class="document-primary" type="button" disabled aria-describedby="upload-step-detail">Перейти к опросу и GPT →</button>
++            <button id="documents-next" class="document-primary" type="button" aria-describedby="upload-step-detail">Перейти к опросу и GPT →</button>
+           </div>
+         </div>
+         <h3>Принятые источники и история</h3>

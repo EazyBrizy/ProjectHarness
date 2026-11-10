@@ -1,0 +1,18 @@
+{
+  "command": [
+    "./.venv/Scripts/python.exe",
+    "-B",
+    "Project_Harness_Documentation_v0.5.1/tools/validate_documentation.py",
+    "Project_Harness_Documentation_v0.5.1",
+    "--json",
+    "_workspace/REMOVE_LOCAL_LOGIN_2026-11-09/DOCS_VALIDATION.json"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-09T13:06:17.449227+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 120,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 2.314,
+  "log_sha256": "589d511e63aa2d898b9b346ef3c555c52d9b54d040d67cce81708bdf80219ec7"
+}

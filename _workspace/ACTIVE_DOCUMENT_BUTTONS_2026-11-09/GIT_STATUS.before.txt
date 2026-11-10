@@ -1,0 +1,33 @@
+ M Project_Harness_Documentation_v0.5.1/FILE_INDEX.md
+ M Project_Harness_Documentation_v0.5.1/MANIFEST.sha256
+ M Project_Harness_Engine_v0.5.1/MANIFEST.sha256
+ M Project_Harness_Engine_v0.5.1/dist/project_harness_engine-0.5.1-py3-none-any.whl
+ M Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1/FILE_INDEX.md
+ M Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1/MANIFEST.sha256
+ M Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/assets/app.css
+ M Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/assets/app.js
+ M Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/assets/index.html
+ M Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/metadata_v1.json
+ M Project_Harness_Engine_v0.5.1/windows/BUILD_RESULT.json
+ M Project_Harness_Engine_v0.5.1/windows/Harness-Setup-win-x64.exe
+ M Project_Harness_Engine_v0.5.1/windows/Harness/Harness.exe
+ M Project_Harness_Engine_v0.5.1/windows/Harness/PACKAGE_FILES.json
+ M Project_Harness_Engine_v0.5.1/windows/Harness/_internal/base_library.zip
+ M Project_Harness_Engine_v0.5.1/windows/Harness/_internal/documentation/FILE_INDEX.md
+ M Project_Harness_Engine_v0.5.1/windows/Harness/_internal/documentation/MANIFEST.sha256
+ M Project_Harness_Engine_v0.5.1/windows/Harness/_internal/project_harness/resources/local_web/assets/app.css
+ M Project_Harness_Engine_v0.5.1/windows/Harness/_internal/project_harness/resources/local_web/assets/app.js
+ M Project_Harness_Engine_v0.5.1/windows/Harness/_internal/project_harness/resources/local_web/assets/index.html
+ M Project_Harness_Engine_v0.5.1/windows/Harness/_internal/project_harness/resources/local_web/metadata_v1.json
+ M _workspace/CURRENT_TASK.md
+?? Project_Harness_Documentation_v0.5.1/13_Local_Web_Manual_Companion/24_Document_Upload_Feedback.md
+?? Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1/13_Local_Web_Manual_Companion/24_Document_Upload_Feedback.md
+?? Project_Harness_Engine_v0.5.1/local_web/windows/document_upload_feedback_acceptance.py
+?? Project_Harness_Engine_v0.5.1/tests/test_document_upload_feedback.py
+?? Project_Harness_Engine_v0.5.1/windows/Harness/_internal/documentation/13_Local_Web_Manual_Companion/24_Document_Upload_Feedback.md
+?? _workspace/ACTIVE_DOCUMENT_BUTTONS_2026-11-09/
+?? _workspace/DEV_LAUNCHER_2026-11-09/
+?? _workspace/DOCUMENT_UPLOAD_FEEDBACK_2026-11-09/
+?? _workspace/OPENDESIGN_LOCAL_WEB_DESIGN_PROMPT_RU.txt
+?? tools/document_upload_feedback_checkpoint.py
+?? tools/launch_harness_dev.py

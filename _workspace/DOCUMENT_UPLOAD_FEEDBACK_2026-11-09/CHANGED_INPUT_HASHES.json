@@ -1,0 +1,90 @@
+{
+  "Project_Harness_Documentation_v0.5.1/FILE_INDEX.md": {
+    "before": "d302d3782a56610ec2817eebe25ff9f2eaaf20be7e27fab322ae8c47fb481936",
+    "after": "bcaee3dd9f26b9b43c2c7cde3d2abfc78d6efc777c7241f24427f2558ad8cd1c"
+  },
+  "Project_Harness_Documentation_v0.5.1/MANIFEST.sha256": {
+    "before": "c97f6fa1ff72e272e747045a7305c78a565c410156b196d87ac93bfa66976393",
+    "after": "aef51b4ff5aacaae93ab8a7a5d91531580aafe76673a048341a4d42833834646"
+  },
+  "Project_Harness_Engine_v0.5.1/MANIFEST.sha256": {
+    "before": "6236ec05b40e504fa42bbc6bdee798ec646718d7651259da2ff8248afa919bd9",
+    "after": "f9ea0bd7a5d0f998f47e56aadf78f5ae037417b079018eebb284068d4f13288d"
+  },
+  "Project_Harness_Engine_v0.5.1/dist/project_harness_engine-0.5.1-py3-none-any.whl": {
+    "before": "22ce3cdca5fe875430d4780f163975ba896c3348fa2f30b5a88199064bec54a1",
+    "after": "a0b41b1067b46d24ee506b86c9f8ccfcc49b5d7032c4e4acf67513005f2dfc1d"
+  },
+  "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1/FILE_INDEX.md": {
+    "before": "d302d3782a56610ec2817eebe25ff9f2eaaf20be7e27fab322ae8c47fb481936",
+    "after": "bcaee3dd9f26b9b43c2c7cde3d2abfc78d6efc777c7241f24427f2558ad8cd1c"
+  },
+  "Project_Harness_Engine_v0.5.1/docs/Project_Harness_Documentation_v0.5.1/MANIFEST.sha256": {
+    "before": "c97f6fa1ff72e272e747045a7305c78a565c410156b196d87ac93bfa66976393",
+    "after": "aef51b4ff5aacaae93ab8a7a5d91531580aafe76673a048341a4d42833834646"
+  },
+  "Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/assets/app.css": {
+    "before": "d6495dedf2e2fcb57242d6079f30616cf5b0b5254a870376980d6c43d6e853a3",
+    "after": "3033fbac15b31634f68aa231e5cc9aec8903b64c93319b2d0c6c5f5284bd790f"
+  },
+  "Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/assets/app.js": {
+    "before": "26248a4b38ca989d21e91ea362315fb616c2b1f282dfd187bbf29cdc3c9eb07c",
+    "after": "8120c0b020cb43c7b56741f9b29a3293bbc80e9deefca6722abf0f668debe081"
+  },
+  "Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/assets/index.html": {
+    "before": "b7933cb785b72ebc26c963f85ef17d9ef59b559c7f5930e9d3256d06c32ba15e",
+    "after": "55f91385525c08ab80534b4a43ed6a86e04900bd8538b1443f8be4e11236eb3e"
+  },
+  "Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/metadata_v1.json": {
+    "before": "fd0e5059f8ad41b7ea7c62b628c2c31c19cbbc64e7918e9fa7625bde9bf3298d",
+    "after": "c3f60beaafe48fbafc8007e15f88ab9cc1cd08acb91fdebfb11a7b2a71c3df8d"
+  },
+  "Project_Harness_Engine_v0.5.1/windows/BUILD_RESULT.json": {
+    "before": "461a19ba9f05659fdc1e97ebc81e7434a3bac1837bb036f1e1b765e7ad9d3077",
+    "after": "9a203af1043cde4c0ef8406cec8598f7b0cdaa3975d4a15319c6a339943a3eb5"
+  },
+  "Project_Harness_Engine_v0.5.1/windows/Harness-Setup-win-x64.exe": {
+    "before": "a4c7432852aadf93fd19fa4646ef8306854369be8ff8fd941ce6d1d268cc5964",
+    "after": "f90a108596eadf321bfa79c660b2cc39b6a8301833739fe863aebae10a2ba591"
+  },
+  "Project_Harness_Engine_v0.5.1/windows/Harness/Harness.exe": {
+    "before": "156ba1c9de3d30ff1f962ca212c3e1b1ab8f947406adc3acead1b4743dc934c6",
+    "after": "a23f8590d786e3e4a254c3aec6e405cce162ede944c74f0852521be54e728810"
+  },
+  "Project_Harness_Engine_v0.5.1/windows/Harness/PACKAGE_FILES.json": {
+    "before": "232e0caf6ae17ff877e0b3612e692f7eaf5f85ccb55c43ec774932a2c799f656",
+    "after": "2c2942c13d0bb7dfcf55903dbd5db315b02bf2f74b9a0666bbc179b781c8382f"
+  },
+  "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/base_library.zip": {
+    "before": "6df73b69fc19dd6e13cff13f91cc7738c8b70ab1698872f0b7d158774b65adf2",
+    "after": "1c12e0bdf78ed7592d2745c30fef206563e030412a5a9c78acdb5a8b6ce18779"
+  },
+  "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/documentation/FILE_INDEX.md": {
+    "before": "d302d3782a56610ec2817eebe25ff9f2eaaf20be7e27fab322ae8c47fb481936",
+    "after": "bcaee3dd9f26b9b43c2c7cde3d2abfc78d6efc777c7241f24427f2558ad8cd1c"
+  },
+  "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/documentation/MANIFEST.sha256": {
+    "before": "c97f6fa1ff72e272e747045a7305c78a565c410156b196d87ac93bfa66976393",
+    "after": "aef51b4ff5aacaae93ab8a7a5d91531580aafe76673a048341a4d42833834646"
+  },
+  "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/project_harness/resources/local_web/assets/app.css": {
+    "before": "d6495dedf2e2fcb57242d6079f30616cf5b0b5254a870376980d6c43d6e853a3",
+    "after": "3033fbac15b31634f68aa231e5cc9aec8903b64c93319b2d0c6c5f5284bd790f"
+  },
+  "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/project_harness/resources/local_web/assets/app.js": {
+    "before": "26248a4b38ca989d21e91ea362315fb616c2b1f282dfd187bbf29cdc3c9eb07c",
+    "after": "8120c0b020cb43c7b56741f9b29a3293bbc80e9deefca6722abf0f668debe081"
+  },
+  "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/project_harness/resources/local_web/assets/index.html": {
+    "before": "b7933cb785b72ebc26c963f85ef17d9ef59b559c7f5930e9d3256d06c32ba15e",
+    "after": "55f91385525c08ab80534b4a43ed6a86e04900bd8538b1443f8be4e11236eb3e"
+  },
+  "Project_Harness_Engine_v0.5.1/windows/Harness/_internal/project_harness/resources/local_web/metadata_v1.json": {
+    "before": "fd0e5059f8ad41b7ea7c62b628c2c31c19cbbc64e7918e9fa7625bde9bf3298d",
+    "after": "c3f60beaafe48fbafc8007e15f88ab9cc1cd08acb91fdebfb11a7b2a71c3df8d"
+  },
+  "_workspace/CURRENT_TASK.md": {
+    "before": "a1fa2170db326f3cd1b5c6c11159bfdcdda5108b279a7986d55763e01c986c3b",
+    "after": "200559985ea62a6c37b70f5e774c7fe4a0fb635476934728e4e405625b2d2270"
+  }
+}

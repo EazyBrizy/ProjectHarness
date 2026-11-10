@@ -1,0 +1,16 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "tools/launch_harness_dev.py",
+    "--check"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-09T10:52:54.590828+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 60,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 5.226,
+  "log_sha256": "9fff9195ea7909ace0e5438e54fb61cec4e7e1689eaea77c1b8094a1fec77afe"
+}

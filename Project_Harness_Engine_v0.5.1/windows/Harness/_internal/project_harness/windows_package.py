@@ -125,7 +125,7 @@ def frozen_main():
         # Do not print exception details: they can include user paths or secrets.
         if not sys.argv[1:]:
             ctypes.windll.user32.MessageBoxW(None,
-                'Harness не запущен: целостность комплекта или безопасное локальное соединение '
-                'не подтверждены. Повторите установку из проверенного installer. '
+                'Harness не запущен: проверьте целостность комплекта и доступность локального сервера. '
+                'При повреждении файлов повторите установку из проверенного installer. '
                 'Существующие проекты и процессы не изменены.', 'Project Harness', 0x10)
         return 1

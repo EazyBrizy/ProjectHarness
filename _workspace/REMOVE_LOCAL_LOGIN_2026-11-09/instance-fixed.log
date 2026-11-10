@@ -1,0 +1,6 @@
+test_plain_instance_record_discovery_cleanup_and_invalid_records (tests.test_ph_lw_11_desktop.NativeLauncherTests.test_plain_instance_record_discovery_cleanup_and_invalid_records) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.511s
+
+OK

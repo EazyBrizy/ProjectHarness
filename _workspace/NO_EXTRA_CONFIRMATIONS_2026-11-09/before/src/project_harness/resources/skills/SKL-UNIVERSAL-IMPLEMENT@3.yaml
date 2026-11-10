@@ -1,0 +1,30 @@
+{
+  "skill": {
+    "id": "SKL-UNIVERSAL-IMPLEMENT",
+    "revision": 3,
+    "namespace": "harness",
+    "level": "UNIVERSAL",
+    "status": "ACTIVE",
+    "purpose": "Bounded code implementation, repair, integration and targeted tests under an immutable Task Contract.",
+    "applies_to_task_types": [
+      "IMPLEMENT",
+      "FIX",
+      "REFACTOR",
+      "INTEGRATE",
+      "TEST",
+      "MIGRATE"
+    ],
+    "required_capabilities": [
+      "FILESYSTEM_READ",
+      "FILESYSTEM_WRITE",
+      "COMMAND_EXECUTE"
+    ],
+    "prohibited_operations": [
+      "GIT_PUSH",
+      "DEPLOY",
+      "RELEASE_PUBLISH"
+    ],
+    "output_contract_ref": "SCHEMA-AGENT-TASK-RESULT@1",
+    "verification_profile_ref": "VFP-CODE-TARGETED@1"
+  }
+}

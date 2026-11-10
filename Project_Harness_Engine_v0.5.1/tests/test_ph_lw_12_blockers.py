@@ -214,8 +214,8 @@ class BlockerBrowserTests(unittest.TestCase):
                             for asset in ('app.js','tasks.js'):
                                 def serve(route,request,name=asset):route.fulfill(path=str(Path(reference)/name),content_type='application/javascript')
                                 page.route('**/assets/'+asset,serve)
-                        page.goto(live.origin+'/#bootstrap='+live.auth.issue_bootstrap())
-                        expect(page.locator('#session-state')).to_have_text('Сессия активна')
+                        page.goto(live.origin + '/')
+                        expect(page.locator('#connection-state')).to_have_text('Сервер готов')
                         page.locator('.project-button').filter(has_text=pid).click()
                         page.locator('[data-screen="tasks"]').click()
                         expect(page.locator('#task-upload')).to_be_enabled()

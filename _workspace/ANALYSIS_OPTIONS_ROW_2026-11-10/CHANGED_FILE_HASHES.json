@@ -1,0 +1,14 @@
+{
+  "resources/local_web/assets/app.css": {
+    "before": "3033fbac15b31634f68aa231e5cc9aec8903b64c93319b2d0c6c5f5284bd790f",
+    "after": "a1fe997f5ef802f29632bfb801371117e300c1a53e8b4183db3bd26857724b59"
+  },
+  "resources/local_web/assets/index.html": {
+    "before": "dd47e66a956bc808ab345cfb26a289ee3fe50877345f9121b9a4ebc9b8d953b2",
+    "after": "25d077776190956b7a0a6ae31f1c4c55fa719eb705891e4f5f0ebae0dafbe61a"
+  },
+  "resources/local_web/metadata_v1.json": {
+    "before": "4efc4ada5e90187d998b6de6955aec916c76cbb7f789a65ae507ab964407f0ee",
+    "after": "132e16fd93ae6dde1b9eac52cdcd4234c50b4ec0ef00ecdfe8b6ccb5cb887522"
+  }
+}

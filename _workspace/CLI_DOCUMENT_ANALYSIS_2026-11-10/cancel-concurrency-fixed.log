@@ -1,0 +1,18 @@
+test_cancel_busy_stale_result_and_invalid_reply_never_apply_draft (tests.test_cli_document_analysis.CliAnalysisTests.test_cancel_busy_stale_result_and_invalid_reply_never_apply_draft) ... FAIL
+
+======================================================================
+FAIL: test_cancel_busy_stale_result_and_invalid_reply_never_apply_draft (tests.test_cli_document_analysis.CliAnalysisTests.test_cancel_busy_stale_result_and_invalid_reply_never_apply_draft)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\tests\test_cli_document_analysis.py", line 134, in test_cancel_busy_stale_result_and_invalid_reply_never_apply_draft
+    self.assertEqual(stale['state'],'FAILED');self.assertEqual(stale['error_code'],'CLI_INPUT_CHANGED')
+                                              ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'STALE_EXCHANGE' != 'CLI_INPUT_CHANGED'
+- STALE_EXCHANGE
++ CLI_INPUT_CHANGED
+
+
+----------------------------------------------------------------------
+Ran 1 test in 2.460s
+
+FAILED (failures=1)

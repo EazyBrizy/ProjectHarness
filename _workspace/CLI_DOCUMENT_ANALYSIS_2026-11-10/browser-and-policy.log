@@ -1,0 +1,12 @@
+test_browser_manual_pack_one_click_and_persisted_connection (tests.test_cli_document_ui.CliDocumentUiTests.test_browser_manual_pack_one_click_and_persisted_connection) ... Task queue depth is 1
+Task queue depth is 1
+ok
+test_browser_cli_progress_reload_cancel_and_result_without_copying_json (tests.test_cli_document_ui.CliDocumentUiTests.test_browser_cli_progress_reload_cancel_and_result_without_copying_json) ... Task queue depth is 1
+Task queue depth is 1
+ok
+test_direct_analysis_pack_keeps_secret_and_restricted_project_rejection (tests.test_cli_document_analysis.CliAnalysisTests.test_direct_analysis_pack_keeps_secret_and_restricted_project_rejection) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 22.867s
+
+OK

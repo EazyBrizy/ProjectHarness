@@ -1,0 +1,15 @@
+test_http_security_all_new_routes_and_read_only_gets (tests.test_ph_lw_06_http.ExchangeHttpTests.test_http_security_all_new_routes_and_read_only_gets) ... FAIL
+
+======================================================================
+FAIL: test_http_security_all_new_routes_and_read_only_gets (tests.test_ph_lw_06_http.ExchangeHttpTests.test_http_security_all_new_routes_and_read_only_gets)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_06_http.py", line 72, in test_http_security_all_new_routes_and_read_only_gets
+    self.assertEqual(self.live.request('POST', self.base + route, value={}, headers=headers)[0], 403)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 400 != 403
+
+----------------------------------------------------------------------
+Ran 1 test in 0.860s
+
+FAILED (failures=1)

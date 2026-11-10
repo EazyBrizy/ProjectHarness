@@ -1,0 +1,25 @@
+{
+  "skill": {
+    "id": "SKL-UNIVERSAL-VERIFY",
+    "revision": 1,
+    "namespace": "harness",
+    "level": "UNIVERSAL",
+    "status": "ACTIVE",
+    "purpose": "Independent verification without product writes.",
+    "applies_to_task_types": [
+      "VERIFY"
+    ],
+    "required_capabilities": [
+      "FILESYSTEM_READ",
+      "COMMAND_EXECUTE"
+    ],
+    "prohibited_operations": [
+      "FILESYSTEM_WRITE",
+      "GIT_PUSH",
+      "DEPLOY",
+      "RELEASE_PUBLISH"
+    ],
+    "output_contract_ref": "SCHEMA-AGENT-TASK-RESULT@1",
+    "verification_profile_ref": "VFP-VERIFY-TARGETED@1"
+  }
+}

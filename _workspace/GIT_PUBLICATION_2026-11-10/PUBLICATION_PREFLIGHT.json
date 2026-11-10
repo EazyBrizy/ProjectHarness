@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "scope": "Current changed/untracked candidates; known plaintext token markers and private filenames only, not universal DLP",
+  "candidate_files": 1847,
+  "known_token_marker_matches": [],
+  "private_candidates": [],
+  "files_over_100_mib": [],
+  "source_freeze_sha256": "11c8f0a148d935b9b5ced2977f20afc431347ff109581d34b01a5f03bf5e6aee",
+  "head_before": "f2d8cc16cf311b0f6fd5e86cb699319c25e7cec8",
+  "origin_main_before": "f2d8cc16cf311b0f6fd5e86cb699319c25e7cec8"
+}

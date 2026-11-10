@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "registry": {
+    "id": "REG-CAPABILITIES",
+    "version": 1,
+    "status": "ACTIVE",
+    "default_effect": "DENY",
+    "entries": [
+      {
+        "key": "FILESYSTEM_READ",
+        "target_plane": "ANY",
+        "auditable": true
+      },
+      {
+        "key": "FILESYSTEM_WRITE",
+        "target_plane": "ANY",
+        "auditable": true
+      },
+      {
+        "key": "COMMAND_EXECUTE",
+        "target_plane": "ANY",
+        "auditable": true
+      },
+      {
+        "key": "NETWORK_READ",
+        "target_plane": "ANY",
+        "auditable": true
+      },
+      {
+        "key": "NETWORK_WRITE",
+        "target_plane": "ANY",
+        "auditable": true
+      },
+      {
+        "key": "SECRET_REFERENCE",
+        "target_plane": "ANY",
+        "auditable": true
+      },
+      {
+        "key": "MODEL_EXTERNAL_EGRESS",
+        "target_plane": "ANY",
+        "auditable": true
+      },
+      {
+        "key": "GIT_COMMIT",
+        "target_plane": "ANY",
+        "auditable": true
+      },
+      {
+        "key": "GIT_PUSH",
+        "target_plane": "ANY",
+        "auditable": true
+      },
+      {
+        "key": "PR_CREATE",
+        "target_plane": "ANY",
+        "auditable": true
+      },
+      {
+        "key": "EXTERNAL_SYSTEM_WRITE",
+        "target_plane": "ANY",
+        "auditable": true
+      },
+      {
+        "key": "DEPLOY",
+        "target_plane": "ANY",
+        "auditable": true
+      },
+      {
+        "key": "DATA_MIGRATE",
+        "target_plane": "ANY",
+        "auditable": true
+      },
+      {
+        "key": "DATA_DELETE",
+        "target_plane": "ANY",
+        "auditable": true
+      },
+      {
+        "key": "RELEASE_PUBLISH",
+        "target_plane": "ANY",
+        "auditable": true
+      },
+      {
+        "key": "PROJECT_CONTROL_WRITE",
+        "target_plane": "PROJECT_CONTROL",
+        "auditable": true
+      },
+      {
+        "key": "HARNESS_DISTRIBUTION_WRITE",
+        "target_plane": "HARNESS_DISTRIBUTION",
+        "auditable": true
+      }
+    ]
+  }
+}

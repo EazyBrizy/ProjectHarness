@@ -1,0 +1,67 @@
+test_direct_reads_without_login_and_removed_login_routes (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_direct_reads_without_login_and_removed_login_routes) ... ok
+test_exact_host_origin_null_port_and_proxy_rejected (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_exact_host_origin_null_port_and_proxy_rejected) ... ok
+test_get_refresh_read_only_xss_text_and_download_paths_rejected (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_get_refresh_read_only_xss_text_and_download_paths_rejected) ... ok
+test_http_replay_after_commit_returns_original_operation (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_http_replay_after_commit_returns_original_operation) ... ok
+test_malformed_action_is_rejected_without_mutation (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_malformed_action_is_rejected_without_mutation) ... ok
+test_no_access_to_another_project_artifact_and_tamper (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_no_access_to_another_project_artifact_and_tamper) ... ok
+test_no_login_mutation_exact_json_and_transport_headers (tests.test_ph_lw_04_http.FlaskAppSecurityTests.test_no_login_mutation_exact_json_and_transport_headers) ... ok
+test_browser_direct_entry_no_external_requests_xss_inert (tests.test_ph_lw_04_http.LocalBrowserTests.test_browser_direct_entry_no_external_requests_xss_inert) ... Task queue depth is 1
+Task queue depth is 2
+Task queue depth is 3
+Task queue depth is 4
+Task queue depth is 4
+ok
+test_not_bound_to_nonloopback_lan_if_available (tests.test_ph_lw_04_http.LocalBrowserTests.test_not_bound_to_nonloopback_lan_if_available) ... ok
+test_real_tcp_direct_access_host_origin_and_body_limit (tests.test_ph_lw_04_http.LocalBrowserTests.test_real_tcp_direct_access_host_origin_and_body_limit) ... ok
+test_assets_are_local_text_only_and_no_dynamic_html (tests.test_ph_lw_04_http.LocalHttpDependencyIndependent.test_assets_are_local_text_only_and_no_dynamic_html) ... ok
+test_local_login_implementation_removed (tests.test_ph_lw_04_http.LocalHttpDependencyIndependent.test_local_login_implementation_removed) ... ok
+test_missing_web_dependencies_fail_before_binding_or_browser (tests.test_ph_lw_04_http.LocalHttpDependencyIndependent.test_missing_web_dependencies_fail_before_binding_or_browser) ... ok
+test_service_catalog_no_path_and_artifact_owner_validation (tests.test_ph_lw_04_http.LocalHttpDependencyIndependent.test_service_catalog_no_path_and_artifact_owner_validation) ... ok
+test_socket_is_prebound_ipv4_loopback_and_non_wildcard (tests.test_ph_lw_04_http.LocalHttpDependencyIndependent.test_socket_is_prebound_ipv4_loopback_and_non_wildcard) ... ok
+test_not_bound_to_nonloopback_lan_if_available (tests.test_ph_lw_04_http.RealWaitressHttpTests.test_not_bound_to_nonloopback_lan_if_available) ... ok
+test_real_tcp_direct_access_host_origin_and_body_limit (tests.test_ph_lw_04_http.RealWaitressHttpTests.test_real_tcp_direct_access_host_origin_and_body_limit) ... ok
+test_direct_upload_list_preview_and_replay (tests.test_ph_lw_05_http.SourceHttpSecurity.test_direct_upload_list_preview_and_replay) ... ok
+test_documentation_none_after_import_explicit_and_no_external_requests (tests.test_ph_lw_05_http.SourceHttpSecurity.test_documentation_none_after_import_explicit_and_no_external_requests) ... ok
+test_duplicate_multipart_scalar_fields_are_rejected (tests.test_ph_lw_05_http.SourceHttpSecurity.test_duplicate_multipart_scalar_fields_are_rejected) ... ok
+test_malformed_upload_rejected_and_unknown_fields (tests.test_ph_lw_05_http.SourceHttpSecurity.test_malformed_upload_rejected_and_unknown_fields) ... ok
+test_missing_files_and_no_documentation_decision_do_not_mutate (tests.test_document_button_validation.DocumentButtonValidationTests.test_missing_files_and_no_documentation_decision_do_not_mutate) ... Task queue depth is 1
+Task queue depth is 2
+ok
+test_missing_name_all_buttons_active_error_focus_and_no_post (tests.test_document_button_validation.DocumentButtonValidationTests.test_missing_name_all_buttons_active_error_focus_and_no_post) ... Task queue depth is 1
+ok
+test_selected_zip_and_name_without_project_explains_create (tests.test_document_button_validation.DocumentButtonValidationTests.test_selected_zip_and_name_without_project_explains_create) ... Task queue depth is 1
+Task queue depth is 2
+ok
+test_validation_clears_on_correction_then_import_and_next_work (tests.test_document_button_validation.DocumentButtonValidationTests.test_validation_clears_on_correction_then_import_and_next_work) ... Task queue depth is 1
+Task queue depth is 2
+ok
+test_choose_before_project_import_and_explicit_next (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_choose_before_project_import_and_explicit_next) ... Task queue depth is 1
+ok
+test_lost_response_after_commit_refresh_recovers_without_reposting (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_lost_response_after_commit_refresh_recovers_without_reposting) ... Task queue depth is 1
+Task queue depth is 2
+Task queue depth is 1
+ok
+test_no_documentation_has_explicit_next (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_no_documentation_has_explicit_next) ... Task queue depth is 1
+Task queue depth is 2
+ok
+test_rejected_zip_preserves_sources_and_can_retry (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_rejected_zip_preserves_sources_and_can_retry) ... Task queue depth is 1
+Task queue depth is 2
+ok
+test_reload_duplicate_and_switch_to_empty_project (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_reload_duplicate_and_switch_to_empty_project) ... Task queue depth is 1
+Task queue depth is 2
+Task queue depth is 1
+ok
+test_transfer_finished_is_still_validation_not_success (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_transfer_finished_is_still_validation_not_success) ... Task queue depth is 1
+Task queue depth is 1
+ok
+test_browser_failure_displays_plain_url_without_login_code (tests.test_ph_lw_11_desktop.DesktopContractTests.test_browser_failure_displays_plain_url_without_login_code) ... ok
+test_independent_clients_access_without_sessions_or_cookies (tests.test_ph_lw_11_desktop.DesktopContractTests.test_independent_clients_access_without_sessions_or_cookies) ... ok
+test_resume_read_is_readonly_restart_and_cas (tests.test_ph_lw_11_desktop.DesktopContractTests.test_resume_read_is_readonly_restart_and_cas) ... ok
+test_resume_rejects_unknown_fields_ids_paths_and_screen (tests.test_ph_lw_11_desktop.DesktopContractTests.test_resume_rejects_unknown_fields_ids_paths_and_screen) ... ok
+test_stop_busy_admission_and_background_work_then_clean_stop (tests.test_ph_lw_11_desktop.DesktopContractTests.test_stop_busy_admission_and_background_work_then_clean_stop) ... ok
+test_stop_without_login_preserves_origin_and_field_validation (tests.test_ph_lw_11_desktop.DesktopContractTests.test_stop_without_login_preserves_origin_and_field_validation) ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 65.812s
+
+OK

@@ -14,7 +14,7 @@ function clearPreparation() {
   $('first-prompt').value = ''; text('preparation-status', 'Выберите intake.');
 }
 async function loadPreparation() {
-  if (!state.csrf || !state.activeProject || (state.view && state.view.kind !== 'workspace')) { clearPreparation(); return; }
+  if (!state.activeProject || (state.view && state.view.kind !== 'workspace')) { clearPreparation(); return; }
   const pid = state.activeProject;
   try {
     const view = await api(interviewPath('/preparation'));
@@ -26,7 +26,7 @@ async function loadPreparation() {
     $('recover-preparation').classList.toggle('hidden', view.phase === 'NOT_STARTED' || complete);
     text('preparation-parent', view.parent_directory || view.destination || '');
     text('preparation-status', complete ? 'Проект опубликован. Initial directory / ZIP / project: PASS. Текущий проект: PASS при публикации.' :
-      view.phase === 'NOT_STARTED' ? view.ready ? 'Все согласования получены. Подтвердите новую папку; мастер соберёт и проверит проект.' :
+      view.phase === 'NOT_STARTED' ? view.ready ? 'Все согласования получены. Укажите новую папку; мастер соберёт и проверит проект.' :
         'Сначала завершите отдельные согласования.' : `${view.phase} · ${view.operation_state}. ${view.error?.message_ru || 'Сборка сохранена; закрытие вкладки её не отменяет.'}`);
     if (complete) {
       const result = view.result;
@@ -49,7 +49,6 @@ async function loadPreparation() {
 }
 async function startPreparation() {
   if (state.requestBusy || !preparationView?.ready) return;
-  if (!$('confirm-new-folder').checked) { showNotice('Подтвердите размещение в новой папке.', 'error'); return; }
   state.requestBusy = true; $('prepare-project').disabled = true;
   const pid = state.activeProject;
   try {

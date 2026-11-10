@@ -1,0 +1,11 @@
+{
+  "status": "COMPLETE",
+  "build_id": "CLI-CARD-PRESENTATION-20261110",
+  "presentation": "PASS: four widths and connection states",
+  "full_engine_tests": "NOT RUN — presentation-only scope",
+  "model_requests": 0,
+  "zip_created": false,
+  "report_sha256": "89c75ed225b8183d55adae4380ab9d25b4e75b3c2f5d5eae7735e09031e61782",
+  "current_task_sha256": "1991ff19a4c81f577b535d299a6a2a6c69c59bdade1df303c17c9d28de431589",
+  "engine_manifest_sha256": "d9e94ed328dc3cff80cef00a1eb1b0b03a1cfd82e865dcea53539d0799a7d4a2"
+}

@@ -1,0 +1,13 @@
+{
+  "status": "COMPLETE",
+  "build_id": "CLI-DOC-ANALYSIS-20261110",
+  "tested_scope": "Only the changed CLI/document-analysis feature and packaging boundary",
+  "full_engine_core_matrix": "NOT RUN — no user request; targeted checks only",
+  "actual_installed_exe_browser": "NOT RUN — installed bytes/package/doctor verified, browser on installed wheel",
+  "AUTOMATIC_EXECUTOR": "DISABLED / previous NO-GO",
+  "full_v0_5_1": "NOT RELEASED",
+  "report_sha256": "9febf8b41908ccdc70a007fdf788ff547a9fdf69b65b854dcb432f545a52ed06",
+  "current_task_sha256": "dfc5caa48f79f9f10fd9fa81cbeae16720342d6e537c07810c3fbe3ad1972eed",
+  "agent_instructions_sha256": "983a2df57ff35d479084f90f7252bdab5c56aed3a5f5cc3289bd85e93500e92c",
+  "zip_created": false
+}

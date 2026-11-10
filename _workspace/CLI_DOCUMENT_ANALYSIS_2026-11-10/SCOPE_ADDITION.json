@@ -1,0 +1,9 @@
+{
+  "user_steering": "Remove per-document/draft classification selectors at analysis preparation; user chooses CLI analysis or manual package only.",
+  "allowed_addition": [
+    "local_web_exchange.py narrowly scoped explicit-analysis package mode; original manual export API retained",
+    "GPT_PREPARATION wording supports manual or app-supplied packet",
+    "obsolete UI selector interactions in affected browser tests only"
+  ],
+  "contract": "No automatic PUBLIC/INTERNAL labels. New direct-analysis packets honestly mark classification UNCLASSIFIED and record explicit action intent. Existing secret rejection and explicit restricted project policy remain. No additional user confirmations."
+}

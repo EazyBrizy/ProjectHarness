@@ -1,0 +1,6 @@
+{
+  "Shortcut": "C:\\Users\\gvenv\\Desktop\\Project Harness — разработка.lnk",
+  "Target": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\pythonw.exe",
+  "Arguments": "-B \"C:\\Users\\gvenv\\Desktop\\ProjectHarness\\tools\\launch_harness_dev.py\"",
+  "WorkingDirectory": "C:\\Users\\gvenv\\Desktop\\ProjectHarness"
+}

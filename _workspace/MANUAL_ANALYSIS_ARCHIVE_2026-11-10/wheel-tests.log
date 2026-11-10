@@ -1,0 +1,162 @@
+{"package": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\wheel-venv\\Lib\\site-packages\\project_harness", "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]", "executable": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\wheel-venv\\Scripts\\python.exe", "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\Независимая папка wheel", "platform": "Windows-11-10.0.26200-SP0", "source_import": false, "dependencies": {"Flask": "3.1.3", "Waitress": "3.0.2", "playwright": "1.64.1"}, "scope": "Only 3 ZIP HTTP/content methods and 2 automatic-download Edge methods; no full engine suite", "reason_for_wheel_run": "New archive route and binary download assets must be present at the distribution boundary", "provider": "No CLI/provider invoked; synthetic documents and one declared model JSON reply for preview compatibility"}
+test_download_error_and_wrong_mime_are_inline_without_extra_download (tests.test_manual_analysis_archive.ManualArchiveBrowserTests.test_download_error_and_wrong_mime_are_inline_without_extra_download) ... Task queue depth is 1
+Task queue depth is 2
+Error occurred in event listener
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_page.py", line 312, in _on_route
+    handled = await route_handler.handle(route)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_helper.py", line 456, in handle
+    raise e
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_helper.py", line 443, in handle
+    return await self._handle_internal(route)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_helper.py", line 479, in _handle_internal
+    await handler_finished_future
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_helper.py", line 470, in _handler
+    self.handler(route, route.request)  # type: ignore
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_impl_to_api_mapping.py", line 140, in wrapper_func
+    return handler(
+        *list(map(lambda a: self.from_maybe_impl(a), args))[:arg_count]
+    )
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\tests\test_manual_analysis_archive.py", line 135, in <lambda>
+    p.route('**/archive.zip',lambda route,s=status,c=content_type,b=body:route.fulfill(status=s,content_type=c,body=b))
+                                                                         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\sync_api\_generated.py", line 22711, in fulfill
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.fulfill(
+        ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+        )
+        ^
+    )
+    ^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_network.py", line 430, in fulfill
+    await self._handle_route(
+    ...<3 lines>...
+    )
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_network.py", line 508, in _handle_route
+    raise e
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_network.py", line 504, in _handle_route
+    await callback()
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_network.py", line 499, in _inner_fulfill
+    await self._race_with_page_close(self._channel.send("fulfill", None, params))
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_network.py", line 604, in _race_with_page_close
+    raise cast(BaseException, fut.exception())
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_connection.py", line 78, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_connection.py", line 636, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+TypeError: Route.fulfill: Object of type Request is not JSON serializable
+FAIL
+test_download_error_and_wrong_mime_are_inline_without_extra_download (tests.test_manual_analysis_archive.ManualArchiveBrowserTests.test_download_error_and_wrong_mime_are_inline_without_extra_download) ... ERROR
+test_one_click_zip_download_without_history_and_reply_still_previews (tests.test_manual_analysis_archive.ManualArchiveBrowserTests.test_one_click_zip_download_without_history_and_reply_still_previews) ... Task queue depth is 1
+Task queue depth is 2
+Task queue depth is 2
+ok
+test_real_multipart_recombined_without_truncation_and_tamper_rejected (tests.test_manual_analysis_archive.ManualArchiveTests.test_real_multipart_recombined_without_truncation_and_tamper_rejected) ... ok
+test_single_archive_content_exact_binding_read_only_and_replay (tests.test_manual_analysis_archive.ManualArchiveTests.test_single_archive_content_exact_binding_read_only_and_replay) ... ok
+test_stale_and_foreign_origin_rejected_without_download_or_mutation (tests.test_manual_analysis_archive.ManualArchiveTests.test_stale_and_foreign_origin_rejected_without_download_or_mutation) ... Exception when servicing <waitress.channel.HTTPChannel connected 127.0.0.1:60697 at 0x2838b174490>
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\waitress\task.py", line 83, in handler_thread
+    task.service()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\waitress\channel.py", line 512, in service
+    self.server.pull_trigger()
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\waitress\server.py", line 334, in pull_trigger
+    self.trigger.pull_trigger()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\waitress\trigger.py", line 96, in pull_trigger
+    self._physical_pull()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\waitress\trigger.py", line 200, in _physical_pull
+    self.trigger.send(b"x")
+    ~~~~~~~~~~~~~~~~~^^^^^^
+OSError: [WinError 10038] Сделана попытка выполнить операцию на объекте, не являющемся сокетом
+ok
+
+======================================================================
+ERROR: test_download_error_and_wrong_mime_are_inline_without_extra_download (tests.test_manual_analysis_archive.ManualArchiveBrowserTests.test_download_error_and_wrong_mime_are_inline_without_extra_download)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\sync_api\_generated.py", line 1349, in close
+    self._sync(self._impl_obj.close(reason=reason))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_browser.py", line 247, in close
+    raise e
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_browser.py", line 244, in close
+    await self._channel.send("close", None, {"reason": reason})
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_connection.py", line 78, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_connection.py", line 636, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+TypeError: Browser.close: Route.fulfill: Object of type Request is not JSON serializable
+
+======================================================================
+FAIL: test_download_error_and_wrong_mime_are_inline_without_extra_download (tests.test_manual_analysis_archive.ManualArchiveBrowserTests.test_download_error_and_wrong_mime_are_inline_without_extra_download)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\tests\test_manual_analysis_archive.py", line 136, in test_download_error_and_wrong_mime_are_inline_without_extra_download
+    p.locator('#review-export').click();e(p.locator('#notice')).to_contain_text(message)
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\sync_api\_generated.py", line 14961, in to_contain_text
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.to_contain_text(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        )
+        ^
+    )
+    ^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_assertions.py", line 303, in to_contain_text
+    await self._expect_impl(
+    ...<9 lines>...
+    )
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        AssertionError(
+        ^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        self._is_soft,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to contain text 'Документы изменились'
+Actual value: Состояние обновлено. 
+Call log:
+  - Expect "to_contain_text" locator("#notice") with timeout 5000ms
+  - waiting for locator("#notice")
+    14 × locator resolved to <div id="notice" role="status" aria-live="polite" class="notice success">Состояние обновлено.</div>
+       - unexpected value "Состояние обновлено."
+
+Aria snapshot:
+- status: Состояние обновлено.
+
+----------------------------------------------------------------------
+Ran 5 tests in 18.935s
+
+FAILED (failures=1, errors=1)

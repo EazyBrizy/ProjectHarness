@@ -1,0 +1,25 @@
+{
+  "command": [
+    "C:/Users/gvenv/Desktop/ProjectHarness/_scratch/ph_lw_11/build-env/Scripts/python.exe",
+    "-B",
+    "Project_Harness_Engine_v0.5.1/local_web/windows/build_windows.py",
+    "--output",
+    "C:/Users/gvenv/Desktop/ProjectHarness/_scratch/document_upload_feedback_20261109/build",
+    "--iscc",
+    "C:/Users/gvenv/Desktop/ProjectHarness/_tools/InnoSetup674/ISCC.exe"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]",
+  "started_utc": "2026-11-09T10:13:22.649339+00:00",
+  "source_layout": false,
+  "dependencies": {
+    "Flask": "3.1.3",
+    "Waitress": "3.0.2",
+    "playwright": "1.64.1"
+  },
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 104.292,
+  "log_sha256": "ec83d0a653f0eb3658ecda42f6a1bc1a74906ef4033032f02c9f0ba188d0eb89"
+}

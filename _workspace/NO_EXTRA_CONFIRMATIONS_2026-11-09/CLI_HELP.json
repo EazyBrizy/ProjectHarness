@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\wheel-venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "project_harness",
+        "verify",
+        "--help"
+      ],
+      "exit": 0,
+      "confirmation_switch_hidden": "--allow-command-execution",
+      "log": "usage: project-harness verify [-h] --project PROJECT\n\noptions:\n  -h, --help         show this help message and exit\n  --project PROJECT\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\wheel-venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "project_harness",
+        "record-task-manual-evidence",
+        "--help"
+      ],
+      "exit": 0,
+      "confirmation_switch_hidden": "--confirm",
+      "log": "usage: project-harness record-task-manual-evidence [-h] --project PROJECT\n                                                   --input INPUT\n\noptions:\n  -h, --help         show this help message and exit\n  --project PROJECT\n  --input INPUT\n"
+    }
+  ],
+  "product_commands_executed": false
+}

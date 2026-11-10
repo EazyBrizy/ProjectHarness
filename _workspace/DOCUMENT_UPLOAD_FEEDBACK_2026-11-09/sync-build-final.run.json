@@ -1,0 +1,22 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "tools/sync_working_tree.py",
+    "--build-wheel"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]",
+  "started_utc": "2026-11-09T10:14:16.714754+00:00",
+  "source_layout": false,
+  "dependencies": {
+    "Flask": "3.1.3",
+    "Waitress": "3.0.2",
+    "playwright": "1.64.1"
+  },
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 22.811,
+  "log_sha256": "b7a28f04d32bd61e7fafc9c453c52566c38fa086cb6d6a4e9c6fa5914f9122f6"
+}

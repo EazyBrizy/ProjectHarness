@@ -1,0 +1,11 @@
+{
+  "status": "COMPLETE",
+  "build_id": "ANALYSIS-OPTIONS-ROW-20261110",
+  "layout": "PASS at 1360/1024/390",
+  "full_engine_tests": "NOT RUN — layout-only scope",
+  "model_requests": 0,
+  "zip_created": false,
+  "report_sha256": "ad14ed75938f849aff8781f54b175c53c6f3f8241846d343ed52c601367d2302",
+  "current_task_sha256": "523028f01eefb2a350483b940b1798ed378d30579c0df14a3670a73928a6280c",
+  "engine_manifest_sha256": "6d1db77aa123b0a82b91771850fc688c9344b59b8c6a6b98191b28657688925f"
+}

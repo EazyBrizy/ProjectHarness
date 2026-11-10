@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "source_build_wheel_frozen": "PASS",
+  "full_frozen_payload_including_pyd": "PASS",
+  "documentation_mirrors": "PASS",
+  "manifests": "PASS",
+  "only_allowed_runtime_changes": [
+    "local_web_exchange.py",
+    "local_web_http.py",
+    "local_web_service.py",
+    "resources/local_web/assets/app.js",
+    "resources/local_web/assets/index.html",
+    "resources/local_web/assets/interview.js",
+    "resources/local_web/metadata_v1.json"
+  ],
+  "historical_documentation_preserved": true,
+  "unrelated_original_tests_preserved": true,
+  "build_id": "MANUAL-ANALYSIS-ZIP-20261110",
+  "engine_manifest_sha256": "de6acb0d67ec698bf6bcb28b45538617dd996d6fe2130a609b527fec4fc1bc3a",
+  "docs_manifest_sha256": "168aa39dc3b9d3de3100c95b524cf6b77f5ca3e5659b2321d6939aa928145a58",
+  "zip_created": false
+}

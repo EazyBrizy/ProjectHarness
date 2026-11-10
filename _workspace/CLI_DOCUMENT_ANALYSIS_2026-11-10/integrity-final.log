@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "source_build_wheel_frozen": "PASS",
+  "full_frozen_payload_including_pyd": "PASS",
+  "documentation_mirrors": "PASS",
+  "manifests": "PASS",
+  "only_allowed_runtime_changes": [
+    "local_web_cli.py",
+    "local_web_cli_analysis.py",
+    "local_web_exchange.py",
+    "local_web_http.py",
+    "local_web_service.py",
+    "resources/local_web/GPT_PREPARATION.md",
+    "resources/local_web/assets/app.js",
+    "resources/local_web/assets/index.html",
+    "resources/local_web/assets/interview.js",
+    "resources/local_web/metadata_v1.json"
+  ],
+  "historical_documentation_preserved": true,
+  "unrelated_original_tests_preserved": true,
+  "build_id": "CLI-DOC-ANALYSIS-20261110",
+  "engine_manifest_sha256": "ddecd827cf1357a59a18e89084c9e79a0518436331d81fc1fed8825d4ecfb194",
+  "docs_manifest_sha256": "6ed21b42fabff977b3769543af2fb74b25636001c09171d527119faef3edd03c",
+  "zip_created": false
+}

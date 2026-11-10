@@ -21,7 +21,7 @@ function loadApprovals() {
 async function readApprovals(pid) {
   await loadPreparation();
   if (pid !== state.activeProject) return;
-  if (!state.csrf || !state.activeProject || state.view?.kind !== 'workspace') {
+  if (!state.activeProject || state.view?.kind !== 'workspace') {
     clearApprovals(); text('approvals-status', 'Выберите provisional intake. Accepted Project Instance здесь не изменяется.'); return;
   }
   try {
@@ -34,7 +34,7 @@ function renderApprovals() {
   const view = approvalView;
   text('approvals-status', `${view.subjects.filter(r=>r.approved).length} из ${view.subjects.length} решений · ${view.readiness.status}`);
   text('approvals-next', view.next_action === 'PREPARATION_PENDING_PH_LW_08' ?
-    'Передача подтверждена. Проект пока не создан. Подтвердите новую папку в форме подготовки ниже.' :
+    'Передача оформлена. Укажите папку в форме подготовки ниже.' :
     view.recovery_required ? 'Сверьте прерванное согласование перед продолжением.' :
     view.unbound_approvals.length ? 'Найдены approvals без актуальной привязки. Явно сбросьте их перед повторным согласованием.' :
     !view.subject_complete ? `Уточните draft во вкладке «Опрос и GPT». Missing fields: ${view.readiness.missing_fields.join(', ') || 'см. readiness'}.` :
@@ -57,15 +57,11 @@ function renderApprovals() {
     card.append(element('p', `Оператор: ${view.actor || 'не задан'}. Subject digest: ${row.subject_digest}. Draft: ${view.binding.input_revision}. Source revision: ${view.binding.source_revision}.`, 'muted small body-value'));
     const comment = element('textarea'); comment.id = 'comment-' + row.subject; comment.maxLength = 2000; comment.rows = 2;
     const label = element('label', 'Комментарий (обязателен для доработки)'); label.htmlFor = comment.id;
-    const consentLabel = element('label', undefined, 'consent');
-    const consent = element('input'); consent.type = 'checkbox'; consent.id = 'confirm-' + row.subject;
-    consentLabel.append(consent, document.createTextNode(`Я прочитал показанное содержание ${row.label} и подтверждаю отдельное решение.`));
-    const approve = element('button', row.subject === 'codex_handoff' ? 'Подтвердить передачу и подготовить проект' : `Подтвердить ${row.label}`, 'outline');
+    const approve = element('button', row.subject === 'codex_handoff' ? 'Передать Codex' : `Применить ${row.label}`, 'outline');
     approve.id = 'approve-' + row.subject; approve.type = 'button';
     const blocked = !view.actor || !view.subject_complete || view.recovery_required || view.unbound_approvals.length || row.approved || view.next_subject !== row.subject;
     approve.disabled = Boolean(blocked);
     approve.addEventListener('click', () => approvalAction(async () => {
-      if (!consent.checked) throw new Error('Подтвердите, что прочитали именно это содержание.');
       await sendApproval(row, 'APPROVE', comment.value);
     }));
     const rework = element('button', 'На доработку', 'quiet'); rework.id = 'rework-' + row.subject; rework.type = 'button';
@@ -75,7 +71,7 @@ function renderApprovals() {
       await sendApproval(row, 'REWORK', comment.value);
       selectScreen('interview');
     }));
-    card.append(label, comment, consentLabel, approve, rework); root.append(card);
+    card.append(label, comment, approve, rework); root.append(card);
   }
   $('approval-receipts').replaceChildren();
   for (const row of view.receipts.toReversed()) {
@@ -124,6 +120,5 @@ $('recover-approval').addEventListener('click', () => approvalAction(async () =>
   await loadApprovals(); showNotice(`Сверка: ${result.status}.`, 'success');
 }));
 $('invalidate-approvals').addEventListener('click', () => approvalAction(async () => {
-  if (!window.confirm('Сбросить approvals только текущего draft? История receipts сохраняется.')) return;
   await sendApproval(approvalView.subjects[0], 'INVALIDATE', 'Явный сброс approvals без актуальной привязки');
 }));

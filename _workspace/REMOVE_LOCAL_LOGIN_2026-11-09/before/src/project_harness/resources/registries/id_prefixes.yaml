@@ -1,0 +1,593 @@
+{
+  "schema_version": 1,
+  "registry": {
+    "id": "REG-ID-PREFIXES",
+    "version": 3,
+    "status": "ACTIVE",
+    "uniqueness": "GLOBAL",
+    "entries": [
+      {
+        "prefix": "AC",
+        "entity": "Acceptance Criterion",
+        "schema_key": "acceptance_criterion",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "ACT",
+        "entity": "Actor or role binding",
+        "schema_key": "actor",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "ADP",
+        "entity": "Executor/agent adapter profile",
+        "schema_key": "adapter_profile",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "ADR",
+        "entity": "Architecture or material Decision Record",
+        "schema_key": "adr",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "ANS",
+        "entity": "Questionnaire answer",
+        "schema_key": "answer",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "ARB",
+        "entity": "Architecture Baseline",
+        "schema_key": "architecture_baseline",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "ART",
+        "entity": "Generic produced artifact",
+        "schema_key": "artifact",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "ASM",
+        "entity": "Assumption",
+        "schema_key": "assumption",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "BFB",
+        "entity": "Brownfield Baseline",
+        "schema_key": "brownfield_baseline",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "BFI",
+        "entity": "Brownfield Intake",
+        "schema_key": "brownfield_intake",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "BLK",
+        "entity": "Blocker",
+        "schema_key": "blocker",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "BRI",
+        "entity": "Brownfield route item",
+        "schema_key": "brownfield_route_item",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "BST",
+        "entity": "Bootstrap Plan",
+        "schema_key": "bootstrap_plan",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "CCS",
+        "entity": "Coordinated multi-repository change set",
+        "schema_key": "coordinated_change_set",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "CFA",
+        "entity": "Conflict analysis",
+        "schema_key": "conflict_analysis",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "CGR",
+        "entity": "Capability Grant",
+        "schema_key": "capability_grant",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "CHK",
+        "entity": "Verification or policy check",
+        "schema_key": "check",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "CHP",
+        "entity": "Change Pack",
+        "schema_key": "change_pack",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "CMD",
+        "entity": "Command descriptor",
+        "schema_key": "command",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "CMP",
+        "entity": "Compatibility result or matrix",
+        "schema_key": "compatibility",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "CNF",
+        "entity": "Source/semantic conflict",
+        "schema_key": "conflict",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "CNT",
+        "entity": "Canonical product or integration contract",
+        "schema_key": "contract",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "COR",
+        "entity": "Correlation context",
+        "schema_key": "correlation",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "CPB",
+        "entity": "Compiled Prompt Bundle",
+        "schema_key": "compiled_prompt_bundle",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "CPK",
+        "entity": "Context Packet",
+        "schema_key": "context_packet",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "CPL",
+        "entity": "Commit Plan",
+        "schema_key": "commit_plan",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "CST",
+        "entity": "Constraint",
+        "schema_key": "constraint",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "CTP",
+        "entity": "Context Policy",
+        "schema_key": "context_policy",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "CTX",
+        "entity": "Context Plan",
+        "schema_key": "context_plan",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "DAG",
+        "entity": "Dependency graph",
+        "schema_key": "dependency_graph",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "DEC",
+        "entity": "Decision",
+        "schema_key": "decision",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "DOC",
+        "entity": "Documentation record or stable section",
+        "schema_key": "documentation_record",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "ENV",
+        "entity": "Logical execution environment resource",
+        "schema_key": "environment_resource",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "EVD",
+        "entity": "Evidence",
+        "schema_key": "evidence",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "EVS",
+        "entity": "Evaluation Suite",
+        "schema_key": "evaluation_suite",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "EVT",
+        "entity": "State or audit Event",
+        "schema_key": "event",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "GATE",
+        "entity": "Readiness or approval Gate",
+        "schema_key": "gate",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "GOL",
+        "entity": "Goal",
+        "schema_key": "goal",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "HNS",
+        "entity": "Documentation-level Harness requirement",
+        "schema_key": "documentation_requirement",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "IMP",
+        "entity": "Impact Analysis",
+        "schema_key": "impact_analysis",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "IMPL",
+        "entity": "Implementation artifact",
+        "schema_key": "implementation_artifact",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "INV",
+        "entity": "Invariant",
+        "schema_key": "invariant",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "LOCK",
+        "entity": "Shared lock or lockfile resource",
+        "schema_key": "lock_resource",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "LSE",
+        "entity": "Ownership or environment Lease",
+        "schema_key": "lease",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "MIG",
+        "entity": "Migration",
+        "schema_key": "migration",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "OPT",
+        "entity": "Decision, blocker, or recovery Option",
+        "schema_key": "option",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "OUT",
+        "entity": "Outcome",
+        "schema_key": "outcome",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "PBT",
+        "entity": "Parallel Batch",
+        "schema_key": "parallel_batch",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "PJD",
+        "entity": "Project Definition",
+        "schema_key": "project_definition",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "PLC",
+        "entity": "Policy",
+        "schema_key": "policy",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "PMD",
+        "entity": "Prompt Module",
+        "schema_key": "prompt_module",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "PPL",
+        "entity": "Prompt Plan",
+        "schema_key": "prompt_plan",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "PRF",
+        "entity": "Project Profile",
+        "schema_key": "project_profile",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "PSP",
+        "entity": "Prompt Spec",
+        "schema_key": "prompt_spec",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "QNS",
+        "entity": "Questionnaire Session",
+        "schema_key": "questionnaire_session",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "QST",
+        "entity": "Question",
+        "schema_key": "question",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "QUA",
+        "entity": "Quality Attribute",
+        "schema_key": "quality_attribute",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "RBP",
+        "entity": "Rollback or compensation Plan",
+        "schema_key": "rollback_plan",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "REG",
+        "entity": "Versioned Registry",
+        "schema_key": "registry",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "REP",
+        "entity": "Repository",
+        "schema_key": "repository",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "REQ",
+        "entity": "Requirement",
+        "schema_key": "requirement",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "RES",
+        "entity": "Public Result Envelope",
+        "schema_key": "result_envelope",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "RIV",
+        "entity": "Repository Inventory",
+        "schema_key": "repository_inventory",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "RNP",
+        "entity": "Run Plan",
+        "schema_key": "run_plan",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "RQ",
+        "entity": "Request",
+        "schema_key": "request",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "RQP",
+        "entity": "Request Plan",
+        "schema_key": "request_plan",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "RTE",
+        "entity": "Route",
+        "schema_key": "route",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "RUN",
+        "entity": "Run; one immutable execution attempt",
+        "schema_key": "run",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "SBX",
+        "entity": "OS-level Sandbox Profile",
+        "schema_key": "sandbox_profile",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "SCHEMA",
+        "entity": "Schema identifier",
+        "schema_key": "schema",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "SCP",
+        "entity": "Scope definition",
+        "schema_key": "scope",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "SEM",
+        "entity": "Semantic documentation validation rule",
+        "schema_key": "semantic_rule",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "SES",
+        "entity": "User or intake Session",
+        "schema_key": "session",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "SIV",
+        "entity": "Source Inventory",
+        "schema_key": "source_inventory",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "SKL",
+        "entity": "Skill",
+        "schema_key": "skill",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "SMP",
+        "entity": "Source Map",
+        "schema_key": "source_map",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "SPN",
+        "entity": "Trace Span",
+        "schema_key": "trace_span",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "SRC",
+        "entity": "Source",
+        "schema_key": "source",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "STG",
+        "entity": "Implementation Stage Plan",
+        "schema_key": "stage_plan",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "SUC",
+        "entity": "Success Criterion",
+        "schema_key": "success_criterion",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "SVC",
+        "entity": "Shared/external service resource",
+        "schema_key": "service_resource",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "TAD",
+        "entity": "Tool Adapter",
+        "schema_key": "tool_adapter",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "TBL",
+        "entity": "Technology Baseline",
+        "schema_key": "technology_baseline",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "TCN",
+        "entity": "Technology Candidate",
+        "schema_key": "technology_candidate",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "TEC",
+        "entity": "Technology reference",
+        "schema_key": "technology",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "TEN",
+        "entity": "Test Environment contract",
+        "schema_key": "test_environment",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "TEST",
+        "entity": "Test Case",
+        "schema_key": "test_case",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "TIV",
+        "entity": "Tool Invocation",
+        "schema_key": "tool_invocation",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "TRP",
+        "entity": "Task Report",
+        "schema_key": "task_report",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "TRT",
+        "entity": "Request Trace",
+        "schema_key": "request_trace",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "TSB",
+        "entity": "Test Baseline",
+        "schema_key": "test_baseline",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "TSK",
+        "entity": "Atomic Task",
+        "schema_key": "task",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "UNK",
+        "entity": "Unknown",
+        "schema_key": "unknown",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "VAL",
+        "entity": "Validation run/report",
+        "schema_key": "validation",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "VFP",
+        "entity": "Verification Profile",
+        "schema_key": "verification_profile",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "WP",
+        "entity": "Work Package",
+        "schema_key": "work_package",
+        "status": "ACTIVE"
+      },
+      {
+        "prefix": "WVR",
+        "entity": "Waiver",
+        "schema_key": "waiver",
+        "status": "ACTIVE"
+      }
+    ]
+  }
+}

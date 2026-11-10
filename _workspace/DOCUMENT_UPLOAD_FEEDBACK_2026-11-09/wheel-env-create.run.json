@@ -1,0 +1,22 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-m",
+    "venv",
+    "_scratch/document_upload_feedback_20261109/wheel-venv"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]",
+  "started_utc": "2026-11-09T10:14:40.184812+00:00",
+  "source_layout": false,
+  "dependencies": {
+    "Flask": "3.1.3",
+    "Waitress": "3.0.2",
+    "playwright": "1.64.1"
+  },
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 21.784,
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

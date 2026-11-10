@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "source_build_wheel_frozen": "PASS",
+  "full_frozen_payload_including_pyd": "PASS",
+  "documentation_mirrors": "PASS",
+  "manifests": "PASS",
+  "only_allowed_runtime_changes": [
+    "cli.py",
+    "resources/local_web/assets/app.js",
+    "resources/local_web/assets/approvals.js",
+    "resources/local_web/assets/index.html",
+    "resources/local_web/assets/interview.js",
+    "resources/local_web/assets/lifecycle.js",
+    "resources/local_web/assets/preparation.js",
+    "resources/local_web/assets/tasks.js",
+    "resources/local_web/metadata_v1.json"
+  ],
+  "historical_documentation_preserved": true,
+  "unrelated_original_tests_preserved": true,
+  "build_id": "SINGLE-ACTION-UI-20261109",
+  "engine_manifest_sha256": "ddbd443e87e7309069c8583ec57f9984854dafb8fb49c84f5ea50782bf0b2452",
+  "docs_manifest_sha256": "8f6bc9f7bdaba5257b88655e9c9817bcbef41fa45f951978454d5f1f9dede76f",
+  "zip_created": false
+}

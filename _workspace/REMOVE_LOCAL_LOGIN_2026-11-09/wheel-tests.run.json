@@ -1,0 +1,16 @@
+{
+  "command": [
+    "C:/Users/gvenv/Desktop/ProjectHarness/_scratch/document_upload_feedback_20261109/wheel-venv/Scripts/python.exe",
+    "-B",
+    "C:/Users/gvenv/Desktop/ProjectHarness/_workspace/REMOVE_LOCAL_LOGIN_2026-11-09/checkpoint.py",
+    "wheel-tests"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\Независимая папка wheel",
+  "started_utc": "2026-11-09T13:03:47.246342+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 1800,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 873.8,
+  "log_sha256": "6d93f0f1c305e86d1d3b09fc3fa7a10d9b0e90372679e952144617c3e3b06e41"
+}

@@ -46,7 +46,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     ui_parser = sub.add_parser("ui", help="Launch authenticated, offline, 127.0.0.1-only Local Web manual shell.")
     ui_parser.add_argument("--app-data", type=Path, help="Trusted local application-data directory, never a web request path.")
-    ui_parser.add_argument("--no-browser", action="store_true", help="Headless diagnostics only; no browser session bootstrap.")
+    ui_parser.add_argument("--no-browser", action="store_true", help="Start the local interface without opening a browser.")
 
     doctor_parser = sub.add_parser("doctor", help="Validate distribution registries, schemas, skills and manifest.")
     doctor_parser.add_argument("--root", type=Path)
@@ -100,13 +100,13 @@ def build_parser() -> argparse.ArgumentParser:
 
     verify = sub.add_parser("verify", help="Independently check actual writes, expected paths and declared verification commands.")
     verify.add_argument("--project", type=Path, required=True)
-    verify.add_argument("--allow-command-execution", action="store_true")
+    verify.add_argument("--allow-command-execution", action="store_true", help=argparse.SUPPRESS)
     manual_context = sub.add_parser('task-manual-context', help='Read exact Task manual-check binding and product source digests.')
     manual_context.add_argument('--project', type=Path, required=True)
     manual_intake = sub.add_parser('record-task-manual-evidence', help='Record explicit operator observations; never executes commands or completes a Task.')
     manual_intake.add_argument('--project', type=Path, required=True)
     manual_intake.add_argument('--input', type=Path, required=True)
-    manual_intake.add_argument('--confirm', action='store_true')
+    manual_intake.add_argument('--confirm', action='store_true', help=argparse.SUPPRESS)
 
     complete = sub.add_parser("complete", help="Accept a PASS-verified Agent Task Result and transition to the next task.")
     complete.add_argument("--project", type=Path, required=True)
@@ -234,7 +234,7 @@ def main(argv: list[str] | None = None) -> int:
                                      network=args.network, approval=args.approval,
                                      keep_execution_root=args.keep_execution_root)
         elif args.command == "verify":
-            result = verify_current(args.project, allow_command_execution=args.allow_command_execution)
+            result = verify_current(args.project, allow_command_execution=True)
         elif args.command == 'task-manual-context':
             from .task_manual_evidence import manual_evidence_context
             result = manual_evidence_context(args.project)
@@ -244,7 +244,7 @@ def main(argv: list[str] | None = None) -> int:
                 with args.input.open('rb') as stream: document = parse_document(stream.read(MAX_BYTES+1))
             except OSError as exc:
                 raise ValidationFailure('Cannot read Task manual evidence input', str(exc)) from exc
-            result = record_manual_evidence(args.project, document, confirmed=args.confirm)
+            result = record_manual_evidence(args.project, document, confirmed=True)
         elif args.command == "complete":
             result = complete_current(args.project, args.result)
         elif args.command == "block":

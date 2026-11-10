@@ -89,12 +89,12 @@ class FrozenFixtureServer(acceptance.FrozenServer):
         if getattr(OPTIONS,'deep_full_flow',False):
             (OPTIONS.output/'DEEP_PROFILE.json').write_text(json.dumps({'app_data_length':len(str(self.app_data)),
                 'project_parent_length':len(str(projects)),'ordinary_paths':True,'system_settings_changed':False},indent=2),'utf-8')
-    def request(self,method,path,*,value=None,data=None,headers=None,authenticated=True):
+    def request(self,method,path,*,value=None,data=None,headers=None):
         # Win32 may reset an oversized-header rejection after the 431 status
         # was received. Status assertions remain exact; successful responses
         # must always deliver their complete body.
         hdr={'Origin':self.origin}
-        if authenticated and self.cookie:hdr.update({'Cookie':self.cookie,'X-CSRF-Token':self.csrf})
+        
         if value is not None:data=json.dumps(value).encode('utf-8');hdr['Content-Type']='application/json'
         hdr.update(headers or {})
         conn=http.client.HTTPConnection('127.0.0.1',self.port,timeout=10)
@@ -129,8 +129,8 @@ class InstalledFullFlowTests(unittest.TestCase):
                         observe_task_responses(page,'no-doc')
                         urls=[];errors=[];page.on('request',lambda r:urls.append(r.url));page.on('pageerror',lambda e:errors.append(str(e)))
                         page.on('dialog',lambda d:d.accept())
-                        page.goto(live.origin+'/#bootstrap='+live.auth.issue_bootstrap())
-                        expect(page.locator('#session-state')).to_have_text('Сессия активна')
+                        page.goto(live.origin + '/')
+                        expect(page.locator('#connection-state')).to_have_text('Сервер готов')
                         page.locator('[data-screen="documents"]').click()
                         page.locator('#new-project-name').fill('PH-LW-12 no documentation')
                         page.locator('#create-intake').click()
@@ -142,12 +142,13 @@ class InstalledFullFlowTests(unittest.TestCase):
                         page.locator('#answer-implementation-target_level').select_option('MVP')
                         page.locator('#save-answers').click()
                         expect(page.locator('#notice')).to_contain_text('Ответы проверены и сохранены ядром')
-                        page.locator('#review-export').click();expect(page.locator('#export-review')).to_be_visible()
+                        self.assertEqual(page.locator('#export-review').count(),0)
                         self.assertEqual(page.locator('#export-documents select').count(),0)
-                        page.locator('#draft-classification').select_option('PUBLIC');page.locator('#export-consent').check()
-                        page.locator('#create-export').click();expect(page.locator('#export-history a')).to_have_count(1)
-                        with page.expect_download() as download:page.locator('#export-history a').click()
-                        pack=Path(download.value.path()).read_text('utf-8')
+                        
+                        with page.expect_download() as download:page.locator('#review-export').click()
+                        expect(page.locator('#review-export')).to_be_enabled()
+                        self.assertEqual(page.locator('#export-history').count(),0)
+                        with zipfile.ZipFile(download.value.path()) as z:pack=z.read('pack.md').decode('utf-8')
                         reply=fixture_reply(json.loads(pack.split('## Return skeleton\n\n',1)[1]))
                         # Declared external GPT fixture: positive manual-only
                         # verification requires no installed product SDK.
@@ -163,10 +164,10 @@ class InstalledFullFlowTests(unittest.TestCase):
                         page.locator('#approval-actor').fill('ACT-WIN12-OPERATOR');page.locator('#save-approval-actor').click()
                         expect(page.locator('#approval-actor-display')).to_contain_text('ACT-WIN12-OPERATOR')
                         for i,subject in enumerate(approvals_for_mode('GREENFIELD')):
-                            page.locator('#confirm-'+subject).check();page.locator('#approve-'+subject).click()
+                            page.locator('#approve-'+subject).click()
                             expect(page.locator('#approvals-status')).to_contain_text(str(i+1)+' из 4')
                         expect(page.locator('#preparation-form')).to_be_visible()
-                        page.locator('#project-folder-name').fill('No documents product');page.locator('#confirm-new-folder').check()
+                        page.locator('#project-folder-name').fill('No documents product');
                         with page.expect_response(lambda r:r.url.endswith('/preparation/start')) as started:
                             page.locator('#prepare-project').click()
                         self.assertEqual(started.value.status,202,started.value.text())
@@ -189,7 +190,7 @@ class InstalledFullFlowTests(unittest.TestCase):
                         page.locator('#task-manual-checks textarea').fill('Inspected add/list parsing, persisted task IDs, expected product files and README. Synthetic fixture only.')
                         page.locator('#task-manual-checks [data-field="status"]').select_option('PASS')
                         page.locator('#task-manual-checks [data-field="sources"]').select_option(['task_cli.py','README.md'])
-                        page.locator('#task-manual-confirm').check();page.locator('#task-manual-submit').click()
+                        page.locator('#task-manual-submit').click()
                         expect(page.locator('#task-manual-state')).to_contain_text('ACT-WIN12-INDEPENDENT-REVIEWER')
                         page.locator('#task-verify').click();expect(page.locator('#task-complete')).to_be_enabled(timeout=60000)
                         expect(page.locator('#task-verification')).to_contain_text('PASS')
@@ -212,13 +213,12 @@ class InstalledFullFlowTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(prefix='LW12 installed security ') as directory:
             live=FrozenFixtureServer(directory)
             try:
-                self.assertEqual(live.request('GET','/api/projects',authenticated=False)[0],401)
-                token=live.login()
-                self.assertEqual(live.request('POST','/api/session/bootstrap',value={'token':token})[0],401)
+                self.assertEqual(live.request('GET','/api/projects',headers={'Origin':'http://foreign.invalid'})[0],403)
+                live.ready()
+                self.assertEqual(live.request('GET','/api/projects')[0],200)
                 pid=live.create('lw12-installed-security-0001');base='/api/projects/'+pid
                 for headers in ({'Host':'evil.example'},{'Host':'127.0.0.1:1'},{'Host':'localhost:'+str(live.port)},
-                                {'Origin':'null'},{'Origin':'https://foreign.example'},{'Origin':'http://127.0.0.1:1'},
-                                {'X-CSRF-Token':'wrong'}):
+                                {'Origin':'null'},{'Origin':'https://foreign.example'},{'Origin':'http://127.0.0.1:1'}):
                     self.assertEqual(live.upload(pid,[('ok.md',b'# safe')],headers=headers)[0],403)
                 bad_names=['../escape.md','C:/drive.md','C:relative.md','//host/share.md','x:ads.md','NUL.md','trail. /x.md','a\\b.md']
                 for name in bad_names:
@@ -254,7 +254,7 @@ class InstalledFullFlowTests(unittest.TestCase):
                     address=info[4][0]
                     if address.startswith('127.') or address=='0.0.0.0':continue
                     with self.assertRaises(OSError):socket.create_connection((address,live.port),timeout=.3)
-                save={'checked_host_origin_csrf':True,'bootstrap_replay':True,'cross_project':True,
+                save={'checked_host_origin':True,'direct_entry_without_login':True,'cross_project':True,
                       'malicious_zip_names':bad_names,'archive_attacks':list(attacks),'no_lan_cors':True,'raw_credentials_logged':False}
                 (OPTIONS.output/'INSTALLED_SECURITY.json').write_text(json.dumps(save,indent=2),'utf-8')
             finally:live.close()
@@ -353,7 +353,7 @@ def main():
             self.page.locator('#task-manual-checks textarea').fill('Reviewed the README addition against existing local CLI usage; no scope expansion.')
             self.page.locator('#task-manual-checks [data-field="status"]').select_option('PASS')
             self.page.locator('#task-manual-checks [data-field="sources"]').select_option(['README.md'])
-            self.page.locator('#task-manual-confirm').check();self.page.locator('#task-manual-submit').click()
+            self.page.locator('#task-manual-submit').click()
             expect(self.page.locator('#task-manual-state')).to_contain_text('ACT-WIN12-REVIEWER')
             self.page.locator('#task-verify').click();expect(self.page.locator('#task-complete')).to_be_enabled(timeout=60000)
             self.page.locator('#task-complete').click();expect(self.page.locator('#task-operation')).to_contain_text('SUCCEEDED',timeout=60000)

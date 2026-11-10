@@ -1,0 +1,16 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "tools/document_upload_feedback_checkpoint.py",
+    "verify"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-09T10:56:24.047864+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 60,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 1.632,
+  "log_sha256": "9739174d0f78b2dd6d81ee980a762f87954aee47818c6afc80c1d75a1ea4a2ff"
+}

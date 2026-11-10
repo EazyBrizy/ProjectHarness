@@ -1,0 +1,40 @@
+Frozen server ready; PID 2312 PATH has no developer tools
+Frozen server ready; PID 31000 PATH has no developer tools
+Frozen server ready; PID 49292 PATH has no developer tools
+Frozen server ready; PID 14000 PATH has no developer tools
+Frozen server ready; PID 27804 PATH has no developer tools
+Frozen server ready; PID 38840 PATH has no developer tools
+Frozen server ready; PID 51072 PATH has no developer tools
+Frozen server ready; PID 7752 PATH has no developer tools
+Frozen server ready; PID 23396 PATH has no developer tools
+Frozen server ready; PID 27964 PATH has no developer tools
+Frozen server ready; PID 16476 PATH has no developer tools
+Frozen server ready; PID 32412 PATH has no developer tools
+Frozen server ready; PID 8484 PATH has no developer tools
+{
+  "installer_sha256": "f6e0bdbe6b8e0ab9de338ca3dd06c020db4c16477fcb292ca3369d2ba58469f4",
+  "non_admin": true,
+  "browser": "headless Edge, real TCP, actual installed EXE with sanitized PATH",
+  "validation_timing_test": "NOT RUN against EXE; timing latch test belongs to source/wheel only",
+  "install": {
+    "command": [
+      "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1\\windows\\Harness-Setup-win-x64.exe",
+      "/VERYSILENT",
+      "/SUPPRESSMSGBOXES",
+      "/NORESTART",
+      "/DIR=C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_workspace\\REMOVE_LOCAL_LOGIN_2026-11-09\\installed-exe\\Установленная программа",
+      "/LOG=C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_workspace\\REMOVE_LOCAL_LOGIN_2026-11-09\\installed-exe\\install.log"
+    ],
+    "exit": 0
+  },
+  "tests": {
+    "ran": 12,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "build_id": "NO-LOCAL-LOGIN-20261109",
+  "uninstall_exit": 0,
+  "status": "PASS",
+  "operator_shortcuts_preserved": true
+}

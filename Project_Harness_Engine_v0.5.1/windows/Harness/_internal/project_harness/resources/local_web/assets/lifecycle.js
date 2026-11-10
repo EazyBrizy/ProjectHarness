@@ -6,13 +6,13 @@ const lifecycleLabels={
   'prepare-level-up':'Выбрать новый target','prepare-maintenance':'Подготовить same-level maintenance',
   'prepare-maintenance-cancel':'Подготовить отмену maintenance','prepare-migration':'Просмотреть план migration',
   'resume-stage-gate':'Возобновить Stage Gate','assess-maturity':'Оценить Brownfield / Hybrid','recover-migration':'Восстановить прерванную migration',
-  'accept-stage':'Принять Stage','plan-active-stage':'Применить reviewed plan','level-up':'Подтвердить level-up',
-  'start-maintenance':'Начать maintenance','cancel-maintenance':'Отменить maintenance','migrate-project':'Подтвердить migration'};
+  'accept-stage':'Принять Stage','plan-active-stage':'Применить reviewed plan','level-up':'Изменить target',
+  'start-maintenance':'Начать maintenance','cancel-maintenance':'Отменить maintenance','migrate-project':'Выполнить migration'};
 const lifecycleEditable={
  'accept-stage':['outcome_results','criteria_results','hard_constraint_results','profile_control_results','evidence_refs','known_limitations','next_stage_gaps','notes','permitted_use'],
  'plan-active-stage':['work_packages'], 'level-up':['target_level'],
  'start-maintenance':['objective','rationale','work_package'], 'cancel-maintenance':['rationale'], 'migrate-project':['input_document']};
-const lifecycleFieldLabels={outcome_results:'Результаты outcomes',criteria_results:'Результаты criteria',hard_constraint_results:'Hard constraints',profile_control_results:'Profile controls',evidence_refs:'Evidence refs',rationale:'Обоснование',validator:'Проверяющий (ACT-...)',status:'Результат',known_limitations:'Известные ограничения',next_stage_gaps:'Пробелы следующей Stage',permitted_use:'Допустимое использование',work_packages:'Work Packages',work_package:'Work Package',tasks:'Задачи',title:'Название',objective:'Цель',purpose:'Назначение',expected_result:'Ожидаемый результат',scope:'Разрешённые пути',read:'Чтение',write:'Запись',forbidden:'Запрещено',verification:'Независимая проверка',commands:'Команды (запуск только при Task consent)',manual_checks:'Проверки оператора',expected_paths:'Ожидаемые файлы',acceptance_criteria:'Критерии приёмки',documentation:'Документация',target_level:'Новый target',notes:'Примечания'};
+const lifecycleFieldLabels={outcome_results:'Результаты outcomes',criteria_results:'Результаты criteria',hard_constraint_results:'Hard constraints',profile_control_results:'Profile controls',evidence_refs:'Evidence refs',rationale:'Обоснование',validator:'Проверяющий (ACT-...)',status:'Результат',known_limitations:'Известные ограничения',next_stage_gaps:'Пробелы следующей Stage',permitted_use:'Допустимое использование',work_packages:'Work Packages',work_package:'Work Package',tasks:'Задачи',title:'Название',objective:'Цель',purpose:'Назначение',expected_result:'Ожидаемый результат',scope:'Разрешённые пути',read:'Чтение',write:'Запись',forbidden:'Запрещено',verification:'Независимая проверка',commands:'Команды проверки',manual_checks:'Проверки оператора',expected_paths:'Ожидаемые файлы',acceptance_criteria:'Критерии приёмки',documentation:'Документация',target_level:'Новый target',notes:'Примечания'};
 function lifecycleBase(pid=state.activeProject){return '/api/projects/'+encodeURIComponent(pid);}
 function resolveFormSchema(s,root){if(s?.$ref){return s.$ref.slice(2).split('/').reduce((v,k)=>v?.[k],root)||{};}return s||{};}
 function formDefault(schema,root){const s=resolveFormSchema(schema,root);if('const' in s)return s.const;if(s.enum)return s.enum[0];if(s.type==='object')return Object.fromEntries((s.required||[]).map(k=>[k,formDefault(s.properties?.[k],root)]));if(s.type==='array')return [];if(s.type==='boolean')return false;if(s.type==='integer')return s.minimum||1;return '';}
@@ -63,7 +63,7 @@ function renderLifecycleDraft(record){
  const context=document.createElement('details'),summary=document.createElement('summary'),pre=document.createElement('pre');summary.textContent='Закреплённый контекст (только чтение)';pre.textContent=format(Object.fromEntries(Object.entries(body).filter(([k])=>!editable.includes(k))));context.append(summary,pre);host.append(context);
  for(const k of editable)if(k in body)readers[k]=lifecycleField(host,k,body[k],resolved.properties?.[k],schema,key+'.'+k);
  lifecycleRead=()=>({[key]:{...body,...Object.fromEntries(Object.entries(readers).map(([k,get])=>[k,get()]))}});
- $('lifecycle-json').value=JSON.stringify(record,null,2);$('lifecycle-confirm').checked=false;
+ $('lifecycle-json').value=JSON.stringify(record,null,2);
  $('lifecycle-form-title').textContent=lifecycleLabels[lifecycleDraft.action];$('lifecycle-apply').textContent=lifecycleLabels[lifecycleDraft.action];$('lifecycle-form-panel').hidden=false;
 }
 let lifecycleLoading=null;
@@ -77,7 +77,7 @@ function loadLifecycle(afterCommit=false){
 }
 async function readLifecycle(){
  lifecycleView=null;lifecycleDraft=null;lifecycleRead=null;$('lifecycle-form-panel').hidden=true;$('lifecycle-actions').replaceChildren();
- if(!state.csrf||!state.activeProject||!state.view){text('lifecycle-summary','Выберите проект.');return;}
+ if(!state.activeProject||!state.view){text('lifecycle-summary','Выберите проект.');return;}
  const pid=state.activeProject;
  try{
   const v=await api(lifecycleBase(pid)+'/lifecycle');if(pid!==state.activeProject)return;lifecycleView=v;
@@ -88,7 +88,7 @@ async function readLifecycle(){
   for(const action of Object.keys(lifecycleLabels).filter(x=>x.startsWith('prepare-')||['resume-stage-gate','assess-maturity','recover-migration'].includes(x))){
    const entry=actions.find(x=>x.action===action);if(!entry?.enabled)continue;
    const button=document.createElement('button');button.type='button';button.dataset.lifecycle=action;button.textContent=lifecycleLabels[action];button.disabled=state.requestBusy;
-   button.onclick=()=>{if(action.startsWith('prepare-'))lifecycleAction(action,{});else if(window.confirm(action==='resume-stage-gate'?'Перепроверить gaps текущего Gate без изменения Task blocker?':action==='recover-migration'?'Подтвердить recovery существующего migration journal через core?':'Сохранить read-only assessment без выполнения команд репозитория?'))lifecycleAction(action,{confirmed:true});};$('lifecycle-actions').append(button);
+   button.onclick=()=>lifecycleAction(action,action.startsWith('prepare-')?{}:{confirmed:true});$('lifecycle-actions').append(button);
   }
   try{lifecycleOperation=sessionStorage.getItem('harness-lifecycle-operation-'+pid);}catch(_){lifecycleOperation=null;}
   $('lifecycle-reconcile').disabled=!lifecycleOperation;
@@ -105,9 +105,9 @@ async function lifecycleAction(action,payload){
   }else if(op.state==='SUCCEEDED'||op.state==='BLOCKED'){state.requestBusy=false;await selectProject(pid,true);text('lifecycle-operation',format(op));}
   showNotice(op.state==='SUCCEEDED'?'Операция завершена; фактический core result показан ниже.':op.error?.message_ru||op.state,op.state==='SUCCEEDED'?'success':'error');
  }catch(e){showNotice(e.message+' Автоматического повтора нет.','error');}
- finally{state.requestBusy=false;$('lifecycle-confirm').checked=false;$('lifecycle-apply').disabled=false;$('lifecycle-reconcile').disabled=!lifecycleOperation;}
+ finally{state.requestBusy=false;$('lifecycle-apply').disabled=false;$('lifecycle-reconcile').disabled=!lifecycleOperation;}
 }
-$('lifecycle-apply').onclick=()=>{if(lifecycleDraft&&lifecycleRead)lifecycleAction(lifecycleDraft.action,{draft_id:lifecycleDraft.draft_id,document:lifecycleRead(),actor:$('lifecycle-actor').value,confirmed:$('lifecycle-confirm').checked,rationale:$('lifecycle-rationale').value});};
+$('lifecycle-apply').onclick=()=>{if(lifecycleDraft&&lifecycleRead)lifecycleAction(lifecycleDraft.action,{draft_id:lifecycleDraft.draft_id,document:lifecycleRead(),actor:$('lifecycle-actor').value,confirmed:true,rationale:$('lifecycle-rationale').value});};
 $('lifecycle-export').onclick=()=>{if(lifecycleRead)$('lifecycle-json').value=JSON.stringify(lifecycleRead(),null,2);};
 $('lifecycle-import').onclick=()=>{try{const value=JSON.parse($('lifecycle-json').value);if(!value||Array.isArray(value)||Object.keys(value).length!==1||Object.keys(value)[0]!==Object.keys(lifecycleDraft.document)[0])throw new Error('Неверный envelope');renderLifecycleDraft(value);}catch(e){showNotice(e.message,'error');}};
 $('lifecycle-reconcile').onclick=async()=>{if(!lifecycleOperation||state.requestBusy)return;try{const value=await api(lifecycleBase()+'/operations/'+lifecycleOperation+'/reconcile',{method:'POST',body:{confirm:true}});text('lifecycle-operation',format(value));await selectProject(state.activeProject,true);}catch(e){showNotice(e.message,'error');}};

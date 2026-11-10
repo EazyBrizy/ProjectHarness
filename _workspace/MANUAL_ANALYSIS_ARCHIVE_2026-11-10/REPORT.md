@@ -1,0 +1,31 @@
+# Один ZIP для ручного анализа
+
+Дата: 2026-11-10. Build `MANUAL-ANALYSIS-ZIP-20261110` установлен по стандартному пути, обычный desktop shortcut обновлён, данные и предыдущая версия сохранены.
+
+Кнопка «Сформировать пакет вручную» готовит export и сразу скачивает `harness-analysis.zip`. Внутри только `ИНСТРУКЦИЯ.md` по-русски и полный `pack.md` с документами, правилами, схемами и return skeleton. Блок истории/отдельных ссылок/копирования инструкции удалён. Пользователь прикрепляет архив к GPT/Codex и возвращает JSON на шаге 2. Модель не вызывается самой ручной кнопкой; отдельный автоматический CLI-анализ сохранён.
+
+## Scope и exact data
+
+[Baseline и разрешённые файлы](INPUT_BASELINE.json) проверены до изменений: source/docs/manifests и полный frozen payload включая .pyd. Изменены local_web_exchange/service/http для фиксированного read-only archive GET, serialized transport app.js только для ZIP responseType, interview.js/index.html для одного скачивания и удаления блока, build metadata. Core/schemas/registries/Task executors/CLI analysis не менялись. [Hashes](CHANGED_FILE_HASHES.json), [runtime diff](SOURCE_DIFF.patch), [test diff](TESTS_DIFF.patch), [driver diff](DRIVER_DIFF.patch). Старые test/browser drivers адаптированы только к новому download/ZIP, их широкие workflows не запускались; AST parse PASS. Чужие изменения и исторические документы/отчёты сохранены. Добавлена [глава 33](../../Project_Harness_Documentation_v0.5.1/13_Local_Web_Manual_Companion/33_Manual_Analysis_Archive.md).
+
+ZIP собирается в памяти из существующих verified export files под project operation guard. GET ничего не записывает и не запускает. При single/multipart удалены только presentation headers частей и старая краткая ссылка-инструкция; Exact payload / return skeleton побайтово сохраняют данные и bindings. Части соединяются в исходном UTF-8 порядке без обрезки; ограничение 20 MiB остаётся. Проверяются index и все parts hashes, exact current binding. В ZIP два фиксированных инертных MD, без путей/имён из документов, execute bit отсутствует. Secret/restricted policy и старый MD/parts API сохранены. Browser POST не повторяется автоматически, binary GET использует существующую очередь и разбирает JSON-ошибки в форму; неправильный MIME отвергается.
+
+## Только целевые проверки
+
+**5 уникальных новых методов PASS** по одному final runtime/wheel, без повторения уже прошедших методов: [итоговая matrix](FINAL_RESULTS.json), [первая команда/log](wheel-tests.run.json), [исправленный один метод](wheel-focused.run.json), [среда](WHEEL_ENVIRONMENT.json). Independent installed wheel вне source tree, пустой PYTHONPATH, Windows 11 x64/CPython 3.14.10, Flask 3.1.3/Waitress 3.0.2/Playwright 1.64.1, настоящий TCP и headless Edge. Package inventory совпал с final source.
+
+Проверены ZIP/CRC/два фиксированных файла, полный exact payload и skeleton, GET read-only/replay, настоящий multipart с большим русским документом без потерь UTF-8, tamper/stale/foreign Origin отказ, одно нажатие → одно скачивание, отсутствие старого блока/copy buttons/dialogs/JS errors, JSON из архива → strict PREVIEW без commit. Для ошибок ZIP GET и неправильного MIME проверены inline notice, доступная кнопка, отсутствие ложного скачивания и автоматического replay POST. Model/CLI calls 0; reply для проверки preview — объявленный synthetic fixture. [Снимок](output/playwright/one-click-manual-card.png), [sample ZIP hashes](ZIP_SAMPLE.json); синтетические instruction/pack также сохранены распакованными рядом.
+
+Первый run: 4 PASS; один error-path browser case дал FAIL и cleanup ERROR из-за подписи тестового Playwright callback: Request попал в status default argument. Исправлена только callback signature, ожидания и runtime bytes не менялись; повторён только этот метод — PASS. Raw [log первого run](wheel-tests.log) и [focused log](wheel-focused.log) сохранены. В первом log также есть Waitress socket diagnostic при закрытии fixture после stale test; сам stale/read-only метод PASS, runtime из-за этого не менялся.
+
+Docs validator PASS / 0 errors, ожидаемый WARN без архива поставки: [log](docs-validator.log). Source/build/wheel/frozen equality, CRC wheel, docs mirrors/manifests, весь frozen payload включая .pyd и allowed scope — PASS: [integrity](INTEGRITY.json). [Build result](BUILD_RESULT.json), [build command/log](frozen-build.run.json). Существующие project state machines/approvals не менялись.
+
+Для обновления сначала дождались завершения текущей работы: stop helper после 30 секунд получил busy, force stop не использовался. Последующий public stop вернул 200 STOPPING: [diagnostic](STOP_DIAGNOSTIC.json); к установке процесс уже остановлен: [stop](STOP_FOR_UPDATE.json). [Operator upgrade](OPERATOR_UPGRADE.json) PASS, aggregate hashes данных до/после одинаковы, previous version сохранена, --check-package/--doctor exit 0. [Native installer log](installer-native.log), [ярлыки](SHORTCUTS.json). Видимых окон не открывали.
+
+## Артефакты и ограничения
+
+Source digest `sha256:0b3521b2027b90226a48713b11cf265d730ac5b63be89fc19db0a9178308e469`. Wheel SHA-256 `bf37e57ebdd435723129ac672f370ea050d0e4b4f54f21bccf1b02c9d3246cb9`. UNSIGNED installer SHA-256 `56d8852ad5276cd4232ac6d8e324708612f7803e1784f97bef45f412befe8291`. Полные source/docs inventories — [freeze](RUNTIME_FREEZE.json); [evidence index](EVIDENCE_INDEX.json).
+
+Full engine/core regression, вся PH-LW matrix, повторный provider/model analysis, actual installed-EXE browser reacceptance и старые широкие workflows NOT RUN: scope — только ручной архив и его прямые зависимости. Installed EXE проверен по bytes/package/doctor; browser — final installed wheel. Прежние PH-LW/LOCAL_WEB_MANUAL verdicts сохранены в их exact-byte границах. Automatic Task executor disabled / прежний NO-GO, полная v0.5.1 NOT RELEASED. Engine/Documentation delivery ZIP не собирались; `zip_created:false` в build freeze относится к ним. Синтетический manual handoff ZIP создан именно для проверки запрошенной feature, распакованные файлы сохранены.
+
+Следующий разрешённый шаг: открыть Harness через прежний ярлык → «Опрос и GPT» → «Сформировать пакет вручную». Прикрепить ZIP к GPT/Codex. Другие этапы и широкие проверки не выполнять.

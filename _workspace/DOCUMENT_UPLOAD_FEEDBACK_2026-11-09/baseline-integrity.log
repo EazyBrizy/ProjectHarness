@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "runtime_freeze_unchanged": true,
+  "runtime_freeze_sha256": "01ef2ddce6e42787b5937f937112f0b02ddefb05321eb348d59319a08bd941cf",
+  "build_id": "PH-LW-12-FIX5-20261108",
+  "engine_build_digest": "sha256:0789035971ad3488b37a3d1cc480a9c7c63effcc3c67c540630e452b77f936ae",
+  "wheel_sha256": "22ce3cdca5fe875430d4780f163975ba896c3348fa2f30b5a88199064bec54a1",
+  "installer_sha256": "a4c7432852aadf93fd19fa4646ef8306854369be8ff8fd941ce6d1d268cc5964",
+  "build_lib_source_byte_equality": "PASS",
+  "wheel_crc_record_source": "PASS",
+  "frozen_inventory": "PASS",
+  "frozen_source_and_docs_exact_freeze": "PASS",
+  "standalone_embedded_documentation_byte_equality": "PASS",
+  "resource_mirrors": {
+    "schemas": {
+      "status": "PASS",
+      "files": 17
+    },
+    "registries": {
+      "status": "PASS",
+      "files": 7
+    },
+    "templates": {
+      "status": "PASS",
+      "files": 2
+    },
+    "skills": {
+      "status": "PASS",
+      "files": 3
+    }
+  },
+  "private_runtime_files": [],
+  "secret_scan": {
+    "status": "PASS",
+    "text_files": 264,
+    "patterns": [
+      "private_key",
+      "openai_key_shape",
+      "live_bootstrap_url",
+      "github_token_shape"
+    ],
+    "matches": [],
+    "limitations": "Bounded pattern scan of controlled runtime source/resources and documentation; no universal DLP or semantic/binary secret guarantee. Fixture and operator raw roots excluded from delivery."
+  },
+  "architecture": {
+    "payload_Harness_exe": "0x8664",
+    "setup_bootstrap": "0x14c",
+    "target": "Inno Setup ArchitecturesAllowed=x64compatible; Windows 11 x64 acceptance"
+  },
+  "preserved_archives": 8,
+  "zip_created": false
+}

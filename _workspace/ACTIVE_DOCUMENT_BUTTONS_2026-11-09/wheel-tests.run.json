@@ -1,0 +1,16 @@
+{
+  "command": [
+    "C:/Users/gvenv/Desktop/ProjectHarness/_scratch/document_upload_feedback_20261109/wheel-venv/Scripts/python.exe",
+    "-B",
+    "C:/Users/gvenv/Desktop/ProjectHarness/_workspace/ACTIVE_DOCUMENT_BUTTONS_2026-11-09/checkpoint.py",
+    "wheel-tests"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\Независимая папка wheel",
+  "started_utc": "2026-11-09T11:11:51.116268+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 480,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 74.709,
+  "log_sha256": "7a24b082cc3c35273e5499e6fc6339a838c306098df220c20402487a8725d200"
+}

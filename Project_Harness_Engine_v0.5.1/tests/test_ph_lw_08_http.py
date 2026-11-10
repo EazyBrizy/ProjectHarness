@@ -1,6 +1,7 @@
 """Production Waitress/TCP + Edge: full MD/ZIP to real Project Instance."""
 from __future__ import annotations
 import json
+import zipfile
 import os
 import re
 from pathlib import Path
@@ -24,16 +25,16 @@ class PreparationHttpTests(unittest.TestCase):
             live=LiveServer(directory)
             try:
                 live.service.projects_directory=Path(directory)/'Проекты'
-                live.login();pid=live.create();base='/api/projects/'+pid
+                live.ready();pid=live.create();base='/api/projects/'+pid
                 before=byte_snapshot(Path(directory))
                 for route in ('/preparation','/preparation/LWO-'+'A'*32+'/prompt'):
-                    self.assertEqual(live.request('GET',base+route,authenticated=False)[0],401)
+                    self.assertEqual(live.request('GET',base+route,headers={'Origin':'http://foreign.invalid'})[0],403)
                 self.assertEqual(live.request('GET',base+'/preparation')[0],200)
                 for route in ('target','start','recover','open-folder'):
                     for headers in ({'Origin':'null'},{'Origin':'http://127.0.0.1:1'},
-                                    {'Host':'localhost:'+str(live.port)},{'X-CSRF-Token':'wrong'}):
+                                    {'Host':'localhost:'+str(live.port)}):
                         self.assertEqual(live.request('POST',base+'/preparation/'+route,value={},headers=headers)[0],403)
-                    self.assertEqual(live.request('POST',base+'/preparation/'+route,value={},authenticated=False)[0],401)
+                    self.assertEqual(live.request('POST',base+'/preparation/'+route,value={},headers={'Origin':'http://foreign.invalid'})[0],403)
                     self.assertEqual(live.request('POST',base+'/preparation/'+route,value={'path':'C:\\Windows'})[0],400)
                 self.assertEqual(before,byte_snapshot(Path(directory)))
             finally:live.close()
@@ -56,8 +57,8 @@ class PreparationBrowserTests(unittest.TestCase):
                         context.on('request',lambda r:urls.append(r.url));context.on('weberror',lambda e:errors.append(str(e)))
                         page.on('request',lambda r:app_urls.append(r.url))
                         page.on('dialog',lambda d:d.accept())
-                        page.goto(live.origin+'/#bootstrap='+live.auth.issue_bootstrap())
-                        expect(page.locator('#session-state')).to_have_text('Сессия активна')
+                        page.goto(live.origin + '/')
+                        expect(page.locator('#connection-state')).to_have_text('Сервер готов')
                         for zipped in (False,True):
                             page.locator('[data-screen="documents"]').click()
                             page.locator('#new-project-name').fill('Подготовка '+str(zipped))
@@ -72,13 +73,13 @@ class PreparationBrowserTests(unittest.TestCase):
                             expect(page.locator('#interview-body')).to_be_visible()
                             page.locator('#answer-implementation-target_level').select_option('MVP')
                             page.locator('#save-answers').click()
-                            expect(page.locator('#notice')).to_contain_text('Ответы проверены и сохранены ядром')
-                            page.locator('#review-export').click();expect(page.locator('#export-review')).to_be_visible()
-                            for item in page.locator('#export-documents select').all():item.select_option('PUBLIC')
-                            page.locator('#draft-classification').select_option('PUBLIC');page.locator('#export-consent').check()
-                            page.locator('#create-export').click();expect(page.locator('#export-history a')).to_have_count(1)
-                            with page.expect_download() as download:page.locator('#export-history a').click()
-                            pack=Path(download.value.path()).read_text('utf-8')
+                            expect(page.locator('#notice')).to_contain_text('Ответы проверены и сохранены')
+                            self.assertEqual(page.locator('#export-review').count(),0)
+                            
+                            with page.expect_download() as download:page.locator('#review-export').click()
+                            expect(page.locator('#review-export')).to_be_enabled()
+                            self.assertEqual(page.locator('#export-history').count(),0)
+                            with zipfile.ZipFile(download.value.path()) as z:pack=z.read('pack.md').decode('utf-8')
                             reply=fixture_reply(json.loads(pack.split('## Return skeleton\n\n',1)[1]))
                             page.locator('#gpt-reply').fill(json.dumps(reply,ensure_ascii=False))
                             page.locator('#preview-reply').click();expect(page.locator('#import-preview')).to_be_visible()
@@ -88,11 +89,11 @@ class PreparationBrowserTests(unittest.TestCase):
                             page.locator('#approval-actor').fill('Оператор Windows Edge');page.locator('#save-approval-actor').click()
                             expect(page.locator('#approval-actor-display')).to_contain_text('Оператор Windows Edge')
                             for i,subject in enumerate(approvals_for_mode('GREENFIELD')):
-                                page.locator('#confirm-'+subject).check();page.locator('#approve-'+subject).click()
+                                page.locator('#approve-'+subject).click()
                                 expect(page.locator('#approvals-status')).to_contain_text(f'{i+1} из 4')
                             expect(page.locator('#preparation-form')).to_be_visible()
                             name='Реальная папка '+str(zipped)
-                            page.locator('#project-folder-name').fill(name);page.locator('#confirm-new-folder').check()
+                            page.locator('#project-folder-name').fill(name);
                             with page.expect_response(lambda r:r.url.endswith('/preparation/start')) as started:
                                 page.locator('#prepare-project').click()
                             self.assertEqual(started.value.status,202,started.value.text())

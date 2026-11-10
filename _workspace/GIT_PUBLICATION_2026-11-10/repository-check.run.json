@@ -1,0 +1,17 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "tools/check_repository.py",
+    "--json",
+    "_workspace/GIT_PUBLICATION_2026-11-10/REPOSITORY_CHECK.json"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-10T13:37:36.825155+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 90,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 1.51,
+  "log_sha256": "5d18f9c93d0e76be1dfbdd972e88b953a51ec39f3d031b99ddcdb8293dc2d031"
+}

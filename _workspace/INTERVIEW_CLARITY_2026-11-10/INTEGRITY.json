@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "source_build_wheel_frozen": "PASS",
+  "full_frozen_payload_including_pyd": "PASS",
+  "documentation_mirrors": "PASS",
+  "manifests": "PASS",
+  "only_allowed_runtime_changes": [
+    "resources/local_web/assets/app.js",
+    "resources/local_web/assets/index.html",
+    "resources/local_web/assets/interview.js",
+    "resources/local_web/metadata_v1.json"
+  ],
+  "historical_documentation_preserved": true,
+  "unrelated_original_tests_preserved": true,
+  "build_id": "CLEAR-INTERVIEW-20261110",
+  "engine_manifest_sha256": "5adf2ad3f2569bb78becdddc112d2f5f7360aaa2a644e0350d8c2a5ac33564dd",
+  "docs_manifest_sha256": "753654e4280615fd1f01281bc98a37fef7ecb2c1da2ba59f1530c6eae3590e06",
+  "zip_created": false
+}

@@ -1,0 +1,7 @@
+test_cancel_busy_stale_result_and_invalid_reply_never_apply_draft (tests.test_cli_document_analysis.CliAnalysisTests.test_cancel_busy_stale_result_and_invalid_reply_never_apply_draft) ... ok
+test_restart_projection_is_read_only_and_never_restarts_cli (tests.test_cli_document_analysis.CliAnalysisTests.test_restart_projection_is_read_only_and_never_restarts_cli) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 3.571s
+
+OK

@@ -1,0 +1,317 @@
+diff --git a/Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/assets/app.css b/Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/assets/app.css
+index b87c33c..5f8327f 100644
+--- a/Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/assets/app.css
++++ b/Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/assets/app.css
+@@ -81,6 +81,12 @@ footer { font-size:11px; color:#6b7b90; padding:26px 0 7px; }
+ .upload-zone { padding:16px; border:2px dashed #94afce; border-radius:10px; background:#f8fbff; }
+ .upload-zone.dragover { border-color:#1769cf; background:#e9f2ff; }
+ .upload-zone input { width:100%; max-width:100%; }
++.upload-step { padding:14px; margin:14px 0; border:1px solid #94afce; border-radius:8px; background:#f0f6ff; overflow-wrap:anywhere; }
++.upload-step p { margin:7px 0 0; }
++.upload-step.success { border-color:#40916c; background:#edf8f1; }
++.upload-step.error { border-color:#ba4545; background:#fff1f1; }
++.document-primary { padding:11px 16px; border:1px solid #1657a9; border-radius:9px; color:#fff; background:#1769cf; font-weight:600; }
++.document-primary:hover:enabled { background:#1254a5; }
+ .source-list { display:grid; gap:8px; }
+ .source-item { padding:10px; border:1px solid #dfe6ef; border-radius:8px; overflow-wrap:anywhere; }
+ .source-item button { margin-right:10px; }
+diff --git a/Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/assets/app.js b/Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/assets/app.js
+index 8078b12..284e74e 100644
+--- a/Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/assets/app.js
++++ b/Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/assets/app.js
+@@ -228,7 +228,7 @@ function renderView(view) {
+   text('next-action', format(view.required_user_action));
+   renderActions(view.available_actions || []);
+   renderProjects();
+-  $('upload-sources').disabled = state.requestBusy || !chosenDocuments.files.length || view.kind !== 'workspace';
++  renderSourceFlow();
+ }
+ let projectRead = null;
+ function selectProject(projectId, afterCommit = false) {
+@@ -267,6 +267,7 @@ async function readSelectedProject(projectId, afterCommit = false) {
+   } catch (err) { showNotice(err.message, 'error'); }
+ }
+ async function refresh() {
++  sourceFeedback = null;
+   if (state.screen === 'tasks' && typeof taskButtons !== 'undefined') {
+     taskView = null;
+     for (const id of taskButtons) $(id).disabled = true;
+@@ -330,22 +331,70 @@ for (const button of document.querySelectorAll('[data-screen]')) {
+ }
+ // PH-LW-05 document flow: FormData only, no absolute paths or untrusted HTML.
+ const chosenDocuments = { files: [] };
++let sourceRequest = null;
++let sourceFeedback = null;
++function renderSourceFlow() {
++  const workspace = state.view?.kind === 'workspace';
++  const snapshot = workspace && state.sourceSnapshot?.project_id === state.activeProject ? state.sourceSnapshot : null;
++  const ready = Boolean(state.csrf && snapshot && !state.requestBusy);
++  const selected = chosenDocuments.files.length;
++  const completed = snapshot && (snapshot.documents.length > 0 || snapshot.documentation_choice === 'NONE');
++  $('upload-sources').disabled = !ready || !selected;
++  $('confirm-no-docs').disabled = !ready;
++  $('source-files').disabled = state.requestBusy;
++  $('source-import-mode').disabled = state.requestBusy;
++  $('clear-source-files').disabled = state.requestBusy;
++  $('clear-source-files').classList.toggle('hidden', !selected);
++  $('documents-next').disabled = !ready || !completed || Boolean(selected);
++  const project = state.projects.find(entry => entry.project_id === state.activeProject);
++  text('upload-project', workspace ? `Документы для проекта: ${project?.display_name || project?.project_name || state.activeProject}` : 'Проект для загрузки ещё не выбран.');
++  let title, detail, category = '';
++  if (sourceRequest?.projectId === state.activeProject) {
++    title = sourceRequest.phase === 'validating' ? 'Файлы переданы. Проверяем архив и документы…' : 'Загружаем файлы…';
++    detail = 'Дождитесь результата проверки. Повторно нажимать кнопку не нужно.';
++  } else if (!workspace) {
++    title = selected ? 'Файлы выбраны. Сначала создайте или выберите проект' : 'Сначала создайте или выберите проект';
++    detail = state.view?.kind === 'project' ? 'У опубликованного Project Instance источники здесь не заменяются. Для нового проекта заполните название слева.' :
++      'Введите название слева и нажмите «Создать проект для документов». Выбранные файлы сохранятся; после создания нажмите «Импортировать файлы».';
++  } else if (sourceFeedback?.projectId === state.activeProject) {
++    ({title, detail, category} = sourceFeedback);
++  } else if (!snapshot) {
++    title = 'Читаем состояние документов…';
++    detail = 'Дождитесь списка источников. Если чтение не удалось, нажмите «Обновить».';
++  } else if (selected) {
++    title = 'Файлы выбраны — загрузка ещё не началась';
++    detail = 'Нажмите «Импортировать файлы» и подтвердите загрузку. Затем здесь появится результат проверки.';
++  } else if (snapshot.documents.length) {
++    title = `Документы загружены: ${snapshot.documents.length} MD`;
++    detail = 'Загрузка и проверка завершены. Следующий шаг — «Перейти к опросу и GPT». Анализ и согласования выполняются отдельно.';
++    category = 'success';
++  } else if (snapshot.documentation_choice === 'NONE') {
++    title = 'Подтверждено: документации нет';
++    detail = 'Можно продолжить: нажмите «Перейти к опросу и GPT».';
++    category = 'success';
++  } else {
++    title = 'Проект готов к загрузке документов';
++    detail = 'Выберите ZIP с Markdown или файлы MD, затем нажмите «Импортировать файлы». Выбор файла сам по себе не запускает загрузку.';
++  }
++  text('upload-step-title', title); text('upload-step-detail', detail);
++  $('upload-step').className = 'upload-step' + (category ? ' ' + category : '');
++}
+ function finishSourceRequest() {
+   state.requestBusy = false;
++  sourceRequest = null;
+   if (state.view) renderActions(state.view.available_actions || []);
+-  const ready = state.csrf && state.view?.kind === 'workspace' &&
+-    state.sourceSnapshot?.project_id === state.activeProject;
+-  $('confirm-no-docs').disabled = !ready;
+-  $('upload-sources').disabled = !ready || !chosenDocuments.files.length;
++  renderSourceFlow();
+ }
+ function setSelected(files) {
+   chosenDocuments.files = Array.from(files).slice(0, 100);
++  sourceFeedback = null;
++  text('upload-result', '');
+   text('upload-selected', chosenDocuments.files.length ?
+     `${chosenDocuments.files.length} файл(ов): ${chosenDocuments.files.map(f => f.name).join(', ')}` : 'Файлы не выбраны');
+-  $('upload-sources').disabled = !chosenDocuments.files.length || !state.activeProject ||
+-    !state.view || state.view.kind !== 'workspace' || state.requestBusy;
++  renderSourceFlow();
+ }
+ $('source-files').addEventListener('change', event => setSelected(event.target.files));
++$('clear-source-files').addEventListener('click', () => { setSelected([]); $('source-files').value=''; });
+ const zone = $('upload-zone');
+ for (const name of ['dragenter', 'dragover']) zone.addEventListener(name, event => {
+   event.preventDefault(); zone.classList.add('dragover');
+@@ -355,19 +404,23 @@ for (const name of ['dragleave', 'drop']) zone.addEventListener(name, event => {
+ });
+ zone.addEventListener('drop', event => { if (event.dataTransfer) setSelected(event.dataTransfer.files); });
+ async function loadSources() {
++  const projectId = state.activeProject;
+   $('source-list').replaceChildren();
++  text('source-preview', 'Выберите документ для просмотра.');
++  renderSourceFlow();
+   if (!state.activeProject || !state.view || state.view.kind !== 'workspace') {
+     text('source-summary', 'Выберите подготовительную рабочую область. Для Project Instance источники не заменяются.');
+     $('confirm-no-docs').disabled = true; $('upload-sources').disabled = true; return;
+   }
+   try {
+-    const response = await api(`/api/projects/${encodeURIComponent(state.activeProject)}/sources`);
++    const response = await api(`/api/projects/${encodeURIComponent(projectId)}/sources`);
++    if (projectId !== state.activeProject || state.view?.kind !== 'workspace') return;
+     state.sourceSnapshot = response;
++    if (sourceFeedback?.projectId === projectId && sourceFeedback.title === 'Не удалось прочитать состояние документов') sourceFeedback = null;
+     text('source-summary', `Revision ${response.source_revision}; выбор: ${response.documentation_choice}; ` +
+       `${response.documents.length} MD документов, ${response.skipped.length} пропущено. ` +
+       'Импорт не выполняет смысловой анализ; черновик и вопросы доступны во вкладке «Опрос и GPT».');
+-    $('confirm-no-docs').disabled = state.requestBusy;
+-    $('upload-sources').disabled = !chosenDocuments.files.length || state.requestBusy;
++    renderSourceFlow();
+     for (const doc of response.documents) {
+       const item = document.createElement('div'); item.className = 'source-item';
+       const button = document.createElement('button'); button.type='button'; button.className='outline';
+@@ -382,8 +435,17 @@ async function loadSources() {
+       item.textContent = `Не импортировано: ${skipped.original_name} / ${skipped.relative_path || ''} — ${skipped.reason}`;
+       $('source-list').append(item);
+     }
+-  } catch (error) { text('source-summary', error.message); }
++  } catch (error) {
++    if (projectId !== state.activeProject) return;
++    state.sourceSnapshot = null;
++    sourceFeedback = {projectId, title:'Не удалось прочитать состояние документов', detail:error.message + ' Нажмите «Обновить».', category:'error'};
++    text('source-summary', error.message); renderSourceFlow();
++  }
+ }
++$('documents-next').addEventListener('click', () => {
++  if ($('documents-next').disabled) return;
++  selectScreen('interview'); rememberSelection();
++});
+ async function showPreview(docRef) {
+   try {
+     const data = await api(`/api/projects/${encodeURIComponent(state.activeProject)}/documents/${encodeURIComponent(docRef)}/preview`);
+@@ -406,7 +468,7 @@ async function createWorkspace(noDocumentation) {
+     await selectProject(result.project_id);
+     rememberSelection();
+     showNotice(noDocumentation ? 'Отсутствие документации сохранено. Дальше — вопросы опроса.' :
+-      'Intake создан. Теперь загрузите MD/ZIP. Без анализа и подтверждений.', 'success');
++      'Проект создан. Выберите MD/ZIP и нажмите «Импортировать файлы».', 'success');
+   } catch (error) { showNotice(error.message, 'error'); }
+   finally { finishSourceRequest(); }
+ }
+@@ -418,6 +480,7 @@ $('confirm-no-docs').addEventListener('click', async () => {
+   try {
+     const response = await api(`/api/projects/${encodeURIComponent(state.activeProject)}/sources/no-documentation`,
+       {method:'POST', body:{expected_fingerprint:state.view.fingerprint, expected_source_revision:state.sourceSnapshot.source_revision}});
++    setSelected([]); $('source-files').value='';
+     text('upload-result', `${response.status} · revision ${response.source_revision}. Опрос ещё не выполнен.`);
+     await selectProject(state.activeProject);
+   } catch (error) { showNotice(error.message, 'error'); }
+@@ -432,9 +495,11 @@ $('upload-sources').addEventListener('click', () => {
+   form.set('expected_source_revision', String(state.sourceSnapshot.source_revision));
+   chosenDocuments.files.forEach(file => form.append('files', file, file.name));
+   const xhr = new XMLHttpRequest();
+-  const target = `/api/projects/${encodeURIComponent(state.activeProject)}/sources/upload`;
++  const projectId = state.activeProject;
++  const target = `/api/projects/${encodeURIComponent(projectId)}/sources/upload`;
+   state.requestBusy = true;
+-  $('upload-sources').disabled = true;
++  sourceRequest = {projectId, phase:'uploading'};
++  renderSourceFlow();
+   $('upload-progress').classList.remove('hidden');
+   $('upload-progress').value = 0;
+   text('upload-result', 'Загрузка в приватный карантин — ещё не принято.');
+@@ -444,25 +509,38 @@ $('upload-sources').addEventListener('click', () => {
+   xhr.upload.onprogress = event => {
+     if (event.lengthComputable) $('upload-progress').value = Math.round(event.loaded / event.total * 100);
+   };
++  xhr.upload.onload = () => {
++    if (sourceRequest?.projectId === projectId) {
++      sourceRequest.phase = 'validating'; renderSourceFlow();
++      $('upload-progress').removeAttribute('value');
++    }
++  };
+   xhr.onload = async () => {
+     let completedMessage = '';
+     try {
+       const result = JSON.parse(xhr.responseText);
+       if (xhr.status < 200 || xhr.status >= 300) throw new Error(result.error?.message_ru || 'Импорт отклонён');
+-      completedMessage = `Принято: ${result.accepted_count}; пропущено: ${result.skipped_count}; ` +
++      completedMessage = `${result.status === 'UNCHANGED' ? 'Эти файлы уже загружены; повторный импорт не создал копий. ' : ''}Принято: ${result.accepted_count}; пропущено: ${result.skipped_count}; ` +
+         `отклонено: ${result.rejected_count}; ревизия: ${result.source_revision}. ` +
+         'Документы импортированы — анализ ещё не выполнен. ' +
+         (result.skipped || []).map(x => x.reason).join(', ');
+       setSelected([]); $('source-files').value='';
+-      await selectProject(state.activeProject);
+-    } catch (error) { completedMessage = error.message + ' Ранее принятые данные не заменены.'; }
++      await selectProject(projectId);
++    } catch (error) {
++      completedMessage = error.message + ' Импорт не подтверждён. Обновите состояние перед повторной попыткой.';
++      sourceFeedback = {projectId, title:'Импорт не подтверждён', detail:completedMessage, category:'error'};
++    }
+     finally {
+       finishSourceRequest(); $('upload-progress').classList.add('hidden');
+       text('upload-result', completedMessage);
+     }
+   };
+-  xhr.onerror = () => { finishSourceRequest(); $('upload-progress').classList.add('hidden');
+-    text('upload-result', 'Сбой соединения. Перечитайте ревизию до повторного запроса.'); };
++  xhr.onerror = () => {
++    sourceFeedback = {projectId, title:'Не удалось получить результат загрузки',
++      detail:'Сбой соединения. Нажмите «Обновить», чтобы проверить, сохранены ли документы. После этого решите, нужен ли повторный импорт.', category:'error'};
++    finishSourceRequest(); $('upload-progress').classList.add('hidden');
++    text('upload-result', sourceFeedback.detail);
++  };
+   xhr.send(form);
+ });
+ 
+diff --git a/Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/assets/index.html b/Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/assets/index.html
+index fb2b01d..888d7ae 100644
+--- a/Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/assets/index.html
++++ b/Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/assets/index.html
+@@ -167,11 +167,12 @@
+         <p class="muted">Только локальные MD (UTF-8) и ZIP с MD. Импорт не анализирует документы и не отправляет их в интернет.</p>
+         <div class="document-grid">
+           <div>
+-            <h3>Начать Greenfield опрос</h3>
++            <h3>1. Создайте или выберите проект</h3>
++            <p class="small muted">Для нового проекта введите название и нажмите «Создать проект для документов». Если проект уже есть, выберите его во вкладке «Проекты».</p>
+             <label for="new-project-name">Название проекта</label>
+             <input id="new-project-name" type="text" maxlength="120" autocomplete="off" placeholder="Название проекта">
+             <div class="button-cluster">
+-              <button id="create-intake" type="button" class="outline">Создать intake для документов</button>
++              <button id="create-intake" type="button" class="outline">Создать проект для документов</button>
+               <button id="create-no-docs" type="button" class="outline">Документации нет</button>
+             </div>
+             <label>Existing repository mode <select id="repository-mode"><option>BROWNFIELD</option><option>HYBRID</option></select></label>
+@@ -179,7 +180,8 @@
+             <p class="small muted">Системное окно выбора папки. Assessment и preparation читают исходный репозиторий; новый Project Instance размещается отдельно.</p>
+           </div>
+           <div>
+-            <h3>Загрузить документы в выбранный intake</h3>
++            <h3>2. Выберите и импортируйте документы</h3>
++            <p id="upload-project" class="small muted">Проект для загрузки ещё не выбран.</p>
+             <div id="upload-zone" class="upload-zone" role="group" aria-label="Загрузка Markdown и ZIP">
+               <label for="source-files">Выберите MD/ZIP или перетащите файлы сюда</label>
+               <input id="source-files" type="file" accept=".md,.zip" multiple>
+@@ -188,11 +190,18 @@
+             <label for="source-import-mode">Способ изменения источников</label>
+             <select id="source-import-mode"><option value="append">Добавить</option><option value="replace">Заменить весь набор</option></select>
+             <div class="button-cluster">
+-              <button id="upload-sources" class="outline" type="button" disabled>Импортировать файлы</button>
++              <button id="upload-sources" class="document-primary" type="button" disabled aria-describedby="upload-step-detail">Импортировать файлы</button>
++              <button id="clear-source-files" class="quiet hidden" type="button">Снять выбор файлов</button>
+               <button id="confirm-no-docs" class="quiet" type="button" disabled>Документации нет</button>
+             </div>
+-            <progress id="upload-progress" class="hidden" max="100" value="0" aria-label="Прогресс загрузки"></progress>
++            <div id="upload-step" class="upload-step" role="status" aria-live="polite" aria-atomic="true">
++              <strong id="upload-step-title">Сначала создайте или выберите проект</strong>
++              <p id="upload-step-detail">Затем выберите ZIP с Markdown или файлы MD и нажмите «Импортировать файлы». Выбор файла сам по себе не запускает загрузку.</p>
++            </div>
++            <progress id="upload-progress" class="hidden" max="100" value="0" aria-label="Прогресс передачи файлов"></progress>
+             <p id="upload-result" role="status" aria-live="polite" class="small"></p>
++            <h3>3. Продолжите подготовку проекта</h3>
++            <button id="documents-next" class="document-primary" type="button" disabled aria-describedby="upload-step-detail">Перейти к опросу и GPT →</button>
+           </div>
+         </div>
+         <h3>Принятые источники и история</h3>
+diff --git a/Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/metadata_v1.json b/Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/metadata_v1.json
+index c8c62dc..409b2ed 100644
+--- a/Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/metadata_v1.json
++++ b/Project_Harness_Engine_v0.5.1/src/project_harness/resources/local_web/metadata_v1.json
+@@ -5,7 +5,7 @@
+   "core_schema_version": 7,
+   "project_input_schema": "SCHEMA-PROJECT-PREPARATION-INPUT@4",
+   "local_web_version": "0.1.0-dev",
+-  "local_web_build_id": "PH-LW-12-FIX5-20261108",
++  "local_web_build_id": "DOC-UPLOAD-UX-20261109",
+   "base_lineage": "PH-051-11-WIP-NOT-RELEASED",
+   "declared_target_base": "PH-051-12-WIP-NO-GO-NOT_SUPPLIED",
+   "source_engine_zip_sha256": "44b75136131d917403b99299077e829c025783a6bb94c2b539fbe0b913449dbd",
+@@ -17,7 +17,7 @@
+   "automatic_executor_release_status": "NO-GO",
+   "local_web_manual_release_status": "NO-GO",
+   "dependency_lock": "local_web/requirements-web-win_amd64-cp314.lock",
+-  "note": "Windows PH-LW-12 blocker and snapshot-polling fixes; pre-acceptance immutable build. Exact-hash verdict in PH_LW_12_FIX_TEST_REPORT.md; automatic executor disabled; full v0.5.1 NOT RELEASED.",
++  "note": "Document upload feedback correction. Targeted validation and exact hashes in workspace DOCUMENT_UPLOAD_FEEDBACK_2026-11-09; automatic executor disabled; full v0.5.1 NOT RELEASED.",
+   "platform_acceptance": {
+     "report": "PH_LW_04_05_WINDOWS_ACCEPTANCE_TEST_REPORT.md",
+     "scope": "PH-LW-04/05 Windows HTTP acceptance; full installer/lifecycle acceptance pending"
+@@ -37,7 +37,7 @@
+     "exchange_envelope": "LOCAL_WEB_GPT_DRAFT_ONLY@2",
+     "artifact_policy": "Unpacked working files; ZIP only on explicit user request"
+   },
+-  "engine_build_digest": "sha256:0789035971ad3488b37a3d1cc480a9c7c63effcc3c67c540630e452b77f936ae",
++  "engine_build_digest": "sha256:629263b3719a325337b976402d37bfad8d3ef369a9d531eb937373d77c499386",
+   "engine_build_digest_definition": "SHA256 of sorted SHA256 + two spaces + relative path + LF for src/project_harness files, excluding this metadata file and caches",
+   "ph_lw_07": {
+     "report": "PH_LW_07_TEST_REPORT.md",

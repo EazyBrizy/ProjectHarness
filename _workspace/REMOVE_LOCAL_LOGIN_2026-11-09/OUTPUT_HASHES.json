@@ -1,0 +1,13 @@
+{
+  "runtime_freeze": "debb2f8bd0342c21e1f82d9047661802df9ec5b1e42784f9e7a8819404c5ab08",
+  "report": "efce154edaa646240281904d825c29abd0d6dbdb64aa97d601cdd002a3144b82",
+  "changed_hashes": "b43294e02c7c80296bfd9c253a25077a025b41045aa02e7ee83fe7b53bd312b7",
+  "root_files": {
+    "AGENTS.md": "eb52e61dac14b84c8410a033b6d54cf075616a587696010a3136353878105fcb",
+    "_workspace/CURRENT_TASK.md": "c8e974d667f823e50359c208f9fa17bfebd9afbdd65dae380120aded907ca9ba",
+    "_workspace/RUNBOOK.md": "d577079185218742256f0c4f6925410301f16626af88ead4a8a1fc71901928d7",
+    "tools/verify_installed.py": "af22612b32fb9ee8427af1d8afedf4849a94f76f13a9507e5c8035bd8e5b8ec6"
+  },
+  "engine_manifest": "f4358b048198c04b39b24a9eeb3947175c63a694a13c843f2ce65c336e7df34a",
+  "documentation_manifest": "4258a125816a68db982e5cf6305637a1c6ec0a1f29409de16bc258d97bbbf384"
+}

@@ -1,0 +1,27 @@
+{
+  "installer_sha256": "f90a108596eadf321bfa79c660b2cc39b6a8301833739fe863aebae10a2ba591",
+  "non_admin": true,
+  "browser": "headless Edge, real TCP, actual installed EXE with sanitized PATH",
+  "validation_timing_test": "NOT RUN against EXE; timing latch test belongs to source/wheel only",
+  "install": {
+    "command": [
+      "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1\\windows\\Harness-Setup-win-x64.exe",
+      "/VERYSILENT",
+      "/SUPPRESSMSGBOXES",
+      "/NORESTART",
+      "/DIR=C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\installed-exe-final\\Установленная программа",
+      "/LOG=C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\installed-exe-final\\install.log"
+    ],
+    "exit": 0
+  },
+  "tests": {
+    "ran": 5,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "build_id": "DOC-UPLOAD-UX-20261109",
+  "uninstall_exit": 0,
+  "status": "PASS",
+  "operator_shortcuts_preserved": true
+}

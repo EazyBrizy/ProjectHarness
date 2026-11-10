@@ -1,0 +1,16 @@
+{
+  "command": [
+    "./.venv/Scripts/python.exe",
+    "-B",
+    "_workspace/CLI_DOCUMENT_ANALYSIS_2026-11-10/native_analysis.py",
+    "--retry"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-10T12:07:49.864627+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 400,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 71.379,
+  "log_sha256": "89f5a6e9091c98946a22b191ca719e2a0e6493d78d49bc441ec0239f344fda40"
+}

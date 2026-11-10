@@ -8,7 +8,6 @@ import tempfile
 import unittest
 
 from project_harness.local_web_service import LocalWebService
-from project_harness.local_web_http import LocalWebAuth
 
 HAS_FLASK = find_spec('flask') is not None
 
@@ -21,17 +20,12 @@ class SourceHttpSecurity(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.service = LocalWebService(Path(self.temp.name) / 'app')
         self.addCleanup(self.service.close)
-        self.auth = LocalWebAuth()
         self.port = 54931
         self.origin = 'http://127.0.0.1:54931'
-        self.app = create_app(self.service, port=self.port, auth=self.auth)
+        self.app = create_app(self.service, port=self.port)
         self.client = self.app.test_client()
         self.host = {'Host': '127.0.0.1:54931', 'Origin': self.origin}
-        token = self.auth.issue_bootstrap()
-        response = self.client.post('/api/session/bootstrap', json={'token': token}, headers=self.host)
-        self.assertEqual(response.status_code, 200)
-        self.csrf = response.json['csrf']
-        self.secure = {**self.host, 'X-CSRF-Token': self.csrf}
+        self.secure = {**self.host, }
         created = self.client.post('/api/intakes', headers=self.secure,
                  json={'project_name': 'Демо PH-LW-05', 'no_documentation': False,
                        'idempotency_key': 'http-create-intake-key-12'})
@@ -50,10 +44,10 @@ class SourceHttpSecurity(unittest.TestCase):
                 headers=self.secure if headers is None else headers, data=payload,
                 content_type='multipart/form-data')
 
-    def test_auth_upload_list_preview_and_replay(self):
+    def test_direct_upload_list_preview_and_replay(self):
         unauth = self.app.test_client().get(f'/api/projects/{self.pid}/sources', headers=self.host)
-        self.assertEqual(unauth.status_code, 401)
-        self.assertEqual(self._upload(headers=self.host).status_code, 403)
+        self.assertEqual(unauth.status_code, 200)
+        self.assertNotIn('Set-Cookie', unauth.headers)
         self.assertEqual(self._upload(headers={**self.secure, 'Host': 'localhost:54931'}).status_code, 403)
         self.assertEqual(self._upload(headers={**self.secure, 'Origin': 'null'}).status_code, 403)
         post = self._upload(data=b'<img src=x onerror=alert(1)>')
@@ -84,7 +78,7 @@ class SourceHttpSecurity(unittest.TestCase):
         missing = self.app.test_client().post('/api/intakes', headers=self.host,
                             json={'project_name': 'Insecure', 'no_documentation': True,
                                   'idempotency_key': 'unauth-create-intake-1'})
-        self.assertEqual(missing.status_code, 401)
+        self.assertEqual(missing.status_code, 201)
 
     def test_duplicate_multipart_scalar_fields_are_rejected(self):
         from werkzeug.datastructures import MultiDict
@@ -116,7 +110,7 @@ class SourceHttpSecurity(unittest.TestCase):
             client = self.app.test_client()
             result = getattr(client, method)(f'/api/projects/{self.pid}/sources/recover',
                               headers=self.host, json={'confirm': True} if method == 'post' else None)
-            self.assertIn(result.status_code, (401, 405))
+            self.assertEqual(result.status_code, 405 if method == 'get' else 200)
 
 
 if __name__ == '__main__':

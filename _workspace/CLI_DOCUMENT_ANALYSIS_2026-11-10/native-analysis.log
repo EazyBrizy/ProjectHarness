@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_workspace\CLI_DOCUMENT_ANALYSIS_2026-11-10\native_analysis.py", line 37, in <module>
+    assert code==200,(code,connected)
+           ^^^^^^^^^
+AssertionError: (400, {'error': {'code': 'VALIDATION_FAILED', 'message_ru': 'Запрос или состояние проекта не прошли проверку.', 'next_action_ru': 'Проверьте данные и текущий статус, затем создайте новое действие.'}, 'status': 'FAILED'})

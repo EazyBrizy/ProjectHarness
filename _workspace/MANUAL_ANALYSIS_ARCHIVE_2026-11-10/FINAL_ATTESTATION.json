@@ -1,0 +1,12 @@
+{
+  "status": "COMPLETE",
+  "build_id": "MANUAL-ANALYSIS-ZIP-20261110",
+  "unique_targeted_methods_passed": 5,
+  "full_engine_tests": "NOT RUN — manual ZIP scope",
+  "model_requests": 0,
+  "distribution_zip_created": false,
+  "synthetic_manual_zip_created": true,
+  "report_sha256": "23d1540ffbacfb1d32ba670e23e4477491be615bc5062e99c1fdd9fa30a1e74a",
+  "current_task_sha256": "5773ce2fbbda1bf1e9c96a8575d52e29dc1e3496e00f6758890c9492f781c5f2",
+  "engine_manifest_sha256": "de6acb0d67ec698bf6bcb28b45538617dd996d6fe2130a609b527fec4fc1bc3a"
+}

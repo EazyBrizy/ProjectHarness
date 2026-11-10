@@ -1,0 +1,76 @@
+test_choose_before_project_import_and_explicit_next (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_choose_before_project_import_and_explicit_next) ... Task queue depth is 1
+Task queue depth is 2
+ok
+test_lost_response_after_commit_refresh_recovers_without_reposting (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_lost_response_after_commit_refresh_recovers_without_reposting) ... Task queue depth is 1
+ok
+test_no_documentation_has_explicit_next (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_no_documentation_has_explicit_next) ... Task queue depth is 1
+Task queue depth is 2
+FAIL
+test_rejected_zip_preserves_sources_and_can_retry (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_rejected_zip_preserves_sources_and_can_retry) ... Task queue depth is 1
+ok
+test_reload_duplicate_and_switch_to_empty_project (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_reload_duplicate_and_switch_to_empty_project) ... Task queue depth is 1
+Task queue depth is 2
+Task queue depth is 1
+Task queue depth is 2
+Task queue depth is 1
+ok
+test_transfer_finished_is_still_validation_not_success (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_transfer_finished_is_still_validation_not_success) ... Task queue depth is 1
+Task queue depth is 2
+ok
+
+======================================================================
+FAIL: test_no_documentation_has_explicit_next (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_no_documentation_has_explicit_next)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\tests\test_document_upload_feedback.py", line 102, in test_no_documentation_has_explicit_next
+    self.create(no_docs=True)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\tests\test_document_upload_feedback.py", line 50, in create
+    self.expect(self.page.locator('#source-summary')).to_contain_text('Revision 0')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\.venv\Lib\site-packages\playwright\sync_api\_generated.py", line 14961, in to_contain_text
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.to_contain_text(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        )
+        ^
+    )
+    ^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 303, in to_contain_text
+    await self._expect_impl(
+    ...<9 lines>...
+    )
+  File "C:\Users\gvenv\Desktop\ProjectHarness\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        AssertionError(
+        ^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        self._is_soft,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\.venv\Lib\site-packages\playwright\_impl\_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to contain text 'Revision 0'
+Actual value: Revision 1; выбор: NONE; 0 MD документов, 0 пропущено. Импорт не выполняет смысловой анализ; черновик и вопросы доступны во вкладке «Опрос и GPT». 
+Call log:
+  - Expect "to_contain_text" locator("#source-summary") with timeout 5000ms
+  - waiting for locator("#source-summary")
+    2 × locator resolved to <p class="muted" id="source-summary">Выберите подготовительную рабочую область. Для Pr…</p>
+      - unexpected value "Выберите подготовительную рабочую область. Для Project Instance источники не заменяются."
+    12 × locator resolved to <p class="muted" id="source-summary">Revision 1; выбор: NONE; 0 MD документов, 0 пропу…</p>
+       - unexpected value "Revision 1; выбор: NONE; 0 MD документов, 0 пропущено. Импорт не выполняет смысловой анализ; черновик и вопросы доступны во вкладке «Опрос и GPT»."
+
+Aria snapshot:
+- paragraph: "Revision 1; выбор: NONE; 0 MD документов, 0 пропущено. Импорт не выполняет смысловой анализ; черновик и вопросы доступны во вкладке «Опрос и GPT»."
+
+----------------------------------------------------------------------
+Ran 6 tests in 76.855s
+
+FAILED (failures=1)

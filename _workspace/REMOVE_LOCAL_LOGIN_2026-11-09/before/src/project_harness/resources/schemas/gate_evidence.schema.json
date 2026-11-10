@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "SCHEMA-GATE-EVIDENCE@1",
+  "title": "Project Harness normalized Gate-eligible evidence",
+  "type": "object",
+  "required": ["verification_evidence"],
+  "properties": {
+    "verification_evidence": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "id",
+        "ref",
+        "kind",
+        "status",
+        "provenance",
+        "base_revision",
+        "criterion_refs",
+        "outcome_refs",
+        "profile_control_refs",
+        "source_bindings",
+        "created_at"
+      ],
+      "properties": {
+        "schema_version": {"const": 1},
+        "id": {"type": "string", "pattern": "^EVD-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?$"},
+        "ref": {"type": "string", "pattern": "^EVD-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?$"},
+        "kind": {"type": "string", "minLength": 1},
+        "status": {"enum": ["PASS", "FAIL", "BLOCKED", "PARTIAL", "UNKNOWN", "NOT_APPLICABLE"]},
+        "provenance": {
+          "type": "object",
+          "required": ["source_type", "source_ref", "producer"],
+          "properties": {
+            "source_type": {"type": "string", "minLength": 1},
+            "source_ref": {"type": "string", "minLength": 1},
+            "producer": {"type": "string", "minLength": 1},
+            "actor": {"type": ["string", "null"]},
+            "tool_version": {"type": ["string", "null"]},
+            "details": {"type": ["object", "null"]}
+          },
+          "additionalProperties": false
+        },
+        "base_revision": {"type": "string", "pattern": "^tree:sha256:[0-9a-f]{64}$"},
+        "criterion_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "outcome_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "profile_control_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "source_bindings": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["ref", "sha256"],
+            "properties": {
+              "ref": {"type": "string", "minLength": 1},
+              "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+              "path": {"type": "string", "minLength": 1},
+              "media_type": {"type": ["string", "null"]}
+            },
+            "additionalProperties": false
+          }
+        },
+        "created_at": {"type": "string", "format": "date-time"},
+        "task_ref": {"type": ["string", "null"]},
+        "run_ref": {"type": ["string", "null"]},
+        "report_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "rationale": {"type": ["string", "null"]},
+        "validator": {"type": ["string", "null"]},
+        "details": {"type": ["object", "null"]}
+      },
+      "additionalProperties": false,
+      "anyOf": [
+        {"properties": {"criterion_refs": {"minItems": 1}}},
+        {"properties": {"outcome_refs": {"minItems": 1}}},
+        {"properties": {"profile_control_refs": {"minItems": 1}}}
+      ]
+    }
+  },
+  "additionalProperties": false
+}

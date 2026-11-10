@@ -1,0 +1,16 @@
+{
+  "archive_sha256": "fbbf22771e200c4286c746b826c37684aa8529fdc310436600f977a5f696bae2",
+  "bytes": 12140,
+  "members": {
+    "ИНСТРУКЦИЯ.md": {
+      "bytes": 1726,
+      "sha256": "4bfd7f9e1f4857d9f1a4abb94dc694f32d5bb084c30e524e32485315ce573686"
+    },
+    "pack.md": {
+      "bytes": 63401,
+      "sha256": "09d36b5077e72c699d73d70fa568b971ede02de5119d941a1dd7f0ff64e9390a"
+    }
+  },
+  "unpacked_files_also_saved": true,
+  "synthetic_sources_only": true
+}

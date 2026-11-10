@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "pythonw_source_launcher": "PASS",
+  "direct_http_without_credentials": "PASS",
+  "legacy_record_retired": "PASS",
+  "second_launch_plain_url_same_process": "PASS",
+  "restart_retains_project": "PASS",
+  "direct_clean_stop": "PASS",
+  "browser_open_intercepted": true,
+  "visible_browser": "NOT RUN",
+  "operator_data_accessed": false,
+  "automatic_executor_enabled": false
+}

@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "SCHEMA-STAGE-PLAN@1",
+  "title": "Implementation Stage Plan",
+  "type": "object",
+  "required": [
+    "stage_plan"
+  ],
+  "properties": {
+    "stage_plan": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "SCHEMA-STAGE-PLAN-BODY@1",
+      "title": "Stage Plan Body",
+      "type": "object",
+      "required": [
+        "id",
+        "revision",
+        "level",
+        "status",
+        "target_level",
+        "baseline_ref",
+        "scope_refs",
+        "required_outcomes",
+        "criteria_profile_ref",
+        "hard_constraint_overrides",
+        "work_package_outlines",
+        "deferred_to_next_stage"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^STG-"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "level": {
+          "enum": [
+            "PROTOTYPE",
+            "ALPHA",
+            "BETA",
+            "MVP",
+            "RELEASE"
+          ]
+        },
+        "status": {
+          "enum": [
+            "PLANNED",
+            "ACTIVE",
+            "VERIFYING",
+            "ACCEPTED",
+            "BLOCKED",
+            "SUPERSEDED"
+          ]
+        },
+        "target_level": {
+          "enum": [
+            "PROTOTYPE",
+            "ALPHA",
+            "BETA",
+            "MVP",
+            "RELEASE"
+          ]
+        },
+        "baseline_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "required_outcomes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "criteria_profile_ref": {
+          "type": "string",
+          "pattern": "^REG-IMPLEMENTATION-LEVELS#"
+        },
+        "hard_constraint_overrides": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "work_package_outlines": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object"
+          }
+        },
+        "deferred_to_next_stage": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "detailed_work_package_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "gate_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "review_required": {
+          "type": "boolean"
+        },
+        "previous_revision_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "supersedes_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "created_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "updated_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

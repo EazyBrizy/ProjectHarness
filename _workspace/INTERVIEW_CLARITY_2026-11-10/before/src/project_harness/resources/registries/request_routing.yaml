@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "registry": {
+    "id": "REG-REQUEST-ROUTING",
+    "version": 2,
+    "status": "ACTIVE",
+    "request_classes": [
+      "QUERY",
+      "PROJECT_START",
+      "DEVELOPMENT_REQUEST",
+      "PROJECT_EVOLUTION",
+      "PROJECT_CONTROL_MAINTENANCE",
+      "HARNESS_DISTRIBUTION_MAINTENANCE",
+      "CONTROL_REQUEST"
+    ],
+    "request_modes": [
+      "READ_ONLY",
+      "PLAN",
+      "EXECUTE"
+    ],
+    "internal_operations": [
+      "ANSWER",
+      "INSPECT_SOURCES",
+      "START_INTAKE",
+      "ASK_QUESTION_BATCH",
+      "RECONCILE_PROJECT",
+      "DEFINE_PROJECT",
+      "PROPOSE_ARCHITECTURE",
+      "BUILD_TECHNOLOGY_BASELINE",
+      "PREPARE_SKILLS",
+      "BOOTSTRAP_PROJECT",
+      "PLAN_WORK",
+      "COMPILE_TASK",
+      "RUN_TASK",
+      "VALIDATE_RESULT",
+      "UPDATE_DOCUMENTATION",
+      "RESUME_ROUTE",
+      "REPORT_STATUS",
+      "PUBLISH_CHANGE",
+      "APPLY_CHANGE_PACK"
+    ],
+    "invariants": [
+      "Request class, mode and operation are separate fields.",
+      "Only executable development routes create Tasks.",
+      "QUERY remains read-only unless the user explicitly requests a change.",
+      "Maintenance target planes cannot be mixed."
+    ]
+  }
+}

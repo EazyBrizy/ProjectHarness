@@ -1,0 +1,95 @@
+--- before/resources/local_web/assets/app.css
++++ after/resources/local_web/assets/app.css
+@@ -95,7 +95,8 @@
+ @media(max-width:900px) { .document-grid { grid-template-columns:1fr; } }
+ 
+ /* PH-LW-06: keyboard-accessible typed draft interview and inert text diffs. */
+-#interview-panel { max-width:1000px; }
++#workspace:has(#interview-panel:not(.hidden)) { max-width:none; }
++#interview-panel { width:100%; max-width:none; }
+ #interview-panel label { display:block; font-weight:600; margin:10px 0 5px; }
+ #interview-panel textarea, #interview-panel select { font:inherit; width:100%; border:1px solid #8b9fb9; border-radius:7px; padding:9px; background:#fff; color:#17233a; }
+ #interview-panel textarea { resize:vertical; }
+@@ -108,7 +109,14 @@
+ #interview-panel .analysis-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin:12px 0; }
+ #interview-panel .analysis-options > .question { min-width:0; margin:0; }
+ #interview-panel .analysis-options h4 { margin-top:0; }
++#interview-panel .cli-actions { display:flex; align-items:center; gap:10px; flex-wrap:nowrap; }
++#interview-panel .cli-actions button { min-width:0; margin:0; }
++#cli-connect { display:inline-flex; align-items:center; justify-content:center; gap:6px; flex-shrink:0; }
++.cli-connected-check { color:#168442; font-weight:800; }
++#cli-connect.cli-connected { border-color:#83b09e; background:#f1f9f4; }
++#interview-panel .cli-token-note { margin:16px 0 0; color:#6b7280; font-size:12px; }
+ @media(max-width:760px) { #interview-panel .analysis-options { grid-template-columns:1fr; } }
++@media(max-width:500px) { #interview-panel .cli-actions { gap:8px; } #interview-panel .cli-actions button { flex:1 1 0; padding:9px 7px; font-size:13px; } }
+ .answer-field { margin-bottom:13px; }
+ #interview-panel .consent { font-weight:400; margin:16px 0; }
+ #interview-panel hr { border:0; border-top:1px solid #dfe6ef; margin:30px 0; }
+--- before/resources/local_web/assets/index.html
++++ after/resources/local_web/assets/index.html
+@@ -214,14 +214,17 @@
+             <h4 id="cli-analysis-title">Автоматически через Codex CLI</h4>
+             <p>Подключите Codex CLI, установленный на этом компьютере. Harness сам передаст документы на анализ и покажет предложения в браузере. Скачивать пакет и переносить JSON не потребуется.</p>
+             <p id="cli-connection-status" role="status">CLI пока не подключён.</p>
+-            <button id="cli-connect" type="button" class="outline">Подключить CLI</button>
+-            <button id="cli-analyze" type="button" class="document-primary">Анализировать документы через CLI</button>
+-            <button id="cli-analysis-cancel" type="button" class="quiet hidden">Остановить анализ</button>
+-            <p id="cli-analysis-status" role="status" aria-live="polite"></p>
+-            <details><summary>Если CLI ещё не установлен или требуется вход</summary>
++            <div class="cli-actions">
++              <button id="cli-connect" type="button" class="outline"><span id="cli-connect-check" class="cli-connected-check hidden" aria-hidden="true">✓</span><span id="cli-connect-label">Подключить CLI</span></button>
++              <button id="cli-analyze" type="button" class="document-primary">Анализировать через CLI</button>
++              <button id="cli-analysis-cancel" type="button" class="quiet hidden">Остановить анализ</button>
++            </div>
++            <p id="cli-analysis-status" class="hidden" role="status" aria-live="polite"></p>
++            <details id="cli-connection-help"><summary>Если CLI ещё не установлен или требуется вход</summary>
+               <p>Установите Codex CLI на этом компьютере. Для входа в учётную запись Codex выполните в терминале <code>codex login</code>, затем нажмите «Подключить CLI». Подключение сохраняется для приложения.</p>
+               <a href="https://learn.chatgpt.com/docs/codex/cli" target="_blank" rel="noopener noreferrer">Инструкция по Codex CLI</a>
+             </details>
++            <p id="cli-token-note" class="cli-token-note muted small">На выполнение расходуются токены агента.</p>
+           </section>
+           <section class="question" aria-labelledby="manual-analysis-title">
+             <h4 id="manual-analysis-title">Вручную через ChatGPT или Codex</h4>
+--- before/resources/local_web/assets/interview.js
++++ after/resources/local_web/assets/interview.js
+@@ -237,9 +237,17 @@
+ }));
+ function renderCliState() {
+   const active=['QUEUED','RUNNING','VALIDATING','CANCELLING'].includes(cliJobView?.state);
+-  text('cli-connection-status',cliConnectionView?.connected?'Codex CLI подключён.':'Подключите установленный Codex CLI или выберите ручной пакет.');
+-  text('cli-analysis-status',cliJobView?.job_id?cliJobView.message_ru:'После запуска результат анализа появится здесь, без скачивания пакета и копирования JSON.');
+-  $('cli-connect').textContent=cliConnectionView?.connected?'Проверить подключение':'Подключить CLI';
++  const connected=Boolean(cliConnectionView?.connected);
++  const jobMessage=cliJobView?.job_id?cliJobView.message_ru:'';
++  text('cli-connection-status',connected?'Codex CLI подключён.':'Подключите установленный Codex CLI или выберите ручной пакет.');
++  text('cli-analysis-status',jobMessage);
++  $('cli-analysis-status').classList.toggle('hidden',!jobMessage);
++  text('cli-connect-label',connected?'Подключено':'Подключить CLI');
++  $('cli-connect-check').classList.toggle('hidden',!connected);
++  $('cli-connect').classList.toggle('cli-connected',connected);
++  $('cli-connect').title=connected?'Проверить подключение CLI':'Подключить установленный Codex CLI';
++  $('cli-connection-help').classList.toggle('hidden',connected);
++  if(connected) $('cli-connection-help').open=false;
+   $('cli-connect').disabled=state.requestBusy || active;
+   $('cli-analyze').disabled=state.requestBusy || active;
+   $('cli-analysis-cancel').classList.toggle('hidden',!active);
+--- before/resources/local_web/metadata_v1.json
++++ after/resources/local_web/metadata_v1.json
+@@ -5,7 +5,7 @@
+   "core_schema_version": 7,
+   "project_input_schema": "SCHEMA-PROJECT-PREPARATION-INPUT@4",
+   "local_web_version": "0.1.0-dev",
+-  "local_web_build_id": "ANALYSIS-OPTIONS-ROW-20261110",
++  "local_web_build_id": "CLI-CARD-PRESENTATION-20261110",
+   "base_lineage": "PH-051-11-WIP-NOT-RELEASED",
+   "declared_target_base": "PH-051-12-WIP-NO-GO-NOT_SUPPLIED",
+   "source_engine_zip_sha256": "44b75136131d917403b99299077e829c025783a6bb94c2b539fbe0b913449dbd",
+@@ -37,7 +37,7 @@
+     "exchange_envelope": "LOCAL_WEB_GPT_DRAFT_ONLY@2",
+     "artifact_policy": "Unpacked working files; ZIP only on explicit user request"
+   },
+-  "engine_build_digest": "sha256:d9df0cab22d90d65b991e38f1f8ac9a6fdac4ea8c6aaf532f1d362bd9fb5b1a0",
++  "engine_build_digest": "sha256:d4776d5f0db1ddbdd96e6bc21df4d7ea15a1c505d254664325c97b5d7c344d7e",
+   "engine_build_digest_definition": "SHA256 of sorted SHA256 + two spaces + relative path + LF for src/project_harness files, excluding this metadata file and caches",
+   "ph_lw_07": {
+     "report": "PH_LW_07_TEST_REPORT.md",

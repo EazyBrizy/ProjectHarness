@@ -1,0 +1,64 @@
+{
+  "source": {
+    "local_web_exchange.py": {
+      "before": "ebcc0136877142f2152a299f5462af3f5237b739e4bbb6fe399224ff8ae0ec68",
+      "after": "709766770c0cf5dbd1fa9f4c62fcc8c6e4f3e5a99af417f0682d9f44f0e8d150"
+    },
+    "local_web_http.py": {
+      "before": "c445be329958d08b7ee086c767c7ce147d76a61648479272231bdda3630ac0d4",
+      "after": "d6366c5e8f3e12b20b287917e56d15d7d0aaee2a58b2c33301a0347ff38f2514"
+    },
+    "local_web_service.py": {
+      "before": "4acf866214eaa666fc317e94886e4818016bd7eca0a8e353e6aa65f91e84630f",
+      "after": "d4bbf0bf4028239a0e9fb32419d31d23bbcb11b321f3c3052d1e93dc6622620b"
+    },
+    "resources/local_web/assets/app.js": {
+      "before": "183b4371c4c02d4358bfe8c24a6d7ec1bb7ed017646344a8666fb559dd05dc69",
+      "after": "2d39c1a34fe9d260067096f3e01afbd281a3c06586e454c286b0b75540aa5096"
+    },
+    "resources/local_web/assets/index.html": {
+      "before": "b84e411524620fb78f83f4c3ced8a000bb7fc33060291c5013280ac4b0a6e7f2",
+      "after": "4ceb667d806395910ad623a2186345078ea7a4ae3155eb7eef80aac12fabd838"
+    },
+    "resources/local_web/assets/interview.js": {
+      "before": "7e06f009538981367009eeba28e751cde6fb1266d7e984ec86fccdb62ac3793f",
+      "after": "2f75923aba7574245bccbfa3e13efaed7f5dbee4e4a75489c065458ea842fcc2"
+    },
+    "resources/local_web/metadata_v1.json": {
+      "before": "eecb4553934f90e9cd23067191b79efd4cb492e8bb18aad8f988abf3f34dd96c",
+      "after": "3dd709ce6778c156452999d172a19e0e4db7437eb90dd74794fd48505fa3f791"
+    }
+  },
+  "tests": {
+    "test_cli_document_ui.py": {
+      "before": "1620348344b16224c839930b7c49777b82f291afafeb1cb90d93dcc6add55179",
+      "after": "bcd40f498fea603aa08be78f353463358a9f412e0eff61d6937fdf9520e083e9"
+    },
+    "test_interview_clarity.py": {
+      "before": "4cad7e076e0000f7fe91d0cc41d9f794cd454516316541cc0d1828d250473d70",
+      "after": "0e2571a92a40668c22ff53c1c30b88749e75d924a4725eb51c330915b5049cb3"
+    },
+    "test_manual_analysis_archive.py": {
+      "before": null,
+      "after": "b6ee8268e51922b9ee126d14c5541412f5eb57e2f63fdd9c817f16be520a2d05"
+    },
+    "test_ph_lw_06_http.py": {
+      "before": "1a9e71103fa1fb1fdc3a5091f2c1801af725aa5f548f31814d9ea2207b60f35a",
+      "after": "67cf08c49283ce791ca9624cc03881dacbf0ca8a23d6eebaf00f3d110b1fb0ff"
+    },
+    "test_ph_lw_08_http.py": {
+      "before": "090ae5c3b59e8470beac8918010f90b5492a7148bd0e2f157b46773435764ef6",
+      "after": "c94c6c0bb9b19b5102d14dab0641aab386375a329b6ef2df98a829fb1796a87c"
+    },
+    "test_single_action_ui.py": {
+      "before": "421c63bb980ee62db2e092a832a78315c07e51807c91695accc7d81e49fca1e6",
+      "after": "0bfc52640645260c7e358fc597f34d8aa2979c599de7b07dbb2ffff54b227ee5"
+    }
+  },
+  "additional_driver": {
+    "local_web/windows/final_acceptance.py": {
+      "before": "84cea137908b445a0563fded9e952264f36246be4a6b2231322075221a4de99d",
+      "after": "def19b97773f5331338a0fce5a192319f4ae930837dc9d551fc9fb206234ae3c"
+    }
+  }
+}

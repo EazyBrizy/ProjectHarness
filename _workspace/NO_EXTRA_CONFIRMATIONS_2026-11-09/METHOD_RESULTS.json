@@ -1,0 +1,14 @@
+{
+  "tests.test_single_action_ui.SingleActionUiTests.test_create_upload_replace_error_export_and_stop_without_confirmations": {
+    "status": "PASS",
+    "log": "targeted-ui.log"
+  },
+  "tests.test_single_action_ui.SingleActionUiTests.test_decisions_and_folder_action_need_no_extra_checkbox": {
+    "status": "PASS",
+    "log": "focused-ui.log"
+  },
+  "tests.test_single_action_ui.SingleActionUiTests.test_task_and_lifecycle_clicks_submit_current_intent_without_checkbox": {
+    "status": "PASS",
+    "log": "targeted-ui.log"
+  }
+}

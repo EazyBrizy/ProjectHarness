@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "source_build_wheel_frozen": "PASS",
+  "full_frozen_payload_including_pyd": "PASS",
+  "documentation_mirrors": "PASS",
+  "manifests": "PASS",
+  "backend_core_original_tests_preserved": true,
+  "build_id": "ACTIVE-DOC-BUTTONS-20261109",
+  "engine_manifest_sha256": "a63d568cfa43f0758b3d5ba2813fa4f461d5308cceb65686e8a61ced09aafab9",
+  "docs_manifest_sha256": "eaff86fe53ba3f877d5c07095a1e153c009d34565f3c68765fbc295963b09612",
+  "zip_created": false
+}

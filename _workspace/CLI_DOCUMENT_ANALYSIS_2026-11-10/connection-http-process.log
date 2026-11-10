@@ -1,0 +1,58 @@
+test_cancel_busy_stale_result_and_invalid_reply_never_apply_draft (tests.test_cli_document_analysis.CliAnalysisTests.test_cancel_busy_stale_result_and_invalid_reply_never_apply_draft) ... FAIL
+test_connection_auth_missing_changed_binary_and_stale_inputs_block_before_analysis (tests.test_cli_document_analysis.CliAnalysisTests.test_connection_auth_missing_changed_binary_and_stale_inputs_block_before_analysis) ... ok
+test_gets_read_only_connect_fixed_commands_and_unknown_origin_rejected (tests.test_cli_document_analysis.CliAnalysisTests.test_gets_read_only_connect_fixed_commands_and_unknown_origin_rejected) ... ok
+test_manual_pack_one_click_no_classification_and_no_cli_launch (tests.test_cli_document_analysis.CliAnalysisTests.test_manual_pack_one_click_no_classification_and_no_cli_launch) ... Exception when servicing <waitress.channel.HTTPChannel connected 127.0.0.1:57753 at 0x22065f39f20>
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\.venv\Lib\site-packages\waitress\task.py", line 83, in handler_thread
+    task.service()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\.venv\Lib\site-packages\waitress\channel.py", line 512, in service
+    self.server.pull_trigger()
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\.venv\Lib\site-packages\waitress\server.py", line 334, in pull_trigger
+    self.trigger.pull_trigger()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\.venv\Lib\site-packages\waitress\trigger.py", line 96, in pull_trigger
+    self._physical_pull()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\.venv\Lib\site-packages\waitress\trigger.py", line 200, in _physical_pull
+    self.trigger.send(b"x")
+    ~~~~~~~~~~~~~~~~~^^^^^^
+OSError: [WinError 10038] Сделана попытка выполнить операцию на объекте, не являющемся сокетом
+ERROR
+test_result_uses_strict_preview_replay_does_not_rerun_and_draft_not_committed (tests.test_cli_document_analysis.CliAnalysisTests.test_result_uses_strict_preview_replay_does_not_rerun_and_draft_not_committed) ... ERROR
+test_owned_process_utf8_timeout_cancel_and_bounded_output (tests.test_cli_document_analysis.NativeTransportTests.test_owned_process_utf8_timeout_cancel_and_bounded_output) ... ok
+
+======================================================================
+ERROR: test_manual_pack_one_click_no_classification_and_no_cli_launch (tests.test_cli_document_analysis.CliAnalysisTests.test_manual_pack_one_click_no_classification_and_no_cli_launch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\tests\test_cli_document_analysis.py", line 100, in test_manual_pack_one_click_no_classification_and_no_cli_launch
+    record=next(self.live.service.app_data.rglob('exports/'+export['exchange_id']+'/record.json'))
+StopIteration
+
+======================================================================
+ERROR: test_result_uses_strict_preview_replay_does_not_rerun_and_draft_not_committed (tests.test_cli_document_analysis.CliAnalysisTests.test_result_uses_strict_preview_replay_does_not_rerun_and_draft_not_committed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\tests\test_cli_document_analysis.py", line 113, in test_result_uses_strict_preview_replay_does_not_rerun_and_draft_not_committed
+    self.assertEqual(same['job_id'],job['job_id']);self.assertEqual(len(self.fake.calls),calls)
+                     ~~~~^^^^^^^^^^
+KeyError: 'job_id'
+
+======================================================================
+FAIL: test_cancel_busy_stale_result_and_invalid_reply_never_apply_draft (tests.test_cli_document_analysis.CliAnalysisTests.test_cancel_busy_stale_result_and_invalid_reply_never_apply_draft)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\tests\test_cli_document_analysis.py", line 121, in test_cancel_busy_stale_result_and_invalid_reply_never_apply_draft
+    self.assertEqual(self.start(key='second-analysis-busy-001')[2]['error']['code'],'CLI_BUSY')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'VALIDATION_FAILED' != 'CLI_BUSY'
+- VALIDATION_FAILED
++ CLI_BUSY
+
+
+----------------------------------------------------------------------
+Ran 6 tests in 24.599s
+
+FAILED (failures=1, errors=2)

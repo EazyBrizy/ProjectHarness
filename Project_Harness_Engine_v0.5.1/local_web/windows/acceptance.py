@@ -57,29 +57,28 @@ class FrozenServer(LiveServer):
                 url=connect_existing(self.app_data);break
             except (OSError,ValueError,Exception):time.sleep(.1)
         else:raise RuntimeError('Frozen process did not become ready')
-        self.origin=url.split('/#')[0];self.port=int(self.origin.rsplit(':',1)[1]);self.cookie=self.csrf=None
-        self.auth=types.SimpleNamespace(issue_bootstrap=lambda:connect_existing(self.app_data).split('=')[1])
+        self.origin=url.rstrip('/');self.port=int(self.origin.rsplit(':',1)[1])
         print('Frozen server ready; PID',self.process.pid,'PATH has no developer tools',flush=True)
 
     def close(self):
         if self.process.poll() is None:
-            self.login()
+            self.ready()
             code,_,_=self.request('POST','/api/desktop/stop',value={})
             if code != 200:raise AssertionError('Clean stop refused: '+str(code))
             self.process.wait(timeout=30)
             if self.process.returncode!=0:raise AssertionError('Frozen clean stop failed')
-        if (self.app_data/'launcher-private.json').exists():raise AssertionError('Instance record not removed')
+        if (self.app_data/'launcher-instance.json').exists():raise AssertionError('Instance record not removed')
 
 
 class InstalledLifecycleTests(unittest.TestCase):
     def test_crash_recovery_retains_project_and_replaces_stale_record(self):
         live=FrozenServer();before=byte_snapshot(live.service.projects_directory)
-        record=(live.app_data/'launcher-private.json').read_bytes()
+        record=(live.app_data/'launcher-instance.json').read_bytes()
         live.process.kill();live.process.wait(timeout=15) # this test's own idle child only
-        self.assertEqual(record,(live.app_data/'launcher-private.json').read_bytes())
+        self.assertEqual(record,(live.app_data/'launcher-instance.json').read_bytes())
         live=FrozenServer()
         try:
-            self.assertNotEqual(record,(live.app_data/'launcher-private.json').read_bytes())
+            self.assertNotEqual(record,(live.app_data/'launcher-instance.json').read_bytes())
             self.assertEqual(before,byte_snapshot(live.service.projects_directory))
         finally:live.close()
 
@@ -87,7 +86,7 @@ class InstalledLifecycleTests(unittest.TestCase):
         from playwright.sync_api import sync_playwright,expect
         live=FrozenServer()
         try:
-            live.login();projects=live.request('GET','/api/projects')[2]['projects'];self.assertTrue(projects)
+            live.ready();projects=live.request('GET','/api/projects')[2]['projects'];self.assertTrue(projects)
             before=byte_snapshot(live.service.projects_directory)
             selected=next(p['project_id'] for p in projects if p['kind']=='project')
             resume=live.request('GET','/api/ui/resume')[2]
@@ -108,8 +107,8 @@ class InstalledLifecycleTests(unittest.TestCase):
                 with sync_playwright() as p:
                     browser=p.chromium.launch(channel='msedge',headless=True)
                     try:
-                        page=browser.new_page();page.goto(live.origin+'/#bootstrap='+live.auth.issue_bootstrap())
-                        expect(page.locator('#session-state')).to_have_text('Сессия активна')
+                        page=browser.new_page();page.goto(live.origin + '/')
+                        expect(page.locator('#connection-state')).to_have_text('Сервер готов')
                         expect(page.locator('#screen-title')).to_have_text('Задачи и Run')
                         expect(page.locator('#task-prompt')).not_to_have_value('',timeout=30000)
                         page.screenshot(path=str(OPTIONS.output/'restart-resume.png'))

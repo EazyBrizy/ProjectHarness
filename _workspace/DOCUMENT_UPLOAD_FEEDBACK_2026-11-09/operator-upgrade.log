@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "exit": 0,
+  "before_build_id": "PH-LW-12-FIX5-20261108",
+  "after_build_id": "DOC-UPLOAD-UX-20261109",
+  "installer_sha256": "f90a108596eadf321bfa79c660b2cc39b6a8301833739fe863aebae10a2ba591",
+  "checks": {
+    "--check-package": 0,
+    "--doctor": 0
+  },
+  "operator_data_preserved": true,
+  "private_roots_aggregate_hashes": [
+    {
+      "root_label": "ProjectHarness",
+      "files": 1,
+      "digest": "e609e08f2efaf53141fa984355fe368b860d7e863a373f745f46bfb34ef7e765"
+    },
+    {
+      "root_label": "HarnessProjects",
+      "files": 0,
+      "digest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "root_label": "ProjectHarness-workspaces",
+      "files": 0,
+      "digest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    }
+  ],
+  "previous_version_preserved": true,
+  "browser_launched": false
+}

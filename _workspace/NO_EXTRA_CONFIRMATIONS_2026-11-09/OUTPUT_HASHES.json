@@ -1,0 +1,13 @@
+{
+  "source_digest": "sha256:2169962ef4e0e5db6f57b50f74e3013285347f0f34bb49cf5cb51aa662ca0acc",
+  "wheel_sha256": "a4ecc559d6f11dcc42e20b48303a1de2b891d59ca50ace19d8566b82b579c187",
+  "installer_sha256": "25690fac4d8190d345a0b240f910b19d5f018d8fb6494dbc919e842fcc99ab92",
+  "report": "90143e672f2f035a72510df362d060e74156acf40ad047aa20a02fe14b01b8f5",
+  "runtime_freeze": "36d824b955b18780a2f1f19145e963cb774d59bea6c13ea0e0ee140e5af8171c",
+  "root_files": {
+    "AGENTS.md": "826ed31783f516cc2066a1fab7150f63cec573a5c10969955832caf65bd06482",
+    "_workspace/CURRENT_TASK.md": "aa864ce005ed9d7aae9b93c02ee027232a9a60b123d10645b72ebe3bfa6e4d15"
+  },
+  "engine_manifest": "ddbd443e87e7309069c8583ec57f9984854dafb8fb49c84f5ea50782bf0b2452",
+  "docs_manifest": "8f6bc9f7bdaba5257b88655e9c9817bcbef41fa45f951978454d5f1f9dede76f"
+}

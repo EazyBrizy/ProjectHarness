@@ -1,0 +1,16 @@
+--- before/local_web/windows/final_acceptance.py
++++ after/local_web/windows/final_acceptance.py
+@@ -145,9 +145,10 @@
+                         self.assertEqual(page.locator('#export-review').count(),0)
+                         self.assertEqual(page.locator('#export-documents select').count(),0)
+                         
+-                        page.locator('#review-export').click();expect(page.locator('#export-history a')).to_have_count(1)
+-                        with page.expect_download() as download:page.locator('#export-history a').click()
+-                        pack=Path(download.value.path()).read_text('utf-8')
++                        with page.expect_download() as download:page.locator('#review-export').click()
++                        expect(page.locator('#review-export')).to_be_enabled()
++                        self.assertEqual(page.locator('#export-history').count(),0)
++                        with zipfile.ZipFile(download.value.path()) as z:pack=z.read('pack.md').decode('utf-8')
+                         reply=fixture_reply(json.loads(pack.split('## Return skeleton\n\n',1)[1]))
+                         # Declared external GPT fixture: positive manual-only
+                         # verification requires no installed product SDK.

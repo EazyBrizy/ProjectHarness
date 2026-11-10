@@ -1,0 +1,143 @@
+test_01_greenfield_and_brownfield_fixture_independence_and_statuses (tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_01_greenfield_and_brownfield_fixture_independence_and_statuses) ... ok
+test_02_accepted_prototype_fixture_exposes_real_planning_boundary (tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_02_accepted_prototype_fixture_exposes_real_planning_boundary) ... ok
+test_03_mvp_target_reached_fixture_then_governed_level_up_to_release (tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_03_mvp_target_reached_fixture_then_governed_level_up_to_release) ... ok
+test_ph_f03_accept_prototype_to_first_alpha_ready_jit (tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_ph_f03_accept_prototype_to_first_alpha_ready_jit) ... FAIL
+test_ph_f03_level_up_mvp_to_first_release_ready_jit (tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_ph_f03_level_up_mvp_to_first_release_ready_jit) ... FAIL
+test_ph_f03_route_is_actionable_in_public_status_api (tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_ph_f03_route_is_actionable_in_public_status_api) ... FAIL
+test_01_preparation_fixture_has_all_four_mandatory_proof_kinds (tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_01_preparation_fixture_has_all_four_mandatory_proof_kinds)
+GREEN fixture preconditions, independent of PH-F02's later fix. ... ok
+test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds (tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds) ... 
+  test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds (tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds) (kind='ARCHITECTURE_RECORD') ... FAIL
+  test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds (tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds) (kind='LIMITATIONS_RECORD') ... FAIL
+  test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds (tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds) (kind='PERMITTED_USE_RECORD') ... FAIL
+  test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds (tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds) (kind='EXTERNAL_EVIDENCE') ... FAIL
+test_ph_f02_noop_pass_keeps_gate_unclosed_without_subject_proofs (tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_keeps_gate_unclosed_without_subject_proofs) ... FAIL
+
+======================================================================
+FAIL: test_ph_f03_accept_prototype_to_first_alpha_ready_jit (tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_ph_f03_accept_prototype_to_first_alpha_ready_jit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ph_f01_workspace/Project_Harness_Engine_v0.5.0/tests/test_ph_f01_planner_regression.py", line 190, in test_ph_f03_accept_prototype_to_first_alpha_ready_jit
+    self._assert_first_jit_via_governed_cli(root, "ALPHA")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/mnt/data/ph_f01_workspace/Project_Harness_Engine_v0.5.0/tests/test_ph_f01_planner_regression.py", line 173, in _assert_first_jit_via_governed_cli
+    self.assertEqual(code, 0, f"PH-F03 missing public preparation route: {stderr}")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : PH-F03 missing public preparation route: usage: project-harness [-h] [--version]
+                       {doctor,start-intake,check-intake,prepare,validate-handoff,validate-project,migrate-project,status,next,verify,complete,block,resume,stage-status,prepare-stage-approval,resume-stage-gate,assess-maturity,accept-stage,level-up,start-maintenance,cancel-maintenance,demo} ...
+project-harness: error: argument command: invalid choice: 'prepare-active-stage-plan' (choose from doctor, start-intake, check-intake, prepare, validate-handoff, validate-project, migrate-project, status, next, verify, complete, block, resume, stage-status, prepare-stage-approval, resume-stage-gate, assess-maturity, accept-stage, level-up, start-maintenance, cancel-maintenance, demo)
+
+
+======================================================================
+FAIL: test_ph_f03_level_up_mvp_to_first_release_ready_jit (tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_ph_f03_level_up_mvp_to_first_release_ready_jit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ph_f01_workspace/Project_Harness_Engine_v0.5.0/tests/test_ph_f01_planner_regression.py", line 196, in test_ph_f03_level_up_mvp_to_first_release_ready_jit
+    self._assert_first_jit_via_governed_cli(root, "RELEASE")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/mnt/data/ph_f01_workspace/Project_Harness_Engine_v0.5.0/tests/test_ph_f01_planner_regression.py", line 173, in _assert_first_jit_via_governed_cli
+    self.assertEqual(code, 0, f"PH-F03 missing public preparation route: {stderr}")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : PH-F03 missing public preparation route: usage: project-harness [-h] [--version]
+                       {doctor,start-intake,check-intake,prepare,validate-handoff,validate-project,migrate-project,status,next,verify,complete,block,resume,stage-status,prepare-stage-approval,resume-stage-gate,assess-maturity,accept-stage,level-up,start-maintenance,cancel-maintenance,demo} ...
+project-harness: error: argument command: invalid choice: 'prepare-active-stage-plan' (choose from doctor, start-intake, check-intake, prepare, validate-handoff, validate-project, migrate-project, status, next, verify, complete, block, resume, stage-status, prepare-stage-approval, resume-stage-gate, assess-maturity, accept-stage, level-up, start-maintenance, cancel-maintenance, demo)
+
+
+======================================================================
+FAIL: test_ph_f03_route_is_actionable_in_public_status_api (tests.test_ph_f01_planner_regression.PHF01FixtureAndPlannerTests.test_ph_f03_route_is_actionable_in_public_status_api)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ph_f01_workspace/Project_Harness_Engine_v0.5.0/tests/test_ph_f01_planner_regression.py", line 203, in test_ph_f03_route_is_actionable_in_public_status_api
+    self.assertIsInstance(command, str, "PH-F03/PH-F04 must expose an executable planner command")
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: None is not an instance of <class 'str'> : PH-F03/PH-F04 must expose an executable planner command
+
+======================================================================
+FAIL: test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds (tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds) (kind='ARCHITECTURE_RECORD')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ph_f01_workspace/Project_Harness_Engine_v0.5.0/tests/test_ph_f01_gate_semantics_regression.py", line 113, in test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds
+    self.assertNotIn(
+    ~~~~~~~~~~~~~~~~^
+        kind,
+        ^^^^^
+        kinds,
+        ^^^^^^
+        f"PH-F02: no-change PASS verification cannot certify {kind} without a subject-specific source",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: 'ARCHITECTURE_RECORD' unexpectedly found in {'EXTERNAL_EVIDENCE', 'ARCHITECTURE_RECORD', 'PERMITTED_USE_RECORD', 'REVIEW_RECORD', 'TEST_REPORT', 'LIMITATIONS_RECORD', 'START_INSTRUCTIONS'} : PH-F02: no-change PASS verification cannot certify ARCHITECTURE_RECORD without a subject-specific source
+
+======================================================================
+FAIL: test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds (tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds) (kind='LIMITATIONS_RECORD')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ph_f01_workspace/Project_Harness_Engine_v0.5.0/tests/test_ph_f01_gate_semantics_regression.py", line 113, in test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds
+    self.assertNotIn(
+    ~~~~~~~~~~~~~~~~^
+        kind,
+        ^^^^^
+        kinds,
+        ^^^^^^
+        f"PH-F02: no-change PASS verification cannot certify {kind} without a subject-specific source",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: 'LIMITATIONS_RECORD' unexpectedly found in {'EXTERNAL_EVIDENCE', 'ARCHITECTURE_RECORD', 'PERMITTED_USE_RECORD', 'REVIEW_RECORD', 'TEST_REPORT', 'LIMITATIONS_RECORD', 'START_INSTRUCTIONS'} : PH-F02: no-change PASS verification cannot certify LIMITATIONS_RECORD without a subject-specific source
+
+======================================================================
+FAIL: test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds (tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds) (kind='PERMITTED_USE_RECORD')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ph_f01_workspace/Project_Harness_Engine_v0.5.0/tests/test_ph_f01_gate_semantics_regression.py", line 113, in test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds
+    self.assertNotIn(
+    ~~~~~~~~~~~~~~~~^
+        kind,
+        ^^^^^
+        kinds,
+        ^^^^^^
+        f"PH-F02: no-change PASS verification cannot certify {kind} without a subject-specific source",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: 'PERMITTED_USE_RECORD' unexpectedly found in {'EXTERNAL_EVIDENCE', 'ARCHITECTURE_RECORD', 'PERMITTED_USE_RECORD', 'REVIEW_RECORD', 'TEST_REPORT', 'LIMITATIONS_RECORD', 'START_INSTRUCTIONS'} : PH-F02: no-change PASS verification cannot certify PERMITTED_USE_RECORD without a subject-specific source
+
+======================================================================
+FAIL: test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds (tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds) (kind='EXTERNAL_EVIDENCE')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ph_f01_workspace/Project_Harness_Engine_v0.5.0/tests/test_ph_f01_gate_semantics_regression.py", line 113, in test_ph_f02_noop_pass_cannot_fabricate_semantically_unverified_kinds
+    self.assertNotIn(
+    ~~~~~~~~~~~~~~~~^
+        kind,
+        ^^^^^
+        kinds,
+        ^^^^^^
+        f"PH-F02: no-change PASS verification cannot certify {kind} without a subject-specific source",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: 'EXTERNAL_EVIDENCE' unexpectedly found in {'EXTERNAL_EVIDENCE', 'ARCHITECTURE_RECORD', 'PERMITTED_USE_RECORD', 'REVIEW_RECORD', 'TEST_REPORT', 'LIMITATIONS_RECORD', 'START_INSTRUCTIONS'} : PH-F02: no-change PASS verification cannot certify EXTERNAL_EVIDENCE without a subject-specific source
+
+======================================================================
+FAIL: test_ph_f02_noop_pass_keeps_gate_unclosed_without_subject_proofs (tests.test_ph_f01_gate_semantics_regression.PHF01GateSemanticsTests.test_ph_f02_noop_pass_keeps_gate_unclosed_without_subject_proofs)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/ph_f01_workspace/Project_Harness_Engine_v0.5.0/tests/test_ph_f01_gate_semantics_regression.py", line 127, in test_ph_f02_noop_pass_keeps_gate_unclosed_without_subject_proofs
+    self.assertNotEqual(
+    ~~~~~~~~~~~~~~~~~~~^
+        completed["stage_gate"]["status"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "VERIFYING",
+        ^^^^^^^^^^^^
+        "PH-F02: semantically unresolved subjects must remain UNKNOWN/BLOCKED",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: 'VERIFYING' == 'VERIFYING' : PH-F02: semantically unresolved subjects must remain UNKNOWN/BLOCKED
+
+----------------------------------------------------------------------
+Ran 9 tests in 69.113s
+
+FAILED (failures=8)

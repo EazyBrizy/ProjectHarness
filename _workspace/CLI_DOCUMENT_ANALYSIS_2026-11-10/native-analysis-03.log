@@ -1,0 +1,27 @@
+QUEUED: Документы подготовлены. Ожидается запуск Codex CLI.
+RUNNING: Codex CLI анализирует документы. Это может занять несколько минут.
+SUCCEEDED: Анализ завершён. Предложения показаны ниже; посмотрите оставшиеся вопросы.
+{
+  "scope": "One actual Codex native document-analysis positive with synthetic source only",
+  "browser": "separate targeted UI fixture run",
+  "user_uploads_used": false,
+  "connection": {
+    "connected": true,
+    "message_ru": "Codex CLI подключён.",
+    "version": "codex-cli 0.154.0"
+  },
+  "job": {
+    "error_code": null,
+    "import_id": "LWI-D480705F680AB7780C5A71865F54C921",
+    "input_fingerprint": "sha256:4381f2f931a89b726671899d350df09428d43ff3befc344020ced0cee46d8ed9",
+    "job_id": "CLIA-E8BAB38AFEDA4F46B661BBBC0E9F781E",
+    "message_ru": "Анализ завершён. Предложения показаны ниже; посмотрите оставшиеся вопросы.",
+    "repair_prompt": null,
+    "state": "SUCCEEDED"
+  },
+  "canonical_draft_unchanged": true,
+  "preview_count": 1,
+  "command_execution_events": 0,
+  "unrelated_mcp_startup": false,
+  "status": "PASS"
+}

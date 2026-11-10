@@ -29,12 +29,12 @@ class FinalBrowserRegressionTests(unittest.TestCase):
                                 return serve
                             for asset in ('app.js','lifecycle.js'):
                                 page.route('**/assets/'+asset,old_asset(asset))
-                        page.goto(live.origin+'/#bootstrap='+live.auth.issue_bootstrap())
-                        expect(page.locator('#session-state')).to_have_text('Сессия активна')
+                        page.goto(live.origin + '/')
+                        expect(page.locator('#connection-state')).to_have_text('Сервер готов')
                         page.locator('.project-button').filter(has_text=pid).click();page.locator('[data-screen="gates"]').click()
                         expect(page.locator('#lifecycle-summary')).not_to_have_text('Выберите проект.')
                         page.evaluate('lifecycleLoading?.promise')
-                        live.login()
+                        live.ready()
                         older=live.request('GET','/api/projects/'+pid+'/lifecycle')[2]
                         paused=[]
                         page.route('**/api/projects/'+pid+'/lifecycle',lambda route:paused.append(route),times=1)
@@ -82,8 +82,8 @@ class FinalBrowserRegressionTests(unittest.TestCase):
                     browser=play.chromium.launch(channel=os.environ.get('PH_LW_04_BROWSER_CHANNEL','msedge'),headless=True)
                     try:
                         page=browser.new_page();page.set_default_timeout(15000)
-                        page.goto(live.origin+'/#bootstrap='+live.auth.issue_bootstrap())
-                        expect(page.locator('#session-state')).to_have_text('Сессия активна')
+                        page.goto(live.origin + '/')
+                        expect(page.locator('#connection-state')).to_have_text('Сервер готов')
                         page.locator('.project-button').filter(has_text=pid).click()
                         status=page.locator('#action-list button').filter(has_text='stage-status')
                         expect(status).to_be_enabled();status.click()
@@ -100,13 +100,13 @@ class FinalBrowserRegressionTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(prefix='LW12 resume ') as folder:
             live=LiveServer(folder)
             try:
-                live.login();pid=live.create('lw12-resume-fixture-0001')
+                live.ready();pid=live.create('lw12-resume-fixture-0001')
                 with sync_playwright() as p:
                     browser=p.chromium.launch(channel=os.environ.get('PH_LW_04_BROWSER_CHANNEL','msedge'),headless=True)
                     try:
                         page=browser.new_page();page.set_default_timeout(15000)
-                        page.goto(live.origin+'/#bootstrap='+live.auth.issue_bootstrap())
-                        expect(page.locator('#session-state')).to_have_text('Сессия активна')
+                        page.goto(live.origin + '/')
+                        expect(page.locator('#connection-state')).to_have_text('Сервер готов')
                         page.locator('.project-button').filter(has_text=pid).click()
                         expect(page.locator('#project-kind')).to_have_text('Черновик')
                         page.evaluate('resumeWrites')
@@ -123,7 +123,7 @@ class FinalBrowserRegressionTests(unittest.TestCase):
                             self.assertEqual(posts,[],'User mutation overtook its own pending navigation write')
                         finally:
                             for route in paused:route.continue_()
-                        expect(page.locator('#notice')).to_contain_text('Ответы проверены и сохранены ядром')
+                        expect(page.locator('#notice')).to_contain_text('Ответы проверены и сохранены')
                         self.assertEqual(len(posts),1,'Exactly one explicit mutation; no automatic POST retry')
                     finally:browser.close()
             finally:live.close()

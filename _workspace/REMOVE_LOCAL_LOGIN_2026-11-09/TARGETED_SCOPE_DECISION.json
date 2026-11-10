@@ -1,0 +1,17 @@
+{
+  "user_instruction": "Проверяем только то, что меняем. Весь движок не проверяем повторно.",
+  "allowed_file_changes_addition": [
+    "AGENTS.md verification rule",
+    "_workspace/RUNBOOK.md priority note",
+    "_workspace/CURRENT_TASK.md priority note",
+    "Documentation chapter 27 and embedded mirror/manifests"
+  ],
+  "broad_pilot": "Stopped at user steering; not final acceptance. Observed PH08 browser FAIL untriaged, native instance ERROR diagnosed and fixed with file_ok=True. No full manual verdict claimed.",
+  "final_checks": [
+    "7 focused HTTP/instance contract tests from installed wheel",
+    "actual source pythonw launch/relaunch/stop using isolated fixture",
+    "12 actual installed EXE direct-entry/document controls/upload tests",
+    "updated package/doc mirror integrity checks"
+  ],
+  "runbook_before_sha256": "252b7fc2c86f389fb3ddd56c2a347a6b7402031a36aa7211544d141810685281"
+}

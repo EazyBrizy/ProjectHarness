@@ -1,0 +1,20 @@
+{
+  "head": "f2d8cc16cf311b0f6fd5e86cb699319c25e7cec8",
+  "allowed_file_changes": [
+    "resources/local_web/assets/{app.js,index.html,app.css}",
+    "resources/local_web/metadata_v1.json (build identity only)",
+    "tests/test_document_upload_feedback.py",
+    "local_web/windows/document_upload_feedback_acceptance.py",
+    "documentation operator chapter 24 and generated indexes/mirror",
+    "generated build/wheel/frozen/installer/manifests",
+    "tools/document_upload_feedback_checkpoint.py",
+    "_workspace/CURRENT_TASK.md",
+    "_workspace\\DOCUMENT_UPLOAD_FEEDBACK_2026-11-09"
+  ],
+  "preserve_dirty_files": [
+    "_workspace/CURRENT_TASK.md existing content",
+    "_workspace/OPENDESIGN_LOCAL_WEB_DESIGN_PROMPT_RU.txt"
+  ],
+  "automatic_executor_enabled": false,
+  "zip_requested": false
+}

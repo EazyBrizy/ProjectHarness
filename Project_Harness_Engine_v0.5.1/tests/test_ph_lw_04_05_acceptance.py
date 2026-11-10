@@ -16,7 +16,7 @@ import time
 import unittest
 import zipfile
 
-from project_harness.local_web_http import LocalWebAuth, WSGI_BODY_LIMIT, BOOTSTRAP_TTL_SECONDS
+from project_harness.local_web_http import WSGI_BODY_LIMIT
 from project_harness.local_web_launcher import create_loopback_server, open_bound_loopback_socket
 from project_harness.local_web_service import LocalWebService
 from tests.test_ph_lw_03_service import byte_snapshot
@@ -27,14 +27,12 @@ from tests.test_ph_lw_05_import import archive
 class LiveServer:
     def __init__(self, directory):
         self.service = LocalWebService(Path(directory) / 'app')
-        self.auth = LocalWebAuth()
         self.socket = open_bound_loopback_socket()
         self.port = self.socket.getsockname()[1]
         self.origin = f'http://127.0.0.1:{self.port}'
-        self.server = create_loopback_server(self.service, self.auth, self.socket)
+        self.server = create_loopback_server(self.service, self.socket)
         self.thread = threading.Thread(target=self.server.run, daemon=True)
         self.thread.start()
-        self.cookie = self.csrf = None
 
     def close(self):
         self.server.close()
@@ -42,10 +40,9 @@ class LiveServer:
         self.socket.close()
         self.service.close()
 
-    def request(self, method, path, *, value=None, data=None, headers=None, authenticated=True):
+    def request(self, method, path, *, value=None, data=None, headers=None):
         hdr = {'Origin': self.origin}
-        if authenticated and self.cookie:
-            hdr.update({'Cookie': self.cookie, 'X-CSRF-Token': self.csrf})
+        
         if value is not None:
             data = json.dumps(value).encode('utf-8')
             hdr['Content-Type'] = 'application/json'
@@ -59,14 +56,10 @@ class LiveServer:
         finally:
             conn.close()
 
-    def login(self):
-        token = self.auth.issue_bootstrap()
-        status, headers, data = self.request('POST', '/api/session/bootstrap', value={'token': token})
-        if status != 200:
-            raise AssertionError('Bootstrap failed')
-        self.cookie = headers['Set-Cookie'].split(';', 1)[0]
-        self.csrf = data['csrf']
-        return token
+    def ready(self):
+        status,_,data=self.request('GET','/health')
+        if status!=200 or data!={'status':'ok'}:
+            raise AssertionError('Loopback listener is not ready')
 
     def create(self, key='live-create-intake-00001'):
         status, _, data = self.request('POST', '/api/intakes', value={
@@ -101,13 +94,12 @@ class ProductionHttpAcceptance(unittest.TestCase):
 
     def test_real_upload_malicious_archives_auth_and_read_only_preview(self):
         live = self.live
-        token = live.login()
+        live.ready()
         pid = live.create()
         path = f'/api/projects/{pid}'
-        self.assertEqual(live.request('GET', path, authenticated=False)[0], 401)
-        self.assertEqual(live.request('POST', '/api/session/bootstrap', value={'token': token})[0], 401)
+        self.assertEqual(live.request('GET', path)[0], 200)
         for headers in ({'Host': 'evil.test'}, {'Host': '127.0.0.1:1'}, {'Origin': 'null'},
-                        {'Origin': 'http://127.0.0.1:1'}, {'X-CSRF-Token': 'wrong'}):
+                        {'Origin': 'http://127.0.0.1:1'}):
             self.assertEqual(live.upload(pid, [('ok.md', b'plain')], headers=headers)[0], 403)
         self.assertEqual(live.upload(pid, [('ok.md', b'plain')], extra=[('mode', 'replace')])[0], 400)
         for bad in (archive([('../escape.md', b'x')]), archive([('NUL.md', b'x')]),
@@ -137,7 +129,7 @@ class ProductionHttpAcceptance(unittest.TestCase):
         # These are the actual production listener settings, not reduced limits.
         conn = http.client.HTTPConnection('127.0.0.1', live.port, timeout=10)
         try:
-            conn.putrequest('POST', '/api/session/bootstrap')
+            conn.putrequest('POST', '/api/intakes')
             conn.putheader('Origin', live.origin)
             conn.putheader('Content-Length', str(WSGI_BODY_LIMIT + 1))
             conn.endheaders()
@@ -147,7 +139,7 @@ class ProductionHttpAcceptance(unittest.TestCase):
         self.assertEqual(live.request('GET', '/health', headers={'X-Large': 'x' * (17 * 1024)})[0], 431)
         conn = http.client.HTTPConnection('127.0.0.1', live.port, timeout=15)
         try:
-            conn.putrequest('POST', '/api/session/bootstrap')
+            conn.putrequest('POST', '/api/intakes')
             conn.putheader('Origin', live.origin)
             conn.putheader('Transfer-Encoding', 'chunked')
             conn.endheaders()
@@ -167,7 +159,7 @@ class ProductionHttpAcceptance(unittest.TestCase):
 
     def test_http_operation_replay_after_restart_and_new_stale_request(self):
         live = self.live
-        live.login()
+        live.ready()
         pid = live.create()
         path = f'/api/projects/{pid}'
         view = live.request('GET', path)[2]['project']
@@ -182,7 +174,7 @@ class ProductionHttpAcceptance(unittest.TestCase):
         before = byte_snapshot(Path(self.temp.name))
         live.close()
         live = self.live = LiveServer(self.temp.name)
-        live.login()
+        live.ready()
         replay = live.request('POST', path + '/operations', value=request)
         self.assertEqual(replay[0], 202, replay[2])
         self.assertEqual(replay[2], {'operation_id': oid, 'state': 'SUCCEEDED'})
@@ -192,10 +184,8 @@ class ProductionHttpAcceptance(unittest.TestCase):
         self.assertEqual(live.request('POST', path + '/operations', value=changed)[0], 409)
         self.assertEqual(before, byte_snapshot(Path(self.temp.name)))
 
-    def test_real_bootstrap_elapsed_expiry_and_connection_limit(self):
+    def test_real_connection_limit_without_login(self):
         live = self.live
-        token = live.auth.issue_bootstrap()
-        issued = time.monotonic()
         sockets = []
         try:
             for _ in range(36):
@@ -211,13 +201,9 @@ class ProductionHttpAcceptance(unittest.TestCase):
         finally:
             for conn in sockets:
                 conn.close()
-        # Real monotonic expiry; no mock clock and no modification of auth state.
-        remaining = BOOTSTRAP_TTL_SECONDS + .2 - (time.monotonic() - issued)
-        if remaining > 0:
-            time.sleep(remaining)
-        self.assertEqual(live.request('POST', '/api/session/bootstrap', value={'token': token})[0], 401)
-        live.login()
+        live.ready()
         self.assertEqual(live.request('GET', '/api/projects')[0], 200)
+
 
 
 @unittest.skipUnless(HAS_FLASK and HAS_WAITRESS and HAS_PLAYWRIGHT, 'Real Edge/Waitress required')
@@ -245,8 +231,8 @@ class BrowserImportAcceptance(unittest.TestCase):
                         page = browser.new_page()
                         page.set_default_timeout(10000)
                         page.set_default_navigation_timeout(10000)
-                        page.goto(live.origin + '/#bootstrap=' + live.auth.issue_bootstrap())
-                        expect(page.locator('#session-state')).to_have_text('Сессия активна')
+                        page.goto(live.origin + '/')
+                        expect(page.locator('#connection-state')).to_have_text('Сервер готов')
                         before = byte_snapshot(Path(directory))
                         page.goto(f'http://127.0.0.1:{foreign.server_port}')
                         # CORS failures do not emit Playwright's ordinary response
@@ -302,8 +288,8 @@ class BrowserImportAcceptance(unittest.TestCase):
                         page.on('request', lambda request: requests.append(request.url))
                         page.on('pageerror', lambda error: errors.append(str(error)))
                         page.on('dialog', lambda dialog: dialog.accept())
-                        page.goto(live.origin + '/#bootstrap=' + live.auth.issue_bootstrap())
-                        expect(page.locator('#session-state')).to_have_text('Сессия активна')
+                        page.goto(live.origin + '/')
+                        expect(page.locator('#connection-state')).to_have_text('Сервер готов')
                         self.assertNotIn('#', page.url)
                         page.locator('[data-screen="documents"]').click()
                         page.locator('#new-project-name').fill('Браузерная приёмка')

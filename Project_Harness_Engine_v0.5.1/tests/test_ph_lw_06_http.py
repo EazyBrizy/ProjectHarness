@@ -2,6 +2,7 @@
 from __future__ import annotations
 from copy import deepcopy
 import json
+import zipfile
 import os
 from pathlib import Path
 import tempfile
@@ -42,7 +43,7 @@ class ExchangeHttpTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.live = LiveServer(self.temp.name)
         self.addCleanup(lambda: self.live.close())
-        self.live.login()
+        self.live.ready()
         code, _, result = self.live.request('POST', '/api/intakes', value={
             'project_name':'Exchange HTTP fixture', 'no_documentation':True, 'idempotency_key':'http-exchange-create-001'})
         self.assertEqual(code, 201)
@@ -64,13 +65,13 @@ class ExchangeHttpTests(unittest.TestCase):
                   '/gpt/replies/LWI-'+'A'*32+'/cancel', '/gpt/replies/recover']
         before = byte_snapshot(Path(self.temp.name))
         for route in reads:
-            self.assertEqual(self.live.request('GET', self.base + route, authenticated=False)[0], 401)
+            self.assertEqual(self.live.request('GET', self.base + route, headers={'Origin':'http://foreign.invalid'})[0], 403)
             self.assertEqual(self.live.request('GET', self.base + route)[0], 200)
         for route in writes:
             for headers in ({'Origin':'null'}, {'Host':'localhost:'+str(self.live.port)},
-                            {'Host':'127.0.0.1:1'}, {'Origin':'http://127.0.0.1:1'}, {'X-CSRF-Token':'wrong'}):
+                            {'Host':'127.0.0.1:1'}, {'Origin':'http://127.0.0.1:1'}):
                 self.assertEqual(self.live.request('POST', self.base + route, value={}, headers=headers)[0], 403)
-            self.assertEqual(self.live.request('POST', self.base + route, value={}, authenticated=False)[0], 401)
+            self.assertEqual(self.live.request('POST', self.base + route, value={}, headers={'Origin':'http://foreign.invalid'})[0], 403)
             self.assertEqual(self.live.request('GET', self.base + route)[0], 405)
         self.assertEqual(before, byte_snapshot(Path(self.temp.name)))
 
@@ -128,8 +129,8 @@ class ExchangeBrowserTests(unittest.TestCase):
                         page.on('request', lambda r: requests.append(r.url))
                         page.on('pageerror', lambda err: errors.append(str(err)))
                         page.on('dialog', lambda dialog: dialog.accept())
-                        page.goto(live.origin + '/#bootstrap=' + live.auth.issue_bootstrap())
-                        expect(page.locator('#session-state')).to_have_text('Сессия активна')
+                        page.goto(live.origin + '/')
+                        expect(page.locator('#connection-state')).to_have_text('Сервер готов')
                         for documented in (False, True):
                             page.locator('[data-screen="documents"]').click()
                             page.locator('#new-project-name').fill('Greenfield fixture ' + str(documented))
@@ -150,18 +151,15 @@ class ExchangeBrowserTests(unittest.TestCase):
                             expect(page.locator('#answer-project-primary_outcome')).to_have_count(0)
                             page.locator('#check-answers').click()
                             expect(page.locator('#notice')).to_contain_text('Ответы проверены')
-                            page.locator('#review-export').click()
-                            expect(page.locator('#export-review')).to_be_visible()
-                            for selector in page.locator('#export-documents select').all():
-                                selector.select_option('PUBLIC')
-                            page.locator('#draft-classification').select_option('PUBLIC')
-                            page.locator('#export-consent').check()
-                            page.locator('#create-export').click()
-                            expect(page.locator('#export-history a')).to_have_count(1)
+                            
+                            self.assertEqual(page.locator('#export-review').count(),0)
+                            
+                            
                             with page.expect_download() as download:
-                                page.locator('#export-history a').click()
-                            file = Path(download.value.path())
-                            pack = file.read_text('utf-8')
+                                page.locator('#review-export').click()
+                            expect(page.locator('#review-export')).to_be_enabled()
+                            self.assertEqual(page.locator('#export-history').count(),0)
+                            with zipfile.ZipFile(download.value.path()) as z:pack=z.read('pack.md').decode('utf-8')
                             self.assertNotIn('PROJECT_INPUT@3', pack)
                             skeleton = json.loads(pack.split('## Return skeleton\n\n',1)[1])
                             reply = fixture_reply(skeleton)
@@ -170,35 +168,34 @@ class ExchangeBrowserTests(unittest.TestCase):
                             page.locator('#gpt-reply').fill(json.dumps(reply, ensure_ascii=False))
                             page.locator('#preview-reply').click()
                             expect(page.locator('#import-preview')).to_be_visible()
-                            expect(page.locator('#notice')).to_contain_text('Preview готов')
-                            expect(page.locator('#preview-summary')).to_contain_text('PREVIEW')
+                            expect(page.locator('#notice')).to_contain_text('Изменения показаны')
+                            expect(page.locator('#preview-summary')).to_contain_text('Изменений:')
                             expect(page.locator('#reply-diff')).to_contain_text('<img')
                             self.assertEqual(page.locator('img,iframe,script:not([src])').count(),0)
                             self.assertIsNone(page.evaluate('window.injected'))
                             before = byte_snapshot(Path(directory))
                             page.reload(wait_until='networkidle')
-                            expect(page.locator('#preview-summary')).to_contain_text('PREVIEW')
+                            expect(page.locator('#preview-summary')).to_contain_text('Изменений:')
                             after = byte_snapshot(Path(directory))
                             self.assertEqual(before, after, {k:(before.get(k),after.get(k)) for k in before.keys() | after.keys() if before.get(k)!=after.get(k)})
                             page.locator('#commit-reply').click()
-                            expect(page.locator('#import-history')).to_contain_text('COMMITTED')
-                            expect(page.locator('#interview-status')).to_contain_text('WAITING_DECISION')
+                            expect(page.locator('#import-history')).to_contain_text('сохранён')
+                            expect(page.locator('#interview-status')).to_contain_text('Нужно выбрать целевой уровень')
                             page.locator('#gpt-reply').fill(json.dumps(reply))
                             page.locator('#preview-reply').click()
                             expect(page.locator('#notice')).to_contain_text('уже применён')
                             # New live binding for a forged approval negative response.
-                            page.locator('#review-export').click()
-                            expect(page.locator('#export-review')).to_be_visible()
-                            for selector in page.locator('#export-documents select').all(): selector.select_option('PUBLIC')
-                            page.locator('#draft-classification').select_option('PUBLIC')
-                            page.locator('#export-consent').check()
-                            with page.expect_response(lambda r: r.url.endswith('/gpt/exports') and r.request.method=='POST') as posted:
-                                page.locator('#create-export').click()
-                            self.assertEqual(posted.value.status, 200, posted.value.text())
-                            expect(page.locator('#export-history a')).to_have_count(1)
-                            with page.expect_download() as download:
-                                page.locator('#export-history a').click()
-                            skeleton = json.loads(Path(download.value.path()).read_text('utf-8').split('## Return skeleton\n\n',1)[1])
+                            
+                            self.assertEqual(page.locator('#export-review').count(),0)
+                            
+                            
+                            with page.expect_download() as download, page.expect_response(lambda r: r.url.endswith('/analysis/package') and r.request.method=='POST') as posted:
+                                page.locator('#review-export').click()
+                            self.assertEqual(posted.value.status, 201, posted.value.text())
+                            expect(page.locator('#review-export')).to_be_enabled()
+                            self.assertEqual(page.locator('#export-history').count(),0)
+                            with zipfile.ZipFile(download.value.path()) as z:pack=z.read('pack.md').decode('utf-8')
+                            skeleton = json.loads(pack.split('## Return skeleton\n\n',1)[1])
                             skeleton['project_input_draft']['approvals']['project_definition']['approved'] = True
                             before = byte_snapshot(Path(directory))
                             page.locator('#gpt-reply').fill(json.dumps(skeleton)); page.locator('#preview-reply').click()

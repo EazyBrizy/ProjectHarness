@@ -1,0 +1,22 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "tools/document_upload_feedback_checkpoint.py",
+    "upgrade-user"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]",
+  "started_utc": "2026-11-09T10:23:58.203975+00:00",
+  "source_layout": false,
+  "dependencies": {
+    "Flask": "3.1.3",
+    "Waitress": "3.0.2",
+    "playwright": "1.64.1"
+  },
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 14.556,
+  "log_sha256": "b8ee9f57e9c0da97390bba75705ff43b152cc4d7d3c9413dc09e9a5977501520"
+}

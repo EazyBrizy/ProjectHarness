@@ -35,28 +35,20 @@
       </nav>
       <div class="sidebar-foot">
         <span class="local-dot" aria-hidden="true"></span> Только этот компьютер
-        <small>Без provider API, облака и автоматического запуска Codex</small>
+        <small>Анализ через Codex CLI или ручной пакет для модели</small>
       </div>
     </aside>
     <main id="workspace" tabindex="-1">
       <header class="topbar">
         <div><p class="eyebrow">ЛОКАЛЬНОЕ УПРАВЛЕНИЕ ПРОЕКТОМ</p><h1 id="screen-title">Проекты</h1></div>
         <div class="top-actions">
-          <span id="session-state" role="status" class="status">Проверка входа…</span>
+          <span id="connection-state" role="status" class="status">Подключение…</span>
           <button type="button" id="refresh" class="outline" disabled>Обновить состояние</button>
-          <button type="button" id="logout" class="quiet" disabled>Выйти</button>
           <button type="button" id="stop-harness" class="quiet" disabled>Завершить Harness</button>
         </div>
       </header>
       <div id="notice" role="status" aria-live="polite" class="notice">Подключаемся к локальному серверу…</div>
-      <section id="session-gate" class="panel hidden" aria-labelledby="gate-title">
-        <h2 id="gate-title">Нужен локальный вход</h2>
-        <p>Откройте Harness через ярлык или Harness.exe. Повторный запуск безопасно открывает работающий сервер.</p>
-        <p>Если браузер не открылся автоматически, введите код из локального окна Harness. Новый запуск выдаёт новый код; останавливать сервер не нужно.</p>
-        <label>Одноразовый код <input id="manual-bootstrap" type="password" autocomplete="off" maxlength="128"></label>
-        <button type="button" id="manual-login">Войти по локальному коду</button>
-      </section>
-      <section id="content" class="hidden" aria-live="off">
+      <section id="content" aria-live="off">
         <div class="page-intro"><p id="screen-description">Начните с MD/ZIP документов или выберите «Документации нет». Для продолжения выберите существующий проект.</p></div>
         <section id="lifecycle-panel" class="panel hidden" aria-labelledby="lifecycle-title">
           <h2 id="lifecycle-title">Стадии, evidence и обслуживание</h2>
@@ -69,7 +61,7 @@
           <p>Gate blocker восстанавливается отдельно от Task blocker. Missing evidence закрывается существующими preparation Tasks и проверяемыми источниками. Assessment не повышает accepted level.</p>
           <div id="lifecycle-form-panel" hidden>
             <h3 id="lifecycle-form-title">Просмотр черновика</h3>
-            <p>Проверьте каждый результат и источник отдельно. Formal approval создаётся только после подтверждения ниже. Изменение work plan требует rationale; accepted scope не расширяется.</p>
+            <p>Проверьте каждый результат и источник отдельно. Решение применяется кнопкой действия ниже. Изменение work plan требует rationale; accepted scope не расширяется.</p>
             <div id="lifecycle-fields"></div>
             <details><summary>Дополнительно: exact JSON (импорт не означает approval)</summary>
               <textarea id="lifecycle-json" rows="12" aria-label="Lifecycle JSON"></textarea>
@@ -78,7 +70,6 @@
             </details>
             <label>Actor (ACT-...) <input id="lifecycle-actor" maxlength="160" placeholder="ACT-OPERATOR-001"></label>
             <label>Rationale для изменённого reviewed plan<textarea id="lifecycle-rationale" maxlength="4000" rows="3"></textarea></label>
-            <label><input type="checkbox" id="lifecycle-confirm"> Я рассмотрел точный текущий контекст и отдельно подтверждаю это действие</label>
             <button type="button" id="lifecycle-apply">Применить рассмотренный документ</button>
           </div>
           <pre id="lifecycle-operation" role="status" aria-live="polite"></pre>
@@ -108,12 +99,10 @@
             <p>Проверьте каждый пункт и выбранные файлы. Запишите наблюдения и отдельный PASS/FAIL. Evidence не завершает Task и не подтверждает Stage.</p>
             <label>Reviewer <input id="task-manual-reviewer" maxlength="200"></label>
             <div id="task-manual-checks"></div>
-            <label><input type="checkbox" id="task-manual-confirm"> Я лично выполнил указанные проверки и подтверждаю observations для текущих файлов</label>
             <button type="button" id="task-manual-submit" disabled>Сохранить manual evidence</button>
             <pre id="task-manual-state"></pre>
           </details>
           <p>Продуктовые команды: выполнение кода на вашем компьютере, не sandbox. Проверьте точные argv, cwd и timeout. Недостающий toolchain устанавливается отдельно.</p>
-          <label><input type="checkbox" id="task-consent"> Разрешаю только показанный план проверки для этого Run и текущего baseline</label>
           <button type="button" id="task-verify" disabled>Проверить</button>
           <pre id="task-verification"></pre>
           <h3>3. Завершение Task</h3>
@@ -153,7 +142,7 @@
               <h3>Что мешает продолжить</h3><p id="blockers" class="body-value">—</p>
               <div class="next"><span class="eyebrow">ЧТО НУЖНО СДЕЛАТЬ</span><p id="next-action">—</p></div>
               <h3>Доступные действия</h3>
-              <p class="muted small">Каждое изменение требует отдельного подтверждения, точного fingerprint и защищённого POST.</p>
+              <p class="muted small">Результат выбранного действия отображается ниже.</p>
               <div id="action-list" class="actions"></div>
               <div id="operation-view" class="hidden operation" role="status" aria-live="polite"></div>
               <button type="button" id="export-operation-log" disabled aria-describedby="export-operation-log-reason">Экспорт журнала недоступен</button>
@@ -165,13 +154,15 @@
       <section id="documents-panel" class="panel hidden" aria-labelledby="documents-title">
         <h2 id="documents-title">Документы и источники</h2>
         <p class="muted">Только локальные MD (UTF-8) и ZIP с MD. Импорт не анализирует документы и не отправляет их в интернет.</p>
+        <p id="document-validation" class="notice error hidden" role="alert" tabindex="-1"></p>
         <div class="document-grid">
           <div>
-            <h3>Начать Greenfield опрос</h3>
+            <h3>1. Создайте или выберите проект</h3>
+            <p class="small muted">Для нового проекта введите название и нажмите «Создать проект для документов». Если проект уже есть, выберите его во вкладке «Проекты».</p>
             <label for="new-project-name">Название проекта</label>
-            <input id="new-project-name" type="text" maxlength="120" autocomplete="off" placeholder="Название проекта">
+            <input id="new-project-name" type="text" maxlength="120" autocomplete="off" placeholder="Название проекта" aria-describedby="document-validation">
             <div class="button-cluster">
-              <button id="create-intake" type="button" class="outline">Создать intake для документов</button>
+              <button id="create-intake" type="button" class="outline">Создать проект для документов</button>
               <button id="create-no-docs" type="button" class="outline">Документации нет</button>
             </div>
             <label>Existing repository mode <select id="repository-mode"><option>BROWNFIELD</option><option>HYBRID</option></select></label>
@@ -179,20 +170,28 @@
             <p class="small muted">Системное окно выбора папки. Assessment и preparation читают исходный репозиторий; новый Project Instance размещается отдельно.</p>
           </div>
           <div>
-            <h3>Загрузить документы в выбранный intake</h3>
+            <h3>2. Выберите и импортируйте документы</h3>
+            <p id="upload-project" class="small muted">Проект для загрузки ещё не выбран.</p>
             <div id="upload-zone" class="upload-zone" role="group" aria-label="Загрузка Markdown и ZIP">
               <label for="source-files">Выберите MD/ZIP или перетащите файлы сюда</label>
-              <input id="source-files" type="file" accept=".md,.zip" multiple>
+              <input id="source-files" type="file" accept=".md,.zip" multiple aria-describedby="document-validation">
               <p id="upload-selected" class="small muted">Файлы не выбраны</p>
             </div>
             <label for="source-import-mode">Способ изменения источников</label>
             <select id="source-import-mode"><option value="append">Добавить</option><option value="replace">Заменить весь набор</option></select>
             <div class="button-cluster">
-              <button id="upload-sources" class="outline" type="button" disabled>Импортировать файлы</button>
-              <button id="confirm-no-docs" class="quiet" type="button" disabled>Документации нет</button>
+              <button id="upload-sources" class="document-primary" type="button" aria-describedby="upload-step-detail">Импортировать файлы</button>
+              <button id="clear-source-files" class="quiet hidden" type="button">Снять выбор файлов</button>
+              <button id="confirm-no-docs" class="quiet" type="button">Документации нет</button>
             </div>
-            <progress id="upload-progress" class="hidden" max="100" value="0" aria-label="Прогресс загрузки"></progress>
+            <div id="upload-step" class="upload-step" role="status" aria-live="polite" aria-atomic="true">
+              <strong id="upload-step-title">Сначала создайте или выберите проект</strong>
+              <p id="upload-step-detail">Затем выберите ZIP с Markdown или файлы MD и нажмите «Импортировать файлы». Выбор файла сам по себе не запускает загрузку.</p>
+            </div>
+            <progress id="upload-progress" class="hidden" max="100" value="0" aria-label="Прогресс передачи файлов"></progress>
             <p id="upload-result" role="status" aria-live="polite" class="small"></p>
+            <h3>3. Продолжите подготовку проекта</h3>
+            <button id="documents-next" class="document-primary" type="button" aria-describedby="upload-step-detail">Перейти к опросу и GPT →</button>
           </div>
         </div>
         <h3>Принятые источники и история</h3>
@@ -203,49 +202,66 @@
         <p class="muted small">Лимиты: весь запрос с ZIP до 64 MiB; один MD или распакованный элемент до 8 MiB; суммарное распакованное содержимое до 128 MiB; до 1000 элементов; вложенность до 16; сжатие до 200:1. Опасный ZIP отклоняется целиком.</p>
       </section>
       <section id="interview-panel" class="panel hidden" aria-labelledby="interview-title">
-        <h2 id="interview-title">Опрос и обмен с GPT</h2>
-        <p id="interview-status" role="status">Выберите intake во вкладке «Проекты».</p>
+        <h2 id="interview-title">Анализ документов и уточнение проекта</h2>
+        <p id="interview-status" role="status">Выберите проект.</p>
         <div id="interview-body" class="hidden">
           <div class="next"><p id="interview-next"></p></div>
-          <p id="interview-documents" class="body-value"></p>
+          <div id="interview-documents" class="body-value"></div>
           <button id="interview-documents-link" type="button" class="quiet">Открыть документы</button>
-          <details><summary>Известные ответы и provenance</summary><div id="known-answers"></div></details>
-          <h3>Текущие вопросы</h3>
-          <p class="muted">Ответы сохраняются как draft. Они не являются approvals или verified facts.</p>
+          <h3>1. Выберите способ анализа документов</h3>
+          <div id="analysis-options" class="analysis-options">
+          <section class="question" aria-labelledby="cli-analysis-title">
+            <h4 id="cli-analysis-title">Автоматически через Codex CLI</h4>
+            <p>Подключите Codex CLI, установленный на этом компьютере. Harness сам передаст документы на анализ и покажет предложения в браузере. Скачивать пакет и переносить JSON не потребуется.</p>
+            <p id="cli-connection-status" role="status">CLI пока не подключён.</p>
+            <div class="cli-actions">
+              <button id="cli-connect" type="button" class="outline"><span id="cli-connect-check" class="cli-connected-check hidden" aria-hidden="true">✓</span><span id="cli-connect-label">Подключить CLI</span></button>
+              <button id="cli-analyze" type="button" class="document-primary">Анализировать через CLI</button>
+              <button id="cli-analysis-cancel" type="button" class="quiet hidden">Остановить анализ</button>
+            </div>
+            <p id="cli-analysis-status" class="hidden" role="status" aria-live="polite"></p>
+            <details id="cli-connection-help"><summary>Если CLI ещё не установлен или требуется вход</summary>
+              <p>Установите Codex CLI на этом компьютере. Для входа в учётную запись Codex выполните в терминале <code>codex login</code>, затем нажмите «Подключить CLI». Подключение сохраняется для приложения.</p>
+              <a href="https://learn.chatgpt.com/docs/codex/cli" target="_blank" rel="noopener noreferrer">Инструкция по Codex CLI</a>
+            </details>
+            <p id="cli-token-note" class="cli-token-note muted small">На выполнение расходуются токены агента.</p>
+          </section>
+          <section class="question" aria-labelledby="manual-analysis-title">
+            <h4 id="manual-analysis-title">Вручную через ChatGPT или Codex</h4>
+            <p>Нажмите кнопку — Harness скачает ZIP с инструкцией и pack.md. Прикрепите архив к ChatGPT или Codex, затем вставьте ответ модели на шаге 2. Подключать CLI к приложению не требуется.</p>
+            <button id="review-export" type="button" class="outline">Сформировать пакет вручную</button>
+          </section>
+          </div>
+          <hr>
+          <h3>2. Верните ответ модели</h3>
+          <p>При анализе через CLI предложения появятся здесь автоматически. При ручном обмене вставьте полный JSON из ответа модели — Harness покажет изменения перед сохранением.</p>
+          <label for="gpt-reply">Ответ модели в формате JSON (до 512 КБ)</label>
+          <textarea id="gpt-reply" rows="8" spellcheck="false" placeholder="Вставьте сюда полный JSON из ответа модели"></textarea>
+          <button id="preview-reply" type="button" class="outline">Показать предложенные изменения</button>
+          <div id="repair-area" class="hidden"><p>Формат ответа не подошёл. Скопируйте инструкцию исправления и передайте её модели вместе с исходным пакетом.</p><pre id="repair-prompt" class="source-preview"></pre>
+            <button id="copy-repair" type="button" class="outline">Копировать инструкцию исправления</button></div>
+          <div id="import-preview" class="hidden">
+            <h3>Предложенные изменения</h3>
+            <p id="preview-summary" role="status"></p>
+            <div id="reply-diff"></div>
+            <button id="commit-reply" type="button" class="outline">Сохранить предложения</button>
+            <button id="cancel-reply" type="button" class="quiet">Отклонить предложения</button>
+            <details><summary>Технические сведения об ответе</summary><pre id="interview-preview-technical" class="source-preview"></pre></details>
+          </div>
+          <div id="import-history"></div>
+          <hr>
+          <h3>3. Уточните оставшиеся вопросы</h3>
+          <p class="muted">Можно ответить самостоятельно или уточнить ответы после анализа моделью. Сведения сохраняются в черновике проекта.</p>
           <form id="answers-form"><div id="question-fields" class="interview-fields"></div>
             <button id="save-answers" type="submit" class="outline">Сохранить ответы</button>
           </form>
-          <button id="check-answers" type="button" class="outline">Проверить readiness</button>
-          <button id="recover-reply" type="button" class="outline hidden">Сверить прерванный commit</button>
-          <details><summary>Оставшиеся blockers и readiness ядра</summary><pre id="interview-readiness" class="source-preview"></pre></details>
-          <hr>
-          <h3>1. Подготовить пакет для внешнего GPT</h3>
-          <p>Сначала проверьте состав и право передачи. Export содержит все документы, текущий draft, вопросы и schemas. Сервер ничего не отправляет внешней модели.</p>
-          <button id="review-export" type="button" class="outline">Проверить состав пакета</button>
-          <div id="export-review" class="hidden">
-            <p id="export-warning" class="body-value"></p>
-            <div id="export-documents"></div>
-            <label for="draft-classification">Класс данных draft и ответов</label>
-            <select id="draft-classification"><option value="UNKNOWN">Не проверено</option><option>PUBLIC</option><option>INTERNAL</option><option>CONFIDENTIAL</option><option>RESTRICTED</option><option>SECRET</option><option>REGULATED</option></select>
-            <label class="consent"><input id="export-consent" type="checkbox"> Я проверил все перечисленные документы и draft: секретов нет, внешняя передача разрешена.</label>
-            <button id="create-export" type="button" class="outline">Создать пакет для GPT</button>
-          </div>
-          <div id="export-history"></div>
-          <hr>
-          <h3>2. Вставить ответ GPT</h3>
-          <label for="gpt-reply">JSON draft (до 512 KiB)</label>
-          <textarea id="gpt-reply" rows="8" spellcheck="false" placeholder="Вставьте полный JSON ответ из ручного обмена"></textarea>
-          <button id="preview-reply" type="button" class="outline">Проверить и показать diff</button>
-          <div id="repair-area" class="hidden"><p>Ответ отклонён; сессия не изменена. Исправьте ответ по этому ограниченному prompt.</p><pre id="repair-prompt" class="source-preview"></pre>
-            <button id="copy-repair" type="button" class="outline">Копировать repair prompt</button></div>
-          <div id="import-preview" class="hidden">
-            <h3>3. Проверить изменения перед применением</h3>
-            <p id="preview-summary" role="status"></p>
-            <div id="reply-diff"></div>
-            <button id="commit-reply" type="button" class="outline">Применить как draft</button>
-            <button id="cancel-reply" type="button" class="quiet">Отменить import до commit</button>
-          </div>
-          <div id="import-history"></div>
+          <button id="check-answers" type="button" class="outline">Проверить заполнение</button>
+          <button id="recover-reply" type="button" class="outline hidden">Восстановить сохранение ответа</button>
+          <details><summary>Сохранённые сведения о проекте</summary>
+            <p class="muted">Здесь показаны заполненные сведения черновика и применённые предложения модели. У каждого ответа указан источник. Служебные настройки шаблона не показаны.</p>
+            <div id="known-answers"></div>
+          </details>
+          <details id="interview-technical"><summary>Технические сведения</summary><pre id="interview-readiness" class="source-preview"></pre></details>
         </div>
       </section>
       <section id="approvals-panel" class="panel hidden" aria-labelledby="approvals-title">
@@ -274,7 +290,6 @@
         <form id="preparation-form" class="hidden">
           <label for="project-folder-name">Имя новой папки проекта</label>
           <input id="project-folder-name" maxlength="80" required autocomplete="off">
-          <label class="consent"><input id="confirm-new-folder" type="checkbox"> Подтверждаю новую папку в показанном каталоге. Существующая папка не заменяется.</label>
           <button id="prepare-project" type="submit" class="outline">Собрать, проверить и разместить проект</button>
         </form>
         <button id="recover-preparation" type="button" class="outline hidden">Сверить и продолжить подготовку</button>

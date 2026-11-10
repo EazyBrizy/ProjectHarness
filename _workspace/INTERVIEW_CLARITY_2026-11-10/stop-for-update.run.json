@@ -1,0 +1,15 @@
+{
+  "command": [
+    "./.venv/Scripts/python.exe",
+    "-B",
+    "_workspace/INTERVIEW_CLARITY_2026-11-10/stop_for_update.py"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-10T11:01:33.055350+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 60,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 0.532,
+  "log_sha256": "6cf44f3c0f098358c69f8e1f78f404a3dea445acfb44f409210666e81326625e"
+}

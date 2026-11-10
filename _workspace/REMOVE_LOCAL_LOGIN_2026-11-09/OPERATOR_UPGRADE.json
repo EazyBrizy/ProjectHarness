@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "command": [
+    "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1\\windows\\Harness-Setup-win-x64.exe",
+    "/VERYSILENT",
+    "/SUPPRESSMSGBOXES",
+    "/NORESTART",
+    "/DIR=C:\\Users\\gvenv\\AppData\\Local\\Programs\\ProjectHarness",
+    "/LOG=C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\remove_local_login_20261109\\operator-upgrade.log"
+  ],
+  "exit": 0,
+  "before_build_id": "DOC-UPLOAD-UX-20261109",
+  "after_build_id": "NO-LOCAL-LOGIN-20261109",
+  "operator_data_preserved": true,
+  "private_roots_aggregate_hashes": [
+    {
+      "label": "ProjectHarness",
+      "files": 3,
+      "digest": "3bc5ee48c8e22aa6a99b7912400eba3ee61f6fb1f0e7535b841d53fb8a80dc57"
+    },
+    {
+      "label": "HarnessProjects",
+      "files": 0,
+      "digest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "label": "ProjectHarness-workspaces",
+      "files": 9,
+      "digest": "64325fbd9aa7e450fdc3e48547a867ec55d1431716bca0d009c27043eb59d1d7"
+    }
+  ],
+  "previous_version_preserved": true,
+  "checks": {
+    "--check-package": 0,
+    "--doctor": 0
+  },
+  "browser_launched": false
+}

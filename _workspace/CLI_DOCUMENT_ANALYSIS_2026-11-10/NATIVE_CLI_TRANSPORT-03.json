@@ -1,0 +1,17 @@
+{
+  "exit": 0,
+  "event_types": [
+    "thread.started",
+    "turn.started",
+    "item.completed",
+    "turn.completed"
+  ],
+  "item_types": [
+    "agent_message"
+  ],
+  "stderr_sanitized_tail": "",
+  "command_tools_disabled": true,
+  "apps_disabled": true,
+  "sandbox": "read-only",
+  "no_user_uploads": true
+}

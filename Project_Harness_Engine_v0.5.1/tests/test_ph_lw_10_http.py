@@ -22,11 +22,11 @@ class LifecycleHttpTests(unittest.TestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory(prefix='LW10 TCP ');self.addCleanup(self.tmp.cleanup);self.base=Path(self.tmp.name)
         self.live=LiveServer(self.tmp.name);self.addCleanup(self.live.close);self.root=self.base/'project';shutil.copytree(self.gate,self.root)
-        self.pid=self.live.service.register_existing(self.root,kind='project');self.baseurl='/api/projects/'+self.pid;self.live.login()
+        self.pid=self.live.service.register_existing(self.root,kind='project');self.baseurl='/api/projects/'+self.pid;self.live.ready()
     def test_auth_csrf_origin_port_unknown_fields_and_readonly(self):
         before=byte_snapshot(self.root)
-        self.assertEqual(self.live.request('GET',self.baseurl+'/lifecycle',authenticated=False)[0],401)
-        for headers in ({'Origin':'null'},{'Host':'localhost:'+str(self.live.port)},{'Origin':'http://127.0.0.1:1'},{'X-CSRF-Token':'wrong'}):
+        self.assertEqual(self.live.request('GET',self.baseurl+'/lifecycle',headers={'Origin':'http://foreign.invalid'})[0],403)
+        for headers in ({'Origin':'null'},{'Host':'localhost:'+str(self.live.port)},{'Origin':'http://127.0.0.1:1'}):
             self.assertEqual(self.live.request('POST',self.baseurl+'/operations',value={},headers=headers)[0],403)
             self.assertEqual(self.live.request('POST','/api/local-selection',value={},headers=headers)[0],403)
         for _ in range(3):self.assertEqual(self.live.request('GET',self.baseurl+'/lifecycle')[0],200)
@@ -60,7 +60,7 @@ class LifecycleBrowserTests(unittest.TestCase):
     def open(self,source):
         from playwright.sync_api import expect
         self.root=self.base/'project';shutil.copytree(source,self.root);self.pid=self.live.service.register_existing(self.root,kind='project')
-        self.page.goto(self.live.origin+'/#bootstrap='+self.live.auth.issue_bootstrap());expect(self.page.locator('#session-state')).to_have_text('Сессия активна')
+        self.page.goto(self.live.origin + '/');expect(self.page.locator('#connection-state')).to_have_text('Сервер готов')
         self.assertEqual(self.errors,[],self.errors)
         self.page.locator('.project-button').click();self.page.locator('[data-screen="gates"]').click()
         try:expect(self.page.locator('#lifecycle-summary')).not_to_have_text('Выберите проект.')
@@ -77,7 +77,7 @@ class LifecycleBrowserTests(unittest.TestCase):
         expect(self.page.locator('#lifecycle-apply')).to_be_enabled()
     def field(self,path):return self.page.locator('[data-field="'+path+'"]')
     def apply(self):
-        self.page.locator('#lifecycle-actor').fill('ACT-EDGE-LW10-REVIEWER');self.page.locator('#lifecycle-confirm').check();self.page.locator('#lifecycle-apply').click()
+        self.page.locator('#lifecycle-actor').fill('ACT-EDGE-LW10-REVIEWER');self.page.locator('#lifecycle-apply').click()
     def screenshot(self,name):
         folder=Path(os.environ.get('PH_LW_10_SCREENSHOT_DIR',str(self.base/'screenshots')));folder.mkdir(parents=True,exist_ok=True)
         self.page.screenshot(path=str(folder/name),full_page=True)
@@ -134,7 +134,7 @@ class LifecycleBrowserTests(unittest.TestCase):
         from tests.test_ph_051_10_migration_recovery import downgrade_to_v050
         root=prepare_demo(self.base/'legacy')[2];history=downgrade_to_v050(root)
         pid=self.live.service.register_existing(root,kind='migration')
-        self.page.goto(self.live.origin+'/#bootstrap='+self.live.auth.issue_bootstrap());expect(self.page.locator('#session-state')).to_have_text('Сессия активна')
+        self.page.goto(self.live.origin + '/');expect(self.page.locator('#connection-state')).to_have_text('Сервер готов')
         self.page.locator('.project-button').click();self.page.locator('[data-screen="maintenance"]').click()
         expect(self.page.locator('[data-lifecycle="prepare-migration"]')).to_be_enabled();self.prepare('prepare-migration')
         self.apply();expect(self.page.locator('#lifecycle-operation')).to_contain_text('MIGRATED',timeout=90000)
@@ -152,7 +152,7 @@ class LifecycleBrowserTests(unittest.TestCase):
         inp=self.base/'input.json';write_data(inp,data);repo=self.base/'repository';repo.mkdir();(repo/'README.md').write_text('# beta','utf-8')
         ws=self.base/'intake';start_intake(ws,project_name='Brownfield fixture',mode='BROWNFIELD',repository=repo,initial_input=inp)
         self.live.service.register_existing(ws,kind='workspace');before=byte_snapshot(repo)
-        self.page.goto(self.live.origin+'/#bootstrap='+self.live.auth.issue_bootstrap());expect(self.page.locator('#session-state')).to_have_text('Сессия активна')
+        self.page.goto(self.live.origin + '/');expect(self.page.locator('#connection-state')).to_have_text('Сервер готов')
         self.page.locator('.project-button').click();self.page.locator('[data-screen="maintenance"]').click()
         self.page.on('dialog',lambda d:d.accept());expect(self.page.locator('[data-lifecycle="assess-maturity"]')).to_be_enabled()
         self.page.locator('[data-lifecycle="assess-maturity"]').click();expect(self.page.locator('#lifecycle-gaps')).to_contain_text('UNKNOWN',timeout=90000)

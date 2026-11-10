@@ -1,0 +1,52 @@
+{"package": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\wheel-venv\\Lib\\site-packages\\project_harness", "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]", "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\Независимая папка wheel", "source_import": false, "dependencies": {"Flask": "3.1.3", "Waitress": "3.0.2", "playwright": "1.64.1"}, "scope": "3 tests of changed confirmation-free UI only; no full engine suite"}
+test_create_upload_replace_error_export_and_stop_without_confirmations (tests.test_single_action_ui.SingleActionUiTests.test_create_upload_replace_error_export_and_stop_without_confirmations) ... Task queue depth is 1
+Task queue depth is 2
+Task queue depth is 3
+ok
+test_decisions_and_folder_action_need_no_extra_checkbox (tests.test_single_action_ui.SingleActionUiTests.test_decisions_and_folder_action_need_no_extra_checkbox) ... Task queue depth is 1
+Task queue depth is 2
+ERROR
+test_task_and_lifecycle_clicks_submit_current_intent_without_checkbox (tests.test_single_action_ui.SingleActionUiTests.test_task_and_lifecycle_clicks_submit_current_intent_without_checkbox) ... ok
+
+======================================================================
+ERROR: test_decisions_and_folder_action_need_no_extra_checkbox (tests.test_single_action_ui.SingleActionUiTests.test_decisions_and_folder_action_need_no_extra_checkbox)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\tests\test_single_action_ui.py", line 87, in test_decisions_and_folder_action_need_no_extra_checkbox
+    p.locator('.project-button').filter(has_text='Approval HTTP fixture').click()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\sync_api\_generated.py", line 11021, in click
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.click(
+        ^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+        )
+        ^
+    )
+    ^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_locator.py", line 174, in click
+    return await self._frame._click(self._selector, strict=True, **params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_frame.py", line 598, in _click
+    await self._channel.send("click", self._timeout, locals_to_params(locals()))
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_connection.py", line 78, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_scratch\document_upload_feedback_20261109\wheel-venv\Lib\site-packages\playwright\_impl\_connection.py", line 636, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".project-button").filter(has_text="Approval HTTP fixture")
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 44.766s
+
+FAILED (errors=1)

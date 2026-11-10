@@ -1,21 +1,12 @@
 'use strict';
 // PH-LW-04. No telemetry, external URLs, dynamic HTML or provider integration.
-// Consume the fragment before any fetch, UI rendering, or diagnostic output.
-const startFragment = window.location.hash;
-window.history.replaceState(null, '', window.location.pathname + window.location.search);
-let bootstrapCode = null;
-if (startFragment.length < 256 && startFragment.startsWith('#bootstrap=')) {
-  bootstrapCode = new URLSearchParams(startFragment.slice(1)).get('bootstrap');
-}
-const desktopLaunch = Boolean(bootstrapCode);
-
-const state = { csrf: null, projects: [], activeProject: null, view: null, screen: 'projects', requestBusy: false };
+const state = { connected: false, projects: [], activeProject: null, view: null, screen: 'projects', requestBusy: false };
 const $ = (id) => document.getElementById(id);
 const terminalStates = new Set(['SUCCEEDED', 'FAILED', 'BLOCKED', 'CANCELLED', 'INTERRUPTED']);
 const screenLabels = {
   projects: ['Проекты', 'Загрузите MD/ZIP документов или выберите «Документации нет». Можно продолжить существующий проект.'],
   documents: ['Документы', 'Приём MD/ZIP в приватный snapshot; анализ и согласования отдельно.'],
-  interview: ['Опрос и GPT', 'Уточните существенные пробелы, подготовьте пакет и вручную импортируйте черновик внешнего GPT.'],
+  interview: ['Опрос и GPT', 'Выберите автоматический анализ через CLI или ручной пакет для модели, затем уточните сведения о проекте.'],
   approvals: ['Согласования', 'Проверьте содержание каждого решения, подтвердите отдельно или верните на доработку.'],
   overview: ['Обзор проекта', 'Актуальная стадия, целевой уровень, ограничения и следующий шаг из canonical core.'],
   tasks: ['Задачи и Run', 'Exact JIT → результат внешнего агента → независимая проверка → завершение Task.'],
@@ -60,18 +51,20 @@ async function requestApi(path, options = {}) {
   const method = options.method || 'GET';
   // Navigation saves share the app-data fence with operation admission.
   // Finish our own earlier save before a user mutation; never replay a POST.
-  const headers = { Accept: 'application/json' };
+  const headers = { Accept: options.responseType === 'blob' ? 'application/zip' : 'application/json' };
   if (method !== 'GET') {
     if (!options.formData) headers['Content-Type'] = 'application/json';
-    if (state.csrf) headers['X-CSRF-Token'] = state.csrf;
   }
-  const response = await fetch(path, { method, headers, credentials: 'same-origin',
+  const response = await fetch(path, { method, headers, credentials: 'omit',
                                         cache: 'no-store', body: options.formData || (options.body ? JSON.stringify(options.body) : undefined) });
+  if (response.ok && options.responseType === 'blob') {
+    if (!response.headers.get('Content-Type')?.startsWith('application/zip')) throw new Error('Сервер не вернул ZIP-архив. Повторите подготовку пакета.');
+    return response.blob();
+  }
   let result;
   try { result = await response.json(); }
   catch (_error) { throw new Error('Сервер вернул неизвестный формат.'); }
   if (!response.ok) {
-    if (response.status === 401) lockSession();
     const info = result.error || {};
     // A reload can overlap the previous page's still-running GET. Retry only
     // a bounded read on the explicit fence conflict; POST is never replayed.
@@ -85,42 +78,6 @@ async function requestApi(path, options = {}) {
     throw error;
   }
   return result;
-}
-function lockSession() {
-  state.csrf = null;
-  $('session-gate').classList.remove('hidden');
-  $('content').classList.add('hidden');
-  $('documents-panel').classList.add('hidden');
-  $('interview-panel').classList.add('hidden');
-  $('approvals-panel').classList.add('hidden');
-  $('tasks-panel').classList.add('hidden');
-  $('lifecycle-panel').classList.add('hidden');
-  $('refresh').disabled = true;
-  $('logout').disabled = true;
-  $('stop-harness').disabled = true;
-  text('session-state', 'Нет сессии');
-}
-function unlockSession(csrf) {
-  state.csrf = csrf;
-  $('session-gate').classList.add('hidden');
-  $('content').classList.remove('hidden');
-  $('refresh').disabled = false;
-  $('logout').disabled = false;
-  $('stop-harness').disabled = false;
-  text('session-state', 'Сессия активна');
-}
-async function beginSession() {
-  if (bootstrapCode) {
-    const credential = bootstrapCode;
-    bootstrapCode = null;
-    const result = await api('/api/session/bootstrap', { method: 'POST', body: { token: credential } });
-    if (!result.authenticated) throw new Error('Ошибка входа.');
-    unlockSession(result.csrf);
-    return;
-  }
-  const result = await api('/api/session');
-  if (!result.authenticated) { lockSession(); return; }
-  unlockSession(result.csrf);
 }
 function selectScreen(screen) {
   if (!screenLabels[screen]) return;
@@ -185,7 +142,7 @@ function renderActions(actions) {
     const usable = item.enabled === true && uiAllowed.has(item.action);
     button.disabled = !usable || state.requestBusy;
     const explanation = document.createElement('small');
-    explanation.textContent = usable ? 'Требуется явное подтверждение; статус перепроверяется сервером.' :
+    explanation.textContent = usable ? 'Результат действия появится здесь.' :
       (item.disabled_reason || 'В текущем интерфейсе эта операция недоступна.');
     if (!usable && item.enabled) explanation.textContent = 'Используйте соответствующую отдельную форму проекта.';
     if (item.action === 'prepare') {
@@ -204,7 +161,7 @@ function renderActions(actions) {
       button.addEventListener('click', () => selectScreen('tasks'));
     } else if (typeof lifecycleLabels !== 'undefined' && lifecycleLabels[item.action]) {
       button.disabled=state.requestBusy||!item.enabled;button.textContent=lifecycleLabels[item.action];
-      explanation.textContent=item.disabled_reason||'Открыть форму с exact refs и отдельным подтверждением.';
+      explanation.textContent=item.disabled_reason||'Открыть форму действия.';
       button.addEventListener('click',()=>selectScreen('gates'));
     } else if (usable) button.addEventListener('click', () => submitAction(item.action));
     row.append(button, explanation);
@@ -228,7 +185,7 @@ function renderView(view) {
   text('next-action', format(view.required_user_action));
   renderActions(view.available_actions || []);
   renderProjects();
-  $('upload-sources').disabled = state.requestBusy || !chosenDocuments.files.length || view.kind !== 'workspace';
+  renderSourceFlow();
 }
 let projectRead = null;
 function selectProject(projectId, afterCommit = false) {
@@ -250,7 +207,6 @@ async function readSelectedProject(projectId, afterCommit = false) {
   if (state.screen === 'tasks' && typeof taskButtons !== 'undefined') {
     taskView = null;
     for (const id of taskButtons) $(id).disabled = true;
-    $('task-consent').checked = false;
   }
   showNotice('Чтение canonical статуса…');
   try {
@@ -263,14 +219,14 @@ async function readSelectedProject(projectId, afterCommit = false) {
     if (state.screen === 'approvals') await loadApprovals();
     if (state.screen === 'tasks') await loadTasks();
     if (['gates','maintenance'].includes(state.screen)) await loadLifecycle(afterCommit);
-    showNotice('Статус получен. GET не запускает проектные операции.', 'success');
+    showNotice('Состояние обновлено.', 'success');
   } catch (err) { showNotice(err.message, 'error'); }
 }
 async function refresh() {
+  sourceFeedback = null;
   if (state.screen === 'tasks' && typeof taskButtons !== 'undefined') {
     taskView = null;
     for (const id of taskButtons) $(id).disabled = true;
-    $('task-consent').checked = false;
   }
   showNotice('Чтение списка проектов…');
   try {
@@ -278,7 +234,7 @@ async function refresh() {
     state.projects = result.projects || [];
     renderProjects();
     if (state.activeProject) await selectProject(state.activeProject, true);
-    else showNotice('Список обновлён. Изменяющих операций не выполнено.', 'success');
+    else showNotice('Список проектов обновлён.', 'success');
   } catch (err) { showNotice(err.message, 'error'); }
 }
 function newIdempotencyKey() {
@@ -289,7 +245,6 @@ function newIdempotencyKey() {
 async function submitAction(action) {
   if (!state.activeProject || !state.view || state.requestBusy) return;
   if (!uiAllowed.has(action)) return;
-  if (!window.confirm(`Выполнить действие «${actionLabels[action] || action}» для выбранного проекта? Это отдельная операция.`)) return;
   state.requestBusy = true;
   renderActions(state.view.available_actions || []);
   showNotice('Отправка защищённого действия…');
@@ -319,33 +274,97 @@ async function submitAction(action) {
   } catch (err) { showNotice(err.message + ' Обновите состояние перед новой попыткой.', 'error'); }
   finally { state.requestBusy = false; if (state.view) renderActions(state.view.available_actions || []); }
 }
-async function logout() {
-  try { await api('/api/session/logout', { method: 'POST', body: {} }); }
-  catch (_error) { /* A missing session must still leave the browser gated. */ }
-  lockSession();
-  showNotice('Локальная сессия завершена. Для повторного входа перезапустите ui.');
-}
 for (const button of document.querySelectorAll('[data-screen]')) {
   button.addEventListener('click', () => { selectScreen(button.dataset.screen); rememberSelection(); });
 }
 // PH-LW-05 document flow: FormData only, no absolute paths or untrusted HTML.
 const chosenDocuments = { files: [] };
+let sourceRequest = null;
+let sourceFeedback = null;
+function clearDocumentValidation() {
+  $('document-validation').classList.add('hidden');
+  $('document-validation').textContent = '';
+  for (const field of $('documents-panel').querySelectorAll('[aria-invalid]')) field.removeAttribute('aria-invalid');
+}
+function documentError(message, fieldId) {
+  text('document-validation', message);
+  $('document-validation').classList.remove('hidden');
+  showNotice(message, 'error');
+  const field = $(fieldId);
+  if (['INPUT','SELECT','TEXTAREA'].includes(field.tagName)) field.setAttribute('aria-invalid', 'true');
+  field.focus();
+  $('document-validation').scrollIntoView({block:'nearest'});
+  return null;
+}
+function requireDocumentWorkspace() {
+  if (!state.activeProject || !state.view) {
+    if (!$('new-project-name').value.trim()) return documentError('Введите название проекта и нажмите «Создать проект для документов». Затем можно импортировать ZIP или MD.', 'new-project-name');
+    return documentError('Проект ещё не создан. Нажмите «Создать проект для документов», затем повторите действие.', 'create-intake');
+  }
+  if (state.view.kind !== 'workspace') return documentError('Источники опубликованного проекта здесь не заменяются. Создайте новый проект для документов или выберите существующий черновик во вкладке «Проекты».', 'new-project-name');
+  if (state.sourceSnapshot?.project_id !== state.activeProject) return documentError('Состояние документов ещё не прочитано. Нажмите «Обновить состояние» и повторите действие.', 'refresh');
+  return state.sourceSnapshot;
+}
+$('new-project-name').addEventListener('input', clearDocumentValidation);
+function renderSourceFlow() {
+  const workspace = state.view?.kind === 'workspace';
+  const snapshot = workspace && state.sourceSnapshot?.project_id === state.activeProject ? state.sourceSnapshot : null;
+  const selected = chosenDocuments.files.length;
+  for (const id of ['create-intake','create-no-docs','upload-sources','confirm-no-docs','documents-next']) $(id).disabled = state.requestBusy;
+  $('source-files').disabled = state.requestBusy;
+  $('source-import-mode').disabled = state.requestBusy;
+  $('clear-source-files').disabled = state.requestBusy;
+  $('clear-source-files').classList.toggle('hidden', !selected);
+  const project = state.projects.find(entry => entry.project_id === state.activeProject);
+  text('upload-project', workspace ? `Документы для проекта: ${project?.display_name || project?.project_name || state.activeProject}` : 'Проект для загрузки ещё не выбран.');
+  let title, detail, category = '';
+  if (sourceRequest?.projectId === state.activeProject) {
+    title = sourceRequest.phase === 'validating' ? 'Файлы переданы. Проверяем архив и документы…' : 'Загружаем файлы…';
+    detail = 'Дождитесь результата проверки. Повторно нажимать кнопку не нужно.';
+  } else if (!workspace) {
+    title = selected ? 'Файлы выбраны. Сначала создайте или выберите проект' : 'Сначала создайте или выберите проект';
+    detail = state.view?.kind === 'project' ? 'У опубликованного Project Instance источники здесь не заменяются. Для нового проекта заполните название слева.' :
+      'Введите название слева и нажмите «Создать проект для документов». Выбранные файлы сохранятся; после создания нажмите «Импортировать файлы».';
+  } else if (sourceFeedback?.projectId === state.activeProject) {
+    ({title, detail, category} = sourceFeedback);
+  } else if (!snapshot) {
+    title = 'Читаем состояние документов…';
+    detail = 'Дождитесь списка источников. Если чтение не удалось, нажмите «Обновить».';
+  } else if (selected) {
+    title = 'Файлы выбраны — загрузка ещё не началась';
+    detail = 'Нажмите «Импортировать файлы» и подтвердите загрузку. Затем здесь появится результат проверки.';
+  } else if (snapshot.documents.length) {
+    title = `Документы загружены: ${snapshot.documents.length} MD`;
+    detail = 'Загрузка и проверка завершены. Следующий шаг — «Перейти к опросу и GPT». Анализ и согласования выполняются отдельно.';
+    category = 'success';
+  } else if (snapshot.documentation_choice === 'NONE') {
+    title = 'Подтверждено: документации нет';
+    detail = 'Можно продолжить: нажмите «Перейти к опросу и GPT».';
+    category = 'success';
+  } else {
+    title = 'Проект готов к загрузке документов';
+    detail = 'Выберите ZIP с Markdown или файлы MD, затем нажмите «Импортировать файлы». Выбор файла сам по себе не запускает загрузку.';
+  }
+  text('upload-step-title', title); text('upload-step-detail', detail);
+  $('upload-step').className = 'upload-step' + (category ? ' ' + category : '');
+}
 function finishSourceRequest() {
   state.requestBusy = false;
+  sourceRequest = null;
   if (state.view) renderActions(state.view.available_actions || []);
-  const ready = state.csrf && state.view?.kind === 'workspace' &&
-    state.sourceSnapshot?.project_id === state.activeProject;
-  $('confirm-no-docs').disabled = !ready;
-  $('upload-sources').disabled = !ready || !chosenDocuments.files.length;
+  renderSourceFlow();
 }
 function setSelected(files) {
+  clearDocumentValidation();
   chosenDocuments.files = Array.from(files).slice(0, 100);
+  sourceFeedback = null;
+  text('upload-result', '');
   text('upload-selected', chosenDocuments.files.length ?
     `${chosenDocuments.files.length} файл(ов): ${chosenDocuments.files.map(f => f.name).join(', ')}` : 'Файлы не выбраны');
-  $('upload-sources').disabled = !chosenDocuments.files.length || !state.activeProject ||
-    !state.view || state.view.kind !== 'workspace' || state.requestBusy;
+  renderSourceFlow();
 }
 $('source-files').addEventListener('change', event => setSelected(event.target.files));
+$('clear-source-files').addEventListener('click', () => { setSelected([]); $('source-files').value=''; });
 const zone = $('upload-zone');
 for (const name of ['dragenter', 'dragover']) zone.addEventListener(name, event => {
   event.preventDefault(); zone.classList.add('dragover');
@@ -355,19 +374,23 @@ for (const name of ['dragleave', 'drop']) zone.addEventListener(name, event => {
 });
 zone.addEventListener('drop', event => { if (event.dataTransfer) setSelected(event.dataTransfer.files); });
 async function loadSources() {
+  const projectId = state.activeProject;
   $('source-list').replaceChildren();
+  text('source-preview', 'Выберите документ для просмотра.');
+  renderSourceFlow();
   if (!state.activeProject || !state.view || state.view.kind !== 'workspace') {
     text('source-summary', 'Выберите подготовительную рабочую область. Для Project Instance источники не заменяются.');
-    $('confirm-no-docs').disabled = true; $('upload-sources').disabled = true; return;
+    return;
   }
   try {
-    const response = await api(`/api/projects/${encodeURIComponent(state.activeProject)}/sources`);
+    const response = await api(`/api/projects/${encodeURIComponent(projectId)}/sources`);
+    if (projectId !== state.activeProject || state.view?.kind !== 'workspace') return;
     state.sourceSnapshot = response;
+    if (sourceFeedback?.projectId === projectId && sourceFeedback.title === 'Не удалось прочитать состояние документов') sourceFeedback = null;
     text('source-summary', `Revision ${response.source_revision}; выбор: ${response.documentation_choice}; ` +
       `${response.documents.length} MD документов, ${response.skipped.length} пропущено. ` +
       'Импорт не выполняет смысловой анализ; черновик и вопросы доступны во вкладке «Опрос и GPT».');
-    $('confirm-no-docs').disabled = state.requestBusy;
-    $('upload-sources').disabled = !chosenDocuments.files.length || state.requestBusy;
+    renderSourceFlow();
     for (const doc of response.documents) {
       const item = document.createElement('div'); item.className = 'source-item';
       const button = document.createElement('button'); button.type='button'; button.className='outline';
@@ -382,8 +405,22 @@ async function loadSources() {
       item.textContent = `Не импортировано: ${skipped.original_name} / ${skipped.relative_path || ''} — ${skipped.reason}`;
       $('source-list').append(item);
     }
-  } catch (error) { text('source-summary', error.message); }
+  } catch (error) {
+    if (projectId !== state.activeProject) return;
+    state.sourceSnapshot = null;
+    sourceFeedback = {projectId, title:'Не удалось прочитать состояние документов', detail:error.message + ' Нажмите «Обновить».', category:'error'};
+    text('source-summary', error.message); renderSourceFlow();
+  }
 }
+$('documents-next').addEventListener('click', () => {
+  if (state.requestBusy) return;
+  clearDocumentValidation();
+  const snapshot = requireDocumentWorkspace();
+  if (!snapshot) return;
+  if (chosenDocuments.files.length) return documentError('Выбранные файлы ещё не импортированы. Нажмите «Импортировать файлы» и дождитесь результата.', 'upload-sources');
+  if (!snapshot.documents.length && snapshot.documentation_choice !== 'NONE') return documentError('Сначала загрузите документацию: выберите ZIP или MD и нажмите «Импортировать файлы». Если документов нет, нажмите «Документации нет».', 'source-files');
+  selectScreen('interview'); rememberSelection();
+});
 async function showPreview(docRef) {
   try {
     const data = await api(`/api/projects/${encodeURIComponent(state.activeProject)}/documents/${encodeURIComponent(docRef)}/preview`);
@@ -394,11 +431,11 @@ ${data.preview_text}`);
 }
 async function createWorkspace(noDocumentation) {
   if (state.requestBusy) return;
+  clearDocumentValidation();
   const name = $('new-project-name').value.trim();
-  if (!name) { showNotice('Введите название Greenfield проекта.', 'error'); return; }
-  if (!window.confirm(noDocumentation ? 'Подтвердить, что документации нет, и перейти к опросу?' :
-        'Создать новую рабочую область intake для документов?')) return;
+  if (!name) return documentError('Введите название проекта.', 'new-project-name');
   state.requestBusy = true;
+  renderSourceFlow();
   try {
     const result = await api('/api/intakes', {method:'POST', body:{project_name:name,
       no_documentation:noDocumentation, idempotency_key:newIdempotencyKey()}});
@@ -406,72 +443,91 @@ async function createWorkspace(noDocumentation) {
     await selectProject(result.project_id);
     rememberSelection();
     showNotice(noDocumentation ? 'Отсутствие документации сохранено. Дальше — вопросы опроса.' :
-      'Intake создан. Теперь загрузите MD/ZIP. Без анализа и подтверждений.', 'success');
+      'Проект создан. Выберите MD/ZIP и нажмите «Импортировать файлы».', 'success');
   } catch (error) { showNotice(error.message, 'error'); }
   finally { finishSourceRequest(); }
 }
 $('create-intake').addEventListener('click', () => createWorkspace(false));
 $('create-no-docs').addEventListener('click', () => createWorkspace(true));
 $('confirm-no-docs').addEventListener('click', async () => {
-  if (!state.view || state.requestBusy || !state.sourceSnapshot || !window.confirm('Заменить источники осознанным ответом «Документации нет»? Согласования станут недействительными.')) return;
+  if (state.requestBusy) return;
+  clearDocumentValidation();
+  if (!requireDocumentWorkspace()) return;
   state.requestBusy = true;
+  renderSourceFlow();
   try {
     const response = await api(`/api/projects/${encodeURIComponent(state.activeProject)}/sources/no-documentation`,
       {method:'POST', body:{expected_fingerprint:state.view.fingerprint, expected_source_revision:state.sourceSnapshot.source_revision}});
+    setSelected([]); $('source-files').value='';
     text('upload-result', `${response.status} · revision ${response.source_revision}. Опрос ещё не выполнен.`);
     await selectProject(state.activeProject);
   } catch (error) { showNotice(error.message, 'error'); }
   finally { finishSourceRequest(); }
 });
 $('upload-sources').addEventListener('click', () => {
-  if (!state.view || state.view.kind !== 'workspace' || !state.sourceSnapshot || state.requestBusy || !chosenDocuments.files.length) return;
-  if (!window.confirm('Загрузить файлы как недоверенные источники? Новая ревизия отменит прежние approvals.')) return;
+  if (state.requestBusy) return;
+  clearDocumentValidation();
+  if (!requireDocumentWorkspace()) return;
+  if (!chosenDocuments.files.length) return documentError('Выберите ZIP с документацией или один/несколько файлов MD, затем нажмите «Импортировать файлы».', 'source-files');
   const form = new FormData();
   form.set('mode', $('source-import-mode').value);
   form.set('expected_fingerprint', state.view.fingerprint);
   form.set('expected_source_revision', String(state.sourceSnapshot.source_revision));
   chosenDocuments.files.forEach(file => form.append('files', file, file.name));
   const xhr = new XMLHttpRequest();
-  const target = `/api/projects/${encodeURIComponent(state.activeProject)}/sources/upload`;
+  const projectId = state.activeProject;
+  const target = `/api/projects/${encodeURIComponent(projectId)}/sources/upload`;
   state.requestBusy = true;
-  $('upload-sources').disabled = true;
+  sourceRequest = {projectId, phase:'uploading'};
+  renderSourceFlow();
   $('upload-progress').classList.remove('hidden');
   $('upload-progress').value = 0;
   text('upload-result', 'Загрузка в приватный карантин — ещё не принято.');
   xhr.open('POST', target, true);
-  xhr.setRequestHeader('X-CSRF-Token', state.csrf);
   xhr.setRequestHeader('Accept', 'application/json');
   xhr.upload.onprogress = event => {
     if (event.lengthComputable) $('upload-progress').value = Math.round(event.loaded / event.total * 100);
+  };
+  xhr.upload.onload = () => {
+    if (sourceRequest?.projectId === projectId) {
+      sourceRequest.phase = 'validating'; renderSourceFlow();
+      $('upload-progress').removeAttribute('value');
+    }
   };
   xhr.onload = async () => {
     let completedMessage = '';
     try {
       const result = JSON.parse(xhr.responseText);
       if (xhr.status < 200 || xhr.status >= 300) throw new Error(result.error?.message_ru || 'Импорт отклонён');
-      completedMessage = `Принято: ${result.accepted_count}; пропущено: ${result.skipped_count}; ` +
+      completedMessage = `${result.status === 'UNCHANGED' ? 'Эти файлы уже загружены; повторный импорт не создал копий. ' : ''}Принято: ${result.accepted_count}; пропущено: ${result.skipped_count}; ` +
         `отклонено: ${result.rejected_count}; ревизия: ${result.source_revision}. ` +
         'Документы импортированы — анализ ещё не выполнен. ' +
         (result.skipped || []).map(x => x.reason).join(', ');
       setSelected([]); $('source-files').value='';
-      await selectProject(state.activeProject);
-    } catch (error) { completedMessage = error.message + ' Ранее принятые данные не заменены.'; }
+      await selectProject(projectId);
+    } catch (error) {
+      completedMessage = error.message + ' Импорт не подтверждён. Обновите состояние перед повторной попыткой.';
+      sourceFeedback = {projectId, title:'Импорт не подтверждён', detail:completedMessage, category:'error'};
+    }
     finally {
       finishSourceRequest(); $('upload-progress').classList.add('hidden');
       text('upload-result', completedMessage);
     }
   };
-  xhr.onerror = () => { finishSourceRequest(); $('upload-progress').classList.add('hidden');
-    text('upload-result', 'Сбой соединения. Перечитайте ревизию до повторного запроса.'); };
+  xhr.onerror = () => {
+    sourceFeedback = {projectId, title:'Не удалось получить результат загрузки',
+      detail:'Сбой соединения. Нажмите «Обновить», чтобы проверить, сохранены ли документы. После этого решите, нужен ли повторный импорт.', category:'error'};
+    finishSourceRequest(); $('upload-progress').classList.add('hidden');
+    text('upload-result', sourceFeedback.detail);
+  };
   xhr.send(form);
 });
 
 $('refresh').addEventListener('click', refresh);
-$('logout').addEventListener('click', logout);
 let resumeRevision = 0;
 let resumeWrites = Promise.resolve();
 function rememberSelection() {
-  if (!state.csrf) return;
+  if (!state.connected) return;
   const project_id = state.activeProject, screen = state.screen;
   resumeWrites = resumeWrites.then(async () => {
     try {
@@ -484,38 +540,32 @@ function rememberSelection() {
   }).catch(error => showNotice(error.message, 'error'));
 }
 $('stop-harness').addEventListener('click', async () => {
-  if (!window.confirm('Завершить Harness? Активные изменения должны закончиться; уже выполненные действия не отменяются.')) return;
   try {
     await resumeWrites;
     await api('/api/desktop/stop', {method:'POST', body:{}});
-    lockSession(); showNotice('Harness завершает работу. Эту вкладку можно закрыть. Проекты сохранены.', 'success');
+    state.connected = false;
+    $('refresh').disabled = true; $('stop-harness').disabled = true;
+    text('connection-state', 'Сервер остановлен');
+    showNotice('Harness завершает работу. Эту вкладку можно закрыть. Проекты сохранены.', 'success');
   } catch (error) { showNotice(error.message, 'error'); }
 });
-$('manual-login').addEventListener('click', async () => {
-  const token = $('manual-bootstrap').value; $('manual-bootstrap').value = '';
-  try {
-    const result = await api('/api/session/bootstrap', {method:'POST', body:{token}});
-    unlockSession(result.csrf); await restoreDesktop(true);
-  } catch (error) { showNotice(error.message, 'error'); }
-});
-async function restoreDesktop(launcherSelection = false) {
+async function restoreDesktop() {
   const saved = await api('/api/ui/resume'); resumeRevision = saved.revision;
   try { state.activeProject = sessionStorage.getItem('harness-project') || saved.project_id; }
   catch (_) { state.activeProject = saved.project_id; }
   await refresh();
-  // A new cookie-authenticated tab starts with its project selector. Only a
-  // launcher/manual-code entry adopts another tab's persisted screen.
-  const fallbackScreen = launcherSelection ? saved.screen : 'projects';
+  const fallbackScreen = saved.screen || 'projects';
   try { selectScreen(sessionStorage.getItem('harness-screen') || fallbackScreen); }
   catch (_) { selectScreen(fallbackScreen); }
 }
 (async function initialize() {
   try {
-    await beginSession();
-    if (state.csrf) {
-      await restoreDesktop(desktopLaunch);
-    }
-    else showNotice('Доступ к данным проекта закрыт до локального входа.');
-  } catch (err) { lockSession(); showNotice(err.message, 'error'); }
+    await restoreDesktop();
+    state.connected = true;
+    $('refresh').disabled = false; $('stop-harness').disabled = false;
+    text('connection-state', 'Сервер готов');
+  } catch (err) {
+    text('connection-state', 'Нет соединения');
+    showNotice('Не удалось подключиться к Harness. Запустите его через ярлык и обновите страницу.', 'error');
+  }
 })();
-

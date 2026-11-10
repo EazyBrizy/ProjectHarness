@@ -1,0 +1,588 @@
+--- before/src/project_harness/resources/local_web/assets/app.js
++++ after/src/project_harness/resources/local_web/assets/app.js
+@@ -6,7 +6,7 @@
+ const screenLabels = {
+   projects: ['Проекты', 'Загрузите MD/ZIP документов или выберите «Документации нет». Можно продолжить существующий проект.'],
+   documents: ['Документы', 'Приём MD/ZIP в приватный snapshot; анализ и согласования отдельно.'],
+-  interview: ['Опрос и GPT', 'Уточните существенные пробелы, подготовьте пакет и вручную импортируйте черновик внешнего GPT.'],
++  interview: ['Опрос и GPT', 'Подготовьте документы для анализа, получите ответ модели и уточните сведения о проекте.'],
+   approvals: ['Согласования', 'Проверьте содержание каждого решения, подтвердите отдельно или верните на доработку.'],
+   overview: ['Обзор проекта', 'Актуальная стадия, целевой уровень, ограничения и следующий шаг из canonical core.'],
+   tasks: ['Задачи и Run', 'Exact JIT → результат внешнего агента → независимая проверка → завершение Task.'],
+@@ -215,7 +215,7 @@
+     if (state.screen === 'approvals') await loadApprovals();
+     if (state.screen === 'tasks') await loadTasks();
+     if (['gates','maintenance'].includes(state.screen)) await loadLifecycle(afterCommit);
+-    showNotice('Статус получен. GET не запускает проектные операции.', 'success');
++    showNotice('Состояние обновлено.', 'success');
+   } catch (err) { showNotice(err.message, 'error'); }
+ }
+ async function refresh() {
+@@ -230,7 +230,7 @@
+     state.projects = result.projects || [];
+     renderProjects();
+     if (state.activeProject) await selectProject(state.activeProject, true);
+-    else showNotice('Список обновлён. Изменяющих операций не выполнено.', 'success');
++    else showNotice('Список проектов обновлён.', 'success');
+   } catch (err) { showNotice(err.message, 'error'); }
+ }
+ function newIdempotencyKey() {
+--- before/src/project_harness/resources/local_web/assets/index.html
++++ after/src/project_harness/resources/local_web/assets/index.html
+@@ -202,48 +202,53 @@
+         <p class="muted small">Лимиты: весь запрос с ZIP до 64 MiB; один MD или распакованный элемент до 8 MiB; суммарное распакованное содержимое до 128 MiB; до 1000 элементов; вложенность до 16; сжатие до 200:1. Опасный ZIP отклоняется целиком.</p>
+       </section>
+       <section id="interview-panel" class="panel hidden" aria-labelledby="interview-title">
+-        <h2 id="interview-title">Опрос и обмен с GPT</h2>
+-        <p id="interview-status" role="status">Выберите intake во вкладке «Проекты».</p>
++        <h2 id="interview-title">Анализ документов и уточнение проекта</h2>
++        <p id="interview-status" role="status">Выберите проект.</p>
+         <div id="interview-body" class="hidden">
+           <div class="next"><p id="interview-next"></p></div>
+-          <p id="interview-documents" class="body-value"></p>
++          <div id="interview-documents" class="body-value"></div>
+           <button id="interview-documents-link" type="button" class="quiet">Открыть документы</button>
+-          <details><summary>Известные ответы и provenance</summary><div id="known-answers"></div></details>
+-          <h3>Текущие вопросы</h3>
+-          <p class="muted">Ответы сохраняются как draft. Они не являются approvals или verified facts.</p>
++          <h3>1. Подготовьте документы для анализа</h3>
++          <p>Harness соберёт документы и вопросы в пакет. Передайте его ChatGPT или Codex CLI, затем верните ответ на шаге 2. Автоматическая отправка модели не выполняется.</p>
++          <button id="review-export" type="button" class="document-primary">Подготовить пакет для анализа</button>
++          <div id="export-review" class="hidden">
++            <p id="export-warning" class="body-value"></p>
++            <div id="export-documents"></div>
++            <label for="draft-classification">Категория данных черновика и ответов</label>
++            <select id="draft-classification"><option value="UNKNOWN">Не указано</option><option value="PUBLIC">Общедоступные</option><option value="INTERNAL">Внутренние</option><option value="CONFIDENTIAL">Конфиденциальные</option><option value="RESTRICTED">С ограниченным доступом</option><option value="SECRET">Секретные</option><option value="REGULATED">Регулируемые</option></select>
++            <button id="create-export" type="button" class="document-primary">Создать пакет для анализа</button>
++          </div>
++          <div id="export-history"></div>
++          <hr>
++          <h3>2. Верните ответ модели</h3>
++          <p>Попросите модель выполнить инструкцию из пакета. Вставьте сюда полный ответ в формате JSON — Harness покажет предложенные изменения перед сохранением.</p>
++          <label for="gpt-reply">Ответ модели в формате JSON (до 512 КБ)</label>
++          <textarea id="gpt-reply" rows="8" spellcheck="false" placeholder="Вставьте сюда полный JSON из ответа модели"></textarea>
++          <button id="preview-reply" type="button" class="outline">Показать предложенные изменения</button>
++          <div id="repair-area" class="hidden"><p>Формат ответа не подошёл. Скопируйте инструкцию исправления и передайте её модели вместе с исходным пакетом.</p><pre id="repair-prompt" class="source-preview"></pre>
++            <button id="copy-repair" type="button" class="outline">Копировать инструкцию исправления</button></div>
++          <div id="import-preview" class="hidden">
++            <h3>Предложенные изменения</h3>
++            <p id="preview-summary" role="status"></p>
++            <div id="reply-diff"></div>
++            <button id="commit-reply" type="button" class="outline">Сохранить предложения</button>
++            <button id="cancel-reply" type="button" class="quiet">Отклонить предложения</button>
++            <details><summary>Технические сведения об ответе</summary><pre id="interview-preview-technical" class="source-preview"></pre></details>
++          </div>
++          <div id="import-history"></div>
++          <hr>
++          <h3>3. Уточните оставшиеся вопросы</h3>
++          <p class="muted">Можно ответить самостоятельно или уточнить ответы после анализа моделью. Сведения сохраняются в черновике проекта.</p>
+           <form id="answers-form"><div id="question-fields" class="interview-fields"></div>
+             <button id="save-answers" type="submit" class="outline">Сохранить ответы</button>
+           </form>
+-          <button id="check-answers" type="button" class="outline">Проверить readiness</button>
+-          <button id="recover-reply" type="button" class="outline hidden">Сверить прерванный commit</button>
+-          <details><summary>Оставшиеся blockers и readiness ядра</summary><pre id="interview-readiness" class="source-preview"></pre></details>
+-          <hr>
+-          <h3>1. Подготовить пакет для внешнего GPT</h3>
+-          <p>Проверьте состав перед передачей модели. Export содержит все документы, текущий draft, вопросы и schemas. Сервер ничего не отправляет внешней модели.</p>
+-          <button id="review-export" type="button" class="outline">Проверить состав пакета</button>
+-          <div id="export-review" class="hidden">
+-            <p id="export-warning" class="body-value"></p>
+-            <div id="export-documents"></div>
+-            <label for="draft-classification">Класс данных draft и ответов</label>
+-            <select id="draft-classification"><option value="UNKNOWN">Не проверено</option><option>PUBLIC</option><option>INTERNAL</option><option>CONFIDENTIAL</option><option>RESTRICTED</option><option>SECRET</option><option>REGULATED</option></select>
+-            <button id="create-export" type="button" class="outline">Создать пакет для GPT</button>
+-          </div>
+-          <div id="export-history"></div>
+-          <hr>
+-          <h3>2. Вставить ответ GPT</h3>
+-          <label for="gpt-reply">JSON draft (до 512 KiB)</label>
+-          <textarea id="gpt-reply" rows="8" spellcheck="false" placeholder="Вставьте полный JSON ответ из ручного обмена"></textarea>
+-          <button id="preview-reply" type="button" class="outline">Проверить и показать diff</button>
+-          <div id="repair-area" class="hidden"><p>Ответ отклонён; сессия не изменена. Исправьте ответ по этому ограниченному prompt.</p><pre id="repair-prompt" class="source-preview"></pre>
+-            <button id="copy-repair" type="button" class="outline">Копировать repair prompt</button></div>
+-          <div id="import-preview" class="hidden">
+-            <h3>3. Проверить изменения перед применением</h3>
+-            <p id="preview-summary" role="status"></p>
+-            <div id="reply-diff"></div>
+-            <button id="commit-reply" type="button" class="outline">Применить как draft</button>
+-            <button id="cancel-reply" type="button" class="quiet">Отменить import до commit</button>
+-          </div>
+-          <div id="import-history"></div>
++          <button id="check-answers" type="button" class="outline">Проверить заполнение</button>
++          <button id="recover-reply" type="button" class="outline hidden">Восстановить сохранение ответа</button>
++          <details><summary>Сохранённые сведения о проекте</summary>
++            <p class="muted">Здесь показаны заполненные сведения черновика и применённые предложения модели. У каждого ответа указан источник. Служебные настройки шаблона не показаны.</p>
++            <div id="known-answers"></div>
++          </details>
++          <details id="interview-technical"><summary>Технические сведения</summary><pre id="interview-readiness" class="source-preview"></pre></details>
+         </div>
+       </section>
+       <section id="approvals-panel" class="panel hidden" aria-labelledby="approvals-title">
+--- before/src/project_harness/resources/local_web/assets/interview.js
++++ after/src/project_harness/resources/local_web/assets/interview.js
+@@ -12,19 +12,63 @@
+   'project.deployment.target':'Среда размещения', 'project.deployment.environment':'Условия размещения',
+   'project.data.sensitivity':'Чувствительность данных', 'project.data.categories':'Категории данных',
+   'project.data.storage':'Хранение данных', 'project.integrations':'Интеграции',
+-  'project.scope.in':'Входит в scope', 'project.scope.out':'Не входит в scope',
++  'project.scope.in':'Входит в проект', 'project.scope.out':'Не входит в проект',
+   'project.constraints.mandatory':'Обязательные ограничения', 'project.constraints.forbidden':'Запрещённые действия',
+   'project.constraints.non_functional':'Нефункциональные требования',
+   'project.success_criteria':'Критерии успеха', 'project.assumptions':'Предположения',
+-  'project.unknowns':'Нерешённые material вопросы', 'architecture.summary':'Архитектурное предложение',
++  'project.unknowns':'Вопросы, которые ещё нужно решить', 'architecture.summary':'Архитектурное предложение',
+   'architecture.style':'Архитектурный стиль', 'architecture.components':'Основные компоненты',
+-  'profile.ref':'Profile ref', 'profile.rationale':'Обоснование profile',
++  'profile.ref':'Профиль проекта', 'profile.rationale':'Почему выбран этот профиль',
+ };
+ const fieldOptions = {
+   'implementation.target_level':['PROTOTYPE','ALPHA','BETA','MVP','RELEASE','UNSURE'],
+   'project.connectivity':['ONLINE_ONLY','LIMITED_OFFLINE','OFFLINE_FIRST','UNKNOWN'],
+   'project.data.sensitivity':['PUBLIC','INTERNAL','CONFIDENTIAL','RESTRICTED','SECRET','REGULATED','UNKNOWN'],
+ };
++const displayLabels = {...fieldLabels,
++  'project.documentation.availability':'Наличие документации',
++  'architecture':'Архитектура проекта','architecture.interfaces':'Связи между компонентами',
++  'architecture.data_flow':'Движение данных','architecture.quality_attributes':'Требования к качеству',
++  'architecture.decisions':'Архитектурные решения','architecture.risks':'Архитектурные риски',
++  'technology':'Технологии проекта','technology.selections':'Выбор технологий',
++  'technology.build_commands':'Сборка проекта','technology.test_commands':'Проверки проекта',
++  'technology.lint_commands':'Проверка качества кода','planning.work_packages':'План работ',
++  'skills.resolutions':'Служебные инструменты','implementation.claimed_current_level':'Текущая готовность проекта',
++  'project.ambiguity_mode':'Способ работы с неопределённостью',
++  'brownfield.baseline_summary':'Исходное состояние проекта','brownfield.known_defects':'Известные ошибки',
++  'brownfield.known_gaps':'Недостающие возможности','brownfield.technical_debt':'Технический долг',
++  'brownfield.documentation_conflicts':'Противоречия в документации'};
++const valueLabels = {PROTOTYPE:'Прототип',ALPHA:'Альфа-версия',BETA:'Бета-версия',
++  MVP:'Первая рабочая версия',RELEASE:'Готовый выпуск',UNSURE:'Нужно выбрать',UNKNOWN:'Не указано',
++  PUBLIC:'Общедоступные',INTERNAL:'Внутренние',CONFIDENTIAL:'Конфиденциальные',
++  RESTRICTED:'С ограниченным доступом',SECRET:'Секретные',REGULATED:'Регулируемые',
++  ONLINE_ONLY:'Только с интернетом',LIMITED_OFFLINE:'Часть функций без интернета',OFFLINE_FIRST:'Основная работа без интернета'};
++const templateFields = new Set(['implementation.claimed_current_level','project.ambiguity_mode','skills.resolutions','profile.ref']);
++function displayLabel(field) { return displayLabels[field] || Object.entries(displayLabels).find(([key]) => field.startsWith(key+'.'))?.[1] || 'Дополнительные сведения о проекте'; }
++function meaningful(value) {
++  if(value===null || value===undefined || value==='' || ['UNKNOWN','UNSURE','NONE'].includes(value)) return false;
++  if(Array.isArray(value)) return value.some(meaningful);
++  if(typeof value==='object') return Object.values(value).some(meaningful);
++  return true;
++}
++function readable(value) {
++  if(value===null || value===undefined || value==='') return 'Не заполнено';
++  if(typeof value==='string') return valueLabels[value] || value;
++  if(typeof value==='boolean') return value?'Да':'Нет';
++  if(Array.isArray(value)) return value.length?value.map(readable).join('\n'):'Не заполнено';
++  if(typeof value==='object') {
++    const fields=Object.entries(value).filter(([key,v])=>!['id','revision','ref','schema_ref','skill_ref'].includes(key) && meaningful(v));
++    return fields.map(([,v])=>readable(v)).join(' · ') || 'Не заполнено';
++  }
++  return String(value);
++}
++function provenanceText(fact,view) {
++  const kind=fact.provenance.kind;
++  const source=(fact.provenance.source_refs||[]).map(ref=>ref==='INPUT'?'сохранённые сведения':view.documents.find(d=>d.document_ref===ref)?.source_relative_path).filter(Boolean);
++  if(kind==='SOURCE_CHANGED_REVIEW_REQUIRED') return 'Предложено моделью. Документы изменились — этот ответ нужно пересмотреть.';
++  if(kind==='GPT_DRAFT_UNVERIFIED') return 'Предложено моделью; требуется ваша оценка.'+(source.length?' Основание: '+source.join(', ')+'.':'');
++  return 'Сохранено в черновике проекта. Это ещё не результат анализа документов.';
++}
+ function interviewPath(suffix = '') { return `/api/projects/${encodeURIComponent(state.activeProject)}${suffix}`; }
+ function element(tag, content, cls) {
+   const item = document.createElement(tag);
+@@ -53,7 +97,7 @@
+   if (fieldOptions[field]) {
+     control = element('select');
+     for (const option of ['', ...fieldOptions[field]]) {
+-      const opt = element('option', option || 'Ответ не выбран'); opt.value = option; control.append(opt);
++      const opt = element('option', valueLabels[option] || option || 'Ответ не выбран'); opt.value = option; control.append(opt);
+     }
+     control.value = value || '';
+   } else {
+@@ -73,28 +117,27 @@
+   for (const q of view.questions) {
+     if (q.status !== 'OPEN') continue;
+     const box = element('section', undefined, 'question');
+-    box.append(element('h3', q.text), element('p', q.why_asked, 'muted small'));
++    box.append(element('h3', displayLabel(q.field)), element('p', 'Укажите, что вам известно. Неизвестное можно уточнить с помощью модели.', 'muted small'));
+     if (q.field === 'project.documentation.availability') {
+-      box.append(element('p', 'Загрузите MD/ZIP или явно подтвердите отсутствие документации во вкладке «Документы».'));
++      box.append(element('p', 'Загрузите документы или выберите «Документации нет» во вкладке «Документы».'));
+     } else {
+       const fields = Object.keys(fieldLabels).filter(f => f === q.field || f.startsWith(q.field + '.'));
+       for (const field of fields) answerField(field, box);
+-      if (!fields.length) box.append(element('p', 'Это структурированное предложение заполняется через GPT draft exchange ниже. Оно проверяется схемой и показывается в diff до применения.'));
++      if (!fields.length) box.append(element('p', 'Эту часть можно заполнить с помощью модели. Её предложения появятся в списке изменений перед сохранением.'));
+     }
+     $('question-fields').append(box);
+   }
+   const known = $('known-answers'); known.replaceChildren();
+-  for (const fact of view.known_answers) {
++  const facts=view.known_answers.filter(f=>!templateFields.has(f.field) && displayLabels[f.field] && meaningful(f.value));
++  if(!facts.length) known.append(element('p','Пока нет заполненных сведений о проекте. Служебные настройки шаблона здесь не показываются.','muted'));
++  for (const fact of facts) {
+     const row = element('div', undefined, 'known-answer');
+-    row.append(element('strong', fieldLabels[fact.field] || fact.field), element('pre', format(fact.value), 'source-preview'),
+-      element('p', `${fact.provenance.kind}; refs: ${fact.provenance.source_refs.join(', ') || 'нет'}; ` +
+-        `${fact.provenance.exchange_id || fact.provenance.input_revision || ''}`, 'muted small'));
++    row.append(element('strong', displayLabel(fact.field)), element('pre', readable(fact.value), 'source-preview'),
++      element('p',provenanceText(fact,view),'muted small'));
+     if (fieldLabels[fact.field]) {
+       const edit = element('button', 'Изменить ответ', 'quiet'); edit.type = 'button';
+       edit.addEventListener('click', () => {
+-        answerField(fact.field, row);
+-        answerInputs.get(fact.field)?.control.focus();
+-        edit.disabled = true;
++        answerField(fact.field, row); answerInputs.get(fact.field)?.control.focus(); edit.disabled = true;
+       }); row.append(edit);
+     }
+     known.append(row);
+@@ -102,26 +145,35 @@
+ }
+ async function loadInterview() {
+   if (!state.activeProject || state.view?.kind !== 'workspace') {
+-    clearInterview(); text('interview-status', 'Выберите Greenfield intake во вкладке «Проекты» или создайте его во вкладке «Документы».'); return;
++    clearInterview(); text('interview-status', 'Выберите подготовку проекта во вкладке «Проекты» или создайте её во вкладке «Документы».'); return;
+   }
+   const pid = state.activeProject;
+-  text('interview-status', 'Читаем текущие вопросы и readiness…');
++  text('interview-status', 'Загружаем сведения и вопросы…');
+   try {
+     const view = await api(interviewPath('/interview'));
+     if (pid !== state.activeProject) return;
+     interviewView = view;
+     $('interview-body').classList.remove('hidden');
+-    text('interview-status', `${view.readiness.status} · source revision ${view.source_revision} · draft ${view.input_revision}`);
+-    text('interview-next', view.recovery_required ? 'Сначала сверьте прерванный commit.' :
+-      view.readiness.status === 'WAITING_DECISION' && view.draft.implementation.target_level === 'UNSURE' ?
+-        'Выберите canonical target, когда решение принято. Остальные material gaps остаются открытыми.' :
+-        view.readiness.missing_fields.length ? 'Ответьте на открытые вопросы или подготовьте пакет для смыслового опроса GPT.' :
+-          'Draft заполнен. Откройте «Согласования» и подтвердите каждое решение отдельно.');
+-    if (view.approval_rework_requests?.length) text('interview-next',
+-      'На доработку: ' + view.approval_rework_requests.map(r => `${r.subject}: ${r.comment}`).join('; '));
+-    text('interview-documents', `Документация: ${view.documentation_choice}. ` +
+-      view.documents.map(d => `${d.original_name}/${d.source_relative_path} · ${d.document_ref} · ${d.sha256}`).join('\n'));
+-    text('interview-readiness', format(view.readiness));
++    const freshPack=view.exports.some(x=>x.binding.fingerprint===view.fingerprint);
++    const applied=view.imports.some(x=>x.state==='COMMITTED');
++    text('interview-status',view.recovery_required?'Сохранение ответа было прервано':
++      !applied && view.documents.length ? freshPack?'Пакет подготовлен. Ожидается ответ модели.':'Документы загружены и готовы к анализу.':
++      view.readiness.status==='WAITING_DECISION'?'Нужно выбрать целевой уровень проекта.':
++      view.readiness.missing_fields.length?'Есть вопросы для уточнения.':'Основные сведения о проекте заполнены.');
++    text('interview-next',view.recovery_required?'Нажмите «Восстановить сохранение ответа».':
++      freshPack?'Скачайте пакет ниже и передайте его ChatGPT или Codex CLI. Полученный ответ вставьте на шаге 2.':
++      !applied && view.documents.length?'Следующий шаг: нажмите «Подготовить пакет для анализа». Загрузка файлов сама по себе не запускает анализ.':
++      view.readiness.missing_fields.length?'Подготовьте пакет для модели или уточните сведения на шаге 3.':
++      'Сведения заполнены. Для продолжения откройте раздел «Согласования».');
++    if(view.approval_rework_requests?.length) text('interview-next','Нужна доработка: '+view.approval_rework_requests.map(r=>r.comment).join('; '));
++    const documents=$('interview-documents');documents.replaceChildren();
++    if(view.documents.length) {
++      const list=element('details'),summary=element('summary',`Загружено документов: ${view.documents.length}`),files=element('ul');
++      for(const doc of view.documents) files.append(element('li',doc.source_relative_path));
++      list.append(summary,files);documents.append(list);
++    } else documents.append(element('p',view.documentation_choice==='NONE'?'Вы указали, что документации нет.':'Документация пока не загружена.'));
++    text('interview-readiness',format({readiness:view.readiness,source_revision:view.source_revision,input_revision:view.input_revision,
++      fingerprint:view.fingerprint,documents:view.documents,known_answers:view.known_answers,exports:view.exports,imports:view.imports}));
+     $('recover-reply').classList.toggle('hidden', !view.recovery_required);
+     renderQuestions(view);
+     renderExports(view.exports);
+@@ -158,7 +210,7 @@
+     if (terminalStates.has(response.operation.state)) {
+       if (response.operation.state !== 'SUCCEEDED') throw new Error(response.operation.error?.message_ru || response.operation.state);
+       await selectProject(pid,true);
+-      showNotice('Ответы проверены и сохранены ядром. Formal approvals не назначены.', 'success'); return;
++      showNotice('Ответы проверены и сохранены. Можно продолжить работу с проектом.', 'success'); return;
+     }
+     await new Promise(resolve => setTimeout(resolve, 400));
+   }
+@@ -180,12 +232,12 @@
+ $('interview-documents-link').addEventListener('click', () => selectScreen('documents'));
+ $('recover-reply').addEventListener('click', () => interviewAction(async () => {
+   const result = await api(interviewPath('/gpt/replies/recover'), {method:'POST',body:{confirm:true}});
+-  showNotice(`Сверка: ${result.status}.`, 'success'); await loadInterview();
++  showNotice(`Состояние сохранения обновлено.`, 'success'); await loadInterview();
+ }));
+ function classificationSelect(id) {
+   const select = element('select'); select.id = id;
+   for (const value of ['UNKNOWN','PUBLIC','INTERNAL','CONFIDENTIAL','RESTRICTED','SECRET','REGULATED']) {
+-    const opt = element('option', value === 'UNKNOWN' ? 'Не проверено' : value); opt.value=value; select.append(opt);
++    const opt = element('option', valueLabels[value] || value); opt.value=value; select.append(opt);
+   }
+   return select;
+ }
+@@ -194,11 +246,11 @@
+   $('export-documents').replaceChildren();
+   $('export-review').classList.remove('hidden');
+   $('draft-classification').value = 'UNKNOWN';
+-  text('export-warning', `${exportReview.warning_ru}\nSensitivity проекта: ${exportReview.project_data_sensitivity || 'не определена'}; draft: ${exportReview.draft_bytes} байт; документов: ${exportReview.documents.length}.`);
++  text('export-warning', `В пакет войдут документы (${exportReview.documents.length}), заполненные сведения и вопросы. Выберите категорию данных для документов и черновика.`);
+   for (const doc of exportReview.documents) {
+     const row = element('div', undefined, 'export-document');
+     const id = 'classification-' + doc.document_ref;
+-    const label = element('label', `${doc.original_name}/${doc.source_relative_path} · ${doc.byte_size} байт · ${doc.sha256}`); label.htmlFor=id;
++    const label = element('label', doc.source_relative_path); label.htmlFor=id;
+     row.append(label, classificationSelect(id)); $('export-documents').append(row);
+   }
+ }));
+@@ -211,28 +263,29 @@
+     classifications, draft_classification:$('draft-classification').value,
+     consent:true, idempotency_key:newIdempotencyKey()}});
+   $('export-review').classList.add('hidden'); exportReview = null;
+-  await loadInterview(); showNotice('Pack создан. Скачивание и копирование — отдельные ваши действия.', 'success');
++  await loadInterview(); showNotice('Пакет готов. Скачайте его и передайте модели; затем вставьте её ответ на шаге 2.', 'success');
+ }));
+ async function explicitCopy(value) {
+-  try { await navigator.clipboard.writeText(value); showNotice('Prompt скопирован по вашему действию.', 'success'); }
+-  catch (_) { showNotice('Clipboard недоступен. Выделите текст prompt и скопируйте вручную.', 'error'); }
++  try { await navigator.clipboard.writeText(value); showNotice('Инструкция для модели скопирована.', 'success'); }
++  catch (_) { showNotice('Не удалось скопировать автоматически. Выделите инструкцию и скопируйте её вручную.', 'error'); }
+ }
+ function renderExports(exports) {
+   $('export-history').replaceChildren();
+   for (const item of exports.toReversed()) {
+     const box = element('details'); box.open = item === exports.at(-1);
+-    box.append(element('summary', `Export ${item.export_revision} · ${item.exchange_id} · ${item.files.length} файл(ов)`));
+-    box.append(element('pre', item.prompt, 'source-preview'));
+-    const copy = element('button', 'Копировать prompt', 'outline'); copy.type='button';
++    box.append(element('summary', `Пакет для анализа №${item.export_revision} · файлов: ${item.files.length}`));
++    box.append(element('p','Скачайте все файлы этого пакета и приложите их в ChatGPT или Codex CLI. Вместе с файлами передайте инструкцию ниже.'));
++    const instructions=element('details');instructions.append(element('summary','Инструкция для модели'),element('pre',item.prompt,'source-preview'));box.append(instructions);
++    const copy = element('button', 'Копировать инструкцию', 'outline'); copy.type='button';
+     copy.addEventListener('click', () => explicitCopy(item.prompt)); box.append(copy);
+     const stale = item.binding.fingerprint !== interviewView.fingerprint;
+     for (const file of item.files) {
+-      const row = element('p', `${file.name} · ${file.bytes} байт · ${file.sha256} `, 'small body-value');
++      const row = element('p', `${file.name} · ${Math.ceil(file.bytes/1024)} КБ `, 'small body-value');
+       if (!stale) {
+         const link = element('a', 'Скачать');
+         link.href = interviewPath(`/gpt/exports/${encodeURIComponent(item.exchange_id)}/${encodeURIComponent(file.name)}`);
+         link.download = file.name; row.append(link);
+-      } else row.append(element('span', 'Устарел после изменения draft/источников.'));
++      } else row.append(element('span', 'Пакет устарел после изменения сведений или документов. Подготовьте новый пакет.'));
+       box.append(row);
+     }
+     $('export-history').append(box);
+@@ -245,38 +298,38 @@
+   const result = await api(interviewPath('/gpt/replies/preview'), {method:'POST', body:{
+     text:$('gpt-reply').value, expected_fingerprint:interviewView.fingerprint}});
+   if (result.status === 'REPLAYED') {
+-    showNotice('Этот exact ответ уже применён; повторного изменения нет.', 'success'); await loadInterview(); return;
+-  }
+-  renderReplyPreview(result.preview); showNotice('Preview готов. Canonical draft ещё не изменён.', 'success');
++    showNotice('Этот ответ уже сохранён. Повторное сохранение не требуется.', 'success'); await loadInterview(); return;
++  }
++  renderReplyPreview(result.preview); showNotice('Изменения показаны ниже. Сведения проекта ещё не изменены.', 'success');
+ }));
+ function renderReplyPreview(preview) {
+   replyPreview = preview;
+   $('import-preview').classList.remove('hidden'); $('reply-diff').replaceChildren();
+-  text('preview-summary', `${preview.state} · ${preview.import_id} · ${preview.readiness.status}. ` +
+-    `Изменено полей: ${preview.diff.length}. Approvals: ${preview.approval_invalidation_receipt.reason}. ` +
+-    `Будут invalidated: ${preview.approval_invalidation_receipt.subjects.join(', ') || 'нет'}.`);
++  text('preview-summary',`Изменений: ${preview.diff.length}. Осталось вопросов: ${preview.questions.filter(q=>q.status==='OPEN').length}. Изменения ещё не сохранены.`);
++  text('interview-preview-technical',format(preview));
++  text('interview-next','Посмотрите предложения модели на шаге 2. Нажмите «Сохранить предложения», чтобы внести их в черновик проекта.');
+   for (const row of preview.diff) {
+     const box = element('section', undefined, 'diff-row');
+-    box.append(element('h4', row.field), element('p', 'Текущий ответ'), element('pre', format(row.before), 'source-preview'),
+-      element('p', 'Imported draft (не verified)'), element('pre', format(row.after), 'source-preview'));
++    box.append(element('h4', displayLabel(row.field)), element('p', 'Текущий ответ'), element('pre', readable(row.before), 'source-preview'),
++      element('p', 'Предложение модели'), element('pre', readable(row.after), 'source-preview'));
+     $('reply-diff').append(box);
+   }
+   $('reply-diff').append(element('p', `Осталось вопросов: ${preview.questions.filter(q => q.status === 'OPEN').length}. ` +
+-    `Missing fields: ${preview.readiness.missing_fields.join(', ') || 'нет'}.`));
++    `Нужно уточнить: ${preview.readiness.missing_fields.map(displayLabel).join(', ') || 'нет'}.`));
+ }
+ $('commit-reply').addEventListener('click', () => interviewAction(async () => {
+   if (!replyPreview) return;
+   await api(interviewPath(`/gpt/replies/${replyPreview.import_id}/commit`), {method:'POST',body:{
+     preview_digest:replyPreview.preview_digest, expected_fingerprint:replyPreview.binding.fingerprint}});
+-  $('gpt-reply').value=''; await loadInterview(); showNotice('Draft применён. Проверьте оставшиеся вопросы; это не formal approval.', 'success');
++  $('gpt-reply').value=''; await loadInterview(); showNotice('Предложения сохранены в черновике. Посмотрите оставшиеся вопросы.', 'success');
+ }));
+ $('cancel-reply').addEventListener('click', () => interviewAction(async () => {
+   if (!replyPreview) return;
+   await api(interviewPath(`/gpt/replies/${replyPreview.import_id}/cancel`), {method:'POST',body:{preview_digest:replyPreview.preview_digest}});
+-  await loadInterview(); showNotice('Import отменён до commit. Canonical draft сохранён.', 'success');
++  await loadInterview(); showNotice('Предложения отклонены. Сведения проекта не изменились.', 'success');
+ }));
+ $('copy-repair').addEventListener('click', () => explicitCopy($('repair-prompt').textContent));
+ function renderImportHistory(imports) {
+   $('import-history').replaceChildren();
+-  for (const item of imports) $('import-history').append(element('p', `${item.import_id} · ${item.state} · ${item.response_digest}`, 'small body-value'));
+-}
++  for (const item of imports) $('import-history').append(element('p', `Ответ модели №${imports.indexOf(item)+1}: ${{PREVIEW:'ожидает сохранения',COMMITTED:'сохранён',CANCELLED:'отклонён'}[item.state] || 'проверяется'}`, 'small body-value'));
++}
+--- before/src/project_harness/resources/local_web/metadata_v1.json
++++ after/src/project_harness/resources/local_web/metadata_v1.json
+@@ -5,7 +5,7 @@
+   "core_schema_version": 7,
+   "project_input_schema": "SCHEMA-PROJECT-PREPARATION-INPUT@4",
+   "local_web_version": "0.1.0-dev",
+-  "local_web_build_id": "SINGLE-ACTION-UI-20261109",
++  "local_web_build_id": "CLEAR-INTERVIEW-20261110",
+   "base_lineage": "PH-051-11-WIP-NOT-RELEASED",
+   "declared_target_base": "PH-051-12-WIP-NO-GO-NOT_SUPPLIED",
+   "source_engine_zip_sha256": "44b75136131d917403b99299077e829c025783a6bb94c2b539fbe0b913449dbd",
+@@ -17,7 +17,7 @@
+   "automatic_executor_release_status": "NO-GO",
+   "local_web_manual_release_status": "NO-GO",
+   "dependency_lock": "local_web/requirements-web-win_amd64-cp314.lock",
+-  "note": "User-directed single-action UI: no modal confirmations or redundant consent checkboxes. Existing action contracts are submitted only on explicit action clicks. Automatic executor remains disabled.",
++  "note": "Presentation-only interview clarity: Russian labels, explicit analysis steps, meaningful draft information, technical hashes collapsed; no core/API/schema changes.",
+   "platform_acceptance": {
+     "report": "PH_LW_04_05_WINDOWS_ACCEPTANCE_TEST_REPORT.md",
+     "scope": "PH-LW-04/05 Windows HTTP acceptance; full installer/lifecycle acceptance pending"
+@@ -37,7 +37,7 @@
+     "exchange_envelope": "LOCAL_WEB_GPT_DRAFT_ONLY@2",
+     "artifact_policy": "Unpacked working files; ZIP only on explicit user request"
+   },
+-  "engine_build_digest": "sha256:2169962ef4e0e5db6f57b50f74e3013285347f0f34bb49cf5cb51aa662ca0acc",
++  "engine_build_digest": "sha256:c82961af214e3ce0c6d1c23588fe1ace0d8ea4612bb260fbf0b6e1aa9a707da7",
+   "engine_build_digest_definition": "SHA256 of sorted SHA256 + two spaces + relative path + LF for src/project_harness files, excluding this metadata file and caches",
+   "ph_lw_07": {
+     "report": "PH_LW_07_TEST_REPORT.md",
+--- before/tests/test_interview_clarity.py
++++ after/tests/test_interview_clarity.py
+@@ -0,0 +1,96 @@
++"""Two changed interview UI paths; synthetic documents and model reply only."""
++import json
++import os
++from pathlib import Path
++import tempfile
++import unittest
++from tests.test_ph_lw_04_05_acceptance import LiveServer
++from tests.test_ph_lw_05_import import archive
++from tests.test_ph_lw_06_http import fixture_reply
++
++
++class InterviewClarityTests(unittest.TestCase):
++    def setUp(self):
++        from playwright.sync_api import sync_playwright,expect
++        self.expect=expect;self.temp=tempfile.TemporaryDirectory(prefix='interview-clarity-')
++        self.addCleanup(self.temp.cleanup)
++        self.live=LiveServer(self.temp.name);self.addCleanup(self.live.close)
++        self.pid=self.live.create('interview-clarity-fixture-001')
++        self.assertEqual(self.live.upload(self.pid,[('Документы.zip',archive([(f'{i}_Требования.md',f'# Требования {i}'.encode()) for i in range(1,5)]))])[0],200)
++        self.play=sync_playwright().start();self.addCleanup(self.play.stop)
++        self.browser=self.play.chromium.launch(channel='msedge',headless=True);self.addCleanup(self.browser.close)
++        self.page=self.browser.new_page(viewport={'width':1360,'height':1000},accept_downloads=True)
++        self.errors=[];self.dialogs=[]
++        self.page.on('pageerror',lambda error:self.errors.append(str(error)))
++        self.page.on('dialog',lambda d:(self.dialogs.append(d.message),d.dismiss()))
++        self.page.goto(self.live.origin+'/')
++        expect(self.page.locator('#connection-state')).to_have_text('Сервер готов')
++        self.page.locator('.project-button').filter(has_text=self.pid).click()
++        self.page.locator('[data-screen="interview"]').click()
++        expect(self.page.locator('#interview-status')).to_contain_text('Документы загружены')
++        self.addCleanup(self.check_page)
++
++    def check_page(self):
++        self.assertEqual(self.errors,[]);self.assertEqual(self.dialogs,[])
++
++    def screenshot(self,name):
++        target=os.environ.get('INTERVIEW_CLARITY_SCREENSHOTS')
++        if target:
++            Path(target).mkdir(parents=True,exist_ok=True)
++            self.page.screenshot(path=str(Path(target)/name),full_page=True)
++
++    def test_uploaded_documents_show_next_step_without_template_facts_or_hashes(self):
++        p=self.page;e=self.expect
++        e(p.locator('#interview-next')).to_contain_text('Подготовить пакет для анализа')
++        e(p.locator('#interview-documents')).to_contain_text('Загружено документов: 4')
++        button=p.locator('#review-export');e(button).to_have_text('Подготовить пакет для анализа')
++        self.assertLess(button.bounding_box()['y'],850,'The next action must be visible before the questionnaire')
++        main=p.locator('#interview-panel').inner_text()
++        for term in ('sha256:','LMD-','LOCAL_DRAFT_UNVERIFIED','PRAGMATIC','skills.resolutions','source revision','WAITING_INPUT','provenance','readiness'):
++            self.assertNotIn(term,main)
++        self.assertNotIn('GET',p.locator('#notice').inner_text())
++        p.locator('#known-answers').locator('..').locator('summary').click()
++        e(p.locator('#known-answers')).to_contain_text('Пока нет заполненных сведений')
++        self.assertEqual(p.locator('#known-answers .known-answer').count(),0)
++        p.locator('#interview-technical summary').click()
++        e(p.locator('#interview-readiness')).to_contain_text('sha256:')
++        e(p.locator('#interview-readiness')).to_contain_text('skills.resolutions')
++        p.locator('#interview-technical summary').click()
++        p.locator('#known-answers').locator('..').locator('summary').click()
++        self.screenshot('01-next-step.png')
++
++    def test_saved_answer_and_model_proposal_have_clear_origins_and_exchange_still_works(self):
++        p=self.page;e=self.expect
++        p.locator('#answer-project-primary_outcome').fill('Понятная цель проекта')
++        p.locator('#save-answers').click()
++        e(p.locator('#notice')).to_contain_text('Ответы проверены и сохранены')
++        p.locator('#known-answers').locator('..').locator('summary').click()
++        e(p.locator('#known-answers')).to_contain_text('Понятная цель проекта')
++        e(p.locator('#known-answers')).to_contain_text('Сохранено в черновике проекта')
++        p.locator('#review-export').click();e(p.locator('#export-review')).to_be_visible()
++        self.assertNotIn('sha256:',p.locator('#export-review').inner_text())
++        for control in p.locator('#export-documents select').all():control.select_option('PUBLIC')
++        p.locator('#draft-classification').select_option('PUBLIC')
++        p.locator('#create-export').click()
++        e(p.locator('#export-history a')).to_have_count(1)
++        e(p.locator('#interview-next')).to_contain_text('Скачайте пакет')
++        self.assertNotIn('sha256:',p.locator('#export-history').inner_text())
++        with p.expect_download() as download:p.locator('#export-history a').click()
++        pack=Path(download.value.path()).read_text('utf-8')
++        skeleton=json.loads(pack.split('## Return skeleton\n\n',1)[1])
++        reply=fixture_reply(skeleton)
++        reply['project_input_draft']['project']['primary_outcome']='Понятная цель от модели'
++        p.locator('#gpt-reply').fill(json.dumps(reply,ensure_ascii=False))
++        p.locator('#preview-reply').click()
++        e(p.locator('#preview-summary')).to_contain_text('Изменений:')
++        self.assertNotIn('sha256:',p.locator('#import-preview').inner_text())
++        self.assertNotIn('project.primary_outcome',p.locator('#reply-diff').inner_text())
++        p.locator('#commit-reply').click()
++        e(p.locator('#notice')).to_contain_text('Предложения сохранены')
++        e(p.locator('#known-answers')).to_contain_text('Понятная цель от модели')
++        e(p.locator('#known-answers')).to_contain_text('Предложено моделью')
++        e(p.locator('#import-history')).to_contain_text('сохранён')
++        self.screenshot('02-saved-model-proposal.png')
++
++
++if __name__=='__main__':unittest.main(verbosity=2)
+--- before/tests/test_ph_lw_06_http.py
++++ after/tests/test_ph_lw_06_http.py
+@@ -171,18 +171,18 @@
+                             page.locator('#preview-reply').click()
+                             expect(page.locator('#import-preview')).to_be_visible()
+                             expect(page.locator('#notice')).to_contain_text('Preview готов')
+-                            expect(page.locator('#preview-summary')).to_contain_text('PREVIEW')
++                            expect(page.locator('#preview-summary')).to_contain_text('Изменений:')
+                             expect(page.locator('#reply-diff')).to_contain_text('<img')
+                             self.assertEqual(page.locator('img,iframe,script:not([src])').count(),0)
+                             self.assertIsNone(page.evaluate('window.injected'))
+                             before = byte_snapshot(Path(directory))
+                             page.reload(wait_until='networkidle')
+-                            expect(page.locator('#preview-summary')).to_contain_text('PREVIEW')
++                            expect(page.locator('#preview-summary')).to_contain_text('Изменений:')
+                             after = byte_snapshot(Path(directory))
+                             self.assertEqual(before, after, {k:(before.get(k),after.get(k)) for k in before.keys() | after.keys() if before.get(k)!=after.get(k)})
+                             page.locator('#commit-reply').click()
+                             expect(page.locator('#import-history')).to_contain_text('COMMITTED')
+-                            expect(page.locator('#interview-status')).to_contain_text('WAITING_DECISION')
++                            expect(page.locator('#interview-status')).to_contain_text('Нужно выбрать целевой уровень')
+                             page.locator('#gpt-reply').fill(json.dumps(reply))
+                             page.locator('#preview-reply').click()
+                             expect(page.locator('#notice')).to_contain_text('уже применён')
+--- before/tests/test_ph_lw_08_http.py
++++ after/tests/test_ph_lw_08_http.py
+@@ -72,7 +72,7 @@
+                             expect(page.locator('#interview-body')).to_be_visible()
+                             page.locator('#answer-implementation-target_level').select_option('MVP')
+                             page.locator('#save-answers').click()
+-                            expect(page.locator('#notice')).to_contain_text('Ответы проверены и сохранены ядром')
++                            expect(page.locator('#notice')).to_contain_text('Ответы проверены и сохранены')
+                             page.locator('#review-export').click();expect(page.locator('#export-review')).to_be_visible()
+                             for item in page.locator('#export-documents select').all():item.select_option('PUBLIC')
+                             page.locator('#draft-classification').select_option('PUBLIC');
+--- before/tests/test_ph_lw_12_acceptance.py
++++ after/tests/test_ph_lw_12_acceptance.py
+@@ -123,7 +123,7 @@
+                             self.assertEqual(posts,[],'User mutation overtook its own pending navigation write')
+                         finally:
+                             for route in paused:route.continue_()
+-                        expect(page.locator('#notice')).to_contain_text('Ответы проверены и сохранены ядром')
++                        expect(page.locator('#notice')).to_contain_text('Ответы проверены и сохранены')
+                         self.assertEqual(len(posts),1,'Exactly one explicit mutation; no automatic POST retry')
+                     finally:browser.close()
+             finally:live.close()

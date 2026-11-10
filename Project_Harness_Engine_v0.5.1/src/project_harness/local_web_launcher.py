@@ -38,14 +38,14 @@ def open_bound_loopback_socket() -> socket.socket:
         raise
 
 
-def create_loopback_server(service: LocalWebService, auth, sock: socket.socket):
+def create_loopback_server(service: LocalWebService, sock: socket.socket):
     """One production WSGI configuration, also exercised by native acceptance."""
     from waitress import create_server
     from .local_web_http import WSGI_BODY_LIMIT, create_app
     address, port = sock.getsockname()
     if sock.family != socket.AF_INET or address != '127.0.0.1':
         raise ValidationFailure('Local Web requires a prebound IPv4 loopback socket')
-    app = create_app(service, port=port, auth=auth)
+    app = create_app(service, port=port)
     return create_server(app, sockets=[sock], threads=4, connection_limit=32,
                          backlog=16, channel_timeout=20,
                          max_request_body_size=WSGI_BODY_LIMIT,
@@ -58,9 +58,7 @@ def create_loopback_server(service: LocalWebService, auth, sock: socket.socket):
 def run_local_web(*, app_data: Path | None = None, open_browser: bool = True) -> int:
     """Start actual Waitress before opening a browser, never Flask dev server.
 
-    For failure to auto-open, stdout shows a *non-authenticated*, copyable
-    address only. Never print/log a bootstrap secret. Restart with a working
-    browser integration to obtain a new one-time authenticated launch.
+    The plain loopback address opens the application directly.
     """
     try:
         from flask import Flask  # validate both requirements before binding/listening
@@ -70,7 +68,6 @@ def run_local_web(*, app_data: Path | None = None, open_browser: bool = True) ->
     except (ImportError, PackageNotFoundError) as exc:
         raise ValidationFailure('Для команды ui нужны pinned Flask и Waitress из Local Web lock; '
                                 'никакой HTTP/Flask development-server fallback не допускается') from exc
-    from .local_web_http import LocalWebAuth
 
     if os.name == 'nt':
         from .local_web_instance import UserInstanceLock, wait_existing
@@ -96,50 +93,36 @@ def open_local_browser(url: str) -> bool:
     if not opened:
         if os.name == 'nt':
             import ctypes
-            # Native local display only: no stdout, query string or file log.
-            # Ctrl+C in a Windows message box copies its displayed contents.
-            origin, token = url.split('/#bootstrap=', 1)
             ctypes.windll.user32.MessageBoxW(None,
-                'Браузер не открылся. Откройте адрес вручную:\n' + origin + '/\n\n'
-                'Введите на странице одноразовый код (90 секунд):\n' + token + '\n\n'
-                'Ctrl+C копирует текст этого окна. Новый запуск Harness выдаёт новый код. '
-                'Сервер продолжает работать; завершите его кнопкой «Завершить Harness».',
-                'Project Harness — локальный вход', 0x40)
+                'Браузер не открылся. Откройте этот адрес вручную:\n' + url +
+                '\n\nHarness продолжает работать.', 'Project Harness', 0x40)
         elif sys.stdout:
             print('Браузер не открылся. Повторите запуск с работающим браузером.', flush=True)
     return opened
 
 
 def _serve(app_data: Path, *, open_browser: bool, desktop: bool) -> int:
-    from .local_web_http import LocalWebAuth
     from .local_web_desktop import DesktopLifecycle
     sock = open_bound_loopback_socket()
     port = sock.getsockname()[1]
     origin = f'http://127.0.0.1:{port}'
     try:
         with LocalWebService(app_data) as service:
-            auth = LocalWebAuth()
             service.desktop_lifecycle = DesktopLifecycle(service)
             # sockets=[already-bound socket] is the Waitress API for atomic
             # bind → server setup; do NOT release/rebind the chosen port.
-            server = create_loopback_server(service, auth, sock)
+            server = create_loopback_server(service, sock)
             channel = None
             thread = threading.Thread(target=server.run, name='harness-waitress', daemon=True)
             try:
                 thread.start()
                 if desktop:
-                    from .local_web_instance import LauncherChannel
-                    channel = LauncherChannel(service.app_data, auth, port, service.desktop_lifecycle.stopping)
+                    from .local_web_instance import LauncherInstance
+                    channel = LauncherInstance(service.app_data, port)
                 if sys.stdout:
-                    print(f'Локальный адрес (без секрета): {origin}/', flush=True)
+                    print(f'Локальный адрес: {origin}/', flush=True)
                 if open_browser:
-                    token = auth.issue_bootstrap()
-                    # The fragment never reaches the HTTP listener or Referer.
-                    open_local_browser(f'{origin}/#bootstrap={token}')
-                    del token
-                elif sys.stdout:
-                    print('Режим --no-browser не создаёт доступной из HTTP авторизации. '
-                          'Используйте обычный запуск ui для входа.', flush=True)
+                    open_local_browser(origin + '/')
                 while thread.is_alive() and not service.desktop_lifecycle.stopping.wait(.2):
                     pass
                 if not service.desktop_lifecycle.stopping.is_set():

@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "source_build_wheel_frozen": "PASS",
+  "full_frozen_payload_including_pyd": "PASS",
+  "documentation_mirrors": "PASS",
+  "manifests": "PASS",
+  "only_allowed_runtime_changes": [
+    "resources/local_web/assets/app.css",
+    "resources/local_web/assets/index.html",
+    "resources/local_web/assets/interview.js",
+    "resources/local_web/metadata_v1.json"
+  ],
+  "historical_documentation_preserved": true,
+  "unrelated_original_tests_preserved": true,
+  "build_id": "CLI-CARD-PRESENTATION-20261110",
+  "engine_manifest_sha256": "d9e94ed328dc3cff80cef00a1eb1b0b03a1cfd82e865dcea53539d0799a7d4a2",
+  "docs_manifest_sha256": "3d80966cf687c3660d91788a23359b0986f0b113924f1ab1b59f87049ee12968",
+  "zip_created": false
+}

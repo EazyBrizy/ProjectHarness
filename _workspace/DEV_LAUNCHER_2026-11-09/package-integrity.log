@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "source_build_wheel_frozen_byte_equality": "PASS",
+  "documentation_mirrors": "PASS",
+  "full_frozen_payload_including_pyd": "PASS",
+  "wheel_crc_and_source_hashes": "PASS",
+  "manifests": "PASS",
+  "unrelated_tracked_input_files_preserved": true,
+  "build_id": "DOC-UPLOAD-UX-20261109",
+  "wheel_sha256": "a0b41b1067b46d24ee506b86c9f8ccfcc49b5d7032c4e4acf67513005f2dfc1d",
+  "installer_sha256": "f90a108596eadf321bfa79c660b2cc39b6a8301833739fe863aebae10a2ba591",
+  "engine_manifest_sha256": "f9ea0bd7a5d0f998f47e56aadf78f5ae037417b079018eebb284068d4f13288d",
+  "docs_manifest_sha256": "aef51b4ff5aacaae93ab8a7a5d91531580aafe76673a048341a4d42833834646",
+  "automatic_executor_enabled": false,
+  "zip_created": false
+}

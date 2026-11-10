@@ -1,0 +1,31 @@
+{
+  "unique_methods": 5,
+  "passed": 5,
+  "failures_remaining": 0,
+  "model_requests": 0,
+  "same_runtime_bytes_in_both_runs": true,
+  "wheel_sha256": "bf37e57ebdd435723129ac672f370ea050d0e4b4f54f21bccf1b02c9d3246cb9",
+  "methods": {
+    "test_single_archive_content_exact_binding_read_only_and_replay": {
+      "status": "PASS",
+      "log": "wheel-tests.log"
+    },
+    "test_real_multipart_recombined_without_truncation_and_tamper_rejected": {
+      "status": "PASS",
+      "log": "wheel-tests.log"
+    },
+    "test_stale_and_foreign_origin_rejected_without_download_or_mutation": {
+      "status": "PASS",
+      "log": "wheel-tests.log"
+    },
+    "test_one_click_zip_download_without_history_and_reply_still_previews": {
+      "status": "PASS",
+      "log": "wheel-tests.log"
+    },
+    "test_download_error_and_wrong_mime_are_inline_without_extra_download": {
+      "status": "PASS",
+      "log": "wheel-focused.log"
+    }
+  },
+  "initial_failure": "Playwright route fixture accepted Request as default status argument; cleanup error same case. Fixed callback signature only; runtime and expectations unchanged. Retried only that method."
+}

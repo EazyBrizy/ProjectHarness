@@ -1,0 +1,6 @@
+{
+  "status": "STOPPING",
+  "http_status": 200,
+  "force_kill": false,
+  "operation_state": "STOPPING"
+}

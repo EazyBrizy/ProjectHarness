@@ -1,0 +1,19 @@
+{
+  "command": [
+    "./.venv/Scripts/python.exe",
+    "-B",
+    "Project_Harness_Engine_v0.5.1/local_web/windows/document_upload_feedback_acceptance.py",
+    "--installer",
+    "Project_Harness_Engine_v0.5.1/windows/Harness-Setup-win-x64.exe",
+    "--output",
+    "_workspace/REMOVE_LOCAL_LOGIN_2026-11-09/installed-exe"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-09T13:22:08.838188+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 180,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 72.422,
+  "log_sha256": "10d31263863efbc2b59e20c0f49448627eaa8cbeabc0c7be71b6b4e6038fde74"
+}

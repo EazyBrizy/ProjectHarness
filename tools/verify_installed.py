@@ -59,7 +59,7 @@ def main():
         response = connection.getresponse()
         assert response.status == 200 and json.loads(response.read()) == {'status': 'ok'}
         connection.close()
-        print('Installed console launcher: loopback health PASS; no-browser auth remains gated', flush=True)
+        print('Installed console launcher: loopback health PASS; direct access without local login', flush=True)
     finally:
         subprocess.run(['taskkill', '/PID', str(child.pid), '/T', '/F'], capture_output=True, timeout=15)
         child.wait(timeout=15)

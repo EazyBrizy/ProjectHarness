@@ -1,0 +1,10 @@
+test_choose_before_project_import_and_explicit_next (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_choose_before_project_import_and_explicit_next) ... ok
+test_lost_response_after_commit_refresh_recovers_without_reposting (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_lost_response_after_commit_refresh_recovers_without_reposting) ... ok
+test_no_documentation_has_explicit_next (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_no_documentation_has_explicit_next) ... ok
+test_rejected_zip_preserves_sources_and_can_retry (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_rejected_zip_preserves_sources_and_can_retry) ... ok
+test_reload_duplicate_and_switch_to_empty_project (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_reload_duplicate_and_switch_to_empty_project) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 21.737s
+
+OK

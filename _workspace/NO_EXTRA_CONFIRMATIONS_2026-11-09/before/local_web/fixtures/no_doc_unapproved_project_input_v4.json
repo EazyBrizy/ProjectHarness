@@ -1,0 +1,128 @@
+{
+  "schema_version": 4,
+  "metadata": {
+    "prepared_by": "BROWSER_GPT",
+    "generated_at": null,
+    "notes": "Fill semantic fields after documentation analysis and user interview."
+  },
+  "project": {
+    "name": "No documentation candidate",
+    "slug": "no-documentation-candidate",
+    "mode": "GREENFIELD",
+    "documentation": {
+      "availability": null,
+      "normative_sources": [],
+      "notes": null
+    },
+    "problem_statement": null,
+    "primary_outcome": null,
+    "users": [],
+    "scale": {
+      "initial": null,
+      "growth": null
+    },
+    "connectivity": null,
+    "platforms": [],
+    "deployment": {
+      "target": null,
+      "environment": null
+    },
+    "data": {
+      "categories": [],
+      "sensitivity": null,
+      "storage": null
+    },
+    "integrations": [],
+    "scope": {
+      "in": [],
+      "out": []
+    },
+    "constraints": {
+      "mandatory": [],
+      "forbidden": [],
+      "non_functional": []
+    },
+    "success_criteria": [],
+    "assumptions": [],
+    "unknowns": [],
+    "ambiguity_mode": "PRAGMATIC"
+  },
+  "implementation": {
+    "target_level": null,
+    "claimed_current_level": "NONE"
+  },
+  "execution": {
+    "mode": "MANUAL_HANDOFF",
+    "adapter_profile_ref": null,
+    "sandbox_profile_ref": null,
+    "network_mode": "NONE",
+    "completion_policy": "EXPLICIT_AFTER_VERIFICATION"
+  },
+  "profile": {
+    "ref": null,
+    "rationale": null
+  },
+  "architecture": {
+    "summary": null,
+    "style": null,
+    "components": [],
+    "interfaces": [],
+    "data_flow": [],
+    "quality_attributes": [],
+    "decisions": [],
+    "risks": []
+  },
+  "technology": {
+    "selections": [],
+    "build_commands": [],
+    "test_commands": [],
+    "lint_commands": []
+  },
+  "skills": {
+    "resolutions": [
+      {
+        "workflow": "bounded implementation",
+        "action": "REUSE",
+        "skill_ref": "SKL-UNIVERSAL-IMPLEMENT@3",
+        "configuration": {},
+        "rationale": "Core implementation skill supplied by the distribution."
+      }
+    ]
+  },
+  "planning": {
+    "work_packages": []
+  },
+  "brownfield": {
+    "baseline_summary": null,
+    "known_defects": [],
+    "known_gaps": [],
+    "technical_debt": [],
+    "documentation_conflicts": []
+  },
+  "approvals": {
+    "project_definition": {
+      "approved": false,
+      "actor": null,
+      "approved_at": null,
+      "notes": null
+    },
+    "architecture_baseline": {
+      "approved": false,
+      "actor": null,
+      "approved_at": null,
+      "notes": null
+    },
+    "technology_baseline": {
+      "approved": false,
+      "actor": null,
+      "approved_at": null,
+      "notes": null
+    },
+    "codex_handoff": {
+      "approved": false,
+      "actor": null,
+      "approved_at": null,
+      "notes": null
+    }
+  }
+}

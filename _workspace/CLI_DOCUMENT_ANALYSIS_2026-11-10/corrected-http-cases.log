@@ -1,0 +1,62 @@
+test_manual_pack_one_click_no_classification_and_no_cli_launch (tests.test_cli_document_analysis.CliAnalysisTests.test_manual_pack_one_click_no_classification_and_no_cli_launch) ... ok
+test_result_uses_strict_preview_replay_does_not_rerun_and_draft_not_committed (tests.test_cli_document_analysis.CliAnalysisTests.test_result_uses_strict_preview_replay_does_not_rerun_and_draft_not_committed) ... ok
+test_cancel_busy_stale_result_and_invalid_reply_never_apply_draft (tests.test_cli_document_analysis.CliAnalysisTests.test_cancel_busy_stale_result_and_invalid_reply_never_apply_draft) ... ERROR
+
+======================================================================
+ERROR: test_cancel_busy_stale_result_and_invalid_reply_never_apply_draft (tests.test_cli_document_analysis.CliAnalysisTests.test_cancel_busy_stale_result_and_invalid_reply_never_apply_draft)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_cli_analysis.py", line 154, in _work
+    code, _, stderr = invoke(analysis_argv(executable, directory, schema, answer),
+                      ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                            cwd=directory, stdin=prompt, timeout=TIMEOUT_SECONDS, cancel=event)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\tests\test_cli_document_analysis.py", line 31, in __call__
+    if cancel.wait(.05):raise CliError('CLI_CANCELLED','Анализ остановлен.')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+project_harness.local_web_cli.CliError: VALIDATION_FAILED: Анализ остановлен.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\src\project_harness\operation_guard.py", line 72, in project_operation_guard
+    msvcrt.locking(fd, msvcrt.LK_NBLCK, 1)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\tests\test_cli_document_analysis.py", line 124, in test_cancel_busy_stale_result_and_invalid_reply_never_apply_draft
+    self.assertEqual(self.wait(job['job_id'])['state'],'CANCELLED')
+                     ~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\tests\test_cli_document_analysis.py", line 67, in wait
+    self.live.service._futures[job].result(timeout=10)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_tools\Python314\Lib\concurrent\futures\_base.py", line 447, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_tools\Python314\Lib\concurrent\futures\_base.py", line 396, in __get_result
+    raise self._exception
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_tools\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_tools\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_cli_analysis.py", line 193, in _work
+    _update(root, path, record, state='CANCELLED' if exc.cli_code == 'CLI_CANCELLED' else 'FAILED',
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            error_code=exc.cli_code, message_ru=exc.message)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_cli_analysis.py", line 130, in _update
+    with project_operation_guard(root):
+         ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_tools\Python314\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\src\project_harness\operation_guard.py", line 74, in project_operation_guard
+    raise ValidationFailure('OPERATION_CONFLICT: operation already running for project', key) from exc
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: OPERATION_CONFLICT: operation already running for project
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.918s
+
+FAILED (errors=1)

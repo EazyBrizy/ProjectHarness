@@ -1,0 +1,42 @@
+{
+  "src/project_harness/resources/local_web/assets/app.js": {
+    "before": "63400719e4c9735418325b4daff6451ecd2b6aeec0d8bc3541efbe02b1a15070",
+    "after": "721127e84a86641c35c40d6346237f5901f29ce3c5d5b90fadaecba65dbaa25d"
+  },
+  "src/project_harness/resources/local_web/assets/index.html": {
+    "before": "77a55df0b7bb3228ec6e1336e186f8bc660e755a07bf684b308ef054242450f3",
+    "after": "7ec80fd75eeb163d9b8a8d16ac569dea87c7c0da7418d8856d5cd015970d7e75"
+  },
+  "src/project_harness/resources/local_web/assets/interview.js": {
+    "before": "d4815cef4290382d378bc50b37171e7671ea85261cd3308f5c6da0192ffb8957",
+    "after": "4f74bd37580a059bbc9b7f7bb6b30398b723e84868755d0a88cd47a60453f5f1"
+  },
+  "src/project_harness/resources/local_web/metadata_v1.json": {
+    "before": "000c5026df4cfdd7e9869c2d412330d8017c576c6fb54bbc1dd03021b54d8463",
+    "after": "b79a280fb0784b2ed11c6fb3e2a7c95cc48d7e5af6ef3ec58848c921cbeb96af"
+  },
+  "tests/test_interview_clarity.py": {
+    "before": null,
+    "after": "9c574af53e05532cdfc5db22b992ff20b2094deeb67adf9fed62b6ea50acda38"
+  },
+  "tests/test_ph_lw_06_http.py": {
+    "before": "a6bd3f458930486260374830e6c7e89fd09fcacaa41e7e5604c7c9d6f7142213",
+    "after": "d2a33c71cafc4ca2c1e8982f07ffdc4bf1c87dc27b0f8ca116eed2f49bd0ddc5"
+  },
+  "tests/test_ph_lw_08_http.py": {
+    "before": "2fa8864b7037a80a193abf8ddf354f4796662fc159b8b17e16411c04da911f9e",
+    "after": "5fa94607406ff20c3dd1b4b3e96412c1b3b4c99f0ab4233d17a4c4356b7a5821"
+  },
+  "tests/test_ph_lw_12_acceptance.py": {
+    "before": "dc8f5005251b1e5483b64092a8716f4fabcfe66404cd213e111d0bc4cc549932",
+    "after": "efc623077140fa4ace2f96c9d6a79a3f61e6b8bd0fae05ff36b53db9d6a33392"
+  },
+  "AGENTS.md": {
+    "before": "826ed31783f516cc2066a1fab7150f63cec573a5c10969955832caf65bd06482",
+    "after": "c0411c71ecc8f9f19061ffacb57785a631926c8daad8154930c1dbcd3c4b3f73"
+  },
+  "_workspace/CURRENT_TASK.md": {
+    "before": "aa864ce005ed9d7aae9b93c02ee027232a9a60b123d10645b72ebe3bfa6e4d15",
+    "after": "ca1d2867cc95783894e46dae2aed96c772e4691ba3c3f55acb19a80e928b9019"
+  }
+}

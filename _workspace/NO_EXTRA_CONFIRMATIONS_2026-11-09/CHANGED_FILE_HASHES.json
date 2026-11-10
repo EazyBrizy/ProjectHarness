@@ -1,0 +1,74 @@
+{
+  "src/project_harness/cli.py": {
+    "before": "14c16a2b4cfbb979b85af81ac11cf211447efe31a5ca94726ea2121e4ec55bc3",
+    "after": "db5b425c0d517d6f8f784919c4e838adb3ad7dd82bd48c45b308f43d2e522e09"
+  },
+  "src/project_harness/resources/local_web/assets/app.js": {
+    "before": "0f6f0594a55d6ddac17e08d7c2e41b1c609b7a55cba3803ee37510ad33ce43df",
+    "after": "63400719e4c9735418325b4daff6451ecd2b6aeec0d8bc3541efbe02b1a15070"
+  },
+  "src/project_harness/resources/local_web/assets/approvals.js": {
+    "before": "2b694cf558e6c5d363c2a6f72e2d75f9c45cc04663aa806ed2538d94319e9729",
+    "after": "d7f9e51d46dbdaf607a1be103ef561218de0401d41ea0425769244db6cd18ea9"
+  },
+  "src/project_harness/resources/local_web/assets/index.html": {
+    "before": "78d89f3527351cdb1b7d1295f91f429fd5fcd6e3c99cbe2588d5dc1001684bc5",
+    "after": "77a55df0b7bb3228ec6e1336e186f8bc660e755a07bf684b308ef054242450f3"
+  },
+  "src/project_harness/resources/local_web/assets/interview.js": {
+    "before": "49df75e2520f7688db4035804b1bebe50bce0fcc64c8fb588ceae116e6a3333a",
+    "after": "d4815cef4290382d378bc50b37171e7671ea85261cd3308f5c6da0192ffb8957"
+  },
+  "src/project_harness/resources/local_web/assets/lifecycle.js": {
+    "before": "baac8cafab4baae33ffe91d622ea80820a498bd8707bef8cbfa19aea29e56a76",
+    "after": "350f64a830108ecb0237fadae4ef9e86d778b184c08fb32bd88158ccf79ed04d"
+  },
+  "src/project_harness/resources/local_web/assets/preparation.js": {
+    "before": "22996b53f9c76b89e32aa1e0043e3fd0f14516143b9eb8ea117ba055cdceab43",
+    "after": "a2eecf844bf4c9c2686241838d31e7350ca5da51cb3bf5190c70fbd6fa4b9ac5"
+  },
+  "src/project_harness/resources/local_web/assets/tasks.js": {
+    "before": "5da7bd849c799c41081e0ce33e3a46d4771720990c046df2983f9a1fd8026a57",
+    "after": "0892b7bd9351657ff3903060338253dcca89430b084ab5ca72723924a8a7bd59"
+  },
+  "src/project_harness/resources/local_web/metadata_v1.json": {
+    "before": "0a011ba6911b0273e99ea60b50f7b8bb3ce734b2650382b5b990d3eaf8a2c95c",
+    "after": "000c5026df4cfdd7e9869c2d412330d8017c576c6fb54bbc1dd03021b54d8463"
+  },
+  "tests/test_ph_lw_06_http.py": {
+    "before": "a0831c8f80a58568cff4aae6545e5978a317374d7293d809cb27d478758a07a9",
+    "after": "a6bd3f458930486260374830e6c7e89fd09fcacaa41e7e5604c7c9d6f7142213"
+  },
+  "tests/test_ph_lw_07_http.py": {
+    "before": "6cc69f1dcdc951b9fedbe7b813fe57fd52c49d7faf7d936dc8aadd91dca6c9a2",
+    "after": "ae31914a36e16e61dd6df96fd3ea8032fa22c8770cd46aef73db96a2e5f86045"
+  },
+  "tests/test_ph_lw_08_http.py": {
+    "before": "08551d11fae7fc479c2bfa44a4b2108ce46772d2d68bb266aaaf1ec81571c156",
+    "after": "2fa8864b7037a80a193abf8ddf354f4796662fc159b8b17e16411c04da911f9e"
+  },
+  "tests/test_ph_lw_09_http.py": {
+    "before": "5aa08390a7f604c4c63c95569a0a67ae2a85263eb57e5730117e79af98819a8a",
+    "after": "f63ca003e8dabaf298ed2fe30f561e076bc5d8678c437f3b7bc4fe0949782d02"
+  },
+  "tests/test_ph_lw_10_http.py": {
+    "before": "e51aaeaa393c2656e932cb01d7cf9a425c0bbf842bf3f9979f685c86af957b69",
+    "after": "93a0e4a36fa470b5cf8d37f6084aff58dbd6182a7f0acf6c85752f4c8cd8fc8c"
+  },
+  "tests/test_single_action_ui.py": {
+    "before": null,
+    "after": "fa40bbbd0375298bc1c592b039c68deb82c87a97509689f2ecc3ffb395e44c24"
+  },
+  "local_web/windows/final_acceptance.py": {
+    "before": "91ba776888c4debd9bae303d92621dc3ff5ab0ba9bd087f84dfefa88c7a17b08",
+    "after": "7aaa79596ef9e4ab54ab14a616732fed706e871f6346ab2bb8da72565cb230c8"
+  },
+  "AGENTS.md": {
+    "before": "eb52e61dac14b84c8410a033b6d54cf075616a587696010a3136353878105fcb",
+    "after": "826ed31783f516cc2066a1fab7150f63cec573a5c10969955832caf65bd06482"
+  },
+  "_workspace/CURRENT_TASK.md": {
+    "before": "c8e974d667f823e50359c208f9fa17bfebd9afbdd65dae380120aded907ca9ba",
+    "after": "aa864ce005ed9d7aae9b93c02ee027232a9a60b123d10645b72ebe3bfa6e4d15"
+  }
+}

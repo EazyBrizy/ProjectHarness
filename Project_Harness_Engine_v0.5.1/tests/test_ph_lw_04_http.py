@@ -23,8 +23,7 @@ from unittest import mock
 
 from project_harness.errors import ValidationFailure
 from project_harness.intake import start_intake
-from project_harness.local_web_http import (BOOTSTRAP_TTL_SECONDS, SESSION_COOKIE,
-          JSON_BODY_LIMIT, WSGI_BODY_LIMIT, LocalWebAuth, WebError)
+from project_harness.local_web_http import JSON_BODY_LIMIT, WSGI_BODY_LIMIT, WebError
 from project_harness.local_web_launcher import open_bound_loopback_socket, run_local_web
 from project_harness.local_web_service import LocalWebService, OperationRequest
 from tests.test_engine import prepare_demo
@@ -36,25 +35,10 @@ HAS_PLAYWRIGHT = find_spec('playwright') is not None
 
 
 class LocalHttpDependencyIndependent(unittest.TestCase):
-    def test_auth_bootstrap_one_use_rotation_expiry_idle_csrf(self):
-        now = [100.0]
-        auth = LocalWebAuth(clock=lambda: now[0])
-        first = auth.issue_bootstrap()
-        replacement = auth.issue_bootstrap()
-        with self.assertRaises(WebError): auth.exchange(first)
-        cookie, csrf = auth.exchange(replacement)
-        with self.assertRaises(WebError): auth.exchange(replacement)
-        with self.assertRaises(WebError): auth.authorize(cookie, csrf='bad', mutation=True)
-        self.assertIsNotNone(auth.authorize(cookie, csrf, mutation=True))
-        auth.revoke(cookie)
-        with self.assertRaises(WebError): auth.authorize(cookie)
-        expired = auth.issue_bootstrap()
-        now[0] += BOOTSTRAP_TTL_SECONDS + 1
-        with self.assertRaises(WebError): auth.exchange(expired)
-        valid = auth.issue_bootstrap()
-        cookie, csrf = auth.exchange(valid)
-        now[0] += 31 * 60
-        with self.assertRaises(WebError): auth.authorize(cookie)
+    def test_local_login_implementation_removed(self):
+        import project_harness.local_web_http as http
+        self.assertFalse(hasattr(http, 'LocalWebAuth'))
+        self.assertFalse(hasattr(http, 'SESSION_COOKIE'))
 
     def test_missing_web_dependencies_fail_before_binding_or_browser(self):
         with mock.patch.dict('sys.modules', {'flask': None}):
@@ -86,7 +70,7 @@ class LocalHttpDependencyIndependent(unittest.TestCase):
         js = base.joinpath('app.js').read_text(encoding='utf-8')
         html = base.joinpath('index.html').read_text(encoding='utf-8')
         css = base.joinpath('app.css').read_text(encoding='utf-8')
-        self.assertIn('history.replaceState', js)
+        self.assertNotIn('/api/session', js)
         self.assertIn('textContent', js)
         self.assertNotIn('innerHTML', js)
         self.assertNotIn('eval(', js)
@@ -126,9 +110,8 @@ class FlaskAppSecurityTests(unittest.TestCase):
         start_intake(self.workspace, project_name='<script>bad</script>', mode='GREENFIELD')
         self.pid = self.service.register_existing(self.workspace, kind='workspace')
         self.clock = [1000.0]
-        self.auth = LocalWebAuth(clock=lambda: self.clock[0])
         self.port = 48761
-        self.app = create_app(self.service, port=self.port, auth=self.auth)
+        self.app = create_app(self.service, port=self.port)
         self.client = self.app.test_client()
         self.origin = f'http://127.0.0.1:{self.port}'
         self.before = byte_snapshot(self.workspace)
@@ -144,91 +127,57 @@ class FlaskAppSecurityTests(unittest.TestCase):
             args['content_type'] = 'application/json'
         return self.client.open(url, method=method, **args)
 
-    def login(self):
-        token = self.auth.issue_bootstrap()
-        response = self.call('POST', '/api/session/bootstrap', body={'token': token}, origin=self.origin)
-        self.assertEqual(response.status_code, 200, response.json)
-        csrf = response.json['csrf']
-        self.assertIn('HttpOnly', response.headers['Set-Cookie'])
-        self.assertIn('SameSite=Strict', response.headers['Set-Cookie'])
-        return csrf
-
-    def test_unauthenticated_all_private_routes_and_public_health_minimal(self):
-        for route in ('/api/projects', f'/api/projects/{self.pid}',
-                      f'/api/projects/{self.pid}/operations/LWO-' + 'F'*32,
-                      f'/api/projects/{self.pid}/artifacts/LWO-' + 'F'*32):
-            r = self.call('GET', route)
-            self.assertEqual(r.status_code, 401, (route, r.json))
-            self.assertNotIn(str(self.base), r.get_data(as_text=True))
-        h = self.call('GET', '/health')
-        self.assertEqual(h.json, {'status': 'ok'})
-        self.assertNotIn('0.5.1', h.get_data(as_text=True))
-        self.assertEqual(self.call('GET', '/api/session').json, {'authenticated': False})
-
-    def test_token_replay_expiry_bad_host_origin_null_and_wrong_port(self):
-        token = self.auth.issue_bootstrap()
-        bad = self.call('POST', '/api/session/bootstrap', body={'token':token}, origin='null')
-        self.assertEqual(bad.status_code, 403)
-        csrf = self.call('POST', '/api/session/bootstrap', body={'token':token}, origin=self.origin).json['csrf']
-        replay = self.call('POST', '/api/session/bootstrap', body={'token':token}, origin=self.origin)
-        self.assertEqual(replay.status_code, 401)
-        new = self.auth.issue_bootstrap()
-        self.clock[0] += BOOTSTRAP_TTL_SECONDS + 1
-        self.assertEqual(self.call('POST', '/api/session/bootstrap', body={'token':new},origin=self.origin).status_code,401)
-        for header in ('evil.example', '127.0.0.1', '127.0.0.1:9999',
-                       f'127.0.0.1:{self.port}.evil.example', 'localhost:48761'):
-            self.assertEqual(self.call('GET', '/api/projects',host=header).status_code,403)
-        self.assertEqual(self.call('GET','/api/projects', origin='http://evil.example').status_code, 403)
-        self.assertEqual(self.call('POST',f'/api/projects/{self.pid}/operations',origin='null',body={}).status_code,403)
-        self.assertEqual(self.call('POST',f'/api/projects/{self.pid}/operations',body={}).status_code,403)
-        self.assertEqual(self.call('GET', '/api/projects',headers={'X-Forwarded-Host':'evil.test'}).status_code,403)
-        self.assertTrue(csrf)
-
-    def test_session_csrf_exact_json_and_security_headers(self):
-        csrf = self.login()
-        req = {'action':'check-intake', 'payload':{}, 'idempotency_key':'test-csrf-check-001',
-               'expected_fingerprint': self.service.get_status(self.pid)['fingerprint']}
-        path = f'/api/projects/{self.pid}/operations'
-        for invalid in (None, 'wrong'):
-            r = self.call('POST',path,body=req,origin=self.origin,
-                          headers={} if invalid is None else {'X-CSRF-Token':invalid})
-            self.assertEqual(r.status_code, 403)
-        accepted = self.call('POST',path,body=req,origin=self.origin,headers={'X-CSRF-Token':csrf})
-        self.assertEqual(accepted.status_code,202,accepted.json)
-        self.service.wait_for(accepted.json['operation_id'], timeout=90)
-        bad_fields = {**req, 'root':'C:\\Windows\\System32'}
-        self.assertEqual(self.call('POST',path,body=bad_fields,origin=self.origin,
-                        headers={'X-CSRF-Token':csrf}).status_code,400)
-        r = self.call('GET','/api/projects')
-        for header in ('Content-Security-Policy','X-Frame-Options','X-Content-Type-Options',
-                       'Referrer-Policy','Cache-Control'):
-            self.assertIn(header,r.headers)
-        self.assertIn("frame-ancestors 'none'",r.headers['Content-Security-Policy'])
-        self.assertNotIn('Access-Control-Allow-Origin',r.headers)
-        self.assertIn('no-store',r.headers['Cache-Control'])
-        self.assertNotIn('Traceback',r.get_data(as_text=True))
+    def ready(self):
         self.assertEqual(self.call('GET','/api/projects').status_code,200)
 
-    def test_malformed_action_and_non_ascii_csrf_are_denied_without_mutation(self):
-        csrf = self.login()
-        path = f'/api/projects/{self.pid}/operations'
-        req = {'action': [], 'payload': {}, 'idempotency_key': 'malformed-action-0001',
-               'expected_fingerprint': self.service.get_status(self.pid)['fingerprint']}
-        self.assertEqual(self.call('POST', path, body=req, origin=self.origin,
-                         headers={'X-CSRF-Token': csrf}).status_code, 400)
-        req['action'] = 'check-intake'
-        self.assertEqual(self.call('POST', path, body=req, origin=self.origin,
-                         headers={'X-CSRF-Token': '\u00e9'}).status_code, 403)
-        self.assertEqual(self.before, byte_snapshot(self.workspace))
+    def test_direct_reads_without_login_and_removed_login_routes(self):
+        for route in ('/api/projects', f'/api/projects/{self.pid}'):
+            response=self.call('GET',route)
+            self.assertEqual(response.status_code,200,response.json)
+            self.assertNotIn('Set-Cookie',response.headers)
+        for route in ('/api/session','/api/session/bootstrap','/api/session/logout'):
+            self.assertEqual(self.call('GET',route).status_code,404)
+            self.assertEqual(self.call('POST',route,body={},origin=self.origin).status_code,404)
+        self.assertEqual(self.call('GET','/health').json,{'status':'ok'})
+
+    def test_exact_host_origin_null_port_and_proxy_rejected(self):
+        for header in ('evil.example','127.0.0.1','127.0.0.1:9999',f'127.0.0.1:{self.port}.evil.example','localhost:48761'):
+            self.assertEqual(self.call('GET','/api/projects',host=header).status_code,403)
+        self.assertEqual(self.call('GET','/api/projects',origin='http://evil.example').status_code,403)
+        self.assertEqual(self.call('POST',f'/api/projects/{self.pid}/operations',origin='null',body={}).status_code,403)
+        self.assertEqual(self.call('POST',f'/api/projects/{self.pid}/operations',body={}).status_code,403)
+        self.assertEqual(self.call('GET','/api/projects',headers={'X-Forwarded-Host':'evil.test'}).status_code,403)
+        self.assertEqual(self.before,byte_snapshot(self.workspace))
+
+    def test_no_login_mutation_exact_json_and_transport_headers(self):
+        req={'action':'check-intake','payload':{},'idempotency_key':'no-login-check-001',
+             'expected_fingerprint':self.service.get_status(self.pid)['fingerprint']}
+        path=f'/api/projects/{self.pid}/operations'
+        accepted=self.call('POST',path,body=req,origin=self.origin)
+        self.assertEqual(accepted.status_code,202,accepted.json)
+        self.service.wait_for(accepted.json['operation_id'],timeout=90)
+        bad={**req,'root':'C:/Windows/System32'}
+        self.assertEqual(self.call('POST',path,body=bad,origin=self.origin).status_code,400)
+        response=self.call('GET','/api/projects')
+        for name in ('Content-Security-Policy','X-Frame-Options','X-Content-Type-Options','Referrer-Policy','Cache-Control'):
+            self.assertIn(name,response.headers)
+        self.assertNotIn('Set-Cookie',response.headers)
+        self.assertNotIn('Access-Control-Allow-Origin',response.headers)
+        self.assertIn('no-store',response.headers['Cache-Control'])
+
+    def test_malformed_action_is_rejected_without_mutation(self):
+        req={'action':[],'payload':{},'idempotency_key':'malformed-action-0001',
+             'expected_fingerprint':self.service.get_status(self.pid)['fingerprint']}
+        self.assertEqual(self.call('POST',f'/api/projects/{self.pid}/operations',body=req,origin=self.origin).status_code,400)
+        self.assertEqual(self.before,byte_snapshot(self.workspace))
 
     def test_http_replay_after_commit_returns_original_operation(self):
-        csrf = self.login()
         path = f'/api/projects/{self.pid}/operations'
         view = self.service.get_status(self.pid)
         req = {'action': 'update-draft', 'payload': {'patch': {'project.primary_outcome': 'Reviewed new outcome'},
                'expected_input_digest': view['refs']['input_digest']},
                'idempotency_key': 'http-replay-after-commit-001', 'expected_fingerprint': view['fingerprint']}
-        headers = {'X-CSRF-Token': csrf}
+        headers = {}
         first = self.call('POST', path, body=req, origin=self.origin, headers=headers)
         self.assertEqual(first.status_code, 202, first.json)
         op = self.service.wait_for(first.json['operation_id'], timeout=90)
@@ -245,7 +194,7 @@ class FlaskAppSecurityTests(unittest.TestCase):
         self.assertEqual(committed, byte_snapshot(self.workspace))
 
     def test_get_refresh_read_only_xss_text_and_download_paths_rejected(self):
-        self.login()
+        self.ready()
         for _ in range(3):
             view = self.call('GET',f'/api/projects/{self.pid}')
             self.assertEqual(view.status_code,200,view.json)
@@ -260,7 +209,7 @@ class FlaskAppSecurityTests(unittest.TestCase):
         self.assertEqual(self.call('GET','/assets/unknown.js').status_code,404)
 
     def test_no_access_to_another_project_artifact_and_tamper(self):
-        self.login()
+        self.ready()
         _, _, root = prepare_demo(self.base / 'fixture')
         other_pid = self.service.register_existing(root, kind='project')
         work, _handoff, _root = prepare_demo(self.base / 'fixture2')
@@ -292,9 +241,8 @@ class RealWaitressHttpTests(unittest.TestCase):
         sock = open_bound_loopback_socket()
         self.sock = sock
         self.port = sock.getsockname()[1]
-        self.auth = LocalWebAuth()
         self.origin = f'http://127.0.0.1:{self.port}'
-        app = create_app(self.service, port=self.port, auth=self.auth)
+        app = create_app(self.service, port=self.port)
         self.server = create_server(app, sockets=[sock], threads=2, channel_timeout=5,
                                     connection_limit=16, max_request_body_size=1024,
                                     max_request_header_size=4096, expose_tracebacks=False,
@@ -308,11 +256,10 @@ class RealWaitressHttpTests(unittest.TestCase):
         self.sock.close()
         self.thread.join(timeout=8)
 
-    def raw(self, method, path, *, body=None, origin=None, host=None, cookie=None, csrf=None):
+    def raw(self, method, path, *, body=None, origin=None, host=None, cookie=None):
         data = json.dumps(body).encode('utf-8') if body is not None else None
         headers = {'Host':host or f'127.0.0.1:{self.port}'}
         if origin is not None: headers['Origin'] = origin
-        if csrf is not None: headers['X-CSRF-Token'] = csrf
         if cookie is not None: headers['Cookie'] = cookie
         if data is not None: headers['Content-Type'] = 'application/json'
         request = Request(self.origin + path, method=method, data=data, headers=headers)
@@ -325,30 +272,18 @@ class RealWaitressHttpTests(unittest.TestCase):
             finally:
                 err.close()
 
-    def test_real_tcp_host_csrf_no_session_replay_body_limit(self):
-        health = self.raw('GET','/health')
-        self.assertEqual(health[0],200)
-        self.assertEqual(json.loads(health[2]),{'status':'ok'})
-        self.assertEqual(self.raw('GET','/api/projects')[0],401)
-        self.assertEqual(self.raw('GET','/api/projects',host='evil.example')[0],403)
-        tok = self.auth.issue_bootstrap()
-        self.assertEqual(self.raw('POST','/api/session/bootstrap',body={'token':tok},origin='null')[0],403)
-        valid = self.raw('POST','/api/session/bootstrap',body={'token':tok},origin=self.origin)
-        self.assertEqual(valid[0],200,valid)
-        cookie=valid[1]['Set-Cookie'].split(';',1)[0]
-        self.assertEqual(self.raw('POST','/api/session/bootstrap',body={'token':tok},origin=self.origin)[0],401)
-        self.assertEqual(self.raw('GET','/api/projects',cookie=cookie)[0],200)
-        # A WSGI-layer limit should stop oversized bodies even before Flask.
-        # Send the declaration first: Windows may reset a connection if body
-        # bytes race the early 413 close. Actual streamed bytes are covered by
-        # the production-limit acceptance test, not this reduced-limit fixture.
+    def test_real_tcp_direct_access_host_origin_and_body_limit(self):
+        self.assertEqual(self.raw('GET','/api/projects')[0],200)
+        self.assertEqual(self.raw('GET','/api/projects',host='localhost:'+str(self.port))[0],403)
+        self.assertEqual(self.raw('GET','/api/projects',origin='http://foreign.invalid')[0],403)
+        self.assertEqual(self.raw('POST','/api/intakes',body={},origin='null')[0],403)
         import http.client
-        connection = http.client.HTTPConnection('127.0.0.1', self.port, timeout=6)
+        connection=http.client.HTTPConnection('127.0.0.1',self.port,timeout=6)
         try:
-            connection.putrequest('POST', '/api/session/bootstrap')
-            connection.putheader('Content-Length', '2000')
+            connection.putrequest('POST','/api/intakes')
+            connection.putheader('Content-Length','2000')
             connection.endheaders()
-            self.assertEqual(connection.getresponse().status, 413)
+            self.assertEqual(connection.getresponse().status,413)
         finally:
             connection.close()
 
@@ -368,7 +303,7 @@ class RealWaitressHttpTests(unittest.TestCase):
 @unittest.skipUnless(HAS_FLASK and HAS_WAITRESS and HAS_PLAYWRIGHT,
                      'Flask/Waitress/Playwright unavailable: real browser NOT RUN')
 class LocalBrowserTests(RealWaitressHttpTests):
-    def test_browser_bootstrap_fragment_removed_no_external_requests_xss_inert(self):
+    def test_browser_direct_entry_no_external_requests_xss_inert(self):
         from playwright.sync_api import sync_playwright
         workspace = Path(self.temp.name)/'malicious-workspace'
         start_intake(workspace, project_name='<img src=x onerror=alert(1)>', mode='GREENFIELD')
@@ -380,7 +315,6 @@ class LocalBrowserTests(RealWaitressHttpTests):
                                 '<script>window.__injected=2</script>',
                                 '[bad](javascript:alert(1))']
             return view
-        token = self.auth.issue_bootstrap()
         with mock.patch.object(self.service, 'get_status', side_effect=malicious_status):
             with sync_playwright() as p:
                 browser = p.chromium.launch(headless=True, **({'channel': os.environ['PH_LW_04_BROWSER_CHANNEL']} if os.environ.get('PH_LW_04_BROWSER_CHANNEL') else {}))
@@ -388,9 +322,9 @@ class LocalBrowserTests(RealWaitressHttpTests):
                     page = browser.new_page()
                     requests = []
                     page.on('request', lambda req: requests.append(req.url))
-                    page.goto(f'{self.origin}/#bootstrap={token}',wait_until='networkidle',timeout=20000)
+                    page.goto(self.origin + '/',wait_until='networkidle',timeout=20000)
                     self.assertNotIn('bootstrap',page.url)
-                    self.assertEqual(page.locator('#session-state').inner_text(),'Сессия активна')
+                    self.assertEqual(page.locator('#connection-state').inner_text(),'Сервер готов')
                     page.get_by_role('button',name=pid).click()
                     page.locator('#blockers').wait_for(state='visible')
                     self.assertIn('<img src=x',page.locator('#blockers').inner_text())

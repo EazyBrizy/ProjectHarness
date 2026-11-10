@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "source_build_wheel_frozen": "PASS",
+  "full_frozen_payload_including_pyd": "PASS",
+  "documentation_mirrors": "PASS",
+  "manifests": "PASS",
+  "only_allowed_runtime_changes": [
+    "cli.py",
+    "local_web_http.py",
+    "local_web_instance.py",
+    "local_web_launcher.py",
+    "resources/local_web/assets/app.js",
+    "resources/local_web/assets/approvals.js",
+    "resources/local_web/assets/index.html",
+    "resources/local_web/assets/interview.js",
+    "resources/local_web/assets/lifecycle.js",
+    "resources/local_web/assets/preparation.js",
+    "resources/local_web/assets/tasks.js",
+    "resources/local_web/metadata_v1.json",
+    "windows_package.py"
+  ],
+  "historical_documentation_preserved": true,
+  "unrelated_original_tests_preserved": true,
+  "build_id": "NO-LOCAL-LOGIN-20261109",
+  "engine_manifest_sha256": "f4358b048198c04b39b24a9eeb3947175c63a694a13c843f2ce65c336e7df34a",
+  "docs_manifest_sha256": "4258a125816a68db982e5cf6305637a1c6ec0a1f29409de16bc258d97bbbf384",
+  "zip_created": false
+}

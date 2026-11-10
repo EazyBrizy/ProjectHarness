@@ -1,0 +1,16 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "_workspace/ACTIVE_DOCUMENT_BUTTONS_2026-11-09/checkpoint.py",
+    "verify"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-09T11:13:07.553195+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 60,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 1.281,
+  "log_sha256": "51b60d87f17c3c44cc20a6068a5e083d541c54dacef0f4e4f809584112faa323"
+}

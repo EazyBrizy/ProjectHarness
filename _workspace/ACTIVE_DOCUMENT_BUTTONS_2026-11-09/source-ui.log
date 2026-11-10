@@ -1,0 +1,49 @@
+test_missing_files_and_no_documentation_decision_do_not_mutate (tests.test_document_button_validation.DocumentButtonValidationTests.test_missing_files_and_no_documentation_decision_do_not_mutate) ... Task queue depth is 1
+ok
+test_missing_name_all_buttons_active_error_focus_and_no_post (tests.test_document_button_validation.DocumentButtonValidationTests.test_missing_name_all_buttons_active_error_focus_and_no_post) ... Task queue depth is 1
+Task queue depth is 2
+ok
+test_selected_zip_and_name_without_project_explains_create (tests.test_document_button_validation.DocumentButtonValidationTests.test_selected_zip_and_name_without_project_explains_create) ... ok
+test_validation_clears_on_correction_then_import_and_next_work (tests.test_document_button_validation.DocumentButtonValidationTests.test_validation_clears_on_correction_then_import_and_next_work) ... Task queue depth is 1
+Task queue depth is 2
+Task queue depth is 2
+ok
+test_choose_before_project_import_and_explicit_next (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_choose_before_project_import_and_explicit_next) ... Task queue depth is 1
+ok
+test_lost_response_after_commit_refresh_recovers_without_reposting (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_lost_response_after_commit_refresh_recovers_without_reposting) ... Task queue depth is 1
+Task queue depth is 2
+Task queue depth is 1
+ok
+test_no_documentation_has_explicit_next (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_no_documentation_has_explicit_next) ... Task queue depth is 1
+Task queue depth is 2
+ok
+test_rejected_zip_preserves_sources_and_can_retry (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_rejected_zip_preserves_sources_and_can_retry) ... Task queue depth is 1
+Task queue depth is 2
+ok
+test_reload_duplicate_and_switch_to_empty_project (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_reload_duplicate_and_switch_to_empty_project) ... Task queue depth is 1
+Task queue depth is 1
+ok
+test_transfer_finished_is_still_validation_not_success (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_transfer_finished_is_still_validation_not_success) ... Task queue depth is 1
+Task queue depth is 2
+ok
+test_choose_before_project_import_and_explicit_next (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_choose_before_project_import_and_explicit_next) ... ok
+test_lost_response_after_commit_refresh_recovers_without_reposting (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_lost_response_after_commit_refresh_recovers_without_reposting) ... Task queue depth is 1
+Task queue depth is 2
+Task queue depth is 1
+ok
+test_no_documentation_has_explicit_next (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_no_documentation_has_explicit_next) ... Task queue depth is 1
+ok
+test_rejected_zip_preserves_sources_and_can_retry (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_rejected_zip_preserves_sources_and_can_retry) ... ok
+test_reload_duplicate_and_switch_to_empty_project (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_reload_duplicate_and_switch_to_empty_project) ... Task queue depth is 1
+Task queue depth is 2
+Task queue depth is 1
+Task queue depth is 1
+ok
+test_transfer_finished_is_still_validation_not_success (tests.test_document_upload_feedback.DocumentUploadFeedbackTests.test_transfer_finished_is_still_validation_not_success) ... Task queue depth is 1
+Task queue depth is 1
+ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 40.177s
+
+OK

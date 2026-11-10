@@ -1,0 +1,383 @@
+--- before/tests/test_cli_document_analysis.py
++++ after/tests/test_cli_document_analysis.py
+@@ -0,0 +1,187 @@
++"""Only the new CLI/pack connection boundaries; no full engine regression."""
++import json
++import os
++from pathlib import Path
++import sys
++import tempfile
++import threading
++import time
++import unittest
++from unittest.mock import patch
++
++from project_harness.local_web_cli import CliError, invoke
++from project_harness.serialization import load_data
++from tests.test_ph_lw_04_05_acceptance import LiveServer
++from tests.test_ph_lw_03_service import byte_snapshot
++
++
++class FixtureCli:
++    """Declared synthetic CLI response, not a real provider/model conversation."""
++    def __init__(self):
++        self.calls=[];self.mode='ok';self.started=threading.Event();self.release=threading.Event()
++
++    def __call__(self,argv,*,cwd,stdin=b'',timeout=15,cancel=None):
++        self.calls.append(list(argv))
++        if '--version' in argv:return 0,b'codex-cli 0.154.0\n',b''
++        if '--help' in argv:return 0,b'--ignore-user-config --ephemeral --output-schema --output-last-message',b''
++        if 'status' in argv:return (1,b'',b'Not logged in') if self.mode=='logged-out' else (0,b'',b'Logged in using ChatGPT')
++        self.started.set()
++        if self.mode=='slow':
++            for _ in range(200):
++                if cancel.wait(.05):raise CliError('CLI_CANCELLED','Анализ остановлен.')
++                if self.release.is_set():break
++        if self.mode=='error':return 1,b'',b'private diagnostics must not reach HTTP'
++        answer=Path(argv[argv.index('--output-last-message')+1])
++        if self.mode=='invalid':
++            answer.write_text('{"reply_json":"not-json"}','utf-8');return 0,b'',b''
++        text=stdin.decode('utf-8')
++        skeleton=json.loads(text.split('## Return skeleton\n\n',1)[1])
++        payload=json.loads(text.split('## Exact payload\n\n',1)[1].split('## Return skeleton\n\n',1)[0])
++        skeleton['project_input_draft']['project']['primary_outcome']='Результат из подключённого CLI'
++        skeleton['claims']=[{'field':'project.primary_outcome','source_refs':[payload['documents'][0]['document_ref']]}]
++        answer.write_text(json.dumps({'reply_json':json.dumps(skeleton,ensure_ascii=False)},ensure_ascii=False),'utf-8')
++        return 0,b'',b''
++
++
++class CliAnalysisTests(unittest.TestCase):
++    def setUp(self):
++        self.temp=tempfile.TemporaryDirectory(prefix='cli-analysis-');self.addCleanup(self.temp.cleanup)
++        self.base=Path(self.temp.name);self.live=LiveServer(self.temp.name);self.addCleanup(self.live.close)
++        self.pid=self.live.create('cli-document-test-create-001')
++        self.assertEqual(self.live.upload(self.pid,[('Требования.md','# Приложение для учёта книг'.encode())])[0],200)
++        self.executable=self.base/'codex.exe';self.executable.write_bytes(b'MZ declared fixture, never executed')
++        self.fake=FixtureCli()
++        for name,value in [('project_harness.local_web_cli.find_cli',lambda:self.executable),
++                           ('project_harness.local_web_cli.invoke',self.fake),
++                           ('project_harness.local_web_cli_analysis.invoke',self.fake)]:
++            mock=patch(name,value);mock.start();self.addCleanup(mock.stop)
++        self.path=f'/api/projects/{self.pid}'
++
++    def fp(self):return self.live.request('GET',self.path+'/interview')[2]['fingerprint']
++    def connect(self):
++        code,_,value=self.live.request('POST','/api/cli/connect',value={});self.assertEqual(code,200,value)
++        return value
++    def start(self,key='cli-analysis-test-start-001',fp=None):
++        return self.live.request('POST',self.path+'/cli/analysis',value={'expected_fingerprint':fp or self.fp(),'idempotency_key':key})
++    def wait(self,job):
++        self.live.service._futures[job].result(timeout=10)
++        return self.live.request('GET',self.path+'/cli/analysis')[2]
++
++    def test_gets_read_only_connect_fixed_commands_and_unknown_origin_rejected(self):
++        before=byte_snapshot(self.base)
++        self.assertFalse(self.live.request('GET','/api/cli')[2]['connected'])
++        self.assertEqual(self.live.request('GET',self.path+'/cli/analysis')[2]['state'],'IDLE')
++        self.assertEqual(byte_snapshot(self.base),before);self.assertEqual(self.fake.calls,[])
++        self.assertEqual(self.live.request('POST','/api/cli/connect',value={'executable':'cmd.exe'})[0],400)
++        self.assertEqual(self.live.request('POST','/api/cli/connect',value={},headers={'Origin':'http://foreign.invalid'})[0],403)
++        self.assertEqual(self.fake.calls,[])
++        self.assertTrue(self.connect()['connected']);self.assertEqual(len(self.fake.calls),3)
++        self.assertNotIn('executable',self.live.request('GET','/api/cli')[2])
++        calls=len(self.fake.calls);self.live.request('GET','/api/cli');self.assertEqual(len(self.fake.calls),calls)
++
++    def test_connection_auth_missing_changed_binary_and_stale_inputs_block_before_analysis(self):
++        self.fake.mode='logged-out'
++        self.assertEqual(self.live.request('POST','/api/cli/connect',value={})[2]['error']['code'],'CLI_LOGIN_REQUIRED')
++        self.fake.mode='ok';self.connect();self.executable.write_bytes(b'changed')
++        self.assertEqual(self.start()[2]['error']['code'],'CLI_EXECUTABLE_CHANGED')
++        self.connect();self.assertEqual(self.start(fp='sha256:'+'0'*64)[0],409)
++        self.assertFalse(self.fake.started.is_set())
++        with patch('project_harness.local_web_cli.find_cli',side_effect=CliError('CLI_NOT_FOUND','Не найден',503)):
++            self.assertEqual(self.live.request('POST','/api/cli/connect',value={})[0],503)
++
++    def test_manual_pack_one_click_no_classification_and_no_cli_launch(self):
++        value={'expected_fingerprint':self.fp(),'idempotency_key':'manual-analysis-pack-001'}
++        code,_,export=self.live.request('POST',self.path+'/analysis/package',value=value)
++        self.assertEqual(code,201,export);self.assertEqual(self.fake.calls,[])
++        again=self.live.request('POST',self.path+'/analysis/package',value=value)[2]
++        self.assertEqual(again['exchange_id'],export['exchange_id'])
++        pack=self.live.request('GET',self.path+'/gpt/exports/'+export['exchange_id']+'/pack.md')[2]
++        self.assertIn(b'UNCLASSIFIED',pack);self.assertNotIn(b'"classification": "PUBLIC"',pack)
++        root,_=self.live.service._registered(self.pid)
++        record=root.parent/'exchange/exports'/export['exchange_id']/'record.json'
++        receipt=load_data(record)['policy_receipt']
++        self.assertEqual(receipt['classification_method'],'NOT_CLASSIFIED_BY_OPERATOR')
++        self.assertEqual(self.live.request('POST',self.path+'/analysis/package',value={**value,'command':'anything'})[0],400)
++
++    def test_result_uses_strict_preview_replay_does_not_rerun_and_draft_not_committed(self):
++        self.connect();before=self.live.service.get_interview(self.pid)['draft']
++        code,_,job=self.start();self.assertEqual(code,202,job)
++        result=self.wait(job['job_id']);self.assertEqual(result['state'],'SUCCEEDED',result)
++        after=self.live.service.get_interview(self.pid)
++        self.assertEqual(after['draft'],before)
++        self.assertEqual(after['imports'][-1]['state'],'PREVIEW')
++        calls=len(self.fake.calls);same=self.start()[2]
++        self.assertEqual(same['job_id'],job['job_id']);self.assertEqual(len(self.fake.calls),calls)
++        self.assertEqual(self.live.request('POST',self.path+'/cli/analysis',value={'expected_fingerprint':self.fp(),'idempotency_key':'cli-analysis-test-start-001','argv':['bad']})[0],400)
++        argv=self.fake.calls[-1]
++        self.assertIn('read-only',argv);self.assertIn('shell_tool',argv);self.assertIn('--ignore-user-config',argv)
++
++    def test_cancel_busy_stale_result_and_invalid_reply_never_apply_draft(self):
++        self.connect();self.fake.mode='slow'
++        _,_,job=self.start();self.assertTrue(self.fake.started.wait(3))
++        self.assertEqual(self.start(key='second-analysis-busy-001')[2]['error']['code'],'CLI_BUSY')
++        self.assertEqual(self.live.request('POST',self.path+'/cli/analysis/'+job['job_id']+'/cancel',value={})[0],200)
++        self.assertEqual(self.wait(job['job_id'])['state'],'CANCELLED')
++        self.fake.mode='invalid'
++        _,_,job=self.start(key='invalid-reply-job-001');result=self.wait(job['job_id'])
++        self.assertEqual(result['state'],'FAILED');self.assertEqual(self.live.service.get_interview(self.pid)['imports'],[])
++        self.fake.mode='slow';self.fake.started.clear();self.fake.release.clear()
++        _,_,job=self.start(key='stale-reply-job-001');self.assertTrue(self.fake.started.wait(3))
++        self.assertEqual(self.live.upload(self.pid,[('Дополнение.md',b'# changed')])[0],200)
++        self.fake.mode='ok'
++        self.fake.release.set()
++        stale=self.wait(job['job_id'])
++        self.assertEqual(stale['state'],'FAILED');self.assertEqual(stale['error_code'],'STALE_EXCHANGE')
++        self.assertEqual(self.live.service.get_interview(self.pid)['imports'],[])
++
++    def test_restart_projection_is_read_only_and_never_restarts_cli(self):
++        from project_harness.local_web_cli_analysis import _load,_save
++        from project_harness.local_web_service import LocalWebService
++        self.connect();_,_,job=self.start();self.wait(job['job_id'])
++        directory=self.live.service.app_data/'cli-analysis'/self.pid
++        path=directory/(job['job_id']+'.json');record=_load(path)
++        record['state']='RUNNING';record['owner_pid']=-1;_save(path,record)
++        calls=len(self.fake.calls);before=byte_snapshot(self.base)
++        with LocalWebService(self.live.service.app_data) as restarted:
++            self.assertTrue(restarted.get_cli_connection()['connected'])
++            self.assertEqual(restarted.get_cli_analysis(self.pid)['state'],'INTERRUPTED')
++        self.assertEqual(self.fake.calls.__len__(),calls)
++        self.assertEqual(byte_snapshot(self.base),before)
++
++    def test_direct_analysis_pack_keeps_secret_and_restricted_project_rejection(self):
++        from project_harness.local_web_drafts import draft_input_digest,update_provisional_draft
++        root,_=self.live.service._registered(self.pid)
++        update_provisional_draft(root,{'project.data.sensitivity':'CONFIDENTIAL'},expected_input_digest=draft_input_digest(root))
++        value={'expected_fingerprint':self.fp(),'idempotency_key':'restricted-analysis-pack-001'}
++        code,_,result=self.live.request('POST',self.path+'/analysis/package',value=value)
++        self.assertEqual(code,400,result);self.assertEqual(result['error']['code'],'EXPORT_POLICY_BLOCKED')
++        update_provisional_draft(root,{'project.data.sensitivity':'UNKNOWN'},expected_input_digest=draft_input_digest(root))
++        self.assertEqual(self.live.upload(self.pid,[('Секрет.md',b'-----BEGIN PRIVATE KEY-----\nsynthetic sentinel\n-----END PRIVATE KEY-----')])[0],200)
++        code,_,result=self.live.request('POST',self.path+'/analysis/package',value={
++            'expected_fingerprint':self.fp(),'idempotency_key':'secret-analysis-pack-001'})
++        self.assertEqual(code,400,result)
++        self.assertEqual(self.fake.calls,[])
++        self.assertNotIn('synthetic sentinel',json.dumps(result))
++
++
++class NativeTransportTests(unittest.TestCase):
++    def test_owned_process_utf8_timeout_cancel_and_bounded_output(self):
++        if os.name!='nt':self.skipTest('Native Windows transport')
++        with tempfile.TemporaryDirectory(prefix='cli-transport-') as folder:
++            cwd=Path(folder)
++            code,out,_=invoke([sys.executable,'-c','import sys;sys.stdout.buffer.write(sys.stdin.buffer.read())'],cwd=cwd,stdin='Текст'.encode(),timeout=5)
++            self.assertEqual((code,out),(0,'Текст'.encode()))
++            with self.assertRaises(CliError) as error:
++                invoke([sys.executable,'-c','import time;time.sleep(30)'],cwd=cwd,timeout=.2)
++            self.assertEqual(error.exception.cli_code,'CLI_TIMEOUT')
++            event=threading.Event();timer=threading.Timer(.2,event.set);timer.start()
++            with self.assertRaises(CliError) as error:
++                invoke([sys.executable,'-c','import time;time.sleep(30)'],cwd=cwd,cancel=event,timeout=5)
++            self.assertEqual(error.exception.cli_code,'CLI_CANCELLED');timer.join()
++            with patch('project_harness.local_web_cli.OUTPUT_LIMIT',1024):
++                with self.assertRaises(CliError) as error:
++                    invoke([sys.executable,'-c','import sys;sys.stdout.write("x"*4096)'],cwd=cwd,timeout=5)
++                self.assertEqual(error.exception.cli_code,'CLI_OUTPUT_TOO_LARGE')
++
++
++if __name__=='__main__':unittest.main(verbosity=2)
+--- before/tests/test_cli_document_ui.py
++++ after/tests/test_cli_document_ui.py
+@@ -0,0 +1,65 @@
++"""Two new browser choices and automatic result, no classification forms."""
++import os
++from pathlib import Path
++import unittest
++from tests import test_cli_document_analysis as cli_tests
++
++
++class CliDocumentUiTests(unittest.TestCase):
++    setUp=cli_tests.CliAnalysisTests.setUp
++    def open_page(self):
++        from playwright.sync_api import sync_playwright,expect
++        self.expect=expect;self.play=sync_playwright().start();self.addCleanup(self.play.stop)
++        self.browser=self.play.chromium.launch(channel='msedge',headless=True);self.addCleanup(self.browser.close)
++        self.page=self.browser.new_page(viewport={'width':1360,'height':1000})
++        self.errors=[];self.dialogs=[]
++        self.page.on('pageerror',lambda error:self.errors.append(str(error)))
++        self.page.on('dialog',lambda d:(self.dialogs.append(d.message),d.dismiss()))
++        self.page.goto(self.live.origin+'/')
++        expect(self.page.locator('#connection-state')).to_have_text('Сервер готов')
++        self.page.locator('.project-button').filter(has_text=self.pid).click()
++        self.page.locator('[data-screen="interview"]').click()
++        expect(self.page.locator('#cli-connect')).to_be_visible()
++        self.addCleanup(lambda:self.assertEqual(self.errors,[]))
++        self.addCleanup(lambda:self.assertEqual(self.dialogs,[]))
++
++    def capture(self,name):
++        folder=os.environ.get('CLI_DOCUMENT_SCREENSHOTS')
++        if folder:
++            Path(folder).mkdir(parents=True,exist_ok=True)
++            self.page.screenshot(path=str(Path(folder)/name),full_page=True)
++
++    def test_browser_manual_pack_one_click_and_persisted_connection(self):
++        self.open_page();p=self.page;e=self.expect
++        e(p.locator('#cli-analysis-title')).to_have_text('Автоматически через Codex CLI')
++        e(p.locator('#manual-analysis-title')).to_have_text('Вручную через ChatGPT или Codex')
++        self.assertEqual(p.locator('#export-review,#export-documents,#draft-classification,#export-consent').count(),0)
++        self.assertEqual(self.fake.calls,[])
++        p.locator('#review-export').click()
++        e(p.locator('#export-history a')).to_have_count(1)
++        self.assertEqual(self.fake.calls,[])
++        p.locator('#cli-connect').click()
++        e(p.locator('#cli-connection-status')).to_have_text('Codex CLI подключён.')
++        self.assertEqual(len(self.fake.calls),3)
++        p.reload();e(p.locator('#cli-connection-status')).to_have_text('Codex CLI подключён.')
++        self.assertEqual(len(self.fake.calls),3)
++        self.capture('01-two-analysis-choices.png')
++
++    def test_browser_cli_progress_reload_cancel_and_result_without_copying_json(self):
++        self.open_page();p=self.page;e=self.expect
++        self.fake.mode='slow';p.locator('#cli-analyze').click()
++        e(p.locator('#cli-analysis-cancel')).to_be_visible()
++        self.assertTrue(self.fake.started.wait(3))
++        p.reload();e(p.locator('#cli-analysis-cancel')).to_be_visible()
++        self.assertEqual(sum('--output-last-message' in call for call in self.fake.calls),1)
++        p.locator('#cli-analysis-cancel').click()
++        e(p.locator('#cli-analysis-status')).to_contain_text('остановлен',timeout=15000)
++        self.fake.mode='ok'
++        p.locator('#cli-analyze').click()
++        e(p.locator('#preview-summary')).to_contain_text('Изменений:',timeout=20000)
++        e(p.locator('#cli-analysis-status')).to_contain_text('Анализ завершён')
++        e(p.locator('#gpt-reply')).to_have_value('')
++        p.locator('#commit-reply').click()
++        e(p.locator('#known-answers')).to_contain_text('Результат из подключённого CLI')
++        e(p.locator('#known-answers')).to_contain_text('Предложено моделью')
++        self.capture('02-cli-result-in-browser.png')
+--- before/tests/test_interview_clarity.py
++++ after/tests/test_interview_clarity.py
+@@ -41,9 +41,9 @@
+ 
+     def test_uploaded_documents_show_next_step_without_template_facts_or_hashes(self):
+         p=self.page;e=self.expect
+-        e(p.locator('#interview-next')).to_contain_text('Подготовить пакет для анализа')
++        e(p.locator('#interview-next')).to_contain_text('автоматический анализ через CLI')
+         e(p.locator('#interview-documents')).to_contain_text('Загружено документов: 4')
+-        button=p.locator('#review-export');e(button).to_have_text('Подготовить пакет для анализа')
++        button=p.locator('#review-export');e(button).to_have_text('Сформировать пакет вручную')
+         self.assertLess(button.bounding_box()['y'],850,'The next action must be visible before the questionnaire')
+         main=p.locator('#interview-panel').inner_text()
+         for term in ('sha256:','LMD-','LOCAL_DRAFT_UNVERIFIED','PRAGMATIC','skills.resolutions','source revision','WAITING_INPUT','provenance','readiness'):
+@@ -67,11 +67,10 @@
+         p.locator('#known-answers').locator('..').locator('summary').click()
+         e(p.locator('#known-answers')).to_contain_text('Понятная цель проекта')
+         e(p.locator('#known-answers')).to_contain_text('Сохранено в черновике проекта')
+-        p.locator('#review-export').click();e(p.locator('#export-review')).to_be_visible()
+-        self.assertNotIn('sha256:',p.locator('#export-review').inner_text())
+-        for control in p.locator('#export-documents select').all():control.select_option('PUBLIC')
+-        p.locator('#draft-classification').select_option('PUBLIC')
+-        p.locator('#create-export').click()
++        self.assertEqual(p.locator('#export-review').count(),0)
++        self.assertEqual(p.locator('#draft-classification').count(),0)
++        
++        p.locator('#review-export').click()
+         e(p.locator('#export-history a')).to_have_count(1)
+         e(p.locator('#interview-next')).to_contain_text('Скачайте пакет')
+         self.assertNotIn('sha256:',p.locator('#export-history').inner_text())
+--- before/tests/test_ph_lw_06_http.py
++++ after/tests/test_ph_lw_06_http.py
+@@ -150,13 +150,11 @@
+                             expect(page.locator('#answer-project-primary_outcome')).to_have_count(0)
+                             page.locator('#check-answers').click()
+                             expect(page.locator('#notice')).to_contain_text('Ответы проверены')
++                            
++                            self.assertEqual(page.locator('#export-review').count(),0)
++                            
++                            
+                             page.locator('#review-export').click()
+-                            expect(page.locator('#export-review')).to_be_visible()
+-                            for selector in page.locator('#export-documents select').all():
+-                                selector.select_option('PUBLIC')
+-                            page.locator('#draft-classification').select_option('PUBLIC')
+-                            
+-                            page.locator('#create-export').click()
+                             expect(page.locator('#export-history a')).to_have_count(1)
+                             with page.expect_download() as download:
+                                 page.locator('#export-history a').click()
+@@ -170,7 +168,7 @@
+                             page.locator('#gpt-reply').fill(json.dumps(reply, ensure_ascii=False))
+                             page.locator('#preview-reply').click()
+                             expect(page.locator('#import-preview')).to_be_visible()
+-                            expect(page.locator('#notice')).to_contain_text('Preview готов')
++                            expect(page.locator('#notice')).to_contain_text('Изменения показаны')
+                             expect(page.locator('#preview-summary')).to_contain_text('Изменений:')
+                             expect(page.locator('#reply-diff')).to_contain_text('<img')
+                             self.assertEqual(page.locator('img,iframe,script:not([src])').count(),0)
+@@ -181,20 +179,19 @@
+                             after = byte_snapshot(Path(directory))
+                             self.assertEqual(before, after, {k:(before.get(k),after.get(k)) for k in before.keys() | after.keys() if before.get(k)!=after.get(k)})
+                             page.locator('#commit-reply').click()
+-                            expect(page.locator('#import-history')).to_contain_text('COMMITTED')
++                            expect(page.locator('#import-history')).to_contain_text('сохранён')
+                             expect(page.locator('#interview-status')).to_contain_text('Нужно выбрать целевой уровень')
+                             page.locator('#gpt-reply').fill(json.dumps(reply))
+                             page.locator('#preview-reply').click()
+                             expect(page.locator('#notice')).to_contain_text('уже применён')
+                             # New live binding for a forged approval negative response.
+-                            page.locator('#review-export').click()
+-                            expect(page.locator('#export-review')).to_be_visible()
+-                            for selector in page.locator('#export-documents select').all(): selector.select_option('PUBLIC')
+-                            page.locator('#draft-classification').select_option('PUBLIC')
+-                            
+-                            with page.expect_response(lambda r: r.url.endswith('/gpt/exports') and r.request.method=='POST') as posted:
+-                                page.locator('#create-export').click()
+-                            self.assertEqual(posted.value.status, 200, posted.value.text())
++                            
++                            self.assertEqual(page.locator('#export-review').count(),0)
++                            
++                            
++                            with page.expect_response(lambda r: r.url.endswith('/analysis/package') and r.request.method=='POST') as posted:
++                                page.locator('#review-export').click()
++                            self.assertEqual(posted.value.status, 201, posted.value.text())
+                             expect(page.locator('#export-history a')).to_have_count(1)
+                             with page.expect_download() as download:
+                                 page.locator('#export-history a').click()
+--- before/tests/test_ph_lw_08_http.py
++++ after/tests/test_ph_lw_08_http.py
+@@ -73,10 +73,9 @@
+                             page.locator('#answer-implementation-target_level').select_option('MVP')
+                             page.locator('#save-answers').click()
+                             expect(page.locator('#notice')).to_contain_text('Ответы проверены и сохранены')
+-                            page.locator('#review-export').click();expect(page.locator('#export-review')).to_be_visible()
+-                            for item in page.locator('#export-documents select').all():item.select_option('PUBLIC')
+-                            page.locator('#draft-classification').select_option('PUBLIC');
+-                            page.locator('#create-export').click();expect(page.locator('#export-history a')).to_have_count(1)
++                            self.assertEqual(page.locator('#export-review').count(),0)
++                            
++                            page.locator('#review-export').click();expect(page.locator('#export-history a')).to_have_count(1)
+                             with page.expect_download() as download:page.locator('#export-history a').click()
+                             pack=Path(download.value.path()).read_text('utf-8')
+                             reply=fixture_reply(json.loads(pack.split('## Return skeleton\n\n',1)[1]))
+--- before/tests/test_single_action_ui.py
++++ after/tests/test_single_action_ui.py
+@@ -57,13 +57,13 @@
+         e(p.locator('#source-summary')).to_contain_text('Revision 2')
+         p.locator('#documents-next').click()
+         e(p.locator('#interview-body')).to_be_visible()
++        
++        self.assertEqual(p.locator('#export-review').count(),0)
++        
++        
+         p.locator('#review-export').click()
+-        e(p.locator('#export-review')).to_be_visible()
+-        p.locator('#export-documents select').select_option('PUBLIC')
+-        p.locator('#draft-classification').select_option('PUBLIC')
+-        p.locator('#create-export').click()
+         e(p.locator('#export-history a')).to_have_count(1)
+-        self.assertTrue(any(r.url.endswith('/gpt/exports') and r.post_data_json['consent'] is True for r in self.posts))
++        self.assertTrue(any(r.url.endswith('/analysis/package') and 'classifications' not in r.post_data_json for r in self.posts))
+         p.locator('[data-screen="documents"]').click()
+         p.locator('#confirm-no-docs').click()
+         e(p.locator('#source-summary')).to_contain_text('NONE')

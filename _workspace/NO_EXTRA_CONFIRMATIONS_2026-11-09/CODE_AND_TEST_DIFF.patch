@@ -1,0 +1,1259 @@
+--- before/src/project_harness/cli.py
++++ after/src/project_harness/cli.py
+@@ -1,298 +1,298 @@
+-from __future__ import annotations
+-
+-import argparse
+-import json
+-from pathlib import Path
+-import shutil
+-import sys
+-import tempfile
+-from typing import Any
+-
+-from .active_stage_planning import prepare_active_stage_plan, plan_active_stage
+-from .compiler import prepare_handoff
+-from .errors import HarnessError, ValidationFailure
+-from .intake import check_intake, start_intake
+-from .migration import migrate_project
+-from .maintenance import cancel_maintenance, start_maintenance
+-from .resources import distribution_root
+-from .runtime import (block_current, complete_current, execute_current, executor_doctor,
+-                      next_task, project_status, resume_blocked, verify_current)
+-from .serialization import load_data, write_data
+-from .stage_gate_lifecycle import resume_stage_gate
+-from .stages import accept_stage, assess_maturity, level_up, prepare_stage_approval, stage_status
+-from .util import ENGINE_VERSION
+-from .validation import doctor, validate_handoff, validate_project_directory
+-
+-
+-def _emit(value: Any) -> None:
+-    print(json.dumps(value, ensure_ascii=False, indent=2, sort_keys=False))
+-
+-
+-def _exit_for_status(status: str | None) -> int:
+-    if status in {"WAITING_INPUT", "WAITING_DECISION", "BLOCKED", "TIMED_OUT", "FAILED_RETRYABLE"}:
+-        return 3
+-    if status in {"FAIL", "FAILED", "INVALID"}:
+-        return 2
+-    return 0
+-
+-
+-def build_parser() -> argparse.ArgumentParser:
+-    parser = argparse.ArgumentParser(
+-        prog="project-harness",
+-        description="Project Harness v0.5.1 WIP — stage governance and opt-in rootless local execution.",
+-    )
+-    parser.add_argument("--version", action="version", version=ENGINE_VERSION)
+-    sub = parser.add_subparsers(dest="command", required=True)
+-
+-    ui_parser = sub.add_parser("ui", help="Launch authenticated, offline, 127.0.0.1-only Local Web manual shell.")
+-    ui_parser.add_argument("--app-data", type=Path, help="Trusted local application-data directory, never a web request path.")
+-    ui_parser.add_argument("--no-browser", action="store_true", help="Start the local interface without opening a browser.")
+-
+-    doctor_parser = sub.add_parser("doctor", help="Validate distribution registries, schemas, skills and manifest.")
+-    doctor_parser.add_argument("--root", type=Path)
+-    doctor_parser.add_argument("--skip-manifest", action="store_true")
+-
+-    start = sub.add_parser("start-intake", help="Create an external provisional intake workspace without modifying the target repository.")
+-    start.add_argument("--workspace", type=Path, required=True)
+-    start.add_argument("--project-name", required=True)
+-    start.add_argument("--mode", choices=["greenfield", "brownfield", "hybrid", "GREENFIELD", "BROWNFIELD", "HYBRID"], required=True)
+-    start.add_argument("--source", type=Path, action="append", default=[])
+-    start.add_argument("--repository", type=Path)
+-    start.add_argument("--input", type=Path)
+-    start.add_argument("--force", action="store_true")
+-
+-    check = sub.add_parser("check-intake", help="Validate PROJECT_INPUT.yaml and regenerate missing questions/readiness.")
+-    check.add_argument("--workspace", type=Path, required=True)
+-
+-    prepare = sub.add_parser("prepare", help="Compile a validated Codex Handoff ZIP from an approved intake workspace.")
+-    prepare.add_argument("--workspace", type=Path, required=True)
+-    prepare.add_argument("--output", type=Path, required=True)
+-    prepare.add_argument("--keep-directory", type=Path)
+-
+-    validate = sub.add_parser("validate-handoff", help="Validate an immutable initial handoff directory or ZIP, including its baseline manifest.")
+-    validate.add_argument("--project", type=Path, required=True, help="Handoff root directory or ZIP archive.")
+-
+-    validate_project = sub.add_parser("validate-project", help="Validate mutable project state after Codex execution without enforcing the original handoff manifest.")
+-    validate_project.add_argument("--project", type=Path, required=True, help="Extracted handoff/project root directory.")
+-
+-    migrate = sub.add_parser("migrate-project", help="Migrate v0.4.1 or v0.5.0 Project Instances to the current compatible engine contract, preserving accepted history.")
+-    migrate.add_argument("--project", type=Path, required=True, help="Existing compatible v0.4.1 or v0.5.0 Project Instance directory.")
+-    migrate.add_argument("--input", type=Path, help="Optional approved input for v0.4.1 migration only (forbidden for v0.5.0 to v0.5.1).")
+-
+-    status = sub.add_parser("status", help="Show persisted project/task/run state.")
+-    status.add_argument("--project", type=Path, required=True)
+-
+-    nxt = sub.add_parser("next", help="Return or JIT-compile the current READY task bundle.")
+-    nxt.add_argument("--project", type=Path, required=True)
+-
+-    # Both project-scoped automatic operations are explicit and opt-in only.
+-    # No CLI option can select a second sandbox/backend or host execution.
+-    for name, description in (
+-        ("executor-doctor", "Validate exact project ADP/SBX and real rootless Podman isolation without running a Task."),
+-        ("execute-current", "Governed current READY Task execution, independent sandbox verification and atomic apply."),
+-    ):
+-        auto = sub.add_parser(name, help=description)
+-        auto.add_argument("--project", type=Path, required=True)
+-        auto.add_argument("--adapter-profile", help="Only the exact pinned project ADP ref/path (no profile switching).")
+-        auto.add_argument("--network", choices=["NONE", "EXPLICIT_APPROVED_EGRESS"], default=None)
+-        auto.add_argument("--approval", type=Path, help="Exact per-Run approval; unimplemented egress cannot be enabled by this flag.")
+-        auto.add_argument("--keep-execution-root", action="store_true", help="Requires an explicit debug policy; rejected by current strict policy.")
+-
+-    verify = sub.add_parser("verify", help="Independently check actual writes, expected paths and declared verification commands.")
+-    verify.add_argument("--project", type=Path, required=True)
+-    verify.add_argument("--allow-command-execution", action="store_true")
+-    manual_context = sub.add_parser('task-manual-context', help='Read exact Task manual-check binding and product source digests.')
+-    manual_context.add_argument('--project', type=Path, required=True)
+-    manual_intake = sub.add_parser('record-task-manual-evidence', help='Record explicit operator observations; never executes commands or completes a Task.')
+-    manual_intake.add_argument('--project', type=Path, required=True)
+-    manual_intake.add_argument('--input', type=Path, required=True)
+-    manual_intake.add_argument('--confirm', action='store_true')
+-
+-    complete = sub.add_parser("complete", help="Accept a PASS-verified Agent Task Result and transition to the next task.")
+-    complete.add_argument("--project", type=Path, required=True)
+-    complete.add_argument("--result", type=Path, required=True)
+-
+-    block = sub.add_parser("block", help="Record a material blocker and safe recovery routes.")
+-    block.add_argument("--project", type=Path, required=True)
+-    block.add_argument("--reason", required=True)
+-    block.add_argument("--option", action="append", default=[])
+-
+-    resume = sub.add_parser("resume", help="Resolve an OPEN blocker and compile a new run attempt.")
+-    resume.add_argument("--project", type=Path, required=True)
+-    resume.add_argument("--resolution", required=True)
+-    resume.add_argument("--blocker")
+-
+-    stage = sub.add_parser("stage-status", help="Show persisted target, active, observed and accepted implementation levels.")
+-    stage.add_argument("--project", type=Path, required=True)
+-
+-    prepare_approval = sub.add_parser("prepare-stage-approval", help="Write a deterministic exact-bound Stage approval draft without approving or mutating the Stage.")
+-    prepare_approval.add_argument("--project", type=Path, required=True)
+-    prepare_approval.add_argument("--output", type=Path, required=True)
+-    prepare_approval.add_argument("--force", action="store_true")
+-
+-    prepare_active = sub.add_parser("prepare-active-stage-plan", help="Write a read-only exact-bound draft for the next active Stage, without activating Tasks.")
+-    prepare_active.add_argument("--project", type=Path, required=True)
+-    prepare_active.add_argument("--output", type=Path, required=True)
+-    prepare_active.add_argument("--force", action="store_true")
+-
+-    apply_active = sub.add_parser("plan-active-stage", help="Governed application of a reviewed, exact-bound active Stage work plan.")
+-    apply_active.add_argument("--project", type=Path, required=True)
+-    apply_active.add_argument("--plan", type=Path, required=True)
+-
+-    resume_gate = sub.add_parser("resume-stage-gate", help="Revalidate and recover only a persisted Stage Gate blocker.")
+-    resume_gate.add_argument("--project", type=Path, required=True)
+-
+-    assess = sub.add_parser("assess-maturity", help="Run a read-only Brownfield maturity assessment without executing repository commands.")
+-    assess.add_argument("--workspace", type=Path, required=True)
+-    assess.add_argument("--evidence", type=Path)
+-
+-    accept = sub.add_parser("accept-stage", help="Atomically accept a VERIFYING Stage using a formal approval record.")
+-    accept.add_argument("--project", type=Path, required=True)
+-    accept.add_argument("--level", choices=["PROTOTYPE", "ALPHA", "BETA", "MVP", "RELEASE"], required=True)
+-    accept.add_argument("--approval", type=Path, required=True)
+-
+-    level = sub.add_parser("level-up", help="Set a higher target and activate only the nearest next Stage using a formal approval record.")
+-    level.add_argument("--project", type=Path, required=True)
+-    level.add_argument("--target", choices=["PROTOTYPE", "ALPHA", "BETA", "MVP", "RELEASE"], required=True)
+-    level.add_argument("--approval", type=Path, required=True)
+-
+-    start_maint = sub.add_parser("start-maintenance", help="Atomically start an exact-bound governed same-level maintenance route.")
+-    start_maint.add_argument("--project", type=Path, required=True)
+-    start_maint.add_argument("--plan", type=Path, required=True)
+-
+-    cancel_maint = sub.add_parser("cancel-maintenance", help="Cancel open maintenance before any completed product-changing Task.")
+-    cancel_maint.add_argument("--project", type=Path, required=True)
+-    cancel_maint.add_argument("--approval", type=Path, required=True)
+-
+-    demo = sub.add_parser("demo", help="Build the bundled greenfield handoff fixture.")
+-    demo.add_argument("--output-dir", type=Path, required=True)
+-    demo.add_argument("--keep-directory", action="store_true")
+-    return parser
+-
+-
+-def _demo(output_dir: Path, keep: bool) -> dict[str, Any]:
+-    root = distribution_root()
+-    fixture = root / "fixtures/demo_project_input.json"
+-    if not fixture.exists():
+-        raise ValidationFailure("Bundled demo fixture is missing", str(fixture))
+-    output_dir = output_dir.expanduser().resolve()
+-    output_dir.mkdir(parents=True, exist_ok=True)
+-    workspace = output_dir / "demo-intake"
+-    if workspace.exists():
+-        shutil.rmtree(workspace)
+-    start_intake(
+-        workspace,
+-        project_name="Harness Demo Task CLI",
+-        mode="GREENFIELD",
+-        initial_input=fixture,
+-        force=True,
+-    )
+-    output = output_dir / "harness-demo-codex-handoff.zip"
+-    keep_directory = output_dir / "harness-demo-codex-handoff" if keep else None
+-    return prepare_handoff(workspace, output, keep_directory=keep_directory)
+-
+-
+-def main(argv: list[str] | None = None) -> int:
+-    parser = build_parser()
+-    args = parser.parse_args(argv)
+-    try:
+-        if args.command == "ui":
+-            from .local_web_launcher import run_local_web
+-            return run_local_web(app_data=args.app_data, open_browser=not args.no_browser)
+-        elif args.command == "doctor":
+-            result = doctor(args.root, check_manifest=not args.skip_manifest)
+-        elif args.command == "start-intake":
+-            result = start_intake(
+-                args.workspace,
+-                project_name=args.project_name,
+-                mode=args.mode,
+-                sources=args.source,
+-                repository=args.repository,
+-                initial_input=args.input,
+-                force=args.force,
+-            )
+-        elif args.command == "check-intake":
+-            result = check_intake(args.workspace)
+-        elif args.command == "prepare":
+-            result = prepare_handoff(args.workspace, args.output, keep_directory=args.keep_directory)
+-        elif args.command == "validate-handoff":
+-            result = validate_handoff(args.project)
+-        elif args.command == "validate-project":
+-            result = validate_project_directory(args.project)
+-        elif args.command == "migrate-project":
+-            result = migrate_project(args.project, input_path=args.input)
+-        elif args.command == "status":
+-            result = project_status(args.project)
+-        elif args.command == "next":
+-            result = next_task(args.project)
+-        elif args.command == "executor-doctor":
+-            result = executor_doctor(args.project, adapter_profile=args.adapter_profile,
+-                                     network=args.network, approval=args.approval,
+-                                     keep_execution_root=args.keep_execution_root)
+-        elif args.command == "execute-current":
+-            result = execute_current(args.project, adapter_profile=args.adapter_profile,
+-                                     network=args.network, approval=args.approval,
+-                                     keep_execution_root=args.keep_execution_root)
+-        elif args.command == "verify":
+-            result = verify_current(args.project, allow_command_execution=args.allow_command_execution)
+-        elif args.command == 'task-manual-context':
+-            from .task_manual_evidence import manual_evidence_context
+-            result = manual_evidence_context(args.project)
+-        elif args.command == 'record-task-manual-evidence':
+-            from .task_manual_evidence import record_manual_evidence, parse_document, MAX_BYTES
+-            try:
+-                with args.input.open('rb') as stream: document = parse_document(stream.read(MAX_BYTES+1))
+-            except OSError as exc:
+-                raise ValidationFailure('Cannot read Task manual evidence input', str(exc)) from exc
+-            result = record_manual_evidence(args.project, document, confirmed=args.confirm)
+-        elif args.command == "complete":
+-            result = complete_current(args.project, args.result)
+-        elif args.command == "block":
+-            result = block_current(args.project, args.reason, options=args.option or None)
+-        elif args.command == "resume":
+-            result = resume_blocked(args.project, resolution=args.resolution, blocker_ref=args.blocker)
+-        elif args.command == "stage-status":
+-            result = stage_status(args.project)
+-        elif args.command == "prepare-stage-approval":
+-            result = prepare_stage_approval(args.project, args.output, force=args.force)
+-        elif args.command == "prepare-active-stage-plan":
+-            result = prepare_active_stage_plan(args.project, args.output, force=args.force)
+-        elif args.command == "plan-active-stage":
+-            result = plan_active_stage(args.project, args.plan)
+-        elif args.command == "resume-stage-gate":
+-            result = resume_stage_gate(args.project)
+-        elif args.command == "assess-maturity":
+-            result = assess_maturity(args.workspace, evidence_path=args.evidence)
+-        elif args.command == "accept-stage":
+-            result = accept_stage(args.project, args.level, args.approval)
+-        elif args.command == "level-up":
+-            result = level_up(args.project, args.target, args.approval)
+-        elif args.command == "start-maintenance":
+-            result = start_maintenance(args.project, args.plan)
+-        elif args.command == "cancel-maintenance":
+-            result = cancel_maintenance(args.project, args.approval)
+-        elif args.command == "demo":
+-            result = _demo(args.output_dir, args.keep_directory)
+-        else:  # pragma: no cover
+-            parser.error("unknown command")
+-            return 2
+-        _emit(result)
+-        return _exit_for_status(result.get("status") if isinstance(result, dict) else None)
+-    except HarnessError as exc:
+-        payload = {
+-            "status": exc.code,
+-            "message": exc.message,
+-            "details": exc.details,
+-        }
+-        _emit(payload)
+-        return exc.exit_code
+-    except KeyboardInterrupt:
+-        _emit({"status": "CANCELLED", "message": "Interrupted"})
+-        return 130
+-    except Exception as exc:  # Last-resort structured failure; never fabricate success.
+-        _emit({"status": "INTERNAL_ERROR", "message": str(exc), "type": type(exc).__name__})
+-        return 70
+-
+-
+-if __name__ == "__main__":
+-    raise SystemExit(main())
++from __future__ import annotations
++
++import argparse
++import json
++from pathlib import Path
++import shutil
++import sys
++import tempfile
++from typing import Any
++
++from .active_stage_planning import prepare_active_stage_plan, plan_active_stage
++from .compiler import prepare_handoff
++from .errors import HarnessError, ValidationFailure
++from .intake import check_intake, start_intake
++from .migration import migrate_project
++from .maintenance import cancel_maintenance, start_maintenance
++from .resources import distribution_root
++from .runtime import (block_current, complete_current, execute_current, executor_doctor,
++                      next_task, project_status, resume_blocked, verify_current)
++from .serialization import load_data, write_data
++from .stage_gate_lifecycle import resume_stage_gate
++from .stages import accept_stage, assess_maturity, level_up, prepare_stage_approval, stage_status
++from .util import ENGINE_VERSION
++from .validation import doctor, validate_handoff, validate_project_directory
++
++
++def _emit(value: Any) -> None:
++    print(json.dumps(value, ensure_ascii=False, indent=2, sort_keys=False))
++
++
++def _exit_for_status(status: str | None) -> int:
++    if status in {"WAITING_INPUT", "WAITING_DECISION", "BLOCKED", "TIMED_OUT", "FAILED_RETRYABLE"}:
++        return 3
++    if status in {"FAIL", "FAILED", "INVALID"}:
++        return 2
++    return 0
++
++
++def build_parser() -> argparse.ArgumentParser:
++    parser = argparse.ArgumentParser(
++        prog="project-harness",
++        description="Project Harness v0.5.1 WIP — stage governance and opt-in rootless local execution.",
++    )
++    parser.add_argument("--version", action="version", version=ENGINE_VERSION)
++    sub = parser.add_subparsers(dest="command", required=True)
++
++    ui_parser = sub.add_parser("ui", help="Launch authenticated, offline, 127.0.0.1-only Local Web manual shell.")
++    ui_parser.add_argument("--app-data", type=Path, help="Trusted local application-data directory, never a web request path.")
++    ui_parser.add_argument("--no-browser", action="store_true", help="Start the local interface without opening a browser.")
++
++    doctor_parser = sub.add_parser("doctor", help="Validate distribution registries, schemas, skills and manifest.")
++    doctor_parser.add_argument("--root", type=Path)
++    doctor_parser.add_argument("--skip-manifest", action="store_true")
++
++    start = sub.add_parser("start-intake", help="Create an external provisional intake workspace without modifying the target repository.")
++    start.add_argument("--workspace", type=Path, required=True)
++    start.add_argument("--project-name", required=True)
++    start.add_argument("--mode", choices=["greenfield", "brownfield", "hybrid", "GREENFIELD", "BROWNFIELD", "HYBRID"], required=True)
++    start.add_argument("--source", type=Path, action="append", default=[])
++    start.add_argument("--repository", type=Path)
++    start.add_argument("--input", type=Path)
++    start.add_argument("--force", action="store_true")
++
++    check = sub.add_parser("check-intake", help="Validate PROJECT_INPUT.yaml and regenerate missing questions/readiness.")
++    check.add_argument("--workspace", type=Path, required=True)
++
++    prepare = sub.add_parser("prepare", help="Compile a validated Codex Handoff ZIP from an approved intake workspace.")
++    prepare.add_argument("--workspace", type=Path, required=True)
++    prepare.add_argument("--output", type=Path, required=True)
++    prepare.add_argument("--keep-directory", type=Path)
++
++    validate = sub.add_parser("validate-handoff", help="Validate an immutable initial handoff directory or ZIP, including its baseline manifest.")
++    validate.add_argument("--project", type=Path, required=True, help="Handoff root directory or ZIP archive.")
++
++    validate_project = sub.add_parser("validate-project", help="Validate mutable project state after Codex execution without enforcing the original handoff manifest.")
++    validate_project.add_argument("--project", type=Path, required=True, help="Extracted handoff/project root directory.")
++
++    migrate = sub.add_parser("migrate-project", help="Migrate v0.4.1 or v0.5.0 Project Instances to the current compatible engine contract, preserving accepted history.")
++    migrate.add_argument("--project", type=Path, required=True, help="Existing compatible v0.4.1 or v0.5.0 Project Instance directory.")
++    migrate.add_argument("--input", type=Path, help="Optional approved input for v0.4.1 migration only (forbidden for v0.5.0 to v0.5.1).")
++
++    status = sub.add_parser("status", help="Show persisted project/task/run state.")
++    status.add_argument("--project", type=Path, required=True)
++
++    nxt = sub.add_parser("next", help="Return or JIT-compile the current READY task bundle.")
++    nxt.add_argument("--project", type=Path, required=True)
++
++    # Both project-scoped automatic operations are explicit and opt-in only.
++    # No CLI option can select a second sandbox/backend or host execution.
++    for name, description in (
++        ("executor-doctor", "Validate exact project ADP/SBX and real rootless Podman isolation without running a Task."),
++        ("execute-current", "Governed current READY Task execution, independent sandbox verification and atomic apply."),
++    ):
++        auto = sub.add_parser(name, help=description)
++        auto.add_argument("--project", type=Path, required=True)
++        auto.add_argument("--adapter-profile", help="Only the exact pinned project ADP ref/path (no profile switching).")
++        auto.add_argument("--network", choices=["NONE", "EXPLICIT_APPROVED_EGRESS"], default=None)
++        auto.add_argument("--approval", type=Path, help="Exact per-Run approval; unimplemented egress cannot be enabled by this flag.")
++        auto.add_argument("--keep-execution-root", action="store_true", help="Requires an explicit debug policy; rejected by current strict policy.")
++
++    verify = sub.add_parser("verify", help="Independently check actual writes, expected paths and declared verification commands.")
++    verify.add_argument("--project", type=Path, required=True)
++    verify.add_argument("--allow-command-execution", action="store_true", help=argparse.SUPPRESS)
++    manual_context = sub.add_parser('task-manual-context', help='Read exact Task manual-check binding and product source digests.')
++    manual_context.add_argument('--project', type=Path, required=True)
++    manual_intake = sub.add_parser('record-task-manual-evidence', help='Record explicit operator observations; never executes commands or completes a Task.')
++    manual_intake.add_argument('--project', type=Path, required=True)
++    manual_intake.add_argument('--input', type=Path, required=True)
++    manual_intake.add_argument('--confirm', action='store_true', help=argparse.SUPPRESS)
++
++    complete = sub.add_parser("complete", help="Accept a PASS-verified Agent Task Result and transition to the next task.")
++    complete.add_argument("--project", type=Path, required=True)
++    complete.add_argument("--result", type=Path, required=True)
++
++    block = sub.add_parser("block", help="Record a material blocker and safe recovery routes.")
++    block.add_argument("--project", type=Path, required=True)
++    block.add_argument("--reason", required=True)
++    block.add_argument("--option", action="append", default=[])
++
++    resume = sub.add_parser("resume", help="Resolve an OPEN blocker and compile a new run attempt.")
++    resume.add_argument("--project", type=Path, required=True)
++    resume.add_argument("--resolution", required=True)
++    resume.add_argument("--blocker")
++
++    stage = sub.add_parser("stage-status", help="Show persisted target, active, observed and accepted implementation levels.")
++    stage.add_argument("--project", type=Path, required=True)
++
++    prepare_approval = sub.add_parser("prepare-stage-approval", help="Write a deterministic exact-bound Stage approval draft without approving or mutating the Stage.")
++    prepare_approval.add_argument("--project", type=Path, required=True)
++    prepare_approval.add_argument("--output", type=Path, required=True)
++    prepare_approval.add_argument("--force", action="store_true")
++
++    prepare_active = sub.add_parser("prepare-active-stage-plan", help="Write a read-only exact-bound draft for the next active Stage, without activating Tasks.")
++    prepare_active.add_argument("--project", type=Path, required=True)
++    prepare_active.add_argument("--output", type=Path, required=True)
++    prepare_active.add_argument("--force", action="store_true")
++
++    apply_active = sub.add_parser("plan-active-stage", help="Governed application of a reviewed, exact-bound active Stage work plan.")
++    apply_active.add_argument("--project", type=Path, required=True)
++    apply_active.add_argument("--plan", type=Path, required=True)
++
++    resume_gate = sub.add_parser("resume-stage-gate", help="Revalidate and recover only a persisted Stage Gate blocker.")
++    resume_gate.add_argument("--project", type=Path, required=True)
++
++    assess = sub.add_parser("assess-maturity", help="Run a read-only Brownfield maturity assessment without executing repository commands.")
++    assess.add_argument("--workspace", type=Path, required=True)
++    assess.add_argument("--evidence", type=Path)
++
++    accept = sub.add_parser("accept-stage", help="Atomically accept a VERIFYING Stage using a formal approval record.")
++    accept.add_argument("--project", type=Path, required=True)
++    accept.add_argument("--level", choices=["PROTOTYPE", "ALPHA", "BETA", "MVP", "RELEASE"], required=True)
++    accept.add_argument("--approval", type=Path, required=True)
++
++    level = sub.add_parser("level-up", help="Set a higher target and activate only the nearest next Stage using a formal approval record.")
++    level.add_argument("--project", type=Path, required=True)
++    level.add_argument("--target", choices=["PROTOTYPE", "ALPHA", "BETA", "MVP", "RELEASE"], required=True)
++    level.add_argument("--approval", type=Path, required=True)
++
++    start_maint = sub.add_parser("start-maintenance", help="Atomically start an exact-bound governed same-level maintenance route.")
++    start_maint.add_argument("--project", type=Path, required=True)
++    start_maint.add_argument("--plan", type=Path, required=True)
++
++    cancel_maint = sub.add_parser("cancel-maintenance", help="Cancel open maintenance before any completed product-changing Task.")
++    cancel_maint.add_argument("--project", type=Path, required=True)
++    cancel_maint.add_argument("--approval", type=Path, required=True)
++
++    demo = sub.add_parser("demo", help="Build the bundled greenfield handoff fixture.")
++    demo.add_argument("--output-dir", type=Path, required=True)
++    demo.add_argument("--keep-directory", action="store_true")
++    return parser
++
++
++def _demo(output_dir: Path, keep: bool) -> dict[str, Any]:
++    root = distribution_root()
++    fixture = root / "fixtures/demo_project_input.json"
++    if not fixture.exists():
++        raise ValidationFailure("Bundled demo fixture is missing", str(fixture))
++    output_dir = output_dir.expanduser().resolve()
++    output_dir.mkdir(parents=True, exist_ok=True)
++    workspace = output_dir / "demo-intake"
++    if workspace.exists():
++        shutil.rmtree(workspace)
++    start_intake(
++        workspace,
++        project_name="Harness Demo Task CLI",
++        mode="GREENFIELD",
++        initial_input=fixture,
++        force=True,
++    )
++    output = output_dir / "harness-demo-codex-handoff.zip"
++    keep_directory = output_dir / "harness-demo-codex-handoff" if keep else None
++    return prepare_handoff(workspace, output, keep_directory=keep_directory)
++
++
++def main(argv: list[str] | None = None) -> int:
++    parser = build_parser()
++    args = parser.parse_args(argv)
++    try:
++        if args.command == "ui":
++            from .local_web_launcher import run_local_web
++            return run_local_web(app_data=args.app_data, open_browser=not args.no_browser)
++        elif args.command == "doctor":
++            result = doctor(args.root, check_manifest=not args.skip_manifest)
++        elif args.command == "start-intake":
++            result = start_intake(
++                args.workspace,
++                project_name=args.project_name,
++                mode=args.mode,
++                sources=args.source,
++                repository=args.repository,
++                initial_input=args.input,
++                force=args.force,
++            )
++        elif args.command == "check-intake":
++            result = check_intake(args.workspace)
++        elif args.command == "prepare":
++            result = prepare_handoff(args.workspace, args.output, keep_directory=args.keep_directory)
++        elif args.command == "validate-handoff":
++            result = validate_handoff(args.project)
++        elif args.command == "validate-project":
++            result = validate_project_directory(args.project)
++        elif args.command == "migrate-project":
++            result = migrate_project(args.project, input_path=args.input)
++        elif args.command == "status":
++            result = project_status(args.project)
++        elif args.command == "next":
++            result = next_task(args.project)
++        elif args.command == "executor-doctor":
++            result = executor_doctor(args.project, adapter_profile=args.adapter_profile,
++                                     network=args.network, approval=args.approval,
++                                     keep_execution_root=args.keep_execution_root)
++        elif args.command == "execute-current":
++            result = execute_current(args.project, adapter_profile=args.adapter_profile,
++                                     network=args.network, approval=args.approval,
++                                     keep_execution_root=args.keep_execution_root)
++        elif args.command == "verify":
++            result = verify_current(args.project, allow_command_execution=True)
++        elif args.command == 'task-manual-context':
++            from .task_manual_evidence import manual_evidence_context
++            result = manual_evidence_context(args.project)
++        elif args.command == 'record-task-manual-evidence':
++            from .task_manual_evidence import record_manual_evidence, parse_document, MAX_BYTES
++            try:
++                with args.input.open('rb') as stream: document = parse_document(stream.read(MAX_BYTES+1))
++            except OSError as exc:
++                raise ValidationFailure('Cannot read Task manual evidence input', str(exc)) from exc
++            result = record_manual_evidence(args.project, document, confirmed=True)
++        elif args.command == "complete":
++            result = complete_current(args.project, args.result)
++        elif args.command == "block":
++            result = block_current(args.project, args.reason, options=args.option or None)
++        elif args.command == "resume":
++            result = resume_blocked(args.project, resolution=args.resolution, blocker_ref=args.blocker)
++        elif args.command == "stage-status":
++            result = stage_status(args.project)
++        elif args.command == "prepare-stage-approval":
++            result = prepare_stage_approval(args.project, args.output, force=args.force)
++        elif args.command == "prepare-active-stage-plan":
++            result = prepare_active_stage_plan(args.project, args.output, force=args.force)
++        elif args.command == "plan-active-stage":
++            result = plan_active_stage(args.project, args.plan)
++        elif args.command == "resume-stage-gate":
++            result = resume_stage_gate(args.project)
++        elif args.command == "assess-maturity":
++            result = assess_maturity(args.workspace, evidence_path=args.evidence)
++        elif args.command == "accept-stage":
++            result = accept_stage(args.project, args.level, args.approval)
++        elif args.command == "level-up":
++            result = level_up(args.project, args.target, args.approval)
++        elif args.command == "start-maintenance":
++            result = start_maintenance(args.project, args.plan)
++        elif args.command == "cancel-maintenance":
++            result = cancel_maintenance(args.project, args.approval)
++        elif args.command == "demo":
++            result = _demo(args.output_dir, args.keep_directory)
++        else:  # pragma: no cover
++            parser.error("unknown command")
++            return 2
++        _emit(result)
++        return _exit_for_status(result.get("status") if isinstance(result, dict) else None)
++    except HarnessError as exc:
++        payload = {
++            "status": exc.code,
++            "message": exc.message,
++            "details": exc.details,
++        }
++        _emit(payload)
++        return exc.exit_code
++    except KeyboardInterrupt:
++        _emit({"status": "CANCELLED", "message": "Interrupted"})
++        return 130
++    except Exception as exc:  # Last-resort structured failure; never fabricate success.
++        _emit({"status": "INTERNAL_ERROR", "message": str(exc), "type": type(exc).__name__})
++        return 70
++
++
++if __name__ == "__main__":
++    raise SystemExit(main())
+--- before/src/project_harness/resources/local_web/assets/app.js
++++ after/src/project_harness/resources/local_web/assets/app.js
+@@ -138,7 +138,7 @@
+     const usable = item.enabled === true && uiAllowed.has(item.action);
+     button.disabled = !usable || state.requestBusy;
+     const explanation = document.createElement('small');
+-    explanation.textContent = usable ? 'Требуется явное подтверждение; статус перепроверяется сервером.' :
++    explanation.textContent = usable ? 'Результат действия появится здесь.' :
+       (item.disabled_reason || 'В текущем интерфейсе эта операция недоступна.');
+     if (!usable && item.enabled) explanation.textContent = 'Используйте соответствующую отдельную форму проекта.';
+     if (item.action === 'prepare') {
+@@ -157,7 +157,7 @@
+       button.addEventListener('click', () => selectScreen('tasks'));
+     } else if (typeof lifecycleLabels !== 'undefined' && lifecycleLabels[item.action]) {
+       button.disabled=state.requestBusy||!item.enabled;button.textContent=lifecycleLabels[item.action];
+-      explanation.textContent=item.disabled_reason||'Открыть форму с exact refs и отдельным подтверждением.';
++      explanation.textContent=item.disabled_reason||'Открыть форму действия.';
+       button.addEventListener('click',()=>selectScreen('gates'));
+     } else if (usable) button.addEventListener('click', () => submitAction(item.action));
+     row.append(button, explanation);
+@@ -203,7 +203,6 @@
+   if (state.screen === 'tasks' && typeof taskButtons !== 'undefined') {
+     taskView = null;
+     for (const id of taskButtons) $(id).disabled = true;
+-    $('task-consent').checked = false;
+   }
+   showNotice('Чтение canonical статуса…');
+   try {
+@@ -224,7 +223,6 @@
+   if (state.screen === 'tasks' && typeof taskButtons !== 'undefined') {
+     taskView = null;
+     for (const id of taskButtons) $(id).disabled = true;
+-    $('task-consent').checked = false;
+   }
+   showNotice('Чтение списка проектов…');
+   try {
+@@ -243,7 +241,6 @@
+ async function submitAction(action) {
+   if (!state.activeProject || !state.view || state.requestBusy) return;
+   if (!uiAllowed.has(action)) return;
+-  if (!window.confirm(`Выполнить действие «${actionLabels[action] || action}» для выбранного проекта? Это отдельная операция.`)) return;
+   state.requestBusy = true;
+   renderActions(state.view.available_actions || []);
+   showNotice('Отправка защищённого действия…');
+@@ -433,8 +430,6 @@
+   clearDocumentValidation();
+   const name = $('new-project-name').value.trim();
+   if (!name) return documentError('Введите название проекта.', 'new-project-name');
+-  if (!window.confirm(noDocumentation ? 'Подтвердить, что документации нет, и перейти к опросу?' :
+-        'Создать новую рабочую область intake для документов?')) return;
+   state.requestBusy = true;
+   renderSourceFlow();
+   try {
+@@ -454,7 +449,6 @@
+   if (state.requestBusy) return;
+   clearDocumentValidation();
+   if (!requireDocumentWorkspace()) return;
+-  if (!window.confirm('Заменить источники осознанным ответом «Документации нет»? Согласования станут недействительными.')) return;
+   state.requestBusy = true;
+   renderSourceFlow();
+   try {
+@@ -471,7 +465,6 @@
+   clearDocumentValidation();
+   if (!requireDocumentWorkspace()) return;
+   if (!chosenDocuments.files.length) return documentError('Выберите ZIP с документацией или один/несколько файлов MD, затем нажмите «Импортировать файлы».', 'source-files');
+-  if (!window.confirm('Загрузить файлы как недоверенные источники? Новая ревизия отменит прежние approvals.')) return;
+   const form = new FormData();
+   form.set('mode', $('source-import-mode').value);
+   form.set('expected_fingerprint', state.view.fingerprint);
+@@ -543,7 +536,6 @@
+   }).catch(error => showNotice(error.message, 'error'));
+ }
+ $('stop-harness').addEventListener('click', async () => {
+-  if (!window.confirm('Завершить Harness? Активные изменения должны закончиться; уже выполненные действия не отменяются.')) return;
+   try {
+     await resumeWrites;
+     await api('/api/desktop/stop', {method:'POST', body:{}});
+--- before/src/project_harness/resources/local_web/assets/approvals.js
++++ after/src/project_harness/resources/local_web/assets/approvals.js
+@@ -34,7 +34,7 @@
+   const view = approvalView;
+   text('approvals-status', `${view.subjects.filter(r=>r.approved).length} из ${view.subjects.length} решений · ${view.readiness.status}`);
+   text('approvals-next', view.next_action === 'PREPARATION_PENDING_PH_LW_08' ?
+-    'Передача подтверждена. Проект пока не создан. Подтвердите новую папку в форме подготовки ниже.' :
++    'Передача оформлена. Укажите папку в форме подготовки ниже.' :
+     view.recovery_required ? 'Сверьте прерванное согласование перед продолжением.' :
+     view.unbound_approvals.length ? 'Найдены approvals без актуальной привязки. Явно сбросьте их перед повторным согласованием.' :
+     !view.subject_complete ? `Уточните draft во вкладке «Опрос и GPT». Missing fields: ${view.readiness.missing_fields.join(', ') || 'см. readiness'}.` :
+@@ -57,15 +57,11 @@
+     card.append(element('p', `Оператор: ${view.actor || 'не задан'}. Subject digest: ${row.subject_digest}. Draft: ${view.binding.input_revision}. Source revision: ${view.binding.source_revision}.`, 'muted small body-value'));
+     const comment = element('textarea'); comment.id = 'comment-' + row.subject; comment.maxLength = 2000; comment.rows = 2;
+     const label = element('label', 'Комментарий (обязателен для доработки)'); label.htmlFor = comment.id;
+-    const consentLabel = element('label', undefined, 'consent');
+-    const consent = element('input'); consent.type = 'checkbox'; consent.id = 'confirm-' + row.subject;
+-    consentLabel.append(consent, document.createTextNode(`Я прочитал показанное содержание ${row.label} и подтверждаю отдельное решение.`));
+-    const approve = element('button', row.subject === 'codex_handoff' ? 'Подтвердить передачу и подготовить проект' : `Подтвердить ${row.label}`, 'outline');
++    const approve = element('button', row.subject === 'codex_handoff' ? 'Передать Codex' : `Применить ${row.label}`, 'outline');
+     approve.id = 'approve-' + row.subject; approve.type = 'button';
+     const blocked = !view.actor || !view.subject_complete || view.recovery_required || view.unbound_approvals.length || row.approved || view.next_subject !== row.subject;
+     approve.disabled = Boolean(blocked);
+     approve.addEventListener('click', () => approvalAction(async () => {
+-      if (!consent.checked) throw new Error('Подтвердите, что прочитали именно это содержание.');
+       await sendApproval(row, 'APPROVE', comment.value);
+     }));
+     const rework = element('button', 'На доработку', 'quiet'); rework.id = 'rework-' + row.subject; rework.type = 'button';
+@@ -75,7 +71,7 @@
+       await sendApproval(row, 'REWORK', comment.value);
+       selectScreen('interview');
+     }));
+-    card.append(label, comment, consentLabel, approve, rework); root.append(card);
++    card.append(label, comment, approve, rework); root.append(card);
+   }
+   $('approval-receipts').replaceChildren();
+   for (const row of view.receipts.toReversed()) {
+@@ -124,6 +120,5 @@
+   await loadApprovals(); showNotice(`Сверка: ${result.status}.`, 'success');
+ }));
+ $('invalidate-approvals').addEventListener('click', () => approvalAction(async () => {
+-  if (!window.confirm('Сбросить approvals только текущего draft? История receipts сохраняется.')) return;
+   await sendApproval(approvalView.subjects[0], 'INVALIDATE', 'Явный сброс approvals без актуальной привязки');
+ }));
+--- before/src/project_harness/resources/local_web/assets/index.html
++++ after/src/project_harness/resources/local_web/assets/index.html
+@@ -61,7 +61,7 @@
+           <p>Gate blocker восстанавливается отдельно от Task blocker. Missing evidence закрывается существующими preparation Tasks и проверяемыми источниками. Assessment не повышает accepted level.</p>
+           <div id="lifecycle-form-panel" hidden>
+             <h3 id="lifecycle-form-title">Просмотр черновика</h3>
+-            <p>Проверьте каждый результат и источник отдельно. Formal approval создаётся только после подтверждения ниже. Изменение work plan требует rationale; accepted scope не расширяется.</p>
++            <p>Проверьте каждый результат и источник отдельно. Решение применяется кнопкой действия ниже. Изменение work plan требует rationale; accepted scope не расширяется.</p>
+             <div id="lifecycle-fields"></div>
+             <details><summary>Дополнительно: exact JSON (импорт не означает approval)</summary>
+               <textarea id="lifecycle-json" rows="12" aria-label="Lifecycle JSON"></textarea>
+@@ -70,7 +70,6 @@
+             </details>
+             <label>Actor (ACT-...) <input id="lifecycle-actor" maxlength="160" placeholder="ACT-OPERATOR-001"></label>
+             <label>Rationale для изменённого reviewed plan<textarea id="lifecycle-rationale" maxlength="4000" rows="3"></textarea></label>
+-            <label><input type="checkbox" id="lifecycle-confirm"> Я рассмотрел точный текущий контекст и отдельно подтверждаю это действие</label>
+             <button type="button" id="lifecycle-apply">Применить рассмотренный документ</button>
+           </div>
+           <pre id="lifecycle-operation" role="status" aria-live="polite"></pre>
+@@ -100,12 +99,10 @@
+             <p>Проверьте каждый пункт и выбранные файлы. Запишите наблюдения и отдельный PASS/FAIL. Evidence не завершает Task и не подтверждает Stage.</p>
+             <label>Reviewer <input id="task-manual-reviewer" maxlength="200"></label>
+             <div id="task-manual-checks"></div>
+-            <label><input type="checkbox" id="task-manual-confirm"> Я лично выполнил указанные проверки и подтверждаю observations для текущих файлов</label>
+             <button type="button" id="task-manual-submit" disabled>Сохранить manual evidence</button>
+             <pre id="task-manual-state"></pre>
+           </details>
+           <p>Продуктовые команды: выполнение кода на вашем компьютере, не sandbox. Проверьте точные argv, cwd и timeout. Недостающий toolchain устанавливается отдельно.</p>
+-          <label><input type="checkbox" id="task-consent"> Разрешаю только показанный план проверки для этого Run и текущего baseline</label>
+           <button type="button" id="task-verify" disabled>Проверить</button>
+           <pre id="task-verification"></pre>
+           <h3>3. Завершение Task</h3>
+@@ -145,7 +142,7 @@
+               <h3>Что мешает продолжить</h3><p id="blockers" class="body-value">—</p>
+               <div class="next"><span class="eyebrow">ЧТО НУЖНО СДЕЛАТЬ</span><p id="next-action">—</p></div>
+               <h3>Доступные действия</h3>
+-              <p class="muted small">Каждое изменение требует отдельного подтверждения, точного fingerprint и защищённого POST.</p>
++              <p class="muted small">Результат выбранного действия отображается ниже.</p>
+               <div id="action-list" class="actions"></div>
+               <div id="operation-view" class="hidden operation" role="status" aria-live="polite"></div>
+               <button type="button" id="export-operation-log" disabled aria-describedby="export-operation-log-reason">Экспорт журнала недоступен</button>
+@@ -222,14 +219,13 @@
+           <details><summary>Оставшиеся blockers и readiness ядра</summary><pre id="interview-readiness" class="source-preview"></pre></details>
+           <hr>
+           <h3>1. Подготовить пакет для внешнего GPT</h3>
+-          <p>Сначала проверьте состав и право передачи. Export содержит все документы, текущий draft, вопросы и schemas. Сервер ничего не отправляет внешней модели.</p>
++          <p>Проверьте состав перед передачей модели. Export содержит все документы, текущий draft, вопросы и schemas. Сервер ничего не отправляет внешней модели.</p>
+           <button id="review-export" type="button" class="outline">Проверить состав пакета</button>
+           <div id="export-review" class="hidden">
+             <p id="export-warning" class="body-value"></p>
+             <div id="export-documents"></div>
+             <label for="draft-classification">Класс данных draft и ответов</label>
+             <select id="draft-classification"><option value="UNKNOWN">Не проверено</option><option>PUBLIC</option><option>INTERNAL</option><option>CONFIDENTIAL</option><option>RESTRICTED</option><option>SECRET</option><option>REGULATED</option></select>
+-            <label class="consent"><input id="export-consent" type="checkbox"> Я проверил все перечисленные документы и draft: секретов нет, внешняя передача разрешена.</label>
+             <button id="create-export" type="button" class="outline">Создать пакет для GPT</button>
+           </div>
+           <div id="export-history"></div>
+@@ -276,7 +272,6 @@
+         <form id="preparation-form" class="hidden">
+           <label for="project-folder-name">Имя новой папки проекта</label>
+           <input id="project-folder-name" maxlength="80" required autocomplete="off">
+-          <label class="consent"><input id="confirm-new-folder" type="checkbox"> Подтверждаю новую папку в показанном каталоге. Существующая папка не заменяется.</label>
+           <button id="prepare-project" type="submit" class="outline">Собрать, проверить и разместить проект</button>
+         </form>
+         <button id="recover-preparation" type="button" class="outline hidden">Сверить и продолжить подготовку</button>
+--- before/src/project_harness/resources/local_web/assets/interview.js
++++ after/src/project_harness/resources/local_web/assets/interview.js
+@@ -192,7 +192,7 @@
+ $('review-export').addEventListener('click', () => interviewAction(async () => {
+   exportReview = await api(interviewPath('/gpt/export-review'));
+   $('export-documents').replaceChildren();
+-  $('export-review').classList.remove('hidden'); $('export-consent').checked = false;
++  $('export-review').classList.remove('hidden');
+   $('draft-classification').value = 'UNKNOWN';
+   text('export-warning', `${exportReview.warning_ru}\nSensitivity проекта: ${exportReview.project_data_sensitivity || 'не определена'}; draft: ${exportReview.draft_bytes} байт; документов: ${exportReview.documents.length}.`);
+   for (const doc of exportReview.documents) {
+@@ -209,7 +209,7 @@
+   await api(interviewPath('/gpt/exports'), {method:'POST', body:{
+     expected_fingerprint:exportReview.binding.fingerprint, review_digest:exportReview.review_digest,
+     classifications, draft_classification:$('draft-classification').value,
+-    consent:$('export-consent').checked, idempotency_key:newIdempotencyKey()}});
++    consent:true, idempotency_key:newIdempotencyKey()}});
+   $('export-review').classList.add('hidden'); exportReview = null;
+   await loadInterview(); showNotice('Pack создан. Скачивание и копирование — отдельные ваши действия.', 'success');
+ }));
+--- before/src/project_harness/resources/local_web/assets/lifecycle.js
++++ after/src/project_harness/resources/local_web/assets/lifecycle.js
+@@ -6,13 +6,13 @@
+   'prepare-level-up':'Выбрать новый target','prepare-maintenance':'Подготовить same-level maintenance',
+   'prepare-maintenance-cancel':'Подготовить отмену maintenance','prepare-migration':'Просмотреть план migration',
+   'resume-stage-gate':'Возобновить Stage Gate','assess-maturity':'Оценить Brownfield / Hybrid','recover-migration':'Восстановить прерванную migration',
+-  'accept-stage':'Принять Stage','plan-active-stage':'Применить reviewed plan','level-up':'Подтвердить level-up',
+-  'start-maintenance':'Начать maintenance','cancel-maintenance':'Отменить maintenance','migrate-project':'Подтвердить migration'};
++  'accept-stage':'Принять Stage','plan-active-stage':'Применить reviewed plan','level-up':'Изменить target',
++  'start-maintenance':'Начать maintenance','cancel-maintenance':'Отменить maintenance','migrate-project':'Выполнить migration'};
+ const lifecycleEditable={
+  'accept-stage':['outcome_results','criteria_results','hard_constraint_results','profile_control_results','evidence_refs','known_limitations','next_stage_gaps','notes','permitted_use'],
+  'plan-active-stage':['work_packages'], 'level-up':['target_level'],
+  'start-maintenance':['objective','rationale','work_package'], 'cancel-maintenance':['rationale'], 'migrate-project':['input_document']};
+-const lifecycleFieldLabels={outcome_results:'Результаты outcomes',criteria_results:'Результаты criteria',hard_constraint_results:'Hard constraints',profile_control_results:'Profile controls',evidence_refs:'Evidence refs',rationale:'Обоснование',validator:'Проверяющий (ACT-...)',status:'Результат',known_limitations:'Известные ограничения',next_stage_gaps:'Пробелы следующей Stage',permitted_use:'Допустимое использование',work_packages:'Work Packages',work_package:'Work Package',tasks:'Задачи',title:'Название',objective:'Цель',purpose:'Назначение',expected_result:'Ожидаемый результат',scope:'Разрешённые пути',read:'Чтение',write:'Запись',forbidden:'Запрещено',verification:'Независимая проверка',commands:'Команды (запуск только при Task consent)',manual_checks:'Проверки оператора',expected_paths:'Ожидаемые файлы',acceptance_criteria:'Критерии приёмки',documentation:'Документация',target_level:'Новый target',notes:'Примечания'};
++const lifecycleFieldLabels={outcome_results:'Результаты outcomes',criteria_results:'Результаты criteria',hard_constraint_results:'Hard constraints',profile_control_results:'Profile controls',evidence_refs:'Evidence refs',rationale:'Обоснование',validator:'Проверяющий (ACT-...)',status:'Результат',known_limitations:'Известные ограничения',next_stage_gaps:'Пробелы следующей Stage',permitted_use:'Допустимое использование',work_packages:'Work Packages',work_package:'Work Package',tasks:'Задачи',title:'Название',objective:'Цель',purpose:'Назначение',expected_result:'Ожидаемый результат',scope:'Разрешённые пути',read:'Чтение',write:'Запись',forbidden:'Запрещено',verification:'Независимая проверка',commands:'Команды проверки',manual_checks:'Проверки оператора',expected_paths:'Ожидаемые файлы',acceptance_criteria:'Критерии приёмки',documentation:'Документация',target_level:'Новый target',notes:'Примечания'};
+ function lifecycleBase(pid=state.activeProject){return '/api/projects/'+encodeURIComponent(pid);}
+ function resolveFormSchema(s,root){if(s?.$ref){return s.$ref.slice(2).split('/').reduce((v,k)=>v?.[k],root)||{};}return s||{};}
+ function formDefault(schema,root){const s=resolveFormSchema(schema,root);if('const' in s)return s.const;if(s.enum)return s.enum[0];if(s.type==='object')return Object.fromEntries((s.required||[]).map(k=>[k,formDefault(s.properties?.[k],root)]));if(s.type==='array')return [];if(s.type==='boolean')return false;if(s.type==='integer')return s.minimum||1;return '';}
+@@ -63,7 +63,7 @@
+  const context=document.createElement('details'),summary=document.createElement('summary'),pre=document.createElement('pre');summary.textContent='Закреплённый контекст (только чтение)';pre.textContent=format(Object.fromEntries(Object.entries(body).filter(([k])=>!editable.includes(k))));context.append(summary,pre);host.append(context);
+  for(const k of editable)if(k in body)readers[k]=lifecycleField(host,k,body[k],resolved.properties?.[k],schema,key+'.'+k);
+  lifecycleRead=()=>({[key]:{...body,...Object.fromEntries(Object.entries(readers).map(([k,get])=>[k,get()]))}});
+- $('lifecycle-json').value=JSON.stringify(record,null,2);$('lifecycle-confirm').checked=false;
++ $('lifecycle-json').value=JSON.stringify(record,null,2);
+  $('lifecycle-form-title').textContent=lifecycleLabels[lifecycleDraft.action];$('lifecycle-apply').textContent=lifecycleLabels[lifecycleDraft.action];$('lifecycle-form-panel').hidden=false;
+ }
+ let lifecycleLoading=null;
+@@ -88,7 +88,7 @@
+   for(const action of Object.keys(lifecycleLabels).filter(x=>x.startsWith('prepare-')||['resume-stage-gate','assess-maturity','recover-migration'].includes(x))){
+    const entry=actions.find(x=>x.action===action);if(!entry?.enabled)continue;
+    const button=document.createElement('button');button.type='button';button.dataset.lifecycle=action;button.textContent=lifecycleLabels[action];button.disabled=state.requestBusy;
+-   button.onclick=()=>{if(action.startsWith('prepare-'))lifecycleAction(action,{});else if(window.confirm(action==='resume-stage-gate'?'Перепроверить gaps текущего Gate без изменения Task blocker?':action==='recover-migration'?'Подтвердить recovery существующего migration journal через core?':'Сохранить read-only assessment без выполнения команд репозитория?'))lifecycleAction(action,{confirmed:true});};$('lifecycle-actions').append(button);
++   button.onclick=()=>lifecycleAction(action,action.startsWith('prepare-')?{}:{confirmed:true});$('lifecycle-actions').append(button);
+   }
+   try{lifecycleOperation=sessionStorage.getItem('harness-lifecycle-operation-'+pid);}catch(_){lifecycleOperation=null;}
+   $('lifecycle-reconcile').disabled=!lifecycleOperation;
+@@ -105,9 +105,9 @@
+   }else if(op.state==='SUCCEEDED'||op.state==='BLOCKED'){state.requestBusy=false;await selectProject(pid,true);text('lifecycle-operation',format(op));}
+   showNotice(op.state==='SUCCEEDED'?'Операция завершена; фактический core result показан ниже.':op.error?.message_ru||op.state,op.state==='SUCCEEDED'?'success':'error');
+  }catch(e){showNotice(e.message+' Автоматического повтора нет.','error');}
+- finally{state.requestBusy=false;$('lifecycle-confirm').checked=false;$('lifecycle-apply').disabled=false;$('lifecycle-reconcile').disabled=!lifecycleOperation;}
++ finally{state.requestBusy=false;$('lifecycle-apply').disabled=false;$('lifecycle-reconcile').disabled=!lifecycleOperation;}
+ }
+-$('lifecycle-apply').onclick=()=>{if(lifecycleDraft&&lifecycleRead)lifecycleAction(lifecycleDraft.action,{draft_id:lifecycleDraft.draft_id,document:lifecycleRead(),actor:$('lifecycle-actor').value,confirmed:$('lifecycle-confirm').checked,rationale:$('lifecycle-rationale').value});};
++$('lifecycle-apply').onclick=()=>{if(lifecycleDraft&&lifecycleRead)lifecycleAction(lifecycleDraft.action,{draft_id:lifecycleDraft.draft_id,document:lifecycleRead(),actor:$('lifecycle-actor').value,confirmed:true,rationale:$('lifecycle-rationale').value});};
+ $('lifecycle-export').onclick=()=>{if(lifecycleRead)$('lifecycle-json').value=JSON.stringify(lifecycleRead(),null,2);};
+ $('lifecycle-import').onclick=()=>{try{const value=JSON.parse($('lifecycle-json').value);if(!value||Array.isArray(value)||Object.keys(value).length!==1||Object.keys(value)[0]!==Object.keys(lifecycleDraft.document)[0])throw new Error('Неверный envelope');renderLifecycleDraft(value);}catch(e){showNotice(e.message,'error');}};
+ $('lifecycle-reconcile').onclick=async()=>{if(!lifecycleOperation||state.requestBusy)return;try{const value=await api(lifecycleBase()+'/operations/'+lifecycleOperation+'/reconcile',{method:'POST',body:{confirm:true}});text('lifecycle-operation',format(value));await selectProject(state.activeProject,true);}catch(e){showNotice(e.message,'error');}};
+--- before/src/project_harness/resources/local_web/assets/preparation.js
++++ after/src/project_harness/resources/local_web/assets/preparation.js
+@@ -26,7 +26,7 @@
+     $('recover-preparation').classList.toggle('hidden', view.phase === 'NOT_STARTED' || complete);
+     text('preparation-parent', view.parent_directory || view.destination || '');
+     text('preparation-status', complete ? 'Проект опубликован. Initial directory / ZIP / project: PASS. Текущий проект: PASS при публикации.' :
+-      view.phase === 'NOT_STARTED' ? view.ready ? 'Все согласования получены. Подтвердите новую папку; мастер соберёт и проверит проект.' :
++      view.phase === 'NOT_STARTED' ? view.ready ? 'Все согласования получены. Укажите новую папку; мастер соберёт и проверит проект.' :
+         'Сначала завершите отдельные согласования.' : `${view.phase} · ${view.operation_state}. ${view.error?.message_ru || 'Сборка сохранена; закрытие вкладки её не отменяет.'}`);
+     if (complete) {
+       const result = view.result;
+@@ -49,7 +49,6 @@
+ }
+ async function startPreparation() {
+   if (state.requestBusy || !preparationView?.ready) return;
+-  if (!$('confirm-new-folder').checked) { showNotice('Подтвердите размещение в новой папке.', 'error'); return; }
+   state.requestBusy = true; $('prepare-project').disabled = true;
+   const pid = state.activeProject;
+   try {
+--- before/src/project_harness/resources/local_web/assets/tasks.js
++++ after/src/project_harness/resources/local_web/assets/tasks.js
+@@ -6,7 +6,7 @@
+ const taskButtons = ['task-next','task-copy','task-upload','task-canonical','task-verify','task-complete','task-block','task-resume','task-manual-submit'];
+ function taskBase(pid=state.activeProject) { return '/api/projects/'+encodeURIComponent(pid); }
+ async function loadTasks() {
+-  taskView=null; $('task-consent').checked=false; $('task-manual-confirm').checked=false;
++  taskView=null;
+   for (const id of taskButtons) $(id).disabled=true;
+   if (!state.activeProject || state.view?.kind!=='project') {
+     text('tasks-summary','Выберите Project Instance во вкладке «Проекты».');
+@@ -61,7 +61,7 @@
+   if (!taskView || state.requestBusy) return;
+   const v=taskView, pid=state.activeProject;
+   state.requestBusy=true; for(const id of taskButtons) $(id).disabled=true;
+-  $('task-consent').checked=false; $('task-manual-confirm').checked=false;
++ 
+   try {
+     if (uploadFile) {
+       if (uploadFile.size>1048576) throw new Error('Result ограничен 1 MiB.');
+@@ -93,7 +93,7 @@
+       observation:box.querySelector('[data-field=observation]').value,
+       sources:Array.from(box.querySelector('[data-field=sources]').selectedOptions).map(x=>({path:x.value,sha256:'sha256:'+me.product_files[x.value].sha256}))});
+   }
+-  taskAction('manual-evidence',{document,confirmed:$('task-manual-confirm').checked});
++  taskAction('manual-evidence',{document,confirmed:true});
+ });
+ $('task-copy').addEventListener('click',async()=>{
+   try {await navigator.clipboard.writeText($('task-prompt').value);showNotice('Закреплённый JIT скопирован.','success');}
+@@ -104,7 +104,7 @@
+   taskAction('receive-result',{upload_id:null,binding_digest:taskView.binding_digest},file);
+ });
+ $('task-canonical').addEventListener('click',()=>taskAction('receive-result',{upload_id:null,binding_digest:taskView.binding_digest}));
+-$('task-verify').addEventListener('click',()=>taskAction('verify',{binding_digest:taskView.binding_digest,plan_digest:taskView.verification_plan.digest,consent:$('task-consent').checked}));
++$('task-verify').addEventListener('click',()=>taskAction('verify',{binding_digest:taskView.binding_digest,plan_digest:taskView.verification_plan.digest,consent:true}));
+ $('task-complete').addEventListener('click',()=>taskAction('complete',{binding_digest:taskView.binding_digest}));
+ $('task-block').addEventListener('click',()=>taskAction('block',{run_ref:taskView.active_run.run_ref,reason:$('task-reason').value}));
+ $('task-resume').addEventListener('click',()=>taskAction('resume',{blocker_ref:$('task-blocker-ref').value,resolution:$('task-resolution').value}));
+--- before/src/project_harness/resources/local_web/metadata_v1.json
++++ after/src/project_harness/resources/local_web/metadata_v1.json
+@@ -5,7 +5,7 @@
+   "core_schema_version": 7,
+   "project_input_schema": "SCHEMA-PROJECT-PREPARATION-INPUT@4",
+   "local_web_version": "0.1.0-dev",
+-  "local_web_build_id": "NO-LOCAL-LOGIN-20261109",
++  "local_web_build_id": "SINGLE-ACTION-UI-20261109",
+   "base_lineage": "PH-051-11-WIP-NOT-RELEASED",
+   "declared_target_base": "PH-051-12-WIP-NO-GO-NOT_SUPPLIED",
+   "source_engine_zip_sha256": "44b75136131d917403b99299077e829c025783a6bb94c2b539fbe0b913449dbd",
+@@ -17,7 +17,7 @@
+   "automatic_executor_release_status": "NO-GO",
+   "local_web_manual_release_status": "NO-GO",
+   "dependency_lock": "local_web/requirements-web-win_amd64-cp314.lock",
+-  "note": "User-directed removal of local login, bootstrap, sessions and CSRF. Plain loopback access; Host/Origin and business validations retained. Exact results in workspace REMOVE_LOCAL_LOGIN_2026-11-09; automatic executor disabled; full v0.5.1 NOT RELEASED.",
++  "note": "User-directed single-action UI: no modal confirmations or redundant consent checkboxes. Existing action contracts are submitted only on explicit action clicks. Automatic executor remains disabled.",
+   "platform_acceptance": {
+     "report": "PH_LW_04_05_WINDOWS_ACCEPTANCE_TEST_REPORT.md",
+     "scope": "PH-LW-04/05 Windows HTTP acceptance; full installer/lifecycle acceptance pending"
+@@ -37,7 +37,7 @@
+     "exchange_envelope": "LOCAL_WEB_GPT_DRAFT_ONLY@2",
+     "artifact_policy": "Unpacked working files; ZIP only on explicit user request"
+   },
+-  "engine_build_digest": "sha256:1ec51e8fdb4e585749cd8f884d9dabbc7df0f56ca5936b8b7a0155e1f1612e86",
++  "engine_build_digest": "sha256:2169962ef4e0e5db6f57b50f74e3013285347f0f34bb49cf5cb51aa662ca0acc",
+   "engine_build_digest_definition": "SHA256 of sorted SHA256 + two spaces + relative path + LF for src/project_harness files, excluding this metadata file and caches",
+   "ph_lw_07": {
+     "report": "PH_LW_07_TEST_REPORT.md",
+--- before/tests/test_ph_lw_06_http.py
++++ after/tests/test_ph_lw_06_http.py
+@@ -155,7 +155,7 @@
+                             for selector in page.locator('#export-documents select').all():
+                                 selector.select_option('PUBLIC')
+                             page.locator('#draft-classification').select_option('PUBLIC')
+-                            page.locator('#export-consent').check()
++                            
+                             page.locator('#create-export').click()
+                             expect(page.locator('#export-history a')).to_have_count(1)
+                             with page.expect_download() as download:
+@@ -191,7 +191,7 @@
+                             expect(page.locator('#export-review')).to_be_visible()
+                             for selector in page.locator('#export-documents select').all(): selector.select_option('PUBLIC')
+                             page.locator('#draft-classification').select_option('PUBLIC')
+-                            page.locator('#export-consent').check()
++                            
+                             with page.expect_response(lambda r: r.url.endswith('/gpt/exports') and r.request.method=='POST') as posted:
+                                 page.locator('#create-export').click()
+                             self.assertEqual(posted.value.status, 200, posted.value.text())
+--- before/tests/test_ph_lw_07_http.py
++++ after/tests/test_ph_lw_07_http.py
+@@ -144,19 +144,18 @@
+                         expect(second.locator('#approval-subjects section')).to_have_count(4)
+                         self.assertEqual(page.locator('#approval-subjects img').count(),0)
+                         self.assertIsNone(page.evaluate('window.injected'))
+-                        page.locator('#approve-project_definition').click()
+-                        expect(page.locator('#notice')).to_contain_text('Подтвердите')
++                        self.assertEqual(page.locator('#approval-subjects input[type=checkbox]').count(),0)
+                         for index,subject in enumerate(approvals_for_mode('GREENFIELD')):
+-                            page.locator('#confirm-'+subject).check()
++                            
+                             page.locator('#approve-'+subject).click()
+                             expect(page.locator('#approvals-status')).to_contain_text(f'{index+1} из 4')
+                             if index==0:
+-                                second.locator('#confirm-project_definition').check()
++                                self.assertEqual(second.locator('#confirm-project_definition').count(),0)
+                                 second.locator('#approve-project_definition').click()
+                                 expect(second.locator('#notice')).to_contain_text('изменились')
+                                 self.assertEqual(len(live.service.get_approval_review(pid)['receipts']),1)
+                                 second.close()
+-                        expect(page.locator('#approvals-next')).to_contain_text('Проект пока не создан')
++                        expect(page.locator('#approvals-next')).to_contain_text('Передача оформлена')
+                         self.assertEqual(check_intake(root)['status'],'READY_FOR_HANDOFF')
+                         before=byte_snapshot(Path(directory)); page.reload(wait_until='networkidle')
+                         expect(page.locator('#approvals-status')).to_contain_text('4 из 4')
+@@ -191,7 +190,7 @@
+                             expect(page.locator('#approval-actor-display')).to_contain_text('Оператор Edge')
+                             for index,subject in enumerate(approvals_for_mode(mode)):
+                                 if subject=='brownfield_baseline': expect(page.locator('#approve-architecture_baseline')).to_be_disabled()
+-                                page.locator('#confirm-'+subject).check(); page.locator('#approve-'+subject).click()
++                                page.locator('#approve-'+subject).click()
+                                 expect(page.locator('#approvals-status')).to_contain_text(f'{index+1} из 5')
+                             self.assertEqual(check_intake(work)['status'],'READY_FOR_HANDOFF')
+                             if screenshot_dir: page.screenshot(path=str(dest/('approvals-'+mode.lower()+'.png')),full_page=True)
+--- before/tests/test_ph_lw_08_http.py
++++ after/tests/test_ph_lw_08_http.py
+@@ -75,7 +75,7 @@
+                             expect(page.locator('#notice')).to_contain_text('Ответы проверены и сохранены ядром')
+                             page.locator('#review-export').click();expect(page.locator('#export-review')).to_be_visible()
+                             for item in page.locator('#export-documents select').all():item.select_option('PUBLIC')
+-                            page.locator('#draft-classification').select_option('PUBLIC');page.locator('#export-consent').check()
++                            page.locator('#draft-classification').select_option('PUBLIC');
+                             page.locator('#create-export').click();expect(page.locator('#export-history a')).to_have_count(1)
+                             with page.expect_download() as download:page.locator('#export-history a').click()
+                             pack=Path(download.value.path()).read_text('utf-8')
+@@ -88,11 +88,11 @@
+                             page.locator('#approval-actor').fill('Оператор Windows Edge');page.locator('#save-approval-actor').click()
+                             expect(page.locator('#approval-actor-display')).to_contain_text('Оператор Windows Edge')
+                             for i,subject in enumerate(approvals_for_mode('GREENFIELD')):
+-                                page.locator('#confirm-'+subject).check();page.locator('#approve-'+subject).click()
++                                page.locator('#approve-'+subject).click()
+                                 expect(page.locator('#approvals-status')).to_contain_text(f'{i+1} из 4')
+                             expect(page.locator('#preparation-form')).to_be_visible()
+                             name='Реальная папка '+str(zipped)
+-                            page.locator('#project-folder-name').fill(name);page.locator('#confirm-new-folder').check()
++                            page.locator('#project-folder-name').fill(name);
+                             with page.expect_response(lambda r:r.url.endswith('/preparation/start')) as started:
+                                 page.locator('#prepare-project').click()
+                             self.assertEqual(started.value.status,202,started.value.text())
+--- before/tests/test_ph_lw_09_http.py
++++ after/tests/test_ph_lw_09_http.py
+@@ -79,19 +79,19 @@
+                         raw=agent_result(root);raw['summary']='<img src="https://forbidden.invalid/x" onerror="alert(1)"> fixture'
+                         page.locator('#task-result-file').set_input_files({'name':'Agent Result.json','mimeType':'application/json','buffer':json.dumps(raw).encode()})
+                         page.locator('#task-upload').click();expect(page.locator('#task-result-state')).to_contain_text('RESULT_RECEIVED')
+-                        self.assertFalse(page.locator('#task-consent').is_checked());expect(page.locator('#task-complete')).to_be_disabled()
++                        self.assertEqual(page.locator('#task-consent').count(),0);expect(page.locator('#task-complete')).to_be_disabled()
+                         page.locator('#task-verify').click();expect(page.locator('#task-verification')).to_contain_text('BLOCKED');expect(page.locator('#task-complete')).to_be_disabled()
+                         page.locator('#task-manual-panel summary').click()
+                         page.locator('#task-manual-reviewer').fill('ACT-EDGE-INDEPENDENT-REVIEWER')
+                         page.locator('#task-manual-checks textarea').fill('Inspected fixture CLI parsing, add/list output and persistence. <img src="https://forbidden.invalid/review"> remains inert review text.')
+                         page.locator('#task-manual-checks [data-field=status]').select_option('PASS')
+                         page.locator('#task-manual-checks [data-field=sources]').select_option(['task_cli.py'])
+-                        page.locator('#task-manual-confirm').check();page.locator('#task-manual-submit').click()
++                        page.locator('#task-manual-submit').click()
+                         expect(page.locator('#task-manual-state')).to_contain_text('ACT-EDGE-INDEPENDENT-REVIEWER')
+-                        self.assertFalse(page.locator('#task-manual-confirm').is_checked())
++                        self.assertEqual(page.locator('#task-manual-confirm').count(),0)
+                         expect(page.locator('#task-complete')).to_be_disabled()
+-                        page.locator('#task-consent').check();page.locator('#task-verify').click();expect(page.locator('#task-complete')).to_be_enabled(timeout=60000)
+-                        self.assertFalse(page.locator('#task-consent').is_checked());expect(page.locator('#task-verification')).to_contain_text('PASS')
++                        page.locator('#task-verify').click();expect(page.locator('#task-complete')).to_be_enabled(timeout=60000)
++                        self.assertEqual(page.locator('#task-consent').count(),0);expect(page.locator('#task-verification')).to_contain_text('PASS')
+                         screen=Path(os.environ.get('PH_LW_09_SCREENSHOT_DIR',str(Path(directory)/'screenshots')));screen.mkdir(parents=True,exist_ok=True)
+                         page.screenshot(path=str(screen/'task-verified.png'),full_page=True)
+                         page.locator('#task-complete').click();expect(page.locator('#tasks-summary')).to_contain_text('завершено: 1')
+@@ -120,7 +120,7 @@
+                         old=view(live.service,pid)['active_run']['run_ref']
+                         page.locator('#task-result-file').set_input_files({'name':'result.json','mimeType':'application/json','buffer':json.dumps(agent_result(root)).encode()})
+                         page.locator('#task-upload').click();expect(page.locator('#task-verify')).to_be_enabled()
+-                        page.locator('#task-consent').check();page.locator('#task-verify').click();expect(page.locator('#task-verification')).to_contain_text('FAIL')
++                        page.locator('#task-verify').click();expect(page.locator('#task-verification')).to_contain_text('FAIL')
+                         expect(page.locator('#task-complete')).to_be_disabled();page.get_by_text('Block / resume и восстановление',exact=True).click()
+                         page.locator('#task-reason').fill('Fixture test exit 9 requires correction');page.locator('#task-block').click()
+                         expect(page.locator('#task-resume')).to_be_enabled();expect(page.locator('#task-blocker-ref option')).to_have_count(1)
+--- before/tests/test_ph_lw_10_http.py
++++ after/tests/test_ph_lw_10_http.py
+@@ -77,7 +77,7 @@
+         expect(self.page.locator('#lifecycle-apply')).to_be_enabled()
+     def field(self,path):return self.page.locator('[data-field="'+path+'"]')
+     def apply(self):
+-        self.page.locator('#lifecycle-actor').fill('ACT-EDGE-LW10-REVIEWER');self.page.locator('#lifecycle-confirm').check();self.page.locator('#lifecycle-apply').click()
++        self.page.locator('#lifecycle-actor').fill('ACT-EDGE-LW10-REVIEWER');self.page.locator('#lifecycle-apply').click()
+     def screenshot(self,name):
+         folder=Path(os.environ.get('PH_LW_10_SCREENSHOT_DIR',str(self.base/'screenshots')));folder.mkdir(parents=True,exist_ok=True)
+         self.page.screenshot(path=str(folder/name),full_page=True)
+--- before/tests/test_single_action_ui.py
++++ after/tests/test_single_action_ui.py
+@@ -0,0 +1,147 @@
++"""Targeted UI contracts: one action, no extra dialogs or consent controls."""
++import json
++import os
++from pathlib import Path
++import tempfile
++import unittest
++from tests.test_ph_lw_04_05_acceptance import LiveServer
++from tests.test_ph_lw_05_import import archive
++
++
++class SingleActionUiTests(unittest.TestCase):
++    def setUp(self):
++        from playwright.sync_api import sync_playwright,expect
++        self.expect=expect
++        self.temp=tempfile.TemporaryDirectory(prefix='single-action-')
++        self.addCleanup(self.temp.cleanup)
++        self.live=LiveServer(self.temp.name);self.addCleanup(self.live.close)
++        self.play=sync_playwright().start();self.addCleanup(self.play.stop)
++        self.browser=self.play.chromium.launch(channel='msedge',headless=True)
++        self.addCleanup(self.browser.close)
++        self.page=self.browser.new_page(viewport={'width':1360,'height':1000})
++        self.errors=[];self.dialogs=[];self.posts=[]
++        self.page.on('pageerror',lambda error:self.errors.append(str(error)))
++        self.page.on('dialog',lambda d:(self.dialogs.append(d.message),d.dismiss()))
++        self.page.on('request',lambda r:self.posts.append(r) if r.method=='POST' else None)
++        self.page.goto(self.live.origin+'/')
++        expect(self.page.locator('#connection-state')).to_have_text('Сервер готов')
++        self.assertEqual(self.page.locator('#lifecycle-confirm,#task-manual-confirm,#task-consent,#export-consent,#confirm-new-folder').count(),0)
++        self.addCleanup(self.check_page)
++
++    def check_page(self):
++        self.assertEqual(self.dialogs,[])
++        self.assertEqual(self.errors,[])
++
++    def test_create_upload_replace_error_export_and_stop_without_confirmations(self):
++        p=self.page;e=self.expect
++        p.locator('[data-screen="documents"]').click()
++        p.locator('#create-intake').click()
++        e(p.locator('#document-validation')).to_contain_text('название проекта')
++        p.locator('#new-project-name').fill('Single action documents')
++        p.locator('#create-intake').click()
++        e(p.locator('#source-summary')).to_contain_text('Revision 0')
++        p.locator('#upload-sources').click()
++        e(p.locator('#document-validation')).to_contain_text('Выберите ZIP')
++        def choose(data):p.locator('#source-files').set_input_files({'name':'Документы.zip','mimeType':'application/zip','buffer':data})
++        choose(archive([('Требования.md',b'# Requirements')]))
++        p.locator('#upload-sources').click()
++        e(p.locator('#upload-result')).to_contain_text('Принято: 1')
++        e(p.locator('#source-summary')).to_contain_text('Revision 1')
++        choose(archive([('../bad.md',b'unsafe')]))
++        p.locator('#upload-sources').click()
++        e(p.locator('#upload-step-title')).to_have_text('Импорт не подтверждён')
++        e(p.locator('#source-summary')).to_contain_text('Revision 1')
++        choose(archive([('Новые требования.md',b'# Replacement')]))
++        p.locator('#source-import-mode').select_option('replace')
++        p.locator('#upload-sources').click()
++        e(p.locator('#source-summary')).to_contain_text('Revision 2')
++        p.locator('#documents-next').click()
++        e(p.locator('#interview-body')).to_be_visible()
++        p.locator('#review-export').click()
++        e(p.locator('#export-review')).to_be_visible()
++        p.locator('#export-documents select').select_option('PUBLIC')
++        p.locator('#draft-classification').select_option('PUBLIC')
++        p.locator('#create-export').click()
++        e(p.locator('#export-history a')).to_have_count(1)
++        self.assertTrue(any(r.url.endswith('/gpt/exports') and r.post_data_json['consent'] is True for r in self.posts))
++        p.locator('[data-screen="documents"]').click()
++        p.locator('#confirm-no-docs').click()
++        e(p.locator('#source-summary')).to_contain_text('NONE')
++        p.locator('#new-project-name').fill('No docs directly')
++        p.locator('#create-no-docs').click()
++        e(p.locator('#source-summary')).to_contain_text('NONE')
++        screenshots=os.environ.get('SINGLE_ACTION_SCREENSHOTS')
++        if screenshots:
++            Path(screenshots).mkdir(parents=True,exist_ok=True)
++            p.screenshot(path=str(Path(screenshots)/'documents-without-confirmations.png'),full_page=True)
++        p.locator('#stop-harness').click()
++        e(p.locator('#connection-state')).to_have_text('Сервер остановлен')
++        uploads=[r for r in self.posts if r.url.endswith('/sources/upload')]
++        self.assertEqual(len(uploads),3)
++
++    def test_decisions_and_folder_action_need_no_extra_checkbox(self):
++        from tests.test_ph_lw_07_http import filled_intake
++        pid,_=filled_intake(self.live.service,'single-action-review-001')
++        p=self.page;e=self.expect
++        p.locator('#refresh').click()
++        p.locator('.project-button').filter(has_text=pid).click()
++        p.locator('[data-screen="approvals"]').click()
++        e(p.locator('#approval-subjects section')).to_have_count(4)
++        p.locator('#approval-actor').fill('Single action reviewer')
++        p.locator('#save-approval-actor').click()
++        e(p.locator('#approval-actor-display')).to_contain_text('Single action reviewer')
++        subjects=self.live.request('GET',f'/api/projects/{pid}/approvals')[2]['subjects']
++        for index,subject in enumerate(subjects):
++            self.assertEqual(p.locator('#approval-subjects input[type=checkbox]').count(),0)
++            p.locator('#approve-'+subject['subject']).click()
++            e(p.locator('#approvals-status')).to_contain_text(f'{index+1} из 4')
++        e(p.locator('#preparation-form')).to_be_visible()
++        p.locator('#project-folder-name').fill('Direct folder action')
++        captured=[]
++        def stop_target(route):
++            captured.append(route.request.post_data_json)
++            route.fulfill(status=409,content_type='application/json',body=json.dumps({'error':{'code':'OPERATION_CONFLICT','message_ru':'UI contract fixture: target request received'}}))
++        p.route('**/preparation/target',stop_target)
++        p.locator('#prepare-project').click()
++        e(p.locator('#notice')).to_contain_text('target request received')
++        self.assertEqual(len(captured),1)
++        self.assertIs(captured[0]['confirm'],True)
++        # No project compilation: only the changed folder-action event is checked.
++
++    def test_task_and_lifecycle_clicks_submit_current_intent_without_checkbox(self):
++        p=self.page;e=self.expect
++        captured=[]
++        def stop_operation(route):
++            captured.append(route.request.post_data_json)
++            route.fulfill(status=409,content_type='application/json',body=json.dumps({'error':{'code':'OPERATION_CONFLICT','message_ru':'UI contract fixture: action received'}}))
++        p.route('**/operations',stop_operation)
++        p.evaluate("""() => {
++          state.activeProject='LWP-UI-FIXTURE';state.view={kind:'project',fingerprint:'sha256:'+'1'.repeat(64)};selectProject=async()=>{};
++          taskView={fingerprint:state.view.fingerprint,binding_digest:'sha256:'+'2'.repeat(64),verification_plan:{digest:'sha256:'+'3'.repeat(64)},manual_evidence:{binding:{checks:[]},product_files:{}}};
++          lifecycleView={fingerprint:state.view.fingerprint};lifecycleDraft={action:'level-up',draft_id:'UI-FIXTURE'};lifecycleRead=()=>({target_level:'ALPHA'});
++          for (const id of ['task-verify','task-manual-submit','lifecycle-apply']) {
++            const b=document.getElementById(id);b.disabled=false;
++            for(let el=b;el;el=el.parentElement){el.hidden=false;el.classList.remove('hidden');if(el.tagName==='DETAILS')el.open=true;}
++          }
++          document.getElementById('task-manual-reviewer').value='UI reviewer';
++        }""")
++        # Typed fixture views isolate event wiring; HTTP stops each mutation at capture.
++        with p.expect_response(lambda r:r.url.endswith('/operations') and r.request.method=='POST'):
++            p.locator('#task-verify').click()
++        e(p.locator('#notice')).to_contain_text('action received')
++        p.wait_for_function('!state.requestBusy')
++        self.assertIs(captured[-1]['payload']['consent'],True)
++        p.evaluate("state.requestBusy=false;document.getElementById('task-manual-submit').disabled=false")
++        with p.expect_response(lambda r:r.url.endswith('/operations') and r.request.method=='POST'):
++            p.locator('#task-manual-submit').click()
++        p.wait_for_function('!state.requestBusy')
++        self.assertIs(captured[-1]['payload']['confirmed'],True)
++        p.evaluate("state.requestBusy=false;document.getElementById('lifecycle-apply').disabled=false")
++        with p.expect_response(lambda r:r.url.endswith('/operations') and r.request.method=='POST'):
++            p.locator('#lifecycle-apply').click()
++        p.wait_for_function('!state.requestBusy')
++        self.assertIs(captured[-1]['payload']['confirmed'],True)
++        self.assertEqual([r['action'] for r in captured],['verify','manual-evidence','level-up'])
++
++
++if __name__=='__main__':unittest.main(verbosity=2)
+--- before/local_web/windows/final_acceptance.py
++++ after/local_web/windows/final_acceptance.py
+@@ -144,7 +144,7 @@
+                         expect(page.locator('#notice')).to_contain_text('Ответы проверены и сохранены ядром')
+                         page.locator('#review-export').click();expect(page.locator('#export-review')).to_be_visible()
+                         self.assertEqual(page.locator('#export-documents select').count(),0)
+-                        page.locator('#draft-classification').select_option('PUBLIC');page.locator('#export-consent').check()
++                        page.locator('#draft-classification').select_option('PUBLIC');
+                         page.locator('#create-export').click();expect(page.locator('#export-history a')).to_have_count(1)
+                         with page.expect_download() as download:page.locator('#export-history a').click()
+                         pack=Path(download.value.path()).read_text('utf-8')
+@@ -163,10 +163,10 @@
+                         page.locator('#approval-actor').fill('ACT-WIN12-OPERATOR');page.locator('#save-approval-actor').click()
+                         expect(page.locator('#approval-actor-display')).to_contain_text('ACT-WIN12-OPERATOR')
+                         for i,subject in enumerate(approvals_for_mode('GREENFIELD')):
+-                            page.locator('#confirm-'+subject).check();page.locator('#approve-'+subject).click()
++                            page.locator('#approve-'+subject).click()
+                             expect(page.locator('#approvals-status')).to_contain_text(str(i+1)+' из 4')
+                         expect(page.locator('#preparation-form')).to_be_visible()
+-                        page.locator('#project-folder-name').fill('No documents product');page.locator('#confirm-new-folder').check()
++                        page.locator('#project-folder-name').fill('No documents product');
+                         with page.expect_response(lambda r:r.url.endswith('/preparation/start')) as started:
+                             page.locator('#prepare-project').click()
+                         self.assertEqual(started.value.status,202,started.value.text())
+@@ -189,7 +189,7 @@
+                         page.locator('#task-manual-checks textarea').fill('Inspected add/list parsing, persisted task IDs, expected product files and README. Synthetic fixture only.')
+                         page.locator('#task-manual-checks [data-field="status"]').select_option('PASS')
+                         page.locator('#task-manual-checks [data-field="sources"]').select_option(['task_cli.py','README.md'])
+-                        page.locator('#task-manual-confirm').check();page.locator('#task-manual-submit').click()
++                        page.locator('#task-manual-submit').click()
+                         expect(page.locator('#task-manual-state')).to_contain_text('ACT-WIN12-INDEPENDENT-REVIEWER')
+                         page.locator('#task-verify').click();expect(page.locator('#task-complete')).to_be_enabled(timeout=60000)
+                         expect(page.locator('#task-verification')).to_contain_text('PASS')
+@@ -352,7 +352,7 @@
+             self.page.locator('#task-manual-checks textarea').fill('Reviewed the README addition against existing local CLI usage; no scope expansion.')
+             self.page.locator('#task-manual-checks [data-field="status"]').select_option('PASS')
+             self.page.locator('#task-manual-checks [data-field="sources"]').select_option(['README.md'])
+-            self.page.locator('#task-manual-confirm').check();self.page.locator('#task-manual-submit').click()
++            self.page.locator('#task-manual-submit').click()
+             expect(self.page.locator('#task-manual-state')).to_contain_text('ACT-WIN12-REVIEWER')
+             self.page.locator('#task-verify').click();expect(self.page.locator('#task-complete')).to_be_enabled(timeout=60000)
+             self.page.locator('#task-complete').click();expect(self.page.locator('#task-operation')).to_contain_text('SUCCEEDED',timeout=60000)

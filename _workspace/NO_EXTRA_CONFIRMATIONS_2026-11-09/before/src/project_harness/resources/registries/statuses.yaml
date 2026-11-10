@@ -1,0 +1,401 @@
+{
+  "schema_version": 1,
+  "registry": {
+    "id": "REG-LIFECYCLE-STATUSES",
+    "version": 6,
+    "status": "ACTIVE",
+    "groups": {
+      "public_result": [
+        "ANSWERED",
+        "COMPLETED",
+        "PARTIAL",
+        "WAITING_DECISION",
+        "BLOCKED",
+        "FAILED_RECOVERABLE",
+        "NO_ACTION",
+        "CANCELLED"
+      ],
+      "request": [
+        "RECEIVED",
+        "CLASSIFYING",
+        "CLASSIFIED",
+        "PLANNING",
+        "PLANNED",
+        "READY",
+        "EXECUTING",
+        "WAITING_USER_INPUT",
+        "WAITING_APPROVAL",
+        "PARTIAL",
+        "BLOCKED",
+        "FAILED_RECOVERABLE",
+        "COMPLETED",
+        "CANCELLED",
+        "SUPERSEDED"
+      ],
+      "questionnaire_session": [
+        "CREATED",
+        "SOURCE_PENDING",
+        "ANALYZING_SOURCES",
+        "QUESTIONING",
+        "DRAFT_READY",
+        "WAITING_CONFIRMATION",
+        "ACCEPTED",
+        "CANCELLED",
+        "SUPERSEDED"
+      ],
+      "session": [
+        "CREATED",
+        "ACTIVE",
+        "WAITING_INPUT",
+        "WAITING_DECISION",
+        "READY",
+        "COMPLETED",
+        "BLOCKED",
+        "CANCELLED",
+        "SUPERSEDED"
+      ],
+      "project_definition": [
+        "DRAFT",
+        "PROPOSED",
+        "WAITING_DECISION",
+        "ACCEPTED",
+        "STALE",
+        "SUPERSEDED"
+      ],
+      "architecture_baseline": [
+        "DRAFT",
+        "PROPOSED",
+        "ACCEPTED",
+        "ACTIVE",
+        "STALE",
+        "SUPERSEDED"
+      ],
+      "work_package": [
+        "DRAFT",
+        "PLANNED",
+        "READY",
+        "IN_PROGRESS",
+        "PARTIAL",
+        "BLOCKED",
+        "COMPLETED",
+        "CANCELLED",
+        "SUPERSEDED"
+      ],
+      "task": [
+        "DRAFT",
+        "PLANNED",
+        "READY",
+        "CLAIMED",
+        "RUNNING",
+        "VERIFYING",
+        "DONE",
+        "BLOCKED",
+        "FAILED_RECOVERABLE",
+        "SPLIT",
+        "STALE",
+        "CANCELLED",
+        "SUPERSEDED"
+      ],
+      "run_plan": [
+        "DRAFT",
+        "READY",
+        "STALE",
+        "CANCELLED"
+      ],
+      "run": [
+        "PLANNED",
+        "READY",
+        "RUNNING",
+        "VERIFYING",
+        "SUCCEEDED",
+        "FAILED_RETRYABLE",
+        "FAILED_NON_RETRYABLE",
+        "BLOCKED",
+        "CANCELLED",
+        "TIMED_OUT"
+      ],
+      "prompt_module": [
+        "DRAFT",
+        "VALIDATED",
+        "ACTIVE",
+        "DEPRECATED",
+        "RETIRED"
+      ],
+      "prompt_spec": [
+        "DRAFT",
+        "VALIDATED",
+        "ACTIVE",
+        "DEPRECATED",
+        "RETIRED"
+      ],
+      "prompt_plan": [
+        "PLANNED",
+        "RESOLVED",
+        "CONSUMED",
+        "STALE",
+        "CANCELLED"
+      ],
+      "compiled_prompt_bundle": [
+        "COMPILED",
+        "DISPATCHED",
+        "EXECUTED",
+        "EXPIRED",
+        "CANCELLED"
+      ],
+      "context_plan": [
+        "DRAFT",
+        "READY",
+        "CONSUMED",
+        "STALE",
+        "CANCELLED"
+      ],
+      "context_packet": [
+        "GENERATED",
+        "BOUND",
+        "CONSUMED",
+        "STALE",
+        "EXPIRED"
+      ],
+      "skill": [
+        "DRAFT",
+        "VALIDATING",
+        "VALIDATED",
+        "REJECTED",
+        "ACTIVE",
+        "SUSPENDED",
+        "DEPRECATED",
+        "RETIRED"
+      ],
+      "technology_baseline": [
+        "DRAFT",
+        "PROPOSED",
+        "ACCEPTED",
+        "ACTIVE",
+        "STALE",
+        "SUPERSEDED"
+      ],
+      "lease": [
+        "REQUESTED",
+        "ACTIVE",
+        "RELEASED",
+        "EXPIRED",
+        "REVOKED"
+      ],
+      "verification": [
+        "NOT_RUN",
+        "RUNNING",
+        "PASS",
+        "FAIL",
+        "BLOCKED",
+        "NOT_APPLICABLE"
+      ],
+      "change_pack": [
+        "RECEIVED",
+        "QUARANTINED",
+        "ANALYZED",
+        "PROPOSED",
+        "VALIDATED",
+        "APPROVED",
+        "APPLIED",
+        "CANARY",
+        "ACTIVE",
+        "REJECTED",
+        "ROLLED_BACK",
+        "FAILED_RECOVERABLE"
+      ],
+      "compensation": [
+        "NOT_REQUIRED",
+        "PENDING",
+        "COMPLETE",
+        "PARTIALLY_COMPENSATED",
+        "FAILED"
+      ],
+      "blocker": [
+        "OPEN",
+        "MITIGATING",
+        "RESOLVED",
+        "SUPERSEDED"
+      ],
+      "request_plan": [
+        "DRAFT",
+        "PLANNED",
+        "READY",
+        "EXECUTING",
+        "PARTIAL",
+        "BLOCKED",
+        "COMPLETED",
+        "STALE",
+        "CANCELLED",
+        "SUPERSEDED"
+      ],
+      "question": [
+        "DRAFT",
+        "OPEN",
+        "ANSWERED",
+        "SKIPPED",
+        "CANCELLED",
+        "SUPERSEDED"
+      ],
+      "adr": [
+        "DRAFT",
+        "PROPOSED",
+        "WAITING_DECISION",
+        "ACCEPTED",
+        "REJECTED",
+        "SUPERSEDED"
+      ],
+      "decision": [
+        "ACCEPTED",
+        "REJECTED",
+        "SUPERSEDED"
+      ],
+      "adapter_profile": [
+        "DRAFT",
+        "VALIDATED",
+        "ACTIVE",
+        "SUSPENDED",
+        "DEPRECATED",
+        "RETIRED"
+      ],
+      "bootstrap_plan": [
+        "DRAFT",
+        "PROPOSED",
+        "APPROVED",
+        "EXECUTING",
+        "COMPLETED",
+        "BLOCKED",
+        "FAILED_RECOVERABLE",
+        "STALE",
+        "CANCELLED",
+        "SUPERSEDED"
+      ],
+      "brownfield_intake": [
+        "CREATED",
+        "SOURCE_PENDING",
+        "INVENTORY_PENDING",
+        "INVENTORY_READY",
+        "RECONCILING",
+        "BASELINE_PROPOSED",
+        "WAITING_APPROVAL",
+        "ACCEPTED",
+        "BLOCKED",
+        "CANCELLED",
+        "SUPERSEDED"
+      ],
+      "brownfield_baseline": [
+        "DRAFT",
+        "PROPOSED",
+        "ACCEPTED",
+        "STALE",
+        "SUPERSEDED"
+      ],
+      "brownfield_route_item": [
+        "PROPOSED",
+        "ACCEPTED",
+        "DEFERRED",
+        "IN_PROGRESS",
+        "COMPLETED",
+        "CANCELLED",
+        "SUPERSEDED"
+      ],
+      "conflict": [
+        "OPEN",
+        "ANALYZING",
+        "RESOLVED",
+        "ACCEPTED_AS_RISK",
+        "SUPERSEDED"
+      ],
+      "constraint": [
+        "DRAFT",
+        "PROPOSED",
+        "ACTIVE",
+        "WAIVED",
+        "RETIRED",
+        "SUPERSEDED"
+      ],
+      "parallel_batch": [
+        "DRAFT",
+        "PLANNED",
+        "READY",
+        "IN_PROGRESS",
+        "INTEGRATING",
+        "PARTIAL",
+        "BLOCKED",
+        "COMPLETED",
+        "STALE",
+        "CANCELLED",
+        "SUPERSEDED"
+      ],
+      "project_profile": [
+        "DRAFT",
+        "PROPOSED",
+        "CONFIRMED",
+        "ACTIVE",
+        "STALE",
+        "SUPERSEDED"
+      ],
+      "requirement": [
+        "DRAFT",
+        "PROPOSED",
+        "ACCEPTED",
+        "REJECTED",
+        "STALE",
+        "SUPERSEDED"
+      ],
+      "test_environment": [
+        "DRAFT",
+        "PROVISIONING",
+        "READY",
+        "IN_USE",
+        "STALE",
+        "FAILED",
+        "RETIRED"
+      ],
+      "tool_invocation": [
+        "PLANNED",
+        "RUNNING",
+        "SUCCESS",
+        "FAILED",
+        "BLOCKED",
+        "CANCELLED",
+        "TIMED_OUT"
+      ],
+      "verification_profile": [
+        "DRAFT",
+        "VALIDATED",
+        "ACTIVE",
+        "DEPRECATED",
+        "RETIRED"
+      ],
+      "waiver": [
+        "PROPOSED",
+        "ACTIVE",
+        "EXPIRED",
+        "REVOKED",
+        "SUPERSEDED"
+      ],
+      "implementation_stage": [
+        "PLANNED",
+        "ACTIVE",
+        "VERIFYING",
+        "ACCEPTED",
+        "BLOCKED",
+        "SUPERSEDED"
+      ],
+      "project_execution": [
+        "ACTIVE",
+        "BLOCKED",
+        "TARGET_LEVEL_REACHED",
+        "CANCELLED"
+      ],
+      "sandbox_profile": [
+        "DRAFT",
+        "VALIDATED",
+        "ACTIVE",
+        "SUSPENDED",
+        "DEPRECATED",
+        "RETIRED"
+      ]
+    }
+  }
+}

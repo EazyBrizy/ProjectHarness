@@ -20,7 +20,7 @@ class TasksHttpTests(unittest.TestCase):
         self.tmp=tempfile.TemporaryDirectory(prefix='PH LW09 TCP ');self.addCleanup(self.tmp.cleanup)
         self.live=LiveServer(self.tmp.name);self.addCleanup(self.live.close)
         _,_,self.root=prepare_demo(Path(self.tmp.name)/'fixture',data=fixture_input(command=[]))
-        self.pid=self.live.service.register_existing(self.root,kind='project');self.live.login();self.base='/api/projects/'+self.pid
+        self.pid=self.live.service.register_existing(self.root,kind='project');self.live.ready();self.base='/api/projects/'+self.pid
 
     def upload(self,raw,extra=()):
         v=view(self.live.service,self.pid);boundary='HarnessTaskResultBoundary09';chunks=[]
@@ -31,8 +31,8 @@ class TasksHttpTests(unittest.TestCase):
 
     def test_http_auth_origin_csrf_exact_fields_get_no_mutation(self):
         live=self.live;before=byte_snapshot(self.root)
-        self.assertEqual(live.request('GET',self.base+'/tasks',authenticated=False)[0],401)
-        for headers in ({'Host':'localhost:'+str(live.port)},{'Origin':'null'},{'Origin':'http://127.0.0.1:1'},{'X-CSRF-Token':'bad'}):
+        self.assertEqual(live.request('GET',self.base+'/tasks',headers={'Origin':'http://foreign.invalid'})[0],403)
+        for headers in ({'Host':'localhost:'+str(live.port)},{'Origin':'null'},{'Origin':'http://127.0.0.1:1'}):
             self.assertEqual(live.request('POST',self.base+'/tasks/result-upload',value={},headers=headers)[0],403)
             self.assertEqual(live.request('POST',self.base+'/operations',value={},headers=headers)[0],403)
         for _ in range(3):self.assertEqual(live.request('GET',self.base+'/tasks')[0],200)
@@ -69,7 +69,7 @@ class TasksBrowserTests(unittest.TestCase):
                     try:
                         context=browser.new_context(viewport={'width':1440,'height':1050});page=context.new_page();page.set_default_timeout(30000)
                         errors=[];urls=[];page.on('pageerror',lambda e:errors.append(str(e)));page.on('request',lambda r:urls.append(r.url))
-                        page.goto(live.origin+'/#bootstrap='+live.auth.issue_bootstrap());expect(page.locator('#session-state')).to_have_text('Сессия активна')
+                        page.goto(live.origin + '/');expect(page.locator('#connection-state')).to_have_text('Сервер готов')
                         page.locator('.project-button').click();page.locator('[data-screen="tasks"]').click()
                         expect(page.locator('#task-copy')).to_be_enabled();old=view(live.service,pid)['active_run']['run_ref']
                         page.locator('#task-copy').click();self.assertIn(old,page.locator('#task-prompt').input_value())
@@ -79,19 +79,19 @@ class TasksBrowserTests(unittest.TestCase):
                         raw=agent_result(root);raw['summary']='<img src="https://forbidden.invalid/x" onerror="alert(1)"> fixture'
                         page.locator('#task-result-file').set_input_files({'name':'Agent Result.json','mimeType':'application/json','buffer':json.dumps(raw).encode()})
                         page.locator('#task-upload').click();expect(page.locator('#task-result-state')).to_contain_text('RESULT_RECEIVED')
-                        self.assertFalse(page.locator('#task-consent').is_checked());expect(page.locator('#task-complete')).to_be_disabled()
+                        self.assertEqual(page.locator('#task-consent').count(),0);expect(page.locator('#task-complete')).to_be_disabled()
                         page.locator('#task-verify').click();expect(page.locator('#task-verification')).to_contain_text('BLOCKED');expect(page.locator('#task-complete')).to_be_disabled()
                         page.locator('#task-manual-panel summary').click()
                         page.locator('#task-manual-reviewer').fill('ACT-EDGE-INDEPENDENT-REVIEWER')
                         page.locator('#task-manual-checks textarea').fill('Inspected fixture CLI parsing, add/list output and persistence. <img src="https://forbidden.invalid/review"> remains inert review text.')
                         page.locator('#task-manual-checks [data-field=status]').select_option('PASS')
                         page.locator('#task-manual-checks [data-field=sources]').select_option(['task_cli.py'])
-                        page.locator('#task-manual-confirm').check();page.locator('#task-manual-submit').click()
+                        page.locator('#task-manual-submit').click()
                         expect(page.locator('#task-manual-state')).to_contain_text('ACT-EDGE-INDEPENDENT-REVIEWER')
-                        self.assertFalse(page.locator('#task-manual-confirm').is_checked())
+                        self.assertEqual(page.locator('#task-manual-confirm').count(),0)
                         expect(page.locator('#task-complete')).to_be_disabled()
-                        page.locator('#task-consent').check();page.locator('#task-verify').click();expect(page.locator('#task-complete')).to_be_enabled(timeout=60000)
-                        self.assertFalse(page.locator('#task-consent').is_checked());expect(page.locator('#task-verification')).to_contain_text('PASS')
+                        page.locator('#task-verify').click();expect(page.locator('#task-complete')).to_be_enabled(timeout=60000)
+                        self.assertEqual(page.locator('#task-consent').count(),0);expect(page.locator('#task-verification')).to_contain_text('PASS')
                         screen=Path(os.environ.get('PH_LW_09_SCREENSHOT_DIR',str(Path(directory)/'screenshots')));screen.mkdir(parents=True,exist_ok=True)
                         page.screenshot(path=str(screen/'task-verified.png'),full_page=True)
                         page.locator('#task-complete').click();expect(page.locator('#tasks-summary')).to_contain_text('завершено: 1')
@@ -115,12 +115,12 @@ class TasksBrowserTests(unittest.TestCase):
                     browser=p.chromium.launch(channel=os.environ.get('PH_LW_04_BROWSER_CHANNEL','msedge'),headless=True)
                     try:
                         page=browser.new_page(viewport={'width':1400,'height':1000});page.set_default_timeout(30000)
-                        page.goto(live.origin+'/#bootstrap='+live.auth.issue_bootstrap());expect(page.locator('#session-state')).to_have_text('Сессия активна')
+                        page.goto(live.origin + '/');expect(page.locator('#connection-state')).to_have_text('Сервер готов')
                         page.locator('.project-button').click();page.locator('[data-screen="tasks"]').click();expect(page.locator('#task-upload')).to_be_enabled()
                         old=view(live.service,pid)['active_run']['run_ref']
                         page.locator('#task-result-file').set_input_files({'name':'result.json','mimeType':'application/json','buffer':json.dumps(agent_result(root)).encode()})
                         page.locator('#task-upload').click();expect(page.locator('#task-verify')).to_be_enabled()
-                        page.locator('#task-consent').check();page.locator('#task-verify').click();expect(page.locator('#task-verification')).to_contain_text('FAIL')
+                        page.locator('#task-verify').click();expect(page.locator('#task-verification')).to_contain_text('FAIL')
                         expect(page.locator('#task-complete')).to_be_disabled();page.get_by_text('Block / resume и восстановление',exact=True).click()
                         page.locator('#task-reason').fill('Fixture test exit 9 requires correction');page.locator('#task-block').click()
                         expect(page.locator('#task-resume')).to_be_enabled();expect(page.locator('#task-blocker-ref option')).to_have_count(1)

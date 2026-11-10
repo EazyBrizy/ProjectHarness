@@ -29,6 +29,10 @@
 **/catalog.json
 **/uploads/
 **/raw-uploads/
+**/codex-cli-connection.json
+**/cli-analysis/
+**/launcher-instance.json
+**/.codex/auth.json
 
 # Keep the exact accepted wheel alongside the Windows installer/frozen bundle.
 !/Project_Harness_Engine_v0.5.1/dist/

@@ -1,0 +1,154 @@
+Task queue depth is 1
+Task queue depth is 1
+Task queue depth is 1
+{
+  "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "package": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\wheel-venv\\Lib\\site-packages\\project_harness",
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\Независимая папка wheel",
+  "source_import": false,
+  "dependencies": {
+    "Flask": "3.1.3",
+    "Waitress": "3.0.2",
+    "playwright": "1.64.1"
+  },
+  "scope": "Full width, buttons row/labels, token note, idle hidden, connection/reload/recheck-failure presentation only",
+  "provider": "Declared FixtureCli probes only; no actual CLI/model analysis",
+  "viewports": [
+    {
+      "main_right": 1920,
+      "main_width": 1665,
+      "panel_width": 1555,
+      "fills_main": true,
+      "buttons": [
+        {
+          "text": "✓Подключить CLI",
+          "x": 346,
+          "y": 713.734375,
+          "width": 141.046875,
+          "height": 42.5,
+          "inside": true
+        },
+        {
+          "text": "Анализировать через CLI",
+          "x": 497.046875,
+          "y": 711.734375,
+          "width": 212.578125,
+          "height": 46.5,
+          "inside": true
+        }
+      ],
+      "one_button_row": true,
+      "note": {
+        "font_size": "12px",
+        "color": "rgb(107, 114, 128)"
+      },
+      "no_horizontal_overflow": true,
+      "width": 1920
+    },
+    {
+      "main_right": 1360,
+      "main_width": 1105,
+      "panel_width": 996.21875,
+      "fills_main": true,
+      "buttons": [
+        {
+          "text": "✓Подключить CLI",
+          "x": 345.390625,
+          "y": 781.234375,
+          "width": 141.046875,
+          "height": 42.5,
+          "inside": true
+        },
+        {
+          "text": "Анализировать через CLI",
+          "x": 496.4375,
+          "y": 779.234375,
+          "width": 212.578125,
+          "height": 46.5,
+          "inside": true
+        }
+      ],
+      "one_button_row": true,
+      "note": {
+        "font_size": "12px",
+        "color": "rgb(107, 114, 128)"
+      },
+      "no_horizontal_overflow": true,
+      "width": 1360
+    },
+    {
+      "main_right": 1024,
+      "main_width": 769,
+      "panel_width": 687.09375,
+      "fills_main": true,
+      "buttons": [
+        {
+          "text": "✓Подключить CLI",
+          "x": 331.953125,
+          "y": 944.984375,
+          "width": 141.046875,
+          "height": 42.5,
+          "inside": true
+        },
+        {
+          "text": "Анализировать через CLI",
+          "x": 483,
+          "y": 931.734375,
+          "width": 135.5,
+          "height": 69,
+          "inside": true
+        }
+      ],
+      "one_button_row": true,
+      "note": {
+        "font_size": "12px",
+        "color": "rgb(107, 114, 128)"
+      },
+      "no_horizontal_overflow": true,
+      "width": 1024
+    },
+    {
+      "main_right": 390,
+      "main_width": 390,
+      "panel_width": 350,
+      "fills_main": true,
+      "buttons": [
+        {
+          "text": "✓Подключить CLI",
+          "x": 56,
+          "y": 1409.1875,
+          "width": 135,
+          "height": 39.5,
+          "inside": true
+        },
+        {
+          "text": "Анализировать через CLI",
+          "x": 199,
+          "y": 1399.4375,
+          "width": 135,
+          "height": 59,
+          "inside": true
+        }
+      ],
+      "one_button_row": true,
+      "note": {
+        "font_size": "12px",
+        "color": "rgb(107, 114, 128)"
+      },
+      "no_horizontal_overflow": true,
+      "width": 390
+    }
+  ],
+  "states": [
+    "disconnected: label/help/idle/note PASS; no process from GET",
+    "connected: label/green check/hidden help/enabled recheck PASS",
+    "reload: connected presentation persists; no new CLI probes PASS",
+    "failed recheck: honest disconnected label/help restored PASS"
+  ],
+  "page_errors": [],
+  "dialogs": [],
+  "edge_version": "157.0.4341.42",
+  "analysis_calls": 0,
+  "status": "PASS"
+}

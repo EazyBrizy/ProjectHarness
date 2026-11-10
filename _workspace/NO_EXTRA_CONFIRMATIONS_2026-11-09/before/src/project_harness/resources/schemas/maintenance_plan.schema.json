@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "SCHEMA-MAINTENANCE-PLAN@1",
+  "title": "Project Harness exact-bound same-level maintenance plan",
+  "type": "object",
+  "required": ["maintenance_plan"],
+  "properties": {
+    "maintenance_plan": {"$ref": "#/$defs/maintenancePlan"}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "nonEmptyString": {"type": "string", "minLength": 1},
+    "stringArray": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "level": {"enum": ["PROTOTYPE", "ALPHA", "BETA", "MVP", "RELEASE"]},
+    "canonicalRef": {"type": "string", "pattern": "^[A-Z][A-Z0-9]*-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?@[1-9][0-9]*$"},
+    "decision": {
+      "type": "object",
+      "required": ["id", "kind", "approved", "actor", "approved_at"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^DEC-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?$"},
+        "kind": {"const": "MAINTAIN_CURRENT_STAGE"},
+        "approved": {"const": true},
+        "actor": {"type": "string", "pattern": "^ACT-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?$"},
+        "approved_at": {"type": "string", "format": "date-time"}
+      },
+      "additionalProperties": false
+    },
+    "scope": {
+      "type": "object",
+      "required": ["read", "write", "forbidden"],
+      "properties": {
+        "read": {"$ref": "#/$defs/stringArray"},
+        "write": {"$ref": "#/$defs/stringArray"},
+        "forbidden": {"$ref": "#/$defs/stringArray"}
+      },
+      "additionalProperties": false
+    },
+    "route": {
+      "type": "object",
+      "required": ["primary_skill_ref", "supporting_skill_refs", "required_capabilities"],
+      "properties": {
+        "primary_skill_ref": {"$ref": "#/$defs/canonicalRef"},
+        "supporting_skill_refs": {"type": "array", "items": {"$ref": "#/$defs/canonicalRef"}},
+        "required_capabilities": {"$ref": "#/$defs/stringArray"}
+      },
+      "additionalProperties": false
+    },
+    "command": {
+      "type": "object",
+      "required": ["argv", "cwd", "timeout_seconds"],
+      "properties": {
+        "argv": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "cwd": {"type": "string", "minLength": 1},
+        "timeout_seconds": {"type": "integer", "minimum": 1}
+      },
+      "additionalProperties": false
+    },
+    "verification": {
+      "type": "object",
+      "required": ["commands", "expected_paths", "manual_checks", "timeout_seconds", "allow_manual"],
+      "properties": {
+        "commands": {"type": "array", "items": {"$ref": "#/$defs/command"}},
+        "expected_paths": {"$ref": "#/$defs/stringArray"},
+        "manual_checks": {"$ref": "#/$defs/stringArray"},
+        "timeout_seconds": {"type": "integer", "minimum": 1},
+        "allow_manual": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "documentation": {
+      "type": "object",
+      "required": ["source_refs", "impact", "required_updates"],
+      "properties": {
+        "source_refs": {"$ref": "#/$defs/stringArray"},
+        "impact": {"$ref": "#/$defs/nonEmptyString"},
+        "required_updates": {"$ref": "#/$defs/stringArray"}
+      },
+      "additionalProperties": false
+    },
+    "rollback": {
+      "type": "object",
+      "required": ["strategy"],
+      "properties": {
+        "strategy": {"const": "RESTORE_PRE_RUN_SNAPSHOT"}
+      },
+      "additionalProperties": false
+    },
+    "task": {
+      "type": "object",
+      "required": [
+        "id", "title", "type", "priority", "purpose", "expected_result",
+        "implementation_stage", "product_changing", "future_stage_work",
+        "depends_on_tasks", "requirement_refs", "constraint_refs", "architecture_refs",
+        "produces_artifacts", "scope", "route", "prompt_spec_ref", "verification",
+        "documentation", "acceptance_criteria", "rollback"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^TSK-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?$"},
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "type": {"enum": ["IMPLEMENT", "VERIFY", "DOCUMENT", "MIGRATE", "REFACTOR", "TEST"]},
+        "priority": {"enum": ["LOW", "NORMAL", "HIGH", "CRITICAL"]},
+        "purpose": {"$ref": "#/$defs/nonEmptyString"},
+        "expected_result": {"$ref": "#/$defs/nonEmptyString"},
+        "implementation_stage": {"$ref": "#/$defs/level"},
+        "product_changing": {"type": "boolean"},
+        "future_stage_work": {"const": "FORBIDDEN"},
+        "depends_on_tasks": {"type": "array", "items": {"type": "string", "pattern": "^TSK-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?$"}},
+        "requirement_refs": {"$ref": "#/$defs/stringArray"},
+        "constraint_refs": {"$ref": "#/$defs/stringArray"},
+        "architecture_refs": {"$ref": "#/$defs/stringArray"},
+        "produces_artifacts": {"$ref": "#/$defs/stringArray"},
+        "scope": {"$ref": "#/$defs/scope"},
+        "route": {"$ref": "#/$defs/route"},
+        "prompt_spec_ref": {"$ref": "#/$defs/canonicalRef"},
+        "verification": {"$ref": "#/$defs/verification"},
+        "documentation": {"$ref": "#/$defs/documentation"},
+        "acceptance_criteria": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "rollback": {"$ref": "#/$defs/rollback"}
+      },
+      "additionalProperties": false
+    },
+    "workPackage": {
+      "type": "object",
+      "required": ["id", "title", "objective", "implementation_stage", "tasks"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^WP-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?$"},
+        "title": {"$ref": "#/$defs/nonEmptyString"},
+        "objective": {"$ref": "#/$defs/nonEmptyString"},
+        "implementation_stage": {"$ref": "#/$defs/level"},
+        "tasks": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/task"}}
+      },
+      "additionalProperties": false
+    },
+    "scopeBoundary": {
+      "type": "object",
+      "required": ["future_stage_work", "future_stage_refs"],
+      "properties": {
+        "future_stage_work": {"const": "FORBIDDEN"},
+        "future_stage_refs": {"type": "array", "items": {"$ref": "#/$defs/canonicalRef"}}
+      },
+      "additionalProperties": false
+    },
+    "verificationConstraints": {
+      "type": "object",
+      "required": ["independent_verification_required", "completion_requires_pass"],
+      "properties": {
+        "independent_verification_required": {"const": true},
+        "completion_requires_pass": {"const": true}
+      },
+      "additionalProperties": false
+    },
+    "rollbackConstraints": {
+      "type": "object",
+      "required": ["automatic_rollback", "strategy"],
+      "properties": {
+        "automatic_rollback": {"const": false},
+        "strategy": {"const": "RESTORE_PRE_RUN_SNAPSHOT"}
+      },
+      "additionalProperties": false
+    },
+    "cancelConstraints": {
+      "type": "object",
+      "required": ["before_product_change_only", "completed_product_change_action"],
+      "properties": {
+        "before_product_change_only": {"const": true},
+        "completed_product_change_action": {"const": "REQUIRE_COMPLETION_OR_GOVERNED_COMPENSATION"}
+      },
+      "additionalProperties": false
+    },
+    "maintenancePlan": {
+      "type": "object",
+      "required": [
+        "schema_version", "schema_ref", "record_kind", "id", "revision", "status", "route",
+        "highest_accepted_level", "implementation_stage", "target_level", "last_acceptance_ref",
+        "accepted_scope_ref", "objective", "rationale", "decision", "scope_boundary", "work_package",
+        "verification_constraints", "rollback_constraints", "cancel_constraints"
+      ],
+      "properties": {
+        "schema_version": {"const": 1},
+        "schema_ref": {"const": "SCHEMA-MAINTENANCE-PLAN@1"},
+        "record_kind": {"const": "MAINTENANCE_PLAN"},
+        "id": {"type": "string", "pattern": "^RQP-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?$"},
+        "revision": {"type": "integer", "minimum": 1},
+        "status": {"const": "APPROVED"},
+        "route": {"const": "MAINTAIN_CURRENT_STAGE"},
+        "highest_accepted_level": {"$ref": "#/$defs/level"},
+        "implementation_stage": {"$ref": "#/$defs/level"},
+        "target_level": {"$ref": "#/$defs/level"},
+        "last_acceptance_ref": {"$ref": "#/$defs/canonicalRef"},
+        "accepted_scope_ref": {"$ref": "#/$defs/canonicalRef"},
+        "objective": {"$ref": "#/$defs/nonEmptyString"},
+        "rationale": {"$ref": "#/$defs/nonEmptyString"},
+        "decision": {"$ref": "#/$defs/decision"},
+        "scope_boundary": {"$ref": "#/$defs/scopeBoundary"},
+        "work_package": {"$ref": "#/$defs/workPackage"},
+        "verification_constraints": {"$ref": "#/$defs/verificationConstraints"},
+        "rollback_constraints": {"$ref": "#/$defs/rollbackConstraints"},
+        "cancel_constraints": {"$ref": "#/$defs/cancelConstraints"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

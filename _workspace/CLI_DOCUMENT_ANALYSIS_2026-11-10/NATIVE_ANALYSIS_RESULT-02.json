@@ -1,0 +1,23 @@
+{
+  "scope": "One actual Codex native document-analysis positive with synthetic source only",
+  "browser": "separate targeted UI fixture run",
+  "user_uploads_used": false,
+  "connection": {
+    "connected": true,
+    "message_ru": "Codex CLI подключён.",
+    "version": "codex-cli 0.154.0"
+  },
+  "job": {
+    "error_code": null,
+    "import_id": "LWI-28700F052561BD9744245D236ACE891E",
+    "input_fingerprint": "sha256:13c905568e4960fa054386a4e26a0c4d4f8d9e240c3e60fefdb06fff69dbd09f",
+    "job_id": "CLIA-2A36608B45C2425997E00C3A5EE84B3A",
+    "message_ru": "Анализ завершён. Предложения показаны ниже; посмотрите оставшиеся вопросы.",
+    "repair_prompt": null,
+    "state": "SUCCEEDED"
+  },
+  "canonical_draft_unchanged": true,
+  "preview_count": 1,
+  "command_execution_events": 0,
+  "status": "PASS"
+}

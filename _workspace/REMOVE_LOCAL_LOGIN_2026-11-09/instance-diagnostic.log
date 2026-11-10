@@ -1,0 +1,38 @@
+test_plain_instance_record_discovery_cleanup_and_invalid_records (tests.test_ph_lw_11_desktop.NativeLauncherTests.test_plain_instance_record_discovery_cleanup_and_invalid_records) ... ERROR
+
+======================================================================
+ERROR: test_plain_instance_record_discovery_cleanup_and_invalid_records (tests.test_ph_lw_11_desktop.NativeLauncherTests.test_plain_instance_record_discovery_cleanup_and_invalid_records)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_11_desktop.py", line 279, in test_plain_instance_record_discovery_cleanup_and_invalid_records
+    self.assertEqual(connect_existing(base),live.origin+'/')
+                     ~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_instance.py", line 138, in connect_existing
+    record = _read_record(app_data / 'launcher-instance.json')
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_instance.py", line 110, in _read_record
+    ensure_native_path(path)
+    ~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\src\project_harness\platform_fs.py", line 179, in ensure_native_path
+    raise SafetyViolation("WINDOWS_UNSUPPORTED_ROOT: expected ordinary directory", str(path))
+project_harness.errors.SafetyViolation: SAFETY_VIOLATION: WINDOWS_UNSUPPORTED_ROOT: expected ordinary directory
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\tests\test_ph_lw_11_desktop.py", line 283, in test_plain_instance_record_discovery_cleanup_and_invalid_records
+    finally:instance.close();live.close()
+            ~~~~~~~~~~~~~~^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_instance.py", line 104, in close
+    if _read_record(self.path) == self.record:
+       ~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_instance.py", line 110, in _read_record
+    ensure_native_path(path)
+    ~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\src\project_harness\platform_fs.py", line 179, in ensure_native_path
+    raise SafetyViolation("WINDOWS_UNSUPPORTED_ROOT: expected ordinary directory", str(path))
+project_harness.errors.SafetyViolation: SAFETY_VIOLATION: WINDOWS_UNSUPPORTED_ROOT: expected ordinary directory
+
+----------------------------------------------------------------------
+Ran 1 test in 0.658s
+
+FAILED (errors=1)

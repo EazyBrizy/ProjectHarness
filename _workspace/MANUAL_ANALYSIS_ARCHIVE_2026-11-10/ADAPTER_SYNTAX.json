@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "files": [
+    "test_cli_document_ui.py",
+    "test_interview_clarity.py",
+    "test_manual_analysis_archive.py",
+    "test_ph_lw_06_http.py",
+    "test_ph_lw_08_http.py",
+    "test_single_action_ui.py",
+    "local_web/windows/final_acceptance.py"
+  ],
+  "scope": "AST parse only; old broad workflows NOT RUN"
+}

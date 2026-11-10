@@ -1,0 +1,24 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "Project_Harness_Documentation_v0.5.1/tools/validate_documentation.py",
+    "Project_Harness_Documentation_v0.5.1",
+    "--json",
+    "_workspace/DOCUMENT_UPLOAD_FEEDBACK_2026-11-09/DOC_VALIDATION_FINAL.json"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]",
+  "started_utc": "2026-11-09T10:22:12.920425+00:00",
+  "source_layout": false,
+  "dependencies": {
+    "Flask": "3.1.3",
+    "Waitress": "3.0.2",
+    "playwright": "1.64.1"
+  },
+  "exit": 0,
+  "status": "PASS",
+  "elapsed_seconds": 2.148,
+  "log_sha256": "6f37350a0ba85625b940e292ba9aed46c8b319eca4f986487045e15d26625a43"
+}

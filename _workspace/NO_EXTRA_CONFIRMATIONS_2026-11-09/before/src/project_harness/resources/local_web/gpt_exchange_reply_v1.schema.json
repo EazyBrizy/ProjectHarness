@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:project-harness:local-web:gpt-exchange-reply:1",
+  "title": "Local Web GPT draft-only exchange reply v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "kind",
+    "envelope_version",
+    "exchange_id",
+    "export_revision",
+    "export_sha256",
+    "project_ref",
+    "source_revision",
+    "source_inventory_sha256",
+    "input_revision",
+    "project_input_draft",
+    "questions"
+  ],
+  "properties": {
+    "kind": {
+      "const": "LOCAL_WEB_GPT_DRAFT_ONLY"
+    },
+    "envelope_version": {
+      "const": 1
+    },
+    "exchange_id": {
+      "type": "string",
+      "pattern": "^LWX-[A-Z0-9-]{4,72}$"
+    },
+    "export_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "export_sha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "project_ref": {
+      "type": "string",
+      "pattern": "^LWP-[A-Z0-9-]{4,72}$"
+    },
+    "source_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "source_inventory_sha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "input_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "project_input_draft": {
+      "type": "object",
+      "description": "Untrusted full PROJECT_INPUT@4 draft; dual-validation against core schema, with ALL intake approvals false; no automatic execution."
+    },
+    "questions": {
+      "type": "array",
+      "maxItems": 30,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "question"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "question": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "source_refs": {
+            "type": "array",
+            "maxItems": 20,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "maxLength": 256
+            }
+          }
+        }
+      }
+    },
+    "uncertainties": {
+      "type": "array",
+      "maxItems": 30,
+      "items": {
+        "type": "string",
+        "maxLength": 2000
+      }
+    }
+  }
+}

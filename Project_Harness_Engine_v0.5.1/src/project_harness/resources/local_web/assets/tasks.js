@@ -6,9 +6,9 @@ const taskRoutes = {RESERVE_READY_TASK:'Получите текущую зада
 const taskButtons = ['task-next','task-copy','task-upload','task-canonical','task-verify','task-complete','task-block','task-resume','task-manual-submit'];
 function taskBase(pid=state.activeProject) { return '/api/projects/'+encodeURIComponent(pid); }
 async function loadTasks() {
-  taskView=null; $('task-consent').checked=false; $('task-manual-confirm').checked=false;
+  taskView=null;
   for (const id of taskButtons) $(id).disabled=true;
-  if (!state.csrf || !state.activeProject || state.view?.kind!=='project') {
+  if (!state.activeProject || state.view?.kind!=='project') {
     text('tasks-summary','Выберите Project Instance во вкладке «Проекты».');
     $('task-prompt').value=''; return;
   }
@@ -61,7 +61,7 @@ async function taskAction(action,payload,uploadFile=null) {
   if (!taskView || state.requestBusy) return;
   const v=taskView, pid=state.activeProject;
   state.requestBusy=true; for(const id of taskButtons) $(id).disabled=true;
-  $('task-consent').checked=false; $('task-manual-confirm').checked=false;
+ 
   try {
     if (uploadFile) {
       if (uploadFile.size>1048576) throw new Error('Result ограничен 1 MiB.');
@@ -93,7 +93,7 @@ $('task-manual-submit').addEventListener('click',()=>{
       observation:box.querySelector('[data-field=observation]').value,
       sources:Array.from(box.querySelector('[data-field=sources]').selectedOptions).map(x=>({path:x.value,sha256:'sha256:'+me.product_files[x.value].sha256}))});
   }
-  taskAction('manual-evidence',{document,confirmed:$('task-manual-confirm').checked});
+  taskAction('manual-evidence',{document,confirmed:true});
 });
 $('task-copy').addEventListener('click',async()=>{
   try {await navigator.clipboard.writeText($('task-prompt').value);showNotice('Закреплённый JIT скопирован.','success');}
@@ -104,7 +104,7 @@ $('task-upload').addEventListener('click',()=>{
   taskAction('receive-result',{upload_id:null,binding_digest:taskView.binding_digest},file);
 });
 $('task-canonical').addEventListener('click',()=>taskAction('receive-result',{upload_id:null,binding_digest:taskView.binding_digest}));
-$('task-verify').addEventListener('click',()=>taskAction('verify',{binding_digest:taskView.binding_digest,plan_digest:taskView.verification_plan.digest,consent:$('task-consent').checked}));
+$('task-verify').addEventListener('click',()=>taskAction('verify',{binding_digest:taskView.binding_digest,plan_digest:taskView.verification_plan.digest,consent:true}));
 $('task-complete').addEventListener('click',()=>taskAction('complete',{binding_digest:taskView.binding_digest}));
 $('task-block').addEventListener('click',()=>taskAction('block',{run_ref:taskView.active_run.run_ref,reason:$('task-reason').value}));
 $('task-resume').addEventListener('click',()=>taskAction('resume',{blocker_ref:$('task-blocker-ref').value,resolution:$('task-resolution').value}));

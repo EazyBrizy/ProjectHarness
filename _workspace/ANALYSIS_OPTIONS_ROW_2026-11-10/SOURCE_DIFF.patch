@@ -1,0 +1,51 @@
+--- before/resources/local_web/assets/app.css
++++ after/resources/local_web/assets/app.css
+@@ -105,6 +105,10 @@
+ #interview-panel details { margin:12px 0; border-top:1px solid #dfe6ef; }
+ .question, .known-answer, .export-document, .diff-row { margin:12px 0; padding:12px; border:1px solid #dfe6ef; border-radius:9px; overflow-wrap:anywhere; }
+ .question h3 { margin-top:0; }
++#interview-panel .analysis-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin:12px 0; }
++#interview-panel .analysis-options > .question { min-width:0; margin:0; }
++#interview-panel .analysis-options h4 { margin-top:0; }
++@media(max-width:760px) { #interview-panel .analysis-options { grid-template-columns:1fr; } }
+ .answer-field { margin-bottom:13px; }
+ #interview-panel .consent { font-weight:400; margin:16px 0; }
+ #interview-panel hr { border:0; border-top:1px solid #dfe6ef; margin:30px 0; }
+--- before/resources/local_web/assets/index.html
++++ after/resources/local_web/assets/index.html
+@@ -209,6 +209,7 @@
+           <div id="interview-documents" class="body-value"></div>
+           <button id="interview-documents-link" type="button" class="quiet">Открыть документы</button>
+           <h3>1. Выберите способ анализа документов</h3>
++          <div id="analysis-options" class="analysis-options">
+           <section class="question" aria-labelledby="cli-analysis-title">
+             <h4 id="cli-analysis-title">Автоматически через Codex CLI</h4>
+             <p>Подключите Codex CLI, установленный на этом компьютере. Harness сам передаст документы на анализ и покажет предложения в браузере. Скачивать пакет и переносить JSON не потребуется.</p>
+@@ -227,6 +228,7 @@
+             <p>Harness сформирует пакет документов. Скачайте его, передайте выбранной модели, а её ответ вставьте на шаге 2. Подключать CLI к приложению для этого не требуется.</p>
+             <button id="review-export" type="button" class="outline">Сформировать пакет вручную</button>
+           </section>
++          </div>
+           <div id="export-history"></div>
+           <hr>
+           <h3>2. Верните ответ модели</h3>
+--- before/resources/local_web/metadata_v1.json
++++ after/resources/local_web/metadata_v1.json
+@@ -5,7 +5,7 @@
+   "core_schema_version": 7,
+   "project_input_schema": "SCHEMA-PROJECT-PREPARATION-INPUT@4",
+   "local_web_version": "0.1.0-dev",
+-  "local_web_build_id": "CLI-DOC-ANALYSIS-20261110",
++  "local_web_build_id": "ANALYSIS-OPTIONS-ROW-20261110",
+   "base_lineage": "PH-051-11-WIP-NOT-RELEASED",
+   "declared_target_base": "PH-051-12-WIP-NO-GO-NOT_SUPPLIED",
+   "source_engine_zip_sha256": "44b75136131d917403b99299077e829c025783a6bb94c2b539fbe0b913449dbd",
+@@ -37,7 +37,7 @@
+     "exchange_envelope": "LOCAL_WEB_GPT_DRAFT_ONLY@2",
+     "artifact_policy": "Unpacked working files; ZIP only on explicit user request"
+   },
+-  "engine_build_digest": "sha256:ab26e808d3876f52e0f6006865b962de4b953e01b19f2b185629b1cf9e79a851",
++  "engine_build_digest": "sha256:d9df0cab22d90d65b991e38f1f8ac9a6fdac4ea8c6aaf532f1d362bd9fb5b1a0",
+   "engine_build_digest_definition": "SHA256 of sorted SHA256 + two spaces + relative path + LF for src/project_harness files, excluding this metadata file and caches",
+   "ph_lw_07": {
+     "report": "PH_LW_07_TEST_REPORT.md",

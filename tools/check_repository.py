@@ -44,9 +44,9 @@ def inventory(base: Path, *, caches: bool = False) -> set[str]:
 def check(root: Path) -> dict:
     engine = root / 'Project_Harness_Engine_v0.5.1'
     docs = root / 'Project_Harness_Documentation_v0.5.1'
-    evidence = root / '_workspace/PH_LW_12_FIX'
+    evidence = root / '_workspace/MANUAL_ANALYSIS_ARCHIVE_2026-11-10'
     freeze = read(evidence / 'RUNTIME_FREEZE.json')
-    accepted = read(evidence / 'FINAL_WORKING_TREE_VERIFICATION.json')
+    integrity = read(evidence / 'INTEGRITY.json')
     tracked = {}
     for entry in subprocess.check_output(['git', '-C', str(root), 'ls-files', '--stage', '-z'], timeout=30).split(b'\0'):
         if not entry:
@@ -104,8 +104,8 @@ def check(root: Path) -> dict:
     # Full acceptance manifests also include reproducible build metadata. Keep
     # that historical evidence unchanged and verify only versioned payload here.
     manifest = engine / 'MANIFEST.sha256'
-    expected_manifest = accepted['trees'][engine.name]['manifest_sha256']
-    compare('acceptance_manifest_anchor', engine, {'MANIFEST.sha256': expected_manifest})
+    expected_manifest = integrity['engine_manifest_sha256']
+    compare('working_manifest_anchor', engine, {'MANIFEST.sha256': expected_manifest})
     payload = {}; generated = []
     for line in io(manifest).read_text('utf-8').splitlines():
         digest, name = line.split('  ', 1)

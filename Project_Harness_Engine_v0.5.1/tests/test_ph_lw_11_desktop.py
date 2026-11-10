@@ -15,7 +15,7 @@ from unittest.mock import patch
 
 from project_harness.errors import ValidationFailure
 from project_harness.local_web_desktop import DesktopLifecycle, read_resume, save_resume
-from project_harness.local_web_http import LocalWebAuth, create_app
+from project_harness.local_web_http import create_app
 from project_harness.local_web_service import LocalWebService
 from project_harness.windows_package import activate, verify_bundle
 
@@ -25,12 +25,9 @@ class DesktopContractTests(unittest.TestCase):
         self.tmp = tempfile.TemporaryDirectory(prefix='harness-lw11-')
         self.base = Path(self.tmp.name)
         self.service = LocalWebService(self.base/'app')
-        self.auth = LocalWebAuth()
-        self.app = create_app(self.service, port=32179, auth=self.auth)
+        self.app = create_app(self.service, port=32179)
         self.client = self.app.test_client()
         self.headers = {'Host':'127.0.0.1:32179','Origin':'http://127.0.0.1:32179'}
-        response = self.client.post('/api/session/bootstrap',json={'token':self.auth.issue_bootstrap()},headers=self.headers)
-        self.headers['X-CSRF-Token'] = response.json['csrf']
 
     def tearDown(self):
         self.service.close(); self.tmp.cleanup()
@@ -60,14 +57,12 @@ class DesktopContractTests(unittest.TestCase):
             self.assertGreaterEqual(self.post('/api/ui/resume',body).status_code,400)
         self.assertFalse((self.service.app_data/'ui-resume.json').exists())
 
-    def test_stop_requires_session_csrf_exact_origin_and_fields(self):
-        for headers in [{'Host':'127.0.0.1:32179','Origin':'http://evil.invalid'},
-                        {'Host':'127.0.0.1:32179','Origin':'http://127.0.0.1:32179'}]:
-            self.assertGreaterEqual(self.client.post('/api/desktop/stop',json={},headers=headers).status_code,400)
+    def test_stop_without_login_preserves_origin_and_field_validation(self):
+        invalid={'Host':'127.0.0.1:32179','Origin':'http://evil.invalid'}
+        self.assertEqual(self.client.post('/api/desktop/stop',json={},headers=invalid).status_code,403)
         self.assertEqual(self.post('/api/desktop/stop',{'force':True}).status_code,400)
         self.assertFalse(self.service.desktop_lifecycle.stopping.is_set())
-        stranger=self.app.test_client()
-        self.assertEqual(stranger.post('/api/desktop/stop',json={},headers=self.headers).status_code,401)
+        self.assertEqual(self.app.test_client().post('/api/desktop/stop',json={},headers=self.headers).status_code,200)
 
     def test_stop_busy_admission_and_background_work_then_clean_stop(self):
         life = self.service.desktop_lifecycle
@@ -82,18 +77,19 @@ class DesktopContractTests(unittest.TestCase):
         self.assertFalse(life.enter())
         self.assertEqual(self.service.list_projects(),[])
 
-    def test_bootstrap_reissue_does_not_revoke_other_tabs(self):
-        old=self.auth.issue_bootstrap();new=self.auth.issue_bootstrap()
-        self.assertEqual(self.client.post('/api/session/bootstrap',json={'token':old},headers=self.headers).status_code,401)
-        self.assertEqual(self.client.get('/api/ui/resume',headers=self.headers).status_code,200)
-        self.assertEqual(self.client.post('/api/session/bootstrap',json={'token':new},headers=self.headers).status_code,200)
+    def test_independent_clients_access_without_sessions_or_cookies(self):
+        for client in (self.client,self.app.test_client()):
+            response=client.get('/api/ui/resume',headers=self.headers)
+            self.assertEqual(response.status_code,200)
+            self.assertNotIn('Set-Cookie',response.headers)
 
-    def test_browser_failure_displays_only_native_fallback(self):
-        if os.name != 'nt': self.skipTest('native Windows')
+    def test_browser_failure_displays_plain_url_without_login_code(self):
+        if os.name!='nt':self.skipTest('native Windows')
         from project_harness.local_web_launcher import open_local_browser
         with patch('webbrowser.open',return_value=False),patch('ctypes.windll.user32.MessageBoxW') as message,patch('builtins.print') as output:
-            self.assertFalse(open_local_browser('http://127.0.0.1:1234/#bootstrap='+'X'*43))
-            self.assertIn('X'*43,message.call_args.args[1]);output.assert_not_called()
+            self.assertFalse(open_local_browser('http://127.0.0.1:1234/'))
+            self.assertIn('http://127.0.0.1:1234/',message.call_args.args[1])
+            self.assertNotIn('код',message.call_args.args[1]);output.assert_not_called()
 
 
 class InstallerTransactionTests(unittest.TestCase):
@@ -200,11 +196,10 @@ class NativeLauncherTests(unittest.TestCase):
                     try:
                         context=browser.new_context()
                         launched=context.new_page()
-                        launched.goto(live.origin+'/#bootstrap='+live.auth.issue_bootstrap(),wait_until='networkidle')
+                        launched.goto(live.origin + '/',wait_until='networkidle')
                         expect(launched.locator('#documents-panel')).to_be_visible()
                         other=context.new_page();other.goto(live.origin,wait_until='networkidle')
-                        expect(other.locator('#project-layout')).to_be_visible()
-                        expect(other.locator('.project-button').filter(has_text=pid)).to_be_visible()
+                        expect(other.locator('#documents-panel')).to_be_visible()
                         launched.reload(wait_until='networkidle')
                         expect(launched.locator('#documents-panel')).to_be_visible()
                         self.assertEqual(before,byte_snapshot(Path(folder)))
@@ -223,10 +218,10 @@ class NativeLauncherTests(unittest.TestCase):
                     browser=p.chromium.launch(channel='msedge',headless=True)
                     try:
                         page=browser.new_page();page.on('dialog',lambda d:d.accept())
-                        page.goto(live.origin+'/#bootstrap='+live.auth.issue_bootstrap())
-                        expect(page.locator('#session-state')).to_have_text('Сессия активна')
+                        page.goto(live.origin + '/')
+                        expect(page.locator('#connection-state')).to_have_text('Сервер готов')
                         page.locator('[data-screen="documents"]').click();page.locator('#new-project-name').fill('Delayed refresh')
-                        page.locator('#create-intake').click();expect(page.locator('#notice')).to_contain_text('Intake создан')
+                        page.locator('#create-intake').click();expect(page.locator('#notice')).to_contain_text('Проект создан')
                         held=[]
                         page.route(re.compile(r'/api/projects/LWP-[A-F0-9]+$'),lambda route:held.append(route))
                         page.locator('#source-files').set_input_files({'name':'fixture.md','mimeType':'text/markdown','buffer':b'# fixture'})
@@ -247,66 +242,49 @@ class NativeLauncherTests(unittest.TestCase):
                     finally:browser.close()
             finally:live.close()
 
-    def test_edge_manual_code_login_without_fragment_or_external_requests(self):
+    def test_edge_direct_entry_without_login_controls_or_external_requests(self):
         from tests.test_ph_lw_04_05_acceptance import LiveServer
         from playwright.sync_api import sync_playwright,expect
-        with tempfile.TemporaryDirectory(prefix='harness-lw11-manual-login-') as folder:
+        with tempfile.TemporaryDirectory(prefix='harness-direct-entry-') as folder:
             live=LiveServer(folder)
             try:
-                with sync_playwright() as p:
-                    browser=p.chromium.launch(channel='msedge',headless=True)
+                with sync_playwright() as play:
+                    browser=play.chromium.launch(channel='msedge',headless=True)
                     try:
-                        context=browser.new_context()
-                        page=context.new_page();urls=[];page.on('request',lambda r:urls.append(r.url))
-                        page.goto(live.origin)
-                        expect(page.locator('#session-gate')).to_be_visible()
-                        page.locator('#manual-bootstrap').fill(live.auth.issue_bootstrap())
-                        page.locator('#manual-login').click()
-                        expect(page.locator('#session-state')).to_have_text('Сессия активна')
-                        expect(page.locator('#manual-bootstrap')).to_have_value('')
-                        expect(page.locator('#notice')).to_contain_text('Список обновлён.')
-                        self.assertNotIn('bootstrap',page.url)
+                        page=browser.new_page();urls=[];page.on('request',lambda r:urls.append(r.url))
+                        page.goto(live.origin+'/')
+                        expect(page.locator('#connection-state')).to_have_text('Сервер готов')
+                        self.assertEqual(page.locator('#session-gate,#manual-bootstrap,#manual-login,#logout').count(),0)
+                        self.assertNotIn('#',page.url)
                         self.assertTrue(all(url.startswith(live.origin+'/') for url in urls))
-                        context.close()
+                        self.assertFalse(any('/api/session' in url for url in urls))
                     finally:browser.close()
             finally:live.close()
 
-    def test_dpapi_and_native_mutex_subprocess(self):
-        from project_harness.local_web_instance import UserInstanceLock,protect
-        self.assertEqual(protect(protect(b'private'),decrypt=True),b'private')
+    def test_native_mutex_subprocess(self):
+        from project_harness.local_web_instance import UserInstanceLock
         code='from project_harness.local_web_instance import UserInstanceLock; x=UserInstanceLock(); print(x.__enter__().owned); x.__exit__()'
         with UserInstanceLock() as first:
             self.assertTrue(first.owned)
             child=subprocess.run([sys.executable,'-B','-c',code],capture_output=True,text=True,timeout=20)
             self.assertEqual(child.returncode,0,child.stderr);self.assertEqual(child.stdout.strip(),'False')
 
-    def test_fresh_authenticated_handshake_and_spoof_listener(self):
-        import base64
-        from project_harness.local_web_instance import LauncherChannel,connect_existing,protect,_receive,_send
-        with tempfile.TemporaryDirectory(prefix='harness-lw11-handshake-') as folder:
-            base=Path(folder);auth=LocalWebAuth();stop=threading.Event()
-            channel=LauncherChannel(base,auth,32189,stop)
+    def test_plain_instance_record_discovery_cleanup_and_invalid_records(self):
+        from project_harness.local_web_instance import LauncherInstance,connect_existing
+        from tests.test_ph_lw_04_05_acceptance import LiveServer
+        with tempfile.TemporaryDirectory(prefix='harness-instance-') as folder:
+            live=LiveServer(folder);base=live.service.app_data
+            instance=LauncherInstance(base,live.port)
             try:
-                url=connect_existing(base);self.assertTrue(url.startswith('http://127.0.0.1:32189/#bootstrap='))
-                auth.exchange(url.split('=')[1])
-                record=(base/'launcher-private.json').read_text();self.assertNotIn(url.split('=')[1],record)
-                stop.set()
-                with self.assertRaises(Exception):connect_existing(base)
-            finally:channel.close()
-            fake=socket.socket();fake.bind(('127.0.0.1',0));fake.listen();fake.settimeout(5)
-            (base/'launcher-private.json').write_text(json.dumps({'version':1,'port':fake.getsockname()[1],
-                'identity':'fake','key_dpapi':base64.b64encode(protect(b'K'*32)).decode()}),'utf-8')
-            received=[]
-            def peer():
-                conn,_=fake.accept()
-                with conn:
-                    conn.settimeout(3);received.append(_receive(conn));_send(conn,{'port':1234,'challenge':'a'*64,'proof':'0'*64})
-                    received.append(conn.recv(1024))
-            thread=threading.Thread(target=peer);thread.start()
-            try:
+                self.assertEqual(connect_existing(base),live.origin+'/')
+                record=json.loads((base/'launcher-instance.json').read_text('utf-8'))
+                self.assertEqual(record,{'version':2,'pid':os.getpid(),'port':live.port})
+                self.assertFalse((base/'launcher-private.json').exists())
+            finally:instance.close();live.close()
+            self.assertFalse((base/'launcher-instance.json').exists())
+            for record in ({'version':2,'pid':0,'port':1234},{'version':2,'pid':os.getpid(),'port':True},
+                           {'version':1,'identity':'old','key_dpapi':'unused'}):
+                (base/'launcher-instance.json').write_text(json.dumps(record),'utf-8')
                 with self.assertRaises(ValidationFailure):connect_existing(base)
-                thread.join(5);self.assertEqual(received[-1],b'')
-                self.assertTrue(fake.fileno()>=0) # no listener/process kill
-            finally:fake.close()
 
 if __name__=='__main__':unittest.main()

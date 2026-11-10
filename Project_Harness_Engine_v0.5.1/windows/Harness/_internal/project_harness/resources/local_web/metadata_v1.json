@@ -5,7 +5,7 @@
   "core_schema_version": 7,
   "project_input_schema": "SCHEMA-PROJECT-PREPARATION-INPUT@4",
   "local_web_version": "0.1.0-dev",
-  "local_web_build_id": "PH-LW-12-FIX5-20261108",
+  "local_web_build_id": "MANUAL-ANALYSIS-ZIP-20261110",
   "base_lineage": "PH-051-11-WIP-NOT-RELEASED",
   "declared_target_base": "PH-051-12-WIP-NO-GO-NOT_SUPPLIED",
   "source_engine_zip_sha256": "44b75136131d917403b99299077e829c025783a6bb94c2b539fbe0b913449dbd",
@@ -17,7 +17,7 @@
   "automatic_executor_release_status": "NO-GO",
   "local_web_manual_release_status": "NO-GO",
   "dependency_lock": "local_web/requirements-web-win_amd64-cp314.lock",
-  "note": "Windows PH-LW-12 blocker and snapshot-polling fixes; pre-acceptance immutable build. Exact-hash verdict in PH_LW_12_FIX_TEST_REPORT.md; automatic executor disabled; full v0.5.1 NOT RELEASED.",
+  "note": "Explicitly authorized reusable Codex CLI connection and read-only document analysis, with manual package alternative. No product Task automation; no per-document classification UI; strict existing preview validation.",
   "platform_acceptance": {
     "report": "PH_LW_04_05_WINDOWS_ACCEPTANCE_TEST_REPORT.md",
     "scope": "PH-LW-04/05 Windows HTTP acceptance; full installer/lifecycle acceptance pending"
@@ -37,7 +37,7 @@
     "exchange_envelope": "LOCAL_WEB_GPT_DRAFT_ONLY@2",
     "artifact_policy": "Unpacked working files; ZIP only on explicit user request"
   },
-  "engine_build_digest": "sha256:0789035971ad3488b37a3d1cc480a9c7c63effcc3c67c540630e452b77f936ae",
+  "engine_build_digest": "sha256:0b3521b2027b90226a48713b11cf265d730ac5b63be89fc19db0a9178308e469",
   "engine_build_digest_definition": "SHA256 of sorted SHA256 + two spaces + relative path + LF for src/project_harness files, excluding this metadata file and caches",
   "ph_lw_07": {
     "report": "PH_LW_07_TEST_REPORT.md",

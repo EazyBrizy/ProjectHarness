@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "SCHEMA-CODEX-HANDOFF-RESULT@1",
+  "title": "Codex Handoff Result",
+  "type": "object",
+  "required": ["status", "project_ref", "handoff_archive", "first_task_ref", "validation"],
+  "properties": {
+    "status": {"const": "READY_FOR_CODEX"},
+    "project_ref": {"type": "string"},
+    "handoff_archive": {"type": "string"},
+    "first_task_ref": {"type": "string"},
+    "validation": {"type": "object"}
+  }
+}

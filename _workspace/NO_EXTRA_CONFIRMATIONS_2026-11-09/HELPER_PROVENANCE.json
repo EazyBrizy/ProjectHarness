@@ -1,0 +1,5 @@
+{
+  "source": "_workspace\\REMOVE_LOCAL_LOGIN_2026-11-09\\checkpoint.py",
+  "source_sha256": "a35ed175a38da1912a15b06fb2298fa7f02b5890a3d68846677d0fc0c74d958e",
+  "adaptation": "New paths; unrelated test runner removed. Existing scoped publish, byte-integrity and operator upgrade helpers reused."
+}

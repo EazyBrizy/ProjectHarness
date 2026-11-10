@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_workspace\CLI_DOCUMENT_ANALYSIS_2026-11-10\checkpoint.py", line 126, in <module>
+    {'publish':publish,'verify':verify,'upgrade':upgrade}[sys.argv[1]]()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_workspace\CLI_DOCUMENT_ANALYSIS_2026-11-10\checkpoint.py", line 78, in verify
+    assert set(changed)|additions<=allowed,(changed,additions)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (['local_web_exchange.py', 'local_web_http.py', 'local_web_service.py', 'resources/local_web/assets/app.js', 'resources/local_web/assets/index.html', 'resources/local_web/assets/interview.js', 'resources/local_web/GPT_PREPARATION.md', 'resources/local_web/metadata_v1.json'], {'local_web_cli.py', 'local_web_cli_analysis.py'})

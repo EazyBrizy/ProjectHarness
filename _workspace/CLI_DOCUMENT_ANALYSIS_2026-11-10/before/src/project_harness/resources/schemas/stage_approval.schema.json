@@ -1,0 +1,967 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "SCHEMA-STAGE-APPROVAL@1",
+  "title": "Project Harness exact-bound Stage approval draft/formal record",
+  "type": "object",
+  "required": [
+    "stage_approval"
+  ],
+  "properties": {
+    "stage_approval": {
+      "$ref": "#/$defs/stageApproval"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "stringArray": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "evidenceRefArray": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^EVD-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?$"
+      }
+    },
+    "permittedUse": {
+      "type": "object",
+      "required": [
+        "status",
+        "users",
+        "environments",
+        "data_classes",
+        "data_constraints"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "UNCONFIRMED",
+            "CONFIRMED"
+          ]
+        },
+        "users": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "environments": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "data_classes": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "data_constraints": {
+          "$ref": "#/$defs/stringArray"
+        }
+      },
+      "additionalProperties": false
+    },
+    "outcomeDefinition": {
+      "type": "object",
+      "required": [
+        "outcome_ref",
+        "mandatory",
+        "applicability"
+      ],
+      "properties": {
+        "outcome_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mandatory": {
+          "type": "boolean"
+        },
+        "applicability": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "criterionDefinition": {
+      "type": "object",
+      "required": [
+        "criterion_ref",
+        "dimension",
+        "description",
+        "mandatory",
+        "applicability",
+        "required_evidence_kinds",
+        "execution_evidence_required"
+      ],
+      "properties": {
+        "criterion_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dimension": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mandatory": {
+          "type": "boolean"
+        },
+        "applicability": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required_evidence_kinds": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "execution_evidence_required": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "hardConstraintDefinition": {
+      "type": "object",
+      "required": [
+        "constraint_ref",
+        "statement",
+        "source_ref",
+        "mandatory",
+        "required_evidence_kinds"
+      ],
+      "properties": {
+        "constraint_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mandatory": {
+          "type": "boolean"
+        },
+        "required_evidence_kinds": {
+          "$ref": "#/$defs/stringArray"
+        }
+      },
+      "additionalProperties": false
+    },
+    "profileControlDefinition": {
+      "type": "object",
+      "required": [
+        "control_ref",
+        "mandatory",
+        "applicability",
+        "source"
+      ],
+      "properties": {
+        "control_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mandatory": {
+          "type": "boolean"
+        },
+        "applicability": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "const": "stage_gate.profile_control_refs"
+        }
+      },
+      "additionalProperties": false
+    },
+    "criterionResult": {
+      "type": "object",
+      "required": [
+        "criterion_ref",
+        "status",
+        "evidence_refs",
+        "rationale",
+        "validator"
+      ],
+      "properties": {
+        "criterion_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "PASS",
+            "PARTIAL",
+            "FAIL",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "evidence_refs": {
+          "$ref": "#/$defs/evidenceRefArray"
+        },
+        "rationale": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "validator": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^ACT-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "outcomeResult": {
+      "type": "object",
+      "required": [
+        "outcome_ref",
+        "status",
+        "evidence_refs",
+        "rationale",
+        "validator"
+      ],
+      "properties": {
+        "outcome_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "PASS",
+            "PARTIAL",
+            "FAIL",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "evidence_refs": {
+          "$ref": "#/$defs/evidenceRefArray"
+        },
+        "rationale": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "validator": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^ACT-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "hardConstraintResult": {
+      "type": "object",
+      "required": [
+        "constraint_ref",
+        "status",
+        "evidence_refs",
+        "rationale",
+        "validator"
+      ],
+      "properties": {
+        "constraint_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "PASS",
+            "PARTIAL",
+            "FAIL",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "evidence_refs": {
+          "$ref": "#/$defs/evidenceRefArray"
+        },
+        "rationale": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "validator": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^ACT-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "profileControlResult": {
+      "type": "object",
+      "required": [
+        "control_ref",
+        "status",
+        "evidence_refs",
+        "rationale",
+        "validator"
+      ],
+      "properties": {
+        "control_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "PASS",
+            "PARTIAL",
+            "FAIL",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "evidence_refs": {
+          "$ref": "#/$defs/evidenceRefArray"
+        },
+        "rationale": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "validator": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^ACT-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "workPackageView": {
+      "type": "object",
+      "required": [
+        "requested_ref",
+        "current_ref",
+        "path",
+        "status"
+      ],
+      "properties": {
+        "requested_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "current_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "blockerView": {
+      "type": "object",
+      "required": [
+        "requested_ref",
+        "current_ref",
+        "path",
+        "status",
+        "kind",
+        "reason"
+      ],
+      "properties": {
+        "requested_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "current_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "candidateProvenance": {
+      "type": "object",
+      "required": [
+        "source_type",
+        "source_ref",
+        "producer",
+        "actor",
+        "tool_version"
+      ],
+      "properties": {
+        "source_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "producer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "actor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tool_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "sourceBindingView": {
+      "type": "object",
+      "required": [
+        "ref",
+        "sha256",
+        "path",
+        "media_type"
+      ],
+      "properties": {
+        "ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "media_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidenceCandidate": {
+      "type": "object",
+      "required": [
+        "ref",
+        "path",
+        "sha256",
+        "kind",
+        "status",
+        "base_revision",
+        "provenance",
+        "source_bindings",
+        "criterion_refs",
+        "outcome_refs",
+        "profile_control_refs",
+        "compatible_subject_refs"
+      ],
+      "properties": {
+        "ref": {
+          "type": "string",
+          "pattern": "^EVD-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?$"
+        },
+        "path": {
+          "type": "string",
+          "pattern": "^\\.harness/evidence/EVD-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?\\.yaml$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "BLOCKED",
+            "PARTIAL",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "base_revision": {
+          "type": "string",
+          "pattern": "^tree:sha256:[0-9a-f]{64}$"
+        },
+        "provenance": {
+          "$ref": "#/$defs/candidateProvenance"
+        },
+        "source_bindings": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/sourceBindingView"
+          }
+        },
+        "criterion_refs": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "outcome_refs": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "profile_control_refs": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "compatible_subject_refs": {
+          "$ref": "#/$defs/stringArray"
+        }
+      },
+      "additionalProperties": false
+    },
+    "unresolvedGap": {
+      "type": "object",
+      "required": [
+        "gap_kind",
+        "subject_ref",
+        "status",
+        "required_evidence_kinds",
+        "candidate_refs",
+        "message"
+      ],
+      "properties": {
+        "gap_kind": {
+          "enum": [
+            "OUTCOME",
+            "LEVEL_CRITERION",
+            "HARD_CONSTRAINT",
+            "PROFILE_CONTROL",
+            "WORK_PACKAGE",
+            "CRITICAL_BLOCKER",
+            "PERMITTED_USE"
+          ]
+        },
+        "subject_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required_evidence_kinds": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "candidate_refs": {
+          "$ref": "#/$defs/evidenceRefArray"
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "stageApproval": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "schema_ref",
+        "record_kind",
+        "record_state",
+        "id",
+        "approved",
+        "actor",
+        "approved_at",
+        "level",
+        "target_level",
+        "acceptance_method",
+        "stage_plan_ref",
+        "stage_plan_path",
+        "stage_plan_revision",
+        "stage_plan_digest",
+        "prepared_from_stage_plan_status",
+        "gate_ref",
+        "gate_path",
+        "gate_revision",
+        "gate_digest",
+        "prepared_from_gate_status",
+        "gate_base_revision",
+        "baseline_revision",
+        "last_acceptance_ref",
+        "last_acceptance_path",
+        "last_accepted_baseline_revision",
+        "assessment_ref",
+        "assessment_digest",
+        "required_outcomes",
+        "outcome_results",
+        "level_criteria",
+        "criteria_results",
+        "hard_constraints",
+        "hard_constraint_results",
+        "profile_controls",
+        "profile_control_results",
+        "required_work_packages",
+        "critical_blockers",
+        "permitted_use",
+        "evidence_candidates",
+        "unresolved_gaps",
+        "evidence_refs",
+        "known_limitations",
+        "next_stage_gaps",
+        "notes",
+        "preparation_fingerprint"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "schema_ref": {
+          "const": "SCHEMA-STAGE-APPROVAL@1"
+        },
+        "record_kind": {
+          "const": "STAGE_APPROVAL"
+        },
+        "record_state": {
+          "enum": [
+            "DRAFT",
+            "APPROVED"
+          ]
+        },
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^DEC-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?$"
+        },
+        "approved": {
+          "type": "boolean"
+        },
+        "actor": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^ACT-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?$"
+        },
+        "approved_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+        },
+        "level": {
+          "enum": [
+            "PROTOTYPE",
+            "ALPHA",
+            "BETA",
+            "MVP",
+            "RELEASE"
+          ]
+        },
+        "target_level": {
+          "enum": [
+            "PROTOTYPE",
+            "ALPHA",
+            "BETA",
+            "MVP",
+            "RELEASE"
+          ]
+        },
+        "acceptance_method": {
+          "enum": [
+            "EXECUTED_STAGE_WORK",
+            "SATISFIED_BY_BASELINE"
+          ]
+        },
+        "stage_plan_ref": {
+          "type": "string",
+          "pattern": "^STG-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?@[1-9][0-9]*$"
+        },
+        "stage_plan_path": {
+          "type": "string",
+          "pattern": "^\\.harness/stages/PLANS/STG-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?@[1-9][0-9]*\\.yaml$"
+        },
+        "stage_plan_revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "stage_plan_digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "prepared_from_stage_plan_status": {
+          "enum": [
+            "VERIFYING",
+            "BLOCKED"
+          ]
+        },
+        "gate_ref": {
+          "type": "string",
+          "pattern": "^GATE-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?@[1-9][0-9]*$"
+        },
+        "gate_path": {
+          "type": "string",
+          "pattern": "^\\.harness/stages/GATES/GATE-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?@[1-9][0-9]*\\.yaml$"
+        },
+        "gate_revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "gate_digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "prepared_from_gate_status": {
+          "enum": [
+            "VERIFYING",
+            "BLOCKED"
+          ]
+        },
+        "gate_base_revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "baseline_revision": {
+          "type": "string",
+          "pattern": "^tree:sha256:[0-9a-f]{64}$"
+        },
+        "last_acceptance_ref": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^VAL-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?@[1-9][0-9]*$"
+        },
+        "last_acceptance_path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_accepted_baseline_revision": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^tree:sha256:[0-9a-f]{64}$"
+        },
+        "assessment_ref": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^VAL-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?@[1-9][0-9]*$"
+        },
+        "assessment_digest": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "required_outcomes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/outcomeDefinition"
+          }
+        },
+        "outcome_results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/outcomeResult"
+          }
+        },
+        "level_criteria": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/criterionDefinition"
+          }
+        },
+        "criteria_results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/criterionResult"
+          }
+        },
+        "hard_constraints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/hardConstraintDefinition"
+          }
+        },
+        "hard_constraint_results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/hardConstraintResult"
+          }
+        },
+        "profile_controls": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/profileControlDefinition"
+          }
+        },
+        "profile_control_results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/profileControlResult"
+          }
+        },
+        "required_work_packages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/workPackageView"
+          }
+        },
+        "critical_blockers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/blockerView"
+          }
+        },
+        "permitted_use": {
+          "$ref": "#/$defs/permittedUse"
+        },
+        "evidence_candidates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidenceCandidate"
+          }
+        },
+        "unresolved_gaps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/unresolvedGap"
+          }
+        },
+        "evidence_refs": {
+          "$ref": "#/$defs/evidenceRefArray"
+        },
+        "known_limitations": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "next_stage_gaps": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "preparation_fingerprint": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        }
+      },
+      "additionalProperties": false,
+      "if": {
+        "properties": {
+          "approved": {
+            "const": false
+          }
+        },
+        "required": [
+          "approved"
+        ]
+      },
+      "then": {
+        "properties": {
+          "record_state": {
+            "const": "DRAFT"
+          },
+          "id": {
+            "type": "null"
+          },
+          "actor": {
+            "type": "null"
+          },
+          "approved_at": {
+            "type": "null"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "approved": {
+            "const": true
+          },
+          "record_state": {
+            "const": "APPROVED"
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^DEC-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?$"
+          },
+          "actor": {
+            "type": "string",
+            "pattern": "^ACT-[A-Z0-9](?:[A-Z0-9._:-]*[A-Z0-9])?$"
+          },
+          "approved_at": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+          }
+        },
+        "required": [
+          "id",
+          "actor",
+          "approved_at"
+        ]
+      }
+    }
+  }
+}

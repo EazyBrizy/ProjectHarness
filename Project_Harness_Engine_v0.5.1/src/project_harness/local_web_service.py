@@ -1,6 +1,7 @@
 """PH-LW-03: local-only application service for the MANUAL Local Web companion.
 
-No HTTP server, shell, provider or unsandboxed executor.  The catalog and
+No HTTP server, raw shell gateway or product automatic executor. The explicit
+CLI document-analysis connection is separate from product Task execution. The catalog and
 operation receipts are external, non-authoritative app data.  Core Python APIs
 alone perform governed mutations, under one shared cross-process fence.
 """
@@ -14,7 +15,7 @@ import json
 import os
 from pathlib import Path
 import re
-from threading import Lock
+from threading import Lock, RLock
 from typing import Any
 
 from .errors import HarnessError, ValidationFailure
@@ -167,6 +168,10 @@ class LocalWebService:
         self._worker = ThreadPoolExecutor(max_workers=1, thread_name_prefix='harness-local-web')
         self._futures: dict[str, Future[None]] = {}
         self._futures_lock = Lock()
+        from .local_web_cli import CliConnection
+        self.cli_connection = CliConnection(self.app_data)
+        self._cli_lock = RLock()
+        self._cli_cancel = {}
         self._closed = False
 
     @staticmethod
@@ -537,6 +542,28 @@ class LocalWebService:
         from .local_web_exchange import export_review
         return export_review(self, project_id)
 
+    def get_cli_connection(self):
+        return self.cli_connection.status()
+
+    def connect_cli(self):
+        return self.cli_connection.connect()
+
+    def create_analysis_export(self, project_id: str, **request):
+        from .local_web_exchange import create_analysis_export
+        return create_analysis_export(self, project_id, **request)
+
+    def start_cli_analysis(self, project_id: str, **request):
+        from .local_web_cli_analysis import start
+        return start(self, project_id, **request)
+
+    def get_cli_analysis(self, project_id: str):
+        from .local_web_cli_analysis import latest
+        return latest(self, project_id)
+
+    def cancel_cli_analysis(self, project_id: str, job_id: str):
+        from .local_web_cli_analysis import cancel
+        return cancel(self, project_id, job_id)
+
     def create_gpt_export(self, project_id: str, **request: Any) -> dict[str, Any]:
         from .local_web_exchange import create_export
         return create_export(self, project_id, **request)
@@ -544,6 +571,10 @@ class LocalWebService:
     def read_gpt_export(self, project_id: str, exchange_id: str, name: str) -> bytes:
         from .local_web_exchange import download_export
         return download_export(self, project_id, exchange_id, name)
+
+    def read_gpt_export_archive(self, project_id: str, exchange_id: str) -> bytes:
+        from .local_web_exchange import download_archive
+        return download_archive(self, project_id, exchange_id)
 
     def preview_gpt_reply(self, project_id: str, **request: Any) -> dict[str, Any]:
         from .local_web_exchange import preview_reply

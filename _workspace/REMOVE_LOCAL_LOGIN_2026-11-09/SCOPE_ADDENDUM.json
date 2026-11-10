@@ -1,0 +1,8 @@
+{
+  "allowed_file_changes": [
+    "src/project_harness/cli.py --no-browser help wording",
+    "tools/verify_installed.py direct-entry log wording"
+  ],
+  "reason": "Remove obsolete login instructions from existing launch/help and verification paths",
+  "verify_installed_before_sha256": "ce5cbaefe33ff15aee6510bcc78819929f6d8da0da117698f3d7a534fee9296d"
+}

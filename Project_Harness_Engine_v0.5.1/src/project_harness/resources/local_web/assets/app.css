@@ -81,6 +81,12 @@ footer { font-size:11px; color:#6b7b90; padding:26px 0 7px; }
 .upload-zone { padding:16px; border:2px dashed #94afce; border-radius:10px; background:#f8fbff; }
 .upload-zone.dragover { border-color:#1769cf; background:#e9f2ff; }
 .upload-zone input { width:100%; max-width:100%; }
+.upload-step { padding:14px; margin:14px 0; border:1px solid #94afce; border-radius:8px; background:#f0f6ff; overflow-wrap:anywhere; }
+.upload-step p { margin:7px 0 0; }
+.upload-step.success { border-color:#40916c; background:#edf8f1; }
+.upload-step.error { border-color:#ba4545; background:#fff1f1; }
+.document-primary { padding:11px 16px; border:1px solid #1657a9; border-radius:9px; color:#fff; background:#1769cf; font-weight:600; }
+.document-primary:hover:enabled { background:#1254a5; }
 .source-list { display:grid; gap:8px; }
 .source-item { padding:10px; border:1px solid #dfe6ef; border-radius:8px; overflow-wrap:anywhere; }
 .source-item button { margin-right:10px; }
@@ -89,7 +95,8 @@ progress { width:100%; height:13px; }
 @media(max-width:900px) { .document-grid { grid-template-columns:1fr; } }
 
 /* PH-LW-06: keyboard-accessible typed draft interview and inert text diffs. */
-#interview-panel { max-width:1000px; }
+#workspace:has(#interview-panel:not(.hidden)) { max-width:none; }
+#interview-panel { width:100%; max-width:none; }
 #interview-panel label { display:block; font-weight:600; margin:10px 0 5px; }
 #interview-panel textarea, #interview-panel select { font:inherit; width:100%; border:1px solid #8b9fb9; border-radius:7px; padding:9px; background:#fff; color:#17233a; }
 #interview-panel textarea { resize:vertical; }
@@ -99,6 +106,17 @@ progress { width:100%; height:13px; }
 #interview-panel details { margin:12px 0; border-top:1px solid #dfe6ef; }
 .question, .known-answer, .export-document, .diff-row { margin:12px 0; padding:12px; border:1px solid #dfe6ef; border-radius:9px; overflow-wrap:anywhere; }
 .question h3 { margin-top:0; }
+#interview-panel .analysis-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin:12px 0; }
+#interview-panel .analysis-options > .question { min-width:0; margin:0; }
+#interview-panel .analysis-options h4 { margin-top:0; }
+#interview-panel .cli-actions { display:flex; align-items:center; gap:10px; flex-wrap:nowrap; }
+#interview-panel .cli-actions button { min-width:0; margin:0; }
+#cli-connect { display:inline-flex; align-items:center; justify-content:center; gap:6px; flex-shrink:0; }
+.cli-connected-check { color:#168442; font-weight:800; }
+#cli-connect.cli-connected { border-color:#83b09e; background:#f1f9f4; }
+#interview-panel .cli-token-note { margin:16px 0 0; color:#6b7280; font-size:12px; }
+@media(max-width:760px) { #interview-panel .analysis-options { grid-template-columns:1fr; } }
+@media(max-width:500px) { #interview-panel .cli-actions { gap:8px; } #interview-panel .cli-actions button { flex:1 1 0; padding:9px 7px; font-size:13px; } }
 .answer-field { margin-bottom:13px; }
 #interview-panel .consent { font-weight:400; margin:16px 0; }
 #interview-panel hr { border:0; border-top:1px solid #dfe6ef; margin:30px 0; }

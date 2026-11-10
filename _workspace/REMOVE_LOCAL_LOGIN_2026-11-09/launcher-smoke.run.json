@@ -1,0 +1,15 @@
+{
+  "command": [
+    "./.venv/Scripts/python.exe",
+    "-B",
+    "_workspace/REMOVE_LOCAL_LOGIN_2026-11-09/launcher_smoke.py"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-09T13:20:42.285176+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 120,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 16.852,
+  "log_sha256": "6eb6194ffa7633bf55950c13c252f1b7ead8b9d8ce7f2d15f73a01764380699d"
+}

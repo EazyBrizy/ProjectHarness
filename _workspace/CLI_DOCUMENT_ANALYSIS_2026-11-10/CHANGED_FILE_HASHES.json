@@ -1,0 +1,101 @@
+{
+  "source": {
+    "local_web_cli.py": {
+      "before": null,
+      "after": "d060ab88d3cbc2e0ac198886cd88f3a203c8eada5b9ebcfc50bbdff4cc50b85b"
+    },
+    "local_web_cli_analysis.py": {
+      "before": null,
+      "after": "24802fe67adbfe8c0573b8df375de70ae65af01d0c4217cafd6ba2325cb4eaf4"
+    },
+    "local_web_exchange.py": {
+      "before": "24fd62298b2fa94be05cf4743550d74c7aa5bffd23968378cbac9577745fb458",
+      "after": "ebcc0136877142f2152a299f5462af3f5237b739e4bbb6fe399224ff8ae0ec68"
+    },
+    "local_web_http.py": {
+      "before": "1b13d4369bb0b100e3e90dd5324ce3243ff716812270b9e7a076e24f19e65b77",
+      "after": "c445be329958d08b7ee086c767c7ce147d76a61648479272231bdda3630ac0d4"
+    },
+    "local_web_service.py": {
+      "before": "b0c466286120598b0ab3b46901d84e52eb496cff33888ad02be524c1516f4523",
+      "after": "4acf866214eaa666fc317e94886e4818016bd7eca0a8e353e6aa65f91e84630f"
+    },
+    "resources/local_web/GPT_PREPARATION.md": {
+      "before": "a54585f35383a30a1e584a901772ffe1c3281d2d258771488dfa0aa9838aaf42",
+      "after": "172ea678c6e76ca29ad641933e4f18a973b5be1c9d602b58b742ea7228a34caa"
+    },
+    "resources/local_web/assets/app.js": {
+      "before": "721127e84a86641c35c40d6346237f5901f29ce3c5d5b90fadaecba65dbaa25d",
+      "after": "183b4371c4c02d4358bfe8c24a6d7ec1bb7ed017646344a8666fb559dd05dc69"
+    },
+    "resources/local_web/assets/index.html": {
+      "before": "7ec80fd75eeb163d9b8a8d16ac569dea87c7c0da7418d8856d5cd015970d7e75",
+      "after": "dd47e66a956bc808ab345cfb26a289ee3fe50877345f9121b9a4ebc9b8d953b2"
+    },
+    "resources/local_web/assets/interview.js": {
+      "before": "4f74bd37580a059bbc9b7f7bb6b30398b723e84868755d0a88cd47a60453f5f1",
+      "after": "5824983ee11d0e925bee5a0afdd49934a5e7797084d4ba1dd24460763b23fa4f"
+    },
+    "resources/local_web/metadata_v1.json": {
+      "before": "b79a280fb0784b2ed11c6fb3e2a7c95cc48d7e5af6ef3ec58848c921cbeb96af",
+      "after": "4efc4ada5e90187d998b6de6955aec916c76cbb7f789a65ae507ab964407f0ee"
+    }
+  },
+  "tests": {
+    "test_cli_document_analysis.py": {
+      "before": null,
+      "after": "4e8ba8fd4b5afe816827b8250494f36a832cab5b56809f182abebdeb6803f22c"
+    },
+    "test_cli_document_ui.py": {
+      "before": null,
+      "after": "1620348344b16224c839930b7c49777b82f291afafeb1cb90d93dcc6add55179"
+    },
+    "test_interview_clarity.py": {
+      "before": "9c574af53e05532cdfc5db22b992ff20b2094deeb67adf9fed62b6ea50acda38",
+      "after": "4cad7e076e0000f7fe91d0cc41d9f794cd454516316541cc0d1828d250473d70"
+    },
+    "test_ph_lw_06_http.py": {
+      "before": "d2a33c71cafc4ca2c1e8982f07ffdc4bf1c87dc27b0f8ca116eed2f49bd0ddc5",
+      "after": "1a9e71103fa1fb1fdc3a5091f2c1801af725aa5f548f31814d9ea2207b60f35a"
+    },
+    "test_ph_lw_08_http.py": {
+      "before": "5fa94607406ff20c3dd1b4b3e96412c1b3b4c99f0ab4233d17a4c4356b7a5821",
+      "after": "090ae5c3b59e8470beac8918010f90b5492a7148bd0e2f157b46773435764ef6"
+    },
+    "test_single_action_ui.py": {
+      "before": "fa40bbbd0375298bc1c592b039c68deb82c87a97509689f2ecc3ffb395e44c24",
+      "after": "421c63bb980ee62db2e092a832a78315c07e51807c91695accc7d81e49fca1e6"
+    }
+  },
+  "documentation": {
+    "13_Local_Web_Manual_Companion/30_CLI_Document_Analysis.md": {
+      "before": null,
+      "after": "eeda8a9bdaf399a1a9fdd4a3cbb62909a13cc853f4b883929b7b7d9b81ae38ad"
+    },
+    "FILE_INDEX.md": {
+      "before": "02a5f68aff0f83e135026de9e919227e824377de86bb57545bf2ce93907e6b94",
+      "after": "f34c04e69b60ecda42ac33b63afd6910fcfdd3fb003f73bda7b4cfa10a1b0449"
+    },
+    "MANIFEST.sha256": {
+      "before": "753654e4280615fd1f01281bc98a37fef7ecb2c1da2ba59f1530c6eae3590e06",
+      "after": "6ed21b42fabff977b3769543af2fb74b25636001c09171d527119faef3edd03c"
+    }
+  },
+  "navigation": {
+    "AGENTS.md": {
+      "before": "c0411c71ecc8f9f19061ffacb57785a631926c8daad8154930c1dbcd3c4b3f73",
+      "after": "983a2df57ff35d479084f90f7252bdab5c56aed3a5f5cc3289bd85e93500e92c"
+    },
+    "_workspace/CURRENT_TASK.md": {
+      "before": "ca1d2867cc95783894e46dae2aed96c772e4691ba3c3f55acb19a80e928b9019",
+      "after": "dfc5caa48f79f9f10fd9fa81cbeae16720342d6e537c07810c3fbe3ad1972eed"
+    }
+  },
+  "additional_driver": {
+    "local_web/windows/final_acceptance.py": {
+      "after": "84cea137908b445a0563fded9e952264f36246be4a6b2231322075221a4de99d",
+      "before": "NOT RECORDED separately in this baseline",
+      "scope": "Obsolete classification-selector interactions adapted; driver NOT RUN in this task"
+    }
+  }
+}

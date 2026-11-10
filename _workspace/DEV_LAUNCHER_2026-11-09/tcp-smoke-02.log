@@ -1,0 +1,12 @@
+{
+  "real_waitress_tcp_health": "PASS",
+  "unauthenticated_session_gated": "PASS",
+  "current_source_ui": "PASS",
+  "second_instance_rejected_before_start": "PASS",
+  "authenticated_clean_stop": "PASS",
+  "windowless_shortcut_interpreter": "PASS",
+  "status": "PASS",
+  "browser_opened": false,
+  "operator_data_accessed": false,
+  "automatic_executor_enabled": false
+}

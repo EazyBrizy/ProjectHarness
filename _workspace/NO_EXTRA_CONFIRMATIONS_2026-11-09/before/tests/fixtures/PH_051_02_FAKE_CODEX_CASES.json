@@ -1,0 +1,19 @@
+{
+  "fixture": "fake_codex_cli.py",
+  "execution_boundary": "FUTURE_ROOTLESS_PODMAN_ONLY; NEVER_HOST_AUTO_RUN",
+  "scenarios": {
+    "success": "writes one changed product file and candidate AGENT-TASK-RESULT@1",
+    "exit_nonzero": "exits 17 without result",
+    "timeout": "sleeps until sandbox timeout terminates it",
+    "missing_output": "exits 0 without result",
+    "invalid_output": "exits 0 with syntactically invalid JSON result",
+    "output_flood": "emits more bytes than a bounded sandbox output cap",
+    "child_process": "spawns long-lived child; container process-tree termination must hold",
+    "control_write": "attempts to write control/illicit.txt; read-only mount must reject",
+    "wrong_paths": "writes an unexpected product path outside declared Task scope",
+    "secret_echo": "prints FAKE_CLI_SECRET to stdout; future redaction/leak check must reject",
+    "secret_product": "writes FAKE_CLI_SECRET into product file; future diff scan must reject",
+    "secret_result": "writes FAKE_CLI_SECRET into agent JSON; future result check must reject",
+    "baseline_drift": "emits candidate then test orchestrator mutates canonical base externally"
+  }
+}

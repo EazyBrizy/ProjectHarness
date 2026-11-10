@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "suite": "PH-F01",
+  "note": "State-bearing fixtures are MATERIALIZED by tests/ph_f01_fixtures.py using public compiler/runtime/governance APIs, never by hand-editing canonical state.",
+  "fixture_scenarios": {
+    "GREENFIELD_MVP": {
+      "input": "tests/fixtures/ph_f01/greenfield_mvp_project_input.json",
+      "mode": "GREENFIELD",
+      "target_level": "MVP",
+      "expected_active_stage": "PROTOTYPE",
+      "expected_highest_accepted_level": "NONE"
+    },
+    "BROWNFIELD": {
+      "input": "tests/fixtures/ph_f01/brownfield_project_input.json",
+      "repository": "tests/fixtures/ph_f01/brownfield_repository",
+      "mode": "BROWNFIELD",
+      "target_level": "MVP",
+      "expected_claimed_current_level": "UNKNOWN"
+    },
+    "ACCEPTED_PROTOTYPE": {
+      "derived_from": "GREENFIELD_MVP",
+      "operation": "EXECUTED_STAGE_WORK -> accept-stage(PROTOTYPE)",
+      "target_level": "MVP",
+      "expected_highest_accepted_level": "PROTOTYPE",
+      "expected_active_stage": "ALPHA",
+      "expected_next_route": "PLAN_ACTIVE_STAGE"
+    },
+    "TARGET_LEVEL_REACHED": {
+      "derived_from": "BROWNFIELD",
+      "operation": "read-only assess-maturity + formal SATISFIED_BY_BASELINE approval through MVP",
+      "synthetic_governance_evidence_only": true,
+      "target_level": "MVP",
+      "expected_highest_accepted_level": "MVP",
+      "expected_active_stage": "MVP",
+      "expected_project_status": "TARGET_LEVEL_REACHED"
+    }
+  }
+}

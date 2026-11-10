@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Project Harness — локальный мастер</title>
+  <link rel="stylesheet" href="/assets/app.css">
+  <script src="/assets/app.js" defer></script>
+  <script src="/assets/interview.js" defer></script>
+  <script src="/assets/approvals.js" defer></script>
+  <script src="/assets/preparation.js" defer></script>
+  <script src="/assets/tasks.js" defer></script>
+  <script src="/assets/lifecycle.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#workspace">Перейти к содержимому</a>
+  <div class="app">
+    <aside class="sidebar" aria-label="Навигация">
+      <div class="brand">
+        <span class="brand-symbol" aria-hidden="true">H</span>
+        <div><strong>Project Harness</strong><small>Локальный мастер · 0.1.0-dev</small></div>
+      </div>
+      <p class="nav-label">РАБОЧАЯ ОБЛАСТЬ</p>
+      <nav id="navigation" aria-label="Разделы проекта">
+        <button type="button" class="nav-item active" data-screen="projects" aria-current="page">Проекты и запуск</button>
+        <button type="button" class="nav-item" data-screen="documents">Документы</button>
+        <button type="button" class="nav-item" data-screen="interview">Опрос и GPT</button>
+        <button type="button" class="nav-item" data-screen="approvals">Согласования</button>
+        <button type="button" class="nav-item" data-screen="overview">Обзор проекта</button>
+        <button type="button" class="nav-item" data-screen="tasks">Задачи и Run</button>
+        <button type="button" class="nav-item" data-screen="gates">Стадии и доказательства</button>
+        <button type="button" class="nav-item" data-screen="maintenance">Обслуживание</button>
+        <button type="button" class="nav-item" data-screen="diagnostics">Диагностика</button>
+      </nav>
+      <div class="sidebar-foot">
+        <span class="local-dot" aria-hidden="true"></span> Только этот компьютер
+        <small>Без provider API, облака и автоматического запуска Codex</small>
+      </div>
+    </aside>
+    <main id="workspace" tabindex="-1">
+      <header class="topbar">
+        <div><p class="eyebrow">ЛОКАЛЬНОЕ УПРАВЛЕНИЕ ПРОЕКТОМ</p><h1 id="screen-title">Проекты</h1></div>
+        <div class="top-actions">
+          <span id="connection-state" role="status" class="status">Подключение…</span>
+          <button type="button" id="refresh" class="outline" disabled>Обновить состояние</button>
+          <button type="button" id="stop-harness" class="quiet" disabled>Завершить Harness</button>
+        </div>
+      </header>
+      <div id="notice" role="status" aria-live="polite" class="notice">Подключаемся к локальному серверу…</div>
+      <section id="content" aria-live="off">
+        <div class="page-intro"><p id="screen-description">Начните с MD/ZIP документов или выберите «Документации нет». Для продолжения выберите существующий проект.</p></div>
+        <section id="lifecycle-panel" class="panel hidden" aria-labelledby="lifecycle-title">
+          <h2 id="lifecycle-title">Стадии, evidence и обслуживание</h2>
+          <p id="lifecycle-summary" role="status">Выберите проект.</p>
+          <dl id="lifecycle-levels" class="details"></dl>
+          <h3>Что мешает принять Stage</h3><pre id="lifecycle-gaps"></pre>
+          <details><summary>Exact plan / gate / baseline, constraints и evidence</summary><pre id="lifecycle-context"></pre></details>
+          <details><summary>История acceptance — только чтение</summary><pre id="lifecycle-history"></pre></details>
+          <div id="lifecycle-actions" class="actions"></div>
+          <p>Gate blocker восстанавливается отдельно от Task blocker. Missing evidence закрывается существующими preparation Tasks и проверяемыми источниками. Assessment не повышает accepted level.</p>
+          <div id="lifecycle-form-panel" hidden>
+            <h3 id="lifecycle-form-title">Просмотр черновика</h3>
+            <p>Проверьте каждый результат и источник отдельно. Formal approval создаётся только после подтверждения ниже. Изменение work plan требует rationale; accepted scope не расширяется.</p>
+            <div id="lifecycle-fields"></div>
+            <details><summary>Дополнительно: exact JSON (импорт не означает approval)</summary>
+              <textarea id="lifecycle-json" rows="12" aria-label="Lifecycle JSON"></textarea>
+              <button type="button" id="lifecycle-import">Прочитать JSON в форму</button>
+              <button type="button" id="lifecycle-export">Показать JSON текущей формы</button>
+            </details>
+            <label>Actor (ACT-...) <input id="lifecycle-actor" maxlength="160" placeholder="ACT-OPERATOR-001"></label>
+            <label>Rationale для изменённого reviewed plan<textarea id="lifecycle-rationale" maxlength="4000" rows="3"></textarea></label>
+            <label><input type="checkbox" id="lifecycle-confirm"> Я рассмотрел точный текущий контекст и отдельно подтверждаю это действие</label>
+            <button type="button" id="lifecycle-apply">Применить рассмотренный документ</button>
+          </div>
+          <pre id="lifecycle-operation" role="status" aria-live="polite"></pre>
+          <button type="button" id="lifecycle-reconcile" disabled>Сверить прерванную операцию без повтора</button>
+        </section>
+        <section id="tasks-panel" class="panel hidden" aria-labelledby="tasks-title">
+          <h2 id="tasks-title">Текущая Task / ручной Run</h2>
+          <p id="tasks-summary" role="status">Выберите Project Instance.</p>
+          <p id="tasks-disabled" class="notice"></p>
+          <button type="button" id="task-next" disabled>Получить следующую задачу</button>
+          <details><summary>Work Packages, Tasks и зависимости</summary><pre id="tasks-list"></pre></details>
+          <details><summary>Future stages — только outlines</summary><pre id="tasks-outlines"></pre></details>
+          <h3>Task Contract и exact refs</h3><pre id="task-contract"></pre>
+          <label for="task-prompt">Закреплённый JIT для ручной передачи Codex</label>
+          <textarea id="task-prompt" rows="12" readonly></textarea>
+          <button type="button" id="task-copy" disabled>Копировать промпт</button>
+          <details><summary>Context Packet</summary><pre id="task-context"></pre></details>
+          <h3>1. Результат внешнего агента</h3>
+          <p>COMPLETED в файле — заявление агента. Оно не означает независимый PASS или завершение Task.</p>
+          <p id="task-result-state"></p>
+          <label for="task-result-file">Выберите Agent Task Result JSON (до 1 MiB)</label>
+          <input id="task-result-file" type="file" accept=".json,application/json">
+          <button type="button" id="task-upload" disabled>Получить результат из файла</button>
+          <button type="button" id="task-canonical" disabled>Получить из exact canonical channel</button>
+          <h3>2. Независимая проверка</h3><pre id="task-plan"></pre>
+          <details id="task-manual-panel"><summary>Manual checks: независимое review оператора</summary>
+            <p>Проверьте каждый пункт и выбранные файлы. Запишите наблюдения и отдельный PASS/FAIL. Evidence не завершает Task и не подтверждает Stage.</p>
+            <label>Reviewer <input id="task-manual-reviewer" maxlength="200"></label>
+            <div id="task-manual-checks"></div>
+            <label><input type="checkbox" id="task-manual-confirm"> Я лично выполнил указанные проверки и подтверждаю observations для текущих файлов</label>
+            <button type="button" id="task-manual-submit" disabled>Сохранить manual evidence</button>
+            <pre id="task-manual-state"></pre>
+          </details>
+          <p>Продуктовые команды: выполнение кода на вашем компьютере, не sandbox. Проверьте точные argv, cwd и timeout. Недостающий toolchain устанавливается отдельно.</p>
+          <label><input type="checkbox" id="task-consent"> Разрешаю только показанный план проверки для этого Run и текущего baseline</label>
+          <button type="button" id="task-verify" disabled>Проверить</button>
+          <pre id="task-verification"></pre>
+          <h3>3. Завершение Task</h3>
+          <button type="button" id="task-complete" disabled>Завершить</button>
+          <p>Core повторно проверяет PASS, result, фактический diff и product baseline. Stage acceptance выполняется отдельно.</p>
+          <details><summary>Block / resume и восстановление</summary>
+            <pre id="task-blockers"></pre>
+            <label for="task-reason">Причина блокировки</label><textarea id="task-reason" maxlength="4000" rows="3"></textarea>
+            <button type="button" id="task-block" disabled>Заблокировать Run</button>
+            <label for="task-blocker-ref">Exact OPEN blocker ref</label><select id="task-blocker-ref"></select>
+            <label for="task-resolution">Что исправлено</label><textarea id="task-resolution" maxlength="4000" rows="3"></textarea>
+            <button type="button" id="task-resume" disabled>Возобновить с новым Run</button>
+            <p>После прерывания сначала перечитайте состояние. Команды автоматически не перезапускаются. Неоднозначный commit требует диагностики canonical состояния.</p>
+            <button type="button" id="task-reconcile" disabled>Сверить последнюю операцию без повторного запуска</button>
+          </details>
+          <pre id="task-operation" role="status"></pre>
+        </section>
+        <div id="project-layout" class="layout">
+          <section class="panel project-panel" aria-labelledby="project-list-title">
+            <div class="panel-heading"><h2 id="project-list-title">Мои проекты</h2><span id="project-count" class="small">—</span></div>
+            <div id="project-list" class="project-list"><p class="muted">Загрузка…</p></div>
+            <button id="select-existing-project" type="button">Открыть существующий Harness project…</button>
+            <p class="muted small">Новые Greenfield intake создаются во вкладке «Документы». Существующие проекты доступны только в рамках уже поддержанных ручных операций.</p>
+          </section>
+          <section class="panel detail-panel" aria-labelledby="detail-title">
+            <div class="panel-heading"><h2 id="detail-title">Текущий статус</h2><span id="project-kind" class="small"></span></div>
+            <div id="project-empty" class="empty"><strong>Проект не выбран</strong><p>Выберите проект слева. Доступны только чтение и действия, уже поддержанные ядром.</p></div>
+            <div id="project-details" class="hidden">
+              <dl class="details">
+                <div><dt>Статус</dt><dd id="core-status">—</dd></div>
+                <div><dt>Активная стадия</dt><dd id="active-stage">—</dd></div>
+                <div><dt>Целевой уровень</dt><dd id="target-level">—</dd></div>
+                <div><dt>Принятый уровень</dt><dd id="accepted-level">—</dd></div>
+                <div><dt>Текущая задача</dt><dd id="current-task">—</dd></div>
+              </dl>
+              <h3>Что завершено</h3><p id="done" class="body-value">—</p>
+              <h3>Что мешает продолжить</h3><p id="blockers" class="body-value">—</p>
+              <div class="next"><span class="eyebrow">ЧТО НУЖНО СДЕЛАТЬ</span><p id="next-action">—</p></div>
+              <h3>Доступные действия</h3>
+              <p class="muted small">Каждое изменение требует отдельного подтверждения, точного fingerprint и защищённого POST.</p>
+              <div id="action-list" class="actions"></div>
+              <div id="operation-view" class="hidden operation" role="status" aria-live="polite"></div>
+              <button type="button" id="export-operation-log" disabled aria-describedby="export-operation-log-reason">Экспорт журнала недоступен</button>
+              <p id="export-operation-log-reason" class="muted small">В текущем интерфейсе можно просмотреть результат своей операции. Экспорт общего журнала не реализован.</p>
+            </div>
+          </section>
+        </div>
+      </section>
+      <section id="documents-panel" class="panel hidden" aria-labelledby="documents-title">
+        <h2 id="documents-title">Документы и источники</h2>
+        <p class="muted">Только локальные MD (UTF-8) и ZIP с MD. Импорт не анализирует документы и не отправляет их в интернет.</p>
+        <p id="document-validation" class="notice error hidden" role="alert" tabindex="-1"></p>
+        <div class="document-grid">
+          <div>
+            <h3>1. Создайте или выберите проект</h3>
+            <p class="small muted">Для нового проекта введите название и нажмите «Создать проект для документов». Если проект уже есть, выберите его во вкладке «Проекты».</p>
+            <label for="new-project-name">Название проекта</label>
+            <input id="new-project-name" type="text" maxlength="120" autocomplete="off" placeholder="Название проекта" aria-describedby="document-validation">
+            <div class="button-cluster">
+              <button id="create-intake" type="button" class="outline">Создать проект для документов</button>
+              <button id="create-no-docs" type="button" class="outline">Документации нет</button>
+            </div>
+            <label>Existing repository mode <select id="repository-mode"><option>BROWNFIELD</option><option>HYBRID</option></select></label>
+            <button id="select-repository" type="button">Выбрать существующий репозиторий…</button>
+            <p class="small muted">Системное окно выбора папки. Assessment и preparation читают исходный репозиторий; новый Project Instance размещается отдельно.</p>
+          </div>
+          <div>
+            <h3>2. Выберите и импортируйте документы</h3>
+            <p id="upload-project" class="small muted">Проект для загрузки ещё не выбран.</p>
+            <div id="upload-zone" class="upload-zone" role="group" aria-label="Загрузка Markdown и ZIP">
+              <label for="source-files">Выберите MD/ZIP или перетащите файлы сюда</label>
+              <input id="source-files" type="file" accept=".md,.zip" multiple aria-describedby="document-validation">
+              <p id="upload-selected" class="small muted">Файлы не выбраны</p>
+            </div>
+            <label for="source-import-mode">Способ изменения источников</label>
+            <select id="source-import-mode"><option value="append">Добавить</option><option value="replace">Заменить весь набор</option></select>
+            <div class="button-cluster">
+              <button id="upload-sources" class="document-primary" type="button" aria-describedby="upload-step-detail">Импортировать файлы</button>
+              <button id="clear-source-files" class="quiet hidden" type="button">Снять выбор файлов</button>
+              <button id="confirm-no-docs" class="quiet" type="button">Документации нет</button>
+            </div>
+            <div id="upload-step" class="upload-step" role="status" aria-live="polite" aria-atomic="true">
+              <strong id="upload-step-title">Сначала создайте или выберите проект</strong>
+              <p id="upload-step-detail">Затем выберите ZIP с Markdown или файлы MD и нажмите «Импортировать файлы». Выбор файла сам по себе не запускает загрузку.</p>
+            </div>
+            <progress id="upload-progress" class="hidden" max="100" value="0" aria-label="Прогресс передачи файлов"></progress>
+            <p id="upload-result" role="status" aria-live="polite" class="small"></p>
+            <h3>3. Продолжите подготовку проекта</h3>
+            <button id="documents-next" class="document-primary" type="button" aria-describedby="upload-step-detail">Перейти к опросу и GPT →</button>
+          </div>
+        </div>
+        <h3>Принятые источники и история</h3>
+        <p id="source-summary" class="muted">Выберите intake из списка проектов.</p>
+        <div id="source-list" class="source-list"></div>
+        <h3>Предпросмотр как экранированный текст</h3>
+        <pre id="source-preview" class="source-preview" aria-live="polite">Выберите документ для просмотра.</pre>
+        <p class="muted small">Лимиты: весь запрос с ZIP до 64 MiB; один MD или распакованный элемент до 8 MiB; суммарное распакованное содержимое до 128 MiB; до 1000 элементов; вложенность до 16; сжатие до 200:1. Опасный ZIP отклоняется целиком.</p>
+      </section>
+      <section id="interview-panel" class="panel hidden" aria-labelledby="interview-title">
+        <h2 id="interview-title">Опрос и обмен с GPT</h2>
+        <p id="interview-status" role="status">Выберите intake во вкладке «Проекты».</p>
+        <div id="interview-body" class="hidden">
+          <div class="next"><p id="interview-next"></p></div>
+          <p id="interview-documents" class="body-value"></p>
+          <button id="interview-documents-link" type="button" class="quiet">Открыть документы</button>
+          <details><summary>Известные ответы и provenance</summary><div id="known-answers"></div></details>
+          <h3>Текущие вопросы</h3>
+          <p class="muted">Ответы сохраняются как draft. Они не являются approvals или verified facts.</p>
+          <form id="answers-form"><div id="question-fields" class="interview-fields"></div>
+            <button id="save-answers" type="submit" class="outline">Сохранить ответы</button>
+          </form>
+          <button id="check-answers" type="button" class="outline">Проверить readiness</button>
+          <button id="recover-reply" type="button" class="outline hidden">Сверить прерванный commit</button>
+          <details><summary>Оставшиеся blockers и readiness ядра</summary><pre id="interview-readiness" class="source-preview"></pre></details>
+          <hr>
+          <h3>1. Подготовить пакет для внешнего GPT</h3>
+          <p>Сначала проверьте состав и право передачи. Export содержит все документы, текущий draft, вопросы и schemas. Сервер ничего не отправляет внешней модели.</p>
+          <button id="review-export" type="button" class="outline">Проверить состав пакета</button>
+          <div id="export-review" class="hidden">
+            <p id="export-warning" class="body-value"></p>
+            <div id="export-documents"></div>
+            <label for="draft-classification">Класс данных draft и ответов</label>
+            <select id="draft-classification"><option value="UNKNOWN">Не проверено</option><option>PUBLIC</option><option>INTERNAL</option><option>CONFIDENTIAL</option><option>RESTRICTED</option><option>SECRET</option><option>REGULATED</option></select>
+            <label class="consent"><input id="export-consent" type="checkbox"> Я проверил все перечисленные документы и draft: секретов нет, внешняя передача разрешена.</label>
+            <button id="create-export" type="button" class="outline">Создать пакет для GPT</button>
+          </div>
+          <div id="export-history"></div>
+          <hr>
+          <h3>2. Вставить ответ GPT</h3>
+          <label for="gpt-reply">JSON draft (до 512 KiB)</label>
+          <textarea id="gpt-reply" rows="8" spellcheck="false" placeholder="Вставьте полный JSON ответ из ручного обмена"></textarea>
+          <button id="preview-reply" type="button" class="outline">Проверить и показать diff</button>
+          <div id="repair-area" class="hidden"><p>Ответ отклонён; сессия не изменена. Исправьте ответ по этому ограниченному prompt.</p><pre id="repair-prompt" class="source-preview"></pre>
+            <button id="copy-repair" type="button" class="outline">Копировать repair prompt</button></div>
+          <div id="import-preview" class="hidden">
+            <h3>3. Проверить изменения перед применением</h3>
+            <p id="preview-summary" role="status"></p>
+            <div id="reply-diff"></div>
+            <button id="commit-reply" type="button" class="outline">Применить как draft</button>
+            <button id="cancel-reply" type="button" class="quiet">Отменить import до commit</button>
+          </div>
+          <div id="import-history"></div>
+        </div>
+      </section>
+      <section id="approvals-panel" class="panel hidden" aria-labelledby="approvals-title">
+        <h2 id="approvals-title">Отдельные согласования</h2>
+        <p id="approvals-status" role="status" aria-live="polite">Выберите intake.</p>
+        <p id="approvals-next" class="next"></p>
+        <p>Каждое решение относится к показанному содержанию и текущим источникам. Receipt фиксирует локальное действие; это не цифровая подпись и не удостоверение личности.</p>
+        <form id="approval-actor-form">
+          <label for="approval-actor">Имя оператора для этой intake session</label>
+          <input id="approval-actor" maxlength="120" autocomplete="off" required>
+          <button id="save-approval-actor" type="submit" class="outline">Установить оператора</button>
+        </form>
+        <p id="approval-actor-display"></p>
+        <button id="refresh-approvals" type="button" class="outline">Перечитать согласования</button>
+        <button id="recover-approval" type="button" class="outline hidden">Сверить прерванное согласование</button>
+        <button id="retry-approval" type="button" class="outline hidden">Повторить тот же запрос</button>
+        <div id="approval-invalidations" role="status"></div>
+        <button id="invalidate-approvals" type="button" class="outline hidden">Сбросить устаревшие approvals текущего draft</button>
+        <div id="approval-subjects"></div>
+        <details><summary>Receipts и история решений</summary><div id="approval-receipts"></div></details>
+        <hr>
+        <h2>Подготовка Project Instance</h2>
+        <p id="preparation-status" role="status" aria-live="polite">Сначала завершите согласования.</p>
+        <p id="preparation-parent" class="body-value"></p>
+        <button id="refresh-preparation" type="button" class="outline">Перечитать подготовку</button>
+        <form id="preparation-form" class="hidden">
+          <label for="project-folder-name">Имя новой папки проекта</label>
+          <input id="project-folder-name" maxlength="80" required autocomplete="off">
+          <label class="consent"><input id="confirm-new-folder" type="checkbox"> Подтверждаю новую папку в показанном каталоге. Существующая папка не заменяется.</label>
+          <button id="prepare-project" type="submit" class="outline">Собрать, проверить и разместить проект</button>
+        </form>
+        <button id="recover-preparation" type="button" class="outline hidden">Сверить и продолжить подготовку</button>
+        <div id="preparation-complete" class="hidden">
+          <h3>Проект готов к ручной передаче Codex</h3>
+          <p id="published-folder" class="body-value"></p><pre id="published-refs"></pre>
+          <p>Первый JIT уже зарезервирован. Скопируйте промпт и передайте его Codex. Для ручного результата, проверки и завершения откройте опубликованный Project Instance в разделе «Задачи и Run».</p>
+          <label for="first-prompt">Первый JIT — доступен для выделения и Ctrl+C</label>
+          <textarea id="first-prompt" rows="12" readonly spellcheck="false"></textarea>
+          <button id="copy-first-prompt" type="button" class="outline">Копировать промпт</button>
+          <button id="open-project-folder" type="button" class="outline">Открыть папку</button>
+          <a id="download-handoff" class="outline" download>Экспортировать ZIP</a>
+          <p>ZIP хранит исходный immutable handoff. После изменений продукта используется validate-project; initial manifest не является проверкой текущего проекта.</p>
+        </div>
+      </section>
+      <footer>Project Harness 0.5.1 WIP · Local Web PH-LW-12 · Ручной маршрут · Полная v0.5.1: NO-GO</footer>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "command": [
+    ".\\.venv\\Scripts\\python.exe",
+    "-B",
+    "_workspace/DEV_LAUNCHER_2026-11-09/smoke.py"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-09T10:53:47.245923+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 120,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 1.154,
+  "log_sha256": "a722340e378a71ef3c3255988505c14fe62a8fed4285a48c5f6d834e692d2d7d"
+}

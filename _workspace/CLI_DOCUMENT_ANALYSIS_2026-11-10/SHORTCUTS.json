@@ -1,0 +1,14 @@
+[
+  {
+    "Name": "Project Harness — разработка.lnk",
+    "TargetPath": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\pythonw.exe",
+    "Arguments": "-B \"C:\\Users\\gvenv\\Desktop\\ProjectHarness\\tools\\launch_harness_dev.py\"",
+    "WorkingDirectory": "C:\\Users\\gvenv\\Desktop\\ProjectHarness"
+  },
+  {
+    "Name": "Project Harness.lnk",
+    "TargetPath": "C:\\Users\\gvenv\\AppData\\Local\\Programs\\ProjectHarness\\versions\\CLI-DOC-ANALYSIS-20261110\\Harness.exe",
+    "Arguments": "",
+    "WorkingDirectory": "C:\\Users\\gvenv\\AppData\\Local\\Programs\\ProjectHarness"
+  }
+]

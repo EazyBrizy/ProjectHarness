@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "registry": {
+    "id": "REG-PROJECT-PROFILES",
+    "version": 1,
+    "status": "ACTIVE",
+    "composition": "ALLOWED",
+    "entries": [
+      {
+        "key": "BASE_SOFTWARE",
+        "description": "Нейтральный software baseline без более точного primary profile.",
+        "status": "ACTIVE"
+      },
+      {
+        "key": "WEB_APPLICATION",
+        "description": "Browser-facing application с web UI и server/runtime boundary.",
+        "status": "ACTIVE"
+      },
+      {
+        "key": "API_SERVICE",
+        "description": "Service, основной интерфейс которого API.",
+        "status": "ACTIVE"
+      },
+      {
+        "key": "MOBILE_APPLICATION",
+        "description": "Приложение для mobile platforms.",
+        "status": "ACTIVE"
+      },
+      {
+        "key": "DESKTOP_APPLICATION",
+        "description": "Desktop application.",
+        "status": "ACTIVE"
+      },
+      {
+        "key": "CLI_TOOL",
+        "description": "Command-line tool.",
+        "status": "ACTIVE"
+      },
+      {
+        "key": "LIBRARY",
+        "description": "Reusable library/package/SDK.",
+        "status": "ACTIVE"
+      },
+      {
+        "key": "DATA_PIPELINE",
+        "description": "Ingestion, transformation, orchestration или data processing pipeline.",
+        "status": "ACTIVE"
+      },
+      {
+        "key": "ML_SYSTEM",
+        "description": "ML training/inference/evaluation system.",
+        "status": "ACTIVE"
+      },
+      {
+        "key": "INFRASTRUCTURE",
+        "description": "Infrastructure, platform, IaC или operational system.",
+        "status": "ACTIVE"
+      },
+      {
+        "key": "EMBEDDED_SYSTEM",
+        "description": "Embedded/edge/firmware system.",
+        "status": "ACTIVE"
+      },
+      {
+        "key": "AUTOMATION",
+        "description": "Workflow or integration automation.",
+        "status": "ACTIVE"
+      },
+      {
+        "key": "MULTI_SERVICE_SYSTEM",
+        "description": "System из нескольких independently deployable services.",
+        "status": "ACTIVE"
+      },
+      {
+        "key": "CUSTOM",
+        "description": "Explicit extension profile с зарегистрированной schema.",
+        "status": "ACTIVE"
+      }
+    ]
+  }
+}

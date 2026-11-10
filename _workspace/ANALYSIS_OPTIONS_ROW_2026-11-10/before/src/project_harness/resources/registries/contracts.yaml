@@ -1,0 +1,911 @@
+{
+  "schema_version": 1,
+  "registry": {
+    "id": "REG-CONTRACT-CATALOG",
+    "version": 6,
+    "status": "ACTIVE",
+    "defaults": {
+      "required_fields": [
+        "id"
+      ],
+      "optional_fields": []
+    },
+    "entities": {
+      "project": {
+        "id_prefix": null,
+        "persistence": "EXTERNAL_CONFIG",
+        "lifecycle": "IMMUTABLE_CONFIG",
+        "storage_path": ".harness/config/PROJECT.yaml",
+        "revision_policy": "VERSIONED_CONFIG"
+      },
+      "project_lock": {
+        "id_prefix": null,
+        "persistence": "EXTERNAL_CONFIG",
+        "lifecycle": "IMMUTABLE_CONFIG",
+        "storage_path": ".harness/config/PROJECT_LOCK.yaml",
+        "revision_policy": "VERSIONED_CONFIG"
+      },
+      "request": {
+        "id_prefix": "RQ",
+        "persistence": "PERSISTENT",
+        "lifecycle": "request",
+        "storage_path": ".harness/requests/REQUESTS/{id}.yaml",
+        "revision_policy": "IMMUTABLE_INPUT"
+      },
+      "request_plan": {
+        "id_prefix": "RQP",
+        "persistence": "PERSISTENT",
+        "lifecycle": "request_plan",
+        "storage_path": ".harness/requests/PLANS/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "result": {
+        "id_prefix": "RES",
+        "persistence": "PERSISTENT",
+        "lifecycle": "public_result",
+        "storage_path": ".harness/requests/RESULTS/{id}.yaml",
+        "revision_policy": "IMMUTABLE"
+      },
+      "request_trace": {
+        "id_prefix": "TRT",
+        "persistence": "PERSISTENT",
+        "lifecycle": "IMMUTABLE_RECORD",
+        "storage_path": ".harness/requests/TRACES/{id}.yaml",
+        "revision_policy": "APPEND_ONLY"
+      },
+      "session": {
+        "id_prefix": "SES",
+        "persistence": "PERSISTENT",
+        "lifecycle": "session",
+        "storage_path": ".harness/sessions/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "questionnaire_session": {
+        "id_prefix": "QNS",
+        "persistence": "PERSISTENT",
+        "lifecycle": "questionnaire_session",
+        "storage_path": ".harness/intake/QUESTIONNAIRES/{id}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "question": {
+        "id_prefix": "QST",
+        "persistence": "PERSISTENT",
+        "lifecycle": "question",
+        "storage_path": ".harness/intake/QUESTIONS/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "answer": {
+        "id_prefix": "ANS",
+        "persistence": "PERSISTENT",
+        "lifecycle": "IMMUTABLE_RECORD",
+        "storage_path": ".harness/intake/ANSWERS/{id}.yaml",
+        "revision_policy": "IMMUTABLE"
+      },
+      "source_inventory": {
+        "id_prefix": "SIV",
+        "persistence": "PERSISTENT",
+        "lifecycle": "IMMUTABLE_RECORD",
+        "storage_path": ".harness/intake/INVENTORIES/{id}@{revision}.yaml",
+        "revision_policy": "SNAPSHOT"
+      },
+      "repository_inventory": {
+        "id_prefix": "RIV",
+        "persistence": "PERSISTENT",
+        "lifecycle": "IMMUTABLE_RECORD",
+        "storage_path": ".harness/intake/INVENTORIES/{id}@{revision}.yaml",
+        "revision_policy": "SNAPSHOT"
+      },
+      "project_definition": {
+        "id_prefix": "PJD",
+        "persistence": "PERSISTENT",
+        "lifecycle": "project_definition",
+        "storage_path": ".harness/canonical/DEFINITION/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "architecture_baseline": {
+        "id_prefix": "ARB",
+        "persistence": "PERSISTENT",
+        "lifecycle": "architecture_baseline",
+        "storage_path": ".harness/canonical/ARCHITECTURE/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "requirement": {
+        "id_prefix": "REQ",
+        "persistence": "PERSISTENT",
+        "lifecycle": "requirement",
+        "storage_path": ".harness/canonical/REQUIREMENTS/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "constraint": {
+        "id_prefix": "CST",
+        "persistence": "PERSISTENT",
+        "lifecycle": "constraint",
+        "storage_path": ".harness/canonical/CONSTRAINTS/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "assumption": {
+        "id_prefix": "ASM",
+        "persistence": "PERSISTENT",
+        "lifecycle": "IMMUTABLE_RECORD",
+        "storage_path": ".harness/canonical/CONSTRAINTS/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "adr": {
+        "id_prefix": "ADR",
+        "persistence": "PERSISTENT",
+        "lifecycle": "adr",
+        "storage_path": ".harness/canonical/DECISIONS/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "decision": {
+        "id_prefix": "DEC",
+        "persistence": "PERSISTENT",
+        "lifecycle": "decision",
+        "storage_path": ".harness/canonical/DECISIONS/{id}@{revision}.yaml",
+        "revision_policy": "IMMUTABLE"
+      },
+      "technology_baseline": {
+        "id_prefix": "TBL",
+        "persistence": "PERSISTENT",
+        "lifecycle": "technology_baseline",
+        "storage_path": ".harness/canonical/TECHNOLOGY/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "technology_candidate": {
+        "id_prefix": "TCN",
+        "persistence": "PERSISTENT",
+        "lifecycle": "IMMUTABLE_RECORD",
+        "storage_path": ".harness/canonical/TECHNOLOGY/CANDIDATES/{id}.yaml",
+        "revision_policy": "IMMUTABLE"
+      },
+      "technology_compatibility": {
+        "id_prefix": "CMP",
+        "persistence": "PERSISTENT",
+        "lifecycle": "IMMUTABLE_RECORD",
+        "storage_path": ".harness/canonical/TECHNOLOGY/COMPATIBILITY/{id}.yaml",
+        "revision_policy": "IMMUTABLE"
+      },
+      "compatibility_result": {
+        "id_prefix": "CMP",
+        "persistence": "PERSISTENT",
+        "lifecycle": "IMMUTABLE_RECORD",
+        "storage_path": ".harness/runtime/COMPATIBILITY/{id}.yaml",
+        "revision_policy": "IMMUTABLE"
+      },
+      "project_profile": {
+        "id_prefix": "PRF",
+        "persistence": "PERSISTENT",
+        "lifecycle": "project_profile",
+        "storage_path": ".harness/canonical/DEFINITION/PROFILES/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "work_package": {
+        "id_prefix": "WP",
+        "persistence": "PERSISTENT",
+        "lifecycle": "work_package",
+        "storage_path": ".harness/work-packages/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "task": {
+        "id_prefix": "TSK",
+        "persistence": "PERSISTENT",
+        "lifecycle": "task",
+        "storage_path": ".harness/tasks/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "prompt_plan": {
+        "id_prefix": "PPL",
+        "persistence": "PERSISTENT",
+        "lifecycle": "prompt_plan",
+        "storage_path": ".harness/prompts/PLANS/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "compiled_prompt_bundle": {
+        "id_prefix": "CPB",
+        "persistence": "PERSISTENT",
+        "lifecycle": "compiled_prompt_bundle",
+        "storage_path": ".harness/prompts/BUNDLES_BY_RUN/{id}.yaml",
+        "revision_policy": "IMMUTABLE"
+      },
+      "context_plan": {
+        "id_prefix": "CTX",
+        "persistence": "PERSISTENT",
+        "lifecycle": "context_plan",
+        "storage_path": ".harness/context/PLANS/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "context_packet": {
+        "id_prefix": "CPK",
+        "persistence": "PERSISTENT",
+        "lifecycle": "context_packet",
+        "storage_path": ".harness/context/PACKETS_BY_RUN/{id}.yaml",
+        "revision_policy": "IMMUTABLE"
+      },
+      "skill": {
+        "id_prefix": "SKL",
+        "persistence": "PERSISTENT",
+        "lifecycle": "skill",
+        "storage_path": ".harness/skills/{status}/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "skill_registry_index": {
+        "id_prefix": null,
+        "persistence": "GENERATED",
+        "lifecycle": "GENERATED_INDEX",
+        "storage_path": ".harness/skills/registry.yaml",
+        "revision_policy": "REPRODUCIBLE"
+      },
+      "agent_adapter_profile": {
+        "id_prefix": "ADP",
+        "persistence": "PERSISTENT",
+        "lifecycle": "adapter_profile",
+        "storage_path": ".harness/config/ADAPTERS/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "bootstrap_plan": {
+        "id_prefix": "BST",
+        "persistence": "PERSISTENT",
+        "lifecycle": "bootstrap_plan",
+        "storage_path": ".harness/changes/BOOTSTRAP/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "brownfield_intake": {
+        "id_prefix": "BFI",
+        "persistence": "PERSISTENT",
+        "lifecycle": "brownfield_intake",
+        "storage_path": ".harness/intake/BROWNFIELD/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "brownfield_baseline": {
+        "id_prefix": "BFB",
+        "persistence": "PERSISTENT",
+        "lifecycle": "brownfield_baseline",
+        "storage_path": ".harness/canonical/DEFINITION/BROWNFIELD/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "brownfield_route_item": {
+        "id_prefix": "BRI",
+        "persistence": "PERSISTENT",
+        "lifecycle": "brownfield_route_item",
+        "storage_path": ".harness/work-packages/ROUTE_PORTFOLIO/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "parallel_batch": {
+        "id_prefix": "PBT",
+        "persistence": "PERSISTENT",
+        "lifecycle": "parallel_batch",
+        "storage_path": ".harness/runtime/PARALLEL_BATCHES/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "ownership_lease": {
+        "id_prefix": "LSE",
+        "persistence": "PERSISTENT",
+        "lifecycle": "lease",
+        "storage_path": ".harness/runtime/LEASES/{id}.yaml",
+        "revision_policy": "APPEND_ONLY_EVENTS"
+      },
+      "run_plan": {
+        "id_prefix": "RNP",
+        "persistence": "PERSISTENT",
+        "lifecycle": "run_plan",
+        "storage_path": ".harness/runtime/RUN_PLANS/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "run": {
+        "id_prefix": "RUN",
+        "persistence": "PERSISTENT",
+        "lifecycle": "run",
+        "storage_path": ".harness/runtime/RUNS/{id}.yaml",
+        "revision_policy": "IMMUTABLE_ATTEMPT"
+      },
+      "tool_invocation": {
+        "id_prefix": "TIV",
+        "persistence": "PERSISTENT",
+        "lifecycle": "tool_invocation",
+        "storage_path": ".harness/runtime/TOOL_INVOCATIONS/{id}.yaml",
+        "revision_policy": "IMMUTABLE"
+      },
+      "capability_grant": {
+        "id_prefix": "CGR",
+        "persistence": "PERSISTENT",
+        "lifecycle": "IMMUTABLE_RECORD",
+        "storage_path": ".harness/runtime/CAPABILITY_GRANTS/{id}.yaml",
+        "revision_policy": "IMMUTABLE"
+      },
+      "verification_profile": {
+        "id_prefix": "VFP",
+        "persistence": "PERSISTENT",
+        "lifecycle": "verification_profile",
+        "storage_path": ".harness/verification/PROFILES/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "test_environment": {
+        "id_prefix": "TEN",
+        "persistence": "PERSISTENT",
+        "lifecycle": "test_environment",
+        "storage_path": ".harness/verification/TEST_ENVIRONMENTS/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "test_baseline": {
+        "id_prefix": "TSB",
+        "persistence": "PERSISTENT",
+        "lifecycle": "IMMUTABLE_RECORD",
+        "storage_path": ".harness/verification/BASELINES/{id}.yaml",
+        "revision_policy": "SNAPSHOT"
+      },
+      "verification_evidence": {
+        "id_prefix": "EVD",
+        "persistence": "PERSISTENT",
+        "lifecycle": "IMMUTABLE_RECORD",
+        "storage_path": ".harness/evidence/{id}.yaml",
+        "revision_policy": "IMMUTABLE"
+      },
+      "blocker": {
+        "id_prefix": "BLK",
+        "persistence": "PERSISTENT",
+        "lifecycle": "blocker",
+        "storage_path": ".harness/blockers/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "change_pack": {
+        "id_prefix": "CHP",
+        "persistence": "PERSISTENT",
+        "lifecycle": "change_pack",
+        "storage_path": ".harness/changes/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "commit_plan": {
+        "id_prefix": "CPL",
+        "persistence": "PERSISTENT",
+        "lifecycle": "IMMUTABLE_RECORD",
+        "storage_path": ".harness/changes/COMMITS/{id}.yaml",
+        "revision_policy": "IMMUTABLE"
+      },
+      "coordinated_change_set": {
+        "id_prefix": "CCS",
+        "persistence": "PERSISTENT",
+        "lifecycle": "IMMUTABLE_RECORD",
+        "storage_path": ".harness/changes/COORDINATED/{id}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "conflict": {
+        "id_prefix": "CNF",
+        "persistence": "PERSISTENT",
+        "lifecycle": "conflict",
+        "storage_path": ".harness/blockers/CONFLICTS/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "waiver": {
+        "id_prefix": "WVR",
+        "persistence": "PERSISTENT",
+        "lifecycle": "waiver",
+        "storage_path": ".harness/canonical/CONSTRAINTS/WAIVERS/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "validation_report": {
+        "id_prefix": "VAL",
+        "persistence": "PERSISTENT",
+        "lifecycle": "IMMUTABLE_RECORD",
+        "storage_path": ".harness/reports/{id}.yaml",
+        "revision_policy": "IMMUTABLE"
+      },
+      "stage_state": {
+        "id_prefix": null,
+        "persistence": "PERSISTENT",
+        "lifecycle": "VERSIONED_CONFIG",
+        "storage_path": ".harness/stages/STAGE_STATE.yaml",
+        "revision_policy": "VERSIONED_CONFIG"
+      },
+      "stage_plan": {
+        "id_prefix": "STG",
+        "persistence": "PERSISTENT",
+        "lifecycle": "implementation_stage",
+        "storage_path": ".harness/stages/PLANS/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "stage_gate": {
+        "id_prefix": "GATE",
+        "persistence": "PERSISTENT",
+        "lifecycle": "verification",
+        "storage_path": ".harness/stages/GATES/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "stage_acceptance": {
+        "id_prefix": "VAL",
+        "persistence": "PERSISTENT",
+        "lifecycle": "IMMUTABLE_RECORD",
+        "storage_path": ".harness/stages/ACCEPTANCE/{id}@{revision}.yaml",
+        "revision_policy": "IMMUTABLE"
+      },
+      "maturity_assessment": {
+        "id_prefix": "VAL",
+        "persistence": "PERSISTENT",
+        "lifecycle": "IMMUTABLE_RECORD",
+        "storage_path": ".harness/stages/ASSESSMENTS/{id}@{revision}.yaml",
+        "revision_policy": "IMMUTABLE"
+      },
+      "sandbox_profile": {
+        "id_prefix": "SBX",
+        "persistence": "PERSISTENT",
+        "lifecycle": "sandbox_profile",
+        "storage_path": ".harness/config/SANDBOXES/{id}@{revision}.yaml",
+        "revision_policy": "VERSIONED"
+      },
+      "execution_result": {
+        "id_prefix": "ART",
+        "persistence": "PERSISTENT",
+        "lifecycle": "IMMUTABLE_RECORD",
+        "storage_path": ".harness/runtime/EXECUTION_RESULTS/{id}.yaml",
+        "revision_policy": "IMMUTABLE"
+      },
+      "apply_evidence": {
+        "id_prefix": "EVD",
+        "persistence": "PERSISTENT",
+        "lifecycle": "IMMUTABLE_RECORD",
+        "storage_path": ".harness/evidence/{id}.yaml",
+        "revision_policy": "IMMUTABLE"
+      }
+    },
+    "field_contracts": {
+      "request": {
+        "required_fields": [
+          "id",
+          "schema_version",
+          "input",
+          "classification",
+          "status",
+          "correlation_id",
+          "idempotency_key"
+        ],
+        "optional_fields": [
+          "project_ref",
+          "session_ref",
+          "scope_hint",
+          "user_expectation",
+          "safety"
+        ],
+        "forbidden_fields": []
+      },
+      "request_plan": {
+        "required_fields": [
+          "id",
+          "request_ref",
+          "project_ref",
+          "base_project_revision",
+          "objective",
+          "request_class",
+          "mode",
+          "routes",
+          "status"
+        ],
+        "optional_fields": [
+          "plan_revision",
+          "work_package_refs",
+          "decision_refs",
+          "assumptions",
+          "prohibited_operations",
+          "expected_result",
+          "next_route_policy",
+          "created_at"
+        ],
+        "forbidden_fields": []
+      },
+      "project_definition": {
+        "required_fields": [
+          "id",
+          "revision",
+          "status",
+          "session_ref",
+          "source_refs",
+          "problem_statement",
+          "success_criterion_refs"
+        ],
+        "optional_fields": [
+          "name",
+          "mode",
+          "user_refs",
+          "outcome_refs",
+          "goal_refs",
+          "constraint_refs",
+          "assumption_refs",
+          "unknown_refs",
+          "risk_refs",
+          "authority_refs",
+          "ambiguity_mode",
+          "dimension_statuses"
+        ],
+        "forbidden_fields": [
+          "success_criteria_refs"
+        ],
+        "variants": {
+          "DRAFT": {
+            "required_fields": [
+              "scope",
+              "proposed_profile_refs"
+            ],
+            "forbidden_fields": [
+              "scope_ref",
+              "profile_ref",
+              "accepted_by"
+            ]
+          },
+          "PROPOSED": {
+            "required_fields": [
+              "scope",
+              "proposed_profile_refs"
+            ],
+            "forbidden_fields": [
+              "scope_ref",
+              "profile_ref",
+              "accepted_by"
+            ]
+          },
+          "ACCEPTED": {
+            "required_fields": [
+              "scope_ref",
+              "profile_ref",
+              "accepted_by"
+            ],
+            "forbidden_fields": [
+              "scope",
+              "proposed_profile_refs"
+            ]
+          }
+        }
+      },
+      "task": {
+        "required_fields": [
+          "id",
+          "revision",
+          "work_package_ref",
+          "title",
+          "type",
+          "purpose",
+          "expected_result",
+          "documentation",
+          "scope",
+          "route",
+          "verification_profile_ref",
+          "status",
+          "implementation_stage"
+        ],
+        "optional_fields": [
+          "parent_task_ref",
+          "child_task_refs",
+          "track",
+          "priority",
+          "requirement_refs",
+          "constraint_refs",
+          "architecture_refs",
+          "depends_on_tasks",
+          "requires_artifacts",
+          "produces_artifacts",
+          "access_sets",
+          "prompt_spec_ref",
+          "context_policy_ref",
+          "acceptance_criteria",
+          "rollback"
+        ],
+        "forbidden_fields": [
+          "documentation_refs"
+        ]
+      },
+      "brownfield_baseline": {
+        "required_fields": [
+          "id",
+          "revision",
+          "repository_revision",
+          "status",
+          "accepted_actual_structure_ref",
+          "project_definition_ref",
+          "architecture_baseline_ref",
+          "technology_baseline_ref",
+          "test_baseline_ref"
+        ],
+        "optional_fields": [
+          "contract_refs",
+          "known_gaps",
+          "known_defects",
+          "technical_debt_items",
+          "documentation_conflicts",
+          "accepted_by",
+          "accepted_at",
+          "previous_revision_ref"
+        ],
+        "forbidden_fields": [
+          "actual_structure_ref"
+        ]
+      },
+      "brownfield_route_item": {
+        "required_fields": [
+          "id",
+          "route",
+          "title",
+          "evidence_refs",
+          "estimated_risk",
+          "value",
+          "proposed_work_package_ref",
+          "status"
+        ],
+        "optional_fields": [
+          "requirement_refs",
+          "dependencies"
+        ],
+        "forbidden_fields": [
+          "risk"
+        ]
+      },
+      "parallel_batch": {
+        "required_fields": [
+          "id",
+          "work_package_ref",
+          "task_refs",
+          "frozen_inputs",
+          "conflict_analysis_ref",
+          "lease_refs",
+          "integration_task_ref",
+          "failure_policy",
+          "status"
+        ],
+        "optional_fields": [],
+        "forbidden_fields": [
+          "leases"
+        ]
+      },
+      "change_pack": {
+        "required_fields": [
+          "id",
+          "request_ref",
+          "kind",
+          "target_plane",
+          "objective",
+          "normalized_changes",
+          "required_capabilities",
+          "status"
+        ],
+        "optional_fields": [
+          "target_project_ref",
+          "target_revision",
+          "source_refs",
+          "affected_entities",
+          "conflicts",
+          "impact_analysis_ref",
+          "migration_plan_ref",
+          "evaluation_plan_ref",
+          "rollback_plan_ref"
+        ],
+        "forbidden_fields": [
+          "proposed_changes",
+          "requested_capabilities"
+        ]
+      },
+      "session": {
+        "required_fields": [
+          "id",
+          "revision",
+          "mode",
+          "status",
+          "created_at",
+          "updated_at",
+          "source_inventory_ref",
+          "questionnaire_session_ref"
+        ],
+        "optional_fields": [
+          "project_ref",
+          "provisional_workspace",
+          "repository_ref",
+          "completed_at"
+        ],
+        "forbidden_fields": []
+      },
+      "architecture_baseline": {
+        "required_fields": [
+          "id",
+          "revision",
+          "status",
+          "project_definition_ref",
+          "style",
+          "components",
+          "interfaces",
+          "data_flow",
+          "accepted_by"
+        ],
+        "optional_fields": [
+          "constraints",
+          "quality_attributes",
+          "decision_refs",
+          "risks"
+        ],
+        "forbidden_fields": []
+      },
+      "project_lock": {
+        "required_fields": [
+          "harness_distribution",
+          "schema_version",
+          "registry_versions",
+          "registry_digests",
+          "profile_refs",
+          "adapter_refs",
+          "skill_refs",
+          "prompt_spec_refs"
+        ],
+        "optional_fields": [
+          "migrations_applied",
+          "created_at",
+          "execution",
+          "execution_profile_bindings"
+        ],
+        "forbidden_fields": []
+      },
+      "stage_state": {
+        "required_fields": [
+          "scale_version",
+          "target_level",
+          "claimed_current_level",
+          "observed_candidate_level",
+          "highest_accepted_level",
+          "active_stage",
+          "progression_policy",
+          "future_stage_work",
+          "stage_path",
+          "revision"
+        ],
+        "optional_fields": [
+          "last_acceptance_ref",
+          "last_assessment_ref",
+          "updated_at"
+        ],
+        "forbidden_fields": [
+          "current_level"
+        ]
+      },
+      "stage_plan": {
+        "required_fields": [
+          "id",
+          "revision",
+          "level",
+          "status",
+          "target_level",
+          "baseline_ref",
+          "scope_refs",
+          "required_outcomes",
+          "criteria_profile_ref",
+          "hard_constraint_overrides",
+          "work_package_outlines",
+          "deferred_to_next_stage"
+        ],
+        "optional_fields": [
+          "detailed_work_package_refs",
+          "gate_ref",
+          "review_required",
+          "supersedes_ref",
+          "created_at",
+          "updated_at"
+        ],
+        "forbidden_fields": [
+          "compiled_prompt_refs"
+        ]
+      },
+      "stage_gate": {
+        "required_fields": [
+          "id",
+          "revision",
+          "type",
+          "level",
+          "stage_plan_ref",
+          "status",
+          "criteria_results",
+          "required_work_package_refs",
+          "critical_blocker_refs",
+          "permitted_use"
+        ],
+        "optional_fields": [
+          "hard_constraint_overrides",
+          "profile_control_refs",
+          "evidence_refs",
+          "evidence_bindings",
+          "base_revision",
+          "updated_at"
+        ],
+        "forbidden_fields": [
+          "average_score"
+        ]
+      },
+      "stage_acceptance": {
+        "required_fields": [
+          "id",
+          "revision",
+          "level",
+          "status",
+          "acceptance_method",
+          "baseline_revision",
+          "accepted_at",
+          "decision_ref",
+          "evidence_refs",
+          "evidence_bindings",
+          "permitted_use",
+          "known_limitations",
+          "next_stage_gaps"
+        ],
+        "optional_fields": [
+          "stage_plan_ref",
+          "gate_ref",
+          "assessment_ref",
+          "accepted_by"
+        ],
+        "forbidden_fields": [
+          "average_score"
+        ]
+      },
+      "maturity_assessment": {
+        "required_fields": [
+          "id",
+          "revision",
+          "repository_revision",
+          "claimed_current_level",
+          "observed_candidate_level",
+          "highest_satisfied_candidate_level",
+          "previous_highest_accepted_level",
+          "proposed_active_stage",
+          "target_level",
+          "confidence",
+          "criteria_results",
+          "dimensions",
+          "blocking_gaps",
+          "recommended_route"
+        ],
+        "optional_fields": [
+          "evidence_inventory",
+          "base_tree_digest",
+          "automatic_command_execution",
+          "status",
+          "warnings",
+          "created_at",
+          "validation_kind",
+          "source_assessment_ref",
+          "source_assessment_digest",
+          "staleness"
+        ],
+        "forbidden_fields": [
+          "average_score",
+          "current_level"
+        ]
+      },
+      "verification_evidence": {
+        "required_fields": [
+          "schema_version",
+          "id",
+          "ref",
+          "kind",
+          "status",
+          "provenance",
+          "base_revision",
+          "criterion_refs",
+          "outcome_refs",
+          "profile_control_refs",
+          "source_bindings",
+          "created_at"
+        ],
+        "optional_fields": [
+          "task_ref",
+          "run_ref",
+          "report_refs",
+          "rationale",
+          "validator",
+          "details"
+        ],
+        "forbidden_fields": [
+          "mutable_source_path",
+          "unbound_claim"
+        ]
+      }
+    },
+    "invariants": [
+      "Every standalone entity example is classified as lifecycle-managed, immutable, or external config.",
+      "Lifecycle-managed status values come only from registries/statuses.yaml.",
+      "ID prefixes come only from registries/id_prefixes.yaml.",
+      "Draft and accepted Project Definition variants are explicit and normalize before acceptance.",
+      "Forbidden field aliases fail semantic validation."
+    ]
+  }
+}

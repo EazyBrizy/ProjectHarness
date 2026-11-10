@@ -1,0 +1,12 @@
+[
+  {
+    "Name": "Project Harness — разработка.lnk",
+    "Target": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\pythonw.exe",
+    "Arguments": "-B \"C:\\Users\\gvenv\\Desktop\\ProjectHarness\\tools\\launch_harness_dev.py\""
+  },
+  {
+    "Name": "Project Harness.lnk",
+    "Target": "C:\\Users\\gvenv\\AppData\\Local\\Programs\\ProjectHarness\\versions\\SINGLE-ACTION-UI-20261109\\Harness.exe",
+    "Arguments": ""
+  }
+]
