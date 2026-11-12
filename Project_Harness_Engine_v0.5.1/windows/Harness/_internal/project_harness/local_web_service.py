@@ -548,6 +548,9 @@ class LocalWebService:
     def connect_cli(self):
         return self.cli_connection.connect()
 
+    def select_cli_model(self, **request):
+        return self.cli_connection.select_model(**request)
+
     def create_analysis_export(self, project_id: str, **request):
         from .local_web_exchange import create_analysis_export
         return create_analysis_export(self, project_id, **request)
@@ -579,6 +582,10 @@ class LocalWebService:
     def preview_gpt_reply(self, project_id: str, **request: Any) -> dict[str, Any]:
         from .local_web_exchange import preview_reply
         return preview_reply(self, project_id, **request)
+
+    def answer_interview_question(self, project_id: str, **request):
+        from .local_web_answers import answer_question
+        return answer_question(self,project_id,**request)
 
     def commit_gpt_reply(self, project_id: str, import_id: str, **request: Any) -> dict[str, Any]:
         from .local_web_exchange import commit_reply

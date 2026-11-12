@@ -1,0 +1,25 @@
+{"python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]", "executable": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\wheel-venv\\Scripts\\python.exe", "package": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\wheel-venv\\Lib\\site-packages\\project_harness", "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\Независимая папка wheel", "platform": "Windows-11-10.0.26200-SP0", "source_import": false, "scope": ["tests.test_document_analysis_universality.UniversalityBrowserTests.test_missing_plan_empty_lists_schema_enums_and_inert_source_text", "tests.test_document_analysis_clarity.AnalysisBrowserTests.test_preview_answers_plan_sources_consistent_status_then_typed_saved_answers", "tests.test_document_analysis_clarity.AnalysisBrowserTests.test_current_technology_question_has_typed_answer_and_resolution", "tests.test_ph_lw_06_exchange.ExchangeTests.test_unknowns_unsure_and_pending_approvals_cannot_become_ready"]}
+test_missing_plan_empty_lists_schema_enums_and_inert_source_text (tests.test_document_analysis_universality.UniversalityBrowserTests.test_missing_plan_empty_lists_schema_enums_and_inert_source_text) ... Task queue depth is 1
+ok
+test_preview_answers_plan_sources_consistent_status_then_typed_saved_answers (tests.test_document_analysis_clarity.AnalysisBrowserTests.test_preview_answers_plan_sources_consistent_status_then_typed_saved_answers) ... Task queue depth is 1
+ok
+test_current_technology_question_has_typed_answer_and_resolution (tests.test_document_analysis_clarity.AnalysisBrowserTests.test_current_technology_question_has_typed_answer_and_resolution) ... Task queue depth is 1
+FAIL
+test_unknowns_unsure_and_pending_approvals_cannot_become_ready (tests.test_ph_lw_06_exchange.ExchangeTests.test_unknowns_unsure_and_pending_approvals_cannot_become_ready) ... ok
+
+======================================================================
+FAIL: test_current_technology_question_has_typed_answer_and_resolution (tests.test_document_analysis_clarity.AnalysisBrowserTests.test_current_technology_question_has_typed_answer_and_resolution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\tests\test_document_analysis_clarity.py", line 181, in test_current_technology_question_has_typed_answer_and_resolution
+    self.assertEqual(saved['draft']['technology']['selections'][0]['technology'],'Flutter')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '3.0 (синтетическая версия проверки)' != 'Flutter'
+- 3.0 (синтетическая версия проверки)
++ Flutter
+
+
+----------------------------------------------------------------------
+Ran 4 tests in 9.819s
+
+FAILED (failures=1)

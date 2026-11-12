@@ -1,0 +1,34 @@
+{
+  "source": {
+    "local_web_analysis.py": {
+      "before": "504768db7174179c6a33558caf806cb60608de6cd597cdfb15b1b7a593713992",
+      "after": "18f208f92840bddcee79a89a5743b099313b5692f397f8e06c54a1a04c02dee6"
+    },
+    "local_web_exchange.py": {
+      "before": "a9b2affb54c4aadb20a5bac1954d046b03837f19c7c86cfff84fa5a65e6dc0cd",
+      "after": "b80dd57de1758f62d9caf82a616d81cf96f3aacd2a3b172b9c5b8e633545dc9b"
+    },
+    "resources/local_web/GPT_PREPARATION.md": {
+      "before": "bf82ca62af93bde178bd8729cbfedaa24ac4b7863240cf8e05510fd5606889a7",
+      "after": "c1e9fa5cfc8113dd211c822a684f422abb26e589d9baab4dd77d9295386fc9e9"
+    },
+    "resources/local_web/assets/interview.js": {
+      "before": "2bd94343a043718b75de019f9af4c02e3bbbe7dad7790d7525ff6cddfc00e4c2",
+      "after": "c0d07fc9fb405316fca402356f3f3a1a54fdbc39f58a41c19bdb60de6b7aa0e5"
+    },
+    "resources/local_web/metadata_v1.json": {
+      "before": "9bacedabed0be61b9effc49caba52524cf62b98f862f78637f46701851a86439",
+      "after": "2102e3a4df83f9f33aca6c9b04accbc8b3bde4afd4622b32fce8f39ee5d06ceb"
+    }
+  },
+  "tests": {
+    "test_document_analysis_clarity.py": {
+      "before": "c1e13202e860ecf8d8d4217a1ece0475496268b4cede078c557ca4d58f244956",
+      "after": "bb403eeb643971cb719afcf723e514d9d71e03b499029c0e49c8340c32f5624c"
+    },
+    "test_document_analysis_universality.py": {
+      "before": null,
+      "after": "ad88c0423091768064e1d03da99ffc8ec72d6030cfe7918022148c82b9ee9cfd"
+    }
+  }
+}

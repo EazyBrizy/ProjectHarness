@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "unique_targeted_unittest_methods": 16,
+  "full_engine_tests": "NOT RUN — scoped change only",
+  "runtime_runs": [
+    {
+      "result": "WHEEL_RESULTS.json",
+      "ran": 13
+    },
+    {
+      "result": "WHEEL_FOCUSED_RESULTS.json",
+      "ran": 3
+    },
+    {
+      "result": "WHEEL_TECHNOLOGY_RESULTS.json",
+      "ran": 1
+    },
+    {
+      "result": "WHEEL_TYPED_FINAL_RESULTS.json",
+      "ran": 1
+    },
+    {
+      "result": "WHEEL_LEGACY_V2_RESULTS.json",
+      "ran": 1
+    },
+    {
+      "result": "WHEEL_ARCHIVE_FINAL_RESULTS.json",
+      "ran": 1
+    }
+  ],
+  "rerun_reasons": {
+    "focused": "Exact profile refs added after failed real case; model cache recovery and typed UI changed.",
+    "technology": "New typed technology/version answer and explicit question resolution.",
+    "typed_final": "Shared typed-array editor changed for adding technology; rechecked object preservation.",
+    "archive_final": "Instruction version now comes from exact skeleton, fixed stale v2 literal."
+  },
+  "native_model_requests": 2,
+  "native_first": "FAIL — profile.ref lacked consumable exact refs in pack; guard correctly rejected.",
+  "native_second": "PASS after exact allowed_refs added; same four private documents, no canonical commit.",
+  "native_model": {
+    "model": "gpt-6-astra",
+    "reasoning_effort": "medium"
+  },
+  "answers": 14,
+  "roadmap_stages": 8,
+  "current_questions": 2,
+  "future_questions": 13,
+  "full_ph_lw_matrix": "NOT RUN",
+  "automatic_executor_enabled": false
+}

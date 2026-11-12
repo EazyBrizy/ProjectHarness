@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "build_id": "DOC-ANALYSIS-CLARITY-20261112",
+  "source_build_wheel_frozen": "PASS",
+  "full_frozen_payload_including_pyd": "PASS",
+  "documentation_mirrors": "PASS",
+  "manifests": "PASS",
+  "allowed_source_changes": [
+    "local_web_analysis.py",
+    "local_web_cli.py",
+    "local_web_cli_analysis.py",
+    "local_web_exchange.py",
+    "local_web_exchange_contract.py",
+    "local_web_http.py",
+    "local_web_service.py",
+    "resources/local_web/GPT_PREPARATION.md",
+    "resources/local_web/assets/app.css",
+    "resources/local_web/assets/index.html",
+    "resources/local_web/assets/interview.js",
+    "resources/local_web/gpt_exchange_reply_v3.schema.json",
+    "resources/local_web/metadata_v1.json"
+  ],
+  "core_contracts_and_historical_documentation_preserved": true,
+  "unrelated_tests_preserved": true,
+  "engine_manifest_sha256": "4bde8a0e448880d31798904301f009a06f8f19644cdf1da091daacfa056ec250",
+  "docs_manifest_sha256": "37c22eac1ecd5315497f85e7e4cc10333c8ef7bd8102e8221560dcef81282cf2",
+  "zip_created": false
+}

@@ -1,0 +1,2 @@
+{"state": "QUEUED", "selection": {"model": "gpt-6-astra", "reasoning_effort": "low"}}
+{"status": "PASS", "state": "SUCCEEDED", "selection": {"model": "gpt-6-astra", "reasoning_effort": "low"}, "model_requests": 1, "canonical_unchanged_by_model": true, "error_code": null, "questions": 1, "choices": 2, "selected_question": "Как учитывать порядок элементов массивов при сравнении?", "selected_title": "Сравнивать элементы по индексам", "resolves_question": true, "user_answer_saved": true, "no_approvals": true, "task_execution": false}

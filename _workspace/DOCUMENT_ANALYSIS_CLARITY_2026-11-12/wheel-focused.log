@@ -1,0 +1,11 @@
+{"python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]", "executable": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\wheel-venv\\Scripts\\python.exe", "package": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\wheel-venv\\Lib\\site-packages\\project_harness", "platform": "Windows-11-10.0.26200-SP0", "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\Независимая папка wheel", "source_import": false, "scope": ["tests.test_document_analysis_clarity.AnalysisContractTests.test_export_supplies_exact_consumable_profile_refs", "tests.test_document_analysis_clarity.ModelSelectionTests.test_explicit_model_effort_snapshot_invalid_inputs_and_readonly_get", "tests.test_document_analysis_clarity.AnalysisBrowserTests.test_preview_answers_plan_sources_consistent_status_then_typed_saved_answers"]}
+test_export_supplies_exact_consumable_profile_refs (tests.test_document_analysis_clarity.AnalysisContractTests.test_export_supplies_exact_consumable_profile_refs) ... ok
+test_explicit_model_effort_snapshot_invalid_inputs_and_readonly_get (tests.test_document_analysis_clarity.ModelSelectionTests.test_explicit_model_effort_snapshot_invalid_inputs_and_readonly_get) ... ok
+test_preview_answers_plan_sources_consistent_status_then_typed_saved_answers (tests.test_document_analysis_clarity.AnalysisBrowserTests.test_preview_answers_plan_sources_consistent_status_then_typed_saved_answers) ... Task queue depth is 1
+Task queue depth is 1
+ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 5.633s
+
+OK

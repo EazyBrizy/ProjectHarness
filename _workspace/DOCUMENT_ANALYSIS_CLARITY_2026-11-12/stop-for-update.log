@@ -1,0 +1,7 @@
+{
+  "status": "STOPPED",
+  "http_status": 200,
+  "active_work_waited": true,
+  "force_kill": false,
+  "pid": 25552
+}

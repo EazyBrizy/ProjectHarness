@@ -1,0 +1,4 @@
+{"case": "existing-service", "state": "QUEUED", "selection": {"model": "gpt-6-astra", "reasoning_effort": "low"}}
+{"case": "nonsoftware-brief", "state": "QUEUED", "selection": {"model": "gpt-6-astra", "reasoning_effort": "low"}}
+{"case": "existing-service", "status": "PASS", "state": "SUCCEEDED", "error_code": null, "selection": {"model": "gpt-6-astra", "reasoning_effort": "low"}, "documents": 3, "canonical_unchanged": true, "answers": 5, "roadmap_stages": 2, "errors": []}
+{"case": "nonsoftware-brief", "status": "PASS", "state": "SUCCEEDED", "error_code": null, "selection": {"model": "gpt-6-astra", "reasoning_effort": "low"}, "documents": 1, "canonical_unchanged": true, "answers": 4, "roadmap_stages": 0, "errors": []}

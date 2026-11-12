@@ -2,6 +2,7 @@
 from io import BytesIO
 import json
 import os
+import re
 from pathlib import Path
 import tempfile
 import unittest
@@ -43,6 +44,8 @@ class ManualArchiveTests(unittest.TestCase):
         self.assertIn('harness-analysis.zip',headers['Content-Disposition'])
         self.assertIn('no-store',headers['Cache-Control'])
         result=contents(data);self.assertIn('Прочитай pack.md целиком',result['ИНСТРУКЦИЯ.md'])
+        expected_version=json.loads(result['pack.md'].split('## Return skeleton\n\n',1)[1])['envelope_version']
+        self.assertEqual(re.findall(r'LOCAL_WEB_GPT_DRAFT_ONLY@(\d+)',result['ИНСТРУКЦИЯ.md']),[str(expected_version)])
         old=self.live.request('GET',self.path+'/gpt/exports/'+export['exchange_id']+'/pack.md')[2]
         self.assertEqual(result['pack.md'],old.decode('utf-8')[len(export['prompt']+'\n\n'):])
         payload=json.loads(result['pack.md'].split('## Exact payload\n\n',1)[1].split('## Return skeleton\n\n',1)[0])
@@ -117,8 +120,11 @@ class ManualArchiveBrowserTests(unittest.TestCase):
         payload=json.loads(result['pack.md'].split('## Exact payload\n\n',1)[1].split('## Return skeleton\n\n',1)[0])
         skeleton['project_input_draft']['project']['primary_outcome']='Цель из ответа на ZIP'
         skeleton['claims']=[{'field':'project.primary_outcome','source_refs':[payload['documents'][0]['document_ref']]}]
+        skeleton['analysis'].update(summary='Проверка анализа домашней библиотеки.',current_stage={
+            'title':'Прототип','goal':'Учёт книг.','basis':'Документация.','source_refs':[payload['documents'][0]['document_ref']]})
+        p.locator('#manual-reply-entry summary').click()
         p.locator('#gpt-reply').fill(json.dumps(skeleton,ensure_ascii=False));p.locator('#preview-reply').click()
-        e(p.locator('#preview-summary')).to_contain_text('Изменений:')
+        e(p.locator('#preview-summary')).to_contain_text('Предложения ещё не сохранены')
         self.assertNotEqual(self.live.service.get_interview(self.pid)['draft']['project']['primary_outcome'],'Цель из ответа на ZIP')
         folder=os.environ.get('MANUAL_ARCHIVE_EVIDENCE')
         if folder:

@@ -1,0 +1,37 @@
+{"python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]", "executable": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe", "package": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1\\src\\project_harness", "platform": "Windows-11-10.0.26200-SP0", "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness", "source_import": true, "scope": ["tests.test_document_decision_options.DecisionOptionsBrowserTests.test_recommended_options_preview_single_click_custom_and_future"]}
+test_recommended_options_preview_single_click_custom_and_future (tests.test_document_decision_options.DecisionOptionsBrowserTests.test_recommended_options_preview_single_click_custom_and_future) ... Task queue depth is 1
+ERROR
+
+======================================================================
+ERROR: test_recommended_options_preview_single_click_custom_and_future (tests.test_document_decision_options.DecisionOptionsBrowserTests.test_recommended_options_preview_single_click_custom_and_future)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\src\project_harness\operation_guard.py", line 72, in project_operation_guard
+    msvcrt.locking(fd, msvcrt.LK_NBLCK, 1)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\tests\test_document_decision_options.py", line 205, in test_recommended_options_preview_single_click_custom_and_future
+    self.assertIn('Адаптер C++',self.view()['draft']['architecture']['interfaces'])
+                                ~~~~~~~~~^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\tests\test_document_decision_options.py", line 43, in view
+    def view(self):return self.live.service.get_interview(self.pid)
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_service.py", line 523, in get_interview
+    return interview(self, project_id)
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\src\project_harness\local_web_exchange.py", line 127, in interview
+    with project_operation_guard(root):
+         ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\gvenv\Desktop\ProjectHarness\_tools\Python314\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\gvenv\Desktop\ProjectHarness\Project_Harness_Engine_v0.5.1\src\project_harness\operation_guard.py", line 74, in project_operation_guard
+    raise ValidationFailure('OPERATION_CONFLICT: operation already running for project', key) from exc
+project_harness.errors.ValidationFailure: VALIDATION_FAILED: OPERATION_CONFLICT: operation already running for project
+
+----------------------------------------------------------------------
+Ran 1 test in 5.514s
+
+FAILED (errors=1)

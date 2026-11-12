@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "methods": [
+    "tests.test_document_analysis_clarity.AnalysisBrowserTests.test_current_technology_question_has_typed_answer_and_resolution"
+  ],
+  "ran": 1,
+  "failures": [],
+  "errors": [],
+  "skips": 0
+}

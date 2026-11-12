@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "methods": [
+    "tests.test_document_decision_options.DecisionOptionsTests.test_strict_options_recommendation_values_and_legacy_envelopes"
+  ],
+  "ran": 1,
+  "failures": [],
+  "errors": [],
+  "skips": 0
+}

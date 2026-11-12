@@ -1,0 +1,11 @@
+{"python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]", "executable": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe", "package": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1\\src\\project_harness", "platform": "Windows-11-10.0.26200-SP0", "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness", "source_import": true, "scope": ["tests.test_document_decision_options.DecisionOptionsTests.test_strict_options_recommendation_values_and_legacy_envelopes", "tests.test_document_decision_options.DecisionOptionsTests.test_existing_questions_receive_options_without_duplicates_or_unblocking", "tests.test_document_decision_options.DecisionOptionsTests.test_selection_keep_open_append_custom_and_next_packet_context", "tests.test_document_decision_options.DecisionOptionsTests.test_replay_origin_tamper_stale_set_and_changed_sources", "tests.test_document_decision_options.DecisionOptionsTests.test_existing_commit_recovery_keeps_user_intent_before_and_after_atomic_write"]}
+test_strict_options_recommendation_values_and_legacy_envelopes (tests.test_document_decision_options.DecisionOptionsTests.test_strict_options_recommendation_values_and_legacy_envelopes) ... ok
+test_existing_questions_receive_options_without_duplicates_or_unblocking (tests.test_document_decision_options.DecisionOptionsTests.test_existing_questions_receive_options_without_duplicates_or_unblocking) ... ok
+test_selection_keep_open_append_custom_and_next_packet_context (tests.test_document_decision_options.DecisionOptionsTests.test_selection_keep_open_append_custom_and_next_packet_context) ... ok
+test_replay_origin_tamper_stale_set_and_changed_sources (tests.test_document_decision_options.DecisionOptionsTests.test_replay_origin_tamper_stale_set_and_changed_sources) ... ok
+test_existing_commit_recovery_keeps_user_intent_before_and_after_atomic_write (tests.test_document_decision_options.DecisionOptionsTests.test_existing_commit_recovery_keeps_user_intent_before_and_after_atomic_write) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 26.136s
+
+OK

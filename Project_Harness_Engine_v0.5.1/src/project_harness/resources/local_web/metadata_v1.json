@@ -5,7 +5,7 @@
   "core_schema_version": 7,
   "project_input_schema": "SCHEMA-PROJECT-PREPARATION-INPUT@4",
   "local_web_version": "0.1.0-dev",
-  "local_web_build_id": "MANUAL-ANALYSIS-ZIP-20261110",
+  "local_web_build_id": "DOC-DECISION-OPTIONS-20261112",
   "base_lineage": "PH-051-11-WIP-NOT-RELEASED",
   "declared_target_base": "PH-051-12-WIP-NO-GO-NOT_SUPPLIED",
   "source_engine_zip_sha256": "44b75136131d917403b99299077e829c025783a6bb94c2b539fbe0b913449dbd",
@@ -37,7 +37,7 @@
     "exchange_envelope": "LOCAL_WEB_GPT_DRAFT_ONLY@2",
     "artifact_policy": "Unpacked working files; ZIP only on explicit user request"
   },
-  "engine_build_digest": "sha256:0b3521b2027b90226a48713b11cf265d730ac5b63be89fc19db0a9178308e469",
+  "engine_build_digest": "sha256:4cad15d1c41f8386814bb44aa53218687c3ffdf73398c833ac6d0d3f48dfa092",
   "engine_build_digest_definition": "SHA256 of sorted SHA256 + two spaces + relative path + LF for src/project_harness files, excluding this metadata file and caches",
   "ph_lw_07": {
     "report": "PH_LW_07_TEST_REPORT.md",
@@ -92,5 +92,12 @@
     "input_wheel_sha256": "765e9bb3a63773e1d4710e21ad330c18713555fb6cf5d8e84660eee52c03ef93",
     "input_installer_sha256": "454d3db52f3c880a3ff1b1243059cf5818961c9f8fc22adca4eb9949a7dac630",
     "scope": "Three PH-LW-12 blockers; Windows only; exact-hash verdict external to pre-acceptance build metadata"
+  },
+  "document_analysis": {
+    "envelope": "LOCAL_WEB_GPT_DRAFT_ONLY@4",
+    "model_selection": "EXPLICIT_MODEL_AND_REASONING_EFFORT",
+    "scope": "Document interpretation only; no Task executor",
+    "project_independent": true,
+    "decision_options": "MODEL_SUGGESTED_EXPLICIT_USER_SELECTION"
   }
 }

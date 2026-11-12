@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "preflight_status": "FAIL; single known test marker reviewed separately",
+  "reviewed_path": "Project_Harness_Engine_v0.5.1/tests/test_cli_document_analysis.py",
+  "resolution": "Exact synthetic secret-scan sentinel already present in HEAD; no private key material. Runtime and test files unchanged during publication.",
+  "unresolved_issues": [],
+  "base_commit": "1e4806b54163e05b9d79f3cc536a62a5c8273646"
+}

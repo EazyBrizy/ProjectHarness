@@ -1,0 +1,16 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "tools/sync_working_tree.py",
+    "--build-wheel"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-12T14:14:46.910060+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 120,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 7.567,
+  "log_sha256": "d8696c0bfedfae4597b0b3d3170a0a9f1db56c32313e0f20bb2d279368ef0726"
+}

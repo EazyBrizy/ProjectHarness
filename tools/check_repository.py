@@ -44,7 +44,7 @@ def inventory(base: Path, *, caches: bool = False) -> set[str]:
 def check(root: Path) -> dict:
     engine = root / 'Project_Harness_Engine_v0.5.1'
     docs = root / 'Project_Harness_Documentation_v0.5.1'
-    evidence = root / '_workspace/MANUAL_ANALYSIS_ARCHIVE_2026-11-10'
+    evidence = root / '_workspace/DOCUMENT_DECISION_OPTIONS_2026-11-12'
     freeze = read(evidence / 'RUNTIME_FREEZE.json')
     integrity = read(evidence / 'INTEGRITY.json')
     tracked = {}

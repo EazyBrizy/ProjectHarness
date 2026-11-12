@@ -1,0 +1,7 @@
+{"python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]", "executable": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\wheel-venv\\Scripts\\python.exe", "package": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\wheel-venv\\Lib\\site-packages\\project_harness", "platform": "Windows-11-10.0.26200-SP0", "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\Независимая папка wheel", "source_import": false, "scope": ["tests.test_manual_analysis_archive.ManualArchiveTests.test_single_archive_content_exact_binding_read_only_and_replay"]}
+test_single_archive_content_exact_binding_read_only_and_replay (tests.test_manual_analysis_archive.ManualArchiveTests.test_single_archive_content_exact_binding_read_only_and_replay) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.783s
+
+OK

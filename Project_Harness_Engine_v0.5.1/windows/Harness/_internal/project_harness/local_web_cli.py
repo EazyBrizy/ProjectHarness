@@ -167,6 +167,7 @@ class CliConnection:
     def __init__(self, app_data: Path):
         self.base = app_data
         self.path = app_data/'codex-cli-connection.json'
+        self.models_path = app_data/'codex-cli-models.json'
         self.lock = threading.Lock()
 
     def _record(self):
@@ -187,11 +188,69 @@ class CliConnection:
     def status(self):
         """Only persisted nonsecret state; never starts a process from GET."""
         record = self._record()
+        models = self._models(record) if record else None
         return {'connected': bool(record), 'version': record['cli_version'] if record else None,
+                'models': models['models'] if models else [], 'selection': models['selection'] if models else None,
                 'message_ru': 'Codex CLI подключён.' if record else 'Codex CLI пока не подключён.'}
+
+    def _models(self, record):
+        try:
+            value = json.loads(checked_file(self.models_path, 65536))
+        except FileNotFoundError:
+            return None
+        except (ValueError, OSError) as exc:
+            raise CliError('CLI_MODELS_INVALID', 'Список моделей повреждён. Подключите CLI заново.', 409) from exc
+        if not isinstance(value, dict) or value.get('sha256') != record['sha256']:
+            return None
+        models = value.get('models')
+        if (not isinstance(models, list) or not 1 <= len(models) <= 100
+            or any(not self._valid_model(m) for m in models)
+            or len({m['id'] for m in models}) != len(models)):
+            raise CliError('CLI_MODELS_INVALID', 'Список моделей повреждён. Подключите CLI заново.', 409)
+        self._check_selection(models, value.get('selection'))
+        return value
+
+    @staticmethod
+    def _valid_model(model):
+        return (isinstance(model, dict) and set(model) == {'id', 'name', 'efforts', 'default_effort'}
+            and isinstance(model['id'], str) and re.fullmatch(r'[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,119}', model['id'])
+            and isinstance(model['name'], str) and 1 <= len(model['name']) <= 120
+            and isinstance(model['efforts'], list) and 1 <= len(model['efforts']) <= 6
+            and all(isinstance(e, str) and e in {'minimal', 'low', 'medium', 'high', 'xhigh', 'max'} for e in model['efforts'])
+            and model['default_effort'] in model['efforts'])
+
+    @staticmethod
+    def _check_selection(models, selection):
+        if (not isinstance(selection, dict) or set(selection) != {'model', 'reasoning_effort'}
+            or not any(selection['model'] == m['id'] and selection['reasoning_effort'] in m['efforts'] for m in models)):
+            raise CliError('CLI_MODEL_INVALID', 'Выберите модель и доступную для неё глубину рассуждения.', 400)
+
+    def select_model(self, *, model, reasoning_effort):
+        with self.lock:
+            self.require_ready()
+            record = self._record()
+            models = self._models(record)
+            if not models:
+                raise CliError('CLI_MODELS_REQUIRED', 'Нажмите «Подключено», чтобы загрузить список моделей CLI.', 409)
+            selection = {'model': model, 'reasoning_effort': reasoning_effort}
+            self._check_selection(models['models'], selection)
+            write_data(self.models_path, {**models, 'selection': selection})
+            return self.status()
+
+    def selection(self):
+        self.require_ready()
+        record = self._models(self._record())
+        if not record:
+            raise CliError('CLI_MODELS_REQUIRED', 'Обновите подключение CLI для выбора модели.', 409)
+        return dict(record['selection'])
 
     def connect(self):
         with self.lock:
+            old_record = self._record()
+            try:
+                old_models = self._models(old_record) if old_record else None
+            except CliError:
+                old_models = None
             ensure_native_path(self.path, file_ok=True)
             _native_io_path(self.path).unlink(missing_ok=True)
             executable = find_cli()
@@ -206,9 +265,34 @@ class CliConnection:
             code, auth, err = invoke([str(executable), 'login', 'status'], cwd=self.base)
             if code or b'logged in' not in (auth + err).lower():
                 raise CliError('CLI_LOGIN_REQUIRED', 'Выполните вход в Codex CLI командой «codex login», затем подключите его снова.', 409)
+            code, raw, _ = invoke([str(executable), 'debug', 'models'], cwd=self.base)
+            try:
+                catalog = json.loads(raw)['models'] if not code else []
+                models = []
+                for item in catalog:
+                    if item.get('visibility') != 'list':
+                        continue
+                    efforts = [e['effort'] for e in item['supported_reasoning_levels']
+                               if e['effort'] in {'minimal', 'low', 'medium', 'high', 'xhigh', 'max'}]
+                    value = {'id': item['slug'], 'name': item['display_name'], 'efforts': efforts,
+                             'default_effort': item['default_reasoning_level']}
+                    if self._valid_model(value):
+                        models.append(value)
+                if not 1 <= len(models) <= 100 or len({m['id'] for m in models}) != len(models):
+                    raise ValueError('invalid models')
+            except (ValueError, KeyError, TypeError, AttributeError) as exc:
+                raise CliError('CLI_MODELS_UNAVAILABLE', 'CLI не вернул список моделей. Обновите CLI или используйте ручной пакет.', 503) from exc
+            selection = {'model': models[0]['id'], 'reasoning_effort': models[0]['default_effort']}
+            if old_models:
+                try:
+                    self._check_selection(models, old_models['selection'])
+                    selection = old_models['selection']
+                except CliError:
+                    pass
             if executable_digest(executable) != fingerprint:
                 raise CliError('CLI_EXECUTABLE_CHANGED', 'Codex CLI обновился во время подключения. Повторите подключение.', 409)
             write_data(self.path, {'version': 1, 'executable': str(executable), 'sha256': fingerprint, 'cli_version': text})
+            write_data(self.models_path, {'version': 1, 'sha256': fingerprint, 'models': models, 'selection': selection})
             return self.status()
 
     def require_ready(self) -> Path:
@@ -221,12 +305,13 @@ class CliConnection:
         return executable
 
 
-def analysis_argv(executable: Path, directory: Path, schema: Path, answer: Path):
+def analysis_argv(executable: Path, directory: Path, schema: Path, answer: Path, *, model, reasoning_effort):
     return [str(executable), '-c', 'approval_policy="never"', '--disable', 'shell_tool',
             '--disable', 'view_image', '--disable', 'apps', '--disable', 'multi_agent',
             '--disable', 'plugins', '--disable', 'remote_plugin', '--disable', 'skill_search',
             '--disable', 'skill_mcp_dependency_install', '--disable', 'shell_snapshot',
             '-c', 'web_search="disabled"', '-c', 'project_doc_max_bytes=0', 'exec', '--ignore-user-config', '--ignore-rules',
+            '--model', model, '-c', 'model_reasoning_effort='+json.dumps(reasoning_effort),
             '--ephemeral', '--sandbox', 'read-only', '--skip-git-repo-check',
             '--cd', str(directory), '--output-schema', str(schema),
             '--output-last-message', str(answer), '--color', 'never', '--json', '-']

@@ -1,0 +1,7 @@
+{"python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]", "executable": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe", "package": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1\\src\\project_harness", "platform": "Windows-11-10.0.26200-SP0", "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness", "source_import": true, "scope": ["tests.test_document_decision_options.DecisionOptionsTests.test_selection_keep_open_append_custom_and_next_packet_context"]}
+test_selection_keep_open_append_custom_and_next_packet_context (tests.test_document_decision_options.DecisionOptionsTests.test_selection_keep_open_append_custom_and_next_packet_context) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 5.596s
+
+OK

@@ -130,11 +130,14 @@ def semantic_errors(candidate: dict, errors: list[str]) -> list[dict]:
 
 
 def validate_envelope(value: dict) -> None:
+    version = value.get('envelope_version')
+    if type(version) is not int or version not in (2, 3, 4):
+        raise ExchangeError('EXCHANGE_SCHEMA_INVALID', 'Поддерживаются ответы LOCAL_WEB_GPT_DRAFT_ONLY@2, @3 и @4.')
     schema = json.loads(resources.files('project_harness').joinpath(
-        'resources/local_web/gpt_exchange_reply_v2.schema.json').read_text('utf-8'))
+        f'resources/local_web/gpt_exchange_reply_v{version}.schema.json').read_text('utf-8'))
     issues = _validate_schema_node(value, schema, schema)
     if issues:
-        raise ExchangeError('EXCHANGE_SCHEMA_INVALID', 'Ответ не соответствует LOCAL_WEB_GPT_DRAFT_ONLY@2.', schema_errors(issues))
+        raise ExchangeError('EXCHANGE_SCHEMA_INVALID', f'Ответ не соответствует LOCAL_WEB_GPT_DRAFT_ONLY@{version}.', schema_errors(issues))
 
 
 def get_field(value: dict, field: str) -> Any:
@@ -157,7 +160,7 @@ def unapproved(value: dict) -> dict:
     return result
 
 
-def draft_patch(original: dict, incoming: dict) -> dict:
+def draft_patch(original: dict, incoming: dict, *, allow_target_choice: bool = False) -> dict:
     # Explain forged approvals before generic schema errors (e.g. absent actor
     # timestamp), so the user is not prompted to "repair" a forged approval.
     if incoming.get('approvals') != unapproved(original)['approvals']:
@@ -196,7 +199,7 @@ def draft_patch(original: dict, incoming: dict) -> dict:
     if incoming != expected:
         raise ExchangeError('PROTECTED_DRAFT_FIELDS', 'Ответ изменяет защищённые metadata, project identity, sources или execution. Скопируйте их из export без изменений.')
     chosen_target = original['implementation']['target_level']
-    if chosen_target is not None and incoming['implementation']['target_level'] != chosen_target:
+    if not allow_target_choice and chosen_target is not None and incoming['implementation']['target_level'] != chosen_target:
         raise ExchangeError('TARGET_DECISION_REQUIRED', 'GPT не может заменить выбранный target или UNSURE. Измените target отдельным ответом в форме.')
     return patch
 
@@ -213,7 +216,7 @@ def reject_secrets(text: str) -> None:
 
 def repair_prompt(error: ExchangeError, exchange_id: str | None) -> str:
     ident = exchange_id if isinstance(exchange_id, str) and EXCHANGE_ID.fullmatch(exchange_id) else '(use the original export ID)'
-    return ('Repair the JSON reply for LOCAL_WEB_GPT_DRAFT_ONLY@2, export ' + ident + '.\n'
+    return ('Repair the JSON reply using the envelope_version in the original pack, export ' + ident + '.\n'
             'Keep all exact bindings from the original pack. No approvals, actor, evidence or execution changes. '
             'Return one bounded JSON object, not YAML or a code fence. Preserve unknowns; do not invent defaults.\n'
             + json.dumps({'code': error.exchange_code, 'errors': error.errors}, ensure_ascii=False) + '\n'

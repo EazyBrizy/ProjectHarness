@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "methods": [
+    "tests.test_document_decision_options.DecisionOptionsBrowserTests.test_recommended_options_preview_single_click_custom_and_future"
+  ],
+  "ran": 1,
+  "failures": [],
+  "errors": [],
+  "skips": 0
+}

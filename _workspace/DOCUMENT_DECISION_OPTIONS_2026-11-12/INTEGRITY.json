@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "build_id": "DOC-DECISION-OPTIONS-20261112",
+  "source_build_wheel_frozen": "PASS",
+  "full_frozen_payload_including_pyd": "PASS",
+  "documentation_mirrors": "PASS",
+  "manifests": "PASS",
+  "allowed_source_changes": [
+    "local_web_analysis.py",
+    "local_web_answers.py",
+    "local_web_exchange.py",
+    "local_web_exchange_contract.py",
+    "local_web_http.py",
+    "local_web_service.py",
+    "resources/local_web/GPT_PREPARATION.md",
+    "resources/local_web/assets/app.css",
+    "resources/local_web/assets/interview.js",
+    "resources/local_web/gpt_exchange_reply_v4.schema.json",
+    "resources/local_web/metadata_v1.json"
+  ],
+  "core_contracts_and_historical_documentation_preserved": true,
+  "unrelated_tests_preserved": true,
+  "engine_manifest_sha256": "dd8d49011124cceeba35b8b6dddae95ae2facb62d46be6961145d69ca81189be",
+  "docs_manifest_sha256": "465eb87752b5709898218aa221de0f52dda8587afca20707efbf52030a533685",
+  "zip_created": false
+}

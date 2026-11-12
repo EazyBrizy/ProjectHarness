@@ -25,6 +25,9 @@ class FixtureCli:
         if '--version' in argv:return 0,b'codex-cli 0.154.0\n',b''
         if '--help' in argv:return 0,b'--ignore-user-config --ephemeral --output-schema --output-last-message',b''
         if 'status' in argv:return (1,b'',b'Not logged in') if self.mode=='logged-out' else (0,b'',b'Logged in using ChatGPT')
+        if 'models' in argv:
+            return 0,json.dumps({'models':[{'slug':'fixture-model','display_name':'Модель проверки','visibility':'list',
+                'default_reasoning_level':'medium','supported_reasoning_levels':[{'effort':'low'},{'effort':'medium'},{'effort':'high'}]}]}).encode(),b''
         self.started.set()
         if self.mode=='slow':
             for _ in range(200):
@@ -39,6 +42,9 @@ class FixtureCli:
         payload=json.loads(text.split('## Exact payload\n\n',1)[1].split('## Return skeleton\n\n',1)[0])
         skeleton['project_input_draft']['project']['primary_outcome']='Результат из подключённого CLI'
         skeleton['claims']=[{'field':'project.primary_outcome','source_refs':[payload['documents'][0]['document_ref']]}]
+        if 'analysis' in skeleton:
+            skeleton['analysis'].update(summary='Результат анализа тестового документа.',current_stage={
+                'title':'Первый прототип','goal':'Проверить основной сценарий.','basis':'Описание в документе.','source_refs':[payload['documents'][0]['document_ref']]})
         answer.write_text(json.dumps({'reply_json':json.dumps(skeleton,ensure_ascii=False)},ensure_ascii=False),'utf-8')
         return 0,b'',b''
 
@@ -75,7 +81,7 @@ class CliAnalysisTests(unittest.TestCase):
         self.assertEqual(self.live.request('POST','/api/cli/connect',value={'executable':'cmd.exe'})[0],400)
         self.assertEqual(self.live.request('POST','/api/cli/connect',value={},headers={'Origin':'http://foreign.invalid'})[0],403)
         self.assertEqual(self.fake.calls,[])
-        self.assertTrue(self.connect()['connected']);self.assertEqual(len(self.fake.calls),3)
+        self.assertTrue(self.connect()['connected']);self.assertEqual(len(self.fake.calls),4)
         self.assertNotIn('executable',self.live.request('GET','/api/cli')[2])
         calls=len(self.fake.calls);self.live.request('GET','/api/cli');self.assertEqual(len(self.fake.calls),calls)
 

@@ -1,0 +1,22 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "_workspace/DOCUMENT_DECISION_OPTIONS_2026-11-12/targeted_driver.py",
+    "--source",
+    "--case",
+    "tests.test_document_decision_options.DecisionOptionsTests.test_selection_keep_open_append_custom_and_next_packet_context",
+    "--result",
+    "SOURCE_CONTEXT_RESULTS.json"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-12T14:10:28.961367+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 60,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 6.589,
+  "log_sha256": "1bd59f969a8c9c80a063d29e97472eead9ee5d634c6231ddeada3aa7d57c99d2"
+}

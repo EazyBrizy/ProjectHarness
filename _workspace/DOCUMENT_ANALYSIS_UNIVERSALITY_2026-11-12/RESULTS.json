@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "unique_targeted_methods": 7,
+  "remaining_failures": 0,
+  "source_probe": "3 PASS; corpus 4 domains, 1/2/3/6 documents, normalization and generic UI",
+  "wheel_initial": "3 PASS, 1 FAIL — fixture used positional fields after schema-driven editor",
+  "wheel_focused": "1 PASS — only failed case, input by labels; semantic assertions unchanged",
+  "runtime_bytes_unchanged_for_focused_retry": true,
+  "native_model_requests": 2,
+  "native_cases": [
+    {
+      "case": "existing-service",
+      "status": "PASS",
+      "state": "SUCCEEDED",
+      "error_code": null,
+      "selection": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low"
+      },
+      "documents": 3,
+      "canonical_unchanged": true,
+      "answers": 5,
+      "roadmap_stages": 2,
+      "errors": []
+    },
+    {
+      "case": "nonsoftware-brief",
+      "status": "PASS",
+      "state": "SUCCEEDED",
+      "error_code": null,
+      "selection": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "low"
+      },
+      "documents": 1,
+      "canonical_unchanged": true,
+      "answers": 4,
+      "roadmap_stages": 0,
+      "errors": []
+    }
+  ],
+  "full_engine_tests": "NOT RUN",
+  "full_core_regression": "NOT RUN",
+  "full_ph_lw_matrix": "NOT RUN",
+  "automatic_executor_enabled": false
+}

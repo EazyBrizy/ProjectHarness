@@ -1,0 +1,21 @@
+{
+  "state": "SUCCEEDED",
+  "error_code": null,
+  "message_ru": "Анализ завершён. Предложения показаны ниже; посмотрите оставшиеся вопросы.",
+  "selection": {
+    "model": "gpt-6-astra",
+    "reasoning_effort": "medium"
+  },
+  "documents": 4,
+  "canonical_draft_unchanged": true,
+  "answers": 14,
+  "roadmap_stages": 8,
+  "current_questions": 2,
+  "future_questions": 13,
+  "source_hashes": {
+    "01_Концепция_проекта.md": "368bfd0de38add62b4c77d869d9fe6bdb7008d473dd3aae77eedf3ca63e3dc94",
+    "02_Архитектура_проекта.md": "5786d714666f6d427a1c3abe7dabf7b8441413bcfba085533e13040a296fb0e3",
+    "03_Этапы_реализации.md": "cd876077d8c7e183480c46648323a6ee102dd84d36a082db19b88c32b66dc6ad",
+    "04_Тарифы_оплаты_монетизация.md": "94ea24df97501c3afe84aa48687d104049524a41a3b81ba0bf178f3965ad1e4a"
+  }
+}

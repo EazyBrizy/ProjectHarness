@@ -1,0 +1,12 @@
+{
+  "status": "COMPLETE",
+  "build_id": "DOC-ANALYSIS-UNIVERSAL-20261112",
+  "unique_targeted_methods_passed": 7,
+  "native_requests": 2,
+  "full_engine_tests": "NOT RUN",
+  "delivery_zip_created": false,
+  "commit_push": "NOT RUN",
+  "report_sha256": "3ba9059b133cb3efe16ad23e0e9eadd098980b0259bf24617ec7e9ce21295490",
+  "current_task_sha256": "bbf62094cab73ac25d4d84b08eebdffaf0c1550ea1ae5439ad67396355841682",
+  "engine_manifest_sha256": "7023a765ecac00be5a7c8dc5e032822283b8a52a091c0bbb0b3a5c1717e8b0d3"
+}

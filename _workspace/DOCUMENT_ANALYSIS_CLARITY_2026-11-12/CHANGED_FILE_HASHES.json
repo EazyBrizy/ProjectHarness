@@ -1,0 +1,70 @@
+{
+  "source": {
+    "local_web_analysis.py": {
+      "before": null,
+      "after": "504768db7174179c6a33558caf806cb60608de6cd597cdfb15b1b7a593713992"
+    },
+    "local_web_cli.py": {
+      "before": "d060ab88d3cbc2e0ac198886cd88f3a203c8eada5b9ebcfc50bbdff4cc50b85b",
+      "after": "c64a9706821e7b7a6a2a41007f33a9a7201994073b3ff77a56511d3ff5d61337"
+    },
+    "local_web_cli_analysis.py": {
+      "before": "24802fe67adbfe8c0573b8df375de70ae65af01d0c4217cafd6ba2325cb4eaf4",
+      "after": "35dc4401e2106920480b357a26d68d5ac6a5c699e05cd3e6383484e70df0acae"
+    },
+    "local_web_exchange.py": {
+      "before": "709766770c0cf5dbd1fa9f4c62fcc8c6e4f3e5a99af417f0682d9f44f0e8d150",
+      "after": "a9b2affb54c4aadb20a5bac1954d046b03837f19c7c86cfff84fa5a65e6dc0cd"
+    },
+    "local_web_exchange_contract.py": {
+      "before": "5bae31aba1560b655682da58bff075424b9c42a97274497b0b5f4b301963e48c",
+      "after": "3d82f74ad566f0895c0055f4f052863099e850407f708d0d116ae2e24ec3b8f2"
+    },
+    "local_web_http.py": {
+      "before": "d6366c5e8f3e12b20b287917e56d15d7d0aaee2a58b2c33301a0347ff38f2514",
+      "after": "cafb08734570f390f0a6a281a2d9bfed44c078e00b2afa9fcd88fcaa312be21c"
+    },
+    "local_web_service.py": {
+      "before": "d4bbf0bf4028239a0e9fb32419d31d23bbcb11b321f3c3052d1e93dc6622620b",
+      "after": "c48e16ef421faec1efd5090b62b1ca3c8c4b57135feaaa9af9a7f382676c895c"
+    },
+    "resources/local_web/GPT_PREPARATION.md": {
+      "before": "172ea678c6e76ca29ad641933e4f18a973b5be1c9d602b58b742ea7228a34caa",
+      "after": "bf82ca62af93bde178bd8729cbfedaa24ac4b7863240cf8e05510fd5606889a7"
+    },
+    "resources/local_web/assets/app.css": {
+      "before": "205c4ef577e8e8cd02f450f390c3d6250dd323e09f3a4f843c110ada0cb01076",
+      "after": "aae9fb76e62f7c5c3763533a4d9df115ca7519bc6b0f3491d4c8ba6cd398ca1b"
+    },
+    "resources/local_web/assets/index.html": {
+      "before": "4ceb667d806395910ad623a2186345078ea7a4ae3155eb7eef80aac12fabd838",
+      "after": "7dda88f4a943e8efda9284062c270cacb36010beea35b4c20003056d27428514"
+    },
+    "resources/local_web/assets/interview.js": {
+      "before": "2f75923aba7574245bccbfa3e13efaed7f5dbee4e4a75489c065458ea842fcc2",
+      "after": "2bd94343a043718b75de019f9af4c02e3bbbe7dad7790d7525ff6cddfc00e4c2"
+    },
+    "resources/local_web/gpt_exchange_reply_v3.schema.json": {
+      "before": null,
+      "after": "a1f2acbbe9eaab802829be14a13bff5b0c05acc75fe3556cb2aad14c46937ca3"
+    },
+    "resources/local_web/metadata_v1.json": {
+      "before": "3dd709ce6778c156452999d172a19e0e4db7437eb90dd74794fd48505fa3f791",
+      "after": "9bacedabed0be61b9effc49caba52524cf62b98f862f78637f46701851a86439"
+    }
+  },
+  "tests": {
+    "test_cli_document_analysis.py": {
+      "before": "4e8ba8fd4b5afe816827b8250494f36a832cab5b56809f182abebdeb6803f22c",
+      "after": "05b26434775f586e2f6f685174f6baf4102ec96d052e9fa4a980063e277a4038"
+    },
+    "test_document_analysis_clarity.py": {
+      "before": null,
+      "after": "c1e13202e860ecf8d8d4217a1ece0475496268b4cede078c557ca4d58f244956"
+    },
+    "test_manual_analysis_archive.py": {
+      "before": "b6ee8268e51922b9ee126d14c5541412f5eb57e2f63fdd9c817f16be520a2d05",
+      "after": "30a7a3a4e5436175e3896ecba960bb952843e2c4b5cb6fd64729dd622e67843c"
+    }
+  }
+}

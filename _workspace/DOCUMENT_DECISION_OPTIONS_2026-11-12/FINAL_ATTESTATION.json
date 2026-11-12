@@ -1,0 +1,12 @@
+{
+  "status": "COMPLETE",
+  "build_id": "DOC-DECISION-OPTIONS-20261112",
+  "unique_targeted_methods_passed": 11,
+  "native_requests": 1,
+  "full_engine_tests": "NOT RUN",
+  "delivery_zip_created": false,
+  "commit_push": "NOT RUN",
+  "report_sha256": "22f83690466fde36c5f6bcd9600f9fe762cbbe85b39eda83155f99ad4a3271ca",
+  "current_task_sha256": "03257919d13474c56c8297b4bbbc7eb1ea6636c4cff746e3590865d41a7f9cc7",
+  "engine_manifest_sha256": "dd8d49011124cceeba35b8b6dddae95ae2facb62d46be6961145d69ca81189be"
+}

@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "methods": [
+    "tests.test_document_decision_options.DecisionOptionsTests.test_strict_options_recommendation_values_and_legacy_envelopes",
+    "tests.test_document_decision_options.DecisionOptionsTests.test_existing_questions_receive_options_without_duplicates_or_unblocking",
+    "tests.test_document_decision_options.DecisionOptionsTests.test_selection_keep_open_append_custom_and_next_packet_context",
+    "tests.test_document_decision_options.DecisionOptionsTests.test_replay_origin_tamper_stale_set_and_changed_sources",
+    "tests.test_document_decision_options.DecisionOptionsTests.test_existing_commit_recovery_keeps_user_intent_before_and_after_atomic_write"
+  ],
+  "ran": 5,
+  "failures": [],
+  "errors": [],
+  "skips": 0
+}

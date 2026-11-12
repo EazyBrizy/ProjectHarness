@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "methods": [
+    "tests.test_document_decision_options.DecisionOptionsTests.test_selection_keep_open_append_custom_and_next_packet_context"
+  ],
+  "ran": 1,
+  "failures": [],
+  "errors": [],
+  "skips": 0
+}

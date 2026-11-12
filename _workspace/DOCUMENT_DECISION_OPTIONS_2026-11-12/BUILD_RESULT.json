@@ -1,0 +1,285 @@
+{
+  "status": "BUILT_NOT_ACCEPTED",
+  "build_id": "DOC-DECISION-OPTIONS-20261112",
+  "python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "signing": "UNSIGNED",
+  "source_digest": "sha256:4cad15d1c41f8386814bb44aa53218687c3ffdf73398c833ac6d0d3f48dfa092",
+  "iscc_sha256": "f02fa0e5f237b47d7ed1edae9b991866ec94fe02af61eb6a73e94f92fe8e0604",
+  "installer_sha256": "fc242b3bff45585ff1ff675d39a531dfaec12c0e10624a3a30e7bc7a657cb3ba",
+  "package_manifest_sha256": "c8716b16c93f8531287d6f63796ba8cb9deb15cf451804f90b3ce4f7f8f7bd49",
+  "zip_created": false,
+  "source_files": {
+    "__init__.py": "b8eca7fa808db6bb06ec911e2b3713a0379dc30d8239093713f50b64b2c9df2e",
+    "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "active_stage_planning.py": "f234fb92e8c47a391c0dfa192522d6e9b7b2d1fedbe72261732e50ea771966c0",
+    "apply.py": "dd7f76ce20b3f8aa2a11c4cdd7e3fadf5a60d42de1504e0bbb11c3f832ddf9c6",
+    "archive.py": "fd8d319acfe8e2dacfd6a8dfae4a397c1a1fda37c375d997082d470afe92bb1f",
+    "cli.py": "db5b425c0d517d6f8f784919c4e838adb3ad7dd82bd48c45b308f43d2e522e09",
+    "compiler.py": "f20891d1e1418422825fb8268386b1e41392fdee281593d387682531beb32b97",
+    "errors.py": "22595931894ce7664197e2d74363a57f107a1a1eec312b85d58569db4986e3c2",
+    "evidence.py": "217a456fbfa6b77c283c45f6c6acecbd3fea43fbc9dff725d88a9b0a600d3f25",
+    "execution_roots.py": "4e903e0b13f171e7fd49cf38cff4a6c7bc7e11701b3cd66c179b8f70a9fcc78c",
+    "executors/__init__.py": "152521cad2f8831fb880f93aa29bf8f5467f0175238bfc97ee831bf19ceb38df",
+    "executors/base.py": "ff1ae1d805b0de06c622a66df3e19ccf5fe3561735c583375726857d90bea035",
+    "executors/codex_cli_local.py": "aac9aadc13f1f9c691e769d59bfc6890d6f13667767abbac4b5ed930d7a64de7",
+    "executors/result.py": "e98b98a40d6af0aa4e04b4620168fc13a8d0e705914d04365ce8937c1371b5d1",
+    "hashing.py": "fe4ac9b231c0a217d16cf77c605837ab2447499a529e0042bab68b327008e3cc",
+    "intake.py": "f3f00cc3bc4b2b789cf9e966ada981967e4dfafab93943b7eed8924d602beabe",
+    "inventory.py": "468b33b4a8bbf0cd830dcb15fbe1713f0f55c124eb040541a9e594bad43ffbec",
+    "lifecycle_forms.py": "0b90f6cd2c07e9d9c04584255d2c546e95a93904c18a38b2a1c1f88543c67ccc",
+    "local_web_analysis.py": "289604fcd72836233e8878f92330dfaf71bca423bdcecabc44f04803f8927ce8",
+    "local_web_answers.py": "0475b8cdb21f80d19717a7a87663c8534ddf28dfe155694d82319f16b033c8e1",
+    "local_web_approval_core.py": "e75ec7a10628b1afe5be5071bf1bb575b2c855b7031bc16a58a169cb95dad84d",
+    "local_web_approvals.py": "d525b499d088e998e440fab30b5c1e476c00299dea0bf15220d2142b273d287e",
+    "local_web_cli.py": "c64a9706821e7b7a6a2a41007f33a9a7201994073b3ff77a56511d3ff5d61337",
+    "local_web_cli_analysis.py": "35dc4401e2106920480b357a26d68d5ac6a5c699e05cd3e6383484e70df0acae",
+    "local_web_desktop.py": "5f17b88514b3a0eff2445afdbdb12df9e81bde498d9a9f6f0e2eeecad883ab4a",
+    "local_web_drafts.py": "82293a36fdf62bd45ac9d0554b63fd7398ff1e8fe60f9b72a6d87d7db55dfb2d",
+    "local_web_exchange.py": "1377d75a1124c7ec79a385f3f7fe62ae09736c037e92b9ce251fade21932c9c0",
+    "local_web_exchange_contract.py": "ba5c636f05abeb799d43c0f101307b9f9f07085b0118796277b44761b4400f74",
+    "local_web_http.py": "867035d7bb2733cf328d8b07ac9474cbf2c41d56cd7f34ab88ab67489939bc94",
+    "local_web_imports.py": "e02d26aa643cf2f56eb691fb0bdcaa3ec3e2896224263e8ad9b89c2c75d00b9a",
+    "local_web_instance.py": "2fe9d6891240b588f739d4f338e2a02ee7d850851fdf2c278d8425f848517b7e",
+    "local_web_launcher.py": "e415a3e8d1b78e6d1d878e8424aa3288878bc8c39ef3b8bc0a61b6e4a34abe91",
+    "local_web_lifecycle.py": "07562f81a887063720f6d2011ea833a47a09b91231621654aa798e2ee06a2713",
+    "local_web_preparation.py": "30975421e765257a9ea01f7db2f928e844793b98285adecc3be5b7c0d72c74dc",
+    "local_web_selection.py": "233de7da5809e7a5107f080798b9183ee16816761b7e63d6f147790506390da9",
+    "local_web_service.py": "bbf5fcef485366f0262119ece9c9b5e32fa1e9d242198876482f099b26343f14",
+    "local_web_source_refresh.py": "4819b94878a0289dfb2dd3b1f1aa0af1a9181be99d70cb01ec7aa6d40168c3b7",
+    "local_web_sources_service.py": "602b3839750f1c069ab69bd2839f9f76453153504c3307c0d72bc1528508fa8e",
+    "local_web_tasks.py": "a355b66a54e39bcfe643a652bd00134390ef61300f6e7f4faf60455eb777afb2",
+    "maintenance.py": "031e4bf000b001c298b5ac97ee80c1fd6fb22639c4b0c9e857bf38065ac1faae",
+    "manual_tasks.py": "47ce73f40378633848d3b6bdf4ce34fa453c6948c2bbbd3ae2251be5f4d8e851",
+    "materialization.py": "0e1464d1c44c3fe277da5136b8c8a874f82a7ca26c6464f54b2a8a140bfeb776",
+    "migration.py": "4540a50f93b59415d500f814ccf6e5d525b04b13cc79e21f99ba6a7616c65a2a",
+    "operation_guard.py": "f5c92c3dbb1735430518ff2f312aec32d6fa0d67650fd8b7c0c19a9dc4882fc4",
+    "planner.py": "fd1766f0f2a0943398c13cf2cbc240d48c3bdb66967f1733ef227305ba7a3d7c",
+    "platform_fs.py": "3719ebdde5e37de9cb3a4f6d54703ffce6e137e63c5e0a5fcb7e66d0dc2b504e",
+    "project_input.py": "a9a404c5e1fbb2a45ea500f35ea446431e21ca31019b61d0413a03319c86029c",
+    "prompting.py": "9fd27e19271035a8a36a323c4e76085b3ed64702669fcefe32d8294d2b1abb0d",
+    "registry.py": "7de06cd59387aec81e83de572a6a98f2cd948873a180147f2839759801defe79",
+    "render.py": "63b0436786704bd25551883ee68d8f7f2ac9f61f220ba095738bf1d33511880e",
+    "resources/fixtures/demo_project_input.json": "6dfd26ff8cd970a8feee73da95f5512067bb3526aa625a5279fb8b700947fe34",
+    "resources/fixtures/legacy_v0.4.1_completed_handoff.zip": "ddd6fa30e11d36d20035bcf33d2eb05d75956e218c8d5e93b6d865802749ecf3",
+    "resources/fixtures/legacy_v0.4.1_demo_handoff.zip": "5746ccbbab207d1e6b745486257f56647d09f3cca4add29acf5a608e753bbd19",
+    "resources/local_web/assets/app.css": "918943059b9b8fa3c8fbf4d8b2a148c2f227b3c6d3717182ab4cbd17a63a36e5",
+    "resources/local_web/assets/app.js": "2d39c1a34fe9d260067096f3e01afbd281a3c06586e454c286b0b75540aa5096",
+    "resources/local_web/assets/approvals.js": "d7f9e51d46dbdaf607a1be103ef561218de0401d41ea0425769244db6cd18ea9",
+    "resources/local_web/assets/index.html": "7dda88f4a943e8efda9284062c270cacb36010beea35b4c20003056d27428514",
+    "resources/local_web/assets/interview.js": "07a3b94dc99cf81132e5c5b2f7b70c10cc621ce2749f440539f76947591c5bcc",
+    "resources/local_web/assets/lifecycle.js": "350f64a830108ecb0237fadae4ef9e86d778b184c08fb32bd88158ccf79ed04d",
+    "resources/local_web/assets/preparation.js": "a2eecf844bf4c9c2686241838d31e7350ca5da51cb3bf5190c70fbd6fa4b9ac5",
+    "resources/local_web/assets/tasks.js": "0892b7bd9351657ff3903060338253dcca89430b084ab5ca72723924a8a7bd59",
+    "resources/local_web/control_map_v1.json": "4e692ef01b8bfb38b8ec3a3d7c770fae3e3c28edfccc44e29ce6aae701397cef",
+    "resources/local_web/gpt_exchange_reply_v1.schema.json": "788be8c2ae5c6f0b7c70e02294942155f0d2239de368624e0b3f9edc45e28159",
+    "resources/local_web/gpt_exchange_reply_v2.schema.json": "0a34e81b87bacb3abbd7b31f4e7d3caa40b2f941ae86407c2f651e133b8ebf36",
+    "resources/local_web/gpt_exchange_reply_v3.schema.json": "a1f2acbbe9eaab802829be14a13bff5b0c05acc75fe3556cb2aad14c46937ca3",
+    "resources/local_web/gpt_exchange_reply_v4.schema.json": "0d36ac682144b6ad1f8fcbc0aba642cefff8da25b7c183001c678703acc78b7b",
+    "resources/local_web/GPT_PREPARATION.md": "38724079413b951fa31f0cb42c30d03b9d68c05ce962837c51a0e398cd7b4b80",
+    "resources/local_web/metadata_v1.json": "20982f17b96498265d127c6fdf634ab4944294b3c9e184b2b22ac57032217b31",
+    "resources/local_web/operation_receipt_v1.schema.json": "08e679a551f34305caf6d38194564dd34c951ded64e746480a254cb548fc37bb",
+    "resources/registries/capabilities.yaml": "aa5e90cf0916db67699731dbedb131ba794e58c8dfe1f00972746d4390ae4ba6",
+    "resources/registries/contracts.yaml": "f29ba95d3596cbc3efe698dc61f7583576161f1a99e231c2d7f24ccfc0b5d3fd",
+    "resources/registries/id_prefixes.yaml": "fc4bb0575b40ceb537ed9586e9d6612c6fad583d1911d5ef7d749aacfc0de62b",
+    "resources/registries/implementation_levels.yaml": "181d0f0b05e8925144a4471457ffa67fc5b695e7b46c6b5e4103b8da8c46deea",
+    "resources/registries/project_profiles.yaml": "703472c73eacc57cb4c1fd67daf20555a1c8af641978c93ef18606be16cd9356",
+    "resources/registries/request_routing.yaml": "e208cb2a5260729e133033afcd37f456c431921b8d9495a692a1056778d936e1",
+    "resources/registries/statuses.yaml": "1a20f4c97e5d5f6e51aa96621504132c50f8fd31b3fc1c3549236e1292666902",
+    "resources/schemas/active_stage_plan_review.schema.json": "dafa6ba7b31125334e2acd0913f279749ae1f9ad1536740b35707d9cd8b48df0",
+    "resources/schemas/agent_task_result.schema.json": "9cf4f922f3db10bda0e04ec0749589b661527f2e481cdd957fc15ccf9b516384",
+    "resources/schemas/apply_evidence.schema.json": "610b8bc47bf519da4b34d2414168b02c6c3d1364711732f0b19b0e2acab274d5",
+    "resources/schemas/execution_result.schema.json": "a58db4d2e1b59e5da0e5d7c37fdbc9bdb78085c7fdf0813a2998b99b9f95f5e9",
+    "resources/schemas/executor_profile.schema.json": "f8636061b9c86097574cbe761183f5bc43e5d255acb241a9842274ef19c35984",
+    "resources/schemas/gate_evidence.schema.json": "26b1f56ebe0b7901e51382c99271baf36c29b6cb5c1bacd6dae97361b9b8d03b",
+    "resources/schemas/handoff_result.schema.json": "924f689321020d711b723ecbaf99b99486744aad75b1cb2556f166dd1e7a6592",
+    "resources/schemas/maintenance_cancel_approval.schema.json": "cc36d0fc9ce889234948aeb5c632374585169f83df76300906b3b80edde4504f",
+    "resources/schemas/maintenance_plan.schema.json": "123e2fb1bd85f1775b47944294319edbaeb8126d3f7c598f0529ea792eba439a",
+    "resources/schemas/maturity_assessment.schema.json": "54680c5ccea405839b99ae9e160caab2bd66d5e5309ebed2ce692a2fdd03aa80",
+    "resources/schemas/project_input.schema.json": "16f9a7921514a2e5c211b1678b7bc6dd37d59347c40715bebe8410a399f4c127",
+    "resources/schemas/project_input_v3.schema.json": "dd19adcebdf031848d658dc1e89135bc52c5970a6a530ee096c0961015a50595",
+    "resources/schemas/sandbox_profile.schema.json": "604d07cf88735a8c605ea80f31b5e82b1681bb4a706d3307dc8f100e27bc54af",
+    "resources/schemas/stage_acceptance.schema.json": "43047db3be4816d2121c3972f619e561691b69a6dd038081009b07ae5c4d4613",
+    "resources/schemas/stage_approval.schema.json": "7460d75e6d0366b8186dc0188d22f075d3a06f511e6ab74ca7a95440236bbf65",
+    "resources/schemas/stage_plan.schema.json": "1586444f7e75c4a1fd93014ff9f2d9f86776b99da6d5936b535a6477bc4596d0",
+    "resources/schemas/stage_state.schema.json": "25fcc49292a78ad44dc2a67505d19d2d662a7dc8c5b8f95f7fe0266b2252c2c6",
+    "resources/skills/SKL-UNIVERSAL-DOCUMENT@1.yaml": "1cd536f0863ee1a3c5a525646f2f73432259af1a79ce2c07435373320a19ed64",
+    "resources/skills/SKL-UNIVERSAL-IMPLEMENT@3.yaml": "6911998a77cc50c4a3e36cfdeacdd9a05390b798a713849608cff5cbbc0d5933",
+    "resources/skills/SKL-UNIVERSAL-VERIFY@1.yaml": "02004a11f62f1467704183df0bbdb09935463619070737d50238cc81ad6dc4d2",
+    "resources/templates/GPT_PREPARATION_INSTRUCTIONS.md": "87c0d6f2d53ad4d9a055b811068763480509cb7346b0aa06914ee042e9f04c06",
+    "resources/templates/PROJECT_INPUT_FIELD_GUIDE.md": "51a1c71e8fbb31b8be245f1f331618514117e50ac7af80fe2e6140c30637d1f8",
+    "resources/VERSION": "34b8d489b43509b7e3b603d3f5b6a3cf0431706bce5c66cd7e6a3a347cf53610",
+    "resources.py": "b640bcc1d82396d7b5230f89a4b72797edd274e594ff4d92b32662b4a2f7dd2c",
+    "runtime.py": "1e2961530d974b60489ef8cb4b3141083a531b8600b1b26003988cd0eb6ad724",
+    "safety.py": "a1eac0d3d75b082de85346cabc53e870b3372a903388901332f0e838d2604a5f",
+    "sandbox/__init__.py": "53623d083b80c0751df6fee95f9a39ed435d64982781e05544ec6d5c69de0f55",
+    "sandbox/base.py": "fa85068c7e837384b4d0dbec7b07c84a071e2f7b75e7716cb0c46fd16726645c",
+    "sandbox/podman_rootless.py": "88ca32c23f07ee83179a9a74f560028c14fcc804763422a76d1b9c46d4223c2a",
+    "sandbox/profiles.py": "9772151685cd9fe91c18982f13185d5178c4e4504d284c13b0062e19b1c84730",
+    "sandbox/verification.py": "2f4a5f1e0ebdf8c66e1c6ff6e139c58d317dbe6d59ee141f993f216b22afec5f",
+    "serialization.py": "04237bbac46175d4ac760f0b5da11c99fb46cca001b1b05181d896b75e424bf1",
+    "stage_approvals.py": "5067a11aabd30333b2e24aa544171c175696c79101a783e9c54cb4752e469618",
+    "stage_gate_lifecycle.py": "8de0e24f05f01aa62024f6451e2409d8579ac0a64e7958bb761388f20536c5f9",
+    "stage_transactions.py": "bac846685b49b09efd5ec32929109a54ba42771c37afa56cb4a4431ed8c46855",
+    "stages.py": "18b4880069cb00cfa0e8c2c065d5a40a6b863154f5baec4cb35e6182b64a70df",
+    "task_manual_evidence.py": "383493643ad07e73ffd4db49b2e4aea733e0b25817ded27fe06d92a6a34c3a8a",
+    "util.py": "ce8815a51354779f7a0d7670b7191a8c9e7378a5f472dc274d199184e63ed1be",
+    "validation.py": "2dde523d51be4460022b3b5799f967d02eec6e369813f4374b0f975b90355f9c",
+    "windows_package.py": "a24057f3853e15c98a0b3530b6715cff030e4bd3c3d19cf3ca22995fbc7987a4",
+    "workspace.py": "67ebb1c0c7b6c619cdd2098b5dc22bce0fa1cdf4b817588666720a6582653255"
+  },
+  "dependencies": [
+    {
+      "name": "PyInstaller",
+      "version": "6.22.3",
+      "license": "GPLv2-or-later with a special exception which allows to use PyInstaller to build and distribute non-free programs (including commercial ones)",
+      "license_files": [
+        "PyInstaller-COPYING.txt"
+      ]
+    },
+    {
+      "name": "pyinstaller-hooks-contrib",
+      "version": "2026.9",
+      "license": null,
+      "license_files": [
+        "pyinstaller-hooks-contrib-LICENSE"
+      ]
+    },
+    {
+      "name": "altgraph",
+      "version": "0.17.5",
+      "license": "MIT",
+      "license_files": [
+        "altgraph-LICENSE"
+      ]
+    },
+    {
+      "name": "pefile",
+      "version": "2024.8.26",
+      "license": "MIT",
+      "license_files": [
+        "pefile-LICENSE"
+      ]
+    },
+    {
+      "name": "pywin32-ctypes",
+      "version": "0.2.3",
+      "license": "BSD-3-Clause",
+      "license_files": [
+        "pywin32-ctypes-LICENSE.txt"
+      ]
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "license": "Apache-2.0 OR BSD-2-Clause",
+      "license_files": [
+        "packaging-LICENSE",
+        "packaging-LICENSE.APACHE",
+        "packaging-LICENSE.BSD"
+      ]
+    },
+    {
+      "name": "setuptools",
+      "version": "84.2.1",
+      "license": "MIT",
+      "license_files": [
+        "setuptools-LICENSE",
+        "setuptools-LICENSE",
+        "setuptools-LICENSE",
+        "setuptools-LICENSE",
+        "setuptools-LICENSE",
+        "setuptools-LICENSE",
+        "setuptools-LICENSE",
+        "setuptools-LICENSE",
+        "setuptools-LICENSE",
+        "setuptools-LICENSE.APACHE",
+        "setuptools-LICENSE.BSD",
+        "setuptools-LICENSE",
+        "setuptools-LICENSE",
+        "setuptools-LICENSE.txt",
+        "setuptools-LICENSE"
+      ]
+    },
+    {
+      "name": "Flask",
+      "version": "3.1.3",
+      "license": "BSD-3-Clause",
+      "license_files": [
+        "Flask-LICENSE.txt"
+      ]
+    },
+    {
+      "name": "Waitress",
+      "version": "3.0.2",
+      "license": "ZPL 2.1",
+      "license_files": [
+        "Waitress-LICENSE.txt"
+      ]
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.3",
+      "license": "MIT",
+      "license_files": [
+        "PyYAML-LICENSE"
+      ]
+    },
+    {
+      "name": "Werkzeug",
+      "version": "3.1.9",
+      "license": "BSD-3-Clause",
+      "license_files": [
+        "Werkzeug-LICENSE.txt"
+      ]
+    },
+    {
+      "name": "Jinja2",
+      "version": "3.1.6",
+      "license": null,
+      "license_files": [
+        "Jinja2-LICENSE.txt"
+      ]
+    },
+    {
+      "name": "MarkupSafe",
+      "version": "3.0.3",
+      "license": "BSD-3-Clause",
+      "license_files": [
+        "MarkupSafe-LICENSE.txt"
+      ]
+    },
+    {
+      "name": "click",
+      "version": "8.4.2",
+      "license": "BSD-3-Clause",
+      "license_files": [
+        "click-LICENSE.txt"
+      ]
+    },
+    {
+      "name": "blinker",
+      "version": "1.9.0",
+      "license": null,
+      "license_files": [
+        "blinker-LICENSE.txt"
+      ]
+    },
+    {
+      "name": "itsdangerous",
+      "version": "2.2.0",
+      "license": null,
+      "license_files": [
+        "itsdangerous-LICENSE.txt"
+      ]
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "license": null,
+      "license_files": [
+        "colorama-LICENSE.txt"
+      ]
+    }
+  ]
+}

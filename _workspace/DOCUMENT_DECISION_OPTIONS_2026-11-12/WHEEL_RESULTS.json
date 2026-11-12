@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "methods": [
+    "tests.test_document_decision_options.DecisionOptionsBrowserTests.test_recommended_options_preview_single_click_custom_and_future",
+    "tests.test_cli_document_analysis.CliAnalysisTests.test_result_uses_strict_preview_replay_does_not_rerun_and_draft_not_committed",
+    "tests.test_manual_analysis_archive.ManualArchiveBrowserTests.test_one_click_zip_download_without_history_and_reply_still_previews",
+    "tests.test_manual_analysis_archive.ManualArchiveTests.test_single_archive_content_exact_binding_read_only_and_replay",
+    "tests.test_document_analysis_clarity.AnalysisBrowserTests.test_current_technology_question_has_typed_answer_and_resolution",
+    "tests.test_document_analysis_universality.UniversalityBrowserTests.test_generic_structured_answers_from_schema_and_literal_identifiers"
+  ],
+  "ran": 6,
+  "failures": [],
+  "errors": [],
+  "skips": 0
+}

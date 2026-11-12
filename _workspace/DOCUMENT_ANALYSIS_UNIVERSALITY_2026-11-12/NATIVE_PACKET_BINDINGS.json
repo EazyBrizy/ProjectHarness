@@ -1,0 +1,50 @@
+{
+  "existing-service": {
+    "exports": [
+      {
+        "sha256": "sha256:847cd4e5087713582e60b75143bf0bbf8f16532289ba805d53c26e533e0b17c5",
+        "files": [
+          {
+            "name": "pack.md",
+            "bytes": 81486,
+            "sha256": "sha256:b494bc5742e7055e8b4a3965d71f40f77ffd92b00d2962199fc04204d85434d6"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "name": "z-current.md",
+        "sha256": "sha256:6e022bcd90972a6388f28285f6ea100bd995f8f206bd01d402a4407c499d137d"
+      },
+      {
+        "name": "nested/stack.md",
+        "sha256": "sha256:031df444ce4beee0d8457fc6e3ea2e85174f2dcf3d1c2cdeeca2bc98a05370d0"
+      },
+      {
+        "name": "a-future.md",
+        "sha256": "sha256:f228bec62f32a1aa1438f710230eec23664a62322d0f5e33bc74ff3c7103953a"
+      }
+    ]
+  },
+  "nonsoftware-brief": {
+    "exports": [
+      {
+        "sha256": "sha256:d12bab9c9928e6ad2eea1b9ac53e4736487339889a53f2a17ef8d54a616f86c1",
+        "files": [
+          {
+            "name": "pack.md",
+            "bytes": 80315,
+            "sha256": "sha256:87779c0b8fb79cbadd17702ee95194496ec4a444f89f81d61b187ab40c3e3c7b"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "name": "одна-заявка.MD",
+        "sha256": "sha256:15c346aee396a9b93da2ae16b66891bdf5a0e963554e60c940d64fa66ab3148e"
+      }
+    ]
+  }
+}

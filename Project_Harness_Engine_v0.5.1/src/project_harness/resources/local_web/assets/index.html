@@ -214,6 +214,11 @@
             <h4 id="cli-analysis-title">Автоматически через Codex CLI</h4>
             <p>Подключите Codex CLI, установленный на этом компьютере. Harness сам передаст документы на анализ и покажет предложения в браузере. Скачивать пакет и переносить JSON не потребуется.</p>
             <p id="cli-connection-status" role="status">CLI пока не подключён.</p>
+            <div id="cli-model-settings" class="cli-model-settings hidden">
+              <div><label for="cli-model">Модель анализа</label><select id="cli-model"></select></div>
+              <div><label for="cli-effort">Глубина рассуждения</label><select id="cli-effort"></select></div>
+            </div>
+            <p id="cli-model-status" class="muted small" role="status"></p>
             <div class="cli-actions">
               <button id="cli-connect" type="button" class="outline"><span id="cli-connect-check" class="cli-connected-check hidden" aria-hidden="true">✓</span><span id="cli-connect-label">Подключить CLI</span></button>
               <button id="cli-analyze" type="button" class="document-primary">Анализировать через CLI</button>
@@ -233,11 +238,13 @@
           </section>
           </div>
           <hr>
-          <h3>2. Верните ответ модели</h3>
-          <p>При анализе через CLI предложения появятся здесь автоматически. При ручном обмене вставьте полный JSON из ответа модели — Harness покажет изменения перед сохранением.</p>
+          <h3>2. Результат анализа</h3>
+          <details id="manual-reply-entry"><summary>Вставить ответ при ручном обмене</summary>
+          <p>После передачи ZIP модели вставьте сюда полный JSON её ответа.</p>
           <label for="gpt-reply">Ответ модели в формате JSON (до 512 КБ)</label>
           <textarea id="gpt-reply" rows="8" spellcheck="false" placeholder="Вставьте сюда полный JSON из ответа модели"></textarea>
           <button id="preview-reply" type="button" class="outline">Показать предложенные изменения</button>
+          </details>
           <div id="repair-area" class="hidden"><p>Формат ответа не подошёл. Скопируйте инструкцию исправления и передайте её модели вместе с исходным пакетом.</p><pre id="repair-prompt" class="source-preview"></pre>
             <button id="copy-repair" type="button" class="outline">Копировать инструкцию исправления</button></div>
           <div id="import-preview" class="hidden">
@@ -249,9 +256,10 @@
             <details><summary>Технические сведения об ответе</summary><pre id="interview-preview-technical" class="source-preview"></pre></details>
           </div>
           <div id="import-history"></div>
+          <div id="saved-analysis"></div>
           <hr>
           <h3>3. Уточните оставшиеся вопросы</h3>
-          <p class="muted">Можно ответить самостоятельно или уточнить ответы после анализа моделью. Сведения сохраняются в черновике проекта.</p>
+          <p id="questions-help" class="muted">Можно ответить самостоятельно или уточнить ответы после анализа моделью. Сведения сохраняются в черновике проекта.</p>
           <form id="answers-form"><div id="question-fields" class="interview-fields"></div>
             <button id="save-answers" type="submit" class="outline">Сохранить ответы</button>
           </form>

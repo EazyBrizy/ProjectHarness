@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "unique_targeted_methods": 11,
+  "methods": [
+    "tests.test_cli_document_analysis.CliAnalysisTests.test_result_uses_strict_preview_replay_does_not_rerun_and_draft_not_committed",
+    "tests.test_document_analysis_clarity.AnalysisBrowserTests.test_current_technology_question_has_typed_answer_and_resolution",
+    "tests.test_document_analysis_universality.UniversalityBrowserTests.test_generic_structured_answers_from_schema_and_literal_identifiers",
+    "tests.test_document_decision_options.DecisionOptionsBrowserTests.test_recommended_options_preview_single_click_custom_and_future",
+    "tests.test_document_decision_options.DecisionOptionsTests.test_existing_commit_recovery_keeps_user_intent_before_and_after_atomic_write",
+    "tests.test_document_decision_options.DecisionOptionsTests.test_existing_questions_receive_options_without_duplicates_or_unblocking",
+    "tests.test_document_decision_options.DecisionOptionsTests.test_replay_origin_tamper_stale_set_and_changed_sources",
+    "tests.test_document_decision_options.DecisionOptionsTests.test_selection_keep_open_append_custom_and_next_packet_context",
+    "tests.test_document_decision_options.DecisionOptionsTests.test_strict_options_recommendation_values_and_legacy_envelopes",
+    "tests.test_manual_analysis_archive.ManualArchiveBrowserTests.test_one_click_zip_download_without_history_and_reply_still_previews",
+    "tests.test_manual_analysis_archive.ManualArchiveTests.test_single_archive_content_exact_binding_read_only_and_replay"
+  ],
+  "source": "5 PASS; context and explicit target guard rechecked only after their changes",
+  "ui_probe": "Initial fixture direct service read raced browser GET and correctly hit operation guard; public queued read retry PASS",
+  "wheel": "6 PASS / 0 FAIL / 0 ERROR, outside source tree / real TCP / Edge",
+  "native": {
+    "status": "PASS",
+    "state": "SUCCEEDED",
+    "selection": {
+      "model": "gpt-6-astra",
+      "reasoning_effort": "low"
+    },
+    "model_requests": 1,
+    "canonical_unchanged_by_model": true,
+    "error_code": null,
+    "questions": 1,
+    "choices": 2,
+    "selected_question": "Как учитывать порядок элементов массивов при сравнении?",
+    "selected_title": "Сравнивать элементы по индексам",
+    "resolves_question": true,
+    "user_answer_saved": true,
+    "no_approvals": true,
+    "task_execution": false
+  },
+  "full_engine_tests": "NOT RUN",
+  "full_core_regression": "NOT RUN",
+  "full_ph_lw_matrix": "NOT RUN",
+  "automatic_executor_enabled": false
+}

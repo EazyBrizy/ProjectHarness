@@ -1,0 +1,13 @@
+{
+  "status": "COMPLETE",
+  "build_id": "DOC-ANALYSIS-CLARITY2-20261112",
+  "unique_targeted_methods_passed": 16,
+  "native_requests": 2,
+  "full_engine_tests": "NOT RUN",
+  "automatic_executor_enabled": false,
+  "delivery_zip_created": false,
+  "commit_push": "NOT RUN",
+  "report_sha256": "ffbc29d57e0149c32484ed5d128505175c9da15f40f530e3ba4a4c667a18b1fd",
+  "current_task_sha256": "8225d4dba997e3797617ef27fc5c5560731531f0aa3361118dab1c8f164d56a9",
+  "engine_manifest_sha256": "55bf21035153bed9f8b2fa4ec9a1ccbcf22bce1e5da71482b0d065abf781bb12"
+}

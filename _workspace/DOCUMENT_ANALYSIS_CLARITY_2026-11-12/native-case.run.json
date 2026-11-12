@@ -1,0 +1,15 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "_workspace/DOCUMENT_ANALYSIS_CLARITY_2026-11-12/native_case.py"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-12T11:54:21.903998+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 370,
+  "exit_code": 1,
+  "status": "FAIL",
+  "elapsed_seconds": 245.64,
+  "log_sha256": "a60eb5d74bdb03c142b56dfd83bcd3ae296144f9500ff0ebb44c016caeac368f"
+}

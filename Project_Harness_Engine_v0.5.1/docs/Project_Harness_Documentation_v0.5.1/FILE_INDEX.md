@@ -7,8 +7,8 @@
 
 ## Сводка
 
-- индексируемых файлов, кроме этого индекса и manifest: 165;
-- Markdown: 152;
+- индексируемых файлов, кроме этого индекса и manifest: 168;
+- Markdown: 155;
 - machine-readable YAML: 12;
 - tools: 1.
 
@@ -153,32 +153,35 @@
 | 135 | [`13_Local_Web_Manual_Companion/31_Analysis_Options_Row.md`](13_Local_Web_Manual_Companion/31_Analysis_Options_Row.md) | Способы анализа рядом в одной строке | 11 | 2080 |
 | 136 | [`13_Local_Web_Manual_Companion/32_CLI_Card_Presentation.md`](13_Local_Web_Manual_Companion/32_CLI_Card_Presentation.md) | Рабочая область и состояние подключения CLI | 15 | 3388 |
 | 137 | [`13_Local_Web_Manual_Companion/33_Manual_Analysis_Archive.md`](13_Local_Web_Manual_Companion/33_Manual_Analysis_Archive.md) | Один архив для ручного анализа документации | 21 | 4566 |
-| 138 | [`CHANGELOG.md`](CHANGELOG.md) | Changelog Project Harness | 403 | 30907 |
-| 139 | [`MIGRATION_FROM_v0.1.0.md`](MIGRATION_FROM_v0.1.0.md) | Migration notes: documentation v0.1.0 → v0.2.0 | 51 | 3306 |
-| 140 | [`MIGRATION_FROM_v0.2.0.md`](MIGRATION_FROM_v0.2.0.md) | Migration notes: documentation v0.2.0 → v0.3.0 | 174 | 5413 |
-| 141 | [`MIGRATION_FROM_v0.3.0.md`](MIGRATION_FROM_v0.3.0.md) | Migration notes: documentation v0.3.0 → v0.3.1 | 62 | 2366 |
-| 142 | [`MIGRATION_FROM_v0.3.1.md`](MIGRATION_FROM_v0.3.1.md) | Миграция Project Harness v0.3.1 → v0.4.0 | 107 | 3623 |
-| 143 | [`MIGRATION_FROM_v0.4.0.md`](MIGRATION_FROM_v0.4.0.md) | Миграция Project Harness v0.4.0 → v0.4.1 | 135 | 6131 |
-| 144 | [`MIGRATION_FROM_v0.4.1.md`](MIGRATION_FROM_v0.4.1.md) | Миграция Project Harness v0.4.1 → v0.5.0 | 142 | 7036 |
-| 145 | [`PH_F01_INTEGRATION_MATRIX.md`](PH_F01_INTEGRATION_MATRIX.md) | PH-F01 — Исходная интеграционная матрица Project Harness v0.5.0 | 73 | 8067 |
-| 146 | [`PH_F05_TEST_REPORT.md`](PH_F05_TEST_REPORT.md) | PH-F05 — Test report (2026-10-24) | 26 | 2105 |
-| 147 | [`PH_F06_CHANGED_FILES.md`](PH_F06_CHANGED_FILES.md) | PH-F06 — перечень изменений | 92 | 3383 |
-| 148 | [`PH_F06_LIFECYCLE_NOTES.md`](PH_F06_LIFECYCLE_NOTES.md) | PH-F06 — интеграционные правила зрелости, Brownfield и maintenance | 134 | 10743 |
-| 149 | [`PH_F06_TEST_REPORT.md`](PH_F06_TEST_REPORT.md) | PH-F06 — отчёт о реализации и интеграционных тестах | 191 | 16804 |
-| 150 | [`PH_F07_CHANGED_FILES.md`](PH_F07_CHANGED_FILES.md) | PH-F07 — журнал изменений операторской документации | 37 | 4994 |
-| 151 | [`PH_F07_TEST_REPORT.md`](PH_F07_TEST_REPORT.md) | PH-F07 — отчёт о проверке операторских инструкций | 52 | 7418 |
-| 152 | [`Project_Harness_Architecture_v0.5.0_FULL.md`](Project_Harness_Architecture_v0.5.0_FULL.md) | Project Harness — полная архитектурная документация v0.5.0 | 19434 | 1009595 |
-| 153 | [`Project_Harness_User_and_Implementation_Guide_v0.5.0.md`](Project_Harness_User_and_Implementation_Guide_v0.5.0.md) | Project Harness — пользовательское и реализационное руководство v0.5.0 | 8420 | 352051 |
-| 154 | [`README.md`](README.md) | Project Harness — документация движка v0.5.0 | 339 | 35700 |
-| 155 | [`registries/capabilities.yaml`](registries/capabilities.yaml) | Machine-readable registry REG-CAPABILITIES | 96 | 2028 |
-| 156 | [`registries/contracts.yaml`](registries/contracts.yaml) | Machine-readable registry REG-CONTRACT-CATALOG | 911 | 27292 |
-| 157 | [`registries/id_prefixes.yaml`](registries/id_prefixes.yaml) | Machine-readable registry REG-ID-PREFIXES | 593 | 14430 |
-| 158 | [`registries/implementation_levels.yaml`](registries/implementation_levels.yaml) | Machine-readable registry REG-IMPLEMENTATION-LEVELS | 880 | 31710 |
-| 159 | [`registries/project_profiles.yaml`](registries/project_profiles.yaml) | Machine-readable registry REG-PROJECT-PROFILES | 81 | 2320 |
-| 160 | [`registries/README.md`](registries/README.md) | Canonical machine-readable registries | 41 | 2261 |
-| 161 | [`registries/request_routing.yaml`](registries/request_routing.yaml) | Machine-readable registry REG-REQUEST-ROUTING | 49 | 1211 |
-| 162 | [`registries/statuses.yaml`](registries/statuses.yaml) | Machine-readable registry REG-LIFECYCLE-STATUSES | 401 | 7752 |
-| 163 | [`REQUIREMENTS_COVERAGE.md`](REQUIREMENTS_COVERAGE.md) | Нормализованные требования Project Harness | 312 | 54474 |
-| 164 | [`tools/validate_documentation.py`](tools/validate_documentation.py) | Documentation validation tool | 1422 | 55943 |
-| 165 | [`VALIDATION_REPORT.md`](VALIDATION_REPORT.md) | Отчёт автоматической и семантической проверки комплекта | 84 | 5225 |
-| 166 | [`VERSION.md`](VERSION.md) | Версия комплекта Project Harness | 84 | 4388 |
+| 138 | [`13_Local_Web_Manual_Companion/34_Document_Analysis_Results_and_Models.md`](13_Local_Web_Manual_Companion/34_Document_Analysis_Results_and_Models.md) | Понятный результат анализа и выбор модели CLI | 74 | 7186 |
+| 139 | [`13_Local_Web_Manual_Companion/35_Project_Independent_Document_Analysis.md`](13_Local_Web_Manual_Companion/35_Project_Independent_Document_Analysis.md) | Анализ документации без привязки к одному проекту | 66 | 6973 |
+| 140 | [`13_Local_Web_Manual_Companion/36_Question_Decision_Options.md`](13_Local_Web_Manual_Companion/36_Question_Decision_Options.md) | Вопросы с готовыми вариантами решения | 60 | 5991 |
+| 141 | [`CHANGELOG.md`](CHANGELOG.md) | Changelog Project Harness | 403 | 30907 |
+| 142 | [`MIGRATION_FROM_v0.1.0.md`](MIGRATION_FROM_v0.1.0.md) | Migration notes: documentation v0.1.0 → v0.2.0 | 51 | 3306 |
+| 143 | [`MIGRATION_FROM_v0.2.0.md`](MIGRATION_FROM_v0.2.0.md) | Migration notes: documentation v0.2.0 → v0.3.0 | 174 | 5413 |
+| 144 | [`MIGRATION_FROM_v0.3.0.md`](MIGRATION_FROM_v0.3.0.md) | Migration notes: documentation v0.3.0 → v0.3.1 | 62 | 2366 |
+| 145 | [`MIGRATION_FROM_v0.3.1.md`](MIGRATION_FROM_v0.3.1.md) | Миграция Project Harness v0.3.1 → v0.4.0 | 107 | 3623 |
+| 146 | [`MIGRATION_FROM_v0.4.0.md`](MIGRATION_FROM_v0.4.0.md) | Миграция Project Harness v0.4.0 → v0.4.1 | 135 | 6131 |
+| 147 | [`MIGRATION_FROM_v0.4.1.md`](MIGRATION_FROM_v0.4.1.md) | Миграция Project Harness v0.4.1 → v0.5.0 | 142 | 7036 |
+| 148 | [`PH_F01_INTEGRATION_MATRIX.md`](PH_F01_INTEGRATION_MATRIX.md) | PH-F01 — Исходная интеграционная матрица Project Harness v0.5.0 | 73 | 8067 |
+| 149 | [`PH_F05_TEST_REPORT.md`](PH_F05_TEST_REPORT.md) | PH-F05 — Test report (2026-10-24) | 26 | 2105 |
+| 150 | [`PH_F06_CHANGED_FILES.md`](PH_F06_CHANGED_FILES.md) | PH-F06 — перечень изменений | 92 | 3383 |
+| 151 | [`PH_F06_LIFECYCLE_NOTES.md`](PH_F06_LIFECYCLE_NOTES.md) | PH-F06 — интеграционные правила зрелости, Brownfield и maintenance | 134 | 10743 |
+| 152 | [`PH_F06_TEST_REPORT.md`](PH_F06_TEST_REPORT.md) | PH-F06 — отчёт о реализации и интеграционных тестах | 191 | 16804 |
+| 153 | [`PH_F07_CHANGED_FILES.md`](PH_F07_CHANGED_FILES.md) | PH-F07 — журнал изменений операторской документации | 37 | 4994 |
+| 154 | [`PH_F07_TEST_REPORT.md`](PH_F07_TEST_REPORT.md) | PH-F07 — отчёт о проверке операторских инструкций | 52 | 7418 |
+| 155 | [`Project_Harness_Architecture_v0.5.0_FULL.md`](Project_Harness_Architecture_v0.5.0_FULL.md) | Project Harness — полная архитектурная документация v0.5.0 | 19434 | 1009595 |
+| 156 | [`Project_Harness_User_and_Implementation_Guide_v0.5.0.md`](Project_Harness_User_and_Implementation_Guide_v0.5.0.md) | Project Harness — пользовательское и реализационное руководство v0.5.0 | 8420 | 352051 |
+| 157 | [`README.md`](README.md) | Project Harness — документация движка v0.5.0 | 339 | 35700 |
+| 158 | [`registries/capabilities.yaml`](registries/capabilities.yaml) | Machine-readable registry REG-CAPABILITIES | 96 | 2028 |
+| 159 | [`registries/contracts.yaml`](registries/contracts.yaml) | Machine-readable registry REG-CONTRACT-CATALOG | 911 | 27292 |
+| 160 | [`registries/id_prefixes.yaml`](registries/id_prefixes.yaml) | Machine-readable registry REG-ID-PREFIXES | 593 | 14430 |
+| 161 | [`registries/implementation_levels.yaml`](registries/implementation_levels.yaml) | Machine-readable registry REG-IMPLEMENTATION-LEVELS | 880 | 31710 |
+| 162 | [`registries/project_profiles.yaml`](registries/project_profiles.yaml) | Machine-readable registry REG-PROJECT-PROFILES | 81 | 2320 |
+| 163 | [`registries/README.md`](registries/README.md) | Canonical machine-readable registries | 41 | 2261 |
+| 164 | [`registries/request_routing.yaml`](registries/request_routing.yaml) | Machine-readable registry REG-REQUEST-ROUTING | 49 | 1211 |
+| 165 | [`registries/statuses.yaml`](registries/statuses.yaml) | Machine-readable registry REG-LIFECYCLE-STATUSES | 401 | 7752 |
+| 166 | [`REQUIREMENTS_COVERAGE.md`](REQUIREMENTS_COVERAGE.md) | Нормализованные требования Project Harness | 312 | 54474 |
+| 167 | [`tools/validate_documentation.py`](tools/validate_documentation.py) | Documentation validation tool | 1422 | 55943 |
+| 168 | [`VALIDATION_REPORT.md`](VALIDATION_REPORT.md) | Отчёт автоматической и семантической проверки комплекта | 84 | 5225 |
+| 169 | [`VERSION.md`](VERSION.md) | Версия комплекта Project Harness | 84 | 4388 |

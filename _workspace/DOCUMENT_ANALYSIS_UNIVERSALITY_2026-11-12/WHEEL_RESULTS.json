@@ -1,0 +1,15 @@
+{
+  "status": "FAIL",
+  "methods": [
+    "tests.test_document_analysis_universality.UniversalityBrowserTests.test_missing_plan_empty_lists_schema_enums_and_inert_source_text",
+    "tests.test_document_analysis_clarity.AnalysisBrowserTests.test_preview_answers_plan_sources_consistent_status_then_typed_saved_answers",
+    "tests.test_document_analysis_clarity.AnalysisBrowserTests.test_current_technology_question_has_typed_answer_and_resolution",
+    "tests.test_ph_lw_06_exchange.ExchangeTests.test_unknowns_unsure_and_pending_approvals_cannot_become_ready"
+  ],
+  "ran": 4,
+  "failures": [
+    "tests.test_document_analysis_clarity.AnalysisBrowserTests.test_current_technology_question_has_typed_answer_and_resolution"
+  ],
+  "errors": [],
+  "skips": 0
+}

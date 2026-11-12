@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "methods": [
+    "tests.test_document_analysis_universality.UniversalityTests.test_arbitrary_names_counts_domains_exact_text_and_project_isolation",
+    "tests.test_document_analysis_universality.UniversalityTests.test_distinct_code_units_unicode_and_repeated_topic_are_not_lost",
+    "tests.test_document_analysis_universality.UniversalityBrowserTests.test_generic_structured_answers_from_schema_and_literal_identifiers"
+  ],
+  "ran": 3,
+  "failures": [],
+  "errors": [],
+  "skips": 0
+}

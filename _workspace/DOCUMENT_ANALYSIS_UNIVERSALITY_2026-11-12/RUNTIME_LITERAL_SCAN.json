@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "files_reviewed": 35,
+  "specific_literals": [
+    "MIN_ANDROID_VERSION",
+    "Flutter",
+    "SQLite",
+    "питание.zip",
+    "01_Концепция_проекта.md",
+    "LWP-AAA9F15BA8B5F6F2BDB5"
+  ],
+  "hits": [],
+  "scope": "Current local-web Python/assets/prompt; normative enums/refs/limits remain contracts, examples only in tests",
+  "not_a_proof_of_model_behavior": true
+}

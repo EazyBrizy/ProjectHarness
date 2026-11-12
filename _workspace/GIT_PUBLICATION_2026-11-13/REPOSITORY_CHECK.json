@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "root": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "build_id": "DOC-DECISION-OPTIONS-20261112",
+  "scope": "Versioned Git payload, source/docs/artifact hashes and complete frozen package; not a new runtime acceptance.",
+  "git_index_files": 8186,
+  "checks": {
+    "source": {
+      "status": "PASS",
+      "required": 117,
+      "missing": [],
+      "changed": [],
+      "not_in_git": [],
+      "git_blob_mismatch": [],
+      "unexpected": []
+    },
+    "documentation": {
+      "status": "PASS",
+      "required": 170,
+      "missing": [],
+      "changed": [],
+      "not_in_git": [],
+      "git_blob_mismatch": [],
+      "unexpected": []
+    },
+    "embedded_documentation": {
+      "status": "PASS",
+      "required": 170,
+      "missing": [],
+      "changed": [],
+      "not_in_git": [],
+      "git_blob_mismatch": [],
+      "unexpected": []
+    },
+    "artifacts": {
+      "status": "PASS",
+      "required": 3,
+      "missing": [],
+      "changed": [],
+      "not_in_git": [],
+      "git_blob_mismatch": [],
+      "unexpected": []
+    },
+    "frozen_bundle": {
+      "status": "PASS",
+      "required": 473,
+      "missing": [],
+      "changed": [],
+      "not_in_git": [],
+      "git_blob_mismatch": [],
+      "unexpected": []
+    },
+    "working_manifest_anchor": {
+      "status": "PASS",
+      "required": 1,
+      "missing": [],
+      "changed": [],
+      "not_in_git": [],
+      "git_blob_mismatch": [],
+      "unexpected": []
+    },
+    "versioned_acceptance_payload": {
+      "status": "PASS",
+      "required": 5468,
+      "missing": [],
+      "changed": [],
+      "not_in_git": [],
+      "git_blob_mismatch": [],
+      "unexpected": []
+    }
+  },
+  "failed_checks": [],
+  "local_generated_entries_not_required": 123,
+  "local_directories_not_required": [
+    "_inputs",
+    "_deliverables",
+    "_scratch",
+    "_tools",
+    ".venv"
+  ],
+  "runtime_tests": "NOT RUN; existing acceptance unchanged",
+  "automatic_executor_enabled": false
+}

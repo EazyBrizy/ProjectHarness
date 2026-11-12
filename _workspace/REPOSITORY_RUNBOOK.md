@@ -2,7 +2,7 @@
 
 Дата: 2026-11-10. Этот маршрут предназначен для второго компьютера и проверки файлов, полученных из `main`.
 
-Текущая versioned база — `MANUAL-ANALYSIS-ZIP-20261110`. Default repository check привязан к `_workspace/MANUAL_ANALYSIS_ARCHIVE_2026-11-10/RUNTIME_FREEZE.json` и `INTEGRITY.json`: source/docs, wheel/installer, весь frozen payload и рабочий manifest. Это проверка переноса файлов, не новая runtime acceptance. Исторические FIX5 freeze/reports сохранены без изменений.
+Текущая рабочая база — `DOC-DECISION-OPTIONS-20261112`. Default repository check привязан к `_workspace/DOCUMENT_DECISION_OPTIONS_2026-11-12/RUNTIME_FREEZE.json` и `INTEGRITY.json`: source/docs, wheel/installer, весь frozen payload и рабочий manifest. Это проверка переноса файлов, не новая runtime acceptance. Для PASS Git-check изменения должны быть добавлены в index/commit; незакоммиченная работа сохраняет текущие bytes, но не считается опубликованной базой. Исторические freeze/reports сохранены без изменений.
 
 ## Получение и проверка
 

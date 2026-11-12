@@ -1,0 +1,11 @@
+{"python": "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]", "executable": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\.venv\\Scripts\\python.exe", "package": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1\\src\\project_harness", "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness", "platform": "Windows-11-10.0.26200-SP0", "source_import": true, "scope": ["tests.test_document_analysis_universality.UniversalityTests.test_arbitrary_names_counts_domains_exact_text_and_project_isolation", "tests.test_document_analysis_universality.UniversalityTests.test_distinct_code_units_unicode_and_repeated_topic_are_not_lost", "tests.test_document_analysis_universality.UniversalityBrowserTests.test_generic_structured_answers_from_schema_and_literal_identifiers"]}
+test_arbitrary_names_counts_domains_exact_text_and_project_isolation (tests.test_document_analysis_universality.UniversalityTests.test_arbitrary_names_counts_domains_exact_text_and_project_isolation) ... ok
+test_distinct_code_units_unicode_and_repeated_topic_are_not_lost (tests.test_document_analysis_universality.UniversalityTests.test_distinct_code_units_unicode_and_repeated_topic_are_not_lost) ... ok
+test_generic_structured_answers_from_schema_and_literal_identifiers (tests.test_document_analysis_universality.UniversalityBrowserTests.test_generic_structured_answers_from_schema_and_literal_identifiers) ... Task queue depth is 1
+Task queue depth is 2
+ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 21.007s
+
+OK

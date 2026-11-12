@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "command": [
+    "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\Project_Harness_Engine_v0.5.1\\windows\\Harness-Setup-win-x64.exe",
+    "/VERYSILENT",
+    "/SUPPRESSMSGBOXES",
+    "/NORESTART",
+    "/DIR=C:\\Users\\gvenv\\AppData\\Local\\Programs\\ProjectHarness",
+    "/LOG=C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_analysis_clarity_20261112\\operator-upgrade.log"
+  ],
+  "exit": 0,
+  "before_build_id": "DOC-ANALYSIS-CLARITY-20261112",
+  "after_build_id": "DOC-ANALYSIS-CLARITY2-20261112",
+  "operator_data_preserved": true,
+  "private_roots_aggregate_hashes": [
+    {
+      "label": "ProjectHarness",
+      "files": 7,
+      "digest": "420212f4254c26908a456929655c8a28ff5a821736040f847b3f0ded50304511"
+    },
+    {
+      "label": "HarnessProjects",
+      "files": 0,
+      "digest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "label": "ProjectHarness-workspaces",
+      "files": 25,
+      "digest": "0c2f5861fcc0ef4cb137ccfe67c59852a4e2daa21444652b2c21942d78af7eea"
+    }
+  ],
+  "previous_version_preserved": true,
+  "checks": {
+    "--check-package": 0,
+    "--doctor": 0
+  },
+  "browser_launched": false
+}

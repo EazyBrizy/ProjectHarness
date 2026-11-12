@@ -1,0 +1,18 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "Project_Harness_Documentation_v0.5.1/tools/validate_documentation.py",
+    "Project_Harness_Documentation_v0.5.1",
+    "--json",
+    "_workspace/DOCUMENT_ANALYSIS_UNIVERSALITY_2026-11-12/DOC_VALIDATION.json"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-12T12:39:41.449045+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 60,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 1.056,
+  "log_sha256": "08ff00158c6160f93852daf1e5e06544e41d47cbc23c975235fa23e29db01670"
+}

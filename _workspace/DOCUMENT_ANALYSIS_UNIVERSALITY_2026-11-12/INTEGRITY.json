@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "build_id": "DOC-ANALYSIS-UNIVERSAL-20261112",
+  "source_build_wheel_frozen": "PASS",
+  "full_frozen_payload_including_pyd": "PASS",
+  "documentation_mirrors": "PASS",
+  "manifests": "PASS",
+  "allowed_source_changes": [
+    "local_web_analysis.py",
+    "local_web_exchange.py",
+    "resources/local_web/GPT_PREPARATION.md",
+    "resources/local_web/assets/interview.js",
+    "resources/local_web/metadata_v1.json"
+  ],
+  "core_contracts_and_historical_documentation_preserved": true,
+  "unrelated_tests_preserved": true,
+  "engine_manifest_sha256": "7023a765ecac00be5a7c8dc5e032822283b8a52a091c0bbb0b3a5c1717e8b0d3",
+  "docs_manifest_sha256": "cad61aae7ae1b089dc86f996178ca76a99b9cd9ba6f65b96b31f6eb29f138f77",
+  "zip_created": false
+}

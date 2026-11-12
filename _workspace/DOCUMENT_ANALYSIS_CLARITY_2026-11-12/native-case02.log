@@ -1,0 +1,2 @@
+{"state": "QUEUED", "selection": {"model": "gpt-6-astra", "reasoning_effort": "medium"}, "documents": 4}
+{"state": "SUCCEEDED", "error_code": null, "message_ru": "Анализ завершён. Предложения показаны ниже; посмотрите оставшиеся вопросы.", "selection": {"model": "gpt-6-astra", "reasoning_effort": "medium"}, "documents": 4, "canonical_draft_unchanged": true, "answers": 14, "roadmap_stages": 8, "current_questions": 2, "future_questions": 13}

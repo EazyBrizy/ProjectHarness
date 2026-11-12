@@ -1,0 +1,18 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "_workspace/DOCUMENT_ANALYSIS_UNIVERSALITY_2026-11-12/targeted_driver.py",
+    "--source"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-12T12:32:57.946006+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 90,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 21.872,
+  "log_sha256": "a1556e069c2c9d5ee8cfd12a512e6d355813b54c9c00a72b8165a1091f79aa3d"
+}

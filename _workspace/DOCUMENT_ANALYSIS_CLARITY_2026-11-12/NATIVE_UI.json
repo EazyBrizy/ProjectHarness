@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "model_requests": 0,
+  "canonical_unchanged": true,
+  "errors": [],
+  "dialogs": [],
+  "actual_native_result": true,
+  "viewport": [
+    1600,
+    1100
+  ]
+}

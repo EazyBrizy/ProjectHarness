@@ -1,0 +1,17 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "_workspace/DOCUMENT_DECISION_OPTIONS_2026-11-12/stop_for_update.py"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-12T14:25:52.896960+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 45,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 0.569,
+  "log_sha256": "b5bf4af04c3905049d70fbdef9b5e511c87521f60defb9817dd5a869eec0dd7b"
+}

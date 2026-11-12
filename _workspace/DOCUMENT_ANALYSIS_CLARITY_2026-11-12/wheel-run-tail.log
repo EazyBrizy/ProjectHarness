@@ -1,0 +1,15 @@
+ok
+test_gets_read_only_connect_fixed_commands_and_unknown_origin_rejected (tests.test_cli_document_analysis.CliAnalysisTests.test_gets_read_only_connect_fixed_commands_and_unknown_origin_rejected) ... ok
+test_connection_auth_missing_changed_binary_and_stale_inputs_block_before_analysis (tests.test_cli_document_analysis.CliAnalysisTests.test_connection_auth_missing_changed_binary_and_stale_inputs_block_before_analysis) ... ok
+test_result_uses_strict_preview_replay_does_not_rerun_and_draft_not_committed (tests.test_cli_document_analysis.CliAnalysisTests.test_result_uses_strict_preview_replay_does_not_rerun_and_draft_not_committed) ... ok
+test_cancel_busy_stale_result_and_invalid_reply_never_apply_draft (tests.test_cli_document_analysis.CliAnalysisTests.test_cancel_busy_stale_result_and_invalid_reply_never_apply_draft) ... ok
+test_restart_projection_is_read_only_and_never_restarts_cli (tests.test_cli_document_analysis.CliAnalysisTests.test_restart_projection_is_read_only_and_never_restarts_cli) ... ok
+test_single_archive_content_exact_binding_read_only_and_replay (tests.test_manual_analysis_archive.ManualArchiveTests.test_single_archive_content_exact_binding_read_only_and_replay) ... ok
+test_one_click_zip_download_without_history_and_reply_still_previews (tests.test_manual_analysis_archive.ManualArchiveBrowserTests.test_one_click_zip_download_without_history_and_reply_still_previews) ... Task queue depth is 1
+Task queue depth is 1
+ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 17.177s
+
+OK

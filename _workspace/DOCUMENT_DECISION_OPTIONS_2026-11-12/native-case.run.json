@@ -1,0 +1,17 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "_workspace/DOCUMENT_DECISION_OPTIONS_2026-11-12/native_case.py"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness",
+  "started_utc": "2026-11-12T13:59:41.653686+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 380,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 99.175,
+  "log_sha256": "5258263bf78feb7c1c2c05fd90efc43d888d217db95d8b7b5fa67933fa06601b"
+}

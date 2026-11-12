@@ -292,6 +292,12 @@ def create_app(service: LocalWebService, *, port: int):
     def read_interview(project_id: str):
         return jsonify(service.get_interview(project_id))
 
+    @app.post('/api/projects/<project_id>/interview/answers')
+    def answer_interview(project_id: str):
+        value=json_object(limit=65536,fields=frozenset({'analysis_import_id','question_id','choice_id','answer_text',
+            'custom_value','has_custom_value','expected_fingerprint','idempotency_key'}))
+        return jsonify(service.answer_interview_question(project_id,**value))
+
     @app.get('/api/cli')
     def cli_status():
         return jsonify(service.get_cli_connection())
@@ -300,6 +306,11 @@ def create_app(service: LocalWebService, *, port: int):
     def cli_connect():
         json_object(limit=1024, fields=frozenset())
         return jsonify(service.connect_cli())
+
+    @app.post('/api/cli/model')
+    def cli_model():
+        value = json_object(limit=1024, fields=frozenset({'model', 'reasoning_effort'}))
+        return jsonify(service.select_cli_model(**value))
 
     @app.post('/api/projects/<project_id>/analysis/package')
     def analysis_package(project_id: str):

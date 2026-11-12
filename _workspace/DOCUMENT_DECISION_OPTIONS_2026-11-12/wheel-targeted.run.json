@@ -1,0 +1,21 @@
+{
+  "command": [
+    "C:/Users/gvenv/Desktop/ProjectHarness/_scratch/document_upload_feedback_20261109/wheel-venv/Scripts/python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "C:/Users/gvenv/Desktop/ProjectHarness/_workspace/DOCUMENT_DECISION_OPTIONS_2026-11-12/targeted_driver.py",
+    "--group",
+    "wheel",
+    "--result",
+    "WHEEL_RESULTS.json"
+  ],
+  "cwd": "C:\\Users\\gvenv\\Desktop\\ProjectHarness\\_scratch\\document_upload_feedback_20261109\\Независимая папка wheel",
+  "started_utc": "2026-11-12T14:17:19.655605+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timeout_seconds": 150,
+  "exit_code": 0,
+  "status": "PASS",
+  "elapsed_seconds": 15.469,
+  "log_sha256": "30e0515a4a09fc97770cd3ed437f1d0d43f40561f6ebf6835ad07bf08d5a11d7"
+}
